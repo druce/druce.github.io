@@ -254,10 +254,10 @@ Email Address []:
 ```
 
 - Create Jupyter config file and password
-  jupyter notebook --generate-config
+  - jupyter notebook --generate-config
 - Create password
-  jupyter notebook password
-  enter password twice
+  - jupyter notebook password
+  - enter password twice
 
 ```{bash}
 (base) ubuntu@ip-172-30-3-209:~$ jupyter notebook --generate-config
@@ -270,6 +270,7 @@ Verify password:
 ```
 - Add these entries to top of .jupyter_notebook_config.json
 ```{python}
+
 # Kernel config
 c.IPKernelApp.pylab = 'inline'  # if you want plotting support always in your notebook
 
