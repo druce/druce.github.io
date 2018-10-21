@@ -4,7 +4,7 @@ This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is 
 
 - Scale up - get a giant instance that runs an algo on big data faster than your PC.
 - Scale out - run many notebooks at once.
-- Access resources you can't or, don't want to install on local PC: GPU, Postgres, etc.
+- Access resources you can't, or don't want to install on local PC: GPU, Postgres, etc.
 - Everybody in industry uses it.
 
 # Prerequisite) Set up your AWS account - I won't go over that. But 2 recommendations:
@@ -36,7 +36,7 @@ This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is 
 - Choose "Next: Add Storage" (Shouldn't have to modify anything on this page)
 
   ![03.1. Instance details.png](03.1. Instance details.png)
-- Set a reasonable amount of storage, like 30GB (more if you have a big dataset). Click "Next: Add Tags"
+- Set a reasonable disk size for storage, like 30GB (more if you have a big dataset). Click "Next: Add Tags"
 
   ![04. Add storage.png](04. Add storage.png)
 - Click "Next: Configure Security Group" (You don't need to modify anything on this page. Tags help you keep track of servers and other resources, when you have a lot of them)
@@ -272,7 +272,7 @@ Verify password:
 
   ```bash
   druce@jupyter1:~$ cd ~/.jupyter/
-  druce@jupyter1:~/.jupyter$ emacs ./jupyter_notebook_config.py
+  druce@jupyter1:~/.jupyter$ emacs jupyter_notebook_config.py
   ```
 
 ```{python}
@@ -342,10 +342,10 @@ c.NotebookApp.port = 8888
 - Right-click on your instance, choose Image, Create Image
   ![13.1 CreateImage1.png](13.1 CreateImage1.png)
 
-- Give the image a good name, I'll usually go with desc-date. I didn't bother with a good description, but you might put 'Fresh working Jupyter on Ubuntu 18, with all updates'
+- Give the image a good name, I'll usually go with desc-date. I didn't bother with a good description, but you might put 'Fresh working Jupyter on Ubuntu 18.04, with all updates'
   ![13.2 CreateImage2.png](13.2 CreateImage2.png)
 
-  - Note: this is where you adjust your disk size if you want to increase it (for bigger instances/jobs) or reduce it (save storage)
+  - Note: this is where you adjust your disk size if you want to increase it (for bigger instances/jobs) or reduce it (save storage space)
 
 - Click 'Create image'
 
@@ -353,7 +353,7 @@ c.NotebookApp.port = 8888
 
 - Creating the image can take 10 mins - go to the AMIs tab and see when it's available. 
 
-- While your image is being created, your running server will reboot and you can reconnect after it finishes booting in a couple of minutes. You can SSH to it using same IP as before. 
+- While your image is being created, your running server will restart and you can reconnect after it finishes booting in a couple of minutes. You can SSH to it using same IP as before. 
 
 - When your AMI says 'available' in the EC2 "AMIs" tab, right-click on image, click Launch instance
   ![Launch1.png](Launch1.png)
@@ -364,14 +364,14 @@ c.NotebookApp.port = 8888
 
 - Set the security group you created earlier, e.g. "Jupyter"
 
-- "Review and Launch"
+- Click "Review and Launch"
 
-- "Launch"
+- Click "Launch"
 
-- You will be prompted for the key pair: Select the one you created before, e.g. "AWS", check the confirmation box, click "Launch Instances"
+- You will be prompted for the key pair: Select the one you created earlier, e.g. "AWS", check the confirmation box, click "Launch Instances"
   ![keypair2.png](keypair2.png)
 
-- Go to your instances in the console, wait a couple of minutes, hit refresh to get the new instance's IP
+- Go to your instances in the AWS console, wait a couple of minutes, hit refresh to get the new instance's IP
 
 - You can now SSH to the new IP just like the old one. 
 
@@ -393,7 +393,7 @@ c.NotebookApp.port = 8888
   WARNING: if you have work to save, IMAGE your instance before terminating it.
   When you terminate the instance, everything on it is deleted, so you will lose everything you did since the last image.
 
-- If you aren't going to use your instance for a while, stop it, and if you have made a lot of changes, image it to have as a backup. When you have a lot of images, you may want to clean them up by 'Deregistering' the AMIs and deleting their 'Snapshots'. But by then you will be an AWS expert!
+- If you aren't going to use your instance for a while, stop it, and if you have made a lot of changes, image it to have a backup. When you have a lot of images, you may want to clean them up by 'Deregistering' the AMIs and deleting their 'Snapshots'. But by then you will be an AWS expert!
 
 Enjoy some happy data science on AWS with Jupyter!
 
