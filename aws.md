@@ -74,15 +74,15 @@ This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is 
 
 - Move the downloaded key there.
 
-  ```bash
-  MacBook-Pro-8:~ druce$ mv ~/Downloads/AWS.pem .
-  ```
+```bash
+MacBook-Pro-8:~ druce$ mv ~/Downloads/AWS.pem .
+```
 
 - Change its permissions so no one else can access it (ssh gives an error if it thinks permissions are wrong)
 
-  ```bash
-  MacBook-Pro-8:~ druce$ chmod 600 AWS.pem
-  ```
+```bash
+MacBook-Pro-8:~ druce$ chmod 600 AWS.pem
+```
 
 - By now your instance should have launched. To find the IP address to connect to, go back to your [AWS console](https://console.aws.amazon.com/ec2/v2/#Instances) 
 
@@ -95,9 +95,9 @@ This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is 
 
 - Go back to your terminal and run this ssh command (paste your own IP or hostname)
 
-  ```bash
-  MacBook-Pro-8:~ druce$ ssh -i AWS.pem ubuntu@18.234.158.61
-  ```
+```bash
+MacBook-Pro-8:~ druce$ ssh -i AWS.pem ubuntu@18.234.158.61
+```
 
 - Answer 'yes' to any prompt. If you see the Ubuntu bash command prompt, you are in business! 
 
@@ -109,10 +109,10 @@ Now we have successfully connected to our running AWS instance!
 
 - Get Ubuntu updates
 
-- ```bash
-  ubuntu@ip-172-30-3-209:~ sudo apt update
-  ubuntu@ip-172-30-3-209:~ sudo apt upgrade
-  ```
+```bash
+ubuntu@ip-172-30-3-209:~ sudo apt update
+ubuntu@ip-172-30-3-209:~ sudo apt upgrade
+```
   If prompted about config files like grub, choose 'keep local version', tab to OK, hit enter.
   Updates will run for a couple of minutes.
   If you run 'sudo apt upgrade' again you will see this, showing your instance is fully updated.
@@ -132,10 +132,10 @@ Now we have successfully connected to our running AWS instance!
 
 - Go back to the terminal and enter 
 
-  ```bash
-  wget <paste url>
-  bash ./A<tab to complete>
-  ```
+```bash
+wget <paste url>
+bash ./A<tab to complete>
+```
 
 Hit enter, spaces to get through all the responses, type yes to accept all the defaults
 
@@ -190,20 +190,20 @@ MacBook-Pro-8:~ druce$ ssh -i AWS.pem ubuntu@18.234.158.61
 
 - run python, you should see 3.x, Anaconda build (not Ubuntu stock python)
 
-  ```bash
-  ubuntu@ip-172-30-3-209:~$ python
-  Python 3.7.0 (default, Jun 28 2018, 13:15:42)
-  [GCC 7.2.0] :: Anaconda, Inc. on linux
-  Type "help", "copyright", "credits" or "license" for more information.
-  >>>
-  ```
+```bash
+ubuntu@ip-172-30-3-209:~$ python
+Python 3.7.0 (default, Jun 28 2018, 13:15:42)
+[GCC 7.2.0] :: Anaconda, Inc. on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
 
 - Ctrl-D to exit
 
 Almost there! Let's update Anaconda
 ```bash
-  ubuntu@ip-172-30-3-209:~$ conda update --all
-  Solving environment: \
+ubuntu@ip-172-30-3-209:~$ conda update --all
+Solving environment: \
 ```
 
 - Many updates later
@@ -270,10 +270,10 @@ Verify password:
 ```
 - In your favorite editor (vi, emacs etc.) open ~/.jupyter/jupyter_notebook_config.py. Add these entries at top. (Or search for corresponding commented-out entries, uncomment and edit appropriately.) 
 
-  ```bash
-  druce@jupyter1:~$ cd ~/.jupyter/
-  druce@jupyter1:~/.jupyter$ emacs jupyter_notebook_config.py
-  ```
+```bash
+druce@jupyter1:~$ cd ~/.jupyter/
+druce@jupyter1:~/.jupyter$ emacs jupyter_notebook_config.py
+```
 
 ```{python}
 
@@ -290,17 +290,17 @@ c.NotebookApp.port = 8888
 ```
 - Run Jupyter 
 
-  ```bash
-  ubuntu@ip-172-30-1-196:~$ jupyter notebook
-  [I 13:31:08.070 NotebookApp] Writing notebook server cookie secret to /run/user/1000/jupyter/notebook_cookie_secret
-  [I 13:31:10.881 NotebookApp] JupyterLab extension loaded from /home/ubuntu/anaconda3/lib/python3.7/site-packages/jupyterlab
-  [I 13:31:10.881 NotebookApp] JupyterLab application directory is /home/ubuntu/anaconda3/share/jupyter/lab
-  [I 13:31:10.883 NotebookApp] Serving notebooks from local directory: /home/ubuntu
-  [I 13:31:10.883 NotebookApp] The Jupyter Notebook is running at:
-  [I 13:31:10.883 NotebookApp] https://(ip-172-30-1-196 or 127.0.0.1):8888/
-  [I 13:31:10.883 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-  
-  ```
+```bash
+ubuntu@ip-172-30-1-196:~$ jupyter notebook
+[I 13:31:08.070 NotebookApp] Writing notebook server cookie secret to /run/user/1000/jupyter/notebook_cookie_secret
+[I 13:31:10.881 NotebookApp] JupyterLab extension loaded from /home/ubuntu/anaconda3/lib/python3.7/site-packages/jupyterlab
+[I 13:31:10.881 NotebookApp] JupyterLab application directory is /home/ubuntu/anaconda3/share/jupyter/lab
+[I 13:31:10.883 NotebookApp] Serving notebooks from local directory: /home/ubuntu
+[I 13:31:10.883 NotebookApp] The Jupyter Notebook is running at:
+[I 13:31:10.883 NotebookApp] https://(ip-172-30-1-196 or 127.0.0.1):8888/
+[I 13:31:10.883 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+
+```
 
 - Note where it says "The Jupyter Notebook is running at:"
 
@@ -375,15 +375,15 @@ c.NotebookApp.port = 8888
 
 - You can now SSH to the new IP just like the old one. 
 
-  ```bash
-  MacBook-Pro-10:~ druce$ ssh -i AWS.pem ubuntu@54.237.195.0
-  The authenticity of host '54.237.195.0 (54.237.195.0)' can't be established.
-  ECDSA key fingerprint is SHA256:0KCT3Xk/i2tlabHzKQOTYS/joKSL+j0EZ45d/bNwKEc.
-  Are you sure you want to continue connecting (yes/no)? yes
-  Warning: Permanently added '54.237.195.0' (ECDSA) to the list of known hosts.
-  Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-1023-aws x86_64)
-   
-  ```
+```bash
+MacBook-Pro-10:~ druce$ ssh -i AWS.pem ubuntu@54.237.195.0
+The authenticity of host '54.237.195.0 (54.237.195.0)' can't be established.
+ECDSA key fingerprint is SHA256:0KCT3Xk/i2tlabHzKQOTYS/joKSL+j0EZ45d/bNwKEc.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '54.237.195.0' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-1023-aws x86_64)
+ 
+```
 
 - You now have 2 identical running instances.
 
