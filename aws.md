@@ -163,7 +163,7 @@ Please, press ENTER to continue
 
 IMPORTANT - when prompted, update .bashrc 
 
-```{bash}
+```bash
 Do you wish the installer to initialize Anaconda3
 in your /home/ubuntu/.bashrc ? [yes|no][no] >>> yes
 
