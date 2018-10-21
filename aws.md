@@ -395,5 +395,12 @@ c.NotebookApp.port = 8888
 
 - If you aren't going to use your instance for a while, stop it, and if you have made a lot of changes, image it to have as a backup. When you have a lot of images, you may want to clean them up by 'Deregistering' the AMIs and deleting their 'Snapshots'. But by then you will be an AWS expert!
 
-- Enjoy some happy data science on AWS with Jupyter!
+
+
+  Enjoy some happy data science on AWS with Jupyter!
+
+  See also 
+
+  - [Jupyter Docs](https://jupyter.readthedocs.io/en/latest/)
+  - [Amazon EC2 Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html)
 
