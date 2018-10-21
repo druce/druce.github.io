@@ -1,68 +1,104 @@
-This is tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is based on a [tutorial](https://chrisalbon.com/software_engineering/cloud_computing/run_project_jupyter_on_amazon_ec2/) by Chris Albon which did not work for me immediately (itself based on a [tutorial by Piyush Agarwal](http://blog.impiyush.me/2015/02/running-ipython-notebook-server-on-aws.html)), but I tweaked a few things and got it working.
+This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is based on a [tutorial](https://chrisalbon.com/software_engineering/cloud_computing/run_project_jupyter_on_amazon_ec2/) by Chris Albon, which did not work for me immediately (itself based on a [tutorial by Piyush Agarwal](http://blog.impiyush.me/2015/02/running-ipython-notebook-server-on-aws.html)). So I tweaked a few things and got it working.
 
-Use cases for AWS (who doesn't love AWS?)
+#Use cases for AWS (Who doesn't love AWS?)
 
-- Scale up - get a giant instance that runs faster than your PC
-- Scale out - run many notebooks as once
-- Access resources you don't have, don't want to install on local PC: GPU, Postgres
-- Everybody in industry uses it
+- Scale up - get a giant instance that runs an algo on big data faster than your PC.
+- Scale out - run many notebooks at once.
+- Access resources you can't or, don't want to install on local PC: GPU, Postgres,
+- Everybody in industry uses it.
 
-1) set up AWS account - I won't go over that. But 2 recommendations:
+# Prerequisite) Set up your AWS account - I won't go over that. But 2 recommendations:
 
-- Set up 2-factor authentication. Who hasn't had a password compromised? With 2FA if your AWS password gets compromised, you don't lose everything in your account, and have someone run up a huge bill mining Bitcoin or spamming the world.
-  - Either use the [Google Authenticator](https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8) smartphone app
-  - Or a hardware key like [Yubikey](http://www.1strategy.com/blog/2018/05/08/lock-down-your-aws-account-with-yubikey/) which doesn't depend on having your phone, Internet access.
+- Set up [2-factor authentication](https://aws.amazon.com/iam/details/mfa/). Who hasn't had a password compromised? With 2FA, if your AWS password gets compromised, you don't lose everything in your account. And you don't have someone run up a huge AWS bill mining Bitcoin, or spamming the world.
+  - I use the [Google Authenticator](https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8) smartphone app
+  - Or, use a hardware key like [Yubikey](http://www.1strategy.com/blog/2018/05/08/lock-down-your-aws-account-with-yubikey/) which is even more secure, doesn't depend on having your phone, Internet access. ([People have hacked code-based 2FA](https://www.csoonline.com/article/3272425/authentication/11-ways-to-hack-2fa.html) by compromising your phone, getting you to enter your code on the Web)
 - Set up [billing alerts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html)
 
-2) Create an instance
+# 1) Create an instance
 
 - Log into the [AWS console](https://console.aws.amazon.com/) 
+  ![00.1. Login.png](00.1. Login.png)
 - Click on "EC2"
+  ![00.2. EC2.png](00.2. EC2.png)
 - Click on "Launch instance"
-- Choose an Amazon Machine Image (AMI)
-  - We are going to use Ubuntu 18.04 LTS. 
+  ![01. Launch instance.png](01. Launch instance.png)
+- Choose an Amazon Machine Image (AMI) - Ubuntu 18.04 LTS. 
+  ![02. Choose image.png](02. Choose image.png)
   - In general, choose latest Ubuntu LTS (Long Term Support), HVM virtualization, SSD storage. (Exception: when the latest Ubuntu is very new, give it ~6 months to mature, ensure all software, especially drivers are available and tested, e.g. GPU)
 - Choose an instance type, click "Next: Configure Instance Details": for this demo choose the free tier eligible micro instance
+  ![03. Choose instance type.png](03. Choose instance type.png)
 - Choose "Next: Add Storage" (Shouldn't have to modify anything on this page)
-- Set a reasonable amount of storage, like 30GB (maybe more if you have a big dataset or something). Click "Next: Add Tags"
-- Click "Next: Configure Security Group" (You don't need to modify anything on this page. Tags help you keep track of servers and other resources if you have a lot of them)
-- Create a new security group like 'Jupyter'.
-- Click "Add rule"
+  ![03.1. Instance details.png](03.1. Instance details.png)
+- Set a reasonable amount of storage, like 30GB (more if you have a big dataset). Click "Next: Add Tags"
+  ![04. Add storage.png](04. Add storage.png)
+- Click "Next: Configure Security Group" (You don't need to modify anything on this page. Tags help you keep track of servers and other resources, when you have a lot of them)
+  ![05. Add tags.png](05. Add tags.png)
+  - Create a new security group like 'Jupyter'.
+    ![06. Security group.png](06. Security group.png)
+  - Click "Add rule"
   - Set Type: All TCP
   - Set Source: My IP
   - Click the x at far right to delete the first rule
-  - (In other words: allow all access from my IP, no access from anywhere else (default was SSH from anywhere)
-- Click "Review and Launch"
-- Click "Launch"
+  - What this means: Allow all access from my IP, no access from anywhere else (default was SSH from anywhere)
+  - Click "Review and Launch"
+  - Click "Launch"
+    ![07.1 Review.png](07.1 Review.png)
 - Almost there! 
 - Choose "Create key pair"
+  ![07.2. keypair.png](07.2. keypair.png)
 - Give it a name like "mykey" or "AWS"
 - Click "Download key pair"
 - Click "Launch instance"
-- You now have a running AWS instance!
+- You have launched your first AWS instance!
 
-3) Connect to instance
+# 2) Connect to your instance with SSH
 
-- Remember that "AWS.pem" file you downloaded? Find it and move it to your home directory or any directory
-- Open a console, terminal, command prompt on your local PC
-- cd to your home directory
-- Move the downloaded key there
+- Remember that "AWS.pem" file you downloaded? Find it and move it to your home directory (or any directory).
+
+- Open a terminal window or command prompt on your local PC.
+
+- cd to your home directory.
+
+- Move the downloaded key there.
+
+  ```bash
+  MacBook-Pro-8:~ druce$ cp ~/Downloads/AWS.pem .
+  ```
+
 - Change its permissions so no one else can access it
-- By now your instance should have launched. To find the IP address to connect to, go back to your [AWS console](https://console.aws.amazon.com/ec2/v2/#Instances)
-- Click on the instance - hover over "IPv4 Public IP" and click on the copy icon (or the Public DNS, doesn't really matter)
-- Go back to your terminal and run ssh command (copy the IP or hostname)
-- If you see a bash command prompt, you are in business! 
+  ```bash
+  MacBook-Pro-8:~ druce$ chmod 600 AWS.pem
+  ```
 
-4) Now we have an AWS instance, update it and install Jupyter and the data science toolkit
+- By now your instance should have launched. To find the IP address to connect to, go back to your [AWS console](https://console.aws.amazon.com/ec2/v2/#Instances)
+  ![09. AWSconsole1.png](09. AWSconsole1.png)
+
+- Click on the instance - hover over "IPv4 Public IP" and click on the little copy icon that appears (or the Public DNS, doesn't really matter)
+  ![10. AWSconsole2.png](10. AWSconsole2.png)
+
+- Go back to your terminal and run this ssh command (paste your own IP or hostname)
+
+  ```bash
+  MacBook-Pro-8:~ druce$ ssh -i AWS.pem ubuntu@18.234.158.61
+  ```
+
+- Answer 'yes' to any prompt. If you see the Ubuntu bash command prompt, you are in business! 
+  ![10.2 terminal.png](10.2 terminal.png)
+
+Now we have a running AWS instance! 
+
+# 3) Run installations and updates
 
 - Get ubuntu updates
 
-- ~~~ubuntu@ip-172-30-3-209:~ sudo apt update
+- ```bash
+  ubuntu@ip-172-30-3-209:~ sudo apt update
   ubuntu@ip-172-30-3-209:~ sudo apt upgrade
-  ~~~  
-  if prompted, choose 'keep local version', tab to OK, hit enter
-  it will run for a while
-  if you do sudo apt upgrade again you will see this, meaning it is fully updated
+  ```
+  If prompted about config files like grub, choose 'keep local version', tab to OK, hit enter.
+  Updates will run for a couple of minutes.
+  If you run sudo apt upgrade again you will see this, showing your instance is fully updated.
+
   ~~~
   ubuntu@ip-172-30-3-209:~$ sudo apt upgrade
   Reading package lists... Done
@@ -74,7 +110,7 @@ Use cases for AWS (who doesn't love AWS?)
 
 - Ignore the following if you don't understand it: typically I will explicitly update held-back packages and autoremove, until I see nothing left to update
 
-- Next, download the Anaconda installer: Go to the [install page](https://www.anaconda.com/download/#linux) , right-click on the big button for the 3.7 version and copy link address.
+- Next, download the Anaconda installer: Go to the [install page](https://www.anaconda.com/download/#linux) , right-click on the big button for the 3.7 version and copy the link address.
 
 - Go back to the terminal and enter 
 
@@ -82,10 +118,9 @@ Use cases for AWS (who doesn't love AWS?)
   bash ./A<tab to complete>
   ```
 
-<hit enter, spaces to get through all the responses, type yes>
-<accept all the defaults>
+Hit enter, spaces to get through all the responses, type yes to accept all the defaults
 
-```{bash}
+```bash
 ubuntu@ip-172-30-3-209:~$ wget https://repo.anaconda.com/archive/Anaconda3-5.3.0-Linux-x86_64.sh
 --2018-10-20 16:30:10--  https://repo.anaconda.com/archive/Anaconda3-5.3.0-Linux-x86_64.sh
 Resolving repo.anaconda.com (repo.anaconda.com)... 104.17.111.77, 104.17.107.77, 104.17.108.77, ...
@@ -107,8 +142,7 @@ agreement.
 Please, press ENTER to continue
 ```
 
-IMPORTANT - when prompted, update .bashrc, RESTART TERMINAL (as it helpfully points out)
-installation finished.
+IMPORTANT - when prompted, update .bashrc 
 
 ```{bash}
 Do you wish the installer to initialize Anaconda3
@@ -124,6 +158,8 @@ Thank you for installing Anaconda3!
 Do you wish to proceed with the installation of Microsoft VSCode? [yes|no]
 no
 ```
+- Installation finished!
+- IMPORTANT: RESTART TERMINAL (as it helpfully points out, so .bashrc path updates take effect.)
 - ctrl-D to exit terminal
 - up-arrow to repeat last ssh command
 
@@ -132,20 +168,25 @@ Connection to 18.234.158.61 closed.
 MacBook-Pro-8:~ druce$ ssh -i AWS.pem ubuntu@18.234.158.61
 ```
 
-- run python, you should see 3.7, Anaconda build
+- run python, you should see 3.x, Anaconda build (not Ubuntu stock python)
+
+  ```bash
   ubuntu@ip-172-30-3-209:~$ python
   Python 3.7.0 (default, Jun 28 2018, 13:15:42)
   [GCC 7.2.0] :: Anaconda, Inc. on linux
   Type "help", "copyright", "credits" or "license" for more information.
+  >>>
+  ```
 
-- ctrl-D to exit
+- Ctrl-D to exit
 
 Almost there! Let's update Anaconda
-```ubuntu@ip-172-30-3-209:~$ conda update --all
-Solving environment: \
+```bash
+  ubuntu@ip-172-30-3-209:~$ conda update --all
+  Solving environment: \
 ```
 
-- many updates later
+- Many updates later
 ```{bash}bleach-3.0.2         | 219 KB    | ############################################################################################################################################################ | 100%
   Preparing transaction: done
   Verifying transaction: done
@@ -154,9 +195,10 @@ Solving environment: \
 ```
 - Now you have a running Amazon instance, updated, with Anaconda installed and updated.
 
-5) Now we configure and run jupyter
+#4) Configure and run Jupyter
 
-- create a certificate to access your jupyter notebooks via https (I just hit enter for all the values requested)
+- Final task is to set up and run Jupyter
+- Create a certificate to enable https (I just hit enter for all the values requested)
 
 ```{bash}
 (base) ubuntu@ip-172-30-3-209:~/.jupyter$ cd
@@ -186,9 +228,13 @@ Common Name (e.g. server FQDN or YOUR name) []:
 Email Address []:
 ```
 
-- create jupyter config and password
+- Create Jupyter config file and password
+  jupyter notebook --generate-config
+- Create password
+  jupyter notebook password
 
-```{bash}(base) ubuntu@ip-172-30-3-209:~$ jupyter notebook --generate-config
+```{bash}
+(base) ubuntu@ip-172-30-3-209:~$ jupyter notebook --generate-config
 Writing default config to: /home/ubuntu/.jupyter/jupyter_notebook_config.py
 (base) ubuntu@ip-172-30-3-209:~$ jupyter notebook password
 Enter password:
@@ -196,10 +242,9 @@ Verify password:
 [NotebookPasswordApp] Wrote hashed password to /home/ubuntu/.jupyter/jupyter_notebook_config.json
 (base) ubuntu@ip-172-30-3-209:~$
 ```
-- add these to top of .jupyter_notebook_config.json
+- Add these to top of .jupyter_notebook_config.json
 ```{python}
 # Kernel config
-
 c.IPKernelApp.pylab = 'inline'  # if you want plotting support always in your notebook
 
 # Notebook config
@@ -211,32 +256,105 @@ c.NotebookApp.password = u'sha1:98ff0e580111:12798c72623a6eecd54b51c006b1050f0ac
 # Set the port to 8888, the port we set up in the AWS EC2 set-up
 c.NotebookApp.port = 8888
 ```
+- Run Jupyter 
 
--connect
-https://18.234.158.61:8888/
-ignore the warning and proceed
-enter password
-you are in business!
+  ```bash
+  ubuntu@ip-172-30-1-196:~$ jupyter notebook
+  [I 13:31:08.070 NotebookApp] Writing notebook server cookie secret to /run/user/1000/jupyter/notebook_cookie_secret
+  [I 13:31:10.881 NotebookApp] JupyterLab extension loaded from /home/ubuntu/anaconda3/lib/python3.7/site-packages/jupyterlab
+  [I 13:31:10.881 NotebookApp] JupyterLab application directory is /home/ubuntu/anaconda3/share/jupyter/lab
+  [I 13:31:10.883 NotebookApp] Serving notebooks from local directory: /home/ubuntu
+  [I 13:31:10.883 NotebookApp] The Jupyter Notebook is running at:
+  [I 13:31:10.883 NotebookApp] https://(ip-172-30-1-196 or 127.0.0.1):8888/
+  [I 13:31:10.883 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+  
+  ```
 
-6) Final step - image and restart your server. Otherwise you have to do ALL THESE steps to this again to launch another server
+- Note where it says "The Jupyter Notebook is running at:"
 
-Go to AWS console
+  - Server should be running on all IP addresses (not localhost)
+  - Port should be :8888 (If it's e.g. 8889, other servers may be running)
+
+- Go to your browser and connect to https://<your IP>:8888
+  IMPORTANT: This is the IP from your AWS console, not the local IP reported by Jupyter startup.
+  In Chrome, click "Advanced", ignore the warning and proceed (if Firefox, add an exception)
+  (You get a warning because the certificate domain name doesn't match our IP address, which changes every time we launch an AWS instance)
+
+- ![12.1 Chrome warning.png](12.1 Chrome warning.png)
+
+- Enter the Jupyter password you created.
+  ![12.2 Password.png](12.2 Password.png)
+
+- You are in business!
+  ![12.3 Success.png](12.3 Success.png)
+  ![12.3 Success2.png](12.3 Success2.png)
+
+
+
+# 5) Final step
+
+ - Grab a well-earned up of coffee, tea, or whiskey!
+ - I want to show one last thing which is how to create an image of your server. Otherwise you have to do ALL THESE steps to this again to launch another server
 
 - Log into the console https://console.aws.amazon.com/ec2/v2/#Instances
+
 - Right-click on your instance, choose Image, Create Image
-- Give a good name, I'll usually go with desc-date 
-- I don't bother with desc, but you might put 'fresh Ubuntu 18, Anaconda with all updates'
-- Click 'create image'
+  ![13.1 CreateImage1.png](13.1 CreateImage1.png)
+
+- Give the image a good name, I'll usually go with desc-date. I didn't bother with a good description, but you might put 'Fresh working Jupyter on Ubuntu 18, with all updates'
+  ![13.2 CreateImage2.png](13.2 CreateImage2.png)
+
   - Note: this is where you adjust your disk size if you want to increase it (for bigger instances/jobs) or reduce it (save storage)
+
+- Click 'Create image'
+
   - Note: this will restart your instance
-- Creating image can take 10-15 mins - go to AMIs and see it running, when it's available. You can reconnect to your server after it boots in a couple of minutes.
-- Right-click on image, click Launch instance
-- Choose instance type
-- Set security group
-- Launch - off to the races
-- You can connect to it using same IP. You now have 2 identical running instances.
 
-- To terminate it , right-click and choose terminate.
+- Creating image can take 10 mins - go to AMIs and see when it's available. 
 
-- If you aren't going to use your instance for a while, stop it., and if you have made a lot of changes, maybe image it to have as a backup.
+- Your running server will reboot and you can reconnect after it finishes booting in a couple of minutes. You can SSH to it using same IP as before. You now have 2 identical running instances.
+
+- When it says 'available' Right-click on image, click Launch instance
+  ![Launch1.png](Launch1.png)
+
+- Choose instance type (e.g. t2.micro)
+
+- Hit next until you get to "Configure Security Group"
+
+- Set the security group you created earlier, e.g. "Jupyter"
+
+- "Review and Launch"
+
+- "Launch"
+
+- You will be prompted for the key pair: Select the one you created before, e.g. "AWS", check the confirmation box, click "Launch Instances"
+  ![keypair2.png](keypair2.png)
+
+- Go to your instances in the console, wait a couple of minutes, hit refresh to get the IP
+
+- You can now SSH to the new IP just like the old one. ()
+
+  ```bash
+  MacBook-Pro-10:~ druce$ ssh -i AWS.pem ubuntu@54.237.195.0
+  The authenticity of host '54.237.195.0 (54.237.195.0)' can't be established.
+  ECDSA key fingerprint is SHA256:0KCT3Xk/i2tlabHzKQOTYS/joKSL+j0EZ45d/bNwKEc.
+  Are you sure you want to continue connecting (yes/no)? yes
+  Warning: Permanently added '54.237.195.0' (ECDSA) to the list of known hosts.
+  Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-1023-aws x86_64)
+   
+  ```
+
+- 
+
+- Your running server will reboot and you can reconnect after it finishes booting in a couple of minutes. You can SSH to it using same IP as before. You now have 2 identical running instances.
+
+- 
+
+- To terminate your instances, go to the instances in your console, right-click, choose "Instance State" and choose "Terminate".
+
+  ![14. Terminate.png](14. Terminate.png)
+  WARNING: if you have work to save, IMAGE your instance before terminating it.
+  When you terminate the instance, everything on it is deleted, so you will lose everything you did since the last image.
+
+- If you aren't going to use your instance for a while, stop it., and if you have made a lot of changes, image it to have as a backup. When you have a lot of images, you may want to clean them up by 'Deregistering' the AMIs and deleting their 'Snapshots'. But by then you will be an AWS expert!
 
