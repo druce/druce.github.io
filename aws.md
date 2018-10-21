@@ -12,7 +12,7 @@ This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is 
 - Set up [2-factor authentication](https://aws.amazon.com/iam/details/mfa/). Who hasn't had a password compromised? With 2FA, if your AWS password gets compromised, you don't lose everything in your account. And you don't have someone run up a huge AWS bill mining Bitcoin, or spamming the world.
   - I use the [Google Authenticator](https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8) smartphone app
   - Or, use a hardware key like [Yubikey](http://www.1strategy.com/blog/2018/05/08/lock-down-your-aws-account-with-yubikey/) which is even more secure, doesn't depend on having your phone, Internet access. ([People have hacked code-based 2FA](https://www.csoonline.com/article/3272425/authentication/11-ways-to-hack-2fa.html) by compromising your phone, getting you to enter your code on the Web)
-- Set up [billing alerts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html) so you get notified when your monthly bill exceeds e.g. $50.
+- Also, set up [billing alerts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html) so you get notified when your monthly bill exceeds e.g. $50.
 
 # 1) Create an instance
 
@@ -30,7 +30,7 @@ This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is 
   ![02. Choose image.png](02. Choose image.png)
 
   - In general, choose latest Ubuntu LTS (Long Term Support), HVM virtualization, SSD storage. (Exception: when the latest Ubuntu is very new, give it ~6 months to mature, ensure all software, especially drivers are available and tested, e.g. GPU)
-- Choose an instance type, click "Next: Configure Instance Details": for this demo choose the free tier eligible micro instance
+- Choose an instance type. For this demo choose the free tier eligible micro instance. Click "Next: Configure Instance Details": 
 
   ![03. Choose instance type.png](03. Choose instance type.png)
 - Choose "Next: Add Storage" (Shouldn't have to modify anything on this page)
@@ -78,7 +78,7 @@ This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is 
   MacBook-Pro-8:~ druce$ cp ~/Downloads/AWS.pem .
   ```
 
-- Change its permissions so no one else can access it
+- Change its permissions so no one else can access it (ssh gives an error if it thinks permissions are wrong)
 
   ```bash
   MacBook-Pro-8:~ druce$ chmod 600 AWS.pem
@@ -89,7 +89,7 @@ This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is 
 
   ![09. AWSconsole1.png](09. AWSconsole1.png)
 
-- Click on the instance - hover over "IPv4 Public IP" and click on the little copy icon that appears (or the Public DNS, doesn't really matter)
+- Click on the instance - hover over "IPv4 Public IP" and click on the little copy icon that appears (can also Public DNS everywhere I use IP in this post, doesn't really matter)
 
   ![10. AWSconsole2.png](10. AWSconsole2.png)
 
@@ -128,7 +128,7 @@ Now we have successfully connected to our running AWS instance!
 
 - Ignore the following if you don't understand it: typically I will explicitly update held-back packages and autoremove, until I see nothing left to update.
 
-- Next, download the Anaconda installer: Go to the [install page](https://www.anaconda.com/download/#linux) , right-click on the big button for the 3.7 version and copy the link address.
+- Next, download the Anaconda installer: Go to the [install page](https://www.anaconda.com/download/#linux) , right-click on the big button for the latest 3.x version and copy the link address.
 
 - Go back to the terminal and enter 
 
@@ -279,7 +279,7 @@ c.IPKernelApp.pylab = 'inline'  # if you want plotting support always in your no
 c.NotebookApp.allow_remote_access = True
 c.NotebookApp.certfile = u'/home/ubuntu/certs/mycert.pem' #location of your certificate file
 c.NotebookApp.ip = '*'
-c.NotebookApp.open_browser = False  #so that the jupyter notebook server does not opens up a browser by default (you don't have a GUI or browser installed on your AWS server)
+c.NotebookApp.open_browser = False  #so that the jupyter notebook server does not try to open up a browser by default (no GUI or browser installed on your AWS server)
 # Set the port to 8888, the port we set up in the AWS EC2 set-up
 c.NotebookApp.port = 8888
 ```
@@ -323,7 +323,8 @@ c.NotebookApp.port = 8888
 # 5) Final step - Make an image of your instance for backup
 
  - Grab a well-earned up of coffee, tea, or whiskey!
- - One last thing is to create an image of your server. Otherwise you have to do ALL THESE steps again to launch another server.
+
+ - One last thing is to create an image of your server. Otherwise you have to do ALL THESE STEPS again to launch another server.
 
 - Log into the console https://console.aws.amazon.com/ec2/v2/#Instances
 
@@ -382,4 +383,6 @@ c.NotebookApp.port = 8888
   When you terminate the instance, everything on it is deleted, so you will lose everything you did since the last image.
 
 - If you aren't going to use your instance for a while, stop it, and if you have made a lot of changes, image it to have as a backup. When you have a lot of images, you may want to clean them up by 'Deregistering' the AMIs and deleting their 'Snapshots'. But by then you will be an AWS expert!
+
+- Enjoy some happy data science on AWS with Jupyter!
 
