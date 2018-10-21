@@ -182,7 +182,8 @@ no
 - ctrl-D to exit terminal
 - up-arrow to repeat last ssh command
 
-```{bash}ubuntu@ip-172-30-3-209:~$ logout
+```{bash}
+ubuntu@ip-172-30-3-209:~$ logout
 Connection to 18.234.158.61 closed.
 MacBook-Pro-8:~ druce$ ssh -i AWS.pem ubuntu@18.234.158.61
 ```
