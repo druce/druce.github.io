@@ -326,7 +326,7 @@ c.NotebookApp.port = 8888
 
  - One last thing is to create an image of your server. Otherwise you have to do ALL THESE STEPS again to launch another server.
 
-- Log into the console https://console.aws.amazon.com/ec2/v2/#Instances
+- Log into the console [https://console.aws.amazon.com/ec2/v2/#Instances](https://console.aws.amazon.com/ec2/v2/#Instances)
 
 - Right-click on your instance, choose Image, Create Image
   ![13.1 CreateImage1.png](13.1 CreateImage1.png)
@@ -342,9 +342,9 @@ c.NotebookApp.port = 8888
 
 - Creating the image can take 10 mins - go to the AMIs tab and see when it's available. 
 
-- Your running server will reboot and you can reconnect after it finishes booting in a couple of minutes. You can SSH to it using same IP as before. 
+- While your image is being created, your running server will reboot and you can reconnect after it finishes booting in a couple of minutes. You can SSH to it using same IP as before. 
 
-- When it says 'available' Right-click on image, click Launch instance
+- When your AMI says 'available' in the EC2 "AMIs" tab, right-click on image, click Launch instance
   ![Launch1.png](Launch1.png)
 
 - Choose instance type (e.g. t2.micro)
