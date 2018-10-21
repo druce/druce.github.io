@@ -302,10 +302,11 @@ c.NotebookApp.port = 8888
   - Server should be running on all IP addresses (not localhost)
   - Port should be :8888 (If it's e.g. 8889, other servers may be running)
 
-- Go to your browser and connect to https://<your IP>:8888
-  IMPORTANT: Use the IP from your AWS console, not the local IP reported by Jupyter startup.
-  In Chrome, click "Advanced", ignore the warning and proceed (if Firefox, add an exception)
-  (You get a warning because the certificate domain name doesn't match our IP address, which changes every time we launch an AWS instance)
+- Go to your browser and connect to https://xxx.xxx.xxx.xxx:8888
+
+  - IMPORTANT: Use the IP from your AWS console, not the local IP reported by Jupyter startup.
+- In Chrome, click "Advanced", ignore the warning and proceed (if Firefox, add an exception)
+  - (You get a warning because the certificate domain name doesn't match our IP address, which changes every time we launch an AWS instance)
 
 - ![12.1 Chrome warning.png](12.1 Chrome warning.png)
 
@@ -318,10 +319,10 @@ c.NotebookApp.port = 8888
 
 
 
-# 5) Final step - image instance for backup
+# 5) Final step - Make an image of your instance for backup
 
  - Grab a well-earned up of coffee, tea, or whiskey!
- - One last thing is how to create an image of your server. Otherwise you have to do ALL THESE steps again to launch another server.
+ - One last thing is to create an image of your server. Otherwise you have to do ALL THESE steps again to launch another server.
 
 - Log into the console https://console.aws.amazon.com/ec2/v2/#Instances
 
