@@ -308,7 +308,7 @@ c.NotebookApp.port = 8888
 - In Chrome, click "Advanced", ignore the warning and proceed (if Firefox, add an exception)
   - (You get a warning because the certificate domain name doesn't match our IP address, which changes every time we launch an AWS instance)
 
-- ![12.1 Chrome warning.png](12.1 Chrome warning.png)
+![12.1 Chrome warning.png](12.1 Chrome warning.png)
 
 - Enter the Jupyter password you created.
   ![12.2 Password.png](12.2 Password.png)
