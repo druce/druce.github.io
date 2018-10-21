@@ -75,7 +75,7 @@ This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is 
 - Move the downloaded key there.
 
   ```bash
-  MacBook-Pro-8:~ druce$ cp ~/Downloads/AWS.pem .
+  MacBook-Pro-8:~ druce$ mv ~/Downloads/AWS.pem .
   ```
 
 - Change its permissions so no one else can access it (ssh gives an error if it thinks permissions are wrong)
@@ -178,7 +178,7 @@ Do you wish to proceed with the installation of Microsoft VSCode? [yes|no]
 no
 ```
 - Installation finished!
-- IMPORTANT: RESTART TERMINAL (as it helpfully points out, so .bashrc path updates take effect.)
+- IMPORTANT: RESTART SSH SESSION (as it helpfully points out, so .bashrc path updates take effect.)
 - ctrl-D to exit terminal
 - up-arrow to repeat last ssh command
 
@@ -268,7 +268,12 @@ Verify password:
 [NotebookPasswordApp] Wrote hashed password to /home/ubuntu/.jupyter/jupyter_notebook_config.json
 (base) ubuntu@ip-172-30-3-209:~$
 ```
-- Add these entries to top of .jupyter_notebook_config.json
+- In your favorite editor (vi, emacs etc.) open ~/.jupyter/jupyter_notebook_config.py. Add these entries at top. (Or search for corresponding commented-out entries, uncomment and edit appropriately.) 
+
+  ```bash
+  druce@jupyter1:~$ cd ~/.jupyter/
+  druce@jupyter1:~/.jupyter$ emacs ./jupyter_notebook_config.py
+  ```
 
 ```{python}
 
