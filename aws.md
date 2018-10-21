@@ -11,7 +11,7 @@ This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is 
 
 - Set up [2-factor authentication](https://aws.amazon.com/iam/details/mfa/). Who hasn't had a password compromised? With 2FA, if your AWS password gets compromised, you don't lose everything in your account. And you don't have someone run up a huge AWS bill mining Bitcoin, or spamming the world.
   - I use the [Google Authenticator](https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8) smartphone app
-  - Or, use a hardware key like [Yubikey](http://www.1strategy.com/blog/2018/05/08/lock-down-your-aws-account-with-yubikey/) which is even more secure, doesn't depend on having your phone, Internet access. ([People have hacked code-based 2FA](https://www.csoonline.com/article/3272425/authentication/11-ways-to-hack-2fa.html) by compromising your phone, getting you to enter your code on the Web)
+  - Or, use a hardware key like [Yubikey](http://www.1strategy.com/blog/2018/05/08/lock-down-your-aws-account-with-yubikey/) which is even more secure, doesn't depend on having your phone, Internet access. ([People have hacked code-based 2FA](https://www.csoonline.com/article/3272425/authentication/11-ways-to-hack-2fa.html) by compromising your phone, or getting people to enter their code on the Web)
 - Also, set up [billing alerts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html) so you get notified when your monthly bill exceeds e.g. $50.
 
 # 1) Create an instance
@@ -326,7 +326,13 @@ c.NotebookApp.port = 8888
 
  - One last thing is to create an image of your server. Otherwise you have to do ALL THESE STEPS again to launch another server.
 
-- Log into the console [https://console.aws.amazon.com/ec2/v2/#Instances](https://console.aws.amazon.com/ec2/v2/#Instances)
+ - Also, remember all the benefits of AWS? They all involve images:
+
+    - Scale up: Image and launch new instance from same image on a bigger instance type, larger disk.
+    - Scale out: Image and launch many instances from same image at same time.
+    - Access resources: Image and launch a new instance on e.g. a GPU instance type
+
+- To make an image of your instance, log into the console [https://console.aws.amazon.com/ec2/v2/#Instances](https://console.aws.amazon.com/ec2/v2/#Instances)
 
 - Right-click on your instance, choose Image, Create Image
   ![13.1 CreateImage1.png](13.1 CreateImage1.png)
