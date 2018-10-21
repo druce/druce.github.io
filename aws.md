@@ -4,7 +4,7 @@ This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is 
 
 - Scale up - get a giant instance that runs an algo on big data faster than your PC.
 - Scale out - run many notebooks at once.
-- Access resources you can't or, don't want to install on local PC: GPU, Postgres,
+- Access resources you can't or, don't want to install on local PC: GPU, Postgres, etc.
 - Everybody in industry uses it.
 
 # Prerequisite) Set up your AWS account - I won't go over that. But 2 recommendations:
@@ -12,28 +12,39 @@ This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is 
 - Set up [2-factor authentication](https://aws.amazon.com/iam/details/mfa/). Who hasn't had a password compromised? With 2FA, if your AWS password gets compromised, you don't lose everything in your account. And you don't have someone run up a huge AWS bill mining Bitcoin, or spamming the world.
   - I use the [Google Authenticator](https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8) smartphone app
   - Or, use a hardware key like [Yubikey](http://www.1strategy.com/blog/2018/05/08/lock-down-your-aws-account-with-yubikey/) which is even more secure, doesn't depend on having your phone, Internet access. ([People have hacked code-based 2FA](https://www.csoonline.com/article/3272425/authentication/11-ways-to-hack-2fa.html) by compromising your phone, getting you to enter your code on the Web)
-- Set up [billing alerts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html)
+- Set up [billing alerts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html) so you get notified when your monthly bill exceeds e.g. $50.
 
 # 1) Create an instance
 
 - Log into the [AWS console](https://console.aws.amazon.com/) 
+
   ![00.1. Login.png](00.1. Login.png)
 - Click on "EC2"
+
   ![00.2. EC2.png](00.2. EC2.png)
 - Click on "Launch instance"
+
   ![01. Launch instance.png](01. Launch instance.png)
 - Choose an Amazon Machine Image (AMI) - Ubuntu 18.04 LTS. 
+
   ![02. Choose image.png](02. Choose image.png)
+
   - In general, choose latest Ubuntu LTS (Long Term Support), HVM virtualization, SSD storage. (Exception: when the latest Ubuntu is very new, give it ~6 months to mature, ensure all software, especially drivers are available and tested, e.g. GPU)
 - Choose an instance type, click "Next: Configure Instance Details": for this demo choose the free tier eligible micro instance
+
   ![03. Choose instance type.png](03. Choose instance type.png)
 - Choose "Next: Add Storage" (Shouldn't have to modify anything on this page)
+
   ![03.1. Instance details.png](03.1. Instance details.png)
 - Set a reasonable amount of storage, like 30GB (more if you have a big dataset). Click "Next: Add Tags"
+
   ![04. Add storage.png](04. Add storage.png)
 - Click "Next: Configure Security Group" (You don't need to modify anything on this page. Tags help you keep track of servers and other resources, when you have a lot of them)
+
   ![05. Add tags.png](05. Add tags.png)
+
   - Create a new security group like 'Jupyter'.
+
     ![06. Security group.png](06. Security group.png)
   - Click "Add rule"
   - Set Type: All TCP
@@ -42,9 +53,11 @@ This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is 
   - What this means: Allow all access from my IP, no access from anywhere else (default was SSH from anywhere)
   - Click "Review and Launch"
   - Click "Launch"
+
     ![07.1 Review.png](07.1 Review.png)
 - Almost there! 
 - Choose "Create key pair"
+
   ![07.2. keypair.png](07.2. keypair.png)
 - Give it a name like "mykey" or "AWS"
 - Click "Download key pair"
@@ -66,14 +79,18 @@ This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is 
   ```
 
 - Change its permissions so no one else can access it
+
   ```bash
   MacBook-Pro-8:~ druce$ chmod 600 AWS.pem
   ```
 
-- By now your instance should have launched. To find the IP address to connect to, go back to your [AWS console](https://console.aws.amazon.com/ec2/v2/#Instances)
+- By now your instance should have launched. To find the IP address to connect to, go back to your [AWS console](https://console.aws.amazon.com/ec2/v2/#Instances) 
+
+
   ![09. AWSconsole1.png](09. AWSconsole1.png)
 
 - Click on the instance - hover over "IPv4 Public IP" and click on the little copy icon that appears (or the Public DNS, doesn't really matter)
+
   ![10. AWSconsole2.png](10. AWSconsole2.png)
 
 - Go back to your terminal and run this ssh command (paste your own IP or hostname)
@@ -83,6 +100,7 @@ This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is 
   ```
 
 - Answer 'yes' to any prompt. If you see the Ubuntu bash command prompt, you are in business! 
+
   ![10.2 terminal.png](10.2 terminal.png)
 
 Now we have a running AWS instance! 
@@ -97,7 +115,7 @@ Now we have a running AWS instance!
   ```
   If prompted about config files like grub, choose 'keep local version', tab to OK, hit enter.
   Updates will run for a couple of minutes.
-  If you run sudo apt upgrade again you will see this, showing your instance is fully updated.
+  If you run 'sudo apt upgrade' again you will see this, showing your instance is fully updated.
 
   ~~~
   ubuntu@ip-172-30-3-209:~$ sudo apt upgrade
@@ -114,7 +132,8 @@ Now we have a running AWS instance!
 
 - Go back to the terminal and enter 
 
-  ```{bash}wget <paste url>
+  ```bash
+  wget <paste url>
   bash ./A<tab to complete>
   ```
 
@@ -198,7 +217,11 @@ Almost there! Let's update Anaconda
 #4) Configure and run Jupyter
 
 - Final task is to set up and run Jupyter
-- Create a certificate to enable https (I just hit enter for all the values requested)
+- Create a certificate to enable https 
+  - Create a certs directory.
+  - cd to it.  
+  - openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
+  - I just hit enter for all the values requested
 
 ```{bash}
 (base) ubuntu@ip-172-30-3-209:~/.jupyter$ cd
@@ -232,6 +255,7 @@ Email Address []:
   jupyter notebook --generate-config
 - Create password
   jupyter notebook password
+  enter password twice
 
 ```{bash}
 (base) ubuntu@ip-172-30-3-209:~$ jupyter notebook --generate-config
@@ -242,7 +266,7 @@ Verify password:
 [NotebookPasswordApp] Wrote hashed password to /home/ubuntu/.jupyter/jupyter_notebook_config.json
 (base) ubuntu@ip-172-30-3-209:~$
 ```
-- Add these to top of .jupyter_notebook_config.json
+- Add these entries to top of .jupyter_notebook_config.json
 ```{python}
 # Kernel config
 c.IPKernelApp.pylab = 'inline'  # if you want plotting support always in your notebook
@@ -252,7 +276,6 @@ c.NotebookApp.allow_remote_access = True
 c.NotebookApp.certfile = u'/home/ubuntu/certs/mycert.pem' #location of your certificate file
 c.NotebookApp.ip = '*'
 c.NotebookApp.open_browser = False  #so that the ipython notebook does not opens up a browser by default
-c.NotebookApp.password = u'sha1:98ff0e580111:12798c72623a6eecd54b51c006b1050f0ac1a62d'  #the encrypted password we generated above
 # Set the port to 8888, the port we set up in the AWS EC2 set-up
 c.NotebookApp.port = 8888
 ```
@@ -276,7 +299,7 @@ c.NotebookApp.port = 8888
   - Port should be :8888 (If it's e.g. 8889, other servers may be running)
 
 - Go to your browser and connect to https://<your IP>:8888
-  IMPORTANT: This is the IP from your AWS console, not the local IP reported by Jupyter startup.
+  IMPORTANT: Use the IP from your AWS console, not the local IP reported by Jupyter startup.
   In Chrome, click "Advanced", ignore the warning and proceed (if Firefox, add an exception)
   (You get a warning because the certificate domain name doesn't match our IP address, which changes every time we launch an AWS instance)
 
@@ -310,7 +333,7 @@ c.NotebookApp.port = 8888
 
   - Note: this will restart your instance
 
-- Creating image can take 10 mins - go to AMIs and see when it's available. 
+- Creating the image can take 10 mins - go to the AMIs tab and see when it's available. 
 
 - Your running server will reboot and you can reconnect after it finishes booting in a couple of minutes. You can SSH to it using same IP as before. You now have 2 identical running instances.
 
@@ -330,9 +353,9 @@ c.NotebookApp.port = 8888
 - You will be prompted for the key pair: Select the one you created before, e.g. "AWS", check the confirmation box, click "Launch Instances"
   ![keypair2.png](keypair2.png)
 
-- Go to your instances in the console, wait a couple of minutes, hit refresh to get the IP
+- Go to your instances in the console, wait a couple of minutes, hit refresh to get the new instance's IP
 
-- You can now SSH to the new IP just like the old one. ()
+- You can now SSH to the new IP just like the old one. 
 
   ```bash
   MacBook-Pro-10:~ druce$ ssh -i AWS.pem ubuntu@54.237.195.0
@@ -344,11 +367,7 @@ c.NotebookApp.port = 8888
    
   ```
 
-- 
-
-- Your running server will reboot and you can reconnect after it finishes booting in a couple of minutes. You can SSH to it using same IP as before. You now have 2 identical running instances.
-
-- 
+- You now have 2 identical running instances.
 
 - To terminate your instances, go to the instances in your console, right-click, choose "Instance State" and choose "Terminate".
 
@@ -356,5 +375,5 @@ c.NotebookApp.port = 8888
   WARNING: if you have work to save, IMAGE your instance before terminating it.
   When you terminate the instance, everything on it is deleted, so you will lose everything you did since the last image.
 
-- If you aren't going to use your instance for a while, stop it., and if you have made a lot of changes, image it to have as a backup. When you have a lot of images, you may want to clean them up by 'Deregistering' the AMIs and deleting their 'Snapshots'. But by then you will be an AWS expert!
+- If you aren't going to use your instance for a while, stop it, and if you have made a lot of changes, image it to have as a backup. When you have a lot of images, you may want to clean them up by 'Deregistering' the AMIs and deleting their 'Snapshots'. But by then you will be an AWS expert!
 
