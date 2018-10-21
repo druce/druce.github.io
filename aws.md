@@ -103,11 +103,11 @@ This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is 
 
   ![10.2 terminal.png](10.2 terminal.png)
 
-Now we have a running AWS instance! 
+Now we have successfully connected to our running AWS instance! 
 
 # 3) Run installations and updates
 
-- Get ubuntu updates
+- Get Ubuntu updates
 
 - ```bash
   ubuntu@ip-172-30-3-209:~ sudo apt update
@@ -126,7 +126,7 @@ Now we have a running AWS instance!
   0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
   ~~~
 
-- Ignore the following if you don't understand it: typically I will explicitly update held-back packages and autoremove, until I see nothing left to update
+- Ignore the following if you don't understand it: typically I will explicitly update held-back packages and autoremove, until I see nothing left to update.
 
 - Next, download the Anaconda installer: Go to the [install page](https://www.anaconda.com/download/#linux) , right-click on the big button for the 3.7 version and copy the link address.
 
@@ -279,7 +279,7 @@ c.IPKernelApp.pylab = 'inline'  # if you want plotting support always in your no
 c.NotebookApp.allow_remote_access = True
 c.NotebookApp.certfile = u'/home/ubuntu/certs/mycert.pem' #location of your certificate file
 c.NotebookApp.ip = '*'
-c.NotebookApp.open_browser = False  #so that the ipython notebook does not opens up a browser by default
+c.NotebookApp.open_browser = False  #so that the jupyter notebook server does not opens up a browser by default (you don't have a GUI or browser installed on your AWS server)
 # Set the port to 8888, the port we set up in the AWS EC2 set-up
 c.NotebookApp.port = 8888
 ```
@@ -306,6 +306,7 @@ c.NotebookApp.port = 8888
 
   - IMPORTANT: Use the IP from your AWS console, not the local IP reported by Jupyter startup.
 - In Chrome, click "Advanced", ignore the warning and proceed (if Firefox, add an exception)
+
   - (You get a warning because the certificate domain name doesn't match our IP address, which changes every time we launch an AWS instance)
 
 ![12.1 Chrome warning.png](12.1 Chrome warning.png)
@@ -340,7 +341,7 @@ c.NotebookApp.port = 8888
 
 - Creating the image can take 10 mins - go to the AMIs tab and see when it's available. 
 
-- Your running server will reboot and you can reconnect after it finishes booting in a couple of minutes. You can SSH to it using same IP as before. You now have 2 identical running instances.
+- Your running server will reboot and you can reconnect after it finishes booting in a couple of minutes. You can SSH to it using same IP as before. 
 
 - When it says 'available' Right-click on image, click Launch instance
   ![Launch1.png](Launch1.png)
