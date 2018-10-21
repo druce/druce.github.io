@@ -269,6 +269,7 @@ Verify password:
 (base) ubuntu@ip-172-30-3-209:~$
 ```
 - Add these entries to top of .jupyter_notebook_config.json
+
 ```{python}
 
 # Kernel config
