@@ -1,6 +1,6 @@
 This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is based on a [tutorial](https://chrisalbon.com/software_engineering/cloud_computing/run_project_jupyter_on_amazon_ec2/) by Chris Albon, which did not work for me immediately (itself based on a [tutorial by Piyush Agarwal](http://blog.impiyush.me/2015/02/running-ipython-notebook-server-on-aws.html)). So I tweaked a few things and got it working.
 
-#Use cases for AWS (Who doesn't love AWS?)
+# Use cases for AWS (Who doesn't love AWS?)
 
 - Scale up - get a giant instance that runs an algo on big data faster than your PC.
 - Scale out - run many notebooks at once.
@@ -291,10 +291,10 @@ c.NotebookApp.port = 8888
 
 
 
-# 5) Final step
+# 5) Final step - image instance for backup
 
  - Grab a well-earned up of coffee, tea, or whiskey!
- - I want to show one last thing which is how to create an image of your server. Otherwise you have to do ALL THESE steps to this again to launch another server
+ - One last thing is how to create an image of your server. Otherwise you have to do ALL THESE steps again to launch another server.
 
 - Log into the console https://console.aws.amazon.com/ec2/v2/#Instances
 
