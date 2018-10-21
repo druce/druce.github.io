@@ -216,7 +216,7 @@ bleach-3.0.2         | 219 KB    | #############################################
 ```
 - Now you have a running Amazon instance, updated, with Anaconda installed and updated.
 
-#4) Configure and run Jupyter
+# 4) Configure and run Jupyter
 
 - Final task is to set up and run Jupyter
 - Create a certificate to enable https 
