@@ -128,7 +128,7 @@ ubuntu@ip-172-30-3-209:~ sudo apt upgrade
 
 - Ignore the following if you don't understand it: typically I will explicitly update held-back packages and autoremove, until I see nothing left to update.
 
-- Next, download the Anaconda installer: Go to the [install page](https://www.anaconda.com/download/#linux) , right-click on the big button for the latest 3.x version and copy the link address.
+- Next, download the Anaconda installer: Go to the [install page](https://www.anaconda.com/download/#linux) , right-click on the big button for the latest 3.x version and copy the link address. (IMPORTANT: make sure you download the Linux 64-bit version, not MacOS or Windows)
 
 - Go back to the terminal and enter 
 
