@@ -89,7 +89,7 @@ MacBook-Pro-8:~ druce$ chmod 600 AWS.pem
 
   ![09. AWSconsole1.png](09. AWSconsole1.png)
 
-- Click on the instance - hover over "IPv4 Public IP" and click on the little copy icon that appears (can also Public DNS everywhere I use IP in this post, doesn't really matter)
+- Click on the instance - hover over "IPv4 Public IP" and click on the little copy icon that appears (can also use your 'Public DNS' everywhere I use IP in this post, doesn't really matter. But don't use 'Private IP' or 'Private DNS'. Confusint, I know!)
 
   ![10. AWSconsole2.png](10. AWSconsole2.png)
 
@@ -198,7 +198,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
-- Ctrl-D to exit
+- Ctrl-D to exit Python
 
 Almost there! Let's update Anaconda
 ```bash
@@ -327,13 +327,13 @@ ubuntu@ip-172-30-1-196:~$ jupyter notebook
 
 # 5) Final step - Make an image of your instance for backup
 
- - Grab a well-earned up of coffee, tea, or whiskey!
+ - Grab a well-earned cup of coffee, tea, or whiskey!
 
  - One last thing is to create an image of your server. Otherwise you have to do ALL THESE STEPS again to launch another server.
 
  - Also, remember all the benefits of AWS? They all involve images:
 
-    - Scale up: Image and launch new instance from same image on a bigger instance type, larger disk.
+    - Scale up: Image and launch new instance from same image on a bigger instance type, or larger disk.
     - Scale out: Image and launch many instances from same image at same time.
     - Access resources: Image and launch a new instance on e.g. a GPU instance type
 
@@ -395,10 +395,11 @@ Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-1023-aws x86_64)
 
 - If you aren't going to use your instance for a while, stop it, and if you have made a lot of changes, image it to have a backup. When you have a lot of images, you may want to clean them up by 'Deregistering' the AMIs and deleting their 'Snapshots'. But by then you will be an AWS expert!
 
-Enjoy some happy data science on AWS with Jupyter!
+Enjoy awesome data science on AWS with Jupyter!
 
 See also and bookmark
 
 - [Jupyter Docs](https://jupyter.readthedocs.io/en/latest/)
 - [Amazon EC2 Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html)
+- [Run Jupyter on Google Cloud](https://towardsdatascience.com/running-jupyter-notebook-in-google-cloud-platform-in-15-min-61e16da34d52)
 
