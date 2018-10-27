@@ -89,7 +89,7 @@ MacBook-Pro-8:~ druce$ chmod 600 AWS.pem
 
   ![09. AWSconsole1.png](09. AWSconsole1.png)
 
-- Click on the instance - hover over "IPv4 Public IP" and click on the little copy icon that appears (can also use your 'Public DNS' everywhere I use IP in this post, doesn't really matter. But don't use 'Private IP' or 'Private DNS'. Confusint, I know!)
+- Click on the instance - hover over "IPv4 Public IP" and click on the little copy icon that appears (can also use your 'Public DNS' everywhere I use IP in this post, doesn't really matter. But don't use 'Private IP' or 'Private DNS'. Confusing, I know!)
 
   ![10. AWSconsole2.png](10. AWSconsole2.png)
 
@@ -128,7 +128,7 @@ ubuntu@ip-172-30-3-209:~ sudo apt upgrade
 
 - Ignore the following if you don't understand it: typically I will explicitly update held-back packages and autoremove, until I see nothing left to update.
 
-- Next, download the Anaconda installer: Go to the [install page](https://www.anaconda.com/download/#linux) , right-click on the big button for the latest 3.x version and copy the link address. (IMPORTANT: make sure you download the Linux 64-bit version, not MacOS or Windows)
+- Next, download the Anaconda installer: Go to the [install page](https://www.anaconda.com/download/#linux) , right-click on the big button for the latest 3.x version and copy the link address. (IMPORTANT: make sure you download the Linux 64-bit version, not MacOS or Windows. The Anaconda website may try to auto-detect your browser platform and send you there.)
 
 - Go back to the terminal and enter 
 
@@ -285,7 +285,7 @@ c.NotebookApp.allow_remote_access = True
 c.NotebookApp.certfile = u'/home/ubuntu/certs/mycert.pem' #location of your certificate file
 c.NotebookApp.ip = '*'
 c.NotebookApp.open_browser = False  #so that the jupyter notebook server does not try to open up a browser by default (no GUI or browser installed on your AWS server)
-# Set the port to 8888, the port we set up in the AWS EC2 set-up
+# Set the port to 8888
 c.NotebookApp.port = 8888
 ```
 - Run Jupyter 
@@ -309,7 +309,7 @@ ubuntu@ip-172-30-1-196:~$ jupyter notebook
 
 - Go to your browser and connect to https://xxx.xxx.xxx.xxx:8888
 
-  - IMPORTANT: Use the IP from your AWS console, not the local IP reported by Jupyter startup.
+  - IMPORTANT: Use the IP from your AWS console, not the local IP reported by Jupyter startup. And make sure to use https.
 - In Chrome, click "Advanced", ignore the warning and proceed (if Firefox, add an exception)
 
   - (You get a warning because the certificate domain name doesn't match our IP address, which changes every time we launch an AWS instance)
