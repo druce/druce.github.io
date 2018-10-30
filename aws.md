@@ -418,13 +418,13 @@ export PATH=${CUDA_HOME}/bin:${PATH}
 # activate the proper virtualenv
 source activate jupyter
 
-# cd to the right directory
+# cd to the proper directory
 cd /home/ubuntu/Notebooks
 
-# run jupyter
+# run jupyter in the background
 jupyter notebook &
 ```
-It should include all anaconda and related environment variables and paths from your .bashrc file. Then it should activate the appropriate virtualenv, cd to the appropriate directory, and run Jupyter in the background.
+It should include all anaconda and related environment variables and paths from your .bashrc file. Then it should activate the proper virtualenv, cd to the proper directory, and run Jupyter in the background.
 
 Then do 
 
@@ -435,7 +435,9 @@ sudo vi /etc/rc.local
 
 and add this at the bottom of the file
 
+```bash
 /etc/su ubuntu -c  "home/ubuntu/runjupyter.sh"
+```
 
 Now, whenever I launch this instance, it automatically starts Jupyter running under my account, and I don't even have to ssh into the server. And I don't have to worry about something killing the Jupyter server which is running in the terminal.
 
