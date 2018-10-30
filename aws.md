@@ -395,6 +395,50 @@ Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-1023-aws x86_64)
 
 - If you aren't going to use your instance for a while, stop it, and if you have made a lot of changes, image it to have a backup. When you have a lot of images, you may want to clean them up by 'Deregistering' the AMIs and deleting their 'Snapshots'. But by then you will be an AWS expert!
 
+# 6) Final final step - Set Jupyter to run automatically at startup.
+
+OK, I lied. There is one final step I recommend, which is to run Jupyter at startup.
+
+So you have Jupyter running exactly the way you want in a terminal. You create an amazing notebook that will train overnight. You smile, disconnect your laptop, go home, and come back the next day … to find that as soon as you disconnected, Ubuntu helpfully kills all the jobs running in the session, including the Jupyter server.
+
+To avoid this misadventure, create a runjupyter.sh that looks something like this. It should include all anaconda and related environment variables and paths from your .bashrc file. Then it should activate the appropriate virtualenv, cd to the appropriate directory, and run Jupyter in the background. Mine looks something like this:
+
+```bash
+#!/bin/bash
+# run at startup from etc/rc.local
+
+# added by Anaconda3 installer
+export PATH="/home/ubuntu/anaconda3/bin:$PATH"
+
+# added for cuda/tensorflow
+export CUDA_HOME=/usr/local/cuda
+export LD_LIBRARY_PATH=${CUDA_HOME}/lib64:$LD_LIBRARY_PATH
+export PATH=${CUDA_HOME}/bin:${PATH}
+
+# activate the proper virtualenv
+source activate jupyter
+
+# cd to the right directory
+cd /home/ubuntu/Notebooks
+
+# run jupyter
+jupyter notebook &
+```
+Then I do 
+
+```bash
+chmod 755 /home/ubuntu/runjupyter.sh
+sudo vi /etc/rc.local
+```
+
+and add this at the bottom of the file
+
+/etc/su druce -c  "home/ubuntu/runjupyter.sh"
+
+Now, whenever I launch this instance, it automatically starts Jupyter running under my account, and I don't even have to ssh into the server. And I don't have to worry about something killing the Jupyter server which is running in the terminal.
+
+Or search for "run jupyter at startup" and use one of the other methods. This one may be kludgey, but it works.
+
 Enjoy awesome data science on AWS with Jupyter!
 
 See also and bookmark
