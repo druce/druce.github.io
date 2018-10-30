@@ -424,7 +424,7 @@ cd /home/ubuntu/Notebooks
 # run jupyter in the background
 jupyter notebook &
 ```
-It should include all anaconda and related environment variables and paths from your .bashrc file. Then it should activate the proper virtualenv, cd to the proper directory, and run Jupyter in the background.
+It should include all anaconda and related environment variables and paths from your .bashrc file. Then it should activate the proper virtualenv, cd to the proper directory, and run Jupyter in the background. (You can safely ignore the virtualenv and CUDA/Tensorflow stuff if you don't use them, just use the Anadonda-related environment variables and paths from your .bashrc.)
 
 Then do 
 
