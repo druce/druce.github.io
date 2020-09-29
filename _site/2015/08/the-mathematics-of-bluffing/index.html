@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>The Mathematics of Bluffing | StreetEYE Blog</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="The Mathematics of Bluffing" />
+<meta name="author" content="Druce Vertes, CFA" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A quick post about poker! That seemingly simple, deceptively complex game with a number of interesting parallels to investing. I just watched the MIT lectures on ‘Poker Theory and Analytics,’ an ‘Independent Activities Period’ mini-course, and for our mutual amusement, I worked through the math on bluffing, which is an interesting problem I had never done the full deep dive into. Here it is, including a Mathematica notebook." />
+<meta property="og:description" content="A quick post about poker! That seemingly simple, deceptively complex game with a number of interesting parallels to investing. I just watched the MIT lectures on ‘Poker Theory and Analytics,’ an ‘Independent Activities Period’ mini-course, and for our mutual amusement, I worked through the math on bluffing, which is an interesting problem I had never done the full deep dive into. Here it is, including a Mathematica notebook." />
+<link rel="canonical" href="http://0.0.0.0:4000/2015/08/the-mathematics-of-bluffing/" />
+<meta property="og:url" content="http://0.0.0.0:4000/2015/08/the-mathematics-of-bluffing/" />
+<meta property="og:site_name" content="StreetEYE Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-08-11T00:08:01+00:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"The Mathematics of Bluffing","dateModified":"2015-08-11T00:08:01+00:00","datePublished":"2015-08-11T00:08:01+00:00","url":"http://0.0.0.0:4000/2015/08/the-mathematics-of-bluffing/","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/2015/08/the-mathematics-of-bluffing/"},"author":{"@type":"Person","name":"Druce Vertes, CFA"},"description":"A quick post about poker! That seemingly simple, deceptively complex game with a number of interesting parallels to investing. I just watched the MIT lectures on ‘Poker Theory and Analytics,’ an ‘Independent Activities Period’ mini-course, and for our mutual amusement, I worked through the math on bluffing, which is an interesting problem I had never done the full deep dive into. Here it is, including a Mathematica notebook.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="StreetEYE Blog" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">StreetEYE Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">The Mathematics of Bluffing</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2015-08-11T00:08:01+00:00" itemprop="datePublished">Aug 11, 2015
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Druce Vertes, CFA</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>A quick post about poker! That seemingly simple, deceptively complex game with a number of interesting <a href="/2013/08/risk-arbitrage-investing-and-poker/">parallels to investing</a>. I just watched the <a href="http://ocw.mit.edu/courses/sloan-school-of-management/15-s50-poker-theory-and-analytics-january-iap-2015/index.htm">MIT lectures on ‘Poker Theory and Analytics,’</a> an ‘Independent Activities Period’ mini-course, and for our mutual amusement, I worked through the math on bluffing, which is an interesting problem I had never done the full deep dive into. Here it is, including a <a href="/blog/HTMLFiles/poker.nb">Mathematica notebook</a>.</p>
+
+<p>Here’s how we set up a pure bluffing scenario:</p>
+
+<ul>
+  <li>There is a $1 pot.</li>
+  <li>There are 2 players. Player 1 flips a coin.</li>
+  <li>Player 1 looks at the coin, which represents his ‘hand.’ Player 2 does not see the coin.</li>
+  <li>If it’s heads, Player 1 has ‘the nuts,’ the winning ‘hand.’</li>
+  <li>If it’s tails, Player 1 has the worst possible ‘hand’, loses to whatever Player 2 has.</li>
+  <li>Player 1 gets the option to bet $1, or check.</li>
+  <li>If Player 1 bets, Player 2 can call the $1 bet, or fold. If Player 2 folds, Player 1 wins the pot without ‘showing down’ the coin. If Player 2 calls, the coin is revealed and best hand wins the pot (heads: Player 1, tails: Player 2).</li>
+  <li>If Player 1 checks, the coin is revealed and best hand wins the pot.</li>
+</ul>
+
+<p>This maps pretty well to a pure bluffing scenario on the river. You either have the nuts 50% of the time, or the worst possible hand the other 50%. This only covers whether Player 1 should bluff and whether Player 2 should then call. Player 2 doesn’t have the option to bet if you check, raise if you bet, and the bluff amount is fixed.</p>
+
+<p>How should Player 1 play?</p>
+
+<ul>
+  <li><em>If Player 1 has the nuts, he (or she) should always bet for value.</em> Why? Betting is always at least as good or better than checking:
+    <ul>
+      <li>If Player 2 folds, Player 1 wins the $1 pot (same as Player 1 checking first).</li>
+      <li>If Player 2 calls, Player 1 wins $2, the pot plus the called bet, better than checking first. Betting always has an expected value (EV) &gt;= checking.<a href="#1"><sup>1</sup></a></li>
+    </ul>
+  </li>
+  <li><em>If Player 2 has no hand</em>, it gets more interesting!_<br />
+Suppose Player 1 bluffs when coin comes up tails:<br />
+_ &lt;/p&gt;
+    <ul>
+      <li>If Player 2 then calls, Player 1 loses the $1 bet. EV: -1.</li>
+      <li>If Player 2 folds, Player 1 wins the $1 pot. EV: +1.</li>
+    </ul>
+
+    <p>_Suppose Player 1 checks when coin comes up tails:<br />
+_</p>
+
+    <ul>
+      <li>Player 2 checks and Player 2 wins the pot. EV: 0. (Only 1 outcome since we’re not letting Player 2 bet.)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>When Player 1 has nothing, neither strategy dominates.</p>
+
+<p>Here is a ‘pure strategy’ matrix.</p>
+
+<table style="height: 185px;" border="1" width="559">
+  <tr>
+    <td style="background-color: #eeeeee;">
+    </td>
+    
+    <td style="background-color: #eeeeee;">
+      <strong>P2 tight<br /> </strong>Fold to any bet
+    </td>
+    
+    <td style="background-color: #eeeeee;">
+      <strong>P2 loose<br /> </strong>Call any bet
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="background-color: #eeeeee;">
+      <strong>P1 passive</strong><br /> Value bet heads, check tails
+    </td>
+    
+    <td style="background-color: #ccffcc;">
+      P1 EV: 0.5<br /> P2 EV: 0.5
+    </td>
+    
+    <td style="background-color: #ccffcc;">
+      P1 EV: 1<br /> P2 EV: 0
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="background-color: #eeeeee;">
+      <strong>P1 aggressive</strong><br /> Value bet heads, bluff tails
+    </td>
+    
+    <td style="background-color: #ccffcc;">
+      P1 EV: 1<br /> P2 EV: 0
+    </td>
+    
+    <td style="background-color: #ccffcc;">
+      P1 EV: 0.5<br /> P2 EV: 0.5
+    </td>
+  </tr>
+</table>
+
+<p>There is <em>no stable outcome to this game if each player sticks to a single strategy</em>.</p>
+
+<p>If Player 1 is aggressive, it’s better for Player 2 to be loose: he catches all the bluffs for $2, and loses all the value bets for only $1. If Player 2 is loose, it’s better for Player 1 to be passive: he always gets $1 value for betting, and never gets caught bluffing. In each cell, one player is better off moving counterclockwise to the next cell, and they chase each other around the matrix.</p>
+
+<p>In the lingo, there is <em>no pure strategy Nash equilibrium</em>.</p>
+
+<p>Now suppose each player can choose a <em>mixed strategy.</em> Player 1 randomly picks ‘aggressive’ p<sub><small>bluff</small></sub>% of the time. Player 2 randomly picks ‘loose’ p<sub><small>call</small></sub>% of the time.</p>
+
+<p>Now, if Player 2 calls 50% of the time, Player 1 is indifferent to betting or checking. Calling at random 50% of the time is an <em>unexploitable</em> strategy for Player 2.</p>
+
+<p>Now suppose Player 1 bets 50% of the time he has no hand, and gives up the pot 50% of the time. This strategy presents Player 2 with a ratio of 2 value bets for every bluff.</p>
+
+<ul>
+  <li>50% of hands Player 1 has the nuts and bets</li>
+  <li>25% of hands Player 1 has no hand and bluffs.</li>
+  <li>25% of hands Player 1 has no hand and folds, giving up the pot.</li>
+</ul>
+
+<p>If Player 2 calls, 1/3 of time he wins $2 ($1 pot + $1 bet), 2/3 of time he loses $1. This has an EV of 0, same as folding. Player 2 is indifferent to calling or folding. Bluffing at random 1/3 of the bets (50% of time the coin is tails) is an <em>unexploitable</em> strategy for Player 1.</p>
+
+<p>If Player 1 always bets for value on heads and bluffs 50% of the time on tails, while Player 2 calls 50% of the time, this is a <em>mixed-strategy Nash equilibrium</em>: neither player can improve by changing the mix of of strategies.</p>
+
+<p>Player 2 breaks even on calls, Player 1 breaks even on bluffs, but wins $1.50 on average each value bet ($1 pot plus additional $1 50% of the time the bet is called). Player 1 gets $0.75 of the overall EV vs. $0.25 for Player 2. By bluffing, Player 1 gets 50% more EV per hand vs. only betting for value.  As an exercise, think about what happens to each player’s EV if one of them switches strategies.</p>
+
+<p>So, that’s the picture of the problem and the Nash equilibria. Now let’s solve it more generally and get some more intuition for what the solution and P/L look like for different bet sizes.</p>
+
+<p>Suppose we set up the problem more generally:</p>
+
+<p><em>P</em>: initial pot =1<br />
+<em>S</em>: bet size as fraction of pot<br />
+<em>p<small><sub>bluff</sub></small></em>: probability of bluff<br />
+<em>p<small><sub>call</sub></small></em>: probability of call</p>
+
+<p><em>Q: How often should Player 1 bluff?</em><br />
+<em>A: Often enough to make Player 2 indifferent to calling or folding.</em></p>
+
+<p><em><small><span style="font-size: 16px; line-height: 24px;">EV</span><sub>call</sub></small></em>: 1+<em>S</em> when Player 2 calls a bluff. <em>-S</em> when Player 2 calls a value bet.<br />
+<em><small><span style="font-size: 16px; line-height: 24px;">EV</span><sub>fold</sub></small></em>: 0</p>
+
+<p>Setting Player 2’s <em><span style="font-size: 16px; line-height: 24px;">EV</span><small><sub>call</sub></small> = <span style="font-size: 16px; line-height: 24px;">EV</span><sub><small>fold</small></sub></em></p>
+
+<p><em>p<small><sub>bluff</sub> </small></em>(1 +<em>S</em>) – (1 – <em>p<small><sub>bluff</sub></small></em>) <em>S</em> = 0</p>
+
+<p>Solving for <em>p<small><sub>bluff</sub></small>:</em></p>
+
+<p><img src="/wp-content/ql-cache/quicklatex.com-7738253aa4c4db2e66749760ea3dc03e_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#112;&#95;&#123;&#98;&#108;&#117;&#102;&#102;&#125;&#61;&#92;&#102;&#114;&#97;&#99;&#123;&#83;&#125;&#123;&#49;&#43;&#50;&#83;&#125;" title="Rendered by QuickLaTeX.com" height="24" width="105" style="vertical-align: -8px;" /></p>
+
+<p>There’s a simpler way of expressing this. Define ratio of bluffs to value bets as</p>
+
+<p><img src="/wp-content/ql-cache/quicklatex.com-12559b16589f3c82d00935ac3d3a12c0_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#111;&#95;&#123;&#98;&#108;&#117;&#102;&#102;&#125;&#32;&#61;&#32;&#92;&#102;&#114;&#97;&#99;&#123;&#112;&#95;&#123;&#98;&#108;&#117;&#102;&#102;&#125;&#125;&#123;&#49;&#45;&#112;&#95;&#123;&#98;&#108;&#117;&#102;&#102;&#125;&#125;" title="Rendered by QuickLaTeX.com" height="26" width="125" style="vertical-align: -10px;" /> .</p>
+
+<p>Then</p>
+
+<p><img src="/wp-content/ql-cache/quicklatex.com-8184626546e3f72a803bb1500b5762d5_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#111;&#95;&#123;&#98;&#108;&#117;&#102;&#102;&#125;&#32;&#61;&#32;&#92;&#102;&#114;&#97;&#99;&#123;&#83;&#125;&#123;&#49;&#43;&#83;&#125;&#32;" title="Rendered by QuickLaTeX.com" height="24" width="96" style="vertical-align: -8px;" /></p>
+
+<p>In our example, S=1, as bet = pot size; our game-theory optimal bluffing ratio is 1/2; We should bluff half as often as we value bet.</p>
+
+<p><em>Q: How often should Player 2 call?</em><br />
+<em>A: Often enough to make Player 1 indifferent to checking or bluffing.</em></p>
+
+<p><em><small><span style="font-size: 16px; line-height: 24px;">EV</span><sub>bluff</sub></small></em>: P=1 when Player 2 folds. <em>-S</em> when Player 2 calls a bluff bet of S.<br />
+<em><small><span style="font-size: 16px; line-height: 24px;">EV</span><sub>check</sub></small></em>: 0</p>
+
+<p><em><small><span style="font-size: 16px; line-height: 24px;">EV</span><sub>bluff</sub></small></em> = (1 – <em>p<small><sub>call</sub></small></em>) – <em>p<small><sub>call</sub></small> S</em><br />
+<em><small><span style="font-size: 16px; line-height: 24px;">EV</span><sub>check</sub></small></em>: 0</p>
+
+<p>Setting Player 1’s <em><span style="font-size: 16px; line-height: 24px;">EV</span><sub><small>bluff</small></sub> = <span style="font-size: 16px; line-height: 24px;">EV</span><small><sub>check</sub></small></em></p>
+
+<p>(1 – <em>p<small><sub>call</sub></small></em>) – <em>p<small><sub>call</sub></small> S</em> = 0</p>
+
+<p>Solving for <em>p<small><sub>call</sub></small></em></p>
+
+<p><img src="/wp-content/ql-cache/quicklatex.com-858b758a7cf2c163645b7be11b35a5a0_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#112;&#95;&#123;&#99;&#97;&#108;&#108;&#125;&#61;&#92;&#102;&#114;&#97;&#99;&#123;&#49;&#125;&#123;&#49;&#32;&#43;&#32;&#83;&#125;" title="Rendered by QuickLaTeX.com" height="24" width="85" style="vertical-align: -8px;" /></p>
+
+<p>Plotting bluff ratio, call probability, and EV as a function of pot size:</p>
+
+<p> </p>
+
+<p><em>Interpretation</em>: When bet size (<em>S</em>) is close to 0 as fraction of pot, it is always worth it for Player 2 to call a small bet to get a chance at a big pot and to make sure Player 1 is honest. As <em>S</em> → 0, calls approach 100%. Best response for player 1 is to never bluff, and they just split the pot. As bet size goes up, it’s more costly for Player 2 to call a big bet to win a small pot and keep Player 1 honest. Therefore bluff frequency goes up as <em>S</em> goes up, and Player 1 gets a higher fraction of the pot. As <em>S</em> → ∞, Player 1’s EV → 1 and Player 2’s EV → 0.</p>
+
+<p>If we do a 3d plot of EV against each player’s strategy with <em>S</em> = 1, we get this:</p>
+
+<p><a href="/uploads/2015/08/poker2.png"><img class="aligncenter size-full wp-image-3915" src="/uploads/2015/08/poker2.png" alt="poker2" width="542" height="368" srcset="/uploads/2015/08/poker2.png 542w, /uploads/2015/08/poker2-300x204.png 300w" sizes="(max-width: 542px) 100vw, 542px" /></a></p>
+
+<p>Here is an <a href="https://plot.ly/~drucev/65.embed">interactive version</a> you can explore from various angles by clicking and dragging.</p>
+
+<p>It’s a saddle anchored in 2 upper corners and 2 lower corners at EV=0.5. The four corners represent pure strategies of 100% aggressive/passive/tight/loose. At the Nash equilibrium of bluff ratio = 0.5 and call % = 0.5, the 2 axes along which each player can adjust his strategy form a horizontal plane: neither can unilaterally improve by changing strategy. However, if one player moves away from the Nash equilibrium on the axis representing his strategy, he becomes vulnerable to exploitation by the other: movement along the other player’s strategy axis can improve the other player’s EV.</p>
+
+<p>If we change <em>S</em> from 0 to 1, we see something like this (rotated 90° clockwise from above):</p>
+
+<p><a href="/uploads/2015/08/poker.gif"><img class="aligncenter size-full wp-image-3929" src="/uploads/2015/08/poker.gif" alt="Animation" width="480" height="360" /></a></p>
+
+<p> </p>
+
+<p>Conclusions: 1) Poker is a pretty deep game (this wasn’t as quick a post as I thought!) and 2) This is a way to get some game theory intuition about one part of the game – bluffing and calling. If you’re into this sort of thing, I recommend the <a href="http://ocw.mit.edu/courses/sloan-school-of-management/15-s50-poker-theory-and-analytics-january-iap-2015/index.htm">MIT online poker class</a> mentioned above (this is a deeper dive into part of the last lecture by Matt Hawrilenko), and <a href="http://www.amazon.com/Mathematics-Poker-Bill-Chen/dp/1886070253">Mathematics of Poker</a>, by <a href="https://en.wikipedia.org/wiki/Bill_Chen">Bill Chen</a>, a math and finance quant at Susquehanna who has won a couple of WSOP bracelets.</p>
+
+<p>This is just an analysis of a simplifed model of one street! And yet, heads-up limit hold’em was recently <a href="http://www.theverge.com/2015/1/8/7516219/Texas-Hold-Em-poker-solved-computer-program-cepheus">weakly solved</a>. Computers simulated 2 players playing each other as well as possible for 900 CPU years, iteratively improving complex strategies (terabyte databases of all possible moves and responses) until they were provably so good that no one could have an advantage of more than 1 big blind per 1,000 hands. <a href="http://poker.srv.ualberta.ca/">See if you can beat that near-perfect strategy!</a></p>
+
+<p><em>No-limit</em> hold’em with up to 10 players adds giant levels of complexity…No-limit bots are pretty good, but <a href="https://en.wikipedia.org/wiki/Claudico">the pros still beat them</a>.</p>
+
+<p>_Note: the first version of this post had a dumb error and some wonky graphs but I think it’s all good now. If you see any mistakes let me know!<br />
+_<br />
+<small><a name="1"></a><sup>1</sup> We say that the Player 1 strategy of always betting when the coin comes up heads <em>dominates</em> the strategy of checking: it is sometimes a better decision and always at least as good. If it is always strictly better than an alternative strategy, we say it <em>strictly dominates</em>. In our case Player 1’s strategy of always betting heads sometimes leads to the same outcome as checking (if Player 2 never calls), so we say it <em>weakly dominates</em> the strategy of always checking.</small></p>
+
+  </div><a class="u-url" href="/2015/08/the-mathematics-of-bluffing/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">StreetEYE Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">StreetEYE Blog</li><li><a class="u-email" href="mailto:streeteye@streeteye.com">streeteye@streeteye.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/druce"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">druce</span></a></li><li><a href="https://www.linkedin.com/in/drucevertes"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">drucevertes</span></a></li><li><a href="https://www.twitter.com/streeteye"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">streeteye</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Mad Science About Tech, Markets And Political Economy</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

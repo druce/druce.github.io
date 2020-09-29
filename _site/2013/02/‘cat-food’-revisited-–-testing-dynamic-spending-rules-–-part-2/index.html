@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>‘Cat Food’ revisited – testing dynamic spending rules – Part 2 | StreetEYE Blog</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="‘Cat Food’ revisited – testing dynamic spending rules – Part 2" />
+<meta name="author" content="Druce Vertes, CFA" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The last post discussed a framework for evaluating simple dynamic spending rules." />
+<meta property="og:description" content="The last post discussed a framework for evaluating simple dynamic spending rules." />
+<link rel="canonical" href="http://0.0.0.0:4000/2013/02/%E2%80%98cat-food%E2%80%99-revisited-%E2%80%93-testing-dynamic-spending-rules-%E2%80%93-part-2/" />
+<meta property="og:url" content="http://0.0.0.0:4000/2013/02/%E2%80%98cat-food%E2%80%99-revisited-%E2%80%93-testing-dynamic-spending-rules-%E2%80%93-part-2/" />
+<meta property="og:site_name" content="StreetEYE Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-02-03T16:08:57+00:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"‘Cat Food’ revisited – testing dynamic spending rules – Part 2","dateModified":"2013-02-03T16:08:57+00:00","datePublished":"2013-02-03T16:08:57+00:00","url":"http://0.0.0.0:4000/2013/02/%E2%80%98cat-food%E2%80%99-revisited-%E2%80%93-testing-dynamic-spending-rules-%E2%80%93-part-2/","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/2013/02/%E2%80%98cat-food%E2%80%99-revisited-%E2%80%93-testing-dynamic-spending-rules-%E2%80%93-part-2/"},"author":{"@type":"Person","name":"Druce Vertes, CFA"},"description":"The last post discussed a framework for evaluating simple dynamic spending rules.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="StreetEYE Blog" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">StreetEYE Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">‘Cat Food’ revisited – testing dynamic spending rules – Part 2</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2013-02-03T16:08:57+00:00" itemprop="datePublished">Feb 3, 2013
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Druce Vertes, CFA</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>The <a href="/2013/01/cat-food-revisited-testing-dynamic-spending-rules/" title="‘Cat Food’ revisited – testing dynamic spending rules – Part 1">last post</a> discussed a framework for evaluating simple dynamic spending rules.</p>
+
+<ul>
+  <li>We defined a spending factor <em>s</em> as spending each year at a rate of <em>s</em>/(remaining life expectancy); and <em>lifetime spending expectancy</em> as the total amount you could expect to spend over your lifetime.</li>
+  <li>We showed how, as you increase the spending factor, <em>lifetime spend expectancy initially increases rapidly</em>, but the curve <em>flattens out</em> as spending rate increases.</li>
+  <li>We showed how, as you increase the spending factor, <em>shortfall risk initially increases slowly</em>, but the curve <em>steepens</em> as spending rate increases.</li>
+</ul>
+
+<p>We found a simple dynamic spending rule could increase lifetime spending vs. a traditional fixed 4% rule, while keeping shortfall risk relatively low (arguably reducing risk by making the worst case more benign, at the cost of increased volatility, lowered starting spending, higher probability of modest shortfalls).</p>
+
+<p>In this post we’ll look at how smoothing spending can improve outcomes, and how changing the equity/bond mix over time affects outcomes.<br />
+<!--more--></p>
+
+<p><em>Second dynamic rule: Smoothing.</em></p>
+
+<p>One oddity in <a href="/uploads/2013/01/Rplot15.png">Figure 5</a>: even at ultra-low spending rates, you still have a measurable risk of a 25% shortfall from your starting income. At any spending rate, spending is going to vary more or less in line with the market<small><sup>1</sup></small>. So years like 1973 and 1974 might yield big spending drops, even for a 60/40 portfolio at spending rates where you are not at much risk of running out of funds in your lifetime.</p>
+
+<p>If you’re already spending at a low rate, based on a safe long run return expectation, it doesn’t make sense to vary spending exactly in line with a short term change in the markets. And it’s clearly a significant disadvantage over a 4% rule to have that much variation in spending, even when there’s no shortfall.</p>
+
+<p>Let’s introduce smoothing. We’ll still spend at a rate of <em>s</em>/life_expectancy, but instead of multiplying the rate by the latest portfolio value to get spending, we’ll multiply the rate by <a href="http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:moving_averages" title="Exponential Moving Average (stockcharts.com)">an exponential moving average</a><small><sup>2</sup></small> of the value of previous years’ portfolios.</p>
+
+<p><em>Figure 8. Lifetime spending expectancy (% of initial portfolio) v. spending factor (exponential MA, multiplier 1/3).</em></p>
+
+<p><a href="/uploads/2013/02/Rplot47.png"><img src="/uploads/2013/02/Rplot47.png" alt="Lifetime Spend Expectancy v. Spending Factor" title="Lifetime Spend Expectancy v. Spending Factor" width="480" height="320" class="aligncenter size-full wp-image-1835" srcset="/uploads/2013/02/Rplot47.png 480w, /uploads/2013/02/Rplot47-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+
+<p><em>Figure 9. Probability of spending shortfall v. spending factor (exponential MA, multiplier 1/3)</em></p>
+
+<p><a href="/uploads/2013/02/Rplot48.png"><img src="/uploads/2013/02/Rplot48.png" alt="Probability of Spending Shortfall v. Spending factor (smoothed spending)" title="Probability of Spending Shortfall v. Spending factor (smoothed spending)" width="480" height="320" class="aligncenter size-full wp-image-1837" srcset="/uploads/2013/02/Rplot48.png 480w, /uploads/2013/02/Rplot48-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+
+<p>We see a notable improvement – near 0 shortfall risk out to <em>s</em> of 0.5. As the next chart shows, at <em>s</em> of 0.5, we have slightly higher lifetime spending, smoother overall spending and a better-looking worst case. But, even though overall shortfall probability is much lower, in the worst case you can go broke, if you keep overall spending smooth in the face of a market shortfall very late in life.</p>
+
+<p><em>Figure 10. Average Spending, All Cohorts (s=0.5, smoothed w/multiplier=1/3)</em></p>
+
+<p><a href="/uploads/2013/02/Rplot51.png"><img src="/uploads/2013/02/Rplot51.png" alt="Average Spending, All Cohorts (s=0.5, smoothed)" title="Average Spending, All Cohorts (s=0.5, smoothed)" width="480" height="320" class="aligncenter size-full wp-image-1841" srcset="/uploads/2013/02/Rplot51.png 480w, /uploads/2013/02/Rplot51-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+
+<p><em>Efficient frontier<small><sup>3</sup></small>.</em> To better visualize the tradeoff, we can combine these 2 graphs into one, which shows the best lifetime spend expectancy we can achieve for any level of shortfall risk:</p>
+
+<center>
+  <em>Figure 11. Lifetime spend expectancy v. probability of 10% shortfall<br />(&#8216;Efficient frontier&#8217;)</em>
+</center>
+
+<p><a href="/uploads/2013/02/Rplot52.png"><img src="/uploads/2013/02/Rplot52.png" alt="Lifetime spending expectancy v. Shortfall probability" title="Lifetime spending expectancy v. Shortfall probability" width="480" height="320" class="aligncenter size-full wp-image-1845" srcset="/uploads/2013/02/Rplot52.png 480w, /uploads/2013/02/Rplot52-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+
+<p>For low shortfall rates (the left side), the smoothed spending results in higher lifetime spending expectancy with lower shortfall risk. Smoothing improves the tradeoff, and represents a flexible middle ground between varying spending in line with the market, and setting a fixed spending amount at retirement like the 4% rule.</p>
+
+<p><em>Portfolio composition</em></p>
+
+<p>So far, we have looked only at a 60/40 portfolio. Let’s keep the smoothing multiplier at 1/3 and create efficient frontiers for a range of allocations from 0% to 100% stocks.</p>
+
+<center>
+  <em>Figure 12. Lifetime spend expectancy v. probability of 10% shortfall<br />(&#8216;Efficient frontier&#8217;), by % of equities, smoothing multiplier=1/3</em>
+</center>
+
+<p><a href="/uploads/2013/02/Rplot55.png"><img src="/uploads/2013/02/Rplot55.png" alt="Lifetime Spend Expectancy v. Shortfall Probability" title="Lifetime Spend Expectancy v. Shortfall Probability" width="480" height="320" class="aligncenter size-full wp-image-1848" srcset="/uploads/2013/02/Rplot55.png 480w, /uploads/2013/02/Rplot55-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+
+<p>We can do this as a big panel (easier to read, esp. the legend): <a href="/uploads/2013/02/Rplot56.png" title="Efficient frontier, by equity %">Figure 13</a>. What does this tell us? For this particular smoothing multiplier 1/3, the 50/50 portfolio dominates others (the black line), giving greater lifetime spending at low shortfall probabilities.</p>
+
+<p>Let’s cut to the chase and find for each spending factor, the highest spending expectancy we can achieve with zero shortfall risk, or if zero risk is not feasible, the lowest feasible risk:</p>
+
+<center>
+  <small>&lt;/p&gt; 
+  
+  <table cellspacing="10">
+    <tr style="text-align: right;">
+      <td>
+        <em>&nbsp;<br />s</em>
+      </td>
+      
+      <td>
+        Life spend&nbsp;<br />expect.
+      </td>
+      
+      <td>
+        Prob 10%&nbsp;<br />shortfall
+      </td>
+      
+      <td>
+        Prob 25%&nbsp;<br />shortfall
+      </td>
+      
+      <td>
+        Prob 50%&nbsp;<br />shortfall
+      </td>
+      
+      <td>
+        Equity&nbsp;<br />%
+      </td>
+      
+      <td>
+        &nbsp;<br />Smoothing
+      </td>
+    </tr>
+    
+    <tr style="text-align: right;">
+      <td>
+        0.30
+      </td>
+      
+      <td>
+        104.27
+      </td>
+      
+      <td>
+        0.0%
+      </td>
+      
+      <td>
+        0.0%
+      </td>
+      
+      <td>
+        0.0%
+      </td>
+      
+      <td>
+        100%
+      </td>
+      
+      <td>
+        5.0
+      </td>
+    </tr>
+    
+    <tr style="text-align: right;">
+      <td>
+        0.35
+      </td>
+      
+      <td>
+        90.71
+      </td>
+      
+      <td>
+        0.0%
+      </td>
+      
+      <td>
+        0.0%
+      </td>
+      
+      <td>
+        0.0%
+      </td>
+      
+      <td>
+        75%
+      </td>
+      
+      <td>
+        4.0
+      </td>
+    </tr>
+    
+    <tr style="text-align: right;">
+      <td>
+        0.40
+      </td>
+      
+      <td>
+        77.62
+      </td>
+      
+      <td>
+        0.1%
+      </td>
+      
+      <td>
+        0.1%
+      </td>
+      
+      <td>
+        0.1%
+      </td>
+      
+      <td>
+        50%
+      </td>
+      
+      <td>
+        3.5
+      </td>
+    </tr>
+    
+    <tr style="text-align: right;">
+      <td>
+        0.45
+      </td>
+      
+      <td>
+        89.74
+      </td>
+      
+      <td>
+        0.9%
+      </td>
+      
+      <td>
+        0.9%
+      </td>
+      
+      <td>
+        0.9%
+      </td>
+      
+      <td>
+        60%
+      </td>
+      
+      <td>
+        4.0
+      </td>
+    </tr>
+    
+    <tr style="text-align: right;">
+      <td>
+        0.50
+      </td>
+      
+      <td>
+        97.99
+      </td>
+      
+      <td>
+        2.6%
+      </td>
+      
+      <td>
+        2.6%
+      </td>
+      
+      <td>
+        2.4%
+      </td>
+      
+      <td>
+        65%
+      </td>
+      
+      <td>
+        4.5
+      </td>
+    </tr>
+    
+    <tr style="text-align: right;">
+      <td>
+        0.55
+      </td>
+      
+      <td>
+        110.23
+      </td>
+      
+      <td>
+        5.4%
+      </td>
+      
+      <td>
+        3.3%
+      </td>
+      
+      <td>
+        2.9%
+      </td>
+      
+      <td>
+        75%
+      </td>
+      
+      <td>
+        4.0
+      </td>
+    </tr>
+    
+    <tr style="text-align: right;">
+      <td>
+        0.60
+      </td>
+      
+      <td>
+        122.56
+      </td>
+      
+      <td>
+        8.8%
+      </td>
+      
+      <td>
+        8.4%
+      </td>
+      
+      <td>
+        8.1%
+      </td>
+      
+      <td>
+        85%
+      </td>
+      
+      <td>
+        6.0
+      </td>
+    </tr>
+    
+    <tr style="text-align: right;">
+      <td>
+        0.70
+      </td>
+      
+      <td>
+        126.98
+      </td>
+      
+      <td>
+        19.3%
+      </td>
+      
+      <td>
+        13.5%
+      </td>
+      
+      <td>
+        11.9%
+      </td>
+      
+      <td>
+        85%
+      </td>
+      
+      <td>
+        5.0
+      </td>
+    </tr>
+    
+    <tr style="text-align: right;">
+      <td>
+        0.80
+      </td>
+      
+      <td>
+        124.34
+      </td>
+      
+      <td>
+        28.5%
+      </td>
+      
+      <td>
+        23.9%
+      </td>
+      
+      <td>
+        22.1%
+      </td>
+      
+      <td>
+        80%
+      </td>
+      
+      <td>
+        6.0
+      </td>
+    </tr>
+    
+    <tr style="text-align: right;">
+      <td>
+        0.90
+      </td>
+      
+      <td>
+        134.70
+      </td>
+      
+      <td>
+        36.9%
+      </td>
+      
+      <td>
+        32.6%
+      </td>
+      
+      <td>
+        29.0%
+      </td>
+      
+      <td>
+        90%
+      </td>
+      
+      <td>
+        6.0
+      </td>
+    </tr>
+    
+    <tr style="text-align: right;">
+      <td>
+        1.00
+      </td>
+      
+      <td>
+        139.22
+      </td>
+      
+      <td>
+        43.3%
+      </td>
+      
+      <td>
+        39.6%
+      </td>
+      
+      <td>
+        36.0%
+      </td>
+      
+      <td>
+        95%
+      </td>
+      
+      <td>
+        6.0
+      </td>
+    </tr>
+  </table>
+  
+  <p>
+    &lt;/small&gt;&lt;/center&gt;
+  </p>
+  
+  <p>
+    That&#8217;s pretty much all we have time for this week. But before we go, let&#8217;s look at the spending profiles for 4 solutions.
+  </p>
+  
+  <p>
+    <center>
+      <em>Figure 14. Spending profiles for selected spending factors </em>
+    </center>
+  </p>
+  
+  <p>
+    Spending factor 0.35; Shortfall risk 0%; Lifetime spend expectancy 90.7; Initial spend 2.0%<br /> <a href="/uploads/2013/02/Rplot57_S35_75_4.png"><img src="/uploads/2013/02/Rplot57_S35_75_4.png" alt="Spend factor .35 Equity 75 Smooth 4" title="Spend factor .35 Equity 75 Smooth 4" width="480" height="320" class="aligncenter size-full wp-image-1879" srcset="/uploads/2013/02/Rplot57_S35_75_4.png 480w, /uploads/2013/02/Rplot57_S35_75_4-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a>
+  </p>
+  
+  <p>
+    Spending factor 0.45; Shortfall risk 0.9%; Lifetime spend expectancy 89.7; Initial spend 2.6%<br /> <a href="/uploads/2013/02/Rplot57_S45_60_4.png"><img src="/uploads/2013/02/Rplot57_S45_60_4.png" alt="Spend factor .45 Equity 60 Smooth 4" title="Spend factor .45 Equity 60 Smooth 4" width="480" height="320" class="aligncenter size-full wp-image-1880" srcset="/uploads/2013/02/Rplot57_S45_60_4.png 480w, /uploads/2013/02/Rplot57_S45_60_4-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a>
+  </p>
+  
+  <p>
+    Spending factor 0.5; Shortfall risk 2.6%; Lifetime spend expectancy 98.0; Initial spend 2.9%<br /> <a href="/uploads/2013/02/Rplot57_S50_65_45.png"><img src="/uploads/2013/02/Rplot57_S50_65_45.png" alt="Spend factor .50 Equity 65 Smooth 4.5" title="Spend factor .50 Equity 65 Smooth 4.5" width="480" height="320" class="aligncenter size-full wp-image-1881" srcset="/uploads/2013/02/Rplot57_S50_65_45.png 480w, /uploads/2013/02/Rplot57_S50_65_45-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a>
+  </p>
+  
+  <p>
+    Spending factor 0.55; Shortfall risk 5.4%; Lifetime spend expectancy 110.2; Initial spend 3.2%<br /> <a href="/uploads/2013/02/Rplot57_S55_75_4.png"><img src="/uploads/2013/02/Rplot57_S55_75_4.png" alt="Spend factor .55 Equity 75 Smooth 4" title="Spend factor .55 Equity 75 Smooth 4" width="480" height="320" class="aligncenter size-full wp-image-1882" srcset="/uploads/2013/02/Rplot57_S55_75_4.png 480w, /uploads/2013/02/Rplot57_S55_75_4-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a>
+  </p>
+  
+  <p>
+    To be 100% safe, we need an initial spending rate below 4% &ndash; keeping in mind that the portfolio and spending usually rises over time at safe withdrawal rates. With this restrictive investment universe, the 4% rule is not 100% safe either, and the last chart is <a href="/uploads/2013/01/Rplot50.png" title="4% profile">a less undesirable spending profile than the 4% fixed spending profile</a> from the last post. On average, total spending is significantly higher, and the worst case is more desirable since it falls short later.
+  </p>
+  
+  <p>
+    Next time, we&#8217;ll look at varying the equity percentage dynamically as you get older, other dynamic rules that might reduce late in life shortfall risk (and the undesirable hump in these curves), and we&#8217;ll talk about what the best possible optimal rule would look like.
+  </p>
+  
+  <p>
+    <small><br /> <sup>1</sup>modulo the increase in spending rate as you age, from our <em>s</em>/life_expectancy rule. The <em>s</em> spending rate stays the same, but the denominator decreases. &lt;/p&gt; 
+    
+    <p>
+      <sup>2</sup>The exponential moving average has a good combination of sensitivity to the underlying series, and smoothing. A simple n-period moving average, which weights all n periods equally, has undesirable properties. In particular, it&#8217;s possible for a simple moving average to move up, when the underlying series is moving below the moving average. Consider this series: 100, 110, 120, 109. A 3-period moving average is after the 3rd element is 110, after the fourth is 113, because the trailing element which left the series (100) is lower than the new element (109).
+    </p>
+    
+    <p>
+      <sup>3</sup>This is not exactly the same as the CAPM efficient frontier. For one thing, instead of return, we plot lifetime spending in inflation-adjusted dollars. For another, instead of volatility, it&#8217;s the probability of a 25% shortfall from the starting spending. It&#8217;s a similar risk v. return plot, but can&#8217;t be interpreted quite the same way (eg adding risk-free cash to find additional feasible/optimal portfolios).
+    </p>
+    
+    <p>
+      &lt;/small&gt;
+    </p>
+</small></p></small></center>
+
+  </div><a class="u-url" href="/2013/02/%E2%80%98cat-food%E2%80%99-revisited-%E2%80%93-testing-dynamic-spending-rules-%E2%80%93-part-2/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">StreetEYE Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">StreetEYE Blog</li><li><a class="u-email" href="mailto:streeteye@streeteye.com">streeteye@streeteye.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/druce"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">druce</span></a></li><li><a href="https://www.linkedin.com/in/drucevertes"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">drucevertes</span></a></li><li><a href="https://www.twitter.com/streeteye"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">streeteye</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Mad Science About Tech, Markets And Political Economy</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
