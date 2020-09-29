@@ -16,10 +16,13 @@
 # site settings
 host: 0.0.0.0
 name: Druce Vertes
+author: Druce Vertes
+copyright: Druce Vertes
 title: StreetEYE Blog
 email: streeteye@streeteye.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Mad Science About Tech, Markets And Political Economy
+  Druce's Mad Science About Tech, Markets And Political Economy
+  
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://blog.streeteye.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: streeteye
