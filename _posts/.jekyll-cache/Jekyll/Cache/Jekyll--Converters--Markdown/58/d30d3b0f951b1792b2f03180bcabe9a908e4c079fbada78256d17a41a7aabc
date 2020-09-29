@@ -1,0 +1,294 @@
+I"�<p>Let’s see if we can come up with an ideal spending plan for a retirement, if you have a guaranteed annual return, for different levels of risk aversion.</p>
+
+<p>It’s probably been done before, but seems like a fun illustration of the power of numerical optimization with Excel, Python and DataNitro.</p>
+
+<!--more-->
+
+<p><strong>A toy problem.</strong></p>
+
+<p>Suppose you are a 111-year-old male, and you would like to know how much to spend the rest of your retirement.</p>
+
+<p>You look up a <a href="http://www.ssa.gov/oact/STATS/table4c6.html">life table</a> – you see it gives you 100% probability of dying this year (rounded – 1 life out of 10,000 survives to 111, 0 to 112)</p>
+
+<p>How much of your portfolio should you spend this year to maximize your lifetime spending?</p>
+
+<p><strong>The answer is obvious — 100%!</strong> There is no risk of shortfall in future years, assuming this life table holds up.</p>
+
+<p>Now let’s suppose you are 110. According to the life table, 2 lives out of 10,000 survive to 110. One shuffles off this mortal coil at 110, the other at 111.</p>
+
+<p>Suppose you have a guaranteed 5% real return. How much should you spend each year to maximize lifetime spending?</p>
+
+<p>If you save $1, you can spend $1.05 if you’re still alive to spend it. But you have only a 50% chance of being alive. So every dollar you save is worth $0.525 in lifetime spending. Every dollar you spend now is worth $1.</p>
+
+<p>So once again, you should spend the entire portfolio!</p>
+
+<p>More generally, as long as the future value is higher than the 1/probability of being alive, you save the entire amount. As soon as the future value is less than 1/probability of being alive, you spend everything.</p>
+
+<p>You spend everything if:</p>
+
+<div>
+  <a href="/uploads/2014/01/Capture1.png"><img src="/uploads/2014/01/Capture1.png" alt="Formula 2" width="136" height="34" class="alignleft size-full wp-image-2563" /></a>
+</div>
+
+<div style="clear:left">
+  or<br /> <a href="/uploads/2014/01/Capture3.png"><img src="/uploads/2014/01/Capture3.png" alt="Capture" width="142" height="52" class="alignleft size-full wp-image-2573" /></a>
+</div>
+
+<div style="clear:left">
+  &nbsp;
+</div>
+
+<p>Otherwise you spend nothing. To maximize lifetime income, you spend nothing until you reach maximum bang for the buck, so to speak, then you spend the entire portfolio.</p>
+
+<p>Of course, in the real world, this is not a recommended or preferred retirement plan.</p>
+
+<p><strong>The CRRA utility function</strong></p>
+
+<p>Real people care about the variability and risk of their income stream. To quantify that, we can use a <em>constant relative risk aversion</em> (CRRA) utility function.</p>
+
+<p>The intuition behind a CRRA utility function is that given a choice between</p>
+
+<p>1) flipping a coin to get either $10 or $15, and</p>
+
+<p>2) a certain $12.50,</p>
+
+<p>the risk-averse retiree prefers a certain payoff to a risky payoff with the same expected value.</p>
+
+<p>The form of a CRRA function is:</p>
+
+<p><a href="/uploads/2014/01/Capture.png"><img src="/uploads/2014/01/Capture.png" alt="CRRA function" width="91" height="41" class="size-full wp-image-2542" /></a></p>
+
+<p>Where U is utility, C is consumption (spending), and γ (gamma) is the risk-aversion coefficient.</p>
+
+<p>A highly risk-averse person (high γ) might value the risky payoff at $11, the certainty-equivalent (CE) value of the coin-flip. A less risk-averse person might want at least $12 (γ =2), and only a risk-neutral person would accept $12.50. No rational person accepts a certain $10 v. a minimum $10 and a chance at $15.</p>
+
+<p>Constant relative risk aversion refers to the property that the size of the bet doesn’t matter – if the certainty-equivalent value of a $100/$150 coin-flip is $120, then the CE value of a $1000/$1500 coin-flip is $1200.</p>
+
+<p>The table below shows certainty equivalent values of a $10/$15, and $100/$150 coin flips for different levels of γ.</p>
+
+<table style="font-size: 12px;">
+  <tr>
+    <td>
+      CE(10,15, γ =8)
+    </td>
+    
+    <td>
+      $10.95
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      CE(10,15, γ =4)
+    </td>
+    
+    <td>
+      $11.56
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      CE(10,15, γ =2)
+    </td>
+    
+    <td>
+      $12.00
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      CE(10,15, γ =1)
+    </td>
+    
+    <td>
+      $12.247
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      CE(10,15, γ =0)
+    </td>
+    
+    <td>
+      $12.50
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    
+    <td>
+      &nbsp;
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      CE(100,150, γ =8)
+    </td>
+    
+    <td>
+      $109.52
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      CE(100,150, γ =4)
+    </td>
+    
+    <td>
+      $115.55
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      CE(100,150, γ =2)
+    </td>
+    
+    <td>
+      $120.00
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      CE(100,150, γ =1)
+    </td>
+    
+    <td>
+      $122.47
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      CE(100,150, γ =0)
+    </td>
+    
+    <td>
+      $125.00
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    
+    <td>
+      &nbsp;
+    </td>
+  </tr>
+</table>
+
+<p>We can similarly discount an uneven stream of cash flows, ie $15 followed by $10, using the same CRRA utility function. It’s just a consistent way of discounting the variability of the income stream, either over time or a probability distribution.</p>
+
+<p>So now, let’s evaluate that 110-year-old’s retirement for different levels of gamma. Let’s find the spending that maximizes the CRRA utility function for different levels of gamma.</p>
+
+<table style="font-size: 12px;">
+  <tr>
+    <td>
+      γ
+    </td>
+    
+    <td>
+      Age 110
+    </td>
+    
+    <td>
+      Age 111
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      γ = 0
+    </td>
+    
+    <td>
+      100%
+    </td>
+    
+    <td>
+      0%
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      γ = 1
+    </td>
+    
+    <td>
+      71.9%
+    </td>
+    
+    <td>
+      100%
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      γ = 2
+    </td>
+    
+    <td>
+      62.7%
+    </td>
+    
+    <td>
+      100%
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      γ = 4
+    </td>
+    
+    <td>
+      59.1%
+    </td>
+    
+    <td>
+      100%
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      γ = 8
+    </td>
+    
+    <td>
+      57.2%
+    </td>
+    
+    <td>
+      100%
+    </td>
+  </tr>
+</table>
+
+<p> </p>
+
+<p>We can go back further, to age 109, 108, 65, even back to age 1. Then we can plot what spending would look like for someone who starts off with a $1m portfolio at birth.</p>
+
+<p><a href="/uploads/2014/01/Capture4.png"><img src="/uploads/2014/01/Capture4.png" alt="&#039;Optimal CE&#039; spending paths for gamma=2,4,8" width="588" height="452" class="alignleft size-full wp-image-2576" srcset="/uploads/2014/01/Capture4.png 588w, /uploads/2014/01/Capture4-300x230.png 300w" sizes="(max-width: 588px) 100vw, 588px" /></a></p>
+
+<p>Voilà! Given a guaranteed 5% real return, and a risk aversion coefficient γ, these are the the spending paths that would have maximized CRRA utility, or certainty-equivalent spending.</p>
+
+<p>Someone who retires at age 65, or any age, could pick the curve that matches their risk aversion, and just use the part of the curve starting at that age, prorating spending to match the size of their initial portfolio.</p>
+
+<p>The intuition of the drop off after age 80 is, to get income at say 95, when your odds of being alive are low, you have to give up a lot of income at say 70. So if you want to maximize lifetime income, buying life insurance, joining an insurance pool and annuitizing those later years makes more sense saving for them all by yourself. Effectively, life insurance is like five people who each need $1 for the year where 20% of them are alive, so each only has to put in $0.20, and the one who lives gets the whole amount.</p>
+
+<p>Hmmh… I wonder if it’s possible to run this same optimization without the 5% real return assumptions, but over historical stock and bond returns instead… <a href="/2014/01/optimal-certainty-equivalent-retirement-plans-part-2/">To be continued</a>.</p>
+:ET

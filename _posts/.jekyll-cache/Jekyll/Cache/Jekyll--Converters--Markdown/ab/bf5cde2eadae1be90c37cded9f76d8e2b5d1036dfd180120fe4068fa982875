@@ -1,0 +1,106 @@
+I"�&<p><em>The first principle [of scientific inquiry] is that you must not fool yourself – and you are the easiest person to fool – Richard Feynman</em></p>
+
+<p><em>In God we trust; all others must bring data. – attributed to W. Edwards Deming (ironically without any primary source backing up the attribution)</em></p>
+
+<p>This Amy Cuddy TED talk was electrifying.</p>
+
+<p>Video spoiler: If you adopt a “power pose” for 2 minutes, Amy Cuddy says it will not only change your posture, image, and attitude, but even your body chemistry, with more production of testosterone and anti-stress hormones.</p>
+
+<p>It’s a great story, which is probably why it’s currently <a href="https://www.ted.com/playlists/171/the_most_popular_talks_of_all">the second most-viewed TED talk</a>.</p>
+
+<p>Unfortunately, the published study <a href="http://datacolada.org/uploads/2015/05/Carney-Cuddy-Yap-2010.pdf">study had only 42 participants</a>. And other studies <a href="http://www.slate.com/articles/health_and_science/science/2016/01/amy_cuddy_s_power_pose_research_is_the_latest_example_of_scientific_overreach.html">haven’t replicated the results on hormone production</a>. Andrew Gelman even uses the opprobrious term <em><a href="http://www.nature.com/news/scientific-method-statistical-errors-1.14700">p-hacking</a></em>: data-mining to find a spectacular result.</p>
+
+<p>The curse of dimensionality: the more things you measure, the more things will significantly deviate from the median.</p>
+
+<p>The math can be counterintuitive.</p>
+
+<p>Take a sample of apples. Grade each apple with a single number, like weight. For a contrived example, let’s say weight is uniformly distributed between 0 and 1.</p>
+
+<p>What percentage of objects lie between 0.25 and 0.75 (the middle 50%?).</p>
+
+<p><a href="/uploads/2016/01/Capture.png"><img class="aligncenter size-full wp-image-4437" src="/uploads/2016/01/Capture.png" alt="50% number line" width="365" height="60" srcset="/uploads/2016/01/Capture.png 365w, /uploads/2016/01/Capture-300x49.png 300w" sizes="(max-width: 365px) 100vw, 365px" /></a></p>
+
+<p>Obviously, the blue line is 50% of the orange line.</p>
+
+<p>Let’s grade apples along 2 dimensions, e.g. weight and redness.</p>
+
+<p>What percentage of objects lie in the middle along both dimensions? Assuming weight and redness are uncorrelated, the answer is 50% squared, i.e. 25%.</p>
+
+<p>How big a circle do we have to select to get to 50% of objects? We have to solve</p>
+
+<p class="ql-center-displayed-equation" style="line-height: 17px;">
+  <span class="ql-right-eqno"> &nbsp; </span><span class="ql-left-eqno"> &nbsp; </span><img src="/wp-content/ql-cache/quicklatex.com-ca6bb157365d495c44813054d379bf2a_l3.png" height="17" width="75" class="ql-img-displayed-equation quicklatex-auto-format" alt="&#92;&#91; &#92;&#80;&#105;&#32;&#114;&#94;&#50;&#32;&#61;&#32;&#48;&#46;&#53; &#92;&#93;" title="Rendered by QuickLaTeX.com" />
+</p>
+
+<p>which gives r = 0.3989.</p>
+
+<p>We see that we need a circle with almost 80% diameter to capture 50% of the square.</p>
+
+<p><a href="/uploads/2016/01/Capture1.png"><img class="aligncenter size-full wp-image-4439" src="/uploads/2016/01/Capture1.png" alt="Number square" width="378" height="365" srcset="/uploads/2016/01/Capture1.png 378w, /uploads/2016/01/Capture1-300x290.png 300w, /uploads/2016/01/Capture1-40x40.png 40w" sizes="(max-width: 378px) 100vw, 378px" /></a></p>
+
+<p>Let’s grade apples along 3 dimensions, e.g. weight, redness, and sweetness.</p>
+
+<p>What range do we have to select to get to 50% of objects? We have to solve</p>
+
+<p class="ql-center-displayed-equation" style="line-height: 36px;">
+  <span class="ql-right-eqno"> &nbsp; </span><span class="ql-left-eqno"> &nbsp; </span><img src="/wp-content/ql-cache/quicklatex.com-fe335cb539f421c3562de8a20a7973b2_l3.png" height="36" width="85" class="ql-img-displayed-equation quicklatex-auto-format" alt="&#92;&#91; &#92;&#100;&#102;&#114;&#97;&#99;&#123;&#52;&#125;&#123;&#51;&#125;&#32;&#92;&#80;&#105;&#32;&#114;&#94;&#51;&#32;&#61;&#32;&#48;&#46;&#53; &#92;&#93;" title="Rendered by QuickLaTeX.com" />
+</p>
+
+<p>which gives r = 0.492373.</p>
+
+<p>We need a sphere with almost 100% diameter to capture 50% of the cube.</p>
+
+<p><a href="/uploads/2016/01/Capture5.png"><img src="/uploads/2016/01/Capture5.png" alt="Sphere in cube" width="382" height="379" class="aligncenter size-full wp-image-4489" srcset="/uploads/2016/01/Capture5.png 382w, /uploads/2016/01/Capture5-150x150.png 150w, /uploads/2016/01/Capture5-300x298.png 300w, /uploads/2016/01/Capture5-40x40.png 40w" sizes="(max-width: 382px) 100vw, 382px" /></a></p>
+
+<p>The point is, as you add more variables, the central 50% (or any x%) contains more and more extreme values. As you add dimensions, the outlying regions get bigger faster.</p>
+
+<p>We can extend to higher dimensions which we can’t visualize, and chart the width of the 50% hypercube as we increase the dimension:</p>
+
+<p><a href="/uploads/2016/01/Capture4.png"><img class="aligncenter size-full wp-image-4458" src="/uploads/2016/01/Capture4.png" alt="Capture" width="375" height="242" srcset="/uploads/2016/01/Capture4.png 375w, /uploads/2016/01/Capture4-300x194.png 300w" sizes="(max-width: 375px) 100vw, 375px" /></a></p>
+
+<p>If you have 14 dimensions, the 50% hypercube is 95% of the length of the unit hypercube.</p>
+
+<p>With enough features, anything or anybody is an outlier on some dimension.</p>
+
+<p>Suppose you do an experiment measuring the variation of testosterone after assuming a power pose.</p>
+
+<p>Suppose the power pose in fact has no effect on the level of testosterone (the ‘null hypothesis’).</p>
+
+<p>If you observe a change due to chance variation, 95% of the time it will be statistically insignificant at the <em>p</em> &gt; 0.05 level, and significant (<em>p</em> &lt; 0.05) 5% of the time.</p>
+
+<p>If testosterone and corticosteroids both exhibit no effect, the measured change in both will be statistically insignificant 0.95 * 0.95 = 90% of the time (assuming no correlation between them). As you measure more variables, the chance of one of them being significant goes up rapidly.</p>
+
+<p>If you measure 14 insignificant variables, there’s a 50% chance one will be significant at the <em>p</em> &lt; 0.05 level.</p>
+
+<p>If you measure 50 insignificant variables, there’s a 92% chance one will be significant. 92% of that 50-dimensional ‘hypercube’ is in its outermost 5% region.</p>
+
+<p>That’s how you get a prank paper to go viral showing <a href="http://io9.gizmodo.com/i-fooled-millions-into-thinking-chocolate-helps-weight-1707251800">chocolate helps people lose weight</a>.</p>
+
+<p>This sort of thing could be avoided if it was standard practice to hold back some test data, and do an out-of-sample test on any scientific finding. The methodology as practiced, to assume errors are unsystematic, and report <em>p</em>-values and significance on that basis, even on small samples tested for multiple relationships, seems weak and unscientific.</p>
+
+<p>Returning to Amy Cuddy, you can interpret this a couple of different ways.</p>
+
+<p>One interpretation: Statistics do not back up her story, that power poses raise hormone levels.</p>
+
+<p>Another interpretation: Statistical methods are weak at finding complex stories, and you have to come up with a story to understand the world, and look for statistical confirmation where you can find it.</p>
+
+<p>Acting with confidence and joy is contagious, to your own psyche and how others view you. That’s a story. Stories let humans understand and remember very complex phenomena.</p>
+
+<p>For instance, attach a story related to their personal experience, and <a href="https://www.psychologytoday.com/blog/the-imprinted-brain/201205/making-sense-wason">people solve tricky logic problems easily</a>. Show them the same version as an abstract math problem, they fail miserably.</p>
+
+<p>Feynman, quoted above about not fooling yourself, also said you must <a href="http://realphysics.blogspot.com/2011/06/physical-intuition-not-mathematics.html">develop your intuition</a>, thinking through <a href="https://books.google.com/books?id=7papZR4oVssC&amp;pg=PA85&amp;lpg=PA85#v=onepage&amp;q&amp;f=false">examples</a> and understanding the story of how things work as more than mathematical abstractions.</p>
+
+<p><em>Stories are powerful.</em> The more interesting things in the universe are complex interactions, like stories: evolution, the Big Bang, the French Revolution.</p>
+
+<p>The curse of dimensionality means that as you absorb more features of the world, the possible states and explanations and oddities rise according to factorials and exponents. Things get curiouser and curiouser. There are complex interactions that can’t easily be explained. <em>Stories are how humans make sense of a complex world.</em></p>
+
+<p><a href="http://www.nytimes.com/2016/01/24/upshot/how-stories-drive-the-stock-market.html?_r=0">Stories can mislead</a>. A great story can be spurious, T. H. Huxley’s <em>“great tragedy of science – the slaying of a beautiful hypothesis by an ugly fact.”</em></p>
+
+<p>Stories are a powerful shortcut (<a href="http://www.amazon.com/Thinking-Fast-Slow-Daniel-Kahneman/dp/0374533555">Kahneman’s</a> ‘thinking fast.’). But they are a shortcut that can lead you astray, so you also need to stop from time to time and make sure you know where you are going (Kahneman’s ‘thinking slow’).</p>
+
+<p>So use your evolution-given power to understand complexity through narrative — <em>but check the math</em>.</p>
+
+<p>Even if poses don’t elevate hormone levels, Superman and Wonder Woman were depicted that way for a reason. Don’t slouch through life due to lack of statistical evidence you shouldn’t!</p>
+
+<p>(<a href="/uploads/2016/01/curse_of_dimensionality.nb">Mathematica notebook.</a>)</p>
+:ET
