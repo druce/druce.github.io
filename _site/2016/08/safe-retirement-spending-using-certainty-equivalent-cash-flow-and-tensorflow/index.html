@@ -1,54 +1,172 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Safe Retirement Spending Using Certainty Equivalent Cash Flow and TensorFlow | StreetEYE Blog</title>
-<meta name="generator" content="Jekyll v3.9.0" />
-<meta property="og:title" content="Safe Retirement Spending Using Certainty Equivalent Cash Flow and TensorFlow" />
-<meta name="author" content="Druce Vertes, CFA" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="This is not investment advice! This is a historical study/mad science experiment. It may not be applicable to you, it is a work in progress, and it may contain errors." />
-<meta property="og:description" content="This is not investment advice! This is a historical study/mad science experiment. It may not be applicable to you, it is a work in progress, and it may contain errors." />
-<link rel="canonical" href="http://0.0.0.0:4000/2016/08/safe-retirement-spending-using-certainty-equivalent-cash-flow-and-tensorflow/" />
-<meta property="og:url" content="http://0.0.0.0:4000/2016/08/safe-retirement-spending-using-certainty-equivalent-cash-flow-and-tensorflow/" />
-<meta property="og:site_name" content="StreetEYE Blog" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2016-08-28T14:51:35+00:00" />
-<script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Safe Retirement Spending Using Certainty Equivalent Cash Flow and TensorFlow","dateModified":"2016-08-28T14:51:35+00:00","datePublished":"2016-08-28T14:51:35+00:00","url":"http://0.0.0.0:4000/2016/08/safe-retirement-spending-using-certainty-equivalent-cash-flow-and-tensorflow/","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/2016/08/safe-retirement-spending-using-certainty-equivalent-cash-flow-and-tensorflow/"},"author":{"@type":"Person","name":"Druce Vertes, CFA"},"description":"This is not investment advice! This is a historical study/mad science experiment. It may not be applicable to you, it is a work in progress, and it may contain errors.","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="StreetEYE Blog" /></head>
-<body><header class="site-header" role="banner">
+<html lang="en">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">StreetEYE Blog</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
+  <head>
+    
+      
 
-        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
-      </nav></div>
+
+
+
+
+
+    
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Safe Retirement Spending Using Certainty Equivalent Values and TensorFlow</title>
+
+    <meta name="description" content="Certainty equivalent value is the concept of applying a discount to a stream of cash flows based on how variable or risky the stream is…like the inverse func...">
+
+    <meta content="StreetEYE Blog" property="og:site_name">
+    
+        <meta content="Safe Retirement Spending Using Certainty Equivalent Values and TensorFlow" property="og:title">
+    
+    
+        <meta content="article" property="og:type">
+    
+    
+        <meta content="Certainty equivalent value is the concept of applying a discount to a stream of cash flows based on how variable or risky the stream is…like the inverse function of the risk premium." property="og:description">
+    
+    
+        <meta content="http://0.0.0.0:4000/2016/08/safe-retirement-spending-using-certainty-equivalent-cash-flow-and-tensorflow/" property="og:url">
+    
+    
+        <meta content="2016-08-28T10:51:35-04:00" property="article:published_time">
+        <meta content="http://0.0.0.0:4000/about/" property="article:author">
+    
+    
+    
+        
+        <meta content="markets" property="article:tag">
+        
+        <meta content="retirement" property="article:tag">
+        
+    
+
+    <link rel="shortcut icon" href="/assets/favicon_peach.ico">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="canonical" href="http://0.0.0.0:4000/2016/08/safe-retirement-spending-using-certainty-equivalent-cash-flow-and-tensorflow/">
+
+    <!-- For Latex -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-8161570-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <!-- For Facebook share button -->
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Twitter cards -->
+    <meta name="twitter:site"    content="@streeteye">
+    <meta name="twitter:creator" content="@Druce Vertes">
+    <meta name="twitter:title"   content="Safe Retirement Spending Using Certainty Equivalent Values and TensorFlow">
+
+    
+        <meta name="twitter:description" content="<blockquote>
+  <p><em><a href="http://www.investopedia.com/terms/c/certaintyequivalent.asp">Certainty equivalent</a> value is the concept of applying a discount to a stream of cash flows based on how variable or risky the stream is…like the inverse function of the risk premium.</em></p>
+</blockquote>
+
+">
+    
+
+    
+        <meta name="twitter:card"  content="summary">
+        <meta name="twitter:image" content="">
+    
+    <!-- end of Twitter cards -->
+
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner" id='header-bar'>
+
+    <div class="wrapper">
+        
+        <a class="site-title" href="/">StreetEYE Blog</a>
+
+        <nav class="site-nav">
+            <a class="page-link" href="/contact.html">&#x1f984; Contact</a>
+        </nav>
+        <nav class="site-nav">
+            <a class="page-link" href="/FAQ.html">&#x1F64B; FAQ</a>
+        </nav>
+        <!-- <nav class="site-nav">
+            <a class="page-link" href="/log.html">&#x231b; Log</a>
+        </nav> -->
+        <nav class="site-nav">
+            <a class="page-link" href="/archive.html">&#x231b; Archive</a>
+        </nav>
+
+    </div>
+
 </header>
-<main class="page-content" aria-label="Content">
+
+
+    <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Safe Retirement Spending Using Certainty Equivalent Cash Flow and TensorFlow</h1>
+    <h1 class="post-title" itemprop="name headline">Safe Retirement Spending Using Certainty Equivalent Values and TensorFlow</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2016-08-28T14:51:35+00:00" itemprop="datePublished">Aug 28, 2016
-      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Druce Vertes, CFA</span></span></p>
+
+      <time datetime="2016-08-28T10:51:35-04:00" itemprop="datePublished">
+        
+        Aug 28, 2016
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        by <span itemprop="name">Druce Vertes</span>
+      </span>
+
+      <span>
+        
+          
+          <a class="post-tag" href="/lil-log/tag/markets"><nobr>markets</nobr>&nbsp;</a>
+        
+          
+          <a class="post-tag" href="/lil-log/tag/retirement"><nobr>retirement</nobr>&nbsp;</a>
+        
+      </span>
+      <!--
+      <span class="share-buttons">
+        <span class="share-button"><a class="twitter-share-button" href="https://twitter.com/share" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></span>
+
+        <span class="share-button"><span class="fb-like" data-href="/2016/08/safe-retirement-spending-using-certainty-equivalent-cash-flow-and-tensorflow/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></span></span>
+      </span>
+      <div style="clear: both;"/>
+      -->
+
+    </p>
   </header>
 
-  <div class="post-content e-content" itemprop="articleBody">
-    <p><em>This is not investment advice! This is a historical study/mad science experiment. It may not be applicable to you, it is a work in progress, and it may contain errors.</em></p>
-
-<p><em><a href="http://www.investopedia.com/terms/c/certaintyequivalent.asp">Certainty equivalent</a></em> value is the concept of applying a discount to a stream of cash flows based on how variable or risky the stream is…like the inverse function of the risk premium.</p>
+  <div class="post-content" itemprop="articleBody">
+    <blockquote>
+  <p><em><a href="http://www.investopedia.com/terms/c/certaintyequivalent.asp">Certainty equivalent</a> value is the concept of applying a discount to a stream of cash flows based on how variable or risky the stream is…like the inverse function of the risk premium.</em>
+<!--more--></p>
+</blockquote>
 
 <p><em>TensorFlow</em> is a <a href="https://www.tensorflow.org/">machine learning framework that Google released</a> last November 2015. TensorFlow is a powerful tool to find optimal solutions to machine learning problems, like neural networks in Google’s search platform.<sup><small><a href="#1">1</a></small></sup></p>
 
@@ -56,12 +174,14 @@
 
 <p>It’s an interesting problem; <em>maybe</em> it’s an interesting and/or original solution, and if nothing else it’s a starter code example for how one can use TensorFlow to solve an optimization problem like this.</p>
 
+<p>This is not investment advice! This is a historical study/mad science experiment. It may not be applicable to you, it is a work in progress, and it may contain errors.</p>
+
 <p><em>1) The solution.</em></p>
 
 <p>To cut to the chase, here is an estimate of the asset allocation and spending plan for a 30-year retirement, that would have maximized certainty-equivalent cash flow for a somewhat risk-averse retiree over the last 59 years:</p>
 
 <div id="attachment_5215" style="width: 508px" class="wp-caption aligncenter">
-  <a href="/uploads/2016/08/download-4.png"><img class="wp-image-5215 size-full" src="/uploads/2016/08/download-4.png" alt="Spending paths, 30-year retirements, 1928-1986, γ = 8" width="498" height="383" /></a>
+  <a href="/assets/wp-content/uploads/2016/08/download-4.png"><img class="wp-image-5215 size-full" src="/assets/wp-content/uploads/2016/08/download-4.png" alt="Spending paths, 30-year retirements, 1928-1986, γ = 8" width="498" height="383" /></a>
   
   <p class="wp-caption-text">
     Spending paths, 30-year retirements, 1928-1986, γ = 8
@@ -84,7 +204,7 @@
   <li>Column 1: A fixed inflation-adjusted amount you withdraw by year. In this example we start with a portfolio of $100, so each year you withdraw $1.803, or 1.803% of the <em>starting</em> portfolio. This amount stays the same in inflation-adjusted terms for all 30 years of retirement. (All dollar numbers in the model are constant dollars after inflation. In a real-world scenario, you would initially withdraw 1.803% of your starting portfolio and increase nominal withdrawal by the change in CPI to keep purchasing power constant.)</li>
   <li>Column 2: A variable % of your portfolio you withdraw by year, which increases over time. So in year 25 you would spend $1.803 in constant dollars <em>plus</em> 10.92% of the current value of the portfolio.</li>
   <li>Column 3: The percentage of your portfolio you allocate to stocks by year, which declines over time.</li>
-  <li>Column 4: The amount allocated to Treasurys, which increases over time (1 – stocks).</li>
+  <li>Column 4: The amount allocated to Treasurys, which increases over time (1 _ stocks).</li>
   <li>Column 5: The mean amount you would have been able to spend by year if you had followed this plan, you retired in years 1928-1985 and you enjoyed a 30-year retirement.</li>
   <li>Column 6: The worst case spending across all cohorts by year.</li>
   <li>Column 7: The best case spending by year.</li>
@@ -118,7 +238,7 @@
 
 <p>How do we calculate certainty-equivalent cash flow? For a series of cash flows, we calculate the average CRRA utility of the cash flows as:</p>
 
-<p><img src="/wp-content/ql-cache/quicklatex.com-0f83ffca03918fadad9b6eb4a9eb516d_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#85;&#61;&#92;&#102;&#114;&#97;&#99;&#123;&#49;&#125;&#123;&#110;&#125;&#92;&#115;&#117;&#109;&#95;&#123;&#105;&#125;&#92;&#102;&#114;&#97;&#99;&#123;&#67;&#95;&#105;&#94;&#123;&#49;&#45;&#92;&#103;&#97;&#109;&#109;&#97;&#125;&#45;&#49;&#125;&#123;&#49;&#45;&#92;&#103;&#97;&#109;&#109;&#97;&#125;" title="Rendered by QuickLaTeX.com" height="32" width="133" style="vertical-align: -9px;" /></p>
+<p><img src="/assets/wp-content/ql-cache/quicklatex.com-0f83ffca03918fadad9b6eb4a9eb516d_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#85;&#61;&#92;&#102;&#114;&#97;&#99;&#123;&#49;&#125;&#123;&#110;&#125;&#92;&#115;&#117;&#109;&#95;&#123;&#105;&#125;&#92;&#102;&#114;&#97;&#99;&#123;&#67;&#95;&#105;&#94;&#123;&#49;&#45;&#92;&#103;&#97;&#109;&#109;&#97;&#125;&#45;&#49;&#125;&#123;&#49;&#45;&#92;&#103;&#97;&#109;&#109;&#97;&#125;" title="Rendered by QuickLaTeX.com" height="32" width="133" style="vertical-align: -9px;" /></p>
 
 <p>Using the formula above, we</p>
 
@@ -130,14 +250,14 @@
 
 <p>Then we can convert the utility back to certainty equivalent cash flow using the inverse of the above formula:</p>
 
-<p><img src="/wp-content/ql-cache/quicklatex.com-c25c403ab128ed475f81a0254614bb9b_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#67;&#69;&#32;&#61;&#32;&#091;&#85;&#40;&#49;&#45;&#92;&#103;&#97;&#109;&#109;&#97;&#41;&#32;&#43;&#32;&#49;&#093;&#32;&#94;&#32;&#123;&#92;&#102;&#114;&#97;&#99;&#123;&#49;&#125;&#123;&#49;&#45;&#92;&#103;&#97;&#109;&#109;&#97;&#125;&#125;&#32;" title="Rendered by QuickLaTeX.com" height="26" width="186" style="vertical-align: -5px;" /></p>
+<p><img src="/assets/wp-content/ql-cache/quicklatex.com-c25c403ab128ed475f81a0254614bb9b_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#67;&#69;&#32;&#61;&#32;&#091;&#85;&#40;&#49;&#45;&#92;&#103;&#97;&#109;&#109;&#97;&#41;&#32;&#43;&#32;&#49;&#093;&#32;&#94;&#32;&#123;&#92;&#102;&#114;&#97;&#99;&#123;&#49;&#125;&#123;&#49;&#45;&#92;&#103;&#97;&#109;&#109;&#97;&#125;&#125;&#32;" title="Rendered by QuickLaTeX.com" height="26" width="186" style="vertical-align: -5px;" /></p>
 
 <p>This formula tells us that a variable stream of cash flows <em>C<sub><small>i</small></sub></em> over <em>n</em> years is worth the same to us as a steady and certain value of <em>CE</em> each year for <em>n</em> years.</p>
 
 <p>No need to sweat the formula too much. Here’s a plot of what CRRA utility looks like for different levels of γ.</p>
 
 <div id="attachment_5282" style="width: 402px" class="wp-caption aligncenter">
-  <a href="/uploads/2016/08/Capture-1.png"><img src="/uploads/2016/08/Capture-1.png" alt="CRRA utility vs. cash flow for selected values of γ" width="392" height="267" class="size-full wp-image-5282" srcset="/uploads/2016/08/Capture-1.png 392w, /uploads/2016/08/Capture-1-300x204.png 300w" sizes="(max-width: 392px) 100vw, 392px" /></a>
+  <a href="/assets/wp-content/uploads/2016/08/Capture-1.png"><img src="/assets/wp-content/uploads/2016/08/Capture-1.png" alt="CRRA utility vs. cash flow for selected values of γ" width="392" height="267" class="size-full wp-image-5282" srcset="/assets/wp-content/uploads/2016/08/Capture-1.png 392w, /assets/wp-content/uploads/2016/08/Capture-1-300x204.png 300w" sizes="(max-width: 392px) 100vw, 392px" /></a>
   
   <p class="wp-caption-text">
     CRRA utility vs. cash flow for selected values of γ
@@ -1342,34 +1462,48 @@
 
 <p><sup><small><a name="3"></a>3</small></sup> Bengen used intermediate corporates as a bond proxy. They have a higher return than Treasurys. I would use the same data, but it would involve a trip to the library or possibly a Bloomberg. I used this <a href="http://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histretSP.html">easily available data</a>. At some point I can run an update so it is comparable to Bengen’s result.</p>
 
-  </div><a class="u-url" href="/2016/08/safe-retirement-spending-using-certainty-equivalent-cash-flow-and-tensorflow/" hidden></a>
+  </div>
+
+
+  <div class="page-navigation">
+    
+      <a class="prev" href="/2016/08/the-game-theory-of-assholes/">&larr; The Game Theory of Assholes</a>
+    
+
+    
+      <a class="next" href="/2016/11/everyone-lives-in-a-bubble-and-all-models-are-overfitted/">Everyone lives in a bubble, and all models are overfitted &rarr;</a>
+    
+  </div>
+
+  
+
 </article>
 
       </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/"></data>
+    </main>
 
-  <div class="wrapper">
+    <div style="clear: both;"/>
+<footer class="site-footer">
+    2019 &copy; Built by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> and <a href="https://github.com/jekyll/minima/" target="_blank">minima</a> | View <a href="https://github.com/druce/druce.github.io" target="_blank">this</a> on Github | <a href="/tags.html">Tags</a> | <a href="/contact.html">Contact</a> | <a href="/FAQ.html">FAQ</a>
 
-    <h2 class="footer-heading">StreetEYE Blog</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">Druce Vertes</li><li><a class="u-email" href="mailto:streeteye@streeteye.com">streeteye@streeteye.com</a></li></ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://www.twitter.com/streeteye"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">streeteye</span></a></li><li><a href="https://www.linkedin.com/in/drucevertes"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">drucevertes</span></a></li><li><a href="https://github.com/druce"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">druce</span></a></li></ul>
-</div>
-
-      <div class="footer-col footer-col-3">
-        <p>&copy; Druce Vertes 2020 <br />Druce&#39;s Mad Science About Tech, Markets And Political Economy</p>
-      </div>
-    </div>
-
-  </div>
-
+    <p>
+        <a href="/feed.xml" target="_blank">
+            <img src="/assets/images/logo_rss.png" />
+        </a>
+        <a href="https://twitter.com/streeteye/" target="_blank">
+            <img src="/assets/images/logo_twitter.png" />
+        </a>
+        <a href="https://github.com/druce" target="_blank">
+            <img src="/assets/images/logo_github.png" />
+        </a>
+        <a href="https://www.linkedin.com/in/drucevertes" target="_blank">
+            <img src="/assets/images/logo_github.png" />
+        </a>
+	
+    </p>
 </footer>
-</body>
+
+
+  </body>
 
 </html>

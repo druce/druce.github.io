@@ -15,10 +15,10 @@ categories:
 ---
 [Last time](/2014/01/2534/) we solved the problem of the perfect retirement _spending plan_, assuming a _fixed known real return_, and a _CRRA utility function_.
 
-This time, we&#8217;ll try to look at the problem from the other angle:
+This time, we’ll try to look at the problem from the other angle:
 
-  * Let&#8217;s assume a **fixed spending schedule** 
-      * Then, let&#8217;s solve the problem of the perfect **portfolio allocation schedule** between US stocks and bonds (of course, the approach could be generalized to other/more assets) </ul> 
+  * Let’s assume a **fixed spending schedule** 
+      * Then, let’s solve the problem of the perfect **portfolio allocation schedule** between US stocks and bonds (of course, the approach could be generalized to other/more assets) </ul> 
         First, a brief digression to make the case that a CRRA utility function is a good thing to use.
         
         **CRRA utility**
@@ -27,15 +27,15 @@ This time, we&#8217;ll try to look at the problem from the other angle:
         
         
         
-        Think of 1 as the ideal income or base case, where utility=0. With risk neutrality or gamma=0, gains and losses generate the same change in utility. As risk aversion increases and gamma goes up, small losses generate bigger and bigger drops in utility, while big gains generate smaller and smaller increases in utility. A &#8216;no-loss&#8217; utility function with gamma=&infin; would be utility=0 for consumption >=1 and a straight line down to -&infin; for consumption<1. One possible objection is, OMG, _CRRA utility is such a strange complicated abstraction!_ No one actually thinks that way. 
+        Think of 1 as the ideal income or base case, where utility=0. With risk neutrality or gamma=0, gains and losses generate the same change in utility. As risk aversion increases and gamma goes up, small losses generate bigger and bigger drops in utility, while big gains generate smaller and smaller increases in utility. A ‘no-loss’ utility function with gamma=&infin; would be utility=0 for consumption >=1 and a straight line down to -&infin; for consumption<1. One possible objection is, OMG, _CRRA utility is such a strange complicated abstraction!_ No one actually thinks that way. 
         
-        But we&#8217;re all used to thinking about mean-variance (or some of us, anyway). Clearly there is a tradeoff between the volatility of a portfolio, the distribution of potential outcomes, and the return we are willing to accept. So at some level a lot of our thinking about finance involves something very similar to applying a discount to future income streams based on how risky and volatile they are. That&#8217;s what the CRRA utility function does &#8211; apply a discount based on distribution of outcomes or volatility.
+        But we’re all used to thinking about mean-variance (or some of us, anyway). Clearly there is a tradeoff between the volatility of a portfolio, the distribution of potential outcomes, and the return we are willing to accept. So at some level a lot of our thinking about finance involves something very similar to applying a discount to future income streams based on how risky and volatile they are. That’s what the CRRA utility function does _ apply a discount based on distribution of outcomes or volatility.
         
-        Another possible objection is, _&#8216;utility&#8217; is unobservable in the real world_. 
+        Another possible objection is, _‘utility’ is unobservable in the real world_. 
         
-        But if the utility function correctly ranks the outcomes consistently with the way a human would, at some level that&#8217;s all that matters<small><sup>1</sup></small>. The actual value is arbitrary. And as far as I know, any consistent ordinal ranking can be mapped to a cardinal utility function. And we can ask people which outcomes they prefer, either a priori asking them to rank risky outcomes to estimate their risk aversion, or simply generating CRRA-consistent retirement profiles with varying levels of risk aversion, and asking them to choose one.
+        But if the utility function correctly ranks the outcomes consistently with the way a human would, at some level that’s all that matters<small><sup>1</sup></small>. The actual value is arbitrary. And as far as I know, any consistent ordinal ranking can be mapped to a cardinal utility function. And we can ask people which outcomes they prefer, either a priori asking them to rank risky outcomes to estimate their risk aversion, or simply generating CRRA-consistent retirement profiles with varying levels of risk aversion, and asking them to choose one.
         
-        _Finally, why CRRA utility?_ The important property of CRRA utility is that it&#8217;s scale-invariant. A distribution of cashflows between 10 and 15 gets the same discount as a similar distribution between 100 and 150. So if you use a non-CRRA function, you&#8217;re going to get different answers depending on the size of the income streams that get generated. 
+        _Finally, why CRRA utility?_ The important property of CRRA utility is that it’s scale-invariant. A distribution of cashflows between 10 and 15 gets the same discount as a similar distribution between 100 and 150. So if you use a non-CRRA function, you’re going to get different answers depending on the size of the income streams that get generated. 
         
         So, if we think that, to reasonable approximations, humans are risk averse, they make consistent choices about risky outcomes, and their risk aversion is scale invariant over the range of outcomes we are studying, a CRRA utility function seems like a reasonable thing to use, as an approximation that leads to a problem we can solve. 
         
@@ -49,14 +49,14 @@ This time, we&#8217;ll try to look at the problem from the other angle:
         
         We write a function that for a given cohort, eg people who retired in 1987:
         
-          * Takes as input the equity % in each year (a 1&#215;25 vector &#8211; the bond% is implied as 1-equity%)
+          * Takes as input the equity % in each year (a 1&#215;25 vector _ the bond% is implied as 1-equity%)
           * Uses the known returns for the 25 years 1987-2012, and the known spending schedule, to compute the retirement cash flows
           * Returns the certainty-equivalent cash flow for the 25-year period.
         
         Now that we can calculate the CE spending over 25 years, we can write a second function that
         
           * Takes as input the cash flows for a period
-          * Uses our life table with how many people survived in each year, and computes the expected value of the CE spending that 1987 retiree would have expected across all survival scenarios. (Since some people died in each year, it&#8217;s the CE cash flow through each year _i_ of retirement, weighted by the percentage of retirees who lived to year _i_)
+          * Uses our life table with how many people survived in each year, and computes the expected value of the CE spending that 1987 retiree would have expected across all survival scenarios. (Since some people died in each year, it’s the CE cash flow through each year _i_ of retirement, weighted by the percentage of retirees who lived to year _i_)
         
         We can further write a third function that calls the second function on each cohort from 1926-1987, and computes the CE spending that each cohort retiring from 1926-1990 would have expected. That gives a distribution of outcomes which we also discount using the CRRA utility function, giving us what we want: the expected CE spending for someone who retired in a random year 1926-1990.
         
@@ -72,7 +72,7 @@ This time, we&#8217;ll try to look at the problem from the other angle:
         
         The optimal retirement plan is the one that would have maximized expected utility over all historical cohorts and survival timelines.
         
-        This does not seem completely computationally intractable in this day and age, so let&#8217;s try to compute it.
+        This does not seem completely computationally intractable in this day and age, so let’s try to compute it.
         
         We add to our code from last time to 
         
@@ -460,7 +460,7 @@ This time, we&#8217;ll try to look at the problem from the other angle:
         </p>
         
         <p>
-          Let&#8217;s look at what that expected spending profile would have looked like.
+          Let’s look at what that expected spending profile would have looked like.
         </p>
         
         <p>
@@ -468,7 +468,7 @@ This time, we&#8217;ll try to look at the problem from the other angle:
         </p>
         
         <p>
-          <a href="/uploads/2014/01/Capture6.png"><img src="/uploads/2014/01/Capture6.png" alt="Actual Spending using computed schedule w/gamma=4, 25-year retirement cohorts 1926-1987" width="506" height="278" class="aligncenter size-full wp-image-2623" srcset="/uploads/2014/01/Capture6.png 506w, /uploads/2014/01/Capture6-300x164.png 300w" sizes="(max-width: 506px) 100vw, 506px" /></a>
+          <a href="/assets/wp-content/uploads/2014/01/Capture6.png"><img src="/assets/wp-content/uploads/2014/01/Capture6.png" alt="Actual Spending using computed schedule w/gamma=4, 25-year retirement cohorts 1926-1987" width="506" height="278" class="aligncenter size-full wp-image-2623" srcset="/assets/wp-content/uploads/2014/01/Capture6.png 506w, /assets/wp-content/uploads/2014/01/Capture6-300x164.png 300w" sizes="(max-width: 506px) 100vw, 506px" /></a>
         </p>
         
         <p>
@@ -480,9 +480,9 @@ This time, we&#8217;ll try to look at the problem from the other angle:
         </p>
         
         <p>
-          In a future post, we&#8217;ll see if we can determine both simultaneously &#8211; an optimal spending plan and portfolio allocation for a given level of risk aversion.
+          In a future post, we’ll see if we can determine both simultaneously _ an optimal spending plan and portfolio allocation for a given level of risk aversion.
         </p>
         
         <p>
-          <small><sup>1</sup></small>If, on the other hand, humans care about things like the order in which income streams are experienced, ie you prefer an income of 10 followed by an income of 15 to the other way around, then CRRA utility is not going to capture that. Then maybe we need to move to a Kahneman-Tversky prospect theory utility function. And if people&#8217;s risk aversion changes over time, for instance at market peaks at troughs, then that&#8217;s also a problem.
+          <small><sup>1</sup></small>If, on the other hand, humans care about things like the order in which income streams are experienced, ie you prefer an income of 10 followed by an income of 15 to the other way around, then CRRA utility is not going to capture that. Then maybe we need to move to a Kahneman-Tversky prospect theory utility function. And if people’s risk aversion changes over time, for instance at market peaks at troughs, then that’s also a problem.
         </p>

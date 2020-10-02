@@ -21,6 +21,6 @@ A few years old, but new to me: [an interesting perspective from Yegor Gaidar](h
 
 &bull; At first the Soviets paid for food with foreign reserves, then they borrowed. But then they began to reach the limits of their credit.
 
-&bull; Part of Gorbachev&#8217;s reforms were with the idea of becoming a country the West would lend to, even provide state guarantees in exchange for reform.
+&bull; Part of Gorbachev’s reforms were with the idea of becoming a country the West would lend to, even provide state guarantees in exchange for reform.
 
-That didn&#8217;t work out too well. As Brzezinski later said, the Soviet Union could be an empire or a democracy, but not both. Once they showed weakness, everyone wanted out.
+That didn’t work out too well. As Brzezinski later said, the Soviet Union could be an empire or a democracy, but not both. Once they showed weakness, everyone wanted out.

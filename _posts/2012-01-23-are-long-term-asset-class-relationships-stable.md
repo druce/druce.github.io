@@ -20,31 +20,31 @@ I was curious about how stable those relationships would be over time, so I ran 
 
   
 **Original analysis: 1928-2010:**  
-[<img src="/uploads/2012/01/efrontier.png" alt="Efficient frontier, 1928-2010" title="Efficient frontier, 1928-2010" width="480" height="360" class="size-full wp-image-963" />](/uploads/2012/01/efrontier.png)[<img src="/uploads/2012/01/transition.png" alt="Transition map, 1928-2010" title="Transition map, 1928-2010" width="480" height="360" class="size-full wp-image-964" />](/uploads/2012/01/transition.png)
+[<img src="/assets/wp-content/uploads/2012/01/efrontier.png" alt="Efficient frontier, 1928-2010" title="Efficient frontier, 1928-2010" width="480" height="360" class="size-full wp-image-963" />](/assets/wp-content/uploads/2012/01/efrontier.png)[<img src="/assets/wp-content/uploads/2012/01/transition.png" alt="Transition map, 1928-2010" title="Transition map, 1928-2010" width="480" height="360" class="size-full wp-image-964" />](/assets/wp-content/uploads/2012/01/transition.png)
 
 (The transition map shows you the composition of the maximum return portfolio for each level of risk.)
 
 **1946-2010, Post-war, since Bretton Woods:**
 
-[<img src="/uploads/2012/01/ltg21.png" alt="Efficient frontier, 1946-2010" title="Efficient frontier, 1946-2010" width="300" height="225" class="size-full wp-image-967" />](/uploads/2012/01/ltg21.png)[<img src="/uploads/2012/01/ltg22.png" alt="Transition map, 1946-2010" title="Transition map, 1946-2010" width="300" height="225" class="size-full wp-image-968" />](/uploads/2012/01/ltg22.png)
+[<img src="/assets/wp-content/uploads/2012/01/ltg21.png" alt="Efficient frontier, 1946-2010" title="Efficient frontier, 1946-2010" width="300" height="225" class="size-full wp-image-967" />](/assets/wp-content/uploads/2012/01/ltg21.png)[<img src="/assets/wp-content/uploads/2012/01/ltg22.png" alt="Transition map, 1946-2010" title="Transition map, 1946-2010" width="300" height="225" class="size-full wp-image-968" />](/assets/wp-content/uploads/2012/01/ltg22.png)
 
 **1972-2010, Post-war, post-gold standard:**
 
-[<img src="/uploads/2012/01/ltg31.png" alt="Efficient frontier, 1972-2010" title="Efficient frontier, 1972-2010" width="300" height="225" class="alignnone size-full wp-image-972" />](/uploads/2012/01/ltg31.png)[<img src="/uploads/2012/01/ltg32.png" alt="Transition map, 1972-2010" title="Transition map, 1972-2010" width="300" height="225" class="alignnone size-full wp-image-973" />](/uploads/2012/01/ltg32.png)
+[<img src="/assets/wp-content/uploads/2012/01/ltg31.png" alt="Efficient frontier, 1972-2010" title="Efficient frontier, 1972-2010" width="300" height="225" class="alignnone size-full wp-image-972" />](/assets/wp-content/uploads/2012/01/ltg31.png)[<img src="/assets/wp-content/uploads/2012/01/ltg32.png" alt="Transition map, 1972-2010" title="Transition map, 1972-2010" width="300" height="225" class="alignnone size-full wp-image-973" />](/assets/wp-content/uploads/2012/01/ltg32.png)
 
 **1982-2010, Era of disinflation, globalization:**
 
-[<img src="/uploads/2012/01/ltg41.png" alt="Efficient frontier, 1982-2010" title="Efficient frontier, 1982-2010" width="300" height="225" class="alignnone size-full wp-image-975" />](/uploads/2012/01/ltg41.png)[<img src="/uploads/2012/01/ltg42.png" alt="Transition map, 1982-2010" title="Transition map, 1982-2010" width="300" height="225" class="alignnone size-full wp-image-976" />](/uploads/2012/01/ltg42.png)
+[<img src="/assets/wp-content/uploads/2012/01/ltg41.png" alt="Efficient frontier, 1982-2010" title="Efficient frontier, 1982-2010" width="300" height="225" class="alignnone size-full wp-image-975" />](/assets/wp-content/uploads/2012/01/ltg41.png)[<img src="/assets/wp-content/uploads/2012/01/ltg42.png" alt="Transition map, 1982-2010" title="Transition map, 1982-2010" width="300" height="225" class="alignnone size-full wp-image-976" />](/assets/wp-content/uploads/2012/01/ltg42.png)
 
 This is interesting, since it shows how poorly gold has performed since 1982, an era of low inflation, the dollar standard, and decreasing holdings of gold by central banks and investors.
 
 Note that this does not include the 37% decline in real gold prices from 1980-1981, as the gold bull market ended amid still-high inflation.
 
-Let&#8217;s compare the pre-1982 era. Note the shift down and to the right: a less favorable tradeoff of lower returns and higher risks.
+Let’s compare the pre-1982 era. Note the shift down and to the right: a less favorable tradeoff of lower returns and higher risks.
 
 **1928-1981:**
 
-[<img src="/uploads/2012/01/ltg51.png" alt="Efficient frontier, 1928-1971" title="Efficient frontier, 1928-1971" width="300" height="225" class="alignnone size-full wp-image-979" />](/uploads/2012/01/ltg51.png)[<img src="/uploads/2012/01/ltg52.png" alt="Transition map, 1928-1971" title="Transition map, 1928-1971" width="300" height="225" class="alignnone size-full wp-image-980" />](/uploads/2012/01/ltg52.png)
+[<img src="/assets/wp-content/uploads/2012/01/ltg51.png" alt="Efficient frontier, 1928-1971" title="Efficient frontier, 1928-1971" width="300" height="225" class="alignnone size-full wp-image-979" />](/assets/wp-content/uploads/2012/01/ltg51.png)[<img src="/assets/wp-content/uploads/2012/01/ltg52.png" alt="Transition map, 1928-1971" title="Transition map, 1928-1971" width="300" height="225" class="alignnone size-full wp-image-980" />](/assets/wp-content/uploads/2012/01/ltg52.png)
 
 **Take-aways:**
 

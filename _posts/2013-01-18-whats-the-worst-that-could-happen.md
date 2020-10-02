@@ -1,6 +1,6 @@
 ---
 id: 1478
-title: 'What&#8217;s the worst that could happen?'
+title: 'What’s the worst that could happen?'
 date: 2013-01-18T23:45:29+00:00
 author: Druce Vertes, CFA
 layout: post
@@ -13,7 +13,7 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-_It&#8217;s not whether you get knocked down, it&#8217;s whether you get up. &#8211; Vince Lombardi_
+_It’s not whether you get knocked down, it’s whether you get up. _ Vince Lombardi_
 
 Playing around with [DataNitro](https://datanitro.com/ "DataNitro"), an add-in that lets you run Python in Excel<sup>1</sup>.
 
@@ -231,17 +231,17 @@ What is the worst that could happen to someone who owns stocks, bonds, bills, ov
 
 _Worst case real returns for rolling periods from 1 to 30 years, 1928-2010_
 
-[<img class="size-full wp-image-1494 alignnone" title="Worst rolling returns" src="/uploads/2013/01/worstcase.png" alt="Worst rolling returns" width="475" height="281" srcset="/uploads/2013/01/worstcase.png 475w, /uploads/2013/01/worstcase-300x177.png 300w" sizes="(max-width: 475px) 100vw, 475px" />](/uploads/2013/01/worstcase.png)
+[<img class="size-full wp-image-1494 alignnone" title="Worst rolling returns" src="/assets/wp-content/uploads/2013/01/worstcase.png" alt="Worst rolling returns" width="475" height="281" srcset="/assets/wp-content/uploads/2013/01/worstcase.png 475w, /assets/wp-content/uploads/2013/01/worstcase-300x177.png 300w" sizes="(max-width: 475px) 100vw, 475px" />](/assets/wp-content/uploads/2013/01/worstcase.png)
 
 Over short timeframes, stocks can do quite a bit worse. The worst 2-year period is -52.5% for stocks, v. -26% for bonds and -25% for bills. Around year 8, stocks cross over. The worst 20-year period for stocks sees you up 10.7%, and the <span style="text-decoration: underline;">worst</span> 30-year period sees you <span style="text-decoration: underline;">up</span> 243%! When bonds and bills get hurt by inflation, they stay down for very long periods.
 
-Rerunning the analysis for the post-war era doesn&#8217;t change much. Most of the worst-case periods for stocks and bonds were after 1946, but bills did worst around the war and better afterwards.
+Rerunning the analysis for the post-war era doesn’t change much. Most of the worst-case periods for stocks and bonds were after 1946, but bills did worst around the war and better afterwards.
 
 _Worst case real returns for rolling periods from 1 to 30 years, 1946-2010_
 
-[<img src="/uploads/2013/01/worstcase46.png" alt="Worst Case real returns, 1946-2010" title="Worst Case real returns, 1946-2010" width="475" height="282" class="alignnone size-full wp-image-1530" srcset="/uploads/2013/01/worstcase46.png 475w, /uploads/2013/01/worstcase46-300x178.png 300w" sizes="(max-width: 475px) 100vw, 475px" />](/uploads/2013/01/worstcase46.png)
+[<img src="/assets/wp-content/uploads/2013/01/worstcase46.png" alt="Worst Case real returns, 1946-2010" title="Worst Case real returns, 1946-2010" width="475" height="282" class="alignnone size-full wp-image-1530" srcset="/assets/wp-content/uploads/2013/01/worstcase46.png 475w, /assets/wp-content/uploads/2013/01/worstcase46-300x178.png 300w" sizes="(max-width: 475px) 100vw, 475px" />](/assets/wp-content/uploads/2013/01/worstcase46.png)
 
-[Spreadsheet here](/uploads/2013/01/rolling.xlsx "Rolling returns spreadsheet").
+[Spreadsheet here](/assets/wp-content/uploads/2013/01/rolling.xlsx "Rolling returns spreadsheet").
 
 <div class="wp_codebox_msgheader">
   <span class="right"><sup><a href="http://www.ericbess.com/ericblog/2008/03/03/wp-codebox/#examples" target="_blank" title="WP-CodeBox HowTo?"><span style="color: #99cc00">?</span></a></sup></span><span class="left"><a href="javascript:;" onclick="javascript:showCodeTxt('p1478code13'); return false;">View Code</a> PYTHON</span>

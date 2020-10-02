@@ -13,7 +13,7 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-> [ROCKY HILL, Conn](http://newyork.cbslocal.com/2011/11/28/254-million-powerball-jackpot-winner-comes-forward/). &#8212; Three asset managers from Connecticut&#8217;s affluent New York suburbs claimed a $254 million Powerball jackpot on Monday off a $1 ticket.
+> [ROCKY HILL, Conn](http://newyork.cbslocal.com/2011/11/28/254-million-powerball-jackpot-winner-comes-forward/). &#8212; Three asset managers from Connecticut’s affluent New York suburbs claimed a $254 million Powerball jackpot on Monday off a $1 ticket.
 
 <div>
   <div style="width: 130px" class="wp-caption alignright">
@@ -25,25 +25,25 @@ categories:
   </div>
 </div>
 
-Lottery tickets are generally a terrible deal in terms of expected value &#8211; the lottery pays out far less in winnings than it receives in ticket sales. It has to pay expenses and show a profit. Then the winner has to pay a big income tax bill.
+Lottery tickets are generally a terrible deal in terms of expected value _ the lottery pays out far less in winnings than it receives in ticket sales. It has to pay expenses and show a profit. Then the winner has to pay a big income tax bill.
 
 But occasionally, after no one wins the big prize several drawings in a row, the jackpot gets so big that the expected value is positive.
 
 [Edit 1/7/2016: This is <strike>rare</strike> unrealistic. For instance the current record jackpot is quoted as $800m. [The lump-sum payout would be only $496m.](https://www.usamega.com/powerball-jackpot.asp) The odds of winning a single bet is 1/292,201,338. So a $2 bet is only worth $1.69. This disregards the possibility of a split pot, which is significant. If you pay the top Federal tax rate of 39.6%, that $1.69 is only worth $1.02. NYC rate maxes out at 12.7%, bringing the top combined income tax rate to 52.3%, leaving $0.81 per $2 bet.]
 
-You might think that when there&#8217;s positive expected value, it&#8217;s a good time to buy a ticket. Actually, it turns out that&#8217;s still a losing strategy. Why? Because unless you&#8217;re a millionaire, the correct amount to bet is very small. And if you&#8217;re not a millionaire, a single ticket is an overbet. You almost always go broke before you hit the jackpot. Paradoxically, even though each individual bet has positive expected value, your expected long-run profit if you bet every week is less than zero.
+You might think that when there’s positive expected value, it’s a good time to buy a ticket. Actually, it turns out that’s still a losing strategy. Why? Because unless you’re a millionaire, the correct amount to bet is very small. And if you’re not a millionaire, a single ticket is an overbet. You almost always go broke before you hit the jackpot. Paradoxically, even though each individual bet has positive expected value, your expected long-run profit if you bet every week is less than zero.
 
-What&#8217;s the right amount to bet on a risky, but profitable proposition?  
+What’s the right amount to bet on a risky, but profitable proposition?  
 <!--more-->
 
   
-Suppose you had access once a day to a &#8216;sure thing&#8217; that won 2/3 of the time, and paid $2 when you bet $1.  And suppose you had $100 to start, and you bet 1$ every day.
+Suppose you had access once a day to a ‘sure thing’ that won 2/3 of the time, and paid $2 when you bet $1.  And suppose you had $100 to start, and you bet 1$ every day.
 
 You would make $1 a day on average. (2 times out of 3 you would win $2, the third time you would lose $1. You made $3, or $1 a day). If you bet 1% of your bankroll every day, you would make 1% per day. Not bad, but not really maximizing your 100% edge.
 
-Suppose you bet your whole bankroll every day. Your expected value every day is now +$100, instead of $1. But eventually you will lose your whole bankroll, and then you won&#8217;t be able to play again. As time goes to infinity, your expected growth rate approaches zero.
+Suppose you bet your whole bankroll every day. Your expected value every day is now +$100, instead of $1. But eventually you will lose your whole bankroll, and then you won’t be able to play again. As time goes to infinity, your expected growth rate approaches zero.
 
-The [Kelly Criterion](http://home.williampoundstone.net/Kelly/Kelly.html), created by John Kelly in the 50s at Bell Labs, tells you how much you should bet to maximize your return. The amount is _edge / odds. _Here, the edge is 1 &#8211; you win on average, 100% of your bet each day. The odds you are offered are 2:1.  You should bet 1/2 of your stack each time.
+The [Kelly Criterion](http://home.williampoundstone.net/Kelly/Kelly.html), created by John Kelly in the 50s at Bell Labs, tells you how much you should bet to maximize your return. The amount is _edge / odds. _Here, the edge is 1 _ you win on average, 100% of your bet each day. The odds you are offered are 2:1.  You should bet 1/2 of your stack each time.
 
 If you do, the following should hold
 
@@ -52,9 +52,9 @@ If you do, the following should hold
     (1/3 of the time the outcome is you end up with 1/2 of your bankroll, 2/3 of the time you double your bankroll)
   * At any time, you have (1-p) probability of going below fraction p of your bankroll at some point in the future. For example, you have  a 1/2 chance of losing 1/2 of your bankroll, a 10% chance of losing 90% of your bankroll.
 
-As you increase your bet size as a percentage of your capital, initially your expected long-run growth rate goes up linearly, in proportion to your bet size. Eventually, it flattens, and then plummets off a Cliff Of Death to [Gambler&#8217;s Ruin](http://en.wikipedia.org/wiki/Gambler's_ruin). So an optimal strategy is quite volatile and risky. And even if you have a big edge, if you overbet, you go broke.
+As you increase your bet size as a percentage of your capital, initially your expected long-run growth rate goes up linearly, in proportion to your bet size. Eventually, it flattens, and then plummets off a Cliff Of Death to [Gambler’s Ruin](http://en.wikipedia.org/wiki/Gambler's_ruin). So an optimal strategy is quite volatile and risky. And even if you have a big edge, if you overbet, you go broke.
 
-Now let&#8217;s suppose there is a $200m jackpot (in present value, after all expenses and taxes), and you have 1/100m chance of winning.
+Now let’s suppose there is a $200m jackpot (in present value, after all expenses and taxes), and you have 1/100m chance of winning.
 
 What is the appropriate amount to bet? The expected value is about 2x the bet. Your edge is about 100%. The odds posted are 200,000,000:1 . So your optimal bet is approximately 1 / 200,000,000 of your stash. If you have $200,000,000,  you should bet $1, if you have $100,000, you should bet 1/20th of a cent.
 
@@ -62,7 +62,7 @@ What is your expected growth rate if you have $100,000 and you bet $1? Plugging 
 
 If you make that $1 bet every day for 100,000 days, ie longer than your natural life, more than 999 times out of 1000, you will go broke before you hit that jackpot.
 
-As another illustration &#8211; suppose you bet .001% of your net worth on a single ticket in the lottery at those odds (disregarding that in Powerball you can&#8217;t put more or less than the price of a ticket on a combo). You do it 2,000,000 times, and then you hit the jackpot &#8211; pretty lucky since the odds are 100,000,000 to 1, right? But by the time you hit the jackpot, your bankroll has been so depleted that winning 200m x your bet, you only get back to 41% of your original net worth &#8211; because you overbet!
+As another illustration _ suppose you bet .001% of your net worth on a single ticket in the lottery at those odds (disregarding that in Powerball you can’t put more or less than the price of a ticket on a combo). You do it 2,000,000 times, and then you hit the jackpot _ pretty lucky since the odds are 100,000,000 to 1, right? But by the time you hit the jackpot, your bankroll has been so depleted that winning 200m x your bet, you only get back to 41% of your original net worth _ because you overbet!
 
 Left as an exercise, at what bankroll your expected return is exactly 0, the Sharpe ratio of the optimal bet.
 
@@ -70,7 +70,7 @@ Left as an exercise, at what bankroll your expected return is exactly 0, the Sha
 
   * [$254 Million Powerball Jackpot Winner Comes Forward](http://newyork.cbslocal.com/2011/11/28/254-million-powerball-jackpot-winner-comes-forward/) (newyork.cbslocal.com)
   * [Do Not Play the Lottery Unless You Are a Millionaire](http://r6.ca/blog/20090522T015739Z.html)
-  * [Fortune&#8217;s Formula](http://www.amazon.com/Fortunes-Formula-Scientific-Betting-Casinos/dp/0809045990), by William Poundstone (a rollicking good read, if you&#8217;re into degenerate gamblers, investors and quants)
+  * [Fortune’s Formula](http://www.amazon.com/Fortunes-Formula-Scientific-Betting-Casinos/dp/0809045990), by William Poundstone (a rollicking good read, if you’re into degenerate gamblers, investors and quants)
   * [A New Interpretation of Information Rate](http://www.bjmath.com/bjmath/kelly/kelly.pdf) By J. L. Kelly, Jr.
 
 <div class="zemanta-pixie" style="margin-top: 10px; height: 15px;">

@@ -13,23 +13,24 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-_If you want to frustrate someone for a day, give them a program. If you want to frustrate them for a lifetime, teach them how to program._
+> If you want to frustrate someone for a day, give them a program. If you want to frustrate them for a lifetime, teach them how to program.
 
+<!--more-->
 A brief overview of how to use R to generate the analysis and plots in the most recent post, [Gold as Part of a Long-Run Asset Allocation](/2012/01/gold-as-part-of-long-run-asset-allocation/), using R, and code shared at [Systematic Investor](http://systematicinvestor.wordpress.com/ "Systematic Investor").  
 <!--more-->
 
   
-R is a powerful open-source statistical analysis package, a free version of products like SPSS, SAS, S-plus, to some extent MatLab (MatLab may target mathematical modeling more generally, not just statistics). R doesn&#8217;t do symbolic math, ie algebraic formulas, integration, differentiation etc., for that you can use Mathematica, Maple, Sage, Maxima. 
+R is a powerful open-source statistical analysis package, a free version of products like SPSS, SAS, S-plus, to some extent MatLab (MatLab may target mathematical modeling more generally, not just statistics). R doesn’t do symbolic math, ie algebraic formulas, integration, differentiation etc., for that you can use Mathematica, Maple, Sage, Maxima. 
 
-R is basically Excel on steroids. R is very powerful, and beating your head against the wall using R will open many doors to&#8230; more powerful ways to beat your head against the wall using R.
+R is basically Excel on steroids. R is very powerful, and beating your head against the wall using R will open many doors to… more powerful ways to beat your head against the wall using R.
 
-**Step 1. Install R.** Get it [here](http://lib.stat.cmu.edu/R/CRAN/bin/windows/base/). Also recommended &#8211; [install RStudio](http://rstudio.org/). This gives you an integrated development environment, lets you browse history, data objects, help, etc.
+**Step 1. Install R.** Get it [here](http://lib.stat.cmu.edu/R/CRAN/bin/windows/base/). Also recommended _ [install RStudio](http://rstudio.org/). This gives you an integrated development environment, lets you browse history, data objects, help, etc.
 
-**Step 2. Let&#8217;s get some data and plot a quick chart.** 
+**Step 2. Let’s get some data and plot a quick chart.** 
 
-&#8211; Launch RStudio (or R)
+_ Launch RStudio (or R)
 
-&#8211; install &#8216;quantmod&#8217; package ([Quantitative Financial Modelling & Trading Framework for R](http://www.quantmod.com/examples/intro/)). This provides the ability to download financial data, do backtesting, other modeling functionality. One of R&#8217;s biggest strengths is that whatever you want to do, someone has probably already developed a module to do it, and it&#8217;s already in the CRAN archive, one command away from being installed. (The downside is that often there is more than one way to do it, and it&#8217;s hard to figure out the best way, for instance multiple timeseries and graphics modules)
+_ install ‘quantmod’ package ([Quantitative Financial Modelling & Trading Framework for R](http://www.quantmod.com/examples/intro/)). This provides the ability to download financial data, do backtesting, other modeling functionality. One of R’s biggest strengths is that whatever you want to do, someone has probably already developed a module to do it, and it’s already in the CRAN archive, one command away from being installed. (The downside is that often there is more than one way to do it, and it’s hard to figure out the best way, for instance multiple timeseries and graphics modules)
 
 <div class="wp_codebox_msgheader">
   <span class="right"><sup><a href="http://www.ericbess.com/ericblog/2008/03/03/wp-codebox/#examples" target="_blank" title="WP-CodeBox HowTo?"><span style="color: #99cc00">?</span></a></sup></span><span class="left"><a href="javascript:;" onclick="javascript:showCodeTxt('p843code3'); return false;">View Code</a> RSPLUS</span>
@@ -81,7 +82,7 @@ R is basically Excel on steroids. R is very powerful, and beating your head agai
 
 You should see something like the below. More on quantmod charts [here](http://www.quantmod.com/examples/charting/).
 
-[<img src="/uploads/2012/01/SPY_6MO.png" alt="" title="SPY_6MO" width="480" height="360" class="size-full wp-image-939" srcset="/uploads/2012/01/SPY_6MO.png 480w, /uploads/2012/01/SPY_6MO-300x225.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/uploads/2012/01/SPY_6MO.png)
+[<img src="/assets/wp-content/uploads/2012/01/SPY_6MO.png" alt="" title="SPY_6MO" width="480" height="360" class="size-full wp-image-939" srcset="/assets/wp-content/uploads/2012/01/SPY_6MO.png 480w, /assets/wp-content/uploads/2012/01/SPY_6MO-300x225.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/assets/wp-content/uploads/2012/01/SPY_6MO.png)
 
 For documentation on quantmod and other functions, you can get help with
 
@@ -111,11 +112,11 @@ For documentation on quantmod and other functions, you can get help with
   </table>
 </div>
 
-&#8230;etc. (remember, R is case-sensitive). 
+…etc. (remember, R is case-sensitive). 
 
 **3. Data setup**
 
-Parts 3 and onward use the code in this [longtermgold.r file](/uploads/2012/01/longtermgold.r).
+Parts 3 and onward use the code in this [longtermgold.r file](/assets/wp-content/uploads/2012/01/longtermgold.r).
 
 Here, we create a data frame (matrix) of real returns, and report basic data on it.
 
@@ -263,7 +264,7 @@ Here, we create a data frame (matrix) of real returns, and report basic data on 
 
 **4. The Easy Way**
 
-There&#8217;s an easy way and a hard way. For the easy way, we will use the code generously shared by [Systematic Investor](http://systematicinvestor.wordpress.com/). For the hard way, we&#8217;ll go through the same steps, but writing our own code (inspired by the [Systematic Investor Toolbox](http://systematicinvestor.wordpress.com/systematic-investor-toolbox/)).
+There’s an easy way and a hard way. For the easy way, we will use the code generously shared by [Systematic Investor](http://systematicinvestor.wordpress.com/). For the hard way, we’ll go through the same steps, but writing our own code (inspired by the [Systematic Investor Toolbox](http://systematicinvestor.wordpress.com/systematic-investor-toolbox/)).
 
 <div class="wp_codebox_msgheader">
   <span class="right"><sup><a href="http://www.ericbess.com/ericblog/2008/03/03/wp-codebox/#examples" target="_blank" title="WP-CodeBox HowTo?"><span style="color: #99cc00">?</span></a></sup></span><span class="left"><a href="javascript:;" onclick="javascript:showCodeTxt('p843code6'); return false;">View Code</a> RSPLUS</span>
@@ -883,7 +884,7 @@ Loading required package<span style="color: #080;">:</span> quadprog
   </table>
 </div>
 
-**Finally, let&#8217;s run the plots**.
+**Finally, let’s run the plots**.
 
 Efficient frontier plot:
 
@@ -957,7 +958,7 @@ ggplot<span style="color: #080;">&#40;</span><span style="color: #0000FF; font-w
 
 You should see something like this:
 
-<img class="size-full wp-image-875" title="Efficient Frontier" src="/uploads/2012/01/efrontier.png" alt="Efficient Frontier" width="480" height="360" srcset="/uploads/2012/01/efrontier.png 480w, /uploads/2012/01/efrontier-300x225.png 300w" sizes="(max-width: 480px) 100vw, 480px" /> 
+<img class="size-full wp-image-875" title="Efficient Frontier" src="/assets/wp-content/uploads/2012/01/efrontier.png" alt="Efficient Frontier" width="480" height="360" srcset="/assets/wp-content/uploads/2012/01/efrontier.png 480w, /assets/wp-content/uploads/2012/01/efrontier-300x225.png 300w" sizes="(max-width: 480px) 100vw, 480px" /> 
 
 Transition map plot:
 
@@ -1009,9 +1010,9 @@ Transition map plot:
   </table>
 </div>
 
-<img class="size-full wp-image-876" title="Transition Map" src="/uploads/2012/01/transition.png" alt="Transition Map" width="480" height="360" srcset="/uploads/2012/01/transition.png 480w, /uploads/2012/01/transition-300x225.png 300w" sizes="(max-width: 480px) 100vw, 480px" /> 
+<img class="size-full wp-image-876" title="Transition Map" src="/assets/wp-content/uploads/2012/01/transition.png" alt="Transition Map" width="480" height="360" srcset="/assets/wp-content/uploads/2012/01/transition.png 480w, /assets/wp-content/uploads/2012/01/transition-300x225.png 300w" sizes="(max-width: 480px) 100vw, 480px" /> 
 
-That&#8217;s it&#8230;If you made it this far, congratulations! A few more R links to frustrate you are below. Now go forth, and enjoy beating your head against the wall!
+That’s it…If you made it this far, congratulations! A few more R links to frustrate you are below. Now go forth, and enjoy beating your head against the wall!
 
   * [An Introduction to R](http://cran.r-project.org/doc/manuals/R-intro.html "An Introduction to R")
   * [R Intro for Programmers](http://heather.cs.ucdavis.edu/~matloff/r.old.html#different "R Intro For Programmers")

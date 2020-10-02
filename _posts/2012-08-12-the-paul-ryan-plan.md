@@ -19,4 +19,4 @@ So people like Mitt Romney, and all his heirs in perpetuity, would never pay ano
 
 It’s shocking that in this day and age, someone could make such a proposal, and be considered a serious person and politician.
 
-The GOP has come an awful long way from its founder, who said, _“Capital is only the fruit of labor, and could never have existed if labor had not first existed. Labor is the superior of capital, and deserves much the higher consideration.”_ &#8211; Abraham Lincoln
+The GOP has come an awful long way from its founder, who said, _“Capital is only the fruit of labor, and could never have existed if labor had not first existed. Labor is the superior of capital, and deserves much the higher consideration.”_ _ Abraham Lincoln

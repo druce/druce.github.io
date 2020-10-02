@@ -12,14 +12,18 @@ post-views:
   - "9497"
 dsq_thread_id:
   - "7147046104"
-categories:
-  - Uncategorized
+categories: tech
+tags: tech
+
 ---
-<link rel="stylesheet" type="text/css" href="/static/js/tablesorter-master/themes/blue/style.css" />
 
-It’s been more than a year since we posted our [last list](/2017/05/the-top-100-people-to-follow-to-discover-financial-news-on-twitter-may-2017/) of people to follow on Twitter for financial news. Time for an update!
+<link rel="stylesheet" type="text/css" href="/assets/js/tablesorter-master/themes/blue/style.css" />
 
-Without further ado, here is this year&#8217;s list (click on headers to re-sort):
+> It’s been more than a year since we posted our [last list](/2017/05/the-top-100-people-to-follow-to-discover-financial-news-on-twitter-may-2017/) of people to follow on Twitter for financial news. Time for an update!
+
+<!--more-->
+
+Without further ado, here is this year’s list (click on headers to re-sort):
 
 <table id="myTable" class="tablesorter">
   <tr>
@@ -864,7 +868,7 @@ Without further ado, here is this year&#8217;s list (click on headers to re-sort
     </td>
     
     <td>
-      Matt O&#8217;Brien
+      Matt O’Brien
     </td>
     
     <td>
@@ -968,7 +972,7 @@ Without further ado, here is this year&#8217;s list (click on headers to re-sort
     </td>
     
     <td>
-      Tim O&#8217;Brien
+      Tim O’Brien
     </td>
     
     <td>
@@ -2677,28 +2681,28 @@ In general, from a given list of users, get a better list by
 
 Iterate a few times, and you get a pretty good list of people to follow.
 
-In the past I&#8217;ve generated a graph of the users, and this year I really went ham on it and created [this magnificent beast](http://media.streeteye.com/static/fintwit201901/):
+In the past I’ve generated a graph of the users, and this year I really went ham on it and created [this magnificent beast](http://media.streeteye.com/static/fintwit201901/):
 
-[<img src="/uploads/2019/01/graph2019.png" alt="" width="476" height="242" class="aligncenter size-full wp-image-6758" srcset="/uploads/2019/01/graph2019.png 476w, /uploads/2019/01/graph2019-300x153.png 300w" sizes="(max-width: 476px) 100vw, 476px" />](http://media.streeteye.com/static/fintwit201901/)
+[<img src="/assets/wp-content/uploads/2019/01/graph2019.png" alt="" width="476" height="242" class="aligncenter size-full wp-image-6758" srcset="/assets/wp-content/uploads/2019/01/graph2019.png 476w, /assets/wp-content/uploads/2019/01/graph2019-300x153.png 300w" sizes="(max-width: 476px) 100vw, 476px" />](http://media.streeteye.com/static/fintwit201901/)
 
 If you [click here](http://media.streeteye.com/static/fintwit201901/) you can explore the graph interactively:
 
   * Roll over and get detailed info on each FinTwit personality
   * Word cloud (roll over)
   * 3 most similar accounts, using topic analysis of what they post about, who they share same URLs as, who they follow and are followed by. _P.S. I LOVE THIS FEATURE!_
-  * Each user&#8217;s most frequently shared domains, hashtag, tickers, other FinTwitterers they mention
-  * Who they follow/are followed by (roll over &#8216;followed by&#8217;/&#8217;followed&#8217;)
+  * Each user’s most frequently shared domains, hashtag, tickers, other FinTwitterers they mention
+  * Who they follow/are followed by (roll over ‘followed by’/’followed’)
 
 I hope this helps everyone find great new FinTwit BFFs to follow.
 
-It&#8217;s always a bit arbitrary, where to cut off people who aren&#8217;t relevant. Some people may find the influential tech or political accounts a bore, but I try to find a balance.
+It’s always a bit arbitrary, where to cut off people who aren’t relevant. Some people may find the influential tech or political accounts a bore, but I try to find a balance.
 
-The biggest problem is churn. There are some people who are highly followed who don&#8217;t really post relevant stuff any more. There are people who are pretty relevant but it takes a very long time to break through and get influential. I could expand the panel, but the more you expand it the more the common denominator is&#8230; all Trump all the time.
+The biggest problem is churn. There are some people who are highly followed who don’t really post relevant stuff any more. There are people who are pretty relevant but it takes a very long time to break through and get influential. I could expand the panel, but the more you expand it the more the common denominator is… all Trump all the time.
 
-Then, I guess I could use topic analysis to try to downvote Trump and politics&#8230; use noise cancellation to determine what is popular out in the broad population and penalize it &#8230; but it&#8217;s turtles all the way down the rabbit hole.
+Then, I guess I could use topic analysis to try to downvote Trump and politics… use noise cancellation to determine what is popular out in the broad population and penalize it … but it’s turtles all the way down the rabbit hole.
 
-That&#8217;s it! If you&#8217;re looking for top blogs for your daily list or Feedly reader check out the July listicle of [the most shared financial blogs](/2018/07/the-most-shared-financial-blogs-2018/). 
+That’s it! If you’re looking for top blogs for your daily list or Feedly reader check out the July listicle of [the most shared financial blogs](/2018/07/the-most-shared-financial-blogs-2018/). 
 
-Not to be too thirsty but if you like it don&#8217;t hesitate to share!
+Not to be too thirsty but if you like it don’t hesitate to share!
 
-<small>(Never say never again, but very probably never doing this graph again. Fun mad science, but disproportionately time-consuming. Twitter makes the API more restrictive every year, knucklehead sites block me, the graveyard is full of algorithmic news apps and news bots. C&#8217;est la vie!)</small>
+<small>(Never say never again, but very probably never doing this graph again. Fun mad science, but disproportionately time-consuming. Twitter makes the API more restrictive every year, knucklehead sites block me, the graveyard is full of algorithmic news apps and news bots. C’est la vie!)</small>

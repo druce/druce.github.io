@@ -1,56 +1,161 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>‘Cat Food’ revisited – testing dynamic spending rules – Part 3 | StreetEYE Blog</title>
-<meta name="generator" content="Jekyll v3.9.0" />
-<meta property="og:title" content="‘Cat Food’ revisited – testing dynamic spending rules – Part 3" />
-<meta name="author" content="Druce Vertes, CFA" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="In the last part of our look at dynamic rules for spending in retirement, we discussed how changing the allocation between stocks and bonds affects the maximum sustainable spending rate. We can summarize this relationship by plotting the highest feasible initial spending rate for any acceptable shortfall level.1" />
-<meta property="og:description" content="In the last part of our look at dynamic rules for spending in retirement, we discussed how changing the allocation between stocks and bonds affects the maximum sustainable spending rate. We can summarize this relationship by plotting the highest feasible initial spending rate for any acceptable shortfall level.1" />
-<link rel="canonical" href="http://0.0.0.0:4000/2013/02/%E2%80%98cat-food%E2%80%99-revisited-%E2%80%93-testing-dynamic-spending-rules-%E2%80%93-part-3/" />
-<meta property="og:url" content="http://0.0.0.0:4000/2013/02/%E2%80%98cat-food%E2%80%99-revisited-%E2%80%93-testing-dynamic-spending-rules-%E2%80%93-part-3/" />
-<meta property="og:site_name" content="StreetEYE Blog" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2013-02-18T11:51:58+00:00" />
-<script type="application/ld+json">
-{"@type":"BlogPosting","headline":"‘Cat Food’ revisited – testing dynamic spending rules – Part 3","dateModified":"2013-02-18T11:51:58+00:00","datePublished":"2013-02-18T11:51:58+00:00","url":"http://0.0.0.0:4000/2013/02/%E2%80%98cat-food%E2%80%99-revisited-%E2%80%93-testing-dynamic-spending-rules-%E2%80%93-part-3/","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/2013/02/%E2%80%98cat-food%E2%80%99-revisited-%E2%80%93-testing-dynamic-spending-rules-%E2%80%93-part-3/"},"author":{"@type":"Person","name":"Druce Vertes, CFA"},"description":"In the last part of our look at dynamic rules for spending in retirement, we discussed how changing the allocation between stocks and bonds affects the maximum sustainable spending rate. We can summarize this relationship by plotting the highest feasible initial spending rate for any acceptable shortfall level.1","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="StreetEYE Blog" /></head>
-<body><header class="site-header" role="banner">
+<html lang="en">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">StreetEYE Blog</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
+  <head>
+    
+      
 
-        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
-      </nav></div>
+
+
+
+
+
+    
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>‘Cat Food’ revisited – testing dynamic spending rules – Part 3</title>
+
+    <meta name="description" content="In the last part of our look at dynamic rules for spending in retirement, we discussed how changing the allocation between stocks and bonds affects the maxim...">
+
+    <meta content="StreetEYE Blog" property="og:site_name">
+    
+        <meta content="‘Cat Food’ revisited – testing dynamic spending rules – Part 3" property="og:title">
+    
+    
+        <meta content="article" property="og:type">
+    
+    
+        <meta content="In the last part of our look at dynamic rules for spending in retirement, we discussed how changing the allocation between stocks and bonds affects the maximum sustainable spending rate. We can summarize this relationship by plotting the highest feasible initial spending rate for any acceptable shortfall level.1" property="og:description">
+    
+    
+        <meta content="http://0.0.0.0:4000/2013/02/%e2%80%98cat-food%e2%80%99-revisited-%e2%80%93-testing-dynamic-spending-rules-%e2%80%93-part-3/" property="og:url">
+    
+    
+        <meta content="2013-02-18T06:51:58-05:00" property="article:published_time">
+        <meta content="http://0.0.0.0:4000/about/" property="article:author">
+    
+    
+    
+        
+    
+
+    <link rel="shortcut icon" href="/assets/favicon_peach.ico">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="canonical" href="http://0.0.0.0:4000/2013/02/%E2%80%98cat-food%E2%80%99-revisited-%E2%80%93-testing-dynamic-spending-rules-%E2%80%93-part-3/">
+
+    <!-- For Latex -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-8161570-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <!-- For Facebook share button -->
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Twitter cards -->
+    <meta name="twitter:site"    content="@streeteye">
+    <meta name="twitter:creator" content="@Druce Vertes">
+    <meta name="twitter:title"   content="‘Cat Food’ revisited – testing dynamic spending rules – Part 3">
+
+    
+        <meta name="twitter:description" content="<p>In the <a href="/2013/02/%E2%80%98cat-food%E2%80%99-revisited-%E2%80%93-testing-dynamic-spending-rules-%E2%80%93-part-2/">last part</a> of our look at dynamic rules for spending in retirement, we discussed how changing the allocation between stocks and bonds affects the maximum sustainable spending rate. We can summarize this relationship by plotting the highest feasible initial spending rate for any acceptable shortfall level.<small><sup><a href="#f1">1</a></sup></small></p>
+
+">
+    
+
+    
+        <meta name="twitter:card"  content="summary">
+        <meta name="twitter:image" content="">
+    
+    <!-- end of Twitter cards -->
+
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner" id='header-bar'>
+
+    <div class="wrapper">
+        
+        <a class="site-title" href="/">StreetEYE Blog</a>
+
+        <nav class="site-nav">
+            <a class="page-link" href="/contact.html">&#x1f984; Contact</a>
+        </nav>
+        <nav class="site-nav">
+            <a class="page-link" href="/FAQ.html">&#x1F64B; FAQ</a>
+        </nav>
+        <!-- <nav class="site-nav">
+            <a class="page-link" href="/log.html">&#x231b; Log</a>
+        </nav> -->
+        <nav class="site-nav">
+            <a class="page-link" href="/archive.html">&#x231b; Archive</a>
+        </nav>
+
+    </div>
+
 </header>
-<main class="page-content" aria-label="Content">
+
+
+    <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">‘Cat Food’ revisited – testing dynamic spending rules – Part 3</h1>
+    <h1 class="post-title" itemprop="name headline">‘Cat Food’ revisited – testing dynamic spending rules – Part 3</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2013-02-18T11:51:58+00:00" itemprop="datePublished">Feb 18, 2013
-      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Druce Vertes, CFA</span></span></p>
+
+      <time datetime="2013-02-18T06:51:58-05:00" itemprop="datePublished">
+        
+        Feb 18, 2013
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        by <span itemprop="name">Druce Vertes</span>
+      </span>
+
+      <span>
+        
+      </span>
+      <!--
+      <span class="share-buttons">
+        <span class="share-button"><a class="twitter-share-button" href="https://twitter.com/share" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></span>
+
+        <span class="share-button"><span class="fb-like" data-href="/2013/02/%e2%80%98cat-food%e2%80%99-revisited-%e2%80%93-testing-dynamic-spending-rules-%e2%80%93-part-3/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></span></span>
+      </span>
+      <div style="clear: both;"/>
+      -->
+
+    </p>
   </header>
 
-  <div class="post-content e-content" itemprop="articleBody">
+  <div class="post-content" itemprop="articleBody">
     <p>In the <a href="/2013/02/%E2%80%98cat-food%E2%80%99-revisited-%E2%80%93-testing-dynamic-spending-rules-%E2%80%93-part-2/">last part</a> of our look at dynamic rules for spending in retirement, we discussed how changing the allocation between stocks and bonds affects the maximum sustainable spending rate. We can summarize this relationship by plotting the highest feasible initial spending rate for any acceptable shortfall level.<small><sup><a href="#f1">1</a></sup></small><br />
 <!--more--></p>
 
 <center>
-  <em>Figure 15. Initial spending v. worst shortfall<br /> equity=0-100%, s=0.05-1.2, smoothing=1.0-6.0)</em><br /> <a href="/uploads/2013/02/Rplot63.png"><img class="aligncenter size-full wp-image-1911" title="Initial Spending v. Worst Shortfall" src="/uploads/2013/02/Rplot63.png" alt="Initial Spending v. Worst Shortfall" width="480" height="320" srcset="/uploads/2013/02/Rplot63.png 480w, /uploads/2013/02/Rplot63-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a><br /> <small>&lt;/p&gt; 
+  <em>Figure 15. Initial spending v. worst shortfall<br /> equity=0-100%, s=0.05-1.2, smoothing=1.0-6.0)</em><br /> <a href="/assets/wp-content/uploads/2013/02/Rplot63.png"><img class="aligncenter size-full wp-image-1911" title="Initial Spending v. Worst Shortfall" src="/assets/wp-content/uploads/2013/02/Rplot63.png" alt="Initial Spending v. Worst Shortfall" width="480" height="320" srcset="/assets/wp-content/uploads/2013/02/Rplot63.png 480w, /assets/wp-content/uploads/2013/02/Rplot63-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a><br /> <small>&lt;/p&gt; 
   
   <table cellspacing="10">
     <tr style="text-align: right;">
@@ -315,7 +420,7 @@
   </table>
   
   <p>
-    &lt;/small&gt;&lt;/center&gt;<br /> In part 3 today, we&#8217;re going to discuss 1) adding a parameter to change the way we increase the spending rate as we get older and 2) reducing equity allocation as we get older. Finally, we&#8217;re going to do a brute-force search for the highest initial spending and best parameters for each level of shortfall risk (<a href="#conclusion">skip</a> to conclusion).
+    &lt;/small&gt;&lt;/center&gt;<br /> In part 3 today, we’re going to discuss 1) adding a parameter to change the way we increase the spending rate as we get older and 2) reducing equity allocation as we get older. Finally, we’re going to do a brute-force search for the highest initial spending and best parameters for each level of shortfall risk (<a href="#conclusion">skip</a> to conclusion).
   </p>
   
   <p>
@@ -329,19 +434,19 @@
       <em>Figure 16. Spending profile: s=0.5, equity=75%, smooth=2</em>
     </center>
     
-    <br /> <a href="/uploads/2013/02/Rplot64.png"><img class="aligncenter size-full wp-image-1923" title="Spending profile: s=0.5, equity=75%, smooth=2" src="/uploads/2013/02/Rplot64.png" alt="Spending profile: s=0.5, equity=75%, smooth=2" width="480" height="320" srcset="/uploads/2013/02/Rplot64.png 480w, /uploads/2013/02/Rplot64-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a>
+    <br /> <a href="/assets/wp-content/uploads/2013/02/Rplot64.png"><img class="aligncenter size-full wp-image-1923" title="Spending profile: s=0.5, equity=75%, smooth=2" src="/assets/wp-content/uploads/2013/02/Rplot64.png" alt="Spending profile: s=0.5, equity=75%, smooth=2" width="480" height="320" srcset="/assets/wp-content/uploads/2013/02/Rplot64.png 480w, /assets/wp-content/uploads/2013/02/Rplot64-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a>
   </p>
   
   <p>
-    Notice the &#8216;hump.&#8217; In the average case, spending rises steadily, then drops. Ideally, we would like a flatter spending profile, preferring less variability in spending. If we could take the hump and spread part of it earlier, without increasing shortfall risk, it would increase the safe spending rate.
+    Notice the ‘hump.’ In the average case, spending rises steadily, then drops. Ideally, we would like a flatter spending profile, preferring less variability in spending. If we could take the hump and spread part of it earlier, without increasing shortfall risk, it would increase the safe spending rate.
   </p>
   
   <p>
-    The spending rate at age 99 is <em>s</em>/life_expectancy=0.5/2.19 = 22.8%. Spending rates at advanced ages are too high, decimating the portfolio and causing the decline in spending. If we reduce them, maybe we don&#8217;t need to build as big a war chest in middle years to support such a high spending rate in late years.
+    The spending rate at age 99 is <em>s</em>/life_expectancy=0.5/2.19 = 22.8%. Spending rates at advanced ages are too high, decimating the portfolio and causing the decline in spending. If we reduce them, maybe we don’t need to build as big a war chest in middle years to support such a high spending rate in late years.
   </p>
   
   <p>
-    There are several ways we could change the model to flatten the spending profile. The one we choose is to add a parameter we&#8217;ll call &#8216;life expectancy buffer&#8217; to life expectancy, so we&#8217;ll spend at a rate of <em>s</em>/(life_expectancy+buffer). If the parameter is 2, then when our life expectancy is 3, instead of spending at a rate of <em>s</em>/3, we&#8217;ll spend at a rate of <em>s</em>/(3+2). If life expectancy buffer is 0 or low, the spending rate will rise relatively quickly as we age; if life expectancy buffer is large, the spending rate will change slowly as we age.
+    There are several ways we could change the model to flatten the spending profile. The one we choose is to add a parameter we’ll call ‘life expectancy buffer’ to life expectancy, so we’ll spend at a rate of <em>s</em>/(life_expectancy+buffer). If the parameter is 2, then when our life expectancy is 3, instead of spending at a rate of <em>s</em>/3, we’ll spend at a rate of <em>s</em>/(3+2). If life expectancy buffer is 0 or low, the spending rate will rise relatively quickly as we age; if life expectancy buffer is large, the spending rate will change slowly as we age.
   </p>
   
   <p>
@@ -353,11 +458,11 @@
       <em>Figure 17. Spending profile: s=0.5, equity=75%, smooth=2, lifespan buffer=2</em>
     </center>
     
-    <br /> <a href="/uploads/2013/02/Rplot68.png"><img class="aligncenter size-full wp-image-1924" title="Average Spending, All Cohorts (s=0.5, eq=75%, smooth=2, lifespan buffer=2)" src="/uploads/2013/02/Rplot68.png" alt="Average Spending, All Cohorts (s=0.5, eq=75%, smooth=2, lifespan buffer=2)" width="480" height="320" srcset="/uploads/2013/02/Rplot68.png 480w, /uploads/2013/02/Rplot68-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a>
+    <br /> <a href="/assets/wp-content/uploads/2013/02/Rplot68.png"><img class="aligncenter size-full wp-image-1924" title="Average Spending, All Cohorts (s=0.5, eq=75%, smooth=2, lifespan buffer=2)" src="/assets/wp-content/uploads/2013/02/Rplot68.png" alt="Average Spending, All Cohorts (s=0.5, eq=75%, smooth=2, lifespan buffer=2)" width="480" height="320" srcset="/assets/wp-content/uploads/2013/02/Rplot68.png 480w, /assets/wp-content/uploads/2013/02/Rplot68-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a>
   </p>
   
   <p>
-    Let&#8217;s compare efficient frontiers, with and without the buffer:
+    Let’s compare efficient frontiers, with and without the buffer:
   </p>
   
   <p>
@@ -365,7 +470,7 @@
       <em>Figure 18. Efficient Frontier: Initial spending v. worst shortfall<br /> Buffer=1 v. Buffer=0</em>
     </center>
     
-    <br /> <a href="/uploads/2013/02/Rplot70.png"><img class="aligncenter size-full wp-image-1943" title="Spend v. Worst Shortfall" src="/uploads/2013/02/Rplot70.png" alt="Spend v. Worst Shortfall" width="480" height="320" srcset="/uploads/2013/02/Rplot70.png 480w, /uploads/2013/02/Rplot70-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a>
+    <br /> <a href="/assets/wp-content/uploads/2013/02/Rplot70.png"><img class="aligncenter size-full wp-image-1943" title="Spend v. Worst Shortfall" src="/assets/wp-content/uploads/2013/02/Rplot70.png" alt="Spend v. Worst Shortfall" width="480" height="320" srcset="/assets/wp-content/uploads/2013/02/Rplot70.png 480w, /assets/wp-content/uploads/2013/02/Rplot70-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a>
   </p>
   
   <p>
@@ -377,11 +482,11 @@
       <em>Figure 19. Efficient Frontier: Lifetime spending v. worst shortfall<br /> Buffer=1 v. Buffer=0</em>
     </center>
     
-    <a href="/uploads/2013/02/Rplot75.png"><img class="aligncenter size-full wp-image-1980" title="Efficient Frontier: Lifetime spending v. worst shortfall Buffer=1 v. Buffer=0" src="/uploads/2013/02/Rplot75.png" alt="Efficient Frontier: Lifetime spending v. worst shortfall Buffer=1 v. Buffer=0" width="480" height="320" srcset="/uploads/2013/02/Rplot75.png 480w, /uploads/2013/02/Rplot75-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a>
+    <a href="/assets/wp-content/uploads/2013/02/Rplot75.png"><img class="aligncenter size-full wp-image-1980" title="Efficient Frontier: Lifetime spending v. worst shortfall Buffer=1 v. Buffer=0" src="/assets/wp-content/uploads/2013/02/Rplot75.png" alt="Efficient Frontier: Lifetime spending v. worst shortfall Buffer=1 v. Buffer=0" width="480" height="320" srcset="/assets/wp-content/uploads/2013/02/Rplot75.png 480w, /assets/wp-content/uploads/2013/02/Rplot75-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a>
   </p>
   
   <p>
-    It&#8217;s a mixed picture. The buffer may in many cases allow us to spend safely at a higher initial rate, but doesn&#8217;t always improve lifetime spending. Sometimes it reduces portfolio growth and overall lifetime spending.
+    It’s a mixed picture. The buffer may in many cases allow us to spend safely at a higher initial rate, but doesn’t always improve lifetime spending. Sometimes it reduces portfolio growth and overall lifetime spending.
   </p>
   
   <p>
@@ -389,7 +494,7 @@
   </p>
   
   <p>
-    Does it make sense to reduce the equity allocation as you get older? Let&#8217;s introduce a variable to gradually reduce the amount of equity. As long as your life expectancy is &gt; 15 years, use the initial allocation. After that, we&#8217;ll reduce the equity percentage by <em>stepdown</em> percentage points per year.
+    Does it make sense to reduce the equity allocation as you get older? Let’s introduce a variable to gradually reduce the amount of equity. As long as your life expectancy is &gt; 15 years, use the initial allocation. After that, we’ll reduce the equity percentage by <em>stepdown</em> percentage points per year.
   </p>
   
   <p>
@@ -397,7 +502,7 @@
       <em>Figure 20. Efficient frontiers: Initial spending v. worst shortfall<br /> Equity stepdowns from 0 to 3% per year when LE&lt;15 years.</em>
     </center>
     
-    <br /> <a href="/uploads/2013/02/Rplot80.png"><img class="aligncenter size-full wp-image-1986" title="Efficient Frontiers: Initial spending v. worst shortfall" src="/uploads/2013/02/Rplot80.png" alt="Efficient Frontiers: Initial spending v. worst shortfall" width="480" height="320" srcset="/uploads/2013/02/Rplot80.png 480w, /uploads/2013/02/Rplot80-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a>
+    <br /> <a href="/assets/wp-content/uploads/2013/02/Rplot80.png"><img class="aligncenter size-full wp-image-1986" title="Efficient Frontiers: Initial spending v. worst shortfall" src="/assets/wp-content/uploads/2013/02/Rplot80.png" alt="Efficient Frontiers: Initial spending v. worst shortfall" width="480" height="320" srcset="/assets/wp-content/uploads/2013/02/Rplot80.png 480w, /assets/wp-content/uploads/2013/02/Rplot80-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a>
   </p>
   
   <p>
@@ -405,11 +510,11 @@
       <em>Figure 21. Efficient frontiers: Lifetime spending v. worst shortfall<br /> Equity stepdowns from 0 to 3% per year.</em>
     </center>
     
-    <br /> <a href="/uploads/2013/02/Rplot81.png"><img class="aligncenter size-full wp-image-1987" title="Efficient frontiers: Lifetime spending v. worst shortfall" src="/uploads/2013/02/Rplot81.png" alt="Efficient frontiers: Lifetime spending v. worst shortfall" width="480" height="320" srcset="/uploads/2013/02/Rplot81.png 480w, /uploads/2013/02/Rplot81-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a>
+    <br /> <a href="/assets/wp-content/uploads/2013/02/Rplot81.png"><img class="aligncenter size-full wp-image-1987" title="Efficient frontiers: Lifetime spending v. worst shortfall" src="/assets/wp-content/uploads/2013/02/Rplot81.png" alt="Efficient frontiers: Lifetime spending v. worst shortfall" width="480" height="320" srcset="/assets/wp-content/uploads/2013/02/Rplot81.png 480w, /assets/wp-content/uploads/2013/02/Rplot81-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a>
   </p>
   
   <p>
-    <em>What I thought would happen:</em> stepping down equity over time would let you start with more equity, relying on smoothing to get you over early drawdowns and strong long-run real returns to catch up. Then with lower equity in later years you wouldn&#8217;t be exposed to big drawdowns late in life.
+    <em>What I thought would happen:</em> stepping down equity over time would let you start with more equity, relying on smoothing to get you over early drawdowns and strong long-run real returns to catch up. Then with lower equity in later years you wouldn’t be exposed to big drawdowns late in life.
   </p>
   
   <p>
@@ -417,19 +522,19 @@
   </p>
   
   <p>
-    Apparently my preconception was faulty, or this is the wrong model, stepping down too early and killing returns, or there&#8217;s a mistake somewhere (although I don&#8217;t think so). Watch this space for possible future elaboration or ninja-edit. I&#8217;ll consider this a first draft and move on.
+    Apparently my preconception was faulty, or this is the wrong model, stepping down too early and killing returns, or there’s a mistake somewhere (although I don’t think so). Watch this space for possible future elaboration or ninja-edit. I’ll consider this a first draft and move on.
   </p>
   
   <p>
-    Discarding the stepdown, we now have 4 parameters: spending factor <em>s</em>, starting equity, smoothing factor, and lifetime buffer. We have discussed how each one impacts the spending profile and shortfall risk. Let&#8217;s put it all together, try running a full range of reasonable values, and come up with the best efficient frontier over all values.
+    Discarding the stepdown, we now have 4 parameters: spending factor <em>s</em>, starting equity, smoothing factor, and lifetime buffer. We have discussed how each one impacts the spending profile and shortfall risk. Let’s put it all together, try running a full range of reasonable values, and come up with the best efficient frontier over all values.
   </p>
   
   <p>
     <center>
-      <em>Figure 22. Efficient frontiers &#8211; all parameter values<br /> (s=.05-1.2; equity=0-100%; smooth=1-6; buffer=0-5)</em>
+      <em>Figure 22. Efficient frontiers _ all parameter values<br /> (s=.05-1.2; equity=0-100%; smooth=1-6; buffer=0-5)</em>
     </center>
     
-    <br /> <a href="/uploads/2013/02/Rplot83.png"><img class="aligncenter size-full wp-image-1992" title="Efficient frontiers: Lifetime spending v. worst shortfall - all parameter values" src="/uploads/2013/02/Rplot83.png" alt="Efficient frontiers: Lifetime spending v. worst shortfall - all parameter values" width="480" height="320" srcset="/uploads/2013/02/Rplot83.png 480w, /uploads/2013/02/Rplot83-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a><br /> <small>&lt;/p&gt; 
+    <br /> <a href="/assets/wp-content/uploads/2013/02/Rplot83.png"><img class="aligncenter size-full wp-image-1992" title="Efficient frontiers: Lifetime spending v. worst shortfall - all parameter values" src="/assets/wp-content/uploads/2013/02/Rplot83.png" alt="Efficient frontiers: Lifetime spending v. worst shortfall - all parameter values" width="480" height="320" srcset="/assets/wp-content/uploads/2013/02/Rplot83.png 480w, /assets/wp-content/uploads/2013/02/Rplot83-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a><br /> <small>&lt;/p&gt; 
     
     <table cellspacing="10">
       <tr style="text-align: right;">
@@ -1248,7 +1353,7 @@
     </p>
     
     <p>
-      Let&#8217;s look at the rule in bold. (<em>s</em>=0.70, equity=75%, smooth=6.0, buffer=5)
+      Let’s look at the rule in bold. (<em>s</em>=0.70, equity=75%, smooth=6.0, buffer=5)
     </p>
     
     <p>
@@ -1256,7 +1361,7 @@
         <em>Figure 23. Average Spending, All Cohorts (s=0.7, eq=75%, smooth=6, buffer=5)</em>&lt;/p&gt; 
         
         <p>
-          <a href="/uploads/2013/02/Rplot86.png"><img src="/uploads/2013/02/Rplot86.png" alt="Average Spending, All Cohorts (s=0.7, eq=75%, smooth=6, buffer=5)" title="Average Spending, All Cohorts (s=0.7, eq=75%, smooth=6, buffer=5)" width="480" height="320" class="aligncenter size-full wp-image-2012" srcset="/uploads/2013/02/Rplot86.png 480w, /uploads/2013/02/Rplot86-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a><br /> &lt;/center&gt;<br /> <a name="conclusion"></a><br /> <em>What have we learned?</em>
+          <a href="/assets/wp-content/uploads/2013/02/Rplot86.png"><img src="/assets/wp-content/uploads/2013/02/Rplot86.png" alt="Average Spending, All Cohorts (s=0.7, eq=75%, smooth=6, buffer=5)" title="Average Spending, All Cohorts (s=0.7, eq=75%, smooth=6, buffer=5)" width="480" height="320" class="aligncenter size-full wp-image-2012" srcset="/assets/wp-content/uploads/2013/02/Rplot86.png 480w, /assets/wp-content/uploads/2013/02/Rplot86-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a><br /> &lt;/center&gt;<br /> <a name="conclusion"></a><br /> <em>What have we learned?</em>
         </p>
         
         <ul>
@@ -1264,7 +1369,7 @@
             When you retire matters. A lot.
           </li>
           <li>
-            The 4% rule doesn&#8217;t really work with a restrictive large cap/long term bond portfolio. The best solution is 95% equity and you still get a worst case 35% shortfall.
+            The 4% rule doesn’t really work with a restrictive large cap/long term bond portfolio. The best solution is 95% equity and you still get a worst case 35% shortfall.
           </li>
           <li>
             &lt; 3.5% has generally had a tolerable worst-case, and on average lets your spending grow over time to &gt; 4% of the initial portfolio.
@@ -1273,10 +1378,10 @@
             Even at 3.2-3.5%, a dynamic rule gives you higher lifetime spending than a fixed 4% rule, and the failure scenarios are gradual, not sudden and catastrophic.
           </li>
           <li>
-            A large equity allocation is desirable for real long-term growth, and stepping down the amount of equity as you get older doesn&#8217;t seem to improve risk-reward (at least, not a fixed annual stepdown when life expectancy is &lt; 15 years).
+            A large equity allocation is desirable for real long-term growth, and stepping down the amount of equity as you get older doesn’t seem to improve risk-reward (at least, not a fixed annual stepdown when life expectancy is &lt; 15 years).
           </li>
           <li>
-            Taxes and investment expenses aren&#8217;t included and must be taken into account, reducing returns and the level of safe spending.
+            Taxes and investment expenses aren’t included and must be taken into account, reducing returns and the level of safe spending.
           </li>
           <li>
             On the other hand, including higher-risk, higher-return investments, like small caps, international equities, higher-yielding bonds should improve risk-reward and allow higher returns and spending.
@@ -1290,46 +1395,60 @@
         </ul>
         
         <p>
-          These dynamic rules are chosen for analytical simplicity, to be easy to understand and calculate. There&#8217;s no reason to believe that they are the best, ie spending a constant/(life expectancy+buffer) is the ideal model to get the highest spending rate at each point in time for the lowest shortfall risk.
+          These dynamic rules are chosen for analytical simplicity, to be easy to understand and calculate. There’s no reason to believe that they are the best, ie spending a constant/(life expectancy+buffer) is the ideal model to get the highest spending rate at each point in time for the lowest shortfall risk.
         </p>
         
         <p>
-          In the last part of this series, we&#8217;ll think about what an ideal model would look, and how to maximize spending while keeping shortfall risk at an acceptable level.
+          In the last part of this series, we’ll think about what an ideal model would look, and how to maximize spending while keeping shortfall risk at an acceptable level.
         </p>
         
         <p>
-          <small><br /> <a name="f1"></a><sup>1</sup>On further review, the table in Part 2 isn&#8217;t the best way to look at it. No one thinks about the best spending factor they can achieve, they think about the initial spending %. And people don&#8217;t think about &#8216;lowest probability of 10% shortfall.&#8217; Maximum acceptable shortfall is simpler and more informative.<br /> </small>
+          <small><br /> <a name="f1"></a><sup>1</sup>On further review, the table in Part 2 isn’t the best way to look at it. No one thinks about the best spending factor they can achieve, they think about the initial spending %. And people don’t think about ‘lowest probability of 10% shortfall.’ Maximum acceptable shortfall is simpler and more informative.<br /> </small>
         </p>
 </center></p></small></p></small></center>
 
-  </div><a class="u-url" href="/2013/02/%E2%80%98cat-food%E2%80%99-revisited-%E2%80%93-testing-dynamic-spending-rules-%E2%80%93-part-3/" hidden></a>
+  </div>
+
+
+  <div class="page-navigation">
+    
+      <a class="prev" href="/2013/02/%E2%80%98cat-food%E2%80%99-revisited-%E2%80%93-testing-dynamic-spending-rules-%E2%80%93-part-2/">&larr; ‘Cat Food’ revisited – testing dynamic spending rules – Part 2</a>
+    
+
+    
+      <a class="next" href="/2013/05/cat-food-revisited-final-thoughts-part-4/">“Cat Food” revisited _ final thoughts _ part 4 &rarr;</a>
+    
+  </div>
+
+  
+
 </article>
 
       </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/"></data>
+    </main>
 
-  <div class="wrapper">
+    <div style="clear: both;"/>
+<footer class="site-footer">
+    2019 &copy; Built by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> and <a href="https://github.com/jekyll/minima/" target="_blank">minima</a> | View <a href="https://github.com/druce/druce.github.io" target="_blank">this</a> on Github | <a href="/tags.html">Tags</a> | <a href="/contact.html">Contact</a> | <a href="/FAQ.html">FAQ</a>
 
-    <h2 class="footer-heading">StreetEYE Blog</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">Druce Vertes</li><li><a class="u-email" href="mailto:streeteye@streeteye.com">streeteye@streeteye.com</a></li></ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://www.twitter.com/streeteye"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">streeteye</span></a></li><li><a href="https://www.linkedin.com/in/drucevertes"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">drucevertes</span></a></li><li><a href="https://github.com/druce"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">druce</span></a></li></ul>
-</div>
-
-      <div class="footer-col footer-col-3">
-        <p>&copy; Druce Vertes 2020 <br />Druce&#39;s Mad Science About Tech, Markets And Political Economy</p>
-      </div>
-    </div>
-
-  </div>
-
+    <p>
+        <a href="/feed.xml" target="_blank">
+            <img src="/assets/images/logo_rss.png" />
+        </a>
+        <a href="https://twitter.com/streeteye/" target="_blank">
+            <img src="/assets/images/logo_twitter.png" />
+        </a>
+        <a href="https://github.com/druce" target="_blank">
+            <img src="/assets/images/logo_github.png" />
+        </a>
+        <a href="https://www.linkedin.com/in/drucevertes" target="_blank">
+            <img src="/assets/images/logo_github.png" />
+        </a>
+	
+    </p>
 </footer>
-</body>
+
+
+  </body>
 
 </html>

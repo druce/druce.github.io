@@ -13,10 +13,10 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-<link rel="stylesheet" type="text/css" href="/static/js/tablesorter-master/themes/blue/style.css" />
+<link rel="stylesheet" type="text/css" href="/assets/js/tablesorter-master/themes/blue/style.css" />
 
   
-It&#8217;s been a year since we posted our last list of people to follow on Twitter for financial news. Time for an update!  
+It’s been a year since we posted our last list of people to follow on Twitter for financial news. Time for an update!  
 <!--more-->
 
 We start with a [network centrality](https://en.wikipedia.org/wiki/Centrality) analysis, building a graph of who follows whom and finding the people with the largest number of most influential followers. Those are probably people who will play a big role in transmitting important news.
@@ -26,20 +26,20 @@ Then we trim the list to people who are good curators: they post links to a vari
 Who do we cull?
 
   * Non-relevant accounts. [@BarackObama](https://twitter.com/BarackObama) is widely followed, but the stuff he posts is only occasionally relevant to financial markets.
-  * People who don&#8217;t curate, filter, and signal the most important things to read. [@LHSummers](https://twitter.com/LHSummers) is a good example. He&#8217;s a really important guy to follow but he only tweets out his own stuff, he doesn&#8217;t help people discover financial news. </ul> 
-    We rank the quality of each person&#8217;s curation on how much financial news they tweet, how much of it gets picked up and generates a lot of buzz, and how early they post it. It&#8217;s a subjective, but hopefully sensible formula.
+  * People who don’t curate, filter, and signal the most important things to read. [@LHSummers](https://twitter.com/LHSummers) is a good example. He’s a really important guy to follow but he only tweets out his own stuff, he doesn’t help people discover financial news. </ul> 
+    We rank the quality of each person’s curation on how much financial news they tweet, how much of it gets picked up and generates a lot of buzz, and how early they post it. It’s a subjective, but hopefully sensible formula.
     
-    Here&#8217;s our map of ~500 Twitter accounts, using a force-directed network. Everyone who follows an account pulls it toward them, so we see Twitter accounts arranged into broad areas according to who follows them: Asia, Europe, US markets, tech, media, econ, politics. People who are in the center are pretty equally followed by folks in all parts of the map, whatever their varied interests. Bigger labels represent people with larger followings.
+    Here’s our map of ~500 Twitter accounts, using a force-directed network. Everyone who follows an account pulls it toward them, so we see Twitter accounts arranged into broad areas according to who follows them: Asia, Europe, US markets, tech, media, econ, politics. People who are in the center are pretty equally followed by folks in all parts of the map, whatever their varied interests. Bigger labels represent people with larger followings.
     
-    [<img src="/uploads/2016/05/Capture75.png" alt="Network graph - small" width="574" height="464" class="aligncenter size-full wp-image-4700" srcset="/uploads/2016/05/Capture75.png 574w, /uploads/2016/05/Capture75-300x243.png 300w" sizes="(max-width: 574px) 100vw, 574px" />](/uploads/2016/05/Capture150.png)  
-    <a href="/uploads/2016/05/Capture150.png" target="_blank">Click to embiggen.</a>  
+    [<img src="/assets/wp-content/uploads/2016/05/Capture75.png" alt="Network graph - small" width="574" height="464" class="aligncenter size-full wp-image-4700" srcset="/assets/wp-content/uploads/2016/05/Capture75.png 574w, /assets/wp-content/uploads/2016/05/Capture75-300x243.png 300w" sizes="(max-width: 574px) 100vw, 574px" />](/assets/wp-content/uploads/2016/05/Capture150.png)  
+    <a href="/assets/wp-content/uploads/2016/05/Capture150.png" target="_blank">Click to embiggen.</a>  
     <a href="http://www.streeteye.com/static/D3/forcegraph3.html" target="_blank">Click for interactive version with more colors and rollovers for readability</a> (may not work on all devices)
     
     Below are the top 100 accounts to follow, ranked by our relevance score (click on headers to re-sort). You can follow the top 50, updated weekly, on the [StreetEYE Twitter leaderboard](http://www.streeteye.com/leaderboard). 
     
     (And of course, see the most shared financial stories updated continuously on the [StreetEYE](http://www.streeteye.com) home page.)
     
-    <small>(A quick P.S. and caveat: I&#8217;m delighted that people I respect a great deal get a kick out of it and find it useful, but keep in mind that 1) I don&#8217;t have full Twitter data and 2) it&#8217;s just a (hopefully reasonable) simplistic formula. If you&#8217;re on here than you&#8217;re probably pretty widely followed and post a lot of timely and relevant financial news. Let&#8217;s just say it&#8217;s inherently a ranking with a lot of bias and variance and tilts mainstream by design. I wouldn&#8217;t read much into why X is higher than Y or Z isn&#8217;t on here. <a href="#faq">Answers to some frequently asked questions are below.</a>)</small>
+    <small>(A quick P.S. and caveat: I’m delighted that people I respect a great deal get a kick out of it and find it useful, but keep in mind that 1) I don’t have full Twitter data and 2) it’s just a (hopefully reasonable) simplistic formula. If you’re on here than you’re probably pretty widely followed and post a lot of timely and relevant financial news. Let’s just say it’s inherently a ranking with a lot of bias and variance and tilts mainstream by design. I wouldn’t read much into why X is higher than Y or Z isn’t on here. <a href="#faq">Answers to some frequently asked questions are below.</a>)</small>
     
     <table id="myTable" class="tablesorter">
       <tr>
@@ -1459,13 +1459,13 @@ Who do we cull?
     
     <a name="faq"><strong>Frequently asked questions:</strong></a>
     
-      1. _What (TF) is StreetEYE?_ Since 2011 we&#8217;ve tried to systematically find the best people to follow for financial news, and create a crowd-sourced front page of the financial Internet. You can read more [here](http://www.streeteye.com/about).  
+      1. _What (TF) is StreetEYE?_ Since 2011 we’ve tried to systematically find the best people to follow for financial news, and create a crowd-sourced front page of the financial Internet. You can read more [here](http://www.streeteye.com/about).  
         &nbsp;
-      2. _Why isn&#8217;t <brilliant pundit or technical commentator> on the list?_ Assuming they are widely followed, probably because they don&#8217;t share other people&#8217;s content very much. There are a lot of great people to follow, who only share their own original content, or that of their colleagues. They don&#8217;t add a lot of signal to help discover news, so they don&#8217;t meet the relevance bar.&nbsp;  
+      2. _Why isn’t <brilliant pundit or technical commentator> on the list?_ Assuming they are widely followed, probably because they don’t share other people’s content very much. There are a lot of great people to follow, who only share their own original content, or that of their colleagues. They don’t add a lot of signal to help discover news, so they don’t meet the relevance bar.&nbsp;  
         &nbsp;
-      3. _Why isn&#8217;t ZeroHedge on here? Everyone knows they should be #1!_ ZeroHedge blocks our bot on Twitter. There are three accounts I would like to follow that block us. Maybe they just don&#8217;t like being aggregated in this way. Maybe I said something snarky. I have been known to be a jerk. Sorry! Ask them.  
+      3. _Why isn’t ZeroHedge on here? Everyone knows they should be #1!_ ZeroHedge blocks our bot on Twitter. There are three accounts I would like to follow that block us. Maybe they just don’t like being aggregated in this way. Maybe I said something snarky. I have been known to be a jerk. Sorry! Ask them.  
         &nbsp;
-      4. _Why isn&#8217;t <other great account> on here._ Maybe they are just below the 100 cutoff. I am the first to admit the formula is subjective and arbitrary. I wouldn&#8217;t call it bizarre, but I would call it idiosyncratic. If they post a lot of timely relevant headlines, they are probably on our radar. Sometimes there are artifacts and judgment calls. For instance @mediagazer is widely followed by a lot of journalists who are great curators, so they have a very high centrality score. And they often share relevant news about financial media. Should they be culled because they&#8217;re mostly about media? Judgment call. The formula tends to like places like @DRUDGE_REPORT that post a lot of news stories in a timely manner that ultimately get a lot of buzz. If there is someone who is relevant and widely followed who is not on the list, we would like to know. [Contact us!](/?page_id=2) We love feedback.  
+      4. _Why isn’t <other great account> on here._ Maybe they are just below the 100 cutoff. I am the first to admit the formula is subjective and arbitrary. I wouldn’t call it bizarre, but I would call it idiosyncratic. If they post a lot of timely relevant headlines, they are probably on our radar. Sometimes there are artifacts and judgment calls. For instance @mediagazer is widely followed by a lot of journalists who are great curators, so they have a very high centrality score. And they often share relevant news about financial media. Should they be culled because they’re mostly about media? Judgment call. The formula tends to like places like @DRUDGE_REPORT that post a lot of news stories in a timely manner that ultimately get a lot of buzz. If there is someone who is relevant and widely followed who is not on the list, we would like to know. [Contact us!](/?page_id=2) We love feedback.  
         &nbsp;
       5. _Can I see the whole list?_ [Here are the top 250](http://www.streeteye.com/static/D3/tabledump.html). If you want to see where others rank, or follow even more of them, go to town!  
         &nbsp;

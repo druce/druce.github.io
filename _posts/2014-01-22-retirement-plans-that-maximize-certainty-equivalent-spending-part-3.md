@@ -15,18 +15,18 @@ categories:
 ---
 In [part 1](/2014/01/2534/ "Optimal certainty-equivalent spending retirements with DataNitro") and [part 2](/2014/01/optimal-certainty-equivalent-retirement-plans-part-2/ "Retirement plans that maximize certainty-equivalent spending, part 2"), we developed a framework for evaluating and identifying a good plan for retirement spending and asset allocation.
 
-  * We discussed how a _CRRA (constant relative risk aversion) utility function_ and the related concept of _certainty-equivalent (CE) spending_ can discount a stream of future cash flows based on their risk and variability, and the retiree&#8217;s risk aversion.
+  * We discussed how a _CRRA (constant relative risk aversion) utility function_ and the related concept of _certainty-equivalent (CE) spending_ can discount a stream of future cash flows based on their risk and variability, and the retiree’s risk aversion.
   * We solved a toy problem: how the retiree maximizes certainty-equivalent spending if he or she can invest at a guaranteed fixed risk-free real return rate.
   * We generated CE-optimal spending schedules using that fixed risk-free real return rate for retirees with different levels of risk aversion (in this case, no investment risk, just longevity risk, trading off current income for future risk of outliving the portfolio)
   * We moved from a fixed rate assumption to using historical US real returns on stocks and bonds. We generated a spending schedule that maximized CE spending based on historical real returns for a 50% equity portfolio.
   * Using that spending schedule, we solved the other side of the problem, and generated an equity allocation that would have maximized CE spending for that spending schedule.
   * We looked at that solution, and found it seemed pretty good.
 
-So, where we left off, we had independently solved the spending schedule and then the equity allocation schedule. Of course, that does not mean that when you put those two solutions together, they are the best we can do. It just means the equity allocation is the best available given that spending schedule. So today, we&#8217;ll try to solve them simultaneously.
+So, where we left off, we had independently solved the spending schedule and then the equity allocation schedule. Of course, that does not mean that when you put those two solutions together, they are the best we can do. It just means the equity allocation is the best available given that spending schedule. So today, we’ll try to solve them simultaneously.
 
 The framework in which we try to solve the retirement spending problem is:
 
-_Maximize expected CE spending for a 25-year retirement&#8230;  
+_Maximize expected CE spending for a 25-year retirement…  
 Which is modeled as a function of a 2&#215;25 matrix  
 &bull; 25-years of retirement  
 &bull; Spending % each year  
@@ -418,7 +418,7 @@ We see that our initial spending is higher (6.1% vs. 5.9% when we optimized spen
 
 **Actual spending using computed schedule, % of initial portfolio, 25-year retirement cohorts 1926-1987**
 
-[<img src="/uploads/2014/01/Capture7.png" alt="Actual Spending using computed schedule, 25-year retirement cohorts 1926-1987 " width="511" height="281" class="aligncenter size-full wp-image-2665" srcset="/uploads/2014/01/Capture7.png 511w, /uploads/2014/01/Capture7-300x164.png 300w" sizes="(max-width: 511px) 100vw, 511px" />](/uploads/2014/01/Capture7.png)
+[<img src="/assets/wp-content/uploads/2014/01/Capture7.png" alt="Actual Spending using computed schedule, 25-year retirement cohorts 1926-1987 " width="511" height="281" class="aligncenter size-full wp-image-2665" srcset="/assets/wp-content/uploads/2014/01/Capture7.png 511w, /assets/wp-content/uploads/2014/01/Capture7-300x164.png 300w" sizes="(max-width: 511px) 100vw, 511px" />](/assets/wp-content/uploads/2014/01/Capture7.png)
 
 It’s quite interesting that the equity % starts at 63.8% and rises throughout retirement. Conventional wisdom, as implemented in many [target date funds](https://institutional.vanguard.com/VGApp/iip/site/institutional/investments/balancedoverview) would be to reduce the equity allocation as you get older, since you have less time to recover any shortfall from a major market decline. So that result bears investigation to see if there is an error, or if it’s inherent in the unconventional aspects of this approach.
 

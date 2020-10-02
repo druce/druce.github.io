@@ -1,6 +1,6 @@
 ---
 id: 1429
-title: '&#8216;Cat Food&#8217; revisited &#8211; testing dynamic spending rules &#8211; Part 1'
+title: '‘Cat Food’ revisited _ testing dynamic spending rules _ Part 1'
 date: 2013-01-25T20:08:34+00:00
 author: Druce Vertes, CFA
 layout: post
@@ -13,56 +13,56 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-How much can you safely spend out of a portfolio in retirement? Spend conservatively and you may be unnecessarily curbing the lifestyle and aspirations of you and your loved ones. Overspend and risk a shortfall and painful adjustment &#8211; in the extreme, the (hopefully apocryphal) &#8220;cat food&#8221; diet.
+How much can you safely spend out of a portfolio in retirement? Spend conservatively and you may be unnecessarily curbing the lifestyle and aspirations of you and your loved ones. Overspend and risk a shortfall and painful adjustment _ in the extreme, the (hopefully apocryphal) “cat food” diet.
 
 A traditional rule of thumb is [a fixed 4% per year](http://online.wsj.com/article/SB10001424052970203960804577241143142670660.html "WSJ: Testing the 4%-a-Year Retirement Rule") of your starting portfolio, adjusted each year for inflation. [A previous post](/2011/08/cat-food-in-an-age-of-diminished-expectations/) discussed why this rule may not be safe:
 
-  * [Low bond yields](http://www.federalreserve.gov/releases/h15/update/ "Federal Reserve H. 15") &#8211; 1.8% for 10-year Treasurys and negative TIPS out to 10 years &#8211; mean historical bond returns are mathematically unobtainable.<sup>1</sup>
-  * 2.2% real returns since 2000 on a 60/40 blended portfolio suggest that long-run return expectations need to be revisited. Low long-term interest rates are a forecast of low future returns, ie low growth and inflation expectations. To the extent equity risk premiums haven&#8217;t widened, they forecast lower than normal equity returns.
+  * [Low bond yields](http://www.federalreserve.gov/releases/h15/update/ "Federal Reserve H. 15") _ 1.8% for 10-year Treasurys and negative TIPS out to 10 years _ mean historical bond returns are mathematically unobtainable.<sup>1</sup>
+  * 2.2% real returns since 2000 on a 60/40 blended portfolio suggest that long-run return expectations need to be revisited. Low long-term interest rates are a forecast of low future returns, ie low growth and inflation expectations. To the extent equity risk premiums haven’t widened, they forecast lower than normal equity returns.
   * Taxes and investment expenses must be included. Work supporting 4% tends to ignore them.
   * US demographics are not very positive for growth, inflation, tax rates, and hence, real after-tax investment returns (which is reflected in the US fiscal position). [The US dependency ratio](http://www.census.gov/prod/2010pubs/p25-1138.pdf "Census population projections") is forecast to rise by 15 points over the next 20 years.
 
-If the 4% rule hasn&#8217;t been decisively breached, forward-looking indicators are a bit worrisome. Could a more flexible rule not only be safer, but in favorable circumstances allow a higher level of spending? In this 3-part post, we test dynamic rules that vary withdrawal rates based on age and the size of the portfolio, and vary the composition of the portfolio over time.  
+If the 4% rule hasn’t been decisively breached, forward-looking indicators are a bit worrisome. Could a more flexible rule not only be safer, but in favorable circumstances allow a higher level of spending? In this 3-part post, we test dynamic rules that vary withdrawal rates based on age and the size of the portfolio, and vary the composition of the portfolio over time.  
 <!--more-->
 
   
 _Dynamic rule 1: Vary spending by age._
 
-The first rule we&#8217;ll test is to spend a percentage of the _actual_ portfolio each year (not a fixed percentage of the _initial_ portfolio) and vary the percentage by age.
+The first rule we’ll test is to spend a percentage of the _actual_ portfolio each year (not a fixed percentage of the _initial_ portfolio) and vary the percentage by age.
 
-Suppose you are a 65 year old male. You have a life expectancy of 17.19 years per [US government actuarial tables](http://www.ssa.gov/oact/STATS/table4c6.html "Social Security life table"). It would make sense to vary spending as a percentage of your assets inversely with your life expectancy. As a base case you could spend 1/17.19=5.82% of your portfolio this year. Next year your life expectancy would be 16.48% You would spend 1/16.48=6.07%. This is higher than 4% for life expectancy < 25 years, but it&#8217;s an arbitrary base case &#8211; just a starting point to test a rule based on the size of the portfolio and life expectancy.
+Suppose you are a 65 year old male. You have a life expectancy of 17.19 years per [US government actuarial tables](http://www.ssa.gov/oact/STATS/table4c6.html "Social Security life table"). It would make sense to vary spending as a percentage of your assets inversely with your life expectancy. As a base case you could spend 1/17.19=5.82% of your portfolio this year. Next year your life expectancy would be 16.48% You would spend 1/16.48=6.07%. This is higher than 4% for life expectancy < 25 years, but it’s an arbitrary base case _ just a starting point to test a rule based on the size of the portfolio and life expectancy.
 
-Let&#8217;s apply this rule to a 60/40 stock/bond portfolio for someone who retired in 1928 to and see what spending it would have supported.
+Let’s apply this rule to a 60/40 stock/bond portfolio for someone who retired in 1928 to and see what spending it would have supported.
 
 _Figure 1. Inflation-adjusted spending for a 65-year-old single male who retires in 1928, with dynamic spending rule of 1/life_expectancy (spending factor=1) v. survival rate_
 
-[<img src="/uploads/2013/01/Rplot08.png" alt="Income v. Survival, 1928 males, 60/40 portfolio, spending factor 1" title="Income v. Survival, 1928 males, 60/40 portfolio, spending factor 1" width="480" height="320" class="aligncenter size-full wp-image-1648" srcset="/uploads/2013/01/Rplot08.png 480w, /uploads/2013/01/Rplot08-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/uploads/2013/01/Rplot08.png)
+[<img src="/assets/wp-content/uploads/2013/01/Rplot08.png" alt="Income v. Survival, 1928 males, 60/40 portfolio, spending factor 1" title="Income v. Survival, 1928 males, 60/40 portfolio, spending factor 1" width="480" height="320" class="aligncenter size-full wp-image-1648" srcset="/assets/wp-content/uploads/2013/01/Rplot08.png 480w, /assets/wp-content/uploads/2013/01/Rplot08-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/assets/wp-content/uploads/2013/01/Rplot08.png)
 
 This retiree would have experienced volatility, but he would really have started to go broke after around 1947, aged 85, shortly after his original life expectancy at retirement. From the blue survival line (from [current life expectancy tables](http://www.ssa.gov/oact/STATS/table4c6.html "SSA.gov Actuarial Life Table")), over 40% would still have been alive for that drop. If he lived to be 100 after 35 years in 1963, he would have been penniless.
 
-Is this rule too spendthrift, or was 1928 a particularly bad year to start retirement? Let&#8217;s try the same rule in all available 35-year retirement cohorts 1928-1977, and plot their average spending.
+Is this rule too spendthrift, or was 1928 a particularly bad year to start retirement? Let’s try the same rule in all available 35-year retirement cohorts 1928-1977, and plot their average spending.
 
 <center>
   <em>Figure 2. Average spending, 60/40 portfolio, spending factor 1, retirement age 65, all cohorts</em>
 </center>
 
-[<img src="/uploads/2013/01/Rplot09.png" alt="Average spending, 60/40 portfolio, spending factor 1, retirement age 65, all cohorts" title="Average spending, 60/40 portfolio, spending factor 1, retirement age 65, all cohorts" width="480" height="320" class="aligncenter size-full wp-image-1658" srcset="/uploads/2013/01/Rplot09.png 480w, /uploads/2013/01/Rplot09-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/uploads/2013/01/Rplot09.png)
+[<img src="/assets/wp-content/uploads/2013/01/Rplot09.png" alt="Average spending, 60/40 portfolio, spending factor 1, retirement age 65, all cohorts" title="Average spending, 60/40 portfolio, spending factor 1, retirement age 65, all cohorts" width="480" height="320" class="aligncenter size-full wp-image-1658" srcset="/assets/wp-content/uploads/2013/01/Rplot09.png 480w, /assets/wp-content/uploads/2013/01/Rplot09-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/assets/wp-content/uploads/2013/01/Rplot09.png)
 
 The middle blue line is the average income by retirement year. The green and red are the best and worst cases. The middle 2 lines represent the +/- 1 standard deviation confidence interval.
 
 Even in the best case, you eventually go broke. Your life expectancy is 17.2 years at retirement, and on average your spending goes below the starting amount around year 19. This spending rule may not conservative enough.
 
-Let&#8217;s call _s_ spending factor, and try different spending rates _s_/life_expectancy. We can run spending factors between 0.05 and 1.2: _<a title="Average spending, all cohorts, by spending factor" href="/uploads/2013/01/Rplot10.png" target="_blank">Figure 3. Big chart panel (opens in new window)</a>_. As we move toward the top of the page, we see safer profiles, and even the worst case scenarios start to seem fairly acceptable.
+Let’s call _s_ spending factor, and try different spending rates _s_/life_expectancy. We can run spending factors between 0.05 and 1.2: _<a title="Average spending, all cohorts, by spending factor" href="/assets/wp-content/uploads/2013/01/Rplot10.png" target="_blank">Figure 3. Big chart panel (opens in new window)</a>_. As we move toward the top of the page, we see safer profiles, and even the worst case scenarios start to seem fairly acceptable.
 
 This exercise demonstrates the tradeoff between spending, and the risk of the average or worst-case income path exhibiting a major shortfall from the starting income.
 
-To better visualize this big panel, we can estimate &#8216;lifetime spend expectancy&#8217; and shortfall probability for each spending factor.
+To better visualize this big panel, we can estimate ‘lifetime spend expectancy’ and shortfall probability for each spending factor.
 
 <center>
   <em>Figure 4. Lifetime spending expectancy (% of initial portfolio) v. spending factor</em>
 </center>
 
-[<img src="/uploads/2013/01/Rplot13.png" alt="Lifetime spend expectancy v. spending factor" title="Lifetime spend expectancy v. spending factor" width="480" height="320" class="aligncenter size-full wp-image-1667" srcset="/uploads/2013/01/Rplot13.png 480w, /uploads/2013/01/Rplot13-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/uploads/2013/01/Rplot13.png)
+[<img src="/assets/wp-content/uploads/2013/01/Rplot13.png" alt="Lifetime spend expectancy v. spending factor" title="Lifetime spend expectancy v. spending factor" width="480" height="320" class="aligncenter size-full wp-image-1667" srcset="/assets/wp-content/uploads/2013/01/Rplot13.png 480w, /assets/wp-content/uploads/2013/01/Rplot13-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/assets/wp-content/uploads/2013/01/Rplot13.png)
 
 In Figure 4, for each year, we multiply the spending outcome by the probability of a cohort retiree surviving to that year, and sum up the years, to get the lifetime spend expectancy for a given spending factor. This summarizes each line in the Figure 3 panel as a single point, the expected lifetime spending as a percentage of starting portfolio.
 
@@ -70,7 +70,7 @@ In Figure 4, for each year, we multiply the spending outcome by the probability 
   <em>Figure 5. Probability of spending shortfall v. spending factor.</em>
 </center>
 
-[<img src="/uploads/2013/01/Rplot15.png" alt="Probability of spending shortfall v. spending factor" title="Probability of spending shortfall v. spending factor" width="480" height="320" class="aligncenter size-full wp-image-1727" srcset="/uploads/2013/01/Rplot15.png 480w, /uploads/2013/01/Rplot15-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/uploads/2013/01/Rplot15.png)
+[<img src="/assets/wp-content/uploads/2013/01/Rplot15.png" alt="Probability of spending shortfall v. spending factor" title="Probability of spending shortfall v. spending factor" width="480" height="320" class="aligncenter size-full wp-image-1727" srcset="/assets/wp-content/uploads/2013/01/Rplot15.png 480w, /assets/wp-content/uploads/2013/01/Rplot15-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/assets/wp-content/uploads/2013/01/Rplot15.png)
 
 In Figure 5, for each _s_, we calculate the percentage of retirees in all cohorts who survived to a year where the spending falls to 25% below the initial spending.
 
@@ -78,7 +78,7 @@ These last 2 charts illustrate that as you increase the spending factor past 0.6
 
 Finally, how does the fixed 4% rule compare? For a 65-year-old with a 60/40 portfolio, the 4% rule yields 70.4 expected lifetime spending with a 2% lifetime shortfall probability. 
 
-By comparison, a 0.5 spending factor, which starts at about 3% spending, yields expected spending of 91.2 with a 9.7% probability of a 25% drop from the initial spend amount, and a worst case drop of 37% (for 1973 retirees &#8211; they eventually recovered). 
+By comparison, a 0.5 spending factor, which starts at about 3% spending, yields expected spending of 91.2 with a 9.7% probability of a 25% drop from the initial spend amount, and a worst case drop of 37% (for 1973 retirees _ they eventually recovered). 
 
 But you do start at a lower rate, and spending is variable.
 
@@ -86,16 +86,16 @@ But you do start at a lower rate, and spending is variable.
   <em>Figure 6. Average spending by retirement year, all cohorts, spending factor 0.5.</em>
 </center>
 
-[<img src="/uploads/2013/01/Rplot45.png" alt="Average spending, all cohorts, spending factor 0.5" title="Average spending, all cohorts, spending factor 0.5" width="480" height="320" class="aligncenter size-full wp-image-1828" srcset="/uploads/2013/01/Rplot45.png 480w, /uploads/2013/01/Rplot45-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/uploads/2013/01/Rplot45.png)
+[<img src="/assets/wp-content/uploads/2013/01/Rplot45.png" alt="Average spending, all cohorts, spending factor 0.5" title="Average spending, all cohorts, spending factor 0.5" width="480" height="320" class="aligncenter size-full wp-image-1828" srcset="/assets/wp-content/uploads/2013/01/Rplot45.png 480w, /assets/wp-content/uploads/2013/01/Rplot45-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/assets/wp-content/uploads/2013/01/Rplot45.png)
 
 <center>
   <em>Figure 7. Average spending by retirement year, all cohorts, fixed 4% rule</em>
 </center>
 
-[<img src="/uploads/2013/01/Rplot50.png" alt="Average spending by retirement year, all cohorts, Fixed 4% rule" title="Average spending by retirement year, all cohorts, Fixed 4% rule" width="480" height="320" class="aligncenter size-full wp-image-1838" srcset="/uploads/2013/01/Rplot50.png 480w, /uploads/2013/01/Rplot50-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/uploads/2013/01/Rplot50.png)  
-In the next post, we&#8217;ll test additional rules, to vary the composition of the portfolio by age, and to try smooth spending.
+[<img src="/assets/wp-content/uploads/2013/01/Rplot50.png" alt="Average spending by retirement year, all cohorts, Fixed 4% rule" title="Average spending by retirement year, all cohorts, Fixed 4% rule" width="480" height="320" class="aligncenter size-full wp-image-1838" srcset="/assets/wp-content/uploads/2013/01/Rplot50.png 480w, /assets/wp-content/uploads/2013/01/Rplot50-300x200.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/assets/wp-content/uploads/2013/01/Rplot50.png)  
+In the next post, we’ll test additional rules, to vary the composition of the portfolio by age, and to try smooth spending.
 
-<small><br /> <sup>1</sup>The objection has been made that today&#8217;s rates can go lower and bond returns can be higher in the short run. True, but a 10-year bond bought at a yield of 1.8% will return, best case, 1.8% nominal over its lifetime (less in the event of default). If the yield goes to zero this year, it will return 18% this year, and zero over the rest of its lifetime. It&#8217;s called &#8220;fixed&#8221; income for a reason. When interest rates are below inflation, thinking bonds can be a real total return instrument in the base case is setting up for disappointment. It hasn&#8217;t been true historically, and it&#8217;s not what the market is pricing in. Bonds still have an important role as a liquidity and deflation hedge.<br /> </small>
+<small><br /> <sup>1</sup>The objection has been made that today’s rates can go lower and bond returns can be higher in the short run. True, but a 10-year bond bought at a yield of 1.8% will return, best case, 1.8% nominal over its lifetime (less in the event of default). If the yield goes to zero this year, it will return 18% this year, and zero over the rest of its lifetime. It’s called “fixed” income for a reason. When interest rates are below inflation, thinking bonds can be a real total return instrument in the base case is setting up for disappointment. It hasn’t been true historically, and it’s not what the market is pricing in. Bonds still have an important role as a liquidity and deflation hedge.<br /> </small>
 
 <div class="wp_codebox_msgheader wp_codebox_hide">
   <span class="right"><sup><a href="http://www.ericbess.com/ericblog/2008/03/03/wp-codebox/#examples" target="_blank" title="WP-CodeBox HowTo?"><span style="color: #99cc00">?</span></a></sup></span><span class="left"><a href="javascript:;" onclick="javascript:showCodeTxt('p1429code14'); return false;">View Code</a> RSPLUS</span>
@@ -605,8 +605,8 @@ chartsummary <span style="color: #080;">&lt;-</span> <a href="http://astrostatis
 &nbsp;
 <a href="http://astrostatistics.psu.edu/su07/R/html/graphics/html/library.html"><span style="color: #0000FF; font-weight: bold;">library</span></a><span style="color: #080;">&#40;</span>ggplot2<span style="color: #080;">&#41;</span>
 &nbsp;
-returns <span style="color: #080;">&lt;-</span> <span style="color: #0000FF; font-weight: bold;">read.<span style="">csv</span></span><span style="color: #080;">&#40;</span><span style="color: #ff0000;">"~/Documents/returns.csv"</span><span style="color: #080;">&#41;</span>  <span style="color: #228B22;"># /uploads/2013/01/returns.csv</span>
-lifetable <span style="color: #080;">&lt;-</span> <span style="color: #0000FF; font-weight: bold;">read.<span style="">csv</span></span><span style="color: #080;">&#40;</span><span style="color: #ff0000;">"~/Documents/Lifetable.csv"</span><span style="color: #080;">&#41;</span> <span style="color: #228B22;"># /uploads/2013/01/Lifetable.csv</span>
+returns <span style="color: #080;">&lt;-</span> <span style="color: #0000FF; font-weight: bold;">read.<span style="">csv</span></span><span style="color: #080;">&#40;</span><span style="color: #ff0000;">"~/Documents/returns.csv"</span><span style="color: #080;">&#41;</span>  <span style="color: #228B22;"># /assets/wp-content/uploads/2013/01/returns.csv</span>
+lifetable <span style="color: #080;">&lt;-</span> <span style="color: #0000FF; font-weight: bold;">read.<span style="">csv</span></span><span style="color: #080;">&#40;</span><span style="color: #ff0000;">"~/Documents/Lifetable.csv"</span><span style="color: #080;">&#41;</span> <span style="color: #228B22;"># /assets/wp-content/uploads/2013/01/Lifetable.csv</span>
 &nbsp;
 returns$realstocks<span style="color: #080;">=</span>returns$Stocks<span style="color: #080;">-</span>returns$CPI
 returns$realbonds<span style="color: #080;">=</span>returns$Bonds<span style="color: #080;">-</span>returns$CPI

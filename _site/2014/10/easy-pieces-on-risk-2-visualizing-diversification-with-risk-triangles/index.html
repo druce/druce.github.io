@@ -1,56 +1,88 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Easy Pieces on Risk #2: Visualizing Diversification With Risk Triangles | StreetEYE Blog</title>
-<meta name="generator" content="Jekyll v3.9.0" />
-<meta property="og:title" content="Easy Pieces on Risk #2: Visualizing Diversification With Risk Triangles" />
-<meta name="author" content="Druce Vertes, CFA" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Randall Munroe &#8211; XKCD.com &#8211; http://xkcd.com/552/" />
-<meta property="og:description" content="Randall Munroe &#8211; XKCD.com &#8211; http://xkcd.com/552/" />
-<link rel="canonical" href="http://0.0.0.0:4000/2014/10/easy-pieces-on-risk-2-visualizing-diversification-with-risk-triangles/" />
-<meta property="og:url" content="http://0.0.0.0:4000/2014/10/easy-pieces-on-risk-2-visualizing-diversification-with-risk-triangles/" />
-<meta property="og:site_name" content="StreetEYE Blog" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2014-10-05T09:27:42+00:00" />
-<script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Easy Pieces on Risk #2: Visualizing Diversification With Risk Triangles","dateModified":"2014-10-05T09:27:42+00:00","datePublished":"2014-10-05T09:27:42+00:00","url":"http://0.0.0.0:4000/2014/10/easy-pieces-on-risk-2-visualizing-diversification-with-risk-triangles/","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/2014/10/easy-pieces-on-risk-2-visualizing-diversification-with-risk-triangles/"},"author":{"@type":"Person","name":"Druce Vertes, CFA"},"description":"Randall Munroe &#8211; XKCD.com &#8211; http://xkcd.com/552/","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="StreetEYE Blog" /></head>
-<body><header class="site-header" role="banner">
+<html lang="en">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">StreetEYE Blog</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
+  <head>
+    
+      
 
-        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
-      </nav></div>
-</header>
-<main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Easy Pieces on Risk #2: Visualizing Diversification With Risk Triangles</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="2014-10-05T09:27:42+00:00" itemprop="datePublished">Oct 5, 2014
-      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Druce Vertes, CFA</span></span></p>
-  </header>
 
-  <div class="post-content e-content" itemprop="articleBody">
-    <div id="attachment_2746" style="width: 469px" class="wp-caption alignleft">
-  <a href="http://xkcd.com/552/"><img class="size-full wp-image-2746" alt="XKCD" src="/uploads/2014/10/correlation.png" width="459" height="185" srcset="/uploads/2014/10/correlation.png 459w, /uploads/2014/10/correlation-300x120.png 300w" sizes="(max-width: 459px) 100vw, 459px" /></a>
+
+
+
+    
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Easy Pieces on Risk #2: Visualizing Diversification With Risk Triangles</title>
+
+    <meta name="description" content="Randall Munroe _ XKCD.com _ http://xkcd.com/552/ In this post we’re going to look at a simple way to visualize the power of diversification, and what correla...">
+
+    <meta content="StreetEYE Blog" property="og:site_name">
+    
+        <meta content="Easy Pieces on Risk #2: Visualizing Diversification With Risk Triangles" property="og:title">
+    
+    
+        <meta content="article" property="og:type">
+    
+    
+        <meta content="Randall Munroe _ XKCD.com _ http://xkcd.com/552/ In this post we’re going to look at a simple way to visualize the power of diversification, and what correlation really tells us. Suppose you have 2 investments, A and B. You create a portfolio that consists of 1 share of A, and 1..." property="og:description">
+    
+    
+        <meta content="http://0.0.0.0:4000/2014/10/easy-pieces-on-risk-2-visualizing-diversification-with-risk-triangles/" property="og:url">
+    
+    
+        <meta content="2014-10-05T05:27:42-04:00" property="article:published_time">
+        <meta content="http://0.0.0.0:4000/about/" property="article:author">
+    
+    
+    
+        
+    
+
+    <link rel="shortcut icon" href="/assets/favicon_peach.ico">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="canonical" href="http://0.0.0.0:4000/2014/10/easy-pieces-on-risk-2-visualizing-diversification-with-risk-triangles/">
+
+    <!-- For Latex -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-8161570-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <!-- For Facebook share button -->
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Twitter cards -->
+    <meta name="twitter:site"    content="@streeteye">
+    <meta name="twitter:creator" content="@Druce Vertes">
+    <meta name="twitter:title"   content="Easy Pieces on Risk #2: Visualizing Diversification With Risk Triangles">
+
+    
+        <meta name="twitter:description" content="<div id="attachment_2746" style="width: 469px" class="wp-caption alignleft">
+  <a href="http://xkcd.com/552/"><img class="size-full wp-image-2746" alt="XKCD" src="/assets/wp-content/uploads/2014/10/correlation.png" width="459" height="185" srcset="/assets/wp-content/uploads/2014/10/correlation.png 459w, /assets/wp-content/uploads/2014/10/correlation-300x120.png 300w" sizes="(max-width: 459px) 100vw, 459px" /></a>
   
   <p class="wp-caption-text">
-    Randall Munroe &#8211; XKCD.com &#8211; http://xkcd.com/552/
+    Randall Munroe _ XKCD.com _ http://xkcd.com/552/
   </p>
 </div>
 
@@ -82,17 +114,17 @@ B: <em>σ<small><sub>B</sub></small></em> = 8%</p>
 
 <p>So, how risky is the combined portfolio? The formula for the volatility of the portfolio is<sup><small>1</small></sup>:</p>
 
-<p><a href="/uploads/2014/10/eq11.png"><img class="aligncenter size-full wp-image-2776" alt="Eq 1" src="/uploads/2014/10/eq11.png" width="193" height="25" /></a></p>
+<p><a href="/assets/wp-content/uploads/2014/10/eq11.png"><img class="aligncenter size-full wp-image-2776" alt="Eq 1" src="/assets/wp-content/uploads/2014/10/eq11.png" width="193" height="25" /></a></p>
 
 <p>In this example, <em>ρ</em> is 0, so the correlation term goes away, and you are left with:</p>
 
-<p><a href="/uploads/2014/10/eq2.png"><img class="aligncenter size-full wp-image-2777" alt="eq2" src="/uploads/2014/10/eq2.png" width="121" height="28" /></a></p>
+<p><a href="/assets/wp-content/uploads/2014/10/eq2.png"><img class="aligncenter size-full wp-image-2777" alt="eq2" src="/assets/wp-content/uploads/2014/10/eq2.png" width="121" height="28" /></a></p>
 
 <p>Which looks kind of like the Pythagorean theorem, right?</p>
 
 <p>And the general formula including the correlation term looks like the <a href="http://en.wikipedia.org/wiki/Law_of_cosines">law of cosines</a>, which is the generalization of the Pythagorean theorem to non-right angles:</p>
 
-<p><a href="/uploads/2014/09/eq2.png"><img class="aligncenter size-full wp-image-2722" alt="eq2" src="/uploads/2014/09/eq2.png" width="175" height="25" /></a></p>
+<p><a href="/assets/wp-content/uploads/2014/09/eq2.png"><img class="aligncenter size-full wp-image-2722" alt="eq2" src="/assets/wp-content/uploads/2014/09/eq2.png" width="175" height="25" /></a></p>
 
 <p>Where γ is the angle between the 2 sides.</p>
 
@@ -106,7 +138,7 @@ B: <em>σ<small><sub>B</sub></small></em> = 8%</p>
 
 <p><strong>Figure 1: Risk Triangle, correlation = 0, cos 90° = 0</strong></p>
 
-<p><a href="/uploads/2014/10/RiskTriangle12.png"><img class="alignleft size-full wp-image-2825" alt="RiskTriangle1" src="/uploads/2014/10/RiskTriangle12.png" width="537" height="322" srcset="/uploads/2014/10/RiskTriangle12.png 537w, /uploads/2014/10/RiskTriangle12-300x179.png 300w" sizes="(max-width: 537px) 100vw, 537px" /></a></p>
+<p><a href="/assets/wp-content/uploads/2014/10/RiskTriangle12.png"><img class="alignleft size-full wp-image-2825" alt="RiskTriangle1" src="/assets/wp-content/uploads/2014/10/RiskTriangle12.png" width="537" height="322" srcset="/assets/wp-content/uploads/2014/10/RiskTriangle12.png 537w, /assets/wp-content/uploads/2014/10/RiskTriangle12-300x179.png 300w" sizes="(max-width: 537px) 100vw, 537px" /></a></p>
 
 <div style="clear: both;">
   &nbsp;
@@ -114,7 +146,7 @@ B: <em>σ<small><sub>B</sub></small></em> = 8%</p>
 
 <p><strong>Figure 2: Risk Triangle, correlation = -0.5, </strong>cos 60° = +0.5<em>**</em></p>
 
-<p><a href="/uploads/2014/09/RiskTriangle2.png"><img class="alignleft size-full wp-image-2723" alt="RiskTriangle2" src="/uploads/2014/09/RiskTriangle2.png" width="551" height="260" srcset="/uploads/2014/09/RiskTriangle2.png 551w, /uploads/2014/09/RiskTriangle2-300x141.png 300w" sizes="(max-width: 551px) 100vw, 551px" /></a></p>
+<p><a href="/assets/wp-content/uploads/2014/09/RiskTriangle2.png"><img class="alignleft size-full wp-image-2723" alt="RiskTriangle2" src="/assets/wp-content/uploads/2014/09/RiskTriangle2.png" width="551" height="260" srcset="/assets/wp-content/uploads/2014/09/RiskTriangle2.png 551w, /assets/wp-content/uploads/2014/09/RiskTriangle2-300x141.png 300w" sizes="(max-width: 551px) 100vw, 551px" /></a></p>
 
 <div style="clear: both;">
   &nbsp;
@@ -122,7 +154,7 @@ B: <em>σ<small><sub>B</sub></small></em> = 8%</p>
 
 <p><strong>Figure 3: Risk Triangle, correlation = 0.5, cos 120° = -0.5</strong></p>
 
-<p><a href="/uploads/2014/09/Risk-Triangle-3.png"><img class="alignleft size-full wp-image-2724" alt="Risk Triangle 3" src="/uploads/2014/09/Risk-Triangle-3.png" width="503" height="245" srcset="/uploads/2014/09/Risk-Triangle-3.png 503w, /uploads/2014/09/Risk-Triangle-3-300x146.png 300w" sizes="(max-width: 503px) 100vw, 503px" /></a></p>
+<p><a href="/assets/wp-content/uploads/2014/09/Risk-Triangle-3.png"><img class="alignleft size-full wp-image-2724" alt="Risk Triangle 3" src="/assets/wp-content/uploads/2014/09/Risk-Triangle-3.png" width="503" height="245" srcset="/assets/wp-content/uploads/2014/09/Risk-Triangle-3.png 503w, /assets/wp-content/uploads/2014/09/Risk-Triangle-3-300x146.png 300w" sizes="(max-width: 503px) 100vw, 503px" /></a></p>
 
 <div style="clear: both;">
   &nbsp;
@@ -388,7 +420,7 @@ B: <em>σ<small><sub>B</sub></small></em> = 8%</p>
 <p>If you think visually, then these pictures can give you better intuition about what adding imperfectly correlated assets can do to your risk/reward.</p>
 
 <div style="clear: both;">
-  <em>&#8220;All nature is but art, unknown to thee;</em><br /> <em>All chance, direction, which thou canst not see;</em><br /> <em>All discord, harmony not understood;</em><br /> <em>All partial evil, universal good.&#8221; &#8212; Alexander Pope</em>
+  <em>“All nature is but art, unknown to thee;</em><br /> <em>All chance, direction, which thou canst not see;</em><br /> <em>All discord, harmony not understood;</em><br /> <em>All partial evil, universal good.” &#8212; Alexander Pope</em>
 </div>
 
 <div style="clear: both;">
@@ -397,7 +429,7 @@ B: <em>σ<small><sub>B</sub></small></em> = 8%</p>
 <p><small>&lt;/p&gt;</small></p>
 
 <p>
-  <strong>Adendum &#8211; more intuitions and speculations about correlation and risk.</strong>
+  <strong>Adendum _ more intuitions and speculations about correlation and risk.</strong>
 </p>
 
 <ul>
@@ -408,46 +440,46 @@ B: <em>σ<small><sub>B</sub></small></em> = 8%</p>
     If you can reliably find low-correlation or negatively correlated bets, you can chop risk or supercharge returns.
   </li>
   <li>
-    Suppose you can find enough stocks that you can reliably expect to go down, to put 20% of your portfolio in short positions. Your market exposure just went down 20%, and your expected return went up! Alternatively, you could lever your stocks to 120% and go short 20%, keeping your market exposure at 100%, while levering long-term returns more than 20%. Of course, this is easier said than done, otherwise short-selling funds wouldn&#8217;t have such a low long-term survival rate, and hedge funds would consistently generate alpha and outperform the market.
+    Suppose you can find enough stocks that you can reliably expect to go down, to put 20% of your portfolio in short positions. Your market exposure just went down 20%, and your expected return went up! Alternatively, you could lever your stocks to 120% and go short 20%, keeping your market exposure at 100%, while levering long-term returns more than 20%. Of course, this is easier said than done, otherwise short-selling funds wouldn’t have such a low long-term survival rate, and hedge funds would consistently generate alpha and outperform the market.
   </li>
   <li>
-    <a href="http://www.businessinsider.com/heres-the-most-genius-thing-ray-dalio-said-2011-9#ixzz3DKK36VQ0">Ray Dalio</a>: <em>&#8220;If you get 15 good &#8212; don&#8217;t have to be great &#8212; uncorrelated return streams, you&#8217;ll improve your return to your risk by a factor of 5. That means 5 times the return for the same amount of risk.&#8221;</em> Again, easier said than done! To find 5 uncorrelated return streams, that would mean that the &#8216;dimensionality&#8217; of the return space isn&#8217;t 2 dimensions, like the triangles above, but at least 5. Is it?
+    <a href="http://www.businessinsider.com/heres-the-most-genius-thing-ray-dalio-said-2011-9#ixzz3DKK36VQ0">Ray Dalio</a>: <em>“If you get 15 good &#8212; don’t have to be great &#8212; uncorrelated return streams, you’ll improve your return to your risk by a factor of 5. That means 5 times the return for the same amount of risk.”</em> Again, easier said than done! To find 5 uncorrelated return streams, that would mean that the ‘dimensionality’ of the return space isn’t 2 dimensions, like the triangles above, but at least 5. Is it?
   </li>
   <li>
     In the short run, and for small amounts of money, you can find a large number of uncorrelated things to bet on. You just need someone to take the other side of the bet. For the right price, Wall Street will make a market in almost anything legal. Of course only some of the bets have attractive, or even positive returns after fees. Nevertheless, anywhere there is someone who naturally is coming into a lot of risk, there is a decent chance they will be willing to pay a decent return to someone to unload or diversify that risk.
   </li>
   <li>
-    But you don&#8217;t need your money in the short run. You need it at the end of your investment horizon. What matters isn&#8217;t the distribution of returns over time. What matters is the distribution of the range of potential returns at the end of your investment horizon. As discussed in the last post, <a href="/2014/09/easy-pieces-on-risk-1-why-is-volatility-a-proxy-for-risk/">volatility is a proxy for what the people in the market today think risk is, not what it really is</a>.
+    But you don’t need your money in the short run. You need it at the end of your investment horizon. What matters isn’t the distribution of returns over time. What matters is the distribution of the range of potential returns at the end of your investment horizon. As discussed in the last post, <a href="/2014/09/easy-pieces-on-risk-1-why-is-volatility-a-proxy-for-risk/">volatility is a proxy for what the people in the market today think risk is, not what it really is</a>.
   </li>
   <li>
-    The longer time period you look at, the more things are cointegrated and the fewer dimensions the return space has. If the sun stops shining tomorrow or an asteroid strikes the earth, all your stocks and bonds are going to return the same thing, zero. Of course, we can&#8217;t evaluate the probability of such uncertain events, and if they happen, returns won&#8217;t make any difference to your outcome, so it&#8217;s reasonable to exclude them from the return distribution. The point is, when big historical regime shifts happen, things are more correlated than you think.
+    The longer time period you look at, the more things are cointegrated and the fewer dimensions the return space has. If the sun stops shining tomorrow or an asteroid strikes the earth, all your stocks and bonds are going to return the same thing, zero. Of course, we can’t evaluate the probability of such uncertain events, and if they happen, returns won’t make any difference to your outcome, so it’s reasonable to exclude them from the return distribution. The point is, when big historical regime shifts happen, things are more correlated than you think.
   </li>
   <li>
     Just as every form of energy in the economy comes or came at some point from the Sun, all income streams get paid out of GDP or national income. <strong>All the investment returns come from GDP.</strong>
   </li>
   <li>
-    In the short run, in the current market regime, stocks and bonds are seen as good diversifiers, as changes in risk appetite drive people out of stocks and into bonds, and as good prospects for growth and inflation motivate investors to sell bonds and buy stocks. But in the long run, over which inflation expectations adjust, there isn&#8217;t supposed to be a long-run Phillips curve tradeoff between growth and inflation. And over a long-term horizon, animal spirits would be expected to even out and long-term returns would reflect their long-term averages.
+    In the short run, in the current market regime, stocks and bonds are seen as good diversifiers, as changes in risk appetite drive people out of stocks and into bonds, and as good prospects for growth and inflation motivate investors to sell bonds and buy stocks. But in the long run, over which inflation expectations adjust, there isn’t supposed to be a long-run Phillips curve tradeoff between growth and inflation. And over a long-term horizon, animal spirits would be expected to even out and long-term returns would reflect their long-term averages.
   </li>
   <li>
-    Bond principal and interest must be paid out of national income. If there is a major shortfall in national income, bond defaults rise, governments have to raise taxes, or print money, and there is potential for stagflation in a supply shock scenario. Bonds don&#8217;t escape.
+    Bond principal and interest must be paid out of national income. If there is a major shortfall in national income, bond defaults rise, governments have to raise taxes, or print money, and there is potential for stagflation in a supply shock scenario. Bonds don’t escape.
   </li>
   <li>
-    Of course, nominal bond returns are capped, you will never get more than principal and interest. So the return profile is less volatile. And unfortunately, less correlated in the best scenario for stocks. So in a strong growth scenario, &#8220;di-worse-ification.&#8221; At current rates, bonds are not priced to provide any long-term real return, merely a hedge against deflation and a really bad outcome for stocks.
+    Of course, nominal bond returns are capped, you will never get more than principal and interest. So the return profile is less volatile. And unfortunately, less correlated in the best scenario for stocks. So in a strong growth scenario, “di-worse-ification.” At current rates, bonds are not priced to provide any long-term real return, merely a hedge against deflation and a really bad outcome for stocks.
   </li>
   <li>
-    You can&#8217;t make a large, long-term, positive expected real return bet that is negatively correlated with GDP or stocks. You can buy a long-term put from Warren Buffett, but it&#8217;s a negative return if the S&amp;P goes nowhere, and if the S&amp;P plunges to 666 so the option is in the money, you have to worry about even Warren Buffett&#8217;s ability to pay, and buy CDS to hedge your Berkshire Hathaway credit exposure. When it comes to GDP, we&#8217;re all in the same boat. (You could argue some people made such a bet against subprime mortgage CDOs in 2007. And they essentially broke the global financial system and put a lot of doubt on their ability to actually get paid on their bets. I would argue that e.g. gold is a zero long run real return asset that it makes sense to own a bit of, as an inflation/currency collapse hedge.)
+    You can’t make a large, long-term, positive expected real return bet that is negatively correlated with GDP or stocks. You can buy a long-term put from Warren Buffett, but it’s a negative return if the S&amp;P goes nowhere, and if the S&amp;P plunges to 666 so the option is in the money, you have to worry about even Warren Buffett’s ability to pay, and buy CDS to hedge your Berkshire Hathaway credit exposure. When it comes to GDP, we’re all in the same boat. (You could argue some people made such a bet against subprime mortgage CDOs in 2007. And they essentially broke the global financial system and put a lot of doubt on their ability to actually get paid on their bets. I would argue that e.g. gold is a zero long run real return asset that it makes sense to own a bit of, as an inflation/currency collapse hedge.)
   </li>
   <li>
     Since the 80s, real returns for bonds have had a modestly negative correlation with stocks, but over the long haul, bond returns have had a modestly positive correlation with stocks. Over the crisis, they had a hugely negative correlation and offered tremendous diversification. But that has more to do with the specific nature of this crisis, and is not true over all long-term outcomes.
   </li>
   <li>
-    A cliché is that in a crisis, correlations go to one. Of course, this is just another way of saying, returns are not normally distributed. If they were, correlations would not go to one. We seem to have 100-year storms every 7 years. Because crises have abnormally large moves, the statement becomes a tautology. (Visualize a regime of tiny fluctuating random change, followed by a big move. It doesn&#8217;t matter how big the move is, it will make the correlation go toward one, because all the variance is in the last big move.)
+    A cliché is that in a crisis, correlations go to one. Of course, this is just another way of saying, returns are not normally distributed. If they were, correlations would not go to one. We seem to have 100-year storms every 7 years. Because crises have abnormally large moves, the statement becomes a tautology. (Visualize a regime of tiny fluctuating random change, followed by a big move. It doesn’t matter how big the move is, it will make the correlation go toward one, because all the variance is in the last big move.)
   </li>
   <li>
-    Long-term future outcomes aren&#8217;t a binomial distribution. More like a binary distribution, things might be very good or very bad. Prices may be a random walk in the short run in a specific market regime, but in the long run, there are major regime shifts, and it&#8217;s a series of <a href="http://en.wikipedia.org/wiki/Punctuated_equilibrium">&#8216;punctuated equilibria&#8217;</a>, long periods of <a href="http://en.wikipedia.org/wiki/The_Black_Swan_(2007_book)">life in Mediocristan followed by violent bouts of Extremistan</a>.
+    Long-term future outcomes aren’t a binomial distribution. More like a binary distribution, things might be very good or very bad. Prices may be a random walk in the short run in a specific market regime, but in the long run, there are major regime shifts, and it’s a series of <a href="http://en.wikipedia.org/wiki/Punctuated_equilibrium">‘punctuated equilibria’</a>, long periods of <a href="http://en.wikipedia.org/wiki/The_Black_Swan_(2007_book)">life in Mediocristan followed by violent bouts of Extremistan</a>.
   </li>
   <li>
-    Like the <a href="http://users.math.yale.edu/~bbm3/web_pdfs/howLongIsTheCoastOfBritain.pdf">length of the coast of Britain</a>, the value of correlation depends on the scale of time and size you&#8217;re looking at. In the long run, for institutional-size portfolios, everything is correlated, and the &#8216;fractal dimension&#8217; of the return space is a very low number.
+    Like the <a href="http://users.math.yale.edu/~bbm3/web_pdfs/howLongIsTheCoastOfBritain.pdf">length of the coast of Britain</a>, the value of correlation depends on the scale of time and size you’re looking at. In the long run, for institutional-size portfolios, everything is correlated, and the ‘fractal dimension’ of the return space is a very low number.
   </li>
   <li>
     If you have a good intuition for how correlation works, you will have a good feel for how your portfolio will behave and what you can do to make it behave better. And realistic expectations are what gives you confidence to invest and take risk. If you really find good shorts and uncorrelated bets, they are invaluable. But in the long run, the free lunch is only so big.
@@ -471,41 +503,557 @@ B: <em>σ<small><sub>B</sub></small></em> = 8%</p>
 </p>
 
 <p>
-  <a href="/uploads/2014/10/eq3.png"><img class="aligncenter size-full wp-image-2778" alt="Equation 3" src="/uploads/2014/10/eq3.png" width="279" height="24" /></a>
+  <a href="/assets/wp-content/uploads/2014/10/eq3.png"><img class="aligncenter size-full wp-image-2778" alt="Equation 3" src="/assets/wp-content/uploads/2014/10/eq3.png" width="279" height="24" /></a>
+</p>
+
+<p>
+  which we simplified by setting <em>σ<small><sub>A</sub></small></em> = <em>w<small><sub>A</sub></small>σ<small><sub>A</sub></small></em> and <em>σ<small><sub>B</sub></small></em> = <em>w<small><sub>B</sub></small>σ<small><sub>B</sub></small></em>
+</p>
+">
+    
+
+    
+        <meta name="twitter:card"  content="summary">
+        <meta name="twitter:image" content="">
+    
+    <!-- end of Twitter cards -->
+
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner" id='header-bar'>
+
+    <div class="wrapper">
+        
+        <a class="site-title" href="/">StreetEYE Blog</a>
+
+        <nav class="site-nav">
+            <a class="page-link" href="/contact.html">&#x1f984; Contact</a>
+        </nav>
+        <nav class="site-nav">
+            <a class="page-link" href="/FAQ.html">&#x1F64B; FAQ</a>
+        </nav>
+        <!-- <nav class="site-nav">
+            <a class="page-link" href="/log.html">&#x231b; Log</a>
+        </nav> -->
+        <nav class="site-nav">
+            <a class="page-link" href="/archive.html">&#x231b; Archive</a>
+        </nav>
+
+    </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Easy Pieces on Risk #2: Visualizing Diversification With Risk Triangles</h1>
+    <p class="post-meta">
+
+      <time datetime="2014-10-05T05:27:42-04:00" itemprop="datePublished">
+        
+        Oct 5, 2014
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        by <span itemprop="name">Druce Vertes</span>
+      </span>
+
+      <span>
+        
+      </span>
+      <!--
+      <span class="share-buttons">
+        <span class="share-button"><a class="twitter-share-button" href="https://twitter.com/share" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></span>
+
+        <span class="share-button"><span class="fb-like" data-href="/2014/10/easy-pieces-on-risk-2-visualizing-diversification-with-risk-triangles/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></span></span>
+      </span>
+      <div style="clear: both;"/>
+      -->
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <div id="attachment_2746" style="width: 469px" class="wp-caption alignleft">
+  <a href="http://xkcd.com/552/"><img class="size-full wp-image-2746" alt="XKCD" src="/assets/wp-content/uploads/2014/10/correlation.png" width="459" height="185" srcset="/assets/wp-content/uploads/2014/10/correlation.png 459w, /assets/wp-content/uploads/2014/10/correlation-300x120.png 300w" sizes="(max-width: 459px) 100vw, 459px" /></a>
+  
+  <p class="wp-caption-text">
+    Randall Munroe _ XKCD.com _ http://xkcd.com/552/
+  </p>
+</div>
+
+<div style="clear: both;">
+</div>
+
+<p>In this post we’re going to look at a simple way to visualize the power of diversification, and what correlation really tells us.</p>
+
+<p>Suppose you have 2 investments, A and B.</p>
+
+<p>You create a portfolio that consists of 1 share of A, and 1 share of B.</p>
+
+<p>How risky is the combined portfolio? It depends on how risky the individual securities are, and on the correlation of the two stocks’ returns.</p>
+
+<p>Suppose the volatilities of A and B are</p>
+
+<p>A: <em>σ<small><sub>A</sub></small></em> = 6%<br />
+B: <em>σ<small><sub>B</sub></small></em> = 8%</p>
+
+<p>and</p>
+
+<p>correlation: <em>ρ</em> = 0</p>
+
+<p>What does correlation <em>ρ</em> = 0 mean?</p>
+
+<p><em>ρ</em> means, when A’s return deviates from its mean by 1 standard deviation or <em>σ<small><sub>A</sub></small></em>, the expected deviation of B’s return from its mean is <em>ρ</em> standard deviations or <em>ρσ<small><sub>B</sub></small></em> .</p>
+
+<p>In this example, since <em>ρ</em> is 0, we don’t expect B to deviate from its mean in any systematic way.</p>
+
+<p>So, how risky is the combined portfolio? The formula for the volatility of the portfolio is<sup><small>1</small></sup>:</p>
+
+<p><a href="/assets/wp-content/uploads/2014/10/eq11.png"><img class="aligncenter size-full wp-image-2776" alt="Eq 1" src="/assets/wp-content/uploads/2014/10/eq11.png" width="193" height="25" /></a></p>
+
+<p>In this example, <em>ρ</em> is 0, so the correlation term goes away, and you are left with:</p>
+
+<p><a href="/assets/wp-content/uploads/2014/10/eq2.png"><img class="aligncenter size-full wp-image-2777" alt="eq2" src="/assets/wp-content/uploads/2014/10/eq2.png" width="121" height="28" /></a></p>
+
+<p>Which looks kind of like the Pythagorean theorem, right?</p>
+
+<p>And the general formula including the correlation term looks like the <a href="http://en.wikipedia.org/wiki/Law_of_cosines">law of cosines</a>, which is the generalization of the Pythagorean theorem to non-right angles:</p>
+
+<p><a href="/assets/wp-content/uploads/2014/09/eq2.png"><img class="aligncenter size-full wp-image-2722" alt="eq2" src="/assets/wp-content/uploads/2014/09/eq2.png" width="175" height="25" /></a></p>
+
+<p>Where γ is the angle between the 2 sides.</p>
+
+<p>So, to represent 2 securities with <em>ρ</em> correlation, we can draw a triangle where</p>
+
+<ul>
+  <li>The <strong>length of side 1</strong> of the triangle represents the <strong>volatility of asset A</strong>: <em>σ<small><sub>A</sub></small></em></li>
+  <li>The <strong>length of side 2</strong> of the triangle represents the <strong>volatility of asset B</strong>: <em>σ<small><sub>B</sub></small></em></li>
+  <li>The <strong>angle between sides 1 and 2</strong> is the angle whose <strong>cosine equals <em>-ρ</em></strong>, where <em>ρ</em> is the correlation of assets 1 and 2 (note the formulas are similar but the sign of the last term is reversed)</li>
+</ul>
+
+<p><strong>Figure 1: Risk Triangle, correlation = 0, cos 90° = 0</strong></p>
+
+<p><a href="/assets/wp-content/uploads/2014/10/RiskTriangle12.png"><img class="alignleft size-full wp-image-2825" alt="RiskTriangle1" src="/assets/wp-content/uploads/2014/10/RiskTriangle12.png" width="537" height="322" srcset="/assets/wp-content/uploads/2014/10/RiskTriangle12.png 537w, /assets/wp-content/uploads/2014/10/RiskTriangle12-300x179.png 300w" sizes="(max-width: 537px) 100vw, 537px" /></a></p>
+
+<div style="clear: both;">
+  &nbsp;
+</div>
+
+<p><strong>Figure 2: Risk Triangle, correlation = -0.5, </strong>cos 60° = +0.5<em>**</em></p>
+
+<p><a href="/assets/wp-content/uploads/2014/09/RiskTriangle2.png"><img class="alignleft size-full wp-image-2723" alt="RiskTriangle2" src="/assets/wp-content/uploads/2014/09/RiskTriangle2.png" width="551" height="260" srcset="/assets/wp-content/uploads/2014/09/RiskTriangle2.png 551w, /assets/wp-content/uploads/2014/09/RiskTriangle2-300x141.png 300w" sizes="(max-width: 551px) 100vw, 551px" /></a></p>
+
+<div style="clear: both;">
+  &nbsp;
+</div>
+
+<p><strong>Figure 3: Risk Triangle, correlation = 0.5, cos 120° = -0.5</strong></p>
+
+<p><a href="/assets/wp-content/uploads/2014/09/Risk-Triangle-3.png"><img class="alignleft size-full wp-image-2724" alt="Risk Triangle 3" src="/assets/wp-content/uploads/2014/09/Risk-Triangle-3.png" width="503" height="245" srcset="/assets/wp-content/uploads/2014/09/Risk-Triangle-3.png 503w, /assets/wp-content/uploads/2014/09/Risk-Triangle-3-300x146.png 300w" sizes="(max-width: 503px) 100vw, 503px" /></a></p>
+
+<div style="clear: both;">
+  &nbsp;
+</div>
+
+<p><strong>Figure 4: Table of portfolio vols for various correlations</strong></p>
+
+<table style="padding: 15px;">
+  <tr style="font-size: 11px; line-height: 12px; padding: 15px;">
+    <td style="text-align: right;">
+      <strong>Stock A</strong><br /> <strong> Vol</strong>
+    </td>
+    
+    <td style="text-align: right;">
+      <strong>Stock A</strong><br /> <strong> weight</strong>
+    </td>
+    
+    <td>
+      <strong>Stock A</strong><br /> <strong> wted vol</strong>
+    </td>
+    
+    <td style="text-align: right;">
+      <strong>Stock B</strong><br /> <strong> vol</strong>
+    </td>
+    
+    <td style="text-align: right;">
+      <strong>Stock B</strong><br /> <strong> weight</strong>
+    </td>
+    
+    <td style="text-align: right;">
+      <strong>Stock B</strong><br /> <strong> wted vol</strong>
+    </td>
+    
+    <td style="text-align: right;">
+      <strong>Correlation</strong><br /> <em><strong>ρ<sub><small>AB</small></sub></strong></em>
+    </td>
+    
+    <td style="text-align: right;">
+      <strong> </strong><br /> <strong>cos<sup>-1</sup>(-ρ)</strong>
+    </td>
+    
+    <td style="text-align: right;">
+      <strong> </strong><br /> <strong>cos</strong>
+    </td>
+    
+    <td style="text-align: right;">
+      <strong>Portfolio</strong><br /> <strong>Vol</strong>
+    </td>
+  </tr>
+  
+  <tr style="font-size: 11px; line-height: 12px; padding: 15px;">
+    <td style="text-align: right;">
+       6%
+    </td>
+    
+    <td style="text-align: right;">
+       50%
+    </td>
+    
+    <td style="text-align: right;">
+       3%
+    </td>
+    
+    <td style="text-align: right;">
+       8%
+    </td>
+    
+    <td style="text-align: right;">
+       50%
+    </td>
+    
+    <td style="text-align: right;">
+       4%
+    </td>
+    
+    <td style="text-align: right;">
+      <strong> 100%</strong>
+    </td>
+    
+    <td style="text-align: right;">
+      180°
+    </td>
+    
+    <td style="text-align: right;">
+      -1
+    </td>
+    
+    <td style="text-align: right;">
+      <strong>7%</strong>
+    </td>
+  </tr>
+  
+  <tr style="font-size: 11px; line-height: 12px; padding: 15px;">
+    <td style="text-align: right;">
+       6%
+    </td>
+    
+    <td style="text-align: right;">
+       50%
+    </td>
+    
+    <td style="text-align: right;">
+       3%
+    </td>
+    
+    <td style="text-align: right;">
+       8%
+    </td>
+    
+    <td style="text-align: right;">
+       50%
+    </td>
+    
+    <td style="text-align: right;">
+       4%
+    </td>
+    
+    <td style="text-align: right;">
+      <strong> 50%</strong>
+    </td>
+    
+    <td style="text-align: right;">
+      120°
+    </td>
+    
+    <td style="text-align: right;">
+      -0.5%
+    </td>
+    
+    <td style="text-align: right;">
+      <strong>6.1%</strong>
+    </td>
+  </tr>
+  
+  <tr style="font-size: 11px; line-height: 12px; padding: 15px;">
+    <td style="text-align: right;">
+       6%
+    </td>
+    
+    <td style="text-align: right;">
+       50%
+    </td>
+    
+    <td style="text-align: right;">
+       3%
+    </td>
+    
+    <td style="text-align: right;">
+       8%
+    </td>
+    
+    <td style="text-align: right;">
+       50%
+    </td>
+    
+    <td style="text-align: right;">
+       4%
+    </td>
+    
+    <td style="text-align: right;">
+      <strong> 0</strong>
+    </td>
+    
+    <td style="text-align: right;">
+      90°
+    </td>
+    
+    <td style="text-align: right;">
+    </td>
+    
+    <td style="text-align: right;">
+      <strong>5%</strong>
+    </td>
+  </tr>
+  
+  <tr style="font-size: 11px; line-height: 12px; padding: 15px;">
+    <td style="text-align: right;">
+       6%
+    </td>
+    
+    <td style="text-align: right;">
+       50%
+    </td>
+    
+    <td style="text-align: right;">
+       3%
+    </td>
+    
+    <td style="text-align: right;">
+       8%
+    </td>
+    
+    <td style="text-align: right;">
+       50%
+    </td>
+    
+    <td style="text-align: right;">
+       4%
+    </td>
+    
+    <td style="text-align: right;">
+      <strong> -50%</strong>
+    </td>
+    
+    <td style="text-align: right;">
+      60°
+    </td>
+    
+    <td style="text-align: right;">
+      0.50
+    </td>
+    
+    <td style="text-align: right;">
+      <strong>3.6%</strong>
+    </td>
+  </tr>
+  
+  <tr style="font-size: 11px; line-height: 12px; padding: 15px;">
+    <td style="text-align: right;">
+       6%
+    </td>
+    
+    <td style="text-align: right;">
+       50%
+    </td>
+    
+    <td style="text-align: right;">
+       3%
+    </td>
+    
+    <td style="text-align: right;">
+       8%
+    </td>
+    
+    <td style="text-align: right;">
+       50%
+    </td>
+    
+    <td style="text-align: right;">
+       4%
+    </td>
+    
+    <td style="text-align: right;">
+      <strong> -100%</strong>
+    </td>
+    
+    <td style="text-align: right;">
+      0°
+    </td>
+    
+    <td style="text-align: right;">
+      1
+    </td>
+    
+    <td style="text-align: right;">
+      <strong>1%</strong>
+    </td>
+  </tr>
+</table>
+
+<p>Left as an exercise: draw the pictures for correlation = 1 and correlation = -1.</p>
+
+<p>If you think visually, then these pictures can give you better intuition about what adding imperfectly correlated assets can do to your risk/reward.</p>
+
+<div style="clear: both;">
+  <em>“All nature is but art, unknown to thee;</em><br /> <em>All chance, direction, which thou canst not see;</em><br /> <em>All discord, harmony not understood;</em><br /> <em>All partial evil, universal good.” &#8212; Alexander Pope</em>
+</div>
+
+<div style="clear: both;">
+</div>
+
+<p><small>&lt;/p&gt;</small></p>
+
+<p>
+  <strong>Adendum _ more intuitions and speculations about correlation and risk.</strong>
+</p>
+
+<ul>
+  <li>
+    Diversification is, as Harry Markowitz said, one of the few free lunches in investing.
+  </li>
+  <li>
+    If you can reliably find low-correlation or negatively correlated bets, you can chop risk or supercharge returns.
+  </li>
+  <li>
+    Suppose you can find enough stocks that you can reliably expect to go down, to put 20% of your portfolio in short positions. Your market exposure just went down 20%, and your expected return went up! Alternatively, you could lever your stocks to 120% and go short 20%, keeping your market exposure at 100%, while levering long-term returns more than 20%. Of course, this is easier said than done, otherwise short-selling funds wouldn’t have such a low long-term survival rate, and hedge funds would consistently generate alpha and outperform the market.
+  </li>
+  <li>
+    <a href="http://www.businessinsider.com/heres-the-most-genius-thing-ray-dalio-said-2011-9#ixzz3DKK36VQ0">Ray Dalio</a>: <em>“If you get 15 good &#8212; don’t have to be great &#8212; uncorrelated return streams, you’ll improve your return to your risk by a factor of 5. That means 5 times the return for the same amount of risk.”</em> Again, easier said than done! To find 5 uncorrelated return streams, that would mean that the ‘dimensionality’ of the return space isn’t 2 dimensions, like the triangles above, but at least 5. Is it?
+  </li>
+  <li>
+    In the short run, and for small amounts of money, you can find a large number of uncorrelated things to bet on. You just need someone to take the other side of the bet. For the right price, Wall Street will make a market in almost anything legal. Of course only some of the bets have attractive, or even positive returns after fees. Nevertheless, anywhere there is someone who naturally is coming into a lot of risk, there is a decent chance they will be willing to pay a decent return to someone to unload or diversify that risk.
+  </li>
+  <li>
+    But you don’t need your money in the short run. You need it at the end of your investment horizon. What matters isn’t the distribution of returns over time. What matters is the distribution of the range of potential returns at the end of your investment horizon. As discussed in the last post, <a href="/2014/09/easy-pieces-on-risk-1-why-is-volatility-a-proxy-for-risk/">volatility is a proxy for what the people in the market today think risk is, not what it really is</a>.
+  </li>
+  <li>
+    The longer time period you look at, the more things are cointegrated and the fewer dimensions the return space has. If the sun stops shining tomorrow or an asteroid strikes the earth, all your stocks and bonds are going to return the same thing, zero. Of course, we can’t evaluate the probability of such uncertain events, and if they happen, returns won’t make any difference to your outcome, so it’s reasonable to exclude them from the return distribution. The point is, when big historical regime shifts happen, things are more correlated than you think.
+  </li>
+  <li>
+    Just as every form of energy in the economy comes or came at some point from the Sun, all income streams get paid out of GDP or national income. <strong>All the investment returns come from GDP.</strong>
+  </li>
+  <li>
+    In the short run, in the current market regime, stocks and bonds are seen as good diversifiers, as changes in risk appetite drive people out of stocks and into bonds, and as good prospects for growth and inflation motivate investors to sell bonds and buy stocks. But in the long run, over which inflation expectations adjust, there isn’t supposed to be a long-run Phillips curve tradeoff between growth and inflation. And over a long-term horizon, animal spirits would be expected to even out and long-term returns would reflect their long-term averages.
+  </li>
+  <li>
+    Bond principal and interest must be paid out of national income. If there is a major shortfall in national income, bond defaults rise, governments have to raise taxes, or print money, and there is potential for stagflation in a supply shock scenario. Bonds don’t escape.
+  </li>
+  <li>
+    Of course, nominal bond returns are capped, you will never get more than principal and interest. So the return profile is less volatile. And unfortunately, less correlated in the best scenario for stocks. So in a strong growth scenario, “di-worse-ification.” At current rates, bonds are not priced to provide any long-term real return, merely a hedge against deflation and a really bad outcome for stocks.
+  </li>
+  <li>
+    You can’t make a large, long-term, positive expected real return bet that is negatively correlated with GDP or stocks. You can buy a long-term put from Warren Buffett, but it’s a negative return if the S&amp;P goes nowhere, and if the S&amp;P plunges to 666 so the option is in the money, you have to worry about even Warren Buffett’s ability to pay, and buy CDS to hedge your Berkshire Hathaway credit exposure. When it comes to GDP, we’re all in the same boat. (You could argue some people made such a bet against subprime mortgage CDOs in 2007. And they essentially broke the global financial system and put a lot of doubt on their ability to actually get paid on their bets. I would argue that e.g. gold is a zero long run real return asset that it makes sense to own a bit of, as an inflation/currency collapse hedge.)
+  </li>
+  <li>
+    Since the 80s, real returns for bonds have had a modestly negative correlation with stocks, but over the long haul, bond returns have had a modestly positive correlation with stocks. Over the crisis, they had a hugely negative correlation and offered tremendous diversification. But that has more to do with the specific nature of this crisis, and is not true over all long-term outcomes.
+  </li>
+  <li>
+    A cliché is that in a crisis, correlations go to one. Of course, this is just another way of saying, returns are not normally distributed. If they were, correlations would not go to one. We seem to have 100-year storms every 7 years. Because crises have abnormally large moves, the statement becomes a tautology. (Visualize a regime of tiny fluctuating random change, followed by a big move. It doesn’t matter how big the move is, it will make the correlation go toward one, because all the variance is in the last big move.)
+  </li>
+  <li>
+    Long-term future outcomes aren’t a binomial distribution. More like a binary distribution, things might be very good or very bad. Prices may be a random walk in the short run in a specific market regime, but in the long run, there are major regime shifts, and it’s a series of <a href="http://en.wikipedia.org/wiki/Punctuated_equilibrium">‘punctuated equilibria’</a>, long periods of <a href="http://en.wikipedia.org/wiki/The_Black_Swan_(2007_book)">life in Mediocristan followed by violent bouts of Extremistan</a>.
+  </li>
+  <li>
+    Like the <a href="http://users.math.yale.edu/~bbm3/web_pdfs/howLongIsTheCoastOfBritain.pdf">length of the coast of Britain</a>, the value of correlation depends on the scale of time and size you’re looking at. In the long run, for institutional-size portfolios, everything is correlated, and the ‘fractal dimension’ of the return space is a very low number.
+  </li>
+  <li>
+    If you have a good intuition for how correlation works, you will have a good feel for how your portfolio will behave and what you can do to make it behave better. And realistic expectations are what gives you confidence to invest and take risk. If you really find good shorts and uncorrelated bets, they are invaluable. But in the long run, the free lunch is only so big.
+  </li>
+</ul>
+
+<p>
+  &lt;/small&gt;
+</p>
+
+<p>
+  &nbsp;
+</p>
+
+<p>
+  <small><sup>1</sup></small> To simplify the formulas a little, this is using <strong>1 share</strong> of each and <strong>dollar volatility</strong>.
+</p>
+
+<p>
+  The more commonly cited formula relating portfolio volatility as a percentage of assets to percentage volatility and weights of underlying assets is:
+</p>
+
+<p>
+  <a href="/assets/wp-content/uploads/2014/10/eq3.png"><img class="aligncenter size-full wp-image-2778" alt="Equation 3" src="/assets/wp-content/uploads/2014/10/eq3.png" width="279" height="24" /></a>
 </p>
 
 <p>
   which we simplified by setting <em>σ<small><sub>A</sub></small></em> = <em>w<small><sub>A</sub></small>σ<small><sub>A</sub></small></em> and <em>σ<small><sub>B</sub></small></em> = <em>w<small><sub>B</sub></small>σ<small><sub>B</sub></small></em>
 </p>
 
-  </div><a class="u-url" href="/2014/10/easy-pieces-on-risk-2-visualizing-diversification-with-risk-triangles/" hidden></a>
+  </div>
+
+
+  <div class="page-navigation">
+    
+      <a class="prev" href="/2014/09/easy-pieces-on-risk-1-why-is-volatility-a-proxy-for-risk/">&larr; Easy Pieces on Risk, #1 _ Why is volatility a proxy for risk?</a>
+    
+
+    
+      <a class="next" href="/2014/10/a-piketty-counterargument-is-r-g-a-reasonable-assumption/">A Piketty counterargument: Is r > g a reasonable assumption? &rarr;</a>
+    
+  </div>
+
+  
+
 </article>
 
       </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/"></data>
+    </main>
 
-  <div class="wrapper">
+    <div style="clear: both;"/>
+<footer class="site-footer">
+    2019 &copy; Built by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> and <a href="https://github.com/jekyll/minima/" target="_blank">minima</a> | View <a href="https://github.com/druce/druce.github.io" target="_blank">this</a> on Github | <a href="/tags.html">Tags</a> | <a href="/contact.html">Contact</a> | <a href="/FAQ.html">FAQ</a>
 
-    <h2 class="footer-heading">StreetEYE Blog</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">Druce Vertes</li><li><a class="u-email" href="mailto:streeteye@streeteye.com">streeteye@streeteye.com</a></li></ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://www.twitter.com/streeteye"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">streeteye</span></a></li><li><a href="https://www.linkedin.com/in/drucevertes"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">drucevertes</span></a></li><li><a href="https://github.com/druce"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">druce</span></a></li></ul>
-</div>
-
-      <div class="footer-col footer-col-3">
-        <p>&copy; Druce Vertes 2020 <br />Druce&#39;s Mad Science About Tech, Markets And Political Economy</p>
-      </div>
-    </div>
-
-  </div>
-
+    <p>
+        <a href="/feed.xml" target="_blank">
+            <img src="/assets/images/logo_rss.png" />
+        </a>
+        <a href="https://twitter.com/streeteye/" target="_blank">
+            <img src="/assets/images/logo_twitter.png" />
+        </a>
+        <a href="https://github.com/druce" target="_blank">
+            <img src="/assets/images/logo_github.png" />
+        </a>
+        <a href="https://www.linkedin.com/in/drucevertes" target="_blank">
+            <img src="/assets/images/logo_github.png" />
+        </a>
+	
+    </p>
 </footer>
-</body>
+
+
+  </body>
 
 </html>

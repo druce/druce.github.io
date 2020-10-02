@@ -15,7 +15,7 @@ categories:
 ---
 What does an efficient long-run portfolio look like for major US asset classes, and where does gold fit in?
 
-Let&#8217;s take US annual stock, bond, T-bill, and gold returns for 1928-2010, and subtract CPI inflation to get real returns.
+Let’s take US annual stock, bond, T-bill, and gold returns for 1928-2010, and subtract CPI inflation to get real returns.
 
 <table>
   <tr>
@@ -138,9 +138,9 @@ Let&#8217;s take US annual stock, bond, T-bill, and gold returns for 1928-2010, 
 
 &nbsp;  
   
-Let&#8217;s plot an efficient frontier. This shows the highest return you could achieve with those four assets over those 83 years at different levels of risk.
+Let’s plot an efficient frontier. This shows the highest return you could achieve with those four assets over those 83 years at different levels of risk.
 
-[<img class="size-full wp-image-875" title="Efficient Frontier" src="/uploads/2012/01/efrontier.png" alt="Efficient Frontier" width="480" height="360" srcset="/uploads/2012/01/efrontier.png 480w, /uploads/2012/01/efrontier-300x225.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/uploads/2012/01/efrontier.png)
+[<img class="size-full wp-image-875" title="Efficient Frontier" src="/assets/wp-content/uploads/2012/01/efrontier.png" alt="Efficient Frontier" width="480" height="360" srcset="/assets/wp-content/uploads/2012/01/efrontier.png 480w, /assets/wp-content/uploads/2012/01/efrontier-300x225.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/assets/wp-content/uploads/2012/01/efrontier.png)
 
 <table>
   <tr>
@@ -223,18 +223,18 @@ Let&#8217;s plot an efficient frontier. This shows the highest return you could
 &nbsp;  
 
 
-Let&#8217;s plot a transition map. As you move from low risk to high risk left to right, it shows you the composition of the best-performing portfolio at that risk level, how much would be in each asset.
+Let’s plot a transition map. As you move from low risk to high risk left to right, it shows you the composition of the best-performing portfolio at that risk level, how much would be in each asset.
 
-[<img class="size-full wp-image-876" title="Transition Map" src="/uploads/2012/01/transition.png" alt="Transition Map" width="480" height="360" srcset="/uploads/2012/01/transition.png 480w, /uploads/2012/01/transition-300x225.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/uploads/2012/01/transition.png)
+[<img class="size-full wp-image-876" title="Transition Map" src="/assets/wp-content/uploads/2012/01/transition.png" alt="Transition Map" width="480" height="360" srcset="/assets/wp-content/uploads/2012/01/transition.png 480w, /assets/wp-content/uploads/2012/01/transition-300x225.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/assets/wp-content/uploads/2012/01/transition.png)
 
 What does this tell us?
 
   * For minimum real return risk, the best portfolio was mostly cash (bills), with a small amount of gold (and a smidgeon of stocks). This would have given a modest real return of 0.8%.
   * For maximum real return, stocks were big winners.
-  * Gold had a modest real return in this period, which ended in 2010 with gold at 1225. In real terms gold performed better than bills and just behind bonds, and added value as a modest fraction of most optimal portfolios. Gold&#8217;s volatility was high, and is also understated since its price was pegged for more than half of this period (and Americans couldn&#8217;t legally hold it).
-  * TIPS only became available recently, so there isn&#8217;t enough history for this analysis, and they also have their place. (But with rates at and sometimes below zero, CPI basis risk, fees, taxes, they will only shine if there is inflation.)
+  * Gold had a modest real return in this period, which ended in 2010 with gold at 1225. In real terms gold performed better than bills and just behind bonds, and added value as a modest fraction of most optimal portfolios. Gold’s volatility was high, and is also understated since its price was pegged for more than half of this period (and Americans couldn’t legally hold it).
+  * TIPS only became available recently, so there isn’t enough history for this analysis, and they also have their place. (But with rates at and sometimes below zero, CPI basis risk, fees, taxes, they will only shine if there is inflation.)
 
-While returns are adjusted for CPI inflation, they don&#8217;t reflect fees and taxes.
+While returns are adjusted for CPI inflation, they don’t reflect fees and taxes.
 
 The analysis is based on [this post at Systematic Investor](http://systematicinvestor.wordpress.com/2011/11/16/black-litterman-model/ "Systematic Investor"), and the gold mine of R code generously shared there. Will post more technical details, code, and some drill down analysis in coming days/weeks.
 

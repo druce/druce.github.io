@@ -1,51 +1,568 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Retirement plans that maximize certainty-equivalent spending (conclusion) | StreetEYE Blog</title>
-<meta name="generator" content="Jekyll v3.9.0" />
-<meta property="og:title" content="Retirement plans that maximize certainty-equivalent spending (conclusion)" />
-<meta name="author" content="Druce Vertes, CFA" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="In part 1 and part 2, we developed a framework for evaluating and identifying a good plan for retirement spending and asset allocation." />
-<meta property="og:description" content="In part 1 and part 2, we developed a framework for evaluating and identifying a good plan for retirement spending and asset allocation." />
-<link rel="canonical" href="http://0.0.0.0:4000/2014/01/retirement-plans-that-maximize-certainty-equivalent-spending-part-3/" />
-<meta property="og:url" content="http://0.0.0.0:4000/2014/01/retirement-plans-that-maximize-certainty-equivalent-spending-part-3/" />
-<meta property="og:site_name" content="StreetEYE Blog" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2014-01-22T20:31:27+00:00" />
-<script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Retirement plans that maximize certainty-equivalent spending (conclusion)","dateModified":"2014-01-22T20:31:27+00:00","datePublished":"2014-01-22T20:31:27+00:00","url":"http://0.0.0.0:4000/2014/01/retirement-plans-that-maximize-certainty-equivalent-spending-part-3/","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/2014/01/retirement-plans-that-maximize-certainty-equivalent-spending-part-3/"},"author":{"@type":"Person","name":"Druce Vertes, CFA"},"description":"In part 1 and part 2, we developed a framework for evaluating and identifying a good plan for retirement spending and asset allocation.","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="StreetEYE Blog" /></head>
-<body><header class="site-header" role="banner">
+<html lang="en">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">StreetEYE Blog</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
+  <head>
+    
+      
 
-        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
-      </nav></div>
+
+
+
+
+
+    
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Retirement plans that maximize certainty-equivalent spending (conclusion)</title>
+
+    <meta name="description" content="In part 1 and part 2, we developed a framework for evaluating and identifying a good plan for retirement spending and asset allocation. We discussed how a CR...">
+
+    <meta content="StreetEYE Blog" property="og:site_name">
+    
+        <meta content="Retirement plans that maximize certainty-equivalent spending (conclusion)" property="og:title">
+    
+    
+        <meta content="article" property="og:type">
+    
+    
+        <meta content="In part 1 and part 2, we developed a framework for evaluating and identifying a good plan for retirement spending and asset allocation. We discussed how a CRRA (constant relative risk aversion) utility function and the related concept of certainty-equivalent (CE) spending can discount a stream of future cash flows..." property="og:description">
+    
+    
+        <meta content="http://0.0.0.0:4000/2014/01/retirement-plans-that-maximize-certainty-equivalent-spending-part-3/" property="og:url">
+    
+    
+        <meta content="2014-01-22T15:31:27-05:00" property="article:published_time">
+        <meta content="http://0.0.0.0:4000/about/" property="article:author">
+    
+    
+    
+        
+    
+
+    <link rel="shortcut icon" href="/assets/favicon_peach.ico">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="canonical" href="http://0.0.0.0:4000/2014/01/retirement-plans-that-maximize-certainty-equivalent-spending-part-3/">
+
+    <!-- For Latex -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-8161570-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <!-- For Facebook share button -->
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Twitter cards -->
+    <meta name="twitter:site"    content="@streeteye">
+    <meta name="twitter:creator" content="@Druce Vertes">
+    <meta name="twitter:title"   content="Retirement plans that maximize certainty-equivalent spending (conclusion)">
+
+    
+        <meta name="twitter:description" content="<p>In <a href="/2014/01/2534/" title="Optimal certainty-equivalent spending retirements with DataNitro">part 1</a> and <a href="/2014/01/optimal-certainty-equivalent-retirement-plans-part-2/" title="Retirement plans that maximize certainty-equivalent spending, part 2">part 2</a>, we developed a framework for evaluating and identifying a good plan for retirement spending and asset allocation.</p>
+
+<ul>
+  <li>We discussed how a <em>CRRA (constant relative risk aversion) utility function</em> and the related concept of <em>certainty-equivalent (CE) spending</em> can discount a stream of future cash flows based on their risk and variability, and the retiree’s risk aversion.</li>
+  <li>We solved a toy problem: how the retiree maximizes certainty-equivalent spending if he or she can invest at a guaranteed fixed risk-free real return rate.</li>
+  <li>We generated CE-optimal spending schedules using that fixed risk-free real return rate for retirees with different levels of risk aversion (in this case, no investment risk, just longevity risk, trading off current income for future risk of outliving the portfolio)</li>
+  <li>We moved from a fixed rate assumption to using historical US real returns on stocks and bonds. We generated a spending schedule that maximized CE spending based on historical real returns for a 50% equity portfolio.</li>
+  <li>Using that spending schedule, we solved the other side of the problem, and generated an equity allocation that would have maximized CE spending for that spending schedule.</li>
+  <li>We looked at that solution, and found it seemed pretty good.</li>
+</ul>
+
+<p>So, where we left off, we had independently solved the spending schedule and then the equity allocation schedule. Of course, that does not mean that when you put those two solutions together, they are the best we can do. It just means the equity allocation is the best available given that spending schedule. So today, we’ll try to solve them simultaneously.</p>
+
+<p>The framework in which we try to solve the retirement spending problem is:</p>
+
+<p>_Maximize expected CE spending for a 25-year retirement…<br />
+Which is modeled as a function of a 2×25 matrix<br />
+• 25-years of retirement<br />
+• Spending % each year<br />
+• Equity % each year (the balance to be allocated to bonds)<br />
+_</p>
+
+<p>And we find CE spending as:</p>
+
+<p>_Starting with the 2×25 vector of portfolio allocations and spending %<br />
+-&gt; generate cash flows using historical returns for each retirement cohort<br />
+-&gt; compute CE spending using CRRA function and gamma<br />
+-&gt; compute expected CE spending for each cohort based on life table<br />
+-&gt; compute expected CE spending across all cohorts and across all survival scenarios<br />
+_</p>
+
+<p>That gives us a value: the CE spending a random retiree at any year 1926-1987, with the given life table, and given risk aversion, could have expected from that 2×25 spending/allocation schedule.</p>
+
+<p>Now, the problem is to maximize that value: find the 2×25 spending/allocation schedule that maximizes the CE spending function.</p>
+
+<p>So we fire up our optimizer, using this function, gamma=4, and the starting solution we previously found solving the two schedules independently. We try a few different optimization methods. Some of them fail, but the Powell method comes up with a pretty good solution after about six hours on our PC. We use that as our starting solution and run the optimization again using several different methods, and with a very slight improvement it holds up as the best we can find.</p>
+
+<table cellspacing="10">
+  <tr style="text-align: right;">
+    <td>
+      <strong>Age</strong>
+    </td>
+    
+    <td>
+      <strong>Equity %</strong>
+    </td>
+    
+    <td>
+      <strong>Spending %</strong>
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      65
+    </td>
+    
+    <td>
+      63.8%
+    </td>
+    
+    <td>
+      6.1%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      66
+    </td>
+    
+    <td>
+      63.7%
+    </td>
+    
+    <td>
+      6.4%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      67
+    </td>
+    
+    <td>
+      72.1%
+    </td>
+    
+    <td>
+      6.7%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      68
+    </td>
+    
+    <td>
+      73.7%
+    </td>
+    
+    <td>
+      6.9%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      69
+    </td>
+    
+    <td>
+      74.4%
+    </td>
+    
+    <td>
+      7.2%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      70
+    </td>
+    
+    <td>
+      75.2%
+    </td>
+    
+    <td>
+      7.5%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      71
+    </td>
+    
+    <td>
+      85.3%
+    </td>
+    
+    <td>
+      7.9%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      72
+    </td>
+    
+    <td>
+      86.1%
+    </td>
+    
+    <td>
+      8.3%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      73
+    </td>
+    
+    <td>
+      75.3%
+    </td>
+    
+    <td>
+      8.7%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      74
+    </td>
+    
+    <td>
+      76.8%
+    </td>
+    
+    <td>
+      9.2%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      75
+    </td>
+    
+    <td>
+      80.9%
+    </td>
+    
+    <td>
+      9.8%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      76
+    </td>
+    
+    <td>
+      86.3%
+    </td>
+    
+    <td>
+      10.5%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      77
+    </td>
+    
+    <td>
+      91.6%
+    </td>
+    
+    <td>
+      11.3%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      78
+    </td>
+    
+    <td>
+      100.0%
+    </td>
+    
+    <td>
+      12.2%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      79
+    </td>
+    
+    <td>
+      98.9%
+    </td>
+    
+    <td>
+      13.0%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      80
+    </td>
+    
+    <td>
+      100.0%
+    </td>
+    
+    <td>
+      14.1%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      81
+    </td>
+    
+    <td>
+      100.0%
+    </td>
+    
+    <td>
+      15.3%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      82
+    </td>
+    
+    <td>
+      100.0%
+    </td>
+    
+    <td>
+      16.6%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      83
+    </td>
+    
+    <td>
+      100.0%
+    </td>
+    
+    <td>
+      18.5%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      84
+    </td>
+    
+    <td>
+      100.0%
+    </td>
+    
+    <td>
+      20.9%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      85
+    </td>
+    
+    <td>
+      100.0%
+    </td>
+    
+    <td>
+      24.1%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      86
+    </td>
+    
+    <td>
+      100.0%
+    </td>
+    
+    <td>
+      28.8%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      87
+    </td>
+    
+    <td>
+      100.0%
+    </td>
+    
+    <td>
+      36.8%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      88
+    </td>
+    
+    <td>
+      100.0%
+    </td>
+    
+    <td>
+      52.8%
+    </td>
+  </tr>
+  
+  <tr style="test-align: right;">
+    <td>
+      89
+    </td>
+    
+    <td>
+      50.0%
+    </td>
+    
+    <td>
+      100.0%
+    </td>
+  </tr>
+</table>
+
+<p>We see that our initial spending is higher (6.1% vs. 5.9% when we optimized spending and equity independently). We see that in our median case, spending is flatter. We see that the worst-case outcome is a bit worse. Nevertheless it seems credible that the tradeoff is preferable for a moderately risk averse retiree.</p>
+
+<p><strong>Actual spending using computed schedule, % of initial portfolio, 25-year retirement cohorts 1926-1987</strong></p>
+
+<p><a href="/assets/wp-content/uploads/2014/01/Capture7.png"><img src="/assets/wp-content/uploads/2014/01/Capture7.png" alt="Actual Spending using computed schedule, 25-year retirement cohorts 1926-1987 " width="511" height="281" class="aligncenter size-full wp-image-2665" srcset="/assets/wp-content/uploads/2014/01/Capture7.png 511w, /assets/wp-content/uploads/2014/01/Capture7-300x164.png 300w" sizes="(max-width: 511px) 100vw, 511px" /></a></p>
+
+<p>It’s quite interesting that the equity % starts at 63.8% and rises throughout retirement. Conventional wisdom, as implemented in many <a href="https://institutional.vanguard.com/VGApp/iip/site/institutional/investments/balancedoverview">target date funds</a> would be to reduce the equity allocation as you get older, since you have less time to recover any shortfall from a major market decline. So that result bears investigation to see if there is an error, or if it’s inherent in the unconventional aspects of this approach.</p>
+
+<p>Otherwise, this seems like an analytically sound approach that yields a good practical result.</p>
+
+<p>Comments are invited.</p>
+">
+    
+
+    
+        <meta name="twitter:card"  content="summary">
+        <meta name="twitter:image" content="">
+    
+    <!-- end of Twitter cards -->
+
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner" id='header-bar'>
+
+    <div class="wrapper">
+        
+        <a class="site-title" href="/">StreetEYE Blog</a>
+
+        <nav class="site-nav">
+            <a class="page-link" href="/contact.html">&#x1f984; Contact</a>
+        </nav>
+        <nav class="site-nav">
+            <a class="page-link" href="/FAQ.html">&#x1F64B; FAQ</a>
+        </nav>
+        <!-- <nav class="site-nav">
+            <a class="page-link" href="/log.html">&#x231b; Log</a>
+        </nav> -->
+        <nav class="site-nav">
+            <a class="page-link" href="/archive.html">&#x231b; Archive</a>
+        </nav>
+
+    </div>
+
 </header>
-<main class="page-content" aria-label="Content">
+
+
+    <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Retirement plans that maximize certainty-equivalent spending (conclusion)</h1>
+    <h1 class="post-title" itemprop="name headline">Retirement plans that maximize certainty-equivalent spending (conclusion)</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2014-01-22T20:31:27+00:00" itemprop="datePublished">Jan 22, 2014
-      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Druce Vertes, CFA</span></span></p>
+
+      <time datetime="2014-01-22T15:31:27-05:00" itemprop="datePublished">
+        
+        Jan 22, 2014
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        by <span itemprop="name">Druce Vertes</span>
+      </span>
+
+      <span>
+        
+      </span>
+      <!--
+      <span class="share-buttons">
+        <span class="share-button"><a class="twitter-share-button" href="https://twitter.com/share" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></span>
+
+        <span class="share-button"><span class="fb-like" data-href="/2014/01/retirement-plans-that-maximize-certainty-equivalent-spending-part-3/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></span></span>
+      </span>
+      <div style="clear: both;"/>
+      -->
+
+    </p>
   </header>
 
-  <div class="post-content e-content" itemprop="articleBody">
+  <div class="post-content" itemprop="articleBody">
     <p>In <a href="/2014/01/2534/" title="Optimal certainty-equivalent spending retirements with DataNitro">part 1</a> and <a href="/2014/01/optimal-certainty-equivalent-retirement-plans-part-2/" title="Retirement plans that maximize certainty-equivalent spending, part 2">part 2</a>, we developed a framework for evaluating and identifying a good plan for retirement spending and asset allocation.</p>
 
 <ul>
@@ -453,7 +970,7 @@ _</p>
 
 <p><strong>Actual spending using computed schedule, % of initial portfolio, 25-year retirement cohorts 1926-1987</strong></p>
 
-<p><a href="/uploads/2014/01/Capture7.png"><img src="/uploads/2014/01/Capture7.png" alt="Actual Spending using computed schedule, 25-year retirement cohorts 1926-1987 " width="511" height="281" class="aligncenter size-full wp-image-2665" srcset="/uploads/2014/01/Capture7.png 511w, /uploads/2014/01/Capture7-300x164.png 300w" sizes="(max-width: 511px) 100vw, 511px" /></a></p>
+<p><a href="/assets/wp-content/uploads/2014/01/Capture7.png"><img src="/assets/wp-content/uploads/2014/01/Capture7.png" alt="Actual Spending using computed schedule, 25-year retirement cohorts 1926-1987 " width="511" height="281" class="aligncenter size-full wp-image-2665" srcset="/assets/wp-content/uploads/2014/01/Capture7.png 511w, /assets/wp-content/uploads/2014/01/Capture7-300x164.png 300w" sizes="(max-width: 511px) 100vw, 511px" /></a></p>
 
 <p>It’s quite interesting that the equity % starts at 63.8% and rises throughout retirement. Conventional wisdom, as implemented in many <a href="https://institutional.vanguard.com/VGApp/iip/site/institutional/investments/balancedoverview">target date funds</a> would be to reduce the equity allocation as you get older, since you have less time to recover any shortfall from a major market decline. So that result bears investigation to see if there is an error, or if it’s inherent in the unconventional aspects of this approach.</p>
 
@@ -461,34 +978,48 @@ _</p>
 
 <p>Comments are invited.</p>
 
-  </div><a class="u-url" href="/2014/01/retirement-plans-that-maximize-certainty-equivalent-spending-part-3/" hidden></a>
+  </div>
+
+
+  <div class="page-navigation">
+    
+      <a class="prev" href="/2014/01/optimal-certainty-equivalent-retirement-plans-part-2/">&larr; Retirement plans that maximize certainty-equivalent spending, part 2</a>
+    
+
+    
+      <a class="next" href="/2014/09/easy-pieces-on-risk-1-why-is-volatility-a-proxy-for-risk/">Easy Pieces on Risk, #1 _ Why is volatility a proxy for risk? &rarr;</a>
+    
+  </div>
+
+  
+
 </article>
 
       </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/"></data>
+    </main>
 
-  <div class="wrapper">
+    <div style="clear: both;"/>
+<footer class="site-footer">
+    2019 &copy; Built by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> and <a href="https://github.com/jekyll/minima/" target="_blank">minima</a> | View <a href="https://github.com/druce/druce.github.io" target="_blank">this</a> on Github | <a href="/tags.html">Tags</a> | <a href="/contact.html">Contact</a> | <a href="/FAQ.html">FAQ</a>
 
-    <h2 class="footer-heading">StreetEYE Blog</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">Druce Vertes</li><li><a class="u-email" href="mailto:streeteye@streeteye.com">streeteye@streeteye.com</a></li></ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://www.twitter.com/streeteye"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">streeteye</span></a></li><li><a href="https://www.linkedin.com/in/drucevertes"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">drucevertes</span></a></li><li><a href="https://github.com/druce"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">druce</span></a></li></ul>
-</div>
-
-      <div class="footer-col footer-col-3">
-        <p>&copy; Druce Vertes 2020 <br />Druce&#39;s Mad Science About Tech, Markets And Political Economy</p>
-      </div>
-    </div>
-
-  </div>
-
+    <p>
+        <a href="/feed.xml" target="_blank">
+            <img src="/assets/images/logo_rss.png" />
+        </a>
+        <a href="https://twitter.com/streeteye/" target="_blank">
+            <img src="/assets/images/logo_twitter.png" />
+        </a>
+        <a href="https://github.com/druce" target="_blank">
+            <img src="/assets/images/logo_github.png" />
+        </a>
+        <a href="https://www.linkedin.com/in/drucevertes" target="_blank">
+            <img src="/assets/images/logo_github.png" />
+        </a>
+	
+    </p>
 </footer>
-</body>
+
+
+  </body>
 
 </html>

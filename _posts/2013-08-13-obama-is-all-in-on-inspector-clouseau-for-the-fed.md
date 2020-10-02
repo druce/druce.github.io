@@ -21,18 +21,18 @@ categories:
   </p>
 </div>
 
-So, [the Obama Administration is &#8216;all-in&#8217; on Summers](http://blogs.reuters.com/felix-salmon/2013/08/13/obamas-dangerously-heroic-view-of-the-fed/), despite nearly everyone who hasn&#8217;t worked for him (and a number who have) thinking he&#8217;s not the best candidate.
+So, [the Obama Administration is ‘all-in’ on Summers](http://blogs.reuters.com/felix-salmon/2013/08/13/obamas-dangerously-heroic-view-of-the-fed/), despite nearly everyone who hasn’t worked for him (and a number who have) thinking he’s not the best candidate.
 
-The argument: &#8216;crisis experience,&#8217; and the need for a &#8216;steady hand.&#8217;
+The argument: ‘crisis experience,’ and the need for a ‘steady hand.’
 
-Summers&#8217;s [crisis experience](http://img.timeinc.net/time/magazine/archive/covers/1999/1101990215_400.jpg) is like Inspector Clouseau&#8217;s, the master detective who always seems to be at the scene of the crime.  
+Summers’s [crisis experience](http://img.timeinc.net/time/magazine/archive/covers/1999/1101990215_400.jpg) is like Inspector Clouseau’s, the master detective who always seems to be at the scene of the crime.  
 <!--more-->
 
   
 You have to ask yourself, how much were his policies of fostering TBTF banks and an unstable shadow banking system to blame for the biggest financial crisis in 80+ years?
 
-You want a Fed chair committed to building a simpler, more resilient financial system, not one who is going to foster more moral hazard by promising to &#8216;handle&#8217; them as they arrive (with &#8216;liquidity puts&#8217;, bailouts, and bank subsidies).
+You want a Fed chair committed to building a simpler, more resilient financial system, not one who is going to foster more moral hazard by promising to ‘handle’ them as they arrive (with ‘liquidity puts’, bailouts, and bank subsidies).
 
-There&#8217;s a time for a steady hand, and a time for a reformer, and the &#8216;steady hand&#8217; who helped architect an unstable, fragile system that failed catastrophically isn&#8217;t the right guy to fix it.
+There’s a time for a steady hand, and a time for a reformer, and the ‘steady hand’ who helped architect an unstable, fragile system that failed catastrophically isn’t the right guy to fix it.
 
-_The problems we face cannot be solved at the same level of thinking we were at when we created them. &#8211; Albert Einstein (attributed)_
+_The problems we face cannot be solved at the same level of thinking we were at when we created them. _ Albert Einstein (attributed)_

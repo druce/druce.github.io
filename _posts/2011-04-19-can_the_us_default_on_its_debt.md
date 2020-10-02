@@ -21,4 +21,4 @@ But can a sovereign nation default on domestic fiat currency debt? In theory, it
 
 Hard to argue that fiscal deficits > 10% of GDP are sustainable. Getting on a sustainable path needs a combination of [growth, spending cuts, tax hikes, and inflation](http://www.economist.com/blogs/buttonwood/2011/04/debt_crisis). Also hard not to notice the people making the biggest noise about it just held up the President to get tax cuts for the rich extended, and the overall tax burden in terms of receipts as a percentage of GDP is at a historical low. 
 
-Logically, default seems like an impossibility. But economic models, by definition, don&#8217;t take account of [human idiocy](http://blogs.reuters.com/christopher-whalen/2011/04/13/why-congress-should-vote-no-on-raising-the-debt-ceiling/).
+Logically, default seems like an impossibility. But economic models, by definition, don’t take account of [human idiocy](http://blogs.reuters.com/christopher-whalen/2011/04/13/why-congress-should-vote-no-on-raising-the-debt-ceiling/).

@@ -1,54 +1,218 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>The Dark Web Stack, Or How To Eff Up The Net | StreetEYE Blog</title>
-<meta name="generator" content="Jekyll v3.9.0" />
-<meta property="og:title" content="The Dark Web Stack, Or How To Eff Up The Net" />
-<meta name="author" content="Druce Vertes, CFA" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="You have a choice of trusting the natural stability of gold or the honesty and intelligence of members of the government, and with all due respect to these gentleman, I advise you as long as the capitalist system lasts, vote for gold. – George Bernard Shaw" />
-<meta property="og:description" content="You have a choice of trusting the natural stability of gold or the honesty and intelligence of members of the government, and with all due respect to these gentleman, I advise you as long as the capitalist system lasts, vote for gold. – George Bernard Shaw" />
-<link rel="canonical" href="http://0.0.0.0:4000/2015/01/the-dark-web-stack/" />
-<meta property="og:url" content="http://0.0.0.0:4000/2015/01/the-dark-web-stack/" />
-<meta property="og:site_name" content="StreetEYE Blog" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2015-01-23T11:14:02+00:00" />
-<script type="application/ld+json">
-{"@type":"BlogPosting","headline":"The Dark Web Stack, Or How To Eff Up The Net","dateModified":"2015-01-23T11:14:02+00:00","datePublished":"2015-01-23T11:14:02+00:00","url":"http://0.0.0.0:4000/2015/01/the-dark-web-stack/","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/2015/01/the-dark-web-stack/"},"author":{"@type":"Person","name":"Druce Vertes, CFA"},"description":"You have a choice of trusting the natural stability of gold or the honesty and intelligence of members of the government, and with all due respect to these gentleman, I advise you as long as the capitalist system lasts, vote for gold. – George Bernard Shaw","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="StreetEYE Blog" /></head>
-<body><header class="site-header" role="banner">
+<html lang="en">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">StreetEYE Blog</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
+  <head>
+    
+      
 
-        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
-      </nav></div>
+
+
+
+
+
+    
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>The Dark Web Stack, Or How To Eff Up The Net</title>
+
+    <meta name="description" content="You have a choice of trusting the natural stability of gold or the honesty and intelligence of members of the government, and with all due respect to these g...">
+
+    <meta content="StreetEYE Blog" property="og:site_name">
+    
+        <meta content="The Dark Web Stack, Or How To Eff Up The Net" property="og:title">
+    
+    
+        <meta content="article" property="og:type">
+    
+    
+        <meta content="You have a choice of trusting the natural stability of gold or the honesty and intelligence of members of the government, and with all due respect to these gentleman, I advise you as long as the capitalist system lasts, vote for gold. _ George Bernard Shaw An interesting dive into..." property="og:description">
+    
+    
+        <meta content="http://0.0.0.0:4000/2015/01/the-dark-web-stack/" property="og:url">
+    
+    
+        <meta content="2015-01-23T06:14:02-05:00" property="article:published_time">
+        <meta content="http://0.0.0.0:4000/about/" property="article:author">
+    
+    
+    
+        
+    
+
+    <link rel="shortcut icon" href="/assets/favicon_peach.ico">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="canonical" href="http://0.0.0.0:4000/2015/01/the-dark-web-stack/">
+
+    <!-- For Latex -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-8161570-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <!-- For Facebook share button -->
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Twitter cards -->
+    <meta name="twitter:site"    content="@streeteye">
+    <meta name="twitter:creator" content="@Druce Vertes">
+    <meta name="twitter:title"   content="The Dark Web Stack, Or How To Eff Up The Net">
+
+    
+        <meta name="twitter:description" content="<p><em>You have a choice of trusting the natural stability of gold or the honesty and intelligence of members of the government, and with all due respect to these gentleman, I advise you as long as the capitalist system lasts, vote for gold. _ George Bernard Shaw</em></p>
+
+<p><a href="/assets/wp-content/uploads/2015/01/gqj5c.jpg"><img src="/assets/wp-content/uploads/2015/01/gqj5c-300x274.jpg" alt="Do You Want To Eff Up The Net? Because That&#039;s How You Eff Up The Net" width="300" height="274" class="alignright size-medium wp-image-3028" srcset="/assets/wp-content/uploads/2015/01/gqj5c-300x274.jpg 300w, /assets/wp-content/uploads/2015/01/gqj5c.jpg 490w" sizes="(max-width: 300px) 100vw, 300px" /></a>An interesting <a href="http://joel.mn/post/108657860988/deep-web-marketplaces">dive</a> into “Deep Web Marketplaces” by the folks at <a href="http://avc.com/2015/01/deep-web-marketplaces/">avc.com</a> and <a href="https://www.usv.com/">USV</a>.</p>
+
+<p>A deep web marketplace is like the Ebay of anonymous e-commerce. Other elements of the stack include:</p>
+
+<ul>
+  <li>Payments: Bitcoin</li>
+  <li>Transactional database: the blockchain</li>
+  <li>Non-transactional text database<sup>1</sup>: <a href="http://pastebin.com/">Pastebin</a> (Images: <a href="http://imgur.com/">Imgur</a>; generic NoSQL database… I don’t know of one, so build on top of those, or left an exercise for an aspiring entrepreneur)</li>
+  <li>Networking: <a href="https://www.torproject.org/">TOR</a></li>
+  <li>CDN: <a href="http://www.bittorrent.com/">Bittorrent</a>, <a href="http://thepiratebay.se/">Pirate Bay</a></li>
+</ul>
+
+<p>Could you could go down the list of Amazon Web Services and come up with p2p distributed versions of each one? I don’t see why not.</p>
+
+<p>Could you have a distributed version of Heroku/Amazon Web Services, an anonymous, distributed platform with all the services and APIs to create any app or marketplace from Ebay to Uber running in your browser or on your phone? I don’t see why not.</p>
+
+<p>Could you have a distributed p2p version of UPS like TOR, with people handing each other anonymous packages and delivering in some dead drop or to the holder of dollar bill number B12345678?</p>
+
+<p>Of course, that’s what they would do in an underworld network, or in a totalitarian state. Like samizdat publishing.</p>
+
+<p>Should we?</p>
+
+<p>There’s a constant ebb and flow between centralization (mainframes/AOL) and decentralization (PCs/Web) and back (Mobile/cloud).</p>
+
+<p>Similarly there has been an ebb and flow from relatively anonymous Web protocols like Web, SMTP etc. to trusted IDs, Twitter/Facebook/SSH, and back with Bitcoin and dark web.</p>
+
+<p>There’s a dichotomy: A world where much of the communication, transactions, commerce have to be over a dark web would be a pretty effed up place, like one where people had to pass along literature through samizdat and do commerce in back alleys.</p>
+
+<p>The dark web stack is kind of an effed version of the legit web, and yet necessary.</p>
+
+<p>It’s just that, being nexus-free, it’s more resistant to control.</p>
+
+<p>Not totally resistant…the Internet is the granddaddy of distributed, anonymous networks, and it’s impressive what China can do to control it.</p>
+
+<p>What can a dark web stack do, that a more centralized client/server or mobile/cloud stack can’t?</p>
+
+<p>Absolutely nothing.</p>
+
+<p>How much of your life needs to be conducted in a secure, ‘erasable’ Internet? Sure, some part of communications should be kept very private, and quickly forgotten.</p>
+
+<p>Some, but by no means most of it.</p>
+
+<p>And there’s a cost. It may avoid an ATM charge, but the cost of clearing a Bitcoin transaction is still staggering compared to institutional FX markets. The time to clear is staggering. And fairly fixing any glitch in centralized markets is maybe tough and possibly political, but it’s practically impossible on the blockchain.</p>
+
+<p>And yet, it’s <em>insane</em> for someone like David Cameron to say the government needs the keys to everything and there can be no true dark web. If you had to put a back door in every communication or ecommerce system, impossible to believe anything would be safe against black hat hackers and foreign governments. And of course bad guys would always find a way around it. And there’s a free speech issue: what kind of world is it where you can’t have a private conversation in the safety of your own device? It’s unachievable, dangerous to try, and wrong.</p>
+
+<p>The more you use control of legit platforms to enforce political goals, whether it’s against Falun Gong or Russia, the more you create demand for a dark, private web.</p>
+
+<p>If people trust the government and the monetary and financial system, they don’t hoard gold. If they hoard gold, the response is to fix the monetary system, not to ban the ownership of gold. Which may be the only alternative when the monetary system is irretrievably broken in times of war or crisis. But it’s not the way a free economy and democracy are supposed to work. And the same goes for the dark web.</p>
+
+<p>If you don’t want people to use the dark net, don’t mess up the legit networks with back doors and warrantless wiretaps, ‘express lanes,’ censorship, using them for political pressure. That’s not the way freedom of speech and democracy are supposed to work.</p>
+
+<p>Or people will create worse versions and route around you.</p>
+
+<p><small><br /> <sup>1</sup> Technically, these aren’t distributed in the same sense as the blockchain is. Many distributed apps and use cases could probably use them as a storage layer, though. For instance, to build a distributed p2p Uber, drivers could have an app that posts availability and reservation responses to a Pastebin type public space signed with their key, and riders could likewise post reservation requests. Perhaps there’s an opportunity for a NoSQL nontransactional distributed p2p database counterpart to the blockchain, which is transactional, strictly enforces no double-spend, but takes a long time to commit.&lt;/p&gt;</small></p>
+
+<p>
+  &lt;/small&gt;
+</p>
+">
+    
+
+    
+        <meta name="twitter:card"  content="summary">
+        <meta name="twitter:image" content="">
+    
+    <!-- end of Twitter cards -->
+
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner" id='header-bar'>
+
+    <div class="wrapper">
+        
+        <a class="site-title" href="/">StreetEYE Blog</a>
+
+        <nav class="site-nav">
+            <a class="page-link" href="/contact.html">&#x1f984; Contact</a>
+        </nav>
+        <nav class="site-nav">
+            <a class="page-link" href="/FAQ.html">&#x1F64B; FAQ</a>
+        </nav>
+        <!-- <nav class="site-nav">
+            <a class="page-link" href="/log.html">&#x231b; Log</a>
+        </nav> -->
+        <nav class="site-nav">
+            <a class="page-link" href="/archive.html">&#x231b; Archive</a>
+        </nav>
+
+    </div>
+
 </header>
-<main class="page-content" aria-label="Content">
+
+
+    <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">The Dark Web Stack, Or How To Eff Up The Net</h1>
+    <h1 class="post-title" itemprop="name headline">The Dark Web Stack, Or How To Eff Up The Net</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2015-01-23T11:14:02+00:00" itemprop="datePublished">Jan 23, 2015
-      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Druce Vertes, CFA</span></span></p>
+
+      <time datetime="2015-01-23T06:14:02-05:00" itemprop="datePublished">
+        
+        Jan 23, 2015
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        by <span itemprop="name">Druce Vertes</span>
+      </span>
+
+      <span>
+        
+      </span>
+      <!--
+      <span class="share-buttons">
+        <span class="share-button"><a class="twitter-share-button" href="https://twitter.com/share" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></span>
+
+        <span class="share-button"><span class="fb-like" data-href="/2015/01/the-dark-web-stack/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></span></span>
+      </span>
+      <div style="clear: both;"/>
+      -->
+
+    </p>
   </header>
 
-  <div class="post-content e-content" itemprop="articleBody">
-    <p><em>You have a choice of trusting the natural stability of gold or the honesty and intelligence of members of the government, and with all due respect to these gentleman, I advise you as long as the capitalist system lasts, vote for gold. – George Bernard Shaw</em></p>
+  <div class="post-content" itemprop="articleBody">
+    <p><em>You have a choice of trusting the natural stability of gold or the honesty and intelligence of members of the government, and with all due respect to these gentleman, I advise you as long as the capitalist system lasts, vote for gold. _ George Bernard Shaw</em></p>
 
-<p><a href="/uploads/2015/01/gqj5c.jpg"><img src="/uploads/2015/01/gqj5c-300x274.jpg" alt="Do You Want To Eff Up The Net? Because That&#039;s How You Eff Up The Net" width="300" height="274" class="alignright size-medium wp-image-3028" srcset="/uploads/2015/01/gqj5c-300x274.jpg 300w, /uploads/2015/01/gqj5c.jpg 490w" sizes="(max-width: 300px) 100vw, 300px" /></a>An interesting <a href="http://joel.mn/post/108657860988/deep-web-marketplaces">dive</a> into “Deep Web Marketplaces” by the folks at <a href="http://avc.com/2015/01/deep-web-marketplaces/">avc.com</a> and <a href="https://www.usv.com/">USV</a>.</p>
+<p><a href="/assets/wp-content/uploads/2015/01/gqj5c.jpg"><img src="/assets/wp-content/uploads/2015/01/gqj5c-300x274.jpg" alt="Do You Want To Eff Up The Net? Because That&#039;s How You Eff Up The Net" width="300" height="274" class="alignright size-medium wp-image-3028" srcset="/assets/wp-content/uploads/2015/01/gqj5c-300x274.jpg 300w, /assets/wp-content/uploads/2015/01/gqj5c.jpg 490w" sizes="(max-width: 300px) 100vw, 300px" /></a>An interesting <a href="http://joel.mn/post/108657860988/deep-web-marketplaces">dive</a> into “Deep Web Marketplaces” by the folks at <a href="http://avc.com/2015/01/deep-web-marketplaces/">avc.com</a> and <a href="https://www.usv.com/">USV</a>.</p>
 
 <p>A deep web marketplace is like the Ebay of anonymous e-commerce. Other elements of the stack include:</p>
 
@@ -108,34 +272,48 @@
   &lt;/small&gt;
 </p>
 
-  </div><a class="u-url" href="/2015/01/the-dark-web-stack/" hidden></a>
+  </div>
+
+
+  <div class="page-navigation">
+    
+      <a class="prev" href="/2015/01/uberfail-a-few-thoughts-on-uber/">&larr; UberFail _ a few thoughts on Uber</a>
+    
+
+    
+      <a class="next" href="/2015/01/pcs-were-the-triumph-of-the-nerds-iphone-is-the-revenge-of-the-cool-kids/">PCs Were the Triumph of the Nerds; iPhone is the Revenge of the Cool Kids &rarr;</a>
+    
+  </div>
+
+  
+
 </article>
 
       </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/"></data>
+    </main>
 
-  <div class="wrapper">
+    <div style="clear: both;"/>
+<footer class="site-footer">
+    2019 &copy; Built by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> and <a href="https://github.com/jekyll/minima/" target="_blank">minima</a> | View <a href="https://github.com/druce/druce.github.io" target="_blank">this</a> on Github | <a href="/tags.html">Tags</a> | <a href="/contact.html">Contact</a> | <a href="/FAQ.html">FAQ</a>
 
-    <h2 class="footer-heading">StreetEYE Blog</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">Druce Vertes</li><li><a class="u-email" href="mailto:streeteye@streeteye.com">streeteye@streeteye.com</a></li></ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://www.twitter.com/streeteye"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">streeteye</span></a></li><li><a href="https://www.linkedin.com/in/drucevertes"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">drucevertes</span></a></li><li><a href="https://github.com/druce"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">druce</span></a></li></ul>
-</div>
-
-      <div class="footer-col footer-col-3">
-        <p>&copy; Druce Vertes 2020 <br />Druce&#39;s Mad Science About Tech, Markets And Political Economy</p>
-      </div>
-    </div>
-
-  </div>
-
+    <p>
+        <a href="/feed.xml" target="_blank">
+            <img src="/assets/images/logo_rss.png" />
+        </a>
+        <a href="https://twitter.com/streeteye/" target="_blank">
+            <img src="/assets/images/logo_twitter.png" />
+        </a>
+        <a href="https://github.com/druce" target="_blank">
+            <img src="/assets/images/logo_github.png" />
+        </a>
+        <a href="https://www.linkedin.com/in/drucevertes" target="_blank">
+            <img src="/assets/images/logo_github.png" />
+        </a>
+	
+    </p>
 </footer>
-</body>
+
+
+  </body>
 
 </html>

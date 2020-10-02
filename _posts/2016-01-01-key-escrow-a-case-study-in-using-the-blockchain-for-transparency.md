@@ -1,6 +1,6 @@
 ---
 id: 4338
-title: 'iPhone Backdoors for the FBI, a blockchain approach for transparent due process, and why it&#8217;s a bad idea'
+title: 'iPhone Backdoors for the FBI, a blockchain approach for transparent due process, and why it’s a bad idea'
 date: 2016-01-01T14:22:27+00:00
 author: Druce Vertes, CFA
 layout: post
@@ -15,19 +15,19 @@ So, the security complex is putting on the full court PR press for encryption ba
 
 Basically this is about giving someone a [TSA lock](https://theintercept.com/2015/09/17/tsa-doesnt-really-care-luggage-locks-hacked/) to your phone and promising to keep it really really safe unless a legit law enforcement request is received. Of course, legitimacy is [in the eye of the beholder](https://theintercept.com/2015/12/30/spying-on-congress-and-israel-nsa-cheerleaders-discover-value-of-privacy-only-when-their-own-is-violated/).
 
-One place where the real-world analogy breaks down is that any backdoor, in theory, enables industrial-scale exploitation. Potentially, it&#8217;s not just making it possible to open a car trunk that contains a body but more like requiring cars made out of material that&#8217;s transparent to the state. And then counting on due process to make it not infringe on the 4th Amendment and freedom from constant state surveillance.
+One place where the real-world analogy breaks down is that any backdoor, in theory, enables industrial-scale exploitation. Potentially, it’s not just making it possible to open a car trunk that contains a body but more like requiring cars made out of material that’s transparent to the state. And then counting on due process to make it not infringe on the 4th Amendment and freedom from constant state surveillance.
 
 The problem is, the folks at the NSA, CIA, DIA are in the deception business, and feel they have a moral imperative that demands deceiving the enemy, which in turn demands deceiving [(lying to)](http://thehill.com/policy/technology/241508-spy-head-had-absolutely-forgotten-about-nsa-program) the public.
 
-I don&#8217;t even blame them, they have a job with a lot of risk, no real glory. Their job is to do what they can with the tools they&#8217;re given, and probably take the fall for &#8216;not connecting the dots&#8217; even when they pretty much [connected the dots](http://www.nytimes.com/2012/09/11/opinion/the-bush-white-house-was-deaf-to-9-11-warnings.html?_r=0). 
+I don’t even blame them, they have a job with a lot of risk, no real glory. Their job is to do what they can with the tools they’re given, and probably take the fall for ‘not connecting the dots’ even when they pretty much [connected the dots](http://www.nytimes.com/2012/09/11/opinion/the-bush-white-house-was-deaf-to-9-11-warnings.html?_r=0). 
 
-Hillary talks about a Manhattan Project for cybersecurity&#8230;the truth is there is no way to create a magic bullet that can only be fired by the good guys, and there has been a $10b annual Manhattan project for years to enable the NSA to undermine and exploit the tech industry&#8217;s security. 
+Hillary talks about a Manhattan Project for cybersecurity…the truth is there is no way to create a magic bullet that can only be fired by the good guys, and there has been a $10b annual Manhattan project for years to enable the NSA to undermine and exploit the tech industry’s security. 
 
 So, I really thank Tim Cook for standing up to useful idiots who say Apple enables terrorists.
 
-But with the current level of stupidity, there&#8217;s a very real possibility it&#8217;s a losing battle against that accusation, especially if there actually is a terrorist attack that hits an investigation roadblock due to iPhone encryption.
+But with the current level of stupidity, there’s a very real possibility it’s a losing battle against that accusation, especially if there actually is a terrorist attack that hits an investigation roadblock due to iPhone encryption.
 
-If you go down the backdoor road, there has to be maximum real-time transparency and due process. That&#8217;s kind of what the blockchain is: a secure, open public ledger of transactions. They can be money transactions, or transfer of ownership of other rights or responsibilities, or any bits, really.
+If you go down the backdoor road, there has to be maximum real-time transparency and due process. That’s kind of what the blockchain is: a secure, open public ledger of transactions. They can be money transactions, or transfer of ownership of other rights or responsibilities, or any bits, really.
 
 So anyway, here is, as a thought experiment, how you can use the blockchain to enable transparency and due process in a key escrow scheme.
 
@@ -52,14 +52,14 @@ So anyway, here is, as a thought experiment, how you can use the blockchain to e
 
 5) Public signature by e.g. Tim Cook that he personally authorized access after finding it was legit and all necessary information was public on the blockchain, and appeals/challenges exhausted.
 
-6) Keys transmitted to law enforcement by similar nuclear launch code checklist, e.g. all access to the physical location and media where it&#8217;s stored by two people who follow the checklist and record that it was followed, under criminal penalty for exfiltrating information inappropriately, or not documenting any attempt at circumvention. And again, procedures and logs subject to annual 3rd party audit, and management to certify that all procedures followed, any gaps or attempts at circumvention publicly disclosed.
+6) Keys transmitted to law enforcement by similar nuclear launch code checklist, e.g. all access to the physical location and media where it’s stored by two people who follow the checklist and record that it was followed, under criminal penalty for exfiltrating information inappropriately, or not documenting any attempt at circumvention. And again, procedures and logs subject to annual 3rd party audit, and management to certify that all procedures followed, any gaps or attempts at circumvention publicly disclosed.
 
 The point of this exercise is that once you have a backdoor, you need real, public due process with teeth.
 
-This process will satisfy no one. It&#8217;s a huge hassle for e.g. Apple. The security community wants something where they can ask for an inch and take a mile, and blame civil authority when they don&#8217;t find the threats. The civil liberties community will rightly suspect there is a hole in there somewhere, or that one will be created at the next &#8216;national security emergency,&#8217; because that&#8217;s what the public raised on &#8217;24&#8217; and &#8216;Homeland&#8217; expects.
+This process will satisfy no one. It’s a huge hassle for e.g. Apple. The security community wants something where they can ask for an inch and take a mile, and blame civil authority when they don’t find the threats. The civil liberties community will rightly suspect there is a hole in there somewhere, or that one will be created at the next ‘national security emergency,’ because that’s what the public raised on ’24’ and ‘Homeland’ expects.
 
 And of course China and Russia will demand their own, much more leaky version of this, and Apple will end up in the Stasi-enabling business. 
 
 More and more, your whole life is on the phone. It leaks plenty of information semi-voluntarily about everywhere you go, everyone you spend time with, communicate with, what sites you browse, who you transact with. The security guys can do all kinds of other things to track you, GPS monitors, hack your phone, search your garbage. 
 
-Better to not go down this road of giving the surveillance state unfettered access to everything. And maybe it&#8217;s time to try to use technology for cryptographically secure transparency and due process.
+Better to not go down this road of giving the surveillance state unfettered access to everything. And maybe it’s time to try to use technology for cryptographically secure transparency and due process.
