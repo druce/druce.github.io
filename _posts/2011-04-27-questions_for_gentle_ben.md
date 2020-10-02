@@ -20,7 +20,7 @@ categories:
     Image via <a href="http://commons.wikipedia.org/wiki/File:Ben_Bernanke_official_portrait.jpg">Wikipedia</a></div> 
     
     <p>
-      A question for Ben Bernanke at today&#8217;s press conference:
+      A question for Ben Bernanke at today’s press conference:
     </p>
     
     <p>
@@ -32,7 +32,7 @@ categories:
     </p>
     
     <p>
-      &bull; In 2008, you said you didn&#8217;t expect a recession.
+      &bull; In 2008, you said you didn’t expect a recession.
     </p>
     
     <p>

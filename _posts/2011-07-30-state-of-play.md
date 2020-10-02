@@ -15,9 +15,9 @@ categories:
 ---
 We have been going through the stages of coming to terms with GOP berzerkers.
 
-  1. Denial &#8211; &#8220;They&#8217;re just posturing&#8221;
-  2. Astonishment &#8211; &#8220;Wow, some of them are dumb enough to believe their own BS&#8221;,
-  3. Facepalm &#8211; &#8220;I can&#8217;t believe they&#8217;re actually going to do this.&#8221;
+  1. Denial _ “They’re just posturing”
+  2. Astonishment _ “Wow, some of them are dumb enough to believe their own BS”,
+  3. Facepalm _ “I can’t believe they’re actually going to do this.”
 
 <div>
   As matters now stand, Boehner managed to pass a Frankenbill, which is apparently <a href="http://www.washingtonpost.com/blogs/ezra-klein/post/the-trigger-that-could-lead-to-a-debt-deal/2011/07/11/gIQADT4MiI_blog.html">the least conservative thing he can get through his caucus</a>, implements a small short-term debt ceiling rise, with another rise contingent on tax and entitlement reform and a balanced budget amendment.
@@ -26,7 +26,7 @@ We have been going through the stages of coming to terms with GOP berzerkers.
 
 
 <div>
-  A complete nonstarter and immediately nixed by the Senate. So Reid will pass a bill through the Senate that doesn&#8217;t give up another hostage. <a href="http://www.christianpost.com/news/boehner-vs-reid-what-do-their-bills-say-53094/">A comparison</a>.
+  A complete nonstarter and immediately nixed by the Senate. So Reid will pass a bill through the Senate that doesn’t give up another hostage. <a href="http://www.christianpost.com/news/boehner-vs-reid-what-do-their-bills-say-53094/">A comparison</a>.
 </div>
 
 

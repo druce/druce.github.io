@@ -25,7 +25,7 @@ A followup to the [most recent post](/2011/12/the-unstoppable-vs-the-immovable/)
 <!--more-->
 
   
-Here is a state of play, and why I&#8217;m pessimistic:
+Here is a state of play, and why I’m pessimistic:
 
 <div>
   <ul>
@@ -33,16 +33,16 @@ Here is a state of play, and why I&#8217;m pessimistic:
       The only thing that will avert financial meltdown is if the ECB does QE. The markets have been demanding it for some time, and even Merkel realizes it by now.
     </li>
     <li>
-      The ECB says, we can&#8217;t just print, that&#8217;s moral hazard. We&#8217;ll ease if if politicians do debt brakes, deficit limits, central EC budget overview, sinking funds, etc. Not an entirely unreasonable position up to here.
+      The ECB says, we can’t just print, that’s moral hazard. We’ll ease if if politicians do debt brakes, deficit limits, central EC budget overview, sinking funds, etc. Not an entirely unreasonable position up to here.
     </li>
     <li>
-      Now first there&#8217;s the issue of political will. All the politicians in all these countries have to agree to austerity, no more pork, loss of sovereignty. That&#8217;s anathema to politicians, as much as printing money to finance fiscal deficits is to the ECB.
+      Now first there’s the issue of political will. All the politicians in all these countries have to agree to austerity, no more pork, loss of sovereignty. That’s anathema to politicians, as much as printing money to finance fiscal deficits is to the ECB.
     </li>
     <li>
       But the politicians have no choice. So we get to the mechanics and time constraints. How long will it take to get everybody on board, how many governments will fall and have to be arm-twisted or replaced by technocrats?
     </li>
     <li>
-       But suppose they all go through that&#8230; is the ECB going to say, we&#8217;ll backstop sovereigns 100%, without limitation? But nooo&#8230; they will ease and print a few hundred billion for the IMF to bail out the countries in dire shape. It&#8217;s just not clear whether they will do enough, or if it will just be another drop in the bucket.
+       But suppose they all go through that… is the ECB going to say, we’ll backstop sovereigns 100%, without limitation? But nooo… they will ease and print a few hundred billion for the IMF to bail out the countries in dire shape. It’s just not clear whether they will do enough, or if it will just be another drop in the bucket.
     </li>
     <li>
        Finally, the only way any of this works is if growth resumes. All these countries will now be in the middle of a massive credit crunch and fiscal drag. How are they going to grow out of the debt trap, meet the new post-Maastricht criteria, pay down debt, start to grow?
@@ -51,7 +51,7 @@ Here is a state of play, and why I&#8217;m pessimistic:
 </div>
 
 <div>
-  The ECB, Merkozy, and the crisis zone are starting to do the right things and I hope it works, but it feels like too little, too late. Ultimately I can&#8217;t help but think they are in too big a hole, took too long to stop digging it deeper, and inevitably there will be a series of defaults, insolvencies, and market crashes.
+  The ECB, Merkozy, and the crisis zone are starting to do the right things and I hope it works, but it feels like too little, too late. Ultimately I can’t help but think they are in too big a hole, took too long to stop digging it deeper, and inevitably there will be a series of defaults, insolvencies, and market crashes.
 </div>
 
 <div class="zemanta-pixie" style="margin-top: 10px; height: 15px;">

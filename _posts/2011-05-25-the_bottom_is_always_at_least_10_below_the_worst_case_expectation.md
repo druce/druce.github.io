@@ -21,12 +21,12 @@ categories:
   </p>
 </div>
 
-&#8216;Black swan&#8217; is a term which is overused and under-understood.
+‘Black swan’ is a term which is overused and under-understood.
 
-1) Evolutionary psychology: Humans aren&#8217;t very good at math, but especially intuitions about probability, and improbable things happen more often than we expect.
+1) Evolutionary psychology: Humans aren’t very good at math, but especially intuitions about probability, and improbable things happen more often than we expect.
 
-2) Behavioral economics (or evolutionary psychology part deux) &#8211; we feel worse about negative outcomes &#8211; a small negative surprise is felt disproportionately sharply relative to a small positive surprise. When humans were evolving on the brink of survival, a small negative weather surprise was the difference between life and death.
+2) Behavioral economics (or evolutionary psychology part deux) _ we feel worse about negative outcomes _ a small negative surprise is felt disproportionately sharply relative to a small positive surprise. When humans were evolving on the brink of survival, a small negative weather surprise was the difference between life and death.
 
-So we are risk-averse, and more sensitive to downside risk. But 3) The universe is perverse. Edifices take years to build up. When someone screws up, they collapse or burn down in seconds. The character and probability distribution of downside risk is different from upside risk. When things go bad, they don&#8217;t break gracefully, but with chain reactions and unintended consequences. Then they get worse, when people panic and do precisely the wrong thing at the wrong time.
+So we are risk-averse, and more sensitive to downside risk. But 3) The universe is perverse. Edifices take years to build up. When someone screws up, they collapse or burn down in seconds. The character and probability distribution of downside risk is different from upside risk. When things go bad, they don’t break gracefully, but with chain reactions and unintended consequences. Then they get worse, when people panic and do precisely the wrong thing at the wrong time.
 
-Call it Murphy&#8217;s law, or vol skew, the &#8216;black swan&#8217; event is just another name for entropy in action.
+Call it Murphy’s law, or vol skew, the ‘black swan’ event is just another name for entropy in action.

@@ -12,15 +12,20 @@ post-views:
   - "6143"
 dsq_thread_id:
   - "5799522131"
-categories:
-  - Uncategorized
+categories: tech
+tags: tech
+
 ---
-<link rel="stylesheet" type="text/css" href="/static/js/tablesorter-master/themes/blue/style.css" />
-
   
-It&#8217;s been a year since we posted our last list of people to follow on Twitter for financial news. Time for an update!
+> I posted earlier about some of the trends in [the financial Twittersphere](/2017/02/come-back-kelly-evans-well-be-good-i-promise/).
 
-I posted earlier about some of the trends in [the financial Twittersphere](/2017/02/come-back-kelly-evans-well-be-good-i-promise/).
+<!--more-->
+
+It’s been a year since we posted our last list of people to follow on Twitter for financial news. Time for an update!
+
+<link rel="stylesheet" type="text/css" href="/assets/js/tablesorter-master/themes/blue/style.css" />
+
+Problems
 
   * More churn
   * Less growth
@@ -1848,39 +1853,39 @@ I posted earlier about some of the trends in [the financial Twittersphere](/2017
   </tr>
 </table>
 
-Here&#8217;s our map of ~350 Twitter accounts, using a force-directed network. Everyone who follows an account or posts similar links pulls it toward them, so we see Twitter accounts arranged into broad areas: Asia, Europe, US markets, tech, media, econ, politics. People who are in the center are pretty equally followed by folks in all parts of the map, whatever their varied interests. Bigger labels represent people with larger followings. 
+Here’s our map of ~350 Twitter accounts, using a force-directed network. Everyone who follows an account or posts similar links pulls it toward them, so we see Twitter accounts arranged into broad areas: Asia, Europe, US markets, tech, media, econ, politics. People who are in the center are pretty equally followed by folks in all parts of the map, whatever their varied interests. Bigger labels represent people with larger followings. 
 
-[<img src="/uploads/2017/05/forcegraph2017.png" alt="" width="544" height="430" class="aligncenter size-full wp-image-5899" srcset="/uploads/2017/05/forcegraph2017.png 544w, /uploads/2017/05/forcegraph2017-300x237.png 300w" sizes="(max-width: 544px) 100vw, 544px" />](http://blog.streeteye.com/static/D3/forcegraph2017.html)
+[<img src="/assets/wp-content/uploads/2017/05/forcegraph2017.png" alt="" width="544" height="430" class="aligncenter size-full wp-image-5899" srcset="/assets/wp-content/uploads/2017/05/forcegraph2017.png 544w, /assets/wp-content/uploads/2017/05/forcegraph2017-300x237.png 300w" sizes="(max-width: 544px) 100vw, 544px" />](http://blog.streeteye.com/static/D3/forcegraph2017.html)
 
-Here&#8217;s a link to a [fun interactive version.](http://www.streeteye.com/static/D3/forcegraph2017.html) 
+Here’s a link to a [fun interactive version.](http://www.streeteye.com/static/D3/forcegraph2017.html) 
 
 <a name="discussion"></a>How does this work? 
 
 We start with a [network centrality](https://en.wikipedia.org/wiki/Centrality) analysis, building a graph of who follows whom and finding the people with the largest number of most influential followers. Those are probably people who will play an important role in transmitting important news. 
 
-Then we trim the list to people who are good curators: they post links to a variety of good content in a frequent and timely manner. We cull people who may be central, but don&#8217;t post a lot of good timely news links.
+Then we trim the list to people who are good curators: they post links to a variety of good content in a frequent and timely manner. We cull people who may be central, but don’t post a lot of good timely news links.
 
 Who do we cull?
 
   * Non-relevant accounts. [@DonaldTrump](https://twitter.com/DonaldTrump) (the new champion!) and [@BarackObama](https://twitter.com/BarackObama) are widely followed, but the stuff they post is only occasionally a news link directly relevant to financial markets.
-  * People who don&#8217;t curate, filter, and signal the most important things to read. [@LHSummers](https://twitter.com/LHSummers) is a good example. He&#8217;s a really important guy to follow but he only tweets out his own stuff, he doesn&#8217;t help people discover financial news. </ul> 
-    We rank the quality of each account&#8217;s curation on how much financial news they tweet, how much of it gets picked up and generates a lot of buzz, and how early they post it. It&#8217;s a subjective, but hopefully useful formula. Everytime you tweet something, and your followers view it and retweet it, traffic flow downstream, more likely than not from the most central folks to the periphery, and whenever attention flows downstream, influence flows back upstream in a sort of Newton&#8217;s Third Law of social media.
+  * People who don’t curate, filter, and signal the most important things to read. [@LHSummers](https://twitter.com/LHSummers) is a good example. He’s a really important guy to follow but he only tweets out his own stuff, he doesn’t help people discover financial news. </ul> 
+    We rank the quality of each account’s curation on how much financial news they tweet, how much of it gets picked up and generates a lot of buzz, and how early they post it. It’s a subjective, but hopefully useful formula. Everytime you tweet something, and your followers view it and retweet it, traffic flow downstream, more likely than not from the most central folks to the periphery, and whenever attention flows downstream, influence flows back upstream in a sort of Newton’s Third Law of social media.
     
     And of course, see the most shared financial stories updated continuously on the [StreetEYE](http://www.streeteye.com) home page, and follow us on <a href="https://twitter.com/StreetEYE" target="_blank">Twitter</a>.
     
-    A final P.S. and caveat: Like all such lists, it&#8217;s closer to a fun parlor trick than a definitive ranking. I&#8217;m delighted if people I respect get a kick out of it and even find it useful to discover new people to follow, but keep in mind that 1) I just used a small sample of Twitter data and 2) it&#8217;s just a simplistic formula. If you&#8217;re on here then you&#8217;re probably pretty widely followed, post a lot of timely and relevant financial news, that goes pretty viral. Let&#8217;s just say it&#8217;s inherently has a lot of bias and variance and tilts mainstream by design. I wouldn&#8217;t read much into why X is higher than Y or Z isn&#8217;t on here. Don&#8217;t take it too seriously! 
+    A final P.S. and caveat: Like all such lists, it’s closer to a fun parlor trick than a definitive ranking. I’m delighted if people I respect get a kick out of it and even find it useful to discover new people to follow, but keep in mind that 1) I just used a small sample of Twitter data and 2) it’s just a simplistic formula. If you’re on here then you’re probably pretty widely followed, post a lot of timely and relevant financial news, that goes pretty viral. Let’s just say it’s inherently has a lot of bias and variance and tilts mainstream by design. I wouldn’t read much into why X is higher than Y or Z isn’t on here. Don’t take it too seriously! 
     
     <a name="faq"><strong>Frequently asked questions:</strong></a>
     
-      1. _WTF is StreetEYE?_ Since 2011 we&#8217;ve tried to systematically find the best people to follow for financial news, and create a crowd-sourced front page of the financial Internet. You can read more [here](http://www.streeteye.com/about).  
+      1. _WTF is StreetEYE?_ Since 2011 we’ve tried to systematically find the best people to follow for financial news, and create a crowd-sourced front page of the financial Internet. You can read more [here](http://www.streeteye.com/about).  
         &nbsp;
-      2. _Why isn&#8217;t <brilliant pundit or technical commentator> on the list?_ Assuming they are very widely followed, probably because they don&#8217;t share other people&#8217;s content very much. There are a lot of great people to follow, who only share their own original content, or that of their colleagues. They don&#8217;t add a lot of signal to help discover news, so they don&#8217;t meet the relevance bar.&nbsp;  
+      2. _Why isn’t <brilliant pundit or technical commentator> on the list?_ Assuming they are very widely followed, probably because they don’t share other people’s content very much. There are a lot of great people to follow, who only share their own original content, or that of their colleagues. They don’t add a lot of signal to help discover news, so they don’t meet the relevance bar.&nbsp;  
         &nbsp;
-      3. _Why isn&#8217;t ZeroHedge on here? Everyone knows they should be #1!_ ZeroHedge blocks our bot on Twitter. There are three accounts I would like to follow that block us. Maybe they hate being aggregated in this way. Maybe I said something snarky. I have been known to be a jerk. Sorry! Ask them.  
+      3. _Why isn’t ZeroHedge on here? Everyone knows they should be #1!_ ZeroHedge blocks our bot on Twitter. There are three accounts I would like to follow that block us. Maybe they hate being aggregated in this way. Maybe I said something snarky. I have been known to be a jerk. Sorry! Ask them.  
         &nbsp;
-      4. _What about Drudge Report, Memeorandum, Techmeme, Mediagazer?_ Those are aggregators in politics, politics, tech, media respectively, the latter three in the great [Gabe Rivera&#8217;s](https://twitter.com/gaberivera) empire. They are fantastic and a lot of people follow them, I recommend you check them out. But even though by the numbers they rank pretty highly, they&#8217;re not specifically market-related and people thought they looked weird on this sort of list, so I took them off as not directly relevant, despite decent numbers.  
+      4. _What about Drudge Report, Memeorandum, Techmeme, Mediagazer?_ Those are aggregators in politics, politics, tech, media respectively, the latter three in the great [Gabe Rivera’s](https://twitter.com/gaberivera) empire. They are fantastic and a lot of people follow them, I recommend you check them out. But even though by the numbers they rank pretty highly, they’re not specifically market-related and people thought they looked weird on this sort of list, so I took them off as not directly relevant, despite decent numbers.  
         &nbsp;
-      5. _Why isn&#8217;t <other great account> on here._ Maybe they are just below the 100 cutoff. I am the first to admit the formula is subjective and arbitrary. If they post a lot of timely relevant headlines, they are probably on our radar. If there is someone who is relevant and widely followed who is not on the list, we would like to know. [Contact us!](/?page_id=2) We love feedback.  
+      5. _Why isn’t <other great account> on here._ Maybe they are just below the 100 cutoff. I am the first to admit the formula is subjective and arbitrary. If they post a lot of timely relevant headlines, they are probably on our radar. If there is someone who is relevant and widely followed who is not on the list, we would like to know. [Contact us!](/?page_id=2) We love feedback.  
         &nbsp;
       6. _Can I see the whole list?_ [Here are the top 300](/social-graph-2017/). If you want to see where others rank, or follow even more of them, go to town!  
         &nbsp;

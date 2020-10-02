@@ -4,12 +4,15 @@ layout: post
 title:  "Jupyter Notebook on an AWS instance"
 author: Druce Vertes
 date:   2020-09-29 00:00:57 +0000
-categories: datascience devops
+tags: datascience devops
 guid: /?p=7103
 permalink: /2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/
 
 ---
-This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is based on a [tutorial](https://chrisalbon.com/software_engineering/cloud_computing/run_project_jupyter_on_amazon_ec2/) by Chris Albon, which did not work for me immediately (itself based on a [tutorial by Piyush Agarwal](http://blog.impiyush.me/2015/02/running-ipython-notebook-server-on-aws.html)). But I tweaked a few things and got it working.
+
+> This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is based on a [tutorial](https://chrisalbon.com/software_engineering/cloud_computing/run_project_jupyter_on_amazon_ec2/) by Chris Albon, which did not work for me immediately (itself based on a [tutorial by Piyush Agarwal](http://blog.impiyush.me/2015/02/running-ipython-notebook-server-on-aws.html)). But I tweaked a few things and got it working.
+
+<!--more-->
 
 # Use cases for AWS (Who doesn't love AWS?)
 
@@ -32,34 +35,34 @@ Since I originally wrote this in 2018, platforms like [Google Colab](https://col
 
 - Log into the [AWS console](https://console.aws.amazon.com/) 
 
-  ![00.1. Login.png](00.1. Login.png)
+  ![00.1. Login.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/00.1. Login.png)
 - Click on "EC2"
 
-  ![00.2. EC2.png](00.2. EC2.png)
+  ![00.2. EC2.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/00.2. EC2.png)
 - Click on "Launch instance"
 
-  ![01. Launch instance.png](01. Launch instance.png)
+  ![01. Launch instance.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/01. Launch instance.png)
 - Choose an Amazon Machine Image (AMI) - Ubuntu 18.04 LTS. 
 
-  ![02. Choose image.png](02. Choose image.png)
+  ![02. Choose image.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/02. Choose image.png)
 
   - In general, choose latest Ubuntu LTS (Long Term Support), HVM virtualization, SSD storage. (Exception: when the latest Ubuntu is very new, give it ~6 months to mature, ensure all software, especially drivers are available and tested, e.g. GPU)
 - Choose an instance type. For this demo choose the free tier eligible micro instance. Click "Next: Configure Instance Details": 
 
-  ![03. Choose instance type.png](03. Choose instance type.png)
+  ![03. Choose instance type.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/03. Choose instance type.png)
 - Choose "Next: Add Storage" (Shouldn't have to modify anything on this page)
 
-  ![03.1. Instance details.png](03.1. Instance details.png)
+  ![03.1. Instance details.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/03.1. Instance details.png)
 - Set a reasonable disk size for storage, like 30GB (more if you have a big dataset). Click "Next: Add Tags"
 
-  ![04. Add storage.png](04. Add storage.png)
+  ![04. Add storage.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/04. Add storage.png)
 - Click "Next: Configure Security Group" (You don't need to modify anything on this page. Tags help you keep track of servers and other resources, when you have a lot of them)
 
-  ![05. Add tags.png](05. Add tags.png)
+  ![05. Add tags.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/05. Add tags.png)
 
   - Create a new security group like 'Jupyter'.
 
-    ![06. Security group.png](06. Security group.png)
+    ![06. Security group.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/06. Security group.png)
   - Click "Add rule"
   - Set Type: All TCP
   - Set Source: My IP
@@ -68,11 +71,11 @@ Since I originally wrote this in 2018, platforms like [Google Colab](https://col
   - Click "Review and Launch"
   - Click "Launch"
 
-    ![07.1 Review.png](07.1 Review.png)
+    ![07.1 Review.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/07.1 Review.png)
 - Almost there! 
 - Choose "Create key pair"
 
-  ![07.2. keypair.png](07.2. keypair.png)
+  ![07.2. keypair.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/07.2. keypair.png)
 - Give it a name like "mykey" or "AWS"
 - Click "Download key pair"
 - Click "Launch instance"
@@ -101,11 +104,11 @@ MacBook-Pro-8:~ druce$ chmod 600 AWS.pem
 - By now your instance should have launched. To find the IP address to connect to, go back to your [AWS console](https://console.aws.amazon.com/ec2/v2/#Instances) 
 
 
-  ![09. AWSconsole1.png](09. AWSconsole1.png)
+  ![09. AWSconsole1.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/09. AWSconsole1.png)
 
 - Click on the instance - hover over "IPv4 Public IP" and click on the little copy icon that appears (can also use your 'Public DNS' everywhere I use IP in this post, doesn't really matter. But don't use 'Private IP' or 'Private DNS'. Confusing, I know!)
 
-  ![10. AWSconsole2.png](10. AWSconsole2.png)
+  ![10. AWSconsole2.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/10. AWSconsole2.png)
 
 - Go back to your terminal and run this ssh command (paste your own IP or hostname)
 
@@ -115,7 +118,7 @@ MacBook-Pro-8:~ druce$ ssh -i AWS.pem ubuntu@18.234.158.61
 
 - Answer 'yes' to any prompt. If you see the Ubuntu bash command prompt, you are in business! 
 
-  ![10.2 terminal.png](10.2 terminal.png)
+  ![10.2 terminal.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/10.2 terminal.png)
 
 Now we have successfully connected to our running AWS instance! 
 
@@ -328,14 +331,14 @@ ubuntu@ip-172-30-1-196:~$ jupyter notebook
 
   - (You get a warning because the certificate domain name doesn't match our IP address, which changes every time we launch an AWS instance)
 
-![12.1 Chrome warning.png](12.1 Chrome warning.png)
+![12.1 Chrome warning.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/12.1 Chrome warning.png)
 
 - Enter the Jupyter password you created.
-  ![12.2 Password.png](12.2 Password.png)
+  ![12.2 Password.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/12.2 Password.png)
 
 - You are in business!
-  ![12.3 Success.png](12.3 Success.png)
-  ![12.3 Success2.png](12.3 Success2.png)
+  ![12.3 Success.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/12.3 Success.png)
+  ![12.3 Success2.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/12.3 Success2.png)
 
 
 
@@ -354,10 +357,10 @@ ubuntu@ip-172-30-1-196:~$ jupyter notebook
 - To make an image of your instance, log into the console [https://console.aws.amazon.com/ec2/v2/#Instances](https://console.aws.amazon.com/ec2/v2/#Instances)
 
 - Right-click on your instance, choose Image, Create Image
-  ![13.1 CreateImage1.png](13.1 CreateImage1.png)
+  ![13.1 CreateImage1.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/13.1 CreateImage1.png)
 
 - Give the image a good name, I'll usually go with desc-date. I didn't bother with a good description, but you might put 'Fresh working Jupyter on Ubuntu 18.04, with all updates'
-  ![13.2 CreateImage2.png](13.2 CreateImage2.png)
+  ![13.2 CreateImage2.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/13.2 CreateImage2.png)
 
   - Note: this is where you adjust your disk size if you want to increase it (for bigger instances/jobs) or reduce it (save storage space)
 
@@ -370,7 +373,7 @@ ubuntu@ip-172-30-1-196:~$ jupyter notebook
 - While your image is being created, your running server will restart and you can reconnect after it finishes booting in a couple of minutes. You can SSH to it using same IP as before. 
 
 - When your AMI says 'available' in the EC2 "AMIs" tab, right-click on image, click Launch instance
-  ![Launch1.png](Launch1.png)
+  ![Launch1.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/Launch1.png)
 
 - Choose instance type (e.g. t2.micro)
 
@@ -383,7 +386,7 @@ ubuntu@ip-172-30-1-196:~$ jupyter notebook
 - Click "Launch"
 
 - You will be prompted for the key pair: Select the one you created earlier, e.g. "AWS", check the confirmation box, click "Launch Instances"
-  ![keypair2.png](keypair2.png)
+  ![keypair2.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/keypair2.png)
 
 - Go to your instances in the AWS console, wait a couple of minutes, hit refresh to get the new instance's IP
 
@@ -403,7 +406,7 @@ Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-1023-aws x86_64)
 
 - To terminate your instances, go to the instances in your console, right-click, choose "Instance State" and choose "Terminate".
 
-  ![14. Terminate.png](14. Terminate.png)
+  ![14. Terminate.png](/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/14. Terminate.png)
   WARNING: if you have work to save, IMAGE your instance before terminating it.
   When you terminate the instance, everything on it is deleted, so you will lose everything you did since the last image.
 
@@ -464,5 +467,4 @@ See also and bookmark
 - [Jupyter Docs](https://jupyter.readthedocs.io/en/latest/)
 - [Amazon EC2 Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html)
 - [Run Jupyter on Google Cloud](https://towardsdatascience.com/running-jupyter-notebook-in-google-cloud-platform-in-15-min-61e16da34d52)
-
 

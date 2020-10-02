@@ -23,13 +23,13 @@ categories:
   </div>
 </div>
 
-A good analogy &#8211; [Of hurricanes and economic equilibrium](http://physicsoffinance.blogspot.com/2011/09/of-hurricanes-and-economic-equilibrium.html "Of hurricanes and economic equilibrium").
+A good analogy _ [Of hurricanes and economic equilibrium](http://physicsoffinance.blogspot.com/2011/09/of-hurricanes-and-economic-equilibrium.html "Of hurricanes and economic equilibrium").
 
 Suppose that an atmospheric theorist developed the Efficient Atmospheres Hypothesis (EAH), that said that the atmosphere always tends toward equilibrium. Any time pressure differences arise, they create winds carrying air and energy from the higher pressure zone toward the lower pressure zone. That flow of air lowers the pressure in the former, raises it in the latter, and eventually brings those two pressures into balance. Hence, the pressure everywhere (at the same altitude) should be identical, or almost identical.
 
-True enough at a micro level, but why do hurricanes happen? &#8220;A hurricane could never come into existence, because the atmosphere is efficient and in equilibrium, and the forces of physics act to keep it there.&#8221; What about my house that was blown down by a hurricane last week? &#8220;See, I was right, the atmosphere worked to restore equilibrium just as I said.&#8221;
+True enough at a micro level, but why do hurricanes happen? “A hurricane could never come into existence, because the atmosphere is efficient and in equilibrium, and the forces of physics act to keep it there.” What about my house that was blown down by a hurricane last week? “See, I was right, the atmosphere worked to restore equilibrium just as I said.”
 
-The hurricane must have been caused by ill-conceived external influence, like sunspots, cosmic rays or Fannie Mae&#8230;or the theory is still incomplete.
+The hurricane must have been caused by ill-conceived external influence, like sunspots, cosmic rays or Fannie Mae…or the theory is still incomplete.
 
 <div class="zemanta-pixie" style="margin-top: 10px; height: 15px;">
   <a class="zemanta-pixie-a" title="Enhanced by Zemanta" href="http://www.zemanta.com/"><img class="zemanta-pixie-img" style="border: none; float: right;" src="http://img.zemanta.com/zemified_e.png?x-id=f2f9c310-065c-4b49-97df-38d523ea2f39" alt="Enhanced by Zemanta" /></a>

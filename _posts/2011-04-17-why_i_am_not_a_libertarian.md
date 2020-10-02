@@ -36,7 +36,7 @@ categories:
 </p>
 
 <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0.75em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
-  Communists made the unfortunate claim that the individual doesn&#8217;t matter, everything is the collective. Individual property is illegitimate, every speech or action is good or bad depending on its impact on the collective. It was a terrible, harmful corruption of an ideal of equality to say individuals don&#8217;t matter, only the group matters.
+  Communists made the unfortunate claim that the individual doesn’t matter, everything is the collective. Individual property is illegitimate, every speech or action is good or bad depending on its impact on the collective. It was a terrible, harmful corruption of an ideal of equality to say individuals don’t matter, only the group matters.
 </p>
 
 <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0.75em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
@@ -48,19 +48,19 @@ categories:
 </p>
 
 <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0.75em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
-  There&#8217;s a part of <a href="http://www.amazon.com/Fountainhead-Ayn-Rand/dp/0451191153">The Fountainhead</a> where the talented architect Roark makes a deal that he&#8217;ll design housing for the masses, if it will be built exactly as he designs it. The guy he makes the deal with can&#8217;t deliver the goods, and through the political process lots of changes get made. Roark blows up the building, and in his trial says that he had the complete right to dynamite it because it would not have existed without him and it had already been destroyed by the additions made by losers, and he&#8217;s acquitted.
+  There’s a part of <a href="http://www.amazon.com/Fountainhead-Ayn-Rand/dp/0451191153">The Fountainhead</a> where the talented architect Roark makes a deal that he’ll design housing for the masses, if it will be built exactly as he designs it. The guy he makes the deal with can’t deliver the goods, and through the political process lots of changes get made. Roark blows up the building, and in his trial says that he had the complete right to dynamite it because it would not have existed without him and it had already been destroyed by the additions made by losers, and he’s acquitted.
 </p>
 
 <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0.75em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
-  What about the investors who paid for the building?&nbsp;What about the other professionals who worked on the building, engineers and electricians and engineers? It couldn&#8217;t have been built without them, did they have an equal claim to destroy it? Isn&#8217;t it distinctly possible that Roark&#8217;s great design was an evolution of other great masters he learned from? Perhaps they might have marveled at his brilliance, but might some of them have also felt a desire to blow it up as a bastardization of their own work? &nbsp;What about the people who paid for the building and might have been sheltered happily in it? Was Roark trampling on their right to realize themselves by destroying the group&#8217;s creation?
+  What about the investors who paid for the building?&nbsp;What about the other professionals who worked on the building, engineers and electricians and engineers? It couldn’t have been built without them, did they have an equal claim to destroy it? Isn’t it distinctly possible that Roark’s great design was an evolution of other great masters he learned from? Perhaps they might have marveled at his brilliance, but might some of them have also felt a desire to blow it up as a bastardization of their own work? &nbsp;What about the people who paid for the building and might have been sheltered happily in it? Was Roark trampling on their right to realize themselves by destroying the group’s creation?
 </p>
 
 <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0.75em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
-  Communism failed because we humans like to own stuff, express ourselves creatively and realize ourselves as individuals. Libertarianism is equally misguided, because we do almost everything worth doing as groups, and group identity (and the politics that go with it) are genetically hardwired into us. Anybody who&#8217;s been to a stadium knows we&#8217;re tribal. The fashion industry and organized religion have viable business models based on our desire, not just to distinguish ourselves individually, but express our affiliations and seek meaning in our lives as part of a larger group.
+  Communism failed because we humans like to own stuff, express ourselves creatively and realize ourselves as individuals. Libertarianism is equally misguided, because we do almost everything worth doing as groups, and group identity (and the politics that go with it) are genetically hardwired into us. Anybody who’s been to a stadium knows we’re tribal. The fashion industry and organized religion have viable business models based on our desire, not just to distinguish ourselves individually, but express our affiliations and seek meaning in our lives as part of a larger group.
 </p>
 
 <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0.75em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
-  These are complementary aspects of ourselves. We&#8217;re individuals, and we&#8217;re interdependent. Any practical &#8216;ism&#8217; has to balance these two.
+  These are complementary aspects of ourselves. We’re individuals, and we’re interdependent. Any practical ‘ism’ has to balance these two.
 </p>
 
 <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0.75em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
@@ -68,11 +68,11 @@ categories:
 </p>
 
 <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0.75em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
-  Keynes said that every government action is a tradeoff between liberty, efficiency and fairness. I would say that if you think fairness or equality is all that matters, you&#8217;re a communist. If you think that all that matters is efficiency in the pursuit of economic growth (or any other goal like the supremacy of your race, or the word of your God as you perfectly know it), then you&#8217;re a fascist. And if you think liberty is all that matters, you&#8217;re a libertarian, and as misguided as the first two.
+  Keynes said that every government action is a tradeoff between liberty, efficiency and fairness. I would say that if you think fairness or equality is all that matters, you’re a communist. If you think that all that matters is efficiency in the pursuit of economic growth (or any other goal like the supremacy of your race, or the word of your God as you perfectly know it), then you’re a fascist. And if you think liberty is all that matters, you’re a libertarian, and as misguided as the first two.
 </p>
 
 <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0.75em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
-  The maximum liberty consistent with the equal liberty of others: I&#8217;m with you up to there. When you start saying the group has no right to impose norms, values, duties and responsibilities on anyone and restrict their liberty, that all human behavior should be based on voluntary cooperation, and all taxation and regulation are illegitimate taking by force, you&#8217;re an extremist.
+  The maximum liberty consistent with the equal liberty of others: I’m with you up to there. When you start saying the group has no right to impose norms, values, duties and responsibilities on anyone and restrict their liberty, that all human behavior should be based on voluntary cooperation, and all taxation and regulation are illegitimate taking by force, you’re an extremist.
 </p>
 
 <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0.75em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
@@ -88,7 +88,7 @@ categories:
 </p>
 
 <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0.75em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
-  Fortunately, these guys have no chance of forming a successful movement. How could you organize collective action by people who don&#8217;t believe in collective action?
+  Fortunately, these guys have no chance of forming a successful movement. How could you organize collective action by people who don’t believe in collective action?
 </p>
 
 <p>

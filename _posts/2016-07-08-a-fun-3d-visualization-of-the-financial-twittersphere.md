@@ -11,7 +11,7 @@ post-views:
 categories:
   - Uncategorized
 ---
-Here&#8217;s a fun little update of that [visualization of the financial Twittersphere I posted in May](/2016/05/the-top-100-people-to-follow-to-discover-financial-news-on-twitter-april-2016/). This one is in 3D, you can zoom (with scroll wheel) and drag it around (with mouse, also see controls in top right).
+Here’s a fun little update of that [visualization of the financial Twittersphere I posted in May](/2016/05/the-top-100-people-to-follow-to-discover-financial-news-on-twitter-april-2016/). This one is in 3D, you can zoom (with scroll wheel) and drag it around (with mouse, also see controls in top right).
 
 It might take a minute to load up, not work too well on older computers/browsers. Just wait out/ignore any popups, warnings about script on page running slowly. If the iframe below is wonky, try [this full-page version](https://plot.ly/~drucev/94/network-of-follows/).  
 <!--more-->

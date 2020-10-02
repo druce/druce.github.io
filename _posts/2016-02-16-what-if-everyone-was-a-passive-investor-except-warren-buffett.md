@@ -11,7 +11,7 @@ post-views:
 categories:
   - Uncategorized
 ---
-_This is a slightly extended &#8220;director&#8217;s cut&#8221; of a [post written for CFA Institute Enterprising Investor](https://blogs.cfainstitute.org/investor/2016/02/02/active-investing-really-the-losers-game/)._
+_This is a slightly extended “director’s cut” of a [post written for CFA Institute Enterprising Investor](https://blogs.cfainstitute.org/investor/2016/02/02/active-investing-really-the-losers-game/)._
 
 <!--more-->
 
@@ -402,7 +402,7 @@ Another way of looking at it is to consider the whole scenario as one holding pe
 
 Even though everyone here is passive in a given year, if you think of the entire scenario as one holding period, only someone who owns the index and never trades is really a passive investor. Everyone else is buying high or selling low within the period.
 
-The key point here is, _the only person who is a passive investor is the one who never trades_. That person is guaranteed the market return. Even if you are just re-investing dividends, there&#8217;s no guarantee of how well you will execute. As soon as you trade, you are at risk of being exploited.
+The key point here is, _the only person who is a passive investor is the one who never trades_. That person is guaranteed the market return. Even if you are just re-investing dividends, there’s no guarantee of how well you will execute. As soon as you trade, you are at risk of being exploited.
 
 On a sufficiently long timeline, the probability of being a completely passive investor goes to zero. If you’re planning to invest for an objective other than buying and holding forever, you have to make decisions about when and how much to invest and when and how much to withdraw.
 
@@ -422,40 +422,40 @@ They pull a bit of Star Trek’s [Kobayashi Maru](https://en.wikipedia.org/wiki/
 
 The “suckers at the poker table” paradigm goes astray because there isn’t some exogenous fixed size of the investment pie investors are fighting over. The returns are endogenous: They are in part determined by how smart the investors are, how well the capital in the economy is allocated, and by everything else that impacts economic and market outcomes.
 
-The performance pie is not fixed. When someone invests in an early Apple or Google, are they stealing performance from someone else? Was Ron Baron stealing performance from someone else when he funded Wynn as a startup? He&#8217;s creating something that eventually goes into the index&#8230;pulling a bit of a Kobayashi Maru by redefining the index.
+The performance pie is not fixed. When someone invests in an early Apple or Google, are they stealing performance from someone else? Was Ron Baron stealing performance from someone else when he funded Wynn as a startup? He’s creating something that eventually goes into the index…pulling a bit of a Kobayashi Maru by redefining the index.
 
-When Buffett invested in Goldman Sachs during the crisis is he stealing performance from someone else? You could argue Goldman Sachs made excess returns on his investment, it gave them opportunities no one else had, and benefited all shareholders. Buffett pulls a bit of a Kobayashi Maru by expanding the investable market when it&#8217;s cheap, instead of taking it as a given fixed pie. [<small><sup>3</sup></small>](#3)
+When Buffett invested in Goldman Sachs during the crisis is he stealing performance from someone else? You could argue Goldman Sachs made excess returns on his investment, it gave them opportunities no one else had, and benefited all shareholders. Buffett pulls a bit of a Kobayashi Maru by expanding the investable market when it’s cheap, instead of taking it as a given fixed pie. [<small><sup>3</sup></small>](#3)
 
 Smart money going into appropriately priced investment opportunities grows the whole pie. Dumb money going to bad businesses shrinks the pie. Once it’s not a strictly zero-sum game, you don’t need “suckers at the poker table” to outperform. Sufficiently smart money creates its own suckers.
 
 The more extreme advocates of passive investing go astray, I think, in concluding that passive investors can always match active investors.
 
-See for instance, [Sharpe](https://web.stanford.edu/~wfsharpe/art/active/active.htm). His mathematical proof that indexers always match the market is, of course, correct insofar as the passive investor who does nothing, gets the market return. But as soon as you trade, you&#8217;re an active investor in that period (Sharpe&#8217;s footnote 4). And the spread you have to pay to transact is the gain of the active player on the other side. So passive performance = active performance, but only because the passive investor has to briefly become an active investor in order to get fleeced.
+See for instance, [Sharpe](https://web.stanford.edu/~wfsharpe/art/active/active.htm). His mathematical proof that indexers always match the market is, of course, correct insofar as the passive investor who does nothing, gets the market return. But as soon as you trade, you’re an active investor in that period (Sharpe’s footnote 4). And the spread you have to pay to transact is the gain of the active player on the other side. So passive performance = active performance, but only because the passive investor has to briefly become an active investor in order to get fleeced.
 
-Sharpe&#8217;s proof is correct on an accounting basis, but tautological and not fully descriptive of market reality. In order for the passive investor to match the market in practice, he must be able to trade in size at the market price and not allow himself be exploited. Which is not a bad assumption at small scale but gets harder as the passive investor gets bigger. (Sharpe hand-waves past this in footnote 3, saying trading makes the math more complicated but doesn&#8217;t change the basic principles. But if passive trading is big enough to move the market, if effective trading spreads are sufficiently large, that can no longer be true.)
+Sharpe’s proof is correct on an accounting basis, but tautological and not fully descriptive of market reality. In order for the passive investor to match the market in practice, he must be able to trade in size at the market price and not allow himself be exploited. Which is not a bad assumption at small scale but gets harder as the passive investor gets bigger. (Sharpe hand-waves past this in footnote 3, saying trading makes the math more complicated but doesn’t change the basic principles. But if passive trading is big enough to move the market, if effective trading spreads are sufficiently large, that can no longer be true.)
 
 Passive investors cannot always have a free option to match the market, unless the other side gives it to them. The outcome is an equilibrium. When few people are passive, indexers get to match the market and free ride with the people who do the research and set the prices. On the other hand, when many are passive and few are active, there are mispricings, and when indexers have to trade, for instance around big dividends, corporate actions, index changes, rebalancing, seasonal cash flows, economic developments that necessitate cash flows, they can be exploited because they herd.
 
-It&#8217;s a little absurd to take a fanatical view about indexing. Active vs. passive is a continuum, from matching the market portfolio and never trading, at one extreme, to finding big bets where you have an edge and trading often, at the other extreme. Anyone who trades inside your time frame is active and giving you an option to potentially eat their lunch if they&#8217;re willing to trade at a favorable price, and on a long enough time frame no one can be completely passive forever. What one should be fanatical about is expenses, after-tax risk-adjusted returns, keeping it simple, and avoiding mistakes &#8211; all of which are good arguments for indexing.
+It’s a little absurd to take a fanatical view about indexing. Active vs. passive is a continuum, from matching the market portfolio and never trading, at one extreme, to finding big bets where you have an edge and trading often, at the other extreme. Anyone who trades inside your time frame is active and giving you an option to potentially eat their lunch if they’re willing to trade at a favorable price, and on a long enough time frame no one can be completely passive forever. What one should be fanatical about is expenses, after-tax risk-adjusted returns, keeping it simple, and avoiding mistakes _ all of which are good arguments for indexing.
 
 There are [many useful parallels between investing and poker](/2013/08/risk-arbitrage-investing-and-poker/). You have to zig when everyone else zags. Simple strategies can be exploited. You have to use a meta strategy, like a mixed Nash equilibrium.
 
 Unlike poker, investing is not a zero-sum game. Dumb money is not the primary driver of returns for most strategies, and “suckers at the poker table” is not a useful analogy for most long-term investors. There is always a [game beyond the game](https://www.youtube.com/watch?v=-Sgj78QG9Bg#t=180s), where the [best players astutely redefine the game](http://www.amazon.com/The-money-masters-John-Train/dp/0060143738) to find an edge.
 
-Efficient market proponents make the point that there ain&#8217;t no such thing as a free lunch, in the form of persistent pricing inefficiencies that provide excess risk-adjusted returns. But in a sense, indexing is yet another attempt to find a free lunch &#8230; the indexer gets a free ride on efficient prices determined by everyone who does their homework. Like all free lunches, this one also goes away if enough people take advantage of it.
+Efficient market proponents make the point that there ain’t no such thing as a free lunch, in the form of persistent pricing inefficiencies that provide excess risk-adjusted returns. But in a sense, indexing is yet another attempt to find a free lunch … the indexer gets a free ride on efficient prices determined by everyone who does their homework. Like all free lunches, this one also goes away if enough people take advantage of it.
 
 Takeaways:
 
   * If sufficiently few people index, indexing is a free lunch: same performance with lower costs.
   * If you can index _and never trade_, you are guaranteed the index return (without reinvesting dividends).
   * Nobody can be totally passive forever. Everyone has to trade sometime. Even re-investing dividends, rebalancing has a cost.
-  * Everybody can&#8217;t be passive, someone has to take the other side of each trade.
+  * Everybody can’t be passive, someone has to take the other side of each trade.
   * If enough people index, and have to trade, they can be exploited.
   * As indexing increases, herding increases, correlation increases, overall volatility increases. [<small><sup>4</sup></small>](#4)
-  * The math that proves indexers can always closely or perfectly match the index performance, doesn&#8217;t add up when the indexer has to trade, and trades are big enough to move markets.
-  * Instead, there&#8217;s a Nash-like mixed strategy equilibrium: too little passive, passive can exploit active, too much active, active can exploit passive.
-  * Dumb money doesn&#8217;t become smart money because it indexes. It just finds another way to lose. There is always a game beyond the game. 
-  * And finally, everybody likes a good Buffett angle, even if it&#8217;s a [MacGuffin](https://en.wikipedia.org/wiki/MacGuffin) for a boring discussion of limits of active v. passive.
+  * The math that proves indexers can always closely or perfectly match the index performance, doesn’t add up when the indexer has to trade, and trades are big enough to move markets.
+  * Instead, there’s a Nash-like mixed strategy equilibrium: too little passive, passive can exploit active, too much active, active can exploit passive.
+  * Dumb money doesn’t become smart money because it indexes. It just finds another way to lose. There is always a game beyond the game. 
+  * And finally, everybody likes a good Buffett angle, even if it’s a [MacGuffin](https://en.wikipedia.org/wiki/MacGuffin) for a boring discussion of limits of active v. passive.
 
 This benefited from discussion with [Will Ortel](https://blogs.cfainstitute.org/investor/author/willortel/) of [CFA Institute](http://www.cfainstitute.org) and [Wes Gray](https://twitter.com/alphaarchitect) of [Alpha Architect](http://www.alphaarchitect.com/).
 
@@ -466,7 +466,7 @@ This benefited from discussion with [Will Ortel](https://blogs.cfainstitute.org/
 </p>
 
 <p style="font-size: smaller;">
-  <a name="2"></a>2. Here&#8217;s a thought exercise: do you think the issuers are on balance generally timing their corporate actions efficiently, issuing high and buying back low? Does it matter? Answer (I think): On any finite time period, of course it matters! If companies are acting efficiently over time, generally selling stock when it&#8217;s expensive and buying it back when it&#8217;s cheap, that is bad for whoever took the other side of that trade. The shareholders on the other side have a lower return than the market average. The company has a lower effective cost of capital than long-term market averages would suggest. And the shareholder who holds indefinitely and never trades gets a benefit.
+  <a name="2"></a>2. Here’s a thought exercise: do you think the issuers are on balance generally timing their corporate actions efficiently, issuing high and buying back low? Does it matter? Answer (I think): On any finite time period, of course it matters! If companies are acting efficiently over time, generally selling stock when it’s expensive and buying it back when it’s cheap, that is bad for whoever took the other side of that trade. The shareholders on the other side have a lower return than the market average. The company has a lower effective cost of capital than long-term market averages would suggest. And the shareholder who holds indefinitely and never trades gets a benefit.
 </p>
 
 <p style="font-size: smaller;">

@@ -13,13 +13,13 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-_You have to choose between trusting to the natural stability of gold and the natural stability of the honesty and intelligence of the members of the government. And, with due respect to these gentlemen, I advise you, as long as the capitalist system lasts, to vote for gold. &#8211; George Bernard Shaw_
+_You have to choose between trusting to the natural stability of gold and the natural stability of the honesty and intelligence of the members of the government. And, with due respect to these gentlemen, I advise you, as long as the capitalist system lasts, to vote for gold. _ George Bernard Shaw_
 
-Here&#8217;s a quick update of a post I did a couple of years back on [Gold as part of a long run asset allocation](/2012/01/gold-as-part-of-long-run-asset-allocation/). Gold hasn&#8217;t fared too well since then.
+Here’s a quick update of a post I did a couple of years back on [Gold as part of a long run asset allocation](/2012/01/gold-as-part-of-long-run-asset-allocation/). Gold hasn’t fared too well since then.
 
-Let&#8217;s look at four asset classes from 1928-2014: US stocks (ie S&P), medium-term Treasurys (ie 10-year), T-bills, and gold. (Would love to do international developed, emerging, TIPS, real estate, but data doesn&#8217;t go back that far.)
+Let’s look at four asset classes from 1928-2014: US stocks (ie S&P), medium-term Treasurys (ie 10-year), T-bills, and gold. (Would love to do international developed, emerging, TIPS, real estate, but data doesn’t go back that far.)
 
-Let&#8217;s adjust returns for inflation. Here&#8217;s are the historical mean annual real returns and standard deviations of annual returns.
+Let’s adjust returns for inflation. Here’s are the historical mean annual real returns and standard deviations of annual returns.
 
 <table>
   <tr>
@@ -128,40 +128,40 @@ Let&#8217;s adjust returns for inflation. Here&#8217;s are the historical mean a
   </tr>
 </table>
 
-Let&#8217;s compute the efficient frontier. The left-most point is the minimum-volatility portfolio. The right-most point is the max-return portfolio, which is 100% stocks. We compute the minimum-volatility portfolio for return levels between those two, and plot the resulting efficient frontier.
+Let’s compute the efficient frontier. The left-most point is the minimum-volatility portfolio. The right-most point is the max-return portfolio, which is 100% stocks. We compute the minimum-volatility portfolio for return levels between those two, and plot the resulting efficient frontier.
 
-[<img src="/uploads/2015/04/Rplot10.png" alt="Efficient Frontier, 1928-2014" width="480" height="352" class="aligncenter size-full wp-image-3344" srcset="/uploads/2015/04/Rplot10.png 480w, /uploads/2015/04/Rplot10-300x220.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/uploads/2015/04/Rplot10.png)</p> 
+[<img src="/assets/wp-content/uploads/2015/04/Rplot10.png" alt="Efficient Frontier, 1928-2014" width="480" height="352" class="aligncenter size-full wp-image-3344" srcset="/assets/wp-content/uploads/2015/04/Rplot10.png 480w, /assets/wp-content/uploads/2015/04/Rplot10-300x220.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/assets/wp-content/uploads/2015/04/Rplot10.png)</p> 
 
 What is the composition of the portfolio at each point on the efficient frontier? We plot a transition map showing that as you start from the minimum-volatility portfolio with about 1% real return and 2% volatility, composed of mostly T-bills, with some stocks and gold, and move toward the maximum-return portfolio, you add more and more stocks, but always include some gold.
 
 <p style="text-align: center;">
-  <strong>Transition map, 1926-2014</strong><br /> <a href="/uploads/2015/04/Rplot11.png"><img src="/uploads/2015/04/Rplot11.png" alt="Transition map" width="480" height="352" class="aligncenter size-full wp-image-3345" srcset="/uploads/2015/04/Rplot11.png 480w, /uploads/2015/04/Rplot11-300x220.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a>
+  <strong>Transition map, 1926-2014</strong><br /> <a href="/assets/wp-content/uploads/2015/04/Rplot11.png"><img src="/assets/wp-content/uploads/2015/04/Rplot11.png" alt="Transition map" width="480" height="352" class="aligncenter size-full wp-image-3345" srcset="/assets/wp-content/uploads/2015/04/Rplot11.png 480w, /assets/wp-content/uploads/2015/04/Rplot11-300x220.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></a>
 </p>
 
-Let&#8217;s try a few different eras.
+Let’s try a few different eras.
 
 ****1946-2014, Post-war, since Bretton Woods:**  
 ** 
 
-[<img src="/uploads/2015/04/Rplot12.png" alt="Efficient frontier" width="480" height="352" class="aligncenter size-full wp-image-3348" srcset="/uploads/2015/04/Rplot12.png 480w, /uploads/2015/04/Rplot12-300x220.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/uploads/2015/04/Rplot12.png)
+[<img src="/assets/wp-content/uploads/2015/04/Rplot12.png" alt="Efficient frontier" width="480" height="352" class="aligncenter size-full wp-image-3348" srcset="/assets/wp-content/uploads/2015/04/Rplot12.png 480w, /assets/wp-content/uploads/2015/04/Rplot12-300x220.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/assets/wp-content/uploads/2015/04/Rplot12.png)
 
-[<img src="/uploads/2015/04/Rplot13.png" alt="Transition map" width="480" height="352" class="aligncenter size-full wp-image-3349" srcset="/uploads/2015/04/Rplot13.png 480w, /uploads/2015/04/Rplot13-300x220.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/uploads/2015/04/Rplot13.png)  
+[<img src="/assets/wp-content/uploads/2015/04/Rplot13.png" alt="Transition map" width="480" height="352" class="aligncenter size-full wp-image-3349" srcset="/assets/wp-content/uploads/2015/04/Rplot13.png 480w, /assets/wp-content/uploads/2015/04/Rplot13-300x220.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/assets/wp-content/uploads/2015/04/Rplot13.png)  
 &nbsp;
 
 **1972-2010, Post-war, post-gold standard **(had to adjust the scale a little to get that gold data point on there):
 
-[<img src="/uploads/2015/04/Rplot14.png" alt="Efficient frontier" width="480" height="352" class="aligncenter size-full wp-image-3351" srcset="/uploads/2015/04/Rplot14.png 480w, /uploads/2015/04/Rplot14-300x220.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/uploads/2015/04/Rplot14.png)
+[<img src="/assets/wp-content/uploads/2015/04/Rplot14.png" alt="Efficient frontier" width="480" height="352" class="aligncenter size-full wp-image-3351" srcset="/assets/wp-content/uploads/2015/04/Rplot14.png 480w, /assets/wp-content/uploads/2015/04/Rplot14-300x220.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/assets/wp-content/uploads/2015/04/Rplot14.png)
 
-[<img src="/uploads/2015/04/Rplot15.png" alt="Transition map" width="480" height="352" class="aligncenter size-full wp-image-3352" srcset="/uploads/2015/04/Rplot15.png 480w, /uploads/2015/04/Rplot15-300x220.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/uploads/2015/04/Rplot15.png)  
+[<img src="/assets/wp-content/uploads/2015/04/Rplot15.png" alt="Transition map" width="480" height="352" class="aligncenter size-full wp-image-3352" srcset="/assets/wp-content/uploads/2015/04/Rplot15.png 480w, /assets/wp-content/uploads/2015/04/Rplot15-300x220.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/assets/wp-content/uploads/2015/04/Rplot15.png)  
 &nbsp;
 
 **1982-2014, era of disinflation:**
 
-[<img src="/uploads/2015/04/Rplot16.png" alt="Efficient frontier" width="480" height="352" class="aligncenter size-full wp-image-3354" srcset="/uploads/2015/04/Rplot16.png 480w, /uploads/2015/04/Rplot16-300x220.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/uploads/2015/04/Rplot16.png)
+[<img src="/assets/wp-content/uploads/2015/04/Rplot16.png" alt="Efficient frontier" width="480" height="352" class="aligncenter size-full wp-image-3354" srcset="/assets/wp-content/uploads/2015/04/Rplot16.png 480w, /assets/wp-content/uploads/2015/04/Rplot16-300x220.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/assets/wp-content/uploads/2015/04/Rplot16.png)
 
-[<img src="/uploads/2015/04/Rplot17.png" alt="Transition map" width="480" height="352" class="aligncenter size-full wp-image-3355" srcset="/uploads/2015/04/Rplot17.png 480w, /uploads/2015/04/Rplot17-300x220.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/uploads/2015/04/Rplot17.png)
+[<img src="/assets/wp-content/uploads/2015/04/Rplot17.png" alt="Transition map" width="480" height="352" class="aligncenter size-full wp-image-3355" srcset="/assets/wp-content/uploads/2015/04/Rplot17.png 480w, /assets/wp-content/uploads/2015/04/Rplot17-300x220.png 300w" sizes="(max-width: 480px) 100vw, 480px" />](/assets/wp-content/uploads/2015/04/Rplot17.png)
 
-What should one conclude? In most regimes gold was worth owning in the portfolio that gives the most return at a given risk level. The exception was the era of globalization and disinflation, where we had high returns from stocks coupled with disinflation. If you expect that to be the case, as it has been the last 30 years, gold doesn&#8217;t improve the longer time-frame, more risky portfolios, like a 70-30 portfolio. But over the varied regimes of the last 87 years, it was a hedge worth having. 
+What should one conclude? In most regimes gold was worth owning in the portfolio that gives the most return at a given risk level. The exception was the era of globalization and disinflation, where we had high returns from stocks coupled with disinflation. If you expect that to be the case, as it has been the last 30 years, gold doesn’t improve the longer time-frame, more risky portfolios, like a 70-30 portfolio. But over the varied regimes of the last 87 years, it was a hedge worth having. 
 
 I say this as one who believes the gold bugs are useless, except for a chuckle. But central banks really want moderate inflation to solve the consumer debt/balance sheet problem. Deflation is anathema to them when everyone is up to their eyeballs in debt. 
 
