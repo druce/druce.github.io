@@ -6,7 +6,7 @@ author: Druce Vertes
 date:   2020-09-29 00:00:57 +0000
 tags: datascience devops
 guid: /?p=7103
-permalink: /2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/
+permalink: /2018/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/
 
 ---
 
