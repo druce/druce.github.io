@@ -8,13 +8,11 @@ guid: /?p=4148
 permalink: /2015/10/is-chinas-sale-of-treasurys-quantitative-tightening-for-the-us/
 post-views:
   - "2452"
-categories:
-  - Uncategorized
+categories: economics
+tags: economics
 ---
-There’s this notion going around that since the Fed buying Treasurys was QE, therefore China selling Treasurys constitutes monetary tightening.
-
-Nope. The root cause of the disequilibrium and resulting capital flows is capital flight from China to the US. 
-
+> There’s this notion going around that since the Fed buying Treasurys was QE, therefore China selling Treasurys constitutes monetary tightening. Nope. The root cause of the disequilibrium and resulting capital flows is capital flight from China to the US. 
+<!--more-->
 An oligarch wants to buy a condo in New York. He takes yuan to the Chinese central bank and exchanges them for USD. In order to provide the dollars, the Chinese central bank sells some Treasurys.
 
 How can capital rushing into US risk assets be ‘quantitative tightening?’ It’s the opposite. At the end of it, the Chinese foreign sector has exchanged an American safe asset, a Treasury, for a condo at 432 Park, a risky asset. The US has built a big building, generating jobs, demand, maybe a little inflationary pressure.

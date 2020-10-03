@@ -1,6 +1,6 @@
 ---
 id: 4092
-title: 'Tontines: strange name, great idea'
+title: 'The tontine: strange name, great idea'
 date: 2015-09-28T22:32:57+00:00
 author: Druce Vertes, CFA
 layout: post
@@ -8,11 +8,11 @@ guid: /?p=4092
 permalink: /2015/09/tontines-strange-name-great-idea/
 post-views:
   - "2808"
-categories:
-  - Uncategorized
+categories: investing
+tags: investing
 ---
-A huge problem in retirement planning is a safe spending rate, so you don’t outlive your money.
-
+> A hard problem in retirement planning is a safe spending rate, so you don’t outlive your money.
+<!--more-->
 One side of the problem is, how much can you spend and not risk running out of funds in say, a 25-year retirement? See, for instance, our [Cat Food Calculator](http://blog.streeteye.com/calculator/) mad science experiment. One can even calculate a spending solution which maximizes your [certainty-equivalent spending](/2014/01/retirement-plans-that-maximize-certainty-equivalent-spending-part-3/) based on historical returns, and your risk tolerance.
 
 The other side of the problem is, what happens if you live to 105 and have to fund a 40-year retirement? If you plan for 40 years, you are likely to under-spend and leave a large estate. If you plan a 30-year retirement at 65, and it gets you safely to 95, there is still a small but potentially catastrophic possibility of outliving your savings.

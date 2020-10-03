@@ -12,8 +12,8 @@ post-views:
   - "14200"
 dsq_thread_id:
   - "6489993165"
-categories: machinelearning
-tags: machinelearning
+categories: datascience
+tags: datascience
   
 ---
 

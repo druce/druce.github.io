@@ -10,13 +10,12 @@ post-views:
   - "4827"
 dsq_thread_id:
   - "3769186553"
-categories:
-  - Uncategorized
+categories: politics
+tags: politics
 ---
-_Rightful liberty is unobstructed action according to our will within limits drawn around us by the equal rights of others. _ Thomas Jefferson</p> 
-
-A hero is someone who understands the responsibility that comes with his freedom. _ Bob Dylan  
-</em>
+> *Rightful liberty is unobstructed action according to our will within limits drawn around us by the equal rights of others.* Thomas Jefferson
+<!--more-->
+> *A hero is someone who understands the responsibility that comes with his freedom. Bob Dylan*
 
 [Tim Worstall](http://www.adamsmith.org/blog/philosophy/so-why-is-it-that-everyone-hates-libertarians/) asks, “So why is it that everyone hates libertarians?” 
 

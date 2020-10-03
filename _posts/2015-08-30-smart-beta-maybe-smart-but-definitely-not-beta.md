@@ -8,15 +8,14 @@ guid: /?p=3704
 permalink: /2015/08/smart-beta-maybe-smart-but-definitely-not-beta/
 post-views:
   - "2838"
-categories:
-  - Uncategorized
+categories: investing
+tags: investing
 ---
-[<img src="/assets/wp-content/uploads/2015/08/v8ccqht-300x225.jpg" alt="" width="300" height="225" class="alignright size-medium wp-image-4010" srcset="/assets/wp-content/uploads/2015/08/v8ccqht-300x225.jpg 300w, /assets/wp-content/uploads/2015/08/v8ccqht.jpg 666w" sizes="(max-width: 300px) 100vw, 300px" />](https://www.youtube.com/watch?v=lJ0yD-9CDwI)_A donut with no hole, is a danish. _ [Ty Webb](https://www.youtube.com/watch?v=U264AYBDsME)_
+> [<img src="/assets/wp-content/uploads/2015/08/v8ccqht-300x225.jpg">](https://www.youtube.com/watch?v=lJ0yD-9CDwI)_A donut with no hole, is a danish. [Ty Webb](https://www.youtube.com/watch?v=U264AYBDsME)_
+<!--more-->
+> _Live your life as though your every act were to become a universal law. [I. Kant](http://www.brainyquote.com/quotes/authors/i/immanuel_kant.html) _ 
 
-_Live your life as though your every act were to become a universal law. _ [I. Kant](http://www.brainyquote.com/quotes/authors/i/immanuel_kant.html)  
-_ 
-
-_So-called “[smart beta](http://www.wsj.com/articles/second-wave-of-smart-beta-etfs-is-coming-1433526083)” is having a day in the sun._ Pioneered by the very smart <a href="http://www.researchaffiliates.com/Production%20content%20library/FAJ_Mar_Apr_2005_Fundamental_Indexation.pdf" target="_hplink">Rob Arnott</a>, the basic idea is: don’t invest in an index weighted by market cap &#8212; invest in one that weights according to a non-market fundamental value measure, or even equally. Smart beta funds and ETFs have grown faster than the market. I’ve even seen versions of this quote in a couple of places: “market cap weighting is the worst way to own a broad index.” This makes me rage a little, hence this post.
+So-called “[smart beta](http://www.wsj.com/articles/second-wave-of-smart-beta-etfs-is-coming-1433526083)” is having a day in the sun. Pioneered by the very smart <a href="http://www.researchaffiliates.com/Production%20content%20library/FAJ_Mar_Apr_2005_Fundamental_Indexation.pdf" target="_hplink">Rob Arnott</a>, the basic idea is: don’t invest in an index weighted by market cap &#8212; invest in one that weights according to a non-market fundamental value measure, or even equally. Smart beta funds and ETFs have grown faster than the market. I’ve even seen versions of this quote in a couple of places: “market cap weighting is the worst way to own a broad index.” This makes me rage a little, hence this post.
 
 When someone badmouths plain-vanilla market cap passive investing, hold onto your wallet.
 
