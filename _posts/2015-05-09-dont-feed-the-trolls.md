@@ -13,8 +13,8 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-[<img src="/assets/wp-content/uploads/2015/05/Geller-bus-ad-300x199.jpg" alt="Geller-bus-ad" width="300" height="199" class="alignright size-medium wp-image-3597" srcset="/assets/wp-content/uploads/2015/05/Geller-bus-ad-300x199.jpg 300w, /assets/wp-content/uploads/2015/05/Geller-bus-ad.jpg 562w" sizes="(max-width: 300px) 100vw, 300px" />](/assets/wp-content/uploads/2015/05/Geller-bus-ad.jpg)_There will always be those who mean to do us harm. To stop them, we risk awakening the same evil within ourselves. &#8212; James T. Kirk_
-
+> [<img src="/assets/wp-content/uploads/2015/05/Geller-bus-ad-300x199.jpg" />](/assets/wp-content/uploads/2015/05/Geller-bus-ad.jpg)*There will always be those who mean to do us harm. To stop them, we risk awakening the same evil within ourselves. &#8212; James T. Kirk*_
+<!--more-->
 [Pamela Geller](http://www.huffingtonpost.com/2015/04/23/killing-jews-is-worship-ads_n_7130264.html) is a troll. Hatemonger. Lunatic. [Check out some of her quotes.](http://mediamatters.org/research/2010/07/14/memo-to-media-pamela-geller-does-not-belong-on/167700)
 
 Two violent extremists attacked her ‘Draw Mohammed’ contest and [were killed](http://www.newser.com/story/206299/2-shot-dead-outside-texas-draw-mohammed-contest.html). Some are casting her as a [free speech heroine a la Charlie Hebdo](http://www.washingtonpost.com/blogs/erik-wemple/wp/2015/05/07/the-week-that-cable-news-failed-free-expression/).

@@ -10,11 +10,11 @@ post-views:
   - "2189"
 dsq_thread_id:
   - "3924740780"
-categories:
-  - Uncategorized
+categories: EU
+tags: EU
 ---
-So, last week I said, Greece was getting booted out of the eurozone.
-
+>*So, last week I said, Greece was getting booted out of the eurozone.*
+<!--more-->
   * Schäuble had refused to play ball with Tsipras, he would either accept complete capitulation or Grexit.
   * Tsipras couldn’t accept complete capitulation and betray his allies and his mandate. And he didn’t have a mandate for Grexit. So he called the referendum.
   * As I saw it, choices were:  

@@ -10,11 +10,11 @@ post-views:
   - "7778"
 dsq_thread_id:
   - "3691215757"
-categories:
-  - Uncategorized
+categories: fintwit
+tags: fintwit
 ---
-The good folks at [Captain Economics](http://www.captaineconomics.fr/) did a great post a couple of weeks back on [‘The Economics Twitosphere Top 100 Influential Users’](http://www.captaineconomics.fr/-the-top-100-most-influential-economists-twitter-algorithmic-approach).
-
+> *The good folks at [Captain Economics](http://www.captaineconomics.fr/) did a great post a couple of weeks back on [‘The Economics Twitosphere Top 100 Influential Users’](http://www.captaineconomics.fr/-the-top-100-most-influential-economists-twitter-algorithmic-approach).*
+<!--more-->
 Turns out, great minds think alike, we’ve been using the same network centrality methodology for the last couple of years to compile a list of people to follow for [StreetEYE](http://www.streeteye.com/), and rank the best curators on an ongoing basis on the [StreetEYE Twitter leaderboard](http://www.streeteye.com/leaderboard). (There are some technical differences in starting set, how we iterated, probably how we deal with some of the quirks in the process.)
 
 Below is the [StreetEYE map of the financial/media twittersphere](/assets/wp-content/uploads/2015/04/screenshot_001825.png "StreetEYE Map of the Financial/Media Twittersphere").

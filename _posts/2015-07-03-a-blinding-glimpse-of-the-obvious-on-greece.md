@@ -11,23 +11,12 @@ post-views:
 dsq_thread_id:
   - "3901806121"
 categories:
-  - Uncategorized
+  - EU
 tags:
-  - Alexis Tsipras
-  - Angela Merkel
-  - Bundestag
-  - European Central Bank
-  - European Union
-  - George Orwell
-  - Germany
-  - Greece
-  - International Monetary Fund
-  - Politics of Greece
-  - Wolfgang Schaeuble
+  - EU
 ---
-[<img class="alignright size-medium wp-image-3723" alt="CI9YzpLW8AArrtz" src="/assets/wp-content/uploads/2015/07/CI9YzpLW8AArrtz-300x276.png" width="300" height="276" srcset="/assets/wp-content/uploads/2015/07/CI9YzpLW8AArrtz-300x276.png 300w, /assets/wp-content/uploads/2015/07/CI9YzpLW8AArrtz.png 599w" sizes="(max-width: 300px) 100vw, 300px" />](/assets/wp-content/uploads/2015/07/CI9YzpLW8AArrtz.png)
-
-_More than any time in history mankind faces a crossroads. One path leads to despair and utter hopelessness, the other to total extinction. Let us pray that we have the wisdom to choose correctly. &#8212; Woody Allen  
+> [<img class="alignright size-medium wp-image-3723" />](/assets/wp-content/uploads/2015/07/CI9YzpLW8AArrtz.png) *More than any time in history mankind faces a crossroads. One path leads to despair and utter hopelessness, the other to total extinction. Let us pray that we have the wisdom to choose correctly. &#8212; Woody Allen*
+<!--more-->
 _ 
 
 In times like these, your humble blogger finds it his duty to state the obvious:

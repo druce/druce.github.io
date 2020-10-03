@@ -11,9 +11,10 @@ post-views:
 dsq_thread_id:
   - "3696252539"
 categories:
-  - Uncategorized
+  - fintwit
 ---
-A couple of days ago we posted [Mapping the Financial / Media Twittersphere](/2015/04/the-big-graph-of-the-financialmedia-blogosphere/), an illustration of the Twitter accounts that are most central for financial news.
+> *A couple of days ago I posted [Mapping the Financial / Media Twittersphere](/2015/04/the-big-graph-of-the-financialmedia-blogosphere/), an illustration of the Twitter accounts that are most central for financial news.*
+<!--more-->
 
 A _network centrality analysis_, ie finding the people who have the most followers and the most influential followers, is a good starting point if you want to find the stories that are generating the most traction in social media and in the markets.
 

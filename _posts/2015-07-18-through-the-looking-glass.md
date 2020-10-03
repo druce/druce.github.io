@@ -10,13 +10,11 @@ post-views:
   - "2778"
 dsq_thread_id:
   - "3947607153"
-categories:
-  - Uncategorized
+categories: EU
+tags: EU
 ---
-_Curiouser and curiouser! &#8212; Alice in Wonderland_ [<img src="/assets/wp-content/uploads/2015/07/ZJ7jjMD-300x240.jpg" alt="ZJ7jjMD" width="300" height="240" class="alignright size-medium wp-image-3805" srcset="/assets/wp-content/uploads/2015/07/ZJ7jjMD-300x240.jpg 300w, /assets/wp-content/uploads/2015/07/ZJ7jjMD-1024x820.jpg 1024w, /assets/wp-content/uploads/2015/07/ZJ7jjMD.jpg 1200w" sizes="(max-width: 300px) 100vw, 300px" />](/assets/wp-content/uploads/2015/07/ZJ7jjMD.jpg)
-
-Well, having written about Greece the last couple of weeks, why stop now? Quickie post to get my thoughts in order. 
-
+> [<img src="/assets/wp-content/uploads/2015/07/ZJ7jjMD-300x240.jpg" />](/assets/wp-content/uploads/2015/07/ZJ7jjMD.jpg) _Curiouser and curiouser! &#8212; Alice in Wonderland. Having written about Greece the last couple of weeks, why stop now?_
+<!--more-->
 TL; DR _ Still seems possibly under-appreciated chance of bailout deal falling apart before it really starts, and likelihood of Grexit medium term. 
 
 Let’s review where the key players are.
