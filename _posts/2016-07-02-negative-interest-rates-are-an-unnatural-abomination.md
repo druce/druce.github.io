@@ -11,23 +11,22 @@ post-views:
 categories:
   - Uncategorized
 ---
-_Mayor: What do you mean, “biblical”?  
-Dr Ray Stantz: What he means is Old Testament, Mr. Mayor, real wrath of God type stuff.  
+> *Mayor: What do you mean, “biblical”?*
+<!--more-->		 
+
+> Dr Ray Stantz: What he means is Old Testament, Mr. Mayor, real wrath of God type stuff.  
 Dr. Peter Venkman: Exactly.  
 Dr Ray Stantz: Fire and brimstone coming down from the skies! Rivers and seas boiling!  
 Dr. Egon Spengler: Forty years of darkness! Earthquakes, volcanoes…  
 Winston Zeddemore: The dead rising from the grave!  
 Dr. Peter Venkman: Human sacrifice, dogs and cats living together… mass hysteria!  
 Mayor: All right, all right! I get the point!  
-_ [Ghostbusters (1984)](https://www.youtube.com/watch?v=WfVcvyxLj-s)  
-_ 
+[Ghostbusters (1984)](https://www.youtube.com/watch?v=WfVcvyxLj-s)
+
 
 Happy 4th of July weekend! Some macro ‘blinding glimpse of the obvious’ blogging.  
-<!--more-->
 
 ZIRP is one thing, but it’s hard to get one’s head around how weird negative interest rates really are.
-
-<!--more-->
 
 When deposit rates are negative, and you get charged to deposit money, cash banknotes are a more-or-less risk-free arb. If you can get paid to borrow, you can borrow an infinite amount, convert borrowings to cash, earn a risk-free return. 
 

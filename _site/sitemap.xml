@@ -429,10 +429,6 @@
 <lastmod>2016-06-09T17:37:59-04:00</lastmod>
 </url>
 <url>
-<loc>http://0.0.0.0:4000/2016/06/a-saturday-brexit-reading-list/</loc>
-<lastmod>2016-06-25T03:40:28-04:00</lastmod>
-</url>
-<url>
 <loc>http://0.0.0.0:4000/2016/07/negative-interest-rates-are-an-unnatural-abomination/</loc>
 <lastmod>2016-07-02T19:07:50-04:00</lastmod>
 </url>
@@ -517,6 +513,10 @@
 <lastmod>2018-08-25T04:49:59-04:00</lastmod>
 </url>
 <url>
+<loc>http://0.0.0.0:4000/2018/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/</loc>
+<lastmod>2018-09-28T20:00:57-04:00</lastmod>
+</url>
+<url>
 <loc>http://0.0.0.0:4000/2019/01/the-top-100-people-to-follow-for-financial-news-on-twitter-january-2019/</loc>
 <lastmod>2019-01-04T19:21:10-05:00</lastmod>
 </url>
@@ -539,10 +539,6 @@
 <url>
 <loc>http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/</loc>
 <lastmod>2020-07-09T18:28:57-04:00</lastmod>
-</url>
-<url>
-<loc>http://0.0.0.0:4000/2018/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/</loc>
-<lastmod>2020-09-28T20:00:57-04:00</lastmod>
 </url>
 <url>
 <loc>http://0.0.0.0:4000/FAQ.html</loc>

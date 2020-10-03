@@ -8,14 +8,13 @@ guid: /?p=4873
 permalink: /2016/07/pokemon-economics-and-cognitive-dissonance/
 post-views:
   - "3754"
-categories: economy
-tags: economy  
+categories: economics
+tags: economics
 ---
-*There are these two young fish swimming along, and they come across an older fish swimming the other way, who nods at them and says, "Morning, boys, how's the water?"*
+> *There are these two young fish swimming along, and they come across an older fish swimming the other way, who nods at them and says, "Morning, boys, how's the water?" And the two young fish swim on for a bit, and then eventually one of them looks over at the other and goes, “What the hell is water?” [David Foster Wallace](http://bulletin.kenyon.edu/x4280.html)*
 <!--more-->
-And the two young fish swim on for a bit, and then eventually one of them looks over at the other and goes, “What the hell is water?” _ [David Foster Wallace](http://bulletin.kenyon.edu/x4280.html)</em>
 
-_A physicist, an engineer, and an economist are stranded on an island with nothing to eat. A can of beans washes ashore. The physicist says, “Let’s build a fire and heat the can, the pressure will make it pop open, and we can eat the beans.” The engineer says, “The can will explode and beans will go everywhere. Let’s smash the can open with a rock.” The economist says, “Lets assume that we have a can-opener…” _ [Original author unknown](http://www3.nd.edu/~jstiver/jokes.htm)_ 
+> _A physicist, an engineer, and an economist are stranded on an island with nothing to eat. A can of beans washes ashore. The physicist says, “Let’s build a fire and heat the can, the pressure will make it pop open, and we can eat the beans.” The engineer says, “The can will explode and beans will go everywhere. Let’s smash the can open with a rock.” The economist says, “Lets assume that we have a can-opener…” _ [Original author unknown](http://www3.nd.edu/~jstiver/jokes.htm)_ 
 
 Do economists really understand the essence of what’s going on in the economy, or are they like fish who don’t know what water is, assuming can openers to solve what ails it?
 

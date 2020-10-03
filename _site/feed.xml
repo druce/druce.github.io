@@ -1,579 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-10-02T17:49:58-04:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">StreetEYE Blog</title><subtitle>Druce's Mad Science About Tech, Markets And Political Economy</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Jupyter Notebook on an AWS instance</title><link href="http://0.0.0.0:4000/2018/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/" rel="alternate" type="text/html" title="Jupyter Notebook on an AWS instance" /><published>2020-09-28T20:00:57-04:00</published><updated>2020-09-28T20:00:57-04:00</updated><id>http://0.0.0.0:4000/2018/09/Jupyter-Notebook-on-an-Amazon-EC2-instance</id><content type="html" xml:base="http://0.0.0.0:4000/2018/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/">&lt;blockquote&gt;
-  &lt;p&gt;This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is based on a &lt;a href=&quot;https://chrisalbon.com/software_engineering/cloud_computing/run_project_jupyter_on_amazon_ec2/&quot;&gt;tutorial&lt;/a&gt; by Chris Albon, which did not work for me immediately (itself based on a &lt;a href=&quot;http://blog.impiyush.me/2015/02/running-ipython-notebook-server-on-aws.html&quot;&gt;tutorial by Piyush Agarwal&lt;/a&gt;). But I tweaked a few things and got it working.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;!--more--&gt;
-
-&lt;h1 id=&quot;use-cases-for-aws-who-doesnt-love-aws&quot;&gt;Use cases for AWS (Who doesn’t love AWS?)&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Scale up - get a giant instance that runs an algo on big data faster than your PC.&lt;/li&gt;
-  &lt;li&gt;Scale out - run many notebooks at once.&lt;/li&gt;
-  &lt;li&gt;Access resources you can’t, or don’t want to install on local PC: GPU, Postgres, etc.&lt;/li&gt;
-  &lt;li&gt;Everybody in industry uses it.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Since I originally wrote this in 2018, platforms like &lt;a href=&quot;https://colab.research.google.com/&quot;&gt;Google Colab&lt;/a&gt;, &lt;a href=&quot;https://notebooks.azure.com/&quot;&gt;Amazon Sagemaker&lt;/a&gt;, &lt;a href=&quot;https://notebooks.azure.com/&quot;&gt;Azure Notebooks&lt;/a&gt; and &lt;a href=&quot;https://www.dataschool.io/cloud-services-for-jupyter-notebook/&quot;&gt;others&lt;/a&gt; have sprung up which let you run in a prebuilt container so you don’t need to set up your own instance for casual experiments. However there are use cases where you may want to set up your own, primarily to get access to a more customized environment.&lt;/p&gt;
-
-&lt;h1 id=&quot;0-prerequisites-set-up-your-aws-account---i-wont-go-over-that-in-detail-see-here-however-2-recommendations&quot;&gt;0) Prerequisites: Set up your AWS account - I won’t go over that in detail, &lt;a href=&quot;https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/&quot;&gt;see here&lt;/a&gt;. However, 2 recommendations:&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Set up &lt;a href=&quot;https://aws.amazon.com/iam/details/mfa/&quot;&gt;2-factor authentication&lt;/a&gt;. Who hasn’t had a password compromised? With 2FA, if your AWS password gets compromised, you don’t lose everything in your account. And you don’t have someone run up a huge AWS bill mining Bitcoin, or spamming the world.
-    &lt;ul&gt;
-      &lt;li&gt;Use the &lt;a href=&quot;https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8&quot;&gt;Google Authenticator&lt;/a&gt; smartphone app&lt;/li&gt;
-      &lt;li&gt;Or, use a hardware key like &lt;a href=&quot;http://www.1strategy.com/blog/2018/05/08/lock-down-your-aws-account-with-yubikey/&quot;&gt;Yubikey&lt;/a&gt; which is even more secure, doesn’t depend on having your phone, Internet access. (&lt;a href=&quot;https://www.csoonline.com/article/3272425/authentication/11-ways-to-hack-2fa.html&quot;&gt;People have hacked code-based 2FA&lt;/a&gt; by compromising your phone, or getting people to enter their code on the Web)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Also, set up &lt;a href=&quot;https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html&quot;&gt;billing alerts&lt;/a&gt; so you get notified when your monthly bill exceeds e.g. $50.&lt;/li&gt;
-  &lt;li&gt;It’s a good practice to &lt;a href=&quot;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html&quot;&gt;create an IAM user&lt;/a&gt; according to the principle of least privilege, which you would do in any real-world organization and not run as superuser.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;1-create-an-instance&quot;&gt;1) Create an instance&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Log into the &lt;a href=&quot;https://console.aws.amazon.com/&quot;&gt;AWS console&lt;/a&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/00.1. Login.png&quot; alt=&quot;00.1. Login.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Click on “EC2”&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/00.2. EC2.png&quot; alt=&quot;00.2. EC2.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Click on “Launch instance”&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/01. Launch instance.png&quot; alt=&quot;01. Launch instance.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Choose an Amazon Machine Image (AMI) - Ubuntu 18.04 LTS.&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/02. Choose image.png&quot; alt=&quot;02. Choose image.png&quot; /&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;In general, choose latest Ubuntu LTS (Long Term Support), HVM virtualization, SSD storage. (Exception: when the latest Ubuntu is very new, give it ~6 months to mature, ensure all software, especially drivers are available and tested, e.g. GPU)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Choose an instance type. For this demo choose the free tier eligible micro instance. Click “Next: Configure Instance Details”:&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/03. Choose instance type.png&quot; alt=&quot;03. Choose instance type.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Choose “Next: Add Storage” (Shouldn’t have to modify anything on this page)&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/03.1. Instance details.png&quot; alt=&quot;03.1. Instance details.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Set a reasonable disk size for storage, like 30GB (more if you have a big dataset). Click “Next: Add Tags”&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/04. Add storage.png&quot; alt=&quot;04. Add storage.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Click “Next: Configure Security Group” (You don’t need to modify anything on this page. Tags help you keep track of servers and other resources, when you have a lot of them)&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/05. Add tags.png&quot; alt=&quot;05. Add tags.png&quot; /&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;Create a new security group like ‘Jupyter’.&lt;/p&gt;
-
-        &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/06. Security group.png&quot; alt=&quot;06. Security group.png&quot; /&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Click “Add rule”&lt;/li&gt;
-      &lt;li&gt;Set Type: All TCP&lt;/li&gt;
-      &lt;li&gt;Set Source: My IP&lt;/li&gt;
-      &lt;li&gt;Click the x at far right to delete the first rule&lt;/li&gt;
-      &lt;li&gt;What this means: Allow all access from my IP, no access from anywhere else (default was SSH from anywhere)&lt;/li&gt;
-      &lt;li&gt;Click “Review and Launch”&lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Click “Launch”&lt;/p&gt;
-
-        &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/07.1 Review.png&quot; alt=&quot;07.1 Review.png&quot; /&gt;&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Almost there!&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Choose “Create key pair”&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/07.2. keypair.png&quot; alt=&quot;07.2. keypair.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Give it a name like “mykey” or “AWS”&lt;/li&gt;
-  &lt;li&gt;Click “Download key pair”&lt;/li&gt;
-  &lt;li&gt;Click “Launch instance”&lt;/li&gt;
-  &lt;li&gt;You have launched your first AWS instance!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;2-connect-to-your-instance-with-ssh&quot;&gt;2) Connect to your instance with SSH&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Remember that “AWS.pem” file you downloaded? Find it and move it to your home directory (or any directory).&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Open a terminal window or command prompt on your local PC.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;cd to your home directory.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Move the downloaded key there.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MacBook-Pro-8:~ druce&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mv&lt;/span&gt; ~/Downloads/AWS.pem &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Change its permissions so no one else can access it (ssh gives an error if it thinks permissions are wrong)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MacBook-Pro-8:~ druce&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;chmod &lt;/span&gt;600 AWS.pem
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;By now your instance should have launched. To find the IP address to connect to, go back to your &lt;a href=&quot;https://console.aws.amazon.com/ec2/v2/#Instances&quot;&gt;AWS console&lt;/a&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/09. AWSconsole1.png&quot; alt=&quot;09. AWSconsole1.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Click on the instance - hover over “IPv4 Public IP” and click on the little copy icon that appears (can also use your ‘Public DNS’ everywhere I use IP in this post, doesn’t really matter. But don’t use ‘Private IP’ or ‘Private DNS’. Confusing, I know!)&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/10. AWSconsole2.png&quot; alt=&quot;10. AWSconsole2.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Go back to your terminal and run this ssh command (paste your own IP or hostname)&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MacBook-Pro-8:~ druce&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ssh &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; AWS.pem ubuntu@18.234.158.61
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Answer ‘yes’ to any prompt. If you see the Ubuntu bash command prompt, you are in business!&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/10.2 terminal.png&quot; alt=&quot;10.2 terminal.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Now we have successfully connected to our running AWS instance!&lt;/p&gt;
-
-&lt;h1 id=&quot;3-run-installations-and-updates&quot;&gt;3) Run installations and updates&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Get Ubuntu updates&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ubuntu@ip-172-30-3-209:~ &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update
-ubuntu@ip-172-30-3-209:~ &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt upgrade
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;If prompted about config files like grub, choose ‘keep local version’, tab to OK, hit enter.
-  Updates will run for a couple of minutes.
-  If you run ‘sudo apt upgrade’ again you will see this, showing your instance is fully updated.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  ubuntu@ip-172-30-3-209:~$ sudo apt upgrade
-  Reading package lists... Done
-  Building dependency tree
-  Reading state information... Done
-  Calculating upgrade... Done
-  0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Ignore the following if you don’t understand it: typically I will explicitly update held-back packages and autoremove, until I see nothing left to update.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Next, download the Anaconda installer: Go to the &lt;a href=&quot;https://www.anaconda.com/download/#linux&quot;&gt;install page&lt;/a&gt; , right-click on the big button for the latest 3.x version and copy the link address. (IMPORTANT: make sure you download the Linux 64-bit version, not MacOS or Windows. The Anaconda website may try to auto-detect your browser platform and send you there.)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Go back to the terminal and enter&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &amp;lt;&lt;span class=&quot;nb&quot;&gt;paste &lt;/span&gt;url&amp;gt;
-bash ./A&amp;lt;tab to &lt;span class=&quot;nb&quot;&gt;complete&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Hit enter, spaces to get through all the responses, type yes to accept all the defaults&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ubuntu@ip-172-30-3-209:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget https://repo.anaconda.com/archive/Anaconda3-5.3.0-Linux-x86_64.sh
-&lt;span class=&quot;nt&quot;&gt;--2018-10-20&lt;/span&gt; 16:30:10--  https://repo.anaconda.com/archive/Anaconda3-5.3.0-Linux-x86_64.sh
-Resolving repo.anaconda.com &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;repo.anaconda.com&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;... 104.17.111.77, 104.17.107.77, 104.17.108.77, ...
-Connecting to repo.anaconda.com &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;repo.anaconda.com&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;|104.17.111.77|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 667822837 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;637M&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;application/x-sh]
-Saving to: ‘Anaconda3-5.3.0-Linux-x86_64.sh’
-
-Anaconda3-5.3.0-Linux-x86_64.sh                   100%[&lt;span class=&quot;o&quot;&gt;============================================================================================================&amp;gt;]&lt;/span&gt; 636.88M  49.5MB/s    &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;11s
-
-2018-10-20 16:30:21 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;60.2 MB/s&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; - ‘Anaconda3-5.3.0-Linux-x86_64.sh’ saved &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;667822837/667822837]
-
-ubuntu@ip-172-30-3-209:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bash ./Anaconda3-5.3.0-Linux-x86_64.sh
-
-Welcome to Anaconda3 5.3.0
-
-In order to &lt;span class=&quot;k&quot;&gt;continue &lt;/span&gt;the installation process, please review the license
-agreement.
-Please, press ENTER to &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;IMPORTANT - when prompted, update .bashrc&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Do you wish the installer to initialize Anaconda3
-&lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;your /home/ubuntu/.bashrc ? &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;yes&lt;/span&gt;|no][no] &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;yes
-
-&lt;/span&gt;Initializing Anaconda3 &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; /home/ubuntu/.bashrc
-A backup will be made to: /home/ubuntu/.bashrc-anaconda3.bak
-
-For this change to become active, you have to open a new terminal.
-
-Thank you &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;installing Anaconda3!
-
-Do you wish to proceed with the installation of Microsoft VSCode? &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;yes&lt;/span&gt;|no]
-no
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;Installation finished!&lt;/li&gt;
-  &lt;li&gt;IMPORTANT: RESTART SSH SESSION (as it helpfully points out, so .bashrc path updates take effect.)&lt;/li&gt;
-  &lt;li&gt;ctrl-D to exit terminal&lt;/li&gt;
-  &lt;li&gt;up-arrow to repeat last ssh command&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-{bash}&quot;&gt;ubuntu@ip-172-30-3-209:~$ logout
-Connection to 18.234.158.61 closed.
-MacBook-Pro-8:~ druce$ ssh -i AWS.pem ubuntu@18.234.158.61
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;run python, you should see 3.x, Anaconda build (not Ubuntu stock python)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ubuntu@ip-172-30-3-209:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python
-Python 3.7.0 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default, Jun 28 2018, 13:15:42&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;GCC 7.2.0] :: Anaconda, Inc. on linux
-Type &lt;span class=&quot;s2&quot;&gt;&quot;help&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;copyright&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;credits&quot;&lt;/span&gt; or &lt;span class=&quot;s2&quot;&gt;&quot;license&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;more information.
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Ctrl-D to exit Python&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Almost there! Let’s update Anaconda&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ubuntu@ip-172-30-3-209:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;conda update &lt;span class=&quot;nt&quot;&gt;--all&lt;/span&gt;
-Solving environment: &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Many updates later
-    &lt;pre&gt;&lt;code class=&quot;language-{bash}&quot;&gt;bleach-3.0.2         | 219 KB    | ############################################################################################################################################################ | 100%
-Preparing transaction: done
-Verifying transaction: done
-Executing transaction: done
-(base) ubuntu@ip-172-30-3-209:~$
-&lt;/code&gt;&lt;/pre&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Now you have a running Amazon instance, updated, with Anaconda installed and updated.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;4-configure-and-run-jupyter&quot;&gt;4) Configure and run Jupyter&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Final task is to set up and run Jupyter&lt;/li&gt;
-  &lt;li&gt;Create a certificate to enable https
-    &lt;ul&gt;
-      &lt;li&gt;Create a certs directory.&lt;/li&gt;
-      &lt;li&gt;cd to it.&lt;/li&gt;
-      &lt;li&gt;openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem&lt;/li&gt;
-      &lt;li&gt;I just hit enter for all the values requested&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-{bash}&quot;&gt;(base) ubuntu@ip-172-30-3-209:~/.jupyter$ cd
-(base) ubuntu@ip-172-30-3-209:~$ mkdir certs
-(base) ubuntu@ip-172-30-3-209:~$ cd certs
-(base) ubuntu@ip-172-30-3-209:~/certs$ openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
-Generating a 1024 bit RSA private key
-...++++++
-....++++++
-
-## writing new private key to 'mycert.pem'
-
-You are about to be asked to enter information that will be incorporated
-into your certificate request.
-What you are about to enter is what is called a Distinguished Name or a DN.
-There are quite a few fields but you can leave some blank
-For some fields there will be a default value,
-
-## If you enter '.', the field will be left blank.
-
-Country Name (2 letter code) [AU]:
-State or Province Name (full name) [Some-State]:
-Locality Name (eg, city) []:
-Organization Name (eg, company) [Internet Widgits Pty Ltd]:
-Organizational Unit Name (eg, section) []:
-Common Name (e.g. server FQDN or YOUR name) []:
-Email Address []:
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Create Jupyter config file and password
-    &lt;ul&gt;
-      &lt;li&gt;jupyter notebook –generate-config&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Create password
-    &lt;ul&gt;
-      &lt;li&gt;jupyter notebook password&lt;/li&gt;
-      &lt;li&gt;enter password twice&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-{bash}&quot;&gt;(base) ubuntu@ip-172-30-3-209:~$ jupyter notebook --generate-config
-Writing default config to: /home/ubuntu/.jupyter/jupyter_notebook_config.py
-(base) ubuntu@ip-172-30-3-209:~$ jupyter notebook password
-Enter password:
-Verify password:
-[NotebookPasswordApp] Wrote hashed password to /home/ubuntu/.jupyter/jupyter_notebook_config.json
-(base) ubuntu@ip-172-30-3-209:~$
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-  &lt;li&gt;In your favorite editor (vi, emacs etc.) open ~/.jupyter/jupyter_notebook_config.py. Add these entries at top. (Or search for corresponding commented-out entries, uncomment and edit appropriately.)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;druce@jupyter1:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/.jupyter/
-druce@jupyter1:~/.jupyter&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;emacs jupyter_notebook_config.py
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-{python}&quot;&gt;
-# Kernel config
-c.IPKernelApp.pylab = 'inline'  # if you want plotting support always in your notebook
-
-# Notebook config
-c.NotebookApp.allow_remote_access = True
-c.NotebookApp.certfile = u'/home/ubuntu/certs/mycert.pem' #location of your certificate file
-c.NotebookApp.ip = '*'
-c.NotebookApp.open_browser = False  #so that the jupyter notebook server does not try to open up a browser by default (no GUI or browser installed on your AWS server)
-# Set the port to 8888
-c.NotebookApp.port = 8888
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-  &lt;li&gt;Run Jupyter&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ubuntu@ip-172-30-1-196:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;jupyter notebook
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;I 13:31:08.070 NotebookApp] Writing notebook server cookie secret to /run/user/1000/jupyter/notebook_cookie_secret
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;I 13:31:10.881 NotebookApp] JupyterLab extension loaded from /home/ubuntu/anaconda3/lib/python3.7/site-packages/jupyterlab
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;I 13:31:10.881 NotebookApp] JupyterLab application directory is /home/ubuntu/anaconda3/share/jupyter/lab
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;I 13:31:10.883 NotebookApp] Serving notebooks from &lt;span class=&quot;nb&quot;&gt;local &lt;/span&gt;directory: /home/ubuntu
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;I 13:31:10.883 NotebookApp] The Jupyter Notebook is running at:
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;I 13:31:10.883 NotebookApp] https://&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;ip-172-30-1-196 or 127.0.0.1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:8888/
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;I 13:31:10.883 NotebookApp] Use Control-C to stop this server and shut down all kernels &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;twice to skip confirmation&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Note where it says “The Jupyter Notebook is running at:”&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Server should be running on all IP addresses (not localhost)&lt;/li&gt;
-      &lt;li&gt;Port should be :8888 (If it’s e.g. 8889, other servers may be running)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Go to your browser and connect to https://xxx.xxx.xxx.xxx:8888&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;IMPORTANT: Use the IP from your AWS console, not the local IP reported by Jupyter startup. And make sure to use https.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;In Chrome, click “Advanced”, ignore the warning and proceed (if Firefox, add an exception)&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;(You get a warning because the certificate domain name doesn’t match our IP address, which changes every time we launch an AWS instance)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/12.1 Chrome warning.png&quot; alt=&quot;12.1 Chrome warning.png&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Enter the Jupyter password you created.
-&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/12.2 Password.png&quot; alt=&quot;12.2 Password.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;You are in business!
-&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/12.3 Success.png&quot; alt=&quot;12.3 Success.png&quot; /&gt;
-&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/12.3 Success2.png&quot; alt=&quot;12.3 Success2.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;5-final-step---make-an-image-of-your-instance-for-backup&quot;&gt;5) Final step - Make an image of your instance for backup&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Grab a well-earned cup of coffee, tea, or whiskey!&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;One last thing is to create an image of your server. Otherwise you have to do ALL THESE STEPS again to launch another server.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Also, remember all the benefits of AWS? They all involve images:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Scale up: Image and launch new instance from same image on a bigger instance type, or larger disk.&lt;/li&gt;
-      &lt;li&gt;Scale out: Image and launch many instances from same image at same time.&lt;/li&gt;
-      &lt;li&gt;Access resources: Image and launch a new instance on e.g. a GPU instance type&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;To make an image of your instance, log into the console &lt;a href=&quot;https://console.aws.amazon.com/ec2/v2/#Instances&quot;&gt;https://console.aws.amazon.com/ec2/v2/#Instances&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Right-click on your instance, choose Image, Create Image
-&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/13.1 CreateImage1.png&quot; alt=&quot;13.1 CreateImage1.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Give the image a good name, I’ll usually go with desc-date. I didn’t bother with a good description, but you might put ‘Fresh working Jupyter on Ubuntu 18.04, with all updates’
-&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/13.2 CreateImage2.png&quot; alt=&quot;13.2 CreateImage2.png&quot; /&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Note: this is where you adjust your disk size if you want to increase it (for bigger instances/jobs) or reduce it (save storage space)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Click ‘Create image’&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Note: this will restart your instance&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Creating the image can take 10 mins - go to the AMIs tab and see when it’s available.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;While your image is being created, your running server will restart and you can reconnect after it finishes booting in a couple of minutes. You can SSH to it using same IP as before.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;When your AMI says ‘available’ in the EC2 “AMIs” tab, right-click on image, click Launch instance
-&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/Launch1.png&quot; alt=&quot;Launch1.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Choose instance type (e.g. t2.micro)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Hit next until you get to “Configure Security Group”&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Set the security group you created earlier, e.g. “Jupyter”&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Click “Review and Launch”&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Click “Launch”&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;You will be prompted for the key pair: Select the one you created earlier, e.g. “AWS”, check the confirmation box, click “Launch Instances”
-&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/keypair2.png&quot; alt=&quot;keypair2.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Go to your instances in the AWS console, wait a couple of minutes, hit refresh to get the new instance’s IP&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;You can now SSH to the new IP just like the old one.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MacBook-Pro-10:~ druce&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ssh &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; AWS.pem ubuntu@54.237.195.0
-The authenticity of host &lt;span class=&quot;s1&quot;&gt;'54.237.195.0 (54.237.195.0)'&lt;/span&gt; can&lt;span class=&quot;s1&quot;&gt;'t be established.
-ECDSA key fingerprint is SHA256:0KCT3Xk/i2tlabHzKQOTYS/joKSL+j0EZ45d/bNwKEc.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added '&lt;/span&gt;54.237.195.0&lt;span class=&quot;s1&quot;&gt;' (ECDSA) to the list of known hosts.
-Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-1023-aws x86_64)
- 
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;You now have 2 identical running instances.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;To terminate your instances, go to the instances in your console, right-click, choose “Instance State” and choose “Terminate”.&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/14. Terminate.png&quot; alt=&quot;14. Terminate.png&quot; /&gt;
-WARNING: if you have work to save, IMAGE your instance before terminating it.
-When you terminate the instance, everything on it is deleted, so you will lose everything you did since the last image.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;If you aren’t going to use your instance for a while, stop it, and if you have made a lot of changes, image it to have a backup. When you have a lot of images, you may want to clean them up by ‘Deregistering’ the AMIs and deleting their ‘Snapshots’. But by then you will be an AWS expert!&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;6-final-final-step---set-jupyter-to-run-automatically-at-startup&quot;&gt;6) Final final step - Set Jupyter to run automatically at startup.&lt;/h1&gt;
-
-&lt;p&gt;OK, I lied. There is one final step I recommend, which is to run Jupyter at startup.&lt;/p&gt;
-
-&lt;p&gt;So you have Jupyter running exactly the way you want in a terminal. You create an amazing notebook that will train overnight. You smile, disconnect your laptop, go home, and come back the next day … to find that as soon as you disconnected, Ubuntu helpfully killed all the jobs running in the session, including the Jupyter server.&lt;/p&gt;
-
-&lt;p&gt;To avoid this misadventure, create a runjupyter.sh that looks something like the one below.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# run at startup from etc/rc.local&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# added by Anaconda3 installer&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/home/ubuntu/anaconda3/bin:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# added for cuda/tensorflow&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CUDA_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/cuda
-&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CUDA_HOME&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;/lib64:&lt;span class=&quot;nv&quot;&gt;$LD_LIBRARY_PATH&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CUDA_HOME&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;/bin:&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# activate the proper virtualenv&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;activate jupyter
-
-&lt;span class=&quot;c&quot;&gt;# cd to the proper directory&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /home/ubuntu/Notebooks
-
-&lt;span class=&quot;c&quot;&gt;# run jupyter in the background&lt;/span&gt;
-jupyter notebook &amp;amp;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;It should include all anaconda and related environment variables and paths from your .bashrc file. Then it should activate the proper virtualenv, cd to the proper directory, and run Jupyter in the background. (You can safely ignore the virtualenv and CUDA/Tensorflow stuff if you don’t use them, just use the Anadonda-related environment variables and paths from your .bashrc.)&lt;/p&gt;
-
-&lt;p&gt;Then do&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;chmod &lt;/span&gt;755 /home/ubuntu/runjupyter.sh
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;vi /etc/rc.local
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;and add this at the bottom of the file&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/etc/su ubuntu &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;home/ubuntu/runjupyter.sh&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Now, whenever I launch this instance, it automatically starts Jupyter running under my account, and I don’t even have to ssh into the server. And I don’t have to worry about something killing the Jupyter server which is running in the terminal.&lt;/p&gt;
-
-&lt;p&gt;Or search for “run jupyter at startup” and use one of the other methods. This one may be crude, but it works.&lt;/p&gt;
-
-&lt;p&gt;Enjoy awesome data science on AWS with Jupyter!&lt;/p&gt;
-
-&lt;p&gt;See also and bookmark&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://jupyter.readthedocs.io/en/latest/&quot;&gt;Jupyter Docs&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html&quot;&gt;Amazon EC2 Docs&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://towardsdatascience.com/running-jupyter-notebook-in-google-cloud-platform-in-15-min-61e16da34d52&quot;&gt;Run Jupyter on Google Cloud&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Druce Vertes</name></author><category term="datascience" /><category term="devops" /><summary type="html">This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is based on a tutorial by Chris Albon, which did not work for me immediately (itself based on a tutorial by Piyush Agarwal). But I tweaked a few things and got it working.</summary></entry><entry><title type="html">The Biggest Bluff: She Stoops To Conquer</title><link href="http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/" rel="alternate" type="text/html" title="The Biggest Bluff: She Stoops To Conquer" /><published>2020-07-09T18:28:57-04:00</published><updated>2020-07-09T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer</id><content type="html" xml:base="http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-10-02T21:32:02-04:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">StreetEYE Blog</title><subtitle>Druce's Mad Science About Tech, Markets And Political Economy</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">The Biggest Bluff: She Stoops To Conquer</title><link href="http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/" rel="alternate" type="text/html" title="The Biggest Bluff: She Stoops To Conquer" /><published>2020-07-09T18:28:57-04:00</published><updated>2020-07-09T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer</id><content type="html" xml:base="http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/">&lt;blockquote&gt;
   &lt;p&gt;I enjoyed &lt;a href=&quot;https://www.amazon.com/Biggest-Bluff-Learned-Attention-Master/dp/052552262X/&quot;&gt;The Biggest Bluff: How I Learned to Pay Attention, Master Myself, and Win, by Maria Konnikova&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -3663,7 +3088,582 @@ jupyter notebook &amp;amp;
 
 &lt;p&gt;Not to be too thirsty but if you like it don’t hesitate to share!&lt;/p&gt;
 
-&lt;p&gt;&lt;small&gt;(Never say never again, but very probably never doing this graph again. Fun mad science, but disproportionately time-consuming. Twitter makes the API more restrictive every year, knucklehead sites block me, the graveyard is full of algorithmic news apps and news bots. C’est la vie!)&lt;/small&gt;&lt;/p&gt;</content><author><name>Druce Vertes, CFA</name></author><category term="tech" /><category term="tech" /><summary type="html">It’s been more than a year since we posted our last list of people to follow on Twitter for financial news. Time for an update!</summary></entry><entry><title type="html">What I Learned From Watching The Sting And Reading David Maurer</title><link href="http://0.0.0.0:4000/2018/08/what-i-learned-from-the-sting-and-david-maurer/" rel="alternate" type="text/html" title="What I Learned From Watching The Sting And Reading David Maurer" /><published>2018-08-25T04:49:59-04:00</published><updated>2018-08-25T04:49:59-04:00</updated><id>http://0.0.0.0:4000/2018/08/what-i-learned-from-the-sting-and-david-maurer</id><content type="html" xml:base="http://0.0.0.0:4000/2018/08/what-i-learned-from-the-sting-and-david-maurer/">&lt;blockquote&gt;
+&lt;p&gt;&lt;small&gt;(Never say never again, but very probably never doing this graph again. Fun mad science, but disproportionately time-consuming. Twitter makes the API more restrictive every year, knucklehead sites block me, the graveyard is full of algorithmic news apps and news bots. C’est la vie!)&lt;/small&gt;&lt;/p&gt;</content><author><name>Druce Vertes, CFA</name></author><category term="tech" /><category term="fintwit" /><summary type="html">It’s been more than a year since we posted our last list of people to follow on Twitter for financial news. Time for an update!</summary></entry><entry><title type="html">Jupyter Notebook on an AWS instance</title><link href="http://0.0.0.0:4000/2018/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/" rel="alternate" type="text/html" title="Jupyter Notebook on an AWS instance" /><published>2018-09-28T20:00:57-04:00</published><updated>2018-09-28T20:00:57-04:00</updated><id>http://0.0.0.0:4000/2018/09/Jupyter-Notebook-on-an-Amazon-EC2-instance</id><content type="html" xml:base="http://0.0.0.0:4000/2018/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/">&lt;blockquote&gt;
+  &lt;p&gt;This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is based on a &lt;a href=&quot;https://chrisalbon.com/software_engineering/cloud_computing/run_project_jupyter_on_amazon_ec2/&quot;&gt;tutorial&lt;/a&gt; by Chris Albon, which did not work for me immediately (itself based on a &lt;a href=&quot;http://blog.impiyush.me/2015/02/running-ipython-notebook-server-on-aws.html&quot;&gt;tutorial by Piyush Agarwal&lt;/a&gt;). But I tweaked a few things and got it working.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;!--more--&gt;
+
+&lt;h1 id=&quot;use-cases-for-aws-who-doesnt-love-aws&quot;&gt;Use cases for AWS (Who doesn’t love AWS?)&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Scale up - get a giant instance that runs an algo on big data faster than your PC.&lt;/li&gt;
+  &lt;li&gt;Scale out - run many notebooks at once.&lt;/li&gt;
+  &lt;li&gt;Access resources you can’t, or don’t want to install on local PC: GPU, Postgres, etc.&lt;/li&gt;
+  &lt;li&gt;Everybody in industry uses it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Since I originally wrote this in 2018, platforms like &lt;a href=&quot;https://colab.research.google.com/&quot;&gt;Google Colab&lt;/a&gt;, &lt;a href=&quot;https://notebooks.azure.com/&quot;&gt;Amazon Sagemaker&lt;/a&gt;, &lt;a href=&quot;https://notebooks.azure.com/&quot;&gt;Azure Notebooks&lt;/a&gt; and &lt;a href=&quot;https://www.dataschool.io/cloud-services-for-jupyter-notebook/&quot;&gt;others&lt;/a&gt; have sprung up which let you run in a prebuilt container so you don’t need to set up your own instance for casual experiments. However there are use cases where you may want to set up your own, primarily to get access to a more customized environment.&lt;/p&gt;
+
+&lt;h1 id=&quot;0-prerequisites-set-up-your-aws-account---i-wont-go-over-that-in-detail-see-here-however-2-recommendations&quot;&gt;0) Prerequisites: Set up your AWS account - I won’t go over that in detail, &lt;a href=&quot;https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/&quot;&gt;see here&lt;/a&gt;. However, 2 recommendations:&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Set up &lt;a href=&quot;https://aws.amazon.com/iam/details/mfa/&quot;&gt;2-factor authentication&lt;/a&gt;. Who hasn’t had a password compromised? With 2FA, if your AWS password gets compromised, you don’t lose everything in your account. And you don’t have someone run up a huge AWS bill mining Bitcoin, or spamming the world.
+    &lt;ul&gt;
+      &lt;li&gt;Use the &lt;a href=&quot;https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8&quot;&gt;Google Authenticator&lt;/a&gt; smartphone app&lt;/li&gt;
+      &lt;li&gt;Or, use a hardware key like &lt;a href=&quot;http://www.1strategy.com/blog/2018/05/08/lock-down-your-aws-account-with-yubikey/&quot;&gt;Yubikey&lt;/a&gt; which is even more secure, doesn’t depend on having your phone, Internet access. (&lt;a href=&quot;https://www.csoonline.com/article/3272425/authentication/11-ways-to-hack-2fa.html&quot;&gt;People have hacked code-based 2FA&lt;/a&gt; by compromising your phone, or getting people to enter their code on the Web)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Also, set up &lt;a href=&quot;https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html&quot;&gt;billing alerts&lt;/a&gt; so you get notified when your monthly bill exceeds e.g. $50.&lt;/li&gt;
+  &lt;li&gt;It’s a good practice to &lt;a href=&quot;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html&quot;&gt;create an IAM user&lt;/a&gt; according to the principle of least privilege, which you would do in any real-world organization and not run as superuser.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;1-create-an-instance&quot;&gt;1) Create an instance&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Log into the &lt;a href=&quot;https://console.aws.amazon.com/&quot;&gt;AWS console&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/00.1. Login.png&quot; alt=&quot;00.1. Login.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Click on “EC2”&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/00.2. EC2.png&quot; alt=&quot;00.2. EC2.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Click on “Launch instance”&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/01. Launch instance.png&quot; alt=&quot;01. Launch instance.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Choose an Amazon Machine Image (AMI) - Ubuntu 18.04 LTS.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/02. Choose image.png&quot; alt=&quot;02. Choose image.png&quot; /&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;In general, choose latest Ubuntu LTS (Long Term Support), HVM virtualization, SSD storage. (Exception: when the latest Ubuntu is very new, give it ~6 months to mature, ensure all software, especially drivers are available and tested, e.g. GPU)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Choose an instance type. For this demo choose the free tier eligible micro instance. Click “Next: Configure Instance Details”:&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/03. Choose instance type.png&quot; alt=&quot;03. Choose instance type.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Choose “Next: Add Storage” (Shouldn’t have to modify anything on this page)&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/03.1. Instance details.png&quot; alt=&quot;03.1. Instance details.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Set a reasonable disk size for storage, like 30GB (more if you have a big dataset). Click “Next: Add Tags”&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/04. Add storage.png&quot; alt=&quot;04. Add storage.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Click “Next: Configure Security Group” (You don’t need to modify anything on this page. Tags help you keep track of servers and other resources, when you have a lot of them)&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/05. Add tags.png&quot; alt=&quot;05. Add tags.png&quot; /&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Create a new security group like ‘Jupyter’.&lt;/p&gt;
+
+        &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/06. Security group.png&quot; alt=&quot;06. Security group.png&quot; /&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Click “Add rule”&lt;/li&gt;
+      &lt;li&gt;Set Type: All TCP&lt;/li&gt;
+      &lt;li&gt;Set Source: My IP&lt;/li&gt;
+      &lt;li&gt;Click the x at far right to delete the first rule&lt;/li&gt;
+      &lt;li&gt;What this means: Allow all access from my IP, no access from anywhere else (default was SSH from anywhere)&lt;/li&gt;
+      &lt;li&gt;Click “Review and Launch”&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Click “Launch”&lt;/p&gt;
+
+        &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/07.1 Review.png&quot; alt=&quot;07.1 Review.png&quot; /&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Almost there!&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Choose “Create key pair”&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/07.2. keypair.png&quot; alt=&quot;07.2. keypair.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Give it a name like “mykey” or “AWS”&lt;/li&gt;
+  &lt;li&gt;Click “Download key pair”&lt;/li&gt;
+  &lt;li&gt;Click “Launch instance”&lt;/li&gt;
+  &lt;li&gt;You have launched your first AWS instance!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;2-connect-to-your-instance-with-ssh&quot;&gt;2) Connect to your instance with SSH&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Remember that “AWS.pem” file you downloaded? Find it and move it to your home directory (or any directory).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Open a terminal window or command prompt on your local PC.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;cd to your home directory.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Move the downloaded key there.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MacBook-Pro-8:~ druce&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mv&lt;/span&gt; ~/Downloads/AWS.pem &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Change its permissions so no one else can access it (ssh gives an error if it thinks permissions are wrong)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MacBook-Pro-8:~ druce&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;chmod &lt;/span&gt;600 AWS.pem
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;By now your instance should have launched. To find the IP address to connect to, go back to your &lt;a href=&quot;https://console.aws.amazon.com/ec2/v2/#Instances&quot;&gt;AWS console&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/09. AWSconsole1.png&quot; alt=&quot;09. AWSconsole1.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Click on the instance - hover over “IPv4 Public IP” and click on the little copy icon that appears (can also use your ‘Public DNS’ everywhere I use IP in this post, doesn’t really matter. But don’t use ‘Private IP’ or ‘Private DNS’. Confusing, I know!)&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/10. AWSconsole2.png&quot; alt=&quot;10. AWSconsole2.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Go back to your terminal and run this ssh command (paste your own IP or hostname)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MacBook-Pro-8:~ druce&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ssh &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; AWS.pem ubuntu@18.234.158.61
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Answer ‘yes’ to any prompt. If you see the Ubuntu bash command prompt, you are in business!&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/10.2 terminal.png&quot; alt=&quot;10.2 terminal.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now we have successfully connected to our running AWS instance!&lt;/p&gt;
+
+&lt;h1 id=&quot;3-run-installations-and-updates&quot;&gt;3) Run installations and updates&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Get Ubuntu updates&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ubuntu@ip-172-30-3-209:~ &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update
+ubuntu@ip-172-30-3-209:~ &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;If prompted about config files like grub, choose ‘keep local version’, tab to OK, hit enter.
+  Updates will run for a couple of minutes.
+  If you run ‘sudo apt upgrade’ again you will see this, showing your instance is fully updated.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  ubuntu@ip-172-30-3-209:~$ sudo apt upgrade
+  Reading package lists... Done
+  Building dependency tree
+  Reading state information... Done
+  Calculating upgrade... Done
+  0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Ignore the following if you don’t understand it: typically I will explicitly update held-back packages and autoremove, until I see nothing left to update.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, download the Anaconda installer: Go to the &lt;a href=&quot;https://www.anaconda.com/download/#linux&quot;&gt;install page&lt;/a&gt; , right-click on the big button for the latest 3.x version and copy the link address. (IMPORTANT: make sure you download the Linux 64-bit version, not MacOS or Windows. The Anaconda website may try to auto-detect your browser platform and send you there.)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Go back to the terminal and enter&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &amp;lt;&lt;span class=&quot;nb&quot;&gt;paste &lt;/span&gt;url&amp;gt;
+bash ./A&amp;lt;tab to &lt;span class=&quot;nb&quot;&gt;complete&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Hit enter, spaces to get through all the responses, type yes to accept all the defaults&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ubuntu@ip-172-30-3-209:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget https://repo.anaconda.com/archive/Anaconda3-5.3.0-Linux-x86_64.sh
+&lt;span class=&quot;nt&quot;&gt;--2018-10-20&lt;/span&gt; 16:30:10--  https://repo.anaconda.com/archive/Anaconda3-5.3.0-Linux-x86_64.sh
+Resolving repo.anaconda.com &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;repo.anaconda.com&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;... 104.17.111.77, 104.17.107.77, 104.17.108.77, ...
+Connecting to repo.anaconda.com &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;repo.anaconda.com&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;|104.17.111.77|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 667822837 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;637M&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;application/x-sh]
+Saving to: ‘Anaconda3-5.3.0-Linux-x86_64.sh’
+
+Anaconda3-5.3.0-Linux-x86_64.sh                   100%[&lt;span class=&quot;o&quot;&gt;============================================================================================================&amp;gt;]&lt;/span&gt; 636.88M  49.5MB/s    &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;11s
+
+2018-10-20 16:30:21 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;60.2 MB/s&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; - ‘Anaconda3-5.3.0-Linux-x86_64.sh’ saved &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;667822837/667822837]
+
+ubuntu@ip-172-30-3-209:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bash ./Anaconda3-5.3.0-Linux-x86_64.sh
+
+Welcome to Anaconda3 5.3.0
+
+In order to &lt;span class=&quot;k&quot;&gt;continue &lt;/span&gt;the installation process, please review the license
+agreement.
+Please, press ENTER to &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;IMPORTANT - when prompted, update .bashrc&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Do you wish the installer to initialize Anaconda3
+&lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;your /home/ubuntu/.bashrc ? &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;yes&lt;/span&gt;|no][no] &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;yes
+
+&lt;/span&gt;Initializing Anaconda3 &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; /home/ubuntu/.bashrc
+A backup will be made to: /home/ubuntu/.bashrc-anaconda3.bak
+
+For this change to become active, you have to open a new terminal.
+
+Thank you &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;installing Anaconda3!
+
+Do you wish to proceed with the installation of Microsoft VSCode? &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;yes&lt;/span&gt;|no]
+no
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;Installation finished!&lt;/li&gt;
+  &lt;li&gt;IMPORTANT: RESTART SSH SESSION (as it helpfully points out, so .bashrc path updates take effect.)&lt;/li&gt;
+  &lt;li&gt;ctrl-D to exit terminal&lt;/li&gt;
+  &lt;li&gt;up-arrow to repeat last ssh command&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-{bash}&quot;&gt;ubuntu@ip-172-30-3-209:~$ logout
+Connection to 18.234.158.61 closed.
+MacBook-Pro-8:~ druce$ ssh -i AWS.pem ubuntu@18.234.158.61
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;run python, you should see 3.x, Anaconda build (not Ubuntu stock python)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ubuntu@ip-172-30-3-209:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python
+Python 3.7.0 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default, Jun 28 2018, 13:15:42&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;GCC 7.2.0] :: Anaconda, Inc. on linux
+Type &lt;span class=&quot;s2&quot;&gt;&quot;help&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;copyright&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;credits&quot;&lt;/span&gt; or &lt;span class=&quot;s2&quot;&gt;&quot;license&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;more information.
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ctrl-D to exit Python&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Almost there! Let’s update Anaconda&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ubuntu@ip-172-30-3-209:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;conda update &lt;span class=&quot;nt&quot;&gt;--all&lt;/span&gt;
+Solving environment: &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Many updates later
+    &lt;pre&gt;&lt;code class=&quot;language-{bash}&quot;&gt;bleach-3.0.2         | 219 KB    | ############################################################################################################################################################ | 100%
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+(base) ubuntu@ip-172-30-3-209:~$
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Now you have a running Amazon instance, updated, with Anaconda installed and updated.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;4-configure-and-run-jupyter&quot;&gt;4) Configure and run Jupyter&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Final task is to set up and run Jupyter&lt;/li&gt;
+  &lt;li&gt;Create a certificate to enable https
+    &lt;ul&gt;
+      &lt;li&gt;Create a certs directory.&lt;/li&gt;
+      &lt;li&gt;cd to it.&lt;/li&gt;
+      &lt;li&gt;openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem&lt;/li&gt;
+      &lt;li&gt;I just hit enter for all the values requested&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-{bash}&quot;&gt;(base) ubuntu@ip-172-30-3-209:~/.jupyter$ cd
+(base) ubuntu@ip-172-30-3-209:~$ mkdir certs
+(base) ubuntu@ip-172-30-3-209:~$ cd certs
+(base) ubuntu@ip-172-30-3-209:~/certs$ openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
+Generating a 1024 bit RSA private key
+...++++++
+....++++++
+
+## writing new private key to 'mycert.pem'
+
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+
+## If you enter '.', the field will be left blank.
+
+Country Name (2 letter code) [AU]:
+State or Province Name (full name) [Some-State]:
+Locality Name (eg, city) []:
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:
+Organizational Unit Name (eg, section) []:
+Common Name (e.g. server FQDN or YOUR name) []:
+Email Address []:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Create Jupyter config file and password
+    &lt;ul&gt;
+      &lt;li&gt;jupyter notebook –generate-config&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Create password
+    &lt;ul&gt;
+      &lt;li&gt;jupyter notebook password&lt;/li&gt;
+      &lt;li&gt;enter password twice&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-{bash}&quot;&gt;(base) ubuntu@ip-172-30-3-209:~$ jupyter notebook --generate-config
+Writing default config to: /home/ubuntu/.jupyter/jupyter_notebook_config.py
+(base) ubuntu@ip-172-30-3-209:~$ jupyter notebook password
+Enter password:
+Verify password:
+[NotebookPasswordApp] Wrote hashed password to /home/ubuntu/.jupyter/jupyter_notebook_config.json
+(base) ubuntu@ip-172-30-3-209:~$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+  &lt;li&gt;In your favorite editor (vi, emacs etc.) open ~/.jupyter/jupyter_notebook_config.py. Add these entries at top. (Or search for corresponding commented-out entries, uncomment and edit appropriately.)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;druce@jupyter1:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/.jupyter/
+druce@jupyter1:~/.jupyter&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;emacs jupyter_notebook_config.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-{python}&quot;&gt;
+# Kernel config
+c.IPKernelApp.pylab = 'inline'  # if you want plotting support always in your notebook
+
+# Notebook config
+c.NotebookApp.allow_remote_access = True
+c.NotebookApp.certfile = u'/home/ubuntu/certs/mycert.pem' #location of your certificate file
+c.NotebookApp.ip = '*'
+c.NotebookApp.open_browser = False  #so that the jupyter notebook server does not try to open up a browser by default (no GUI or browser installed on your AWS server)
+# Set the port to 8888
+c.NotebookApp.port = 8888
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+  &lt;li&gt;Run Jupyter&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ubuntu@ip-172-30-1-196:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;jupyter notebook
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;I 13:31:08.070 NotebookApp] Writing notebook server cookie secret to /run/user/1000/jupyter/notebook_cookie_secret
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;I 13:31:10.881 NotebookApp] JupyterLab extension loaded from /home/ubuntu/anaconda3/lib/python3.7/site-packages/jupyterlab
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;I 13:31:10.881 NotebookApp] JupyterLab application directory is /home/ubuntu/anaconda3/share/jupyter/lab
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;I 13:31:10.883 NotebookApp] Serving notebooks from &lt;span class=&quot;nb&quot;&gt;local &lt;/span&gt;directory: /home/ubuntu
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;I 13:31:10.883 NotebookApp] The Jupyter Notebook is running at:
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;I 13:31:10.883 NotebookApp] https://&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;ip-172-30-1-196 or 127.0.0.1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:8888/
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;I 13:31:10.883 NotebookApp] Use Control-C to stop this server and shut down all kernels &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;twice to skip confirmation&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Note where it says “The Jupyter Notebook is running at:”&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Server should be running on all IP addresses (not localhost)&lt;/li&gt;
+      &lt;li&gt;Port should be :8888 (If it’s e.g. 8889, other servers may be running)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Go to your browser and connect to https://xxx.xxx.xxx.xxx:8888&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;IMPORTANT: Use the IP from your AWS console, not the local IP reported by Jupyter startup. And make sure to use https.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In Chrome, click “Advanced”, ignore the warning and proceed (if Firefox, add an exception)&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;(You get a warning because the certificate domain name doesn’t match our IP address, which changes every time we launch an AWS instance)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/12.1 Chrome warning.png&quot; alt=&quot;12.1 Chrome warning.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Enter the Jupyter password you created.
+&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/12.2 Password.png&quot; alt=&quot;12.2 Password.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You are in business!
+&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/12.3 Success.png&quot; alt=&quot;12.3 Success.png&quot; /&gt;
+&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/12.3 Success2.png&quot; alt=&quot;12.3 Success2.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;5-final-step---make-an-image-of-your-instance-for-backup&quot;&gt;5) Final step - Make an image of your instance for backup&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Grab a well-earned cup of coffee, tea, or whiskey!&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;One last thing is to create an image of your server. Otherwise you have to do ALL THESE STEPS again to launch another server.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Also, remember all the benefits of AWS? They all involve images:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Scale up: Image and launch new instance from same image on a bigger instance type, or larger disk.&lt;/li&gt;
+      &lt;li&gt;Scale out: Image and launch many instances from same image at same time.&lt;/li&gt;
+      &lt;li&gt;Access resources: Image and launch a new instance on e.g. a GPU instance type&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;To make an image of your instance, log into the console &lt;a href=&quot;https://console.aws.amazon.com/ec2/v2/#Instances&quot;&gt;https://console.aws.amazon.com/ec2/v2/#Instances&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Right-click on your instance, choose Image, Create Image
+&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/13.1 CreateImage1.png&quot; alt=&quot;13.1 CreateImage1.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Give the image a good name, I’ll usually go with desc-date. I didn’t bother with a good description, but you might put ‘Fresh working Jupyter on Ubuntu 18.04, with all updates’
+&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/13.2 CreateImage2.png&quot; alt=&quot;13.2 CreateImage2.png&quot; /&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Note: this is where you adjust your disk size if you want to increase it (for bigger instances/jobs) or reduce it (save storage space)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Click ‘Create image’&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Note: this will restart your instance&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Creating the image can take 10 mins - go to the AMIs tab and see when it’s available.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;While your image is being created, your running server will restart and you can reconnect after it finishes booting in a couple of minutes. You can SSH to it using same IP as before.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;When your AMI says ‘available’ in the EC2 “AMIs” tab, right-click on image, click Launch instance
+&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/Launch1.png&quot; alt=&quot;Launch1.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Choose instance type (e.g. t2.micro)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Hit next until you get to “Configure Security Group”&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Set the security group you created earlier, e.g. “Jupyter”&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Click “Review and Launch”&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Click “Launch”&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You will be prompted for the key pair: Select the one you created earlier, e.g. “AWS”, check the confirmation box, click “Launch Instances”
+&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/keypair2.png&quot; alt=&quot;keypair2.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Go to your instances in the AWS console, wait a couple of minutes, hit refresh to get the new instance’s IP&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You can now SSH to the new IP just like the old one.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MacBook-Pro-10:~ druce&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ssh &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; AWS.pem ubuntu@54.237.195.0
+The authenticity of host &lt;span class=&quot;s1&quot;&gt;'54.237.195.0 (54.237.195.0)'&lt;/span&gt; can&lt;span class=&quot;s1&quot;&gt;'t be established.
+ECDSA key fingerprint is SHA256:0KCT3Xk/i2tlabHzKQOTYS/joKSL+j0EZ45d/bNwKEc.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '&lt;/span&gt;54.237.195.0&lt;span class=&quot;s1&quot;&gt;' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-1023-aws x86_64)
+ 
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;You now have 2 identical running instances.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;To terminate your instances, go to the instances in your console, right-click, choose “Instance State” and choose “Terminate”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/2020/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/14. Terminate.png&quot; alt=&quot;14. Terminate.png&quot; /&gt;
+WARNING: if you have work to save, IMAGE your instance before terminating it.
+When you terminate the instance, everything on it is deleted, so you will lose everything you did since the last image.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If you aren’t going to use your instance for a while, stop it, and if you have made a lot of changes, image it to have a backup. When you have a lot of images, you may want to clean them up by ‘Deregistering’ the AMIs and deleting their ‘Snapshots’. But by then you will be an AWS expert!&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;6-final-final-step---set-jupyter-to-run-automatically-at-startup&quot;&gt;6) Final final step - Set Jupyter to run automatically at startup.&lt;/h1&gt;
+
+&lt;p&gt;OK, I lied. There is one final step I recommend, which is to run Jupyter at startup.&lt;/p&gt;
+
+&lt;p&gt;So you have Jupyter running exactly the way you want in a terminal. You create an amazing notebook that will train overnight. You smile, disconnect your laptop, go home, and come back the next day … to find that as soon as you disconnected, Ubuntu helpfully killed all the jobs running in the session, including the Jupyter server.&lt;/p&gt;
+
+&lt;p&gt;To avoid this misadventure, create a runjupyter.sh that looks something like the one below.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# run at startup from etc/rc.local&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# added by Anaconda3 installer&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/home/ubuntu/anaconda3/bin:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# added for cuda/tensorflow&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CUDA_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/cuda
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CUDA_HOME&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;/lib64:&lt;span class=&quot;nv&quot;&gt;$LD_LIBRARY_PATH&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CUDA_HOME&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;/bin:&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# activate the proper virtualenv&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;activate jupyter
+
+&lt;span class=&quot;c&quot;&gt;# cd to the proper directory&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /home/ubuntu/Notebooks
+
+&lt;span class=&quot;c&quot;&gt;# run jupyter in the background&lt;/span&gt;
+jupyter notebook &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;It should include all anaconda and related environment variables and paths from your .bashrc file. Then it should activate the proper virtualenv, cd to the proper directory, and run Jupyter in the background. (You can safely ignore the virtualenv and CUDA/Tensorflow stuff if you don’t use them, just use the Anadonda-related environment variables and paths from your .bashrc.)&lt;/p&gt;
+
+&lt;p&gt;Then do&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;chmod &lt;/span&gt;755 /home/ubuntu/runjupyter.sh
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;vi /etc/rc.local
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;and add this at the bottom of the file&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/etc/su ubuntu &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;home/ubuntu/runjupyter.sh&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now, whenever I launch this instance, it automatically starts Jupyter running under my account, and I don’t even have to ssh into the server. And I don’t have to worry about something killing the Jupyter server which is running in the terminal.&lt;/p&gt;
+
+&lt;p&gt;Or search for “run jupyter at startup” and use one of the other methods. This one may be crude, but it works.&lt;/p&gt;
+
+&lt;p&gt;Enjoy awesome data science on AWS with Jupyter!&lt;/p&gt;
+
+&lt;p&gt;See also and bookmark&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jupyter.readthedocs.io/en/latest/&quot;&gt;Jupyter Docs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html&quot;&gt;Amazon EC2 Docs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://towardsdatascience.com/running-jupyter-notebook-in-google-cloud-platform-in-15-min-61e16da34d52&quot;&gt;Run Jupyter on Google Cloud&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Druce Vertes</name></author><category term="datascience" /><category term="devops" /><summary type="html">This is a tutorial on running Jupyter Notebook on an Amazon EC2 instance. It is based on a tutorial by Chris Albon, which did not work for me immediately (itself based on a tutorial by Piyush Agarwal). But I tweaked a few things and got it working.</summary></entry><entry><title type="html">What I Learned From Watching The Sting And Reading David Maurer</title><link href="http://0.0.0.0:4000/2018/08/what-i-learned-from-the-sting-and-david-maurer/" rel="alternate" type="text/html" title="What I Learned From Watching The Sting And Reading David Maurer" /><published>2018-08-25T04:49:59-04:00</published><updated>2018-08-25T04:49:59-04:00</updated><id>http://0.0.0.0:4000/2018/08/what-i-learned-from-the-sting-and-david-maurer</id><content type="html" xml:base="http://0.0.0.0:4000/2018/08/what-i-learned-from-the-sting-and-david-maurer/">&lt;blockquote&gt;
   &lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2018/08/MV5BZWNmODRmOTAtYTJhYi00NjllLTg3MTktNTBmZDZiNjJjZWVjXkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_.jpg&quot;&gt;&lt;img src=&quot;/assets/wp-content/uploads/2018/08/MV5BZWNmODRmOTAtYTJhYi00NjllLTg3MTktNTBmZDZiNjJjZWVjXkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_-198x300.jpg&quot; alt=&quot;&quot; width=&quot;198&quot; height=&quot;300&quot; class=&quot;alignright size-medium wp-image-6682&quot; srcset=&quot;/assets/wp-content/uploads/2018/08/MV5BZWNmODRmOTAtYTJhYi00NjllLTg3MTktNTBmZDZiNjJjZWVjXkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_-198x300.jpg 198w, /assets/wp-content/uploads/2018/08/MV5BZWNmODRmOTAtYTJhYi00NjllLTg3MTktNTBmZDZiNjJjZWVjXkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_.jpg 580w&quot; sizes=&quot;(max-width: 198px) 100vw, 198px&quot; /&gt;&lt;/a&gt; &lt;em&gt;Wall Street never changes, the pockets change, the suckers change, the stocks change, but Wall Street never changes, because human nature never changes. _ Jesse Livermore&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 

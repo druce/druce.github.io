@@ -1,6 +1,6 @@
 ---
 id: 4431
-title: Stories Are Powerful, But Check the Math
+title: Narratives Are Powerful, But Check the Math
 date: 2016-01-24T11:39:17+00:00
 author: Druce Vertes, CFA
 layout: post
@@ -8,16 +8,15 @@ guid: /?p=4431
 permalink: /2016/01/stories-are-powerful-but-check-the-math/
 post-views:
   - "5786"
-categories:
-  - Uncategorized
+categories: datascience
+tags: datascience
 ---
-_The first principle [of scientific inquiry] is that you must not fool yourself – and you are the easiest person to fool _ Richard Feynman_
+> _The first principle [of scientific inquiry] is that you must not fool yourself – and you are the easiest person to fool _ Richard Feynman_
+<!--more-->
 
-_In God we trust; all others must bring data. _ attributed to W. Edwards Deming (ironically without any primary source backing up the attribution)_
+> _In God we trust; all others must bring data. _ attributed to W. Edwards Deming (ironically without any primary source backing up the attribution)_
 
-This Amy Cuddy TED talk was electrifying.
-
-
+The Amy Cuddy TED talk was electrifying.
 
 Video spoiler: If you adopt a “power pose” for 2 minutes, Amy Cuddy says it will not only change your posture, image, and attitude, but even your body chemistry, with more production of testosterone and anti-stress hormones.
 

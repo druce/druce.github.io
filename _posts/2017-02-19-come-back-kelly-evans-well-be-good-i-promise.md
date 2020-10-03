@@ -12,8 +12,8 @@ post-views:
   - "4355"
 dsq_thread_id:
   - "5566230380"
-categories: socialmedia
-tags: socialmedia
+categories: social fintwit
+tags: social fintwit
 
 ---
 > *If we'd been born where they were born and taught what they were taught, we would believe what they believe. _ attributed to Abraham Lincoln.* A digressive rant on the rot in the financial Twittersphere in the Trump era.

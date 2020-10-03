@@ -8,8 +8,8 @@ guid: /?p=5430
 permalink: /2016/11/everyone-lives-in-a-bubble-and-all-models-are-overfitted/
 post-views:
   - "2974"
-categories: data
-tags: data quant
+categories: datascience
+tags: datascience
 
 ---
 > *I beseech you, in the bowels of Christ, think it possible you may be mistaken. - Oliver Cromwell*

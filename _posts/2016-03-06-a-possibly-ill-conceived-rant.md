@@ -1,6 +1,6 @@
 ---
 id: 4613
-title: A possibly ill-conceived rant
+title: A possibly ill-conceived rant on race in America
 date: 2016-03-06T10:24:05+00:00
 author: Druce Vertes, CFA
 layout: post
@@ -10,13 +10,13 @@ post-views:
   - "2806"
 medium_post:
   - 'O:11:"Medium_Post":11:{s:16:"author_image_url";s:68:"https://cdn-images-1.medium.com/fit/c/200/200/0*tLekueVp7unnAXxY.jpg";s:10:"author_url";s:25:"https://medium.com/@druce";s:11:"byline_name";N;s:12:"byline_email";N;s:10:"cross_link";s:2:"no";s:2:"id";s:11:"771a4b4212a";s:21:"follower_notification";s:3:"yes";s:7:"license";s:19:"all-rights-reserved";s:14:"publication_id";s:2:"-1";s:6:"status";s:6:"public";s:3:"url";s:67:"https://medium.com/@druce/a-possibly-ill-conceived-rant-771a4b4212a";}'
-categories:
-  - Uncategorized
+categories: politics
+tags: politics
 ---
-_There is no racial bigotry here. I do not look down on niggers, kikes, wops or greasers. Here, you are all equally worthless. _ [Gunnery Sergeant Francis Hartman](https://www.youtube.com/watch?v=3j3_iPskjxk)_
+> *There is no racial bigotry here. I do not look down on n\*\*\*\*\*\*s, kikes, wops or greasers. Here, you are all equally worthless. _ [Gunnery Sergeant Francis Hartman](https://www.youtube.com/watch?v=3j3_iPskjxk)*
 
-Against my better judgment, here’s a rant about race.  
 <!--more-->
+Against my better judgment, here’s a rant about race. 
 
 They say, on the Internet, no one knows you’re a dog…but here’s a controlled experiment: [list a bunch of things on Ebay](https://www.washingtonpost.com/news/wonk/wp/2015/12/11/whites-earn-more-than-blacks-even-on-ebay/), some with a black hand showing them off, and some with a white hand. The one with the white hand will get higher prices. 
 

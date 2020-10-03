@@ -8,11 +8,11 @@ guid: /?p=4165
 permalink: /2015/11/the-end-of-the-pc-on-intels-apple-and-arm-problems/
 post-views:
   - "6436"
-categories:
-  - Uncategorized
+categories: tech
+tags: tech
 ---
-[<img src="/assets/wp-content/uploads/2015/11/apple-iphone-6s-live-_0752.0-300x200.jpg" alt="apple-iphone-6s-live-_0752.0" width="300" height="200" class="alignright size-medium wp-image-4212" srcset="/assets/wp-content/uploads/2015/11/apple-iphone-6s-live-_0752.0-300x200.jpg 300w, /assets/wp-content/uploads/2015/11/apple-iphone-6s-live-_0752.0-1024x683.jpg 1024w, /assets/wp-content/uploads/2015/11/apple-iphone-6s-live-_0752.0.jpg 1320w" sizes="(max-width: 300px) 100vw, 300px" />](/assets/wp-content/uploads/2015/11/apple-iphone-6s-live-_0752.0.jpg)Tim Cook has been running around heralding [the end of the PC](http://www.telegraph.co.uk/technology/apple/11984806/Apples-Tim-Cook-declares-the-end-of-the-PC-and-hints-at-new-medical-product.html). A self-serving assessment, but Intel and the PC ecosystem are going to struggle to maintain their traditional relevance. In this post, I will look at 1) the narrowing Intel/ARM performance gap, and 2) what the ‘end of the PC’ might look like.
-
+> [<img src="/assets/wp-content/uploads/2015/11/apple-iphone-6s-live-_0752.0-300x200.jpg" alt="apple-iphone-6s-live-_0752.0" width="300" height="200" class="alignright size-medium wp-image-4212" srcset="/assets/wp-content/uploads/2015/11/apple-iphone-6s-live-_0752.0-300x200.jpg 300w, /assets/wp-content/uploads/2015/11/apple-iphone-6s-live-_0752.0-1024x683.jpg 1024w, /assets/wp-content/uploads/2015/11/apple-iphone-6s-live-_0752.0.jpg 1320w" sizes="(max-width: 300px) 100vw, 300px" />](/assets/wp-content/uploads/2015/11/apple-iphone-6s-live-_0752.0.jpg)Tim Cook has been running around heralding [the end of the PC](http://www.telegraph.co.uk/technology/apple/11984806/Apples-Tim-Cook-declares-the-end-of-the-PC-and-hints-at-new-medical-product.html). A self-serving assessment, but Intel and the PC ecosystem are going to struggle to maintain their traditional relevance. In this post, I will look at 1) the narrowing Intel/ARM performance gap, and 2) what the ‘end of the PC’ might look like.
+<!--more-->
 _1. The narrowing performance gap_
 
 At the introduction of the new iPhone 6s, Phil Schiller made the claim that the phone’s ARM-based SOC (system-on-chip) is [more powerful than chips powering 80% of laptops](http://www.macrumors.com/2015/09/09/hey-siri-event-live-coverage/)…in other words faster than the low-end Intel Atoms, Celerons, i3s, and on a par with the Intel’s bread-and-butter Core i5s which powers pricey MacBook Pros.

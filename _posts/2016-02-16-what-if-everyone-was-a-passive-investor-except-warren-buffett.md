@@ -8,10 +8,10 @@ guid: /?p=4523
 permalink: /2016/02/what-if-everyone-was-a-passive-investor-except-warren-buffett/
 post-views:
   - "5295"
-categories:
-  - Uncategorized
+categories: investing
+tags: investing
 ---
-_This is a slightly extended “director’s cut” of a [post written for CFA Institute Enterprising Investor](https://blogs.cfainstitute.org/investor/2016/02/02/active-investing-really-the-losers-game/)._
+> _This is a slightly extended “director’s cut” of a [post written for CFA Institute Enterprising Investor](https://blogs.cfainstitute.org/investor/2016/02/02/active-investing-really-the-losers-game/)._
 
 <!--more-->
 
