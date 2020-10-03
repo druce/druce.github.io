@@ -12,8 +12,8 @@ dsq_thread_id:
   - "5391020593"
 medium_post:
   - 'O:11:"Medium_Post":11:{s:16:"author_image_url";s:68:"https://cdn-images-1.medium.com/fit/c/200/200/0*tLekueVp7unnAXxY.jpg";s:10:"author_url";s:25:"https://medium.com/@druce";s:11:"byline_name";N;s:12:"byline_email";N;s:10:"cross_link";s:2:"no";s:2:"id";s:12:"1e334eca8aa2";s:21:"follower_notification";s:3:"yes";s:7:"license";s:19:"all-rights-reserved";s:14:"publication_id";s:2:"-1";s:6:"status";s:6:"public";s:3:"url";s:115:"https://medium.com/@druce/safe-retirement-spending-using-certainty-equivalent-cash-flow-and-tensorflow-1e334eca8aa2";}'
-categories: markets
-tags: markets retirement  
+categories: investing
+tags: investing
 
 ---
 > *[Certainty equivalent](http://www.investopedia.com/terms/c/certaintyequivalent.asp) value is the concept of applying a discount to a stream of cash flows based on how variable or risky the stream is…like the inverse function of the risk premium.*

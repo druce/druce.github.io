@@ -10,14 +10,14 @@ post-views:
   - "14362"
 dsq_thread_id:
   - "5392429957"
-categories:
-  - Uncategorized
+categories: fintwit
+tags: fintwit
 ---
+> It’s been a year since we posted our last list of people to follow on Twitter for financial news. Time for an update!
+<!--more-->
+
 <link rel="stylesheet" type="text/css" href="/assets/js/tablesorter-master/themes/blue/style.css" />
 
-  
-It’s been a year since we posted our last list of people to follow on Twitter for financial news. Time for an update!  
-<!--more-->
 
 We start with a [network centrality](https://en.wikipedia.org/wiki/Centrality) analysis, building a graph of who follows whom and finding the people with the largest number of most influential followers. Those are probably people who will play a big role in transmitting important news.
 

@@ -8,11 +8,11 @@ guid: /?p=4319
 permalink: /2015/12/the-most-popular-keywords-and-sites-of-2015/
 post-views:
   - "3288"
-categories:
-  - Uncategorized
+categories: fintwit
+tags: fintwit
 ---
-Here’s a word cloud of StreetEYE headlines in 2015 (click to embiggen).
-
+> Here’s a word cloud of StreetEYE headlines in 2015 (click to embiggen).
+<!--more-->
 [<img src="/assets/wp-content/uploads/2015/12/wordle-300x192.png" alt="word cloud" width="300" height="192" class="aligncenter size-medium wp-image-4320" srcset="/assets/wp-content/uploads/2015/12/wordle-300x192.png 300w, /assets/wp-content/uploads/2015/12/wordle.png 792w" sizes="(max-width: 300px) 100vw, 300px" />](/assets/wp-content/uploads/2015/12/wordle.png)
 
 Greece (remember Greece?) beat out China for the biggest headline-bait of the year. Tsipras even beat out Yellen, although Grexit ended up a non-event. (To my surprise actually…Sch&auml;uble and Varoufakis were both apparently playing for Grexit, so I thought it would take a miracle. The center held, but the political cost to Europhiles like Merkel, Hollande, Draghi, Renzi hasn’t been counted yet.)

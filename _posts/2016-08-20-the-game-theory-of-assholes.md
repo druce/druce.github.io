@@ -13,9 +13,10 @@ medium_post:
 categories: politics
 tags: politics
 ---
-*The reasonable man adapts himself to the world; the unreasonable one persists in trying to adapt the world to himself. Therefore, all progress depends on the unreasonable man. - George Bernard Shaw*
+> *The reasonable man adapts himself to the world; the unreasonable one persists in trying to adapt the world to himself. Therefore, all progress depends on the unreasonable man. - George Bernard Shaw*
 <!--more-->
-_I beseech you, in the bowels of Christ, think it possible you may be mistaken! _ Oliver Cromwell_
+
+> I beseech you, in the bowels of Christ, think it possible you may be mistaken! _ Oliver Cromwell_
 
 Nassim Nicholas Taleb has a pretty good piece on the [tyranny of the stubborn minority](https://medium.com/@nntaled/the-most-intolerant-wins-the-dictatorship-of-the-small-minority-3f1f83ce4e15).
 

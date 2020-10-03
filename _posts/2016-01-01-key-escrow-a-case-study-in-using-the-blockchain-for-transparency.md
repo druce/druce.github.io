@@ -8,13 +8,11 @@ guid: /?p=4338
 permalink: /2016/01/key-escrow-a-case-study-in-using-the-blockchain-for-transparency/
 post-views:
   - "2775"
-categories:
-  - Uncategorized
+categories: tech
+tags: tech infosec blockchain
 ---
-So, the security complex is putting on the full court PR press for encryption back doors. See [here](http://www.thedailybeast.com/articles/2015/12/28/manhattan-da-smartphone-encryption-foiled-120-criminal-cases.html) and [here](http://www.wsj.com/articles/fbi-seeks-to-reframe-encryption-debate-1451417252).
-
-Basically this is about giving someone a [TSA lock](https://theintercept.com/2015/09/17/tsa-doesnt-really-care-luggage-locks-hacked/) to your phone and promising to keep it really really safe unless a legit law enforcement request is received. Of course, legitimacy is [in the eye of the beholder](https://theintercept.com/2015/12/30/spying-on-congress-and-israel-nsa-cheerleaders-discover-value-of-privacy-only-when-their-own-is-violated/).
-
+> The national security complex is putting on the full court PR press for encryption back doors. See [here](http://www.thedailybeast.com/articles/2015/12/28/manhattan-da-smartphone-encryption-foiled-120-criminal-cases.html) and [here](http://www.wsj.com/articles/fbi-seeks-to-reframe-encryption-debate-1451417252). Basically this is about giving someone a [TSA lock](https://theintercept.com/2015/09/17/tsa-doesnt-really-care-luggage-locks-hacked/) to your phone and promising to keep it really really safe unless a legit law enforcement request is received. Of course, legitimacy is [in the eye of the beholder](https://theintercept.com/2015/12/30/spying-on-congress-and-israel-nsa-cheerleaders-discover-value-of-privacy-only-when-their-own-is-violated/).
+<!--more-->
 One place where the real-world analogy breaks down is that any backdoor, in theory, enables industrial-scale exploitation. Potentially, it’s not just making it possible to open a car trunk that contains a body but more like requiring cars made out of material that’s transparent to the state. And then counting on due process to make it not infringe on the 4th Amendment and freedom from constant state surveillance.
 
 The problem is, the folks at the NSA, CIA, DIA are in the deception business, and feel they have a moral imperative that demands deceiving the enemy, which in turn demands deceiving [(lying to)](http://thehill.com/policy/technology/241508-spy-head-had-absolutely-forgotten-about-nsa-program) the public.

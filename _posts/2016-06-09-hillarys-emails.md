@@ -8,12 +8,12 @@ guid: /?p=4709
 permalink: /2016/06/hillarys-emails/
 post-views:
   - "2594"
-categories:
-  - Uncategorized
+categories: politics
+tags: politics
 ---
-_The soldier who loses his rifle faces harsher punishment than the general who loses the war. &#8212; Anonymous soldier_
-
-So, I was reading [this](https://medium.com/soapbox-dc/12-red-flags-in-clintons-email-setup-da8966760f7d#.uak0y4cqq), by Kristy Culpepper. She’s smart, you should [follow her](http://twitter.com/munilass). I agree with some of it but ultimately I think it’s off base from a tech / security / policy standpoint, like most of the furor on this issue.  
+> *The soldier who loses his rifle faces harsher punishment than the general who loses the war. &#8212; Anonymous soldier*
+<!--more-->
+So, I was reading [this](https://medium.com/soapbox-dc/12-red-flags-in-clintons-email-setup-da8966760f7d#.uak0y4cqq), by Kristy Culpepper. She’s smart, you should [follow her](http://twitter.com/munilass). I agree with some of it but ultimately I think it’s off base from a tech / security / policy standpoint, like most of the furor on this issue.
 <!--more-->
 
 I had a past life as CTO of the kind of hedge fund that’s barely big enough to need a CTO. So I had to be responsible for email servers, the whole kit and caboodle, spam and malware filtering, BlackBerries, backups, retention policies, compliance, disaster recovery, responses to regulatory requests. 

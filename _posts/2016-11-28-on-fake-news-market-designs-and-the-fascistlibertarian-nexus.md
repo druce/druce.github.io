@@ -10,8 +10,8 @@ post-views:
   - "3043"
 dsq_thread_id:
   - "5391568693"
-categories:
-  - politics
+categories: politics
+tags: politics
 ---
 > *Arbitrary power is most easily established on the ruins of liberty abused to licentiousness. - George Washington.*
 

@@ -12,8 +12,8 @@ post-views:
   - "6143"
 dsq_thread_id:
   - "5799522131"
-categories: tech
-tags: tech
+categories: fintwit
+tags: fintwit
 
 ---
   

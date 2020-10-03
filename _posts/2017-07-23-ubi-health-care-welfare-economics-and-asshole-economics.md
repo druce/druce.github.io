@@ -12,8 +12,8 @@ post-views:
   - "2891"
 dsq_thread_id:
   - "6011608586"
-categories: economy
-tags: economy
+categories: economics
+tags: economics
 
 ---
 
