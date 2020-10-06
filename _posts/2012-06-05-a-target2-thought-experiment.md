@@ -11,16 +11,16 @@ post-views:
 dsq_thread_id:
   - "715379915"
 categories:
-  - Uncategorized
+  - economics
+  - euro
+tags:
+  - economics
+  - euro
 ---
-Suppose a Greek shipping magnate decides he’s not comfortable keeping his wealth in Greece, and decides to buy some nice real estate in Berlin. (As if most of the Greek wealthy hadn’t removed as much as possible to Germany, the US and UK long ago.) He writes a check for &euro;1m on his Greek bank to the buyer, who deposits it at Deutsche Bank. To settle the check, the Greek bank wires the funds from its reserve account at the Greek central bank, the Bank of Greece. The Bank of Greece instructs the Bundesbank to credit Deutsche Bank’s reserve account at the Bundesbank. Then the Bundesbank is owed &euro;1m by the ECB, and the Bank of Greece owes &euro;1m under the Target2 system (corrected).
-
-There has been a lot of [controversy](http://economicsintelligence.com/2012/03/15/the-bundesbank-and-target2-the-about-face-that-wasnt/) about this process, and the notion that Germany will get stuck with massive losses if, following massive capital flight now in progress to Germany, the peripheral countries leave the euro.
-
-A thought experiment:  
+> *There has been a lot of [controversy](http://economicsintelligence.com/2012/03/15/the-bundesbank-and-target2-the-about-face-that-wasnt/) about this process, and the notion that Germany will get stuck with massive losses if, following massive capital flight now in progress to Germany, the peripheral countries leave the euro.*
 <!--more-->
+Suppose a Greek shipping magnate decides he’s not comfortable keeping his wealth in Greece, and decides to buy some nice real estate in Berlin. (As if most of the Greek wealthy hadn’t removed as much as possible to Germany, the US and UK long ago.) He writes a check for &euro;1m on his Greek bank to the buyer, who deposits it at Deutsche Bank. To settle the check, the Greek bank wires the funds from its reserve account at the Greek central bank, the Bank of Greece. The Bank of Greece instructs the Bundesbank to credit Deutsche Bank’s reserve account at the Bundesbank. Then the Bundesbank is owed &euro;1m by the ECB, and the Bank of Greece owes &euro;1m under the Target2 system.
 
-  
 Suppose that on the day after the euro’s establishment, there had been a massive bank run in Greece. On day 1, the euro is established, and all drachma accounts are redenominated in euros. On day 2, everyone in Greece realizes this will never work, and rushes to put all their euros in Germany. After &euro;500b flood German banks, Greece somehow departs the euro and re-introduces the drachma. 
 
 Does Greece owe Germany &euro;500b under that scenario, for the privilege of reintroducing its own currency? Nothing happened in the real economy to justify that. No goods or assets flowed to Greece. What effectively happened is the same as if the ECB did &euro;500b of quantitative easing in Germany, buying assets there, and draining a similar quantity of assets from Greece. Greece didn’t receive anything in the bargain. They are even. The ECB is even<sup>1</sup>. They just issued more euros in a smaller currency zone than they expected. Why would Greece have to buy back every euro that was issued in Greece? They weren’t a loan from the ECB.

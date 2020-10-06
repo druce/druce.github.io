@@ -11,10 +11,12 @@ post-views:
 dsq_thread_id:
   - "585946451"
 categories:
-  - Uncategorized
+  - tech
+tags:
+  - tech
 ---
-Finally got around to reading the Steve Jobs bio by Walter Isaacson. It’s must read for anyone involved in the tech business. Some slightly less charitable takes: [John Gruber](http://daringfireball.net/2012/02/walter_isaacson_steve_jobs) is all [I Am Disappoint](http://qkme.me/369mz1) there aren’t more insights into the products and strategy. Self-described underemployed writer Maureen Tkacik notes that [Jobs was a Machiavellian liar, exploiter, and control freak](http://blogs.reuters.com/great-debate/2012/02/22/the-book-of-steve-jobs-apple).
-
+> *Finally got around to reading the Steve Jobs bio by Walter Isaacson. It’s must read for anyone involved in the tech business. Some slightly less charitable takes: [John Gruber](http://daringfireball.net/2012/02/walter_isaacson_steve_jobs) is all [I Am Disappoint](http://qkme.me/369mz1) there aren’t more insights into the products and strategy. Self-described underemployed writer Maureen Tkacik notes that [Jobs was a Machiavellian liar, exploiter, and control freak](http://blogs.reuters.com/great-debate/2012/02/22/the-book-of-steve-jobs-apple).*
+<!--more-->
 There’s truth to both of those, but the book is a rollicking good read and creditable first draft of history, with some good details about the creation of the iPad, iPhone, iPod. So if that’s the sort of thing you’re into, you’ll be into this.
 
 Jobs could have picked a lot of other people, but he picked Isaacson, a non-tech, non-business writer. Maybe he wanted someone to just tell the story, not the strategy or product vision.
@@ -24,8 +26,6 @@ Isaacson not only doesn’t know the technology or the tech business, but I didn
 Maybe Jobs picked the wrong guy. Maybe Jobs ended up running out of time to give a real memoir and insights into all dimensions of his legacy.
 
 Or maybe Jobs was a control freak and just didn’t want to give them. He wanted to get everyone to read a somewhat shallow but presumptively authoritative treatment, sucking all the air out of the market for books about him.  
-<!--more-->
-
   
 Parallels to Bill Gates I thought were interesting: 
 

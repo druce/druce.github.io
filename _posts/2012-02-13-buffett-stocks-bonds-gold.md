@@ -11,9 +11,11 @@ post-views:
 dsq_thread_id:
   - "574725812"
 categories:
-  - Uncategorized
+  - investing
+tags:
+  - investing
 ---
-Warren Buffett contributed a [Fortune article](http://finance.fortune.cnn.com/2012/02/09/warren-buffett-berkshire-shareholder-letter/?section=money_topstories&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fmoney_topstories+(Top+Stories)) with his customary paean to the virtues of stocks over the long term. There is some worthy discussion from [John Hempton](http://brontecapital.blogspot.com/2012/02/stocks-you-can-fondle-them-and-they.html) and the pseudonymous [Kid Dynamite](http://kiddynamitesworld.com/buffett-waxes-poetic-on-gold-and-other-asset-classes/).  
+> *Warren Buffett contributed a [Fortune article](http://finance.fortune.cnn.com/2012/02/09/warren-buffett-berkshire-shareholder-letter/?section=money_topstories&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fmoney_topstories+(Top+Stories)) with his customary paean to the virtues of stocks over the long term. There is some worthy discussion from [John Hempton](http://brontecapital.blogspot.com/2012/02/stocks-you-can-fondle-them-and-they.html) and the pseudonymous [Kid Dynamite](http://kiddynamitesworld.com/buffett-waxes-poetic-on-gold-and-other-asset-classes/).*
 <!--more-->
 
   

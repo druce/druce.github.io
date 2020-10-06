@@ -11,9 +11,13 @@ post-views:
 dsq_thread_id:
   - "544604923"
 categories:
-  - Uncategorized
+  - investing
+  - datascience
+tags:
+  - investing
+  - datascience
 ---
-> If you want to frustrate someone for a day, give them a program. If you want to frustrate them for a lifetime, teach them how to program.
+> *If you want to frustrate someone for a day, give them a program. If you want to frustrate them for a lifetime, teach them how to program.*
 
 <!--more-->
 A brief overview of how to use R to generate the analysis and plots in the most recent post, [Gold as Part of a Long-Run Asset Allocation](/2012/01/gold-as-part-of-long-run-asset-allocation/), using R, and code shared at [Systematic Investor](http://systematicinvestor.wordpress.com/ "Systematic Investor").  

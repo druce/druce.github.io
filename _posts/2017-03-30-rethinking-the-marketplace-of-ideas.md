@@ -16,7 +16,7 @@ categories: social
 tags: social
 
 ---
-> I was recently listening to Fred Wilson and Howard Lindzon talk about, among others, news sources and curation, which is a topic dear to my heart. (Which I wrote about before [here](/2016/11/on-fake-news-market-designs-and-the-fascistlibertarian-nexus/) and [here](/2017/02/come-back-kelly-evans-well-be-good-i-promise/)).
+> *I was recently listening to Fred Wilson and Howard Lindzon talk about, among others, news sources and curation, which is a topic dear to my heart. (Which I wrote about before [here](/2016/11/on-fake-news-market-designs-and-the-fascistlibertarian-nexus/) and [here](/2017/02/come-back-kelly-evans-well-be-good-i-promise/)).*
 
 <!--more-->
 

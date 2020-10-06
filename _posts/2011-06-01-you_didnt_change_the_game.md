@@ -13,18 +13,8 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-<div class="zemanta-img mt-image-right" style="display: block; float: right; width: 310px; margin: 1em;">
-  <p>
-    <a href="http://en.wikipedia.org/wiki/File:Grand_Theft_Auto_IV_gameplay.jpg"><img src="http://upload.wikimedia.org/wikipedia/en/thumb/3/32/Grand_Theft_Auto_IV_gameplay.jpg/300px-Grand_Theft_Auto_IV_gameplay.jpg" alt="Combat in Grand Theft Auto IV has been reworke..." width="300" height="169" /></a>
-  </p>
-  
-  <p class="zemanta-img-attribution" style="font-size: 0.8em;">
-    Image via <a href="http://en.wikipedia.org/wiki/File:Grand_Theft_Auto_IV_gameplay.jpg">Wikipedia</a>
-  </p>
-</div>
-
-_You didn’t change the game, the game changed you. _ Niko Bellic, Grand Theft Auto IV_
-
+> *<img src="/assets/2020/300px-Grand_Theft_Auto_IV_gameplay.jpg" alt="Combat in Grand Theft Auto IV has been reworke..." width="300" height="169" /> You didn’t change the game, the game changed you. Niko Bellic, Grand Theft Auto IV*
+<!--more-->
 _Everything that’s already in the world when you’re born is just normal; Anything that gets invented between then and before you turn thirty is incredibly exciting and creative and with any luck you can make a career out of it; Anything that gets invented after you’re thirty is against the natural order of things and the beginning of the end of civilisation as we know it until it’s been around for about ten years when it gradually turns out to be alright really. _ Douglas Adams_
 
 So here is my rant about CDS, a topic I know very little about.

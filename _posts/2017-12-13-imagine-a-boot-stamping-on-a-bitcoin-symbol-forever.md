@@ -17,7 +17,7 @@ tags: bitcoin blockchain
 
 ---
 
-> <a href="/assets/wp-content/uploads/2017/12/DQc3aOeUQAIASEj.jpg"><img class="size-medium wp-image-6324" src="/assets/wp-content/uploads/2017/12/DQc3aOeUQAIASEj-300x152.jpg" alt="" width="300" height="152" srcset="/assets/wp-content/uploads/2017/12/DQc3aOeUQAIASEj-300x152.jpg 300w, /assets/wp-content/uploads/2017/12/DQc3aOeUQAIASEj-768x390.jpg 768w, /assets/wp-content/uploads/2017/12/DQc3aOeUQAIASEj-1024x520.jpg 1024w, /assets/wp-content/uploads/2017/12/DQc3aOeUQAIASEj.jpg 1075w" sizes="(max-width: 300px) 100vw, 300px" /></a><p class="wp-caption-text">Bitcoin inventor Satoshi Nakamura closely monitors the launch of Bitcoin futures (photo via @vexmark)</p>
+> *<a href="/assets/wp-content/uploads/2017/12/DQc3aOeUQAIASEj.jpg"><img class="size-medium wp-image-6324" src="/assets/wp-content/uploads/2017/12/DQc3aOeUQAIASEj-300x152.jpg" alt="" width="300" height="152" srcset="/assets/wp-content/uploads/2017/12/DQc3aOeUQAIASEj-300x152.jpg 300w, /assets/wp-content/uploads/2017/12/DQc3aOeUQAIASEj-768x390.jpg 768w, /assets/wp-content/uploads/2017/12/DQc3aOeUQAIASEj-1024x520.jpg 1024w, /assets/wp-content/uploads/2017/12/DQc3aOeUQAIASEj.jpg 1075w" sizes="(max-width: 300px) 100vw, 300px" /></a> Bitcoin inventor Satoshi Nakamura closely monitors the launch of Bitcoin futures (photo via @vexmark)*
 
 <!--more-->
 

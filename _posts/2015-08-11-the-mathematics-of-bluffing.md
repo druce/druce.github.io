@@ -11,7 +11,7 @@ post-views:
 categories: poker
 tags: poker
 ---
-> A quick post about poker! That seemingly simple, deceptively complex game with a number of interesting [parallels to investing](/2013/08/risk-arbitrage-investing-and-poker/). I just watched the [MIT lectures on ‘Poker Theory and Analytics,’](http://ocw.mit.edu/courses/sloan-school-of-management/15-s50-poker-theory-and-analytics-january-iap-2015/index.htm) an ‘Independent Activities Period’ mini-course, and for our mutual amusement, I worked through the math on bluffing, which is an interesting problem I had never done the full deep dive into. Here it is, including a [Mathematica notebook](/blog/HTMLFiles/poker.nb).
+> *A quick post about poker! That seemingly simple, deceptively complex game with a number of interesting [parallels to investing](/2013/08/risk-arbitrage-investing-and-poker/). I just watched the [MIT lectures on ‘Poker Theory and Analytics,’](http://ocw.mit.edu/courses/sloan-school-of-management/15-s50-poker-theory-and-analytics-january-iap-2015/index.htm) an ‘Independent Activities Period’ mini-course, and for our mutual amusement, I worked through the math on bluffing, which is an interesting problem I had never done the full deep dive into. Here it is, including a [Mathematica notebook](/blog/HTMLFiles/poker.nb).*
 <!--more-->
 Here’s how we set up a pure bluffing scenario:
 

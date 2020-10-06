@@ -11,7 +11,7 @@ post-views:
 categories: economics
 tags: economics
 ---
-> There’s this notion going around that since the Fed buying Treasurys was QE, therefore China selling Treasurys constitutes monetary tightening. Nope. The root cause of the disequilibrium and resulting capital flows is capital flight from China to the US. 
+> *There’s this notion going around that since the Fed buying Treasurys was QE, therefore China selling Treasurys constitutes monetary tightening. Nope. The root cause of the disequilibrium and resulting capital flows is capital flight from China to the US.*
 <!--more-->
 An oligarch wants to buy a condo in New York. He takes yuan to the Chinese central bank and exchanges them for USD. In order to provide the dollars, the Chinese central bank sells some Treasurys.
 

@@ -11,9 +11,11 @@ post-views:
 dsq_thread_id:
   - "669491132"
 categories:
-  - Uncategorized
+  - tech
+tags:
+  - tech
 ---
-Nick Bilton points to the [lack of revenue at startups as signs of a bubble](http://bits.blogs.nytimes.com/2012/04/29/disruptions-with-no-revenue-an-illusion-of-value/). 
+> *Nick Bilton points to the [lack of revenue at startups as signs of a bubble](http://bits.blogs.nytimes.com/2012/04/29/disruptions-with-no-revenue-an-illusion-of-value/).*
 
 Now, I’m not going to say that things don’t look a little bubbleicious right now, with $1b valuations and [acquisitions of tiny startups with no revenue](http://venturebeat.com/2012/04/26/facebook-paranoia/).
 

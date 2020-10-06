@@ -11,14 +11,17 @@ post-views:
 dsq_thread_id:
   - "1000486302"
 categories:
-  - Uncategorized
+  - social
+tags:
+  - social
 ---
-I didn’t really post as much as I would have liked this year. I envy people whose thoughts come out in a more or less coherent, finished form. When I post something, I always think of what I really wanted to say after hitting ‘publish’.
+> I didn’t really post as much as I would have liked this year.
+<!--more-->
+I envy people whose thoughts come out in a more or less coherent, finished form. When I post something, I always think of what I really wanted to say after hitting ‘publish’.
 
 Today, I’m going to just try to write for an hour and post what comes out, hopefully resisting the temptation to ninja-edit.
 
 My buddy [Josh](http://www.thereformedbroker.com/) does a post with quotes where a bunch of people say what they learned over the last year. So what did I learn?  
-<!--more-->
 
   
 _Startups are hard._ Saw VC [Ben Horowitz](http://bhorowitz.com/) talk a couple of times. [This](http://www.youtube.com/watch?v=1GTbAI_2yh4) was the gist of one of his talks, I recommend it for anyone in startup land. What stuck with me was what he said about meeting Michael Jackson and mentioning how outrageous one of his moves in The Wiz was. MJ replied, it was harder than it looked, he had to do that going uphill! The point is, whenever you see someone excelling on stage, at the World Series, in Olympic gymnastics, they make it look easier than it is. When you have to do something new and worthwhile, however hard it looked before you started, you discover new layers of difficulty you didn’t know existed. Doing what your teacher showed you how to do is a linear or maybe polynomial problem. Doing something new and figuring it out as you go along is highly nonlinear, or non-polynomial. Until you figure it out, and it’s old hat and you wonder why it seemed so hard.

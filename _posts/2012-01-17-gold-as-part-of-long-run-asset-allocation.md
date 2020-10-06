@@ -11,10 +11,13 @@ post-views:
 dsq_thread_id:
   - "542935009"
 categories:
-  - Uncategorized
+  - investing
+tags:
+  - investing
 ---
-What does an efficient long-run portfolio look like for major US asset classes, and where does gold fit in?
+> *What does an efficient long-run portfolio look like for major US asset classes, and where does gold fit in?*
 
+<!--more-->
 Let’s take US annual stock, bond, T-bill, and gold returns for 1928-2010, and subtract CPI inflation to get real returns.
 
 <table>

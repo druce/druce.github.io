@@ -11,16 +11,17 @@ post-views:
 dsq_thread_id:
   - "591155816"
 categories:
-  - Uncategorized
+  - social
+tags:
+  - social
 ---
-_The History of every major Galactic Civilization tends to pass through three distinct and recognizable phases, those of Survival, Inquiry and Sophistication, otherwise known as the How, Why, and Where phases. For instance, the first phase is characterized by the question ‘How can we eat?’ the second by the question ‘Why do we eat?’ and the third by the question ‘Where shall we have lunch?” _ Douglas Adams_ 
-
+> *The History of every major Galactic Civilization tends to pass through three distinct and recognizable phases, those of Survival, Inquiry and Sophistication, otherwise known as the How, Why, and Where phases. For instance, the first phase is characterized by the question ‘How can we eat?’ the second by the question ‘Why do we eat?’ and the third by the question ‘Where shall we have lunch?” Douglas Adams*
+<!--more-->
 A complete and well balanced information diet is a must for market survival. I talk to investors and Wall Street pros who are vaguely aware that social networking is changing the information ecosystem and the investment food chain, but aren’t sure where to start. They go to Twitter and open an account and ask, “What’s the big deal? Now what?”
 
 The beauty is, you can build an incredible real-time customized information filter from social network tools and their Web 2.0 predecessors like blogs, but it takes a little bit of work. 
 
 So this post is meant as a primer for those who might still be on a mostly paleolithic diet of mainstream market news services. If you’re already plugged into a great information firehose, you might pick up a best practice or two, and I’d love to hear yours in comments.  
-<!--more-->
 
   
 Here is how I get my recommended daily allowance:

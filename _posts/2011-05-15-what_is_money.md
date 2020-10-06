@@ -13,13 +13,7 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-<div class="zemanta-img mt-image-right" style="margin-top: 1em; margin-right: 1em; margin-bottom: 1em; margin-left: 1em; display: block; float: right; width: 136px; ">
-  <a href="http://www.last.fm/music/Plato"><img src="http://userserve-ak.last.fm/serve/126/42987141.jpg" alt="Plato" /></a></p> 
-  
-  <p class="zemanta-img-attribution" style="font-size:0.8em">
-    Cover of <a href="http://www.last.fm/music/Plato">Plato</a>
-  </p>
-</div>
+<img src="/assets/2020/plato.png" alt="Plato" />
 
 _As far as the laws of mathematics refer to reality, they are not certain, as far as they are certain, they do not refer to reality. _ Albert Einstein_
 

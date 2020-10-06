@@ -11,18 +11,19 @@ post-views:
 dsq_thread_id:
   - "692077726"
 categories:
-  - Uncategorized
+  - economics
+  - euro
+tags:
+  - economics
+  - euro
 ---
-_“The crisis takes a much longer time coming than you think and then it happens much faster than you would have thought.” _ Rudiger Dornbusch._
-
+> *“The crisis takes a much longer time coming than you think and then it happens much faster than you would have thought.” Rudiger Dornbusch.*
+<!--more-->
 Greece is at the moment of truth.
 
   * There is no longer a functioning government.
   * The ability to continue austerity is in doubt, and with it the ability to meet the conditions which the EU has set in exchange for funding the balance of payments.
   * Numerous commentators have openly questioned whether Greece can stay in the euro.
-
-<!--more-->
-
   
 Once there is substantial doubt about remaining in the euro, it’s game over very quickly. Every spare euro gets moved from Greek banks to German banks, as depositors fear waking up to find their money forcibly converted to drachma at an unfavorable rate. The Greek banks then have to rely on the Greek central bank for emergency funding. The Greek central bank can only provide it to them by getting credit from the ECB system. (Although I’ve wondered what controls are in place to prevent the Greeks from printing up a few extra notes at their national printer.) 
 
