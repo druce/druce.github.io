@@ -17,7 +17,7 @@ tags: economics
 
 ---
 
-> People sometimes ask me what I think about [Universal Basic Income](https://en.wikipedia.org/wiki/Basic_income) (UBI).
+> *People sometimes ask me what I think about [Universal Basic Income](https://en.wikipedia.org/wiki/Basic_income) (UBI).*
 
 <!--more-->
 

@@ -11,12 +11,14 @@ post-views:
 dsq_thread_id:
   - "802512152"
 categories:
-  - Uncategorized
+  - economics
+tags:
+  - economics
 ---
-[The Paul Ryan plan](http://roadmap.republicans.budget.house.gov/issues/issue/?IssueID=8514 "house.gov") _‘Promotes saving by eliminating taxes on interest, capital gains, and dividends; also eliminates the death tax.’_ 
-
+> *[The Paul Ryan plan](http://roadmap.republicans.budget.house.gov/issues/issue/?IssueID=8514 "house.gov") ‘Promotes saving by eliminating taxes on interest, capital gains, and dividends; also eliminates the death tax.’*
+<!--more-->
 So people like Mitt Romney, and all his heirs in perpetuity, would never pay another dime in income tax. How sweet is that? How fair is that?
 
 It’s shocking that in this day and age, someone could make such a proposal, and be considered a serious person and politician.
 
-The GOP has come an awful long way from its founder, who said, _“Capital is only the fruit of labor, and could never have existed if labor had not first existed. Labor is the superior of capital, and deserves much the higher consideration.”_ _ Abraham Lincoln
+The GOP has come an awful long way from its founder, who said, “Capital is only the fruit of labor, and could never have existed if labor had not first existed. Labor is the superior of capital, and deserves much the higher consideration.” Abraham Lincoln

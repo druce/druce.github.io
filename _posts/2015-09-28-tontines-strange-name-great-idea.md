@@ -11,7 +11,7 @@ post-views:
 categories: investing
 tags: investing
 ---
-> A hard problem in retirement planning is a safe spending rate, so you don’t outlive your money.
+> *A hard problem in retirement planning is a safe spending rate, so you don’t outlive your money.*
 <!--more-->
 One side of the problem is, how much can you spend and not risk running out of funds in say, a 25-year retirement? See, for instance, our [Cat Food Calculator](http://blog.streeteye.com/calculator/) mad science experiment. One can even calculate a spending solution which maximizes your [certainty-equivalent spending](/2014/01/retirement-plans-that-maximize-certainty-equivalent-spending-part-3/) based on historical returns, and your risk tolerance.
 

@@ -13,13 +13,8 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-<div class="zemanta-img mt-image-right" style="margin-top: 1em; margin-right: 1em; margin-bottom: 1em; margin-left: 1em; display: block; float: right; width: 310px; ">
-  <a href="http://commons.wikipedia.org/wiki/File:Black_Swan_Flapping.jpg"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Black_Swan_Flapping.jpg/300px-Black_Swan_Flapping.jpg" alt="Black Swan, Lake Monger, 2010." width="300" height="198" /></a></p> 
+  <a href="http://commons.wikipedia.org/wiki/File:Black_Swan_Flapping.jpg"><img src="/assets/2020/300px-Black_Swan_Flapping.jpg" alt="Black Swan, Lake Monger, 2010." width="300" height="198" /></a>
   
-  <p class="zemanta-img-attribution" style="font-size:0.8em">
-    Image via <a href="http://commons.wikipedia.org/wiki/File:Black_Swan_Flapping.jpg">Wikipedia</a>
-  </p>
-</div>
 
 ‘Black swan’ is a term which is overused and under-understood.
 

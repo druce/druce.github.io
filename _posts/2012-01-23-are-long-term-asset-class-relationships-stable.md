@@ -11,13 +11,12 @@ post-views:
 dsq_thread_id:
   - "550160363"
 categories:
-  - Uncategorized
+  - investing
+tags:
+  - investing
 ---
-[Last week](/2012/01/gold-as-part-of-long-run-asset-allocation/), we looked at gold as part of a long-term asset allocation.
-
-I was curious about how stable those relationships would be over time, so I ran the same plots, starting from different inflection points.  
+> *[Last week](/2012/01/gold-as-part-of-long-run-asset-allocation/), we looked at gold as part of a long-term asset allocation. I was curious about how stable those relationships would be over time, so I ran the same plots, starting from different inflection points.*
 <!--more-->
-
   
 **Original analysis: 1928-2010:**  
 [<img src="/assets/wp-content/uploads/2012/01/efrontier.png" alt="Efficient frontier, 1928-2010" title="Efficient frontier, 1928-2010" width="480" height="360" class="size-full wp-image-963" />](/assets/wp-content/uploads/2012/01/efrontier.png)[<img src="/assets/wp-content/uploads/2012/01/transition.png" alt="Transition map, 1928-2010" title="Transition map, 1928-2010" width="480" height="360" class="size-full wp-image-964" />](/assets/wp-content/uploads/2012/01/transition.png)

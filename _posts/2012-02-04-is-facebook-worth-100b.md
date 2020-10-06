@@ -11,9 +11,13 @@ post-views:
 dsq_thread_id:
   - "564299168"
 categories:
-  - Uncategorized
+  - tech
+  - social
+tags:
+  - tech
+  - social
 ---
-Since everyone else is playing the Facebook valuation parlor game, here is a stab at it.  
+> *Since everyone else is playing the Facebook valuation parlor game, here is a stab at it.*
 <!--more-->
 
   

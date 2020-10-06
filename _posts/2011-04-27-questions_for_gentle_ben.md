@@ -13,11 +13,7 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-<div class="zemanta-img mt-image-right" style="margin-top: 1em; margin-right: 1em; margin-bottom: 1em; margin-left: 1em; display: block; float: right; width: 310px; ">
-  <a href="http://commons.wikipedia.org/wiki/File:Ben_Bernanke_official_portrait.jpg"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Ben_Bernanke_official_portrait.jpg/300px-Ben_Bernanke_official_portrait.jpg" alt="Official portrait of Federal Reserve Chairman ..." width="300" height="375" /></a></p> 
-  
-  <p class="zemanta-img-attribution" style="font-size:0.8em">
-    Image via <a href="http://commons.wikipedia.org/wiki/File:Ben_Bernanke_official_portrait.jpg">Wikipedia</a></div> 
+  <img src="/assets/2020/300px-Ben_Bernanke_official_portrait.jpg" alt="Official portrait of Federal Reserve Chairman ..." width="300" height="375" />
     
     <p>
       A question for Ben Bernanke at today’s press conference:

@@ -17,7 +17,7 @@ tags: tech
 
 ---
 
-> About once a year I’ll post the <a href="https://www.valuewalk.com/2017/05/people-to-follow-financial-news-twitter-may-2017/">top Twitter accounts to follow</a>. It’s a fun piece of social media analytics, and I’ll try to do it again later this year, after seeing if I can sidestep <a href="https://www.theverge.com/2018/5/16/17362138/twitter-api-third-party-apps-changes-explained">Twitter’s efforts to cut me off</a>.
+> *About once a year I’ll post the <a href="https://www.valuewalk.com/2017/05/people-to-follow-financial-news-twitter-may-2017/">top Twitter accounts to follow</a>. It’s a fun piece of social media analytics, and I’ll try to do it again later this year, after seeing if I can sidestep <a href="https://www.theverge.com/2018/5/16/17362138/twitter-api-third-party-apps-changes-explained">Twitter’s efforts to cut me off</a>.*
       
 <!--more-->
 

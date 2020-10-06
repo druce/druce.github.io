@@ -11,18 +11,12 @@ post-views:
 dsq_thread_id:
   - "597369148"
 categories:
-  - Uncategorized
+  - economics
+tags:
+  - economics
 ---
-<div style="width: 310px" class="wp-caption alignright">
-  <a href="http://commons.wikipedia.org/wiki/File:Irving_fisher.jpg" target="_blank"><img class="zemanta-img-inserted zemanta-img-configured" title="Irving Fisher (1867–1947)" src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Irving_fisher.jpg/300px-Irving_fisher.jpg" alt="Irving Fisher (1867–1947)" width="300" height="408" /></a>
-  
-  <p class="wp-caption-text">
-    Image via Wikipedia
-  </p>
-</div>
-
-[Irving Fisher](http://en.wikipedia.org/wiki/Irving_Fisher) is mostly remembered, a bit unfortunately, for writing that stock prices were at a permanently high plateau…right before the Great Crash of 1929. He also invented the Rolodex, pioneered early economic statistics-gathering, wrote of the Fisher money equation PY=MV and the Fisher debt-deflation cycle. (See Sylvia Nasar’s [Grand Pursuit](http://www.amazon.com/Grand-Pursuit-Story-Economic-Genius/dp/1442340142) _ interesting but wouldn’t consider it must-read.)
-
+>*<a href="http://commons.wikipedia.org/wiki/File:Irving_fisher.jpg" target="_blank"><img class="zemanta-img-inserted zemanta-img-configured" title="Irving Fisher (1867–1947)" src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Irving_fisher.jpg/300px-Irving_fisher.jpg" alt="Irving Fisher (1867–1947)" width="300" height="408" /></a> [Irving Fisher](http://en.wikipedia.org/wiki/Irving_Fisher) is mostly remembered, a bit unfortunately, for writing that stock prices were at a permanently high plateau…right before the Great Crash of 1929. He also invented the Rolodex, pioneered early economic statistics-gathering, wrote of the Fisher money equation PY=MV and the Fisher debt-deflation cycle. (See Sylvia Nasar’s [Grand Pursuit](http://www.amazon.com/Grand-Pursuit-Story-Economic-Genius/dp/1442340142) - interesting but wouldn’t consider it must-read.)*
+<!--more-->
 For a while, he paid his employees in real wages. When his statistics showed the cost of living went up, their wages went up automatically. This made them very happy and think he was a great guy to work for. But then the price index went down and wages dropped. They weren’t happy about that at all and thought they were worse off.
 
 People clearly aren’t able to make a month-to-month calculation in their head about where their wages stand relative to the economy’s overall price level. If you deem this a blinding glimpse of the obvious, you may not be fit to be an economist. Lots of economic models assume that people do all their thinking in real terms. 

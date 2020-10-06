@@ -13,7 +13,10 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-At <a href="http://www.linkfest.com" title="Linkfest.com" target="_blank">Linkfest.com</a>, we love linkfests so much we named our website after them. When a knowledgeable professional is dedicated enough to get up at an ungodly hour to make an up-to-the-minute reading list for us, that just shows true love for the craft of investing, the game, and the readers. It just makes us warm and fuzzy. We salute Web linkfest all-stars like: 
+> *At <a href="http://www.linkfest.com" title="Linkfest.com" target="_blank">Linkfest.com</a>, we love linkfests so much we named our website after them. When a knowledgeable professional is dedicated enough to get up at an ungodly hour to make an up-to-the-minute reading list for us, that just shows true love for the craft of investing, the game, and the readers. It just makes us warm and fuzzy.* 
+
+<!--more-->
+We salute Web linkfest all-stars like: 
 
 <a href="http://www.thereformedbroker.com" target="_blank">The Reformed Broker</a>  
 <a href="http://abnormalreturns.com/" target="_blank">Abnormal Returns</a>  
@@ -25,7 +28,6 @@ At <a href="http://www.linkfest.com" title="Linkfest.com" target="_blank">Linkfe
 <a href="http://www.creditwritedowns.com" target="_blank">Credit Writedowns</a> 
 
 Putting together a great linkfest is tougher than it looks. This post is an attempt to put together a meta-linkfest of best practices for linkfest creators. If it saves the brave early-morning soldiers a few extra minutes with loved ones, or Mr. Sandman, it will worthwhile.  
-<!--more-->
 
   
 **Step 1** _ First, it’s all about the content _ see our <a href="/2012/02/the-new-information-diet/" target="_blank">recent post on fine-tuning your info-diet</a>. The point I would single out for busy linkfesters is **a [Web extension like Linkclump or Multi Links](http://lifehacker.com/5799854/open-multiple-links-with-a-click-and-a-drag-with-these-browser-add+ons) that will let you go to a headline page and open a bunch of tabs with one click.**

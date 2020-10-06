@@ -13,14 +13,8 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-<div class="zemanta-img mt-image-right" style="margin-top: 1em; margin-right: 1em; margin-bottom: 1em; margin-left: 1em; display: block; float: right; width: 290px; ">
-  <a href="http://en.wikipedia.org/wiki/File:AtlasShrugged.jpg"><img src="http://upload.wikimedia.org/wikipedia/en/8/84/AtlasShrugged.jpg" alt="Atlas Shrugged" width="280" height="367" /></a></p> 
+  <img src="/assets/2020/atlasshrugged.jpg" alt="Atlas Shrugged" width="280" height="367" /></a></p> 
   
-  <p class="zemanta-img-attribution" style="font-size:0.8em">
-    Image via <a href="http://en.wikipedia.org/wiki/File:AtlasShrugged.jpg">Wikipedia</a>
-  </p>
-</div>
-
 <span class="Apple-style-span" style="font-family: TimesRoman, serif; font-size: 16px; color: rgb(0, 0, 0); "></p> 
 
 <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0.75em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">

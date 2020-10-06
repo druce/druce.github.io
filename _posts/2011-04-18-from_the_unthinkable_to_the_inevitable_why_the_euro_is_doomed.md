@@ -13,13 +13,7 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-<div class="zemanta-img mt-image-right" style="margin-top: 1em; margin-right: 1em; margin-bottom: 1em; margin-left: 1em; display: block; float: right; width: 310px; ">
-  <a href="http://commons.wikipedia.org/wiki/File:Tyler_Cowen_1.jpg"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Tyler_Cowen_1.jpg/300px-Tyler_Cowen_1.jpg" alt="American economist Tyler Cowen" width="300" height="451" /></a></p> 
-  
-  <p class="zemanta-img-attribution" style="font-size:0.8em">
-    Image via <a href="http://commons.wikipedia.org/wiki/File:Tyler_Cowen_1.jpg">Wikipedia</a>
-  </p>
-</div>
+  <img src="/assets/2020/300px-Tyler_Cowen_1.jpg" alt="American economist Tyler Cowen" width="300" height="451" /></p> 
 
 The brilliant, provocative, and slightly mad GMU&nbsp;[economist and blogger Tyler Cowen](http://marginalrevolution.com/) wrote his [New York Times column](http://www.nytimes.com/2011/04/17/business/17view.html) about why the Euro zone is headed for breakup. I get the sense an editor read the column, spit out his coffee, and smacked a headline on it that buried the sensational implications, which may be prompting calls from Euro-mandarins to Sulzbergers as we speak. 
 

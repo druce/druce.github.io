@@ -13,7 +13,7 @@ dsq_thread_id:
 categories: fintwit
 tags: fintwit
 ---
-> It’s been a year since we posted our last list of people to follow on Twitter for financial news. Time for an update!
+> *It’s been a year since we posted our last list of people to follow on Twitter for financial news. Time for an update!*
 <!--more-->
 
 <link rel="stylesheet" type="text/css" href="/assets/js/tablesorter-master/themes/blue/style.css" />

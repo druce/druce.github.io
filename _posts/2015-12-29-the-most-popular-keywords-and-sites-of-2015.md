@@ -11,7 +11,7 @@ post-views:
 categories: fintwit
 tags: fintwit
 ---
-> Here’s a word cloud of StreetEYE headlines in 2015 (click to embiggen).
+> *Here’s a word cloud of StreetEYE headlines in 2015 (click to embiggen).*
 <!--more-->
 [<img src="/assets/wp-content/uploads/2015/12/wordle-300x192.png" alt="word cloud" width="300" height="192" class="aligncenter size-medium wp-image-4320" srcset="/assets/wp-content/uploads/2015/12/wordle-300x192.png 300w, /assets/wp-content/uploads/2015/12/wordle.png 792w" sizes="(max-width: 300px) 100vw, 300px" />](/assets/wp-content/uploads/2015/12/wordle.png)
 

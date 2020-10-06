@@ -17,8 +17,7 @@ tags: datascience
   
 ---
 
-> [<img src="/assets/wp-content/uploads/2018/02/Screen-Shot-2018-02-18-at-Feb-18-2018-8.49.58-PM.png" alt="Word cloud" width="626" height="402" class="alignright size-full wp-image-6454" srcset="/assets/wp-content/uploads/2018/02/Screen-Shot-2018-02-18-at-Feb-18-2018-8.49.58-PM.png 626w, /assets/wp-content/uploads/2018/02/Screen-Shot-2018-02-18-at-Feb-18-2018-8.49.58-PM-300x193.png 300w" sizes="(max-width: 626px) 100vw, 626px" />](/assets/wp-content/uploads/2018/02/Screen-Shot-2018-02-18-at-Feb-18-2018-8.49.58-PM.png)  
- There are a number of hard problems in investing, for instance: 1) Finding alpha.  2) Finding clients and assets &#8212; especially if you can’t 1) consistently find alpha.  3) Finding an awesome name for your fund. The investing blogosphere is all over the first two. Now, for something completely different, we help you with the last one!
+> *[<img src="/assets/wp-content/uploads/2018/02/Screen-Shot-2018-02-18-at-Feb-18-2018-8.49.58-PM.png" alt="Word cloud" width="626" height="402" class="alignright size-full wp-image-6454" srcset="/assets/wp-content/uploads/2018/02/Screen-Shot-2018-02-18-at-Feb-18-2018-8.49.58-PM.png 626w, /assets/wp-content/uploads/2018/02/Screen-Shot-2018-02-18-at-Feb-18-2018-8.49.58-PM-300x193.png 300w" sizes="(max-width: 626px) 100vw, 626px" />](/assets/wp-content/uploads/2018/02/Screen-Shot-2018-02-18-at-Feb-18-2018-8.49.58-PM.png) There are a number of hard problems in investing, for instance: 1) Finding alpha.  2) Finding clients and assets &#8212; especially if you can’t 1) consistently find alpha.  3) Finding an awesome name for your fund. The investing blogosphere is all over the first two. Now, for something completely different, we help you with the last one!*
 
 <!--more-->
 											    

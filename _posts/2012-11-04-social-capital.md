@@ -1,6 +1,6 @@
 ---
 id: 1176
-title: 'Social capital _ or, the lost art of not taking a dump in the community pool'
+title: 'Social capital, or the lost art of not taking a dump in the community pool'
 date: 2012-11-04T20:16:56+00:00
 author: Druce Vertes, CFA
 layout: post
@@ -11,15 +11,14 @@ post-views:
 dsq_thread_id:
   - "914054495"
 categories:
-  - Uncategorized
+  - economics
+tags:
+  - economics
 ---
-_The first casualty when war comes is truth. _ Hiram Johnson_
+>*Everybody talkin’ to their pockets / Everybody wants a box of chocolates / And a long-stemmed rose - Leonard Cohen*
+<!--more-->
+*The first casualty when war comes is truth. Hiram Johnson*
 
-_Everybody talkin’ to their pockets  
-Everybody wants a box of chocolates  
-And a long-stemmed rose  
-_ Leonard Cohen  
-_  
 Let’s talk a little about social capital.
 
 According to studies, Greeks [work the longest hours in Europe, and their retirement age is in the middle of the pack](http://www.newstatesman.com/blogs/world-affairs/2012/05/exploding-myth-feckless-lazy-greeks). Same goes for a lot of developing countries, and even some US inner cities. People work themselves to the bone, and they don’t get ahead.

@@ -19,7 +19,7 @@ tags: fintwit
 
 <link rel="stylesheet" type="text/css" href="/assets/js/tablesorter-master/themes/blue/style.css" />
 
-> It’s been more than a year since we posted our [last list](/2017/05/the-top-100-people-to-follow-to-discover-financial-news-on-twitter-may-2017/) of people to follow on Twitter for financial news. Time for an update!
+> *It’s been more than a year since we posted our [last list](/2017/05/the-top-100-people-to-follow-to-discover-financial-news-on-twitter-may-2017/) of people to follow on Twitter for financial news. Time for an update!*
 
 <!--more-->
 

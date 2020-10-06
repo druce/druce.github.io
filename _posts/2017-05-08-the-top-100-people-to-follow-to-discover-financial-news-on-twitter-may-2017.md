@@ -17,11 +17,9 @@ tags: fintwit
 
 ---
   
-> I posted earlier about some of the trends in [the financial Twittersphere](/2017/02/come-back-kelly-evans-well-be-good-i-promise/).
+> *I posted earlier about some of the trends in [the financial Twittersphere](/2017/02/come-back-kelly-evans-well-be-good-i-promise/). It’s been a year since we posted our last list of people to follow on Twitter for financial news. Time for an update!*
 
 <!--more-->
-
-It’s been a year since we posted our last list of people to follow on Twitter for financial news. Time for an update!
 
 <link rel="stylesheet" type="text/css" href="/assets/js/tablesorter-master/themes/blue/style.css" />
 

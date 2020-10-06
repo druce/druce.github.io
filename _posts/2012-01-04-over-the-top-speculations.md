@@ -13,6 +13,8 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
+>*Thinking about cord-cutting and over-the-top video like Netflix*
+<!--more-->
 **Case study #1.** _Megatrends: migration from wired to mobile unwired; broadcast & circuit switched to packet-switched Internet_.
 
 Verizon [cut a blockbuster deal with Time Warner Cable and Comcast](http://gigaom.com/broadband/verizons-spectrum-deal-with-cable-is-the-end-of-broadband-competition/), essentially sacrificing the declining fixed-line residential business to try to gain a big edge in mobile.
