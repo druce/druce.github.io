@@ -13,16 +13,8 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-<div style="width: 197px" class="wp-caption alignright">
-  <a href="http://en.wikipedia.org/wiki/File:Sellers_pinkpanther7.jpg" target="_blank"><img class="zemanta-img-inserted zemanta-img-configured" title="Peter Sellers as Chief Inspector Clouseau in t..." alt="Peter Sellers as Chief Inspector Clouseau in t..." src="http://upload.wikimedia.org/wikipedia/en/2/28/Sellers_pinkpanther7.jpg" width="187" height="300" /></a>
-  
-  <p class="wp-caption-text">
-    Peter Sellers as Chief Inspector Clouseau in the The Pink Panther (Photo credit: Wikipedia)
-  </p>
-</div>
-
-So, [the Obama Administration is ‘all-in’ on Summers](http://blogs.reuters.com/felix-salmon/2013/08/13/obamas-dangerously-heroic-view-of-the-fed/), despite nearly everyone who hasn’t worked for him (and a number who have) thinking he’s not the best candidate.
-
+> *<a href="http://en.wikipedia.org/wiki/File:Sellers_pinkpanther7.jpg" target="_blank"><img class="zemanta-img-inserted zemanta-img-configured" title="Peter Sellers as Chief Inspector Clouseau in t..." alt="Peter Sellers as Chief Inspector Clouseau in t..." src="http://upload.wikimedia.org/wikipedia/en/2/28/Sellers_pinkpanther7.jpg" width="187" height="300" /></a> So, [the Obama Administration is ‘all-in’ on Summers](http://blogs.reuters.com/felix-salmon/2013/08/13/obamas-dangerously-heroic-view-of-the-fed/), despite nearly everyone who hasn’t worked for him (and a number who have) thinking he’s not the best candidate.*
+<!--more-->
 The argument: ‘crisis experience,’ and the need for a ‘steady hand.’
 
 Summers’s [crisis experience](http://img.timeinc.net/time/magazine/archive/covers/1999/1101990215_400.jpg) is like Inspector Clouseau’s, the master detective who always seems to be at the scene of the crime.  

@@ -11,9 +11,12 @@ post-views:
 dsq_thread_id:
   - "2160960124"
 categories:
-  - Uncategorized
+  - investing
+tags:
+  - investing
 ---
-In [part 1](/2014/01/2534/ "Optimal certainty-equivalent spending retirements with DataNitro") and [part 2](/2014/01/optimal-certainty-equivalent-retirement-plans-part-2/ "Retirement plans that maximize certainty-equivalent spending, part 2"), we developed a framework for evaluating and identifying a good plan for retirement spending and asset allocation.
+> *In [part 1](/2014/01/2534/ "Optimal certainty-equivalent spending retirements with DataNitro") and [part 2](/2014/01/optimal-certainty-equivalent-retirement-plans-part-2/ "Retirement plans that maximize certainty-equivalent spending, part 2"), we developed a framework for evaluating and identifying a good plan for retirement spending and asset allocation.*
+<!--more-->
 
   * We discussed how a _CRRA (constant relative risk aversion) utility function_ and the related concept of _certainty-equivalent (CE) spending_ can discount a stream of future cash flows based on their risk and variability, and the retiree’s risk aversion.
   * We solved a toy problem: how the retiree maximizes certainty-equivalent spending if he or she can invest at a guaranteed fixed risk-free real return rate.

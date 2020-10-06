@@ -11,11 +11,14 @@ post-views:
 dsq_thread_id:
   - "3488767569"
 categories:
-  - Uncategorized
+  - economics
+categories:
+  - economics
 ---
-_There are some people that will be deterred by the fact that we have nuclear weapons… But those people are the folks we can deal with anyway. &#8212; General Charles Horner_
+> _There are some people that will be deterred by the fact that we have nuclear weapons… But those people are the folks we can deal with anyway. &#8212; General Charles Horner._ Sometimes it pays to be irrational, to do the unexpected like pass on 2nd and 1, to catch the defense by surprise. If one believes the evil genius of Belichick, he got inside Carroll's <a href="https://en.wikipedia.org/wiki/OODA_loop">OODA loop</a>, he psyched Carroll into calling it and anticipated him.
 
-How about that Super Bowl? Sometimes it pays to be irrational, to do the unexpected like pass on 2nd and 1, to catch the defense by surprise and force them to defend the pass. [By the numbers](http://fivethirtyeight.com/features/a-head-coach-botched-the-end-of-the-super-bowl-and-it-wasnt-pete-carroll), Carroll should have been running out the clock, and Belichick should have been calling timeout to give Brady a chance for a long pass and field goal, if Seahawks scored quickly. But [Belichick says](http://www.businessinsider.com/bill-belichick-explains-no-timeout-at-end-of-the-super-bowl-2015-2) he felt running time down to where Seahawks had to call a pass was the way to go. And when the Seahawks called it, [the Patriots were prepared](https://vine.co/v/OFnd5m1bwje). On paper, the pass isn’t a terrible call if it keeps the opponent guessing, and you don’t have time for 3 running plays. But if one believes the evil genius of Belichick, he psyched Carroll into calling it, and it didn’t surprise anyone.
+<!--more-->
+[By the numbers](http://fivethirtyeight.com/features/a-head-coach-botched-the-end-of-the-super-bowl-and-it-wasnt-pete-carroll), Carroll should have been running out the clock, and Belichick should have been calling timeout to give Brady a chance for a long pass and field goal, if Seahawks scored quickly. But [Belichick says](http://www.businessinsider.com/bill-belichick-explains-no-timeout-at-end-of-the-super-bowl-2015-2) he felt running time down to where Seahawks had to call a pass was the way to go. And when the Seahawks called it, [the Patriots were prepared](https://vine.co/v/OFnd5m1bwje). On paper, the pass isn’t wrong if the opponent is looking for you to go to the star running back, and you don’t have time for 3 running plays.
 
   * Game theory only works if you’re dealing with rational people. Not with dumb, ideological, or crazy people.
   * Most people are only rational about unimportant things. On the things that matter most, they’re usually emotional, ideological, stupid or crazy. 

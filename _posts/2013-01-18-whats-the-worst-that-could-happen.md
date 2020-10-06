@@ -11,10 +11,12 @@ post-views:
 dsq_thread_id:
   - "1034219911"
 categories:
-  - Uncategorized
+  - investing
+tags:
+  - investing
 ---
-_It’s not whether you get knocked down, it’s whether you get up. _ Vince Lombardi_
-
+> *It’s not whether you get knocked down, it’s whether you get up. Vince Lombardi*
+<!--more-->
 Playing around with [DataNitro](https://datanitro.com/ "DataNitro"), an add-in that lets you run Python in Excel<sup>1</sup>.
 
 What is the worst that could happen to someone who owns stocks, bonds, bills, over a 1-, 5-, 10-year time-frame? Here are the <span style="text-decoration: underline;">worst</span> rolling periods for each asset class for 1928-2010, adjusted for inflation.

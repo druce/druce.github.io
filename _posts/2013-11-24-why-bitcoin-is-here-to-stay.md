@@ -11,18 +11,12 @@ post-views:
 dsq_thread_id:
   - "1996550480"
 categories:
-  - Uncategorized
+  - bitcoin
+tags:
+  - bitcoin
 ---
-<div style="width: 250px" class="wp-caption alignright">
-  <a href="http://www.flickr.com/photos/22823034@N00/7297820998" target="_blank"><img class="zemanta-img-inserted zemanta-img-configured" title="Bitcoin Magazine" alt="Bitcoin Magazine" src="http://farm8.static.flickr.com/7082/7297820998_d94789a144_m.jpg" width="240" height="135" /></a>
-  
-  <p class="wp-caption-text">
-    Bitcoin Magazine (Photo credit: zcopley)
-  </p>
-</div>
-
-In 2011 I blogged about why Bitcoin is a [Ponzi scheme doomed to fail](/2011/06/the-great-bitcoin-robbery/).
-
+>  *<a href="http://www.flickr.com/photos/22823034@N00/7297820998" target="_blank"><img title="Bitcoin Magazine" alt="Bitcoin Magazine" src="http://farm8.static.flickr.com/7082/7297820998_d94789a144_m.jpg" width="240" height="135" /></a>. In 2011 I blogged about why Bitcoin is a [Ponzi scheme doomed to fail](/2011/06/the-great-bitcoin-robbery/).*
+<!--more-->
 In the unlikely event these mad scribblings dissuaded anyone from hopping aboard the [Bitcoin train](http://bitcoincharts.com/charts/mtgoxUSD#rg730zczsg2011-11-26zeg2013-11-25ztgSzm1g10zm2g25), I humbly apologize. (Although it did subsequently [fall 90%](http://mobilemarketingandtechnology.com/2011/10/19/bitcoin-value-drops-90/) from its June 2011 high.)
 
 I don’t think any of the analysis was off base, but nevertheless I have moderated my views a bit, and now suspect Bitcoin, or something like it, is here to stay.  

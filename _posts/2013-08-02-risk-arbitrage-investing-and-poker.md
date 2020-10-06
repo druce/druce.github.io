@@ -13,13 +13,14 @@ dsq_thread_id:
 medium_post:
   - 'O:11:"Medium_Post":11:{s:16:"author_image_url";s:68:"https://cdn-images-1.medium.com/fit/c/200/200/0*tLekueVp7unnAXxY.jpg";s:10:"author_url";s:25:"https://medium.com/@druce";s:11:"byline_name";N;s:12:"byline_email";N;s:10:"cross_link";s:2:"no";s:2:"id";s:12:"ae4f552ca66c";s:21:"follower_notification";s:3:"yes";s:7:"license";s:19:"all-rights-reserved";s:14:"publication_id";s:2:"-1";s:6:"status";s:6:"public";s:3:"url";s:73:"https://medium.com/@druce/risk-arbitrage-investing-and-poker-ae4f552ca66c";}'
 categories:
-  - Uncategorized
+  - poker
+tags:
+  - poker
+  - investing
 ---
-_When I was young people called me a gambler. As the scale of my operations grew, I became known as a speculator. Now I am called a banker. But I have been doing the same thing all the time. _ Ernest Cassel</p> 
-
-To win, you must understand the game, you must understand the players, and above all you must understand yourself. _ Source unknown</em>
-
+> *When I was young people called me a gambler. As the scale of my operations grew, I became known as a speculator. Now I am called a banker. But I have been doing the same thing all the time. Ernest Cassel*
 <!--more-->
+> To win, you must understand the game, you must understand the players, and above all you must understand yourself. Source unknown</em>
 
 [<img class="alignright size-full wp-image-2324" src="/assets/wp-content/uploads/2013/08/einhorn080623_3_250.jpg" alt="Einhorn WSOP" width="250" height="375" srcset="/assets/wp-content/uploads/2013/08/einhorn080623_3_250.jpg 250w, /assets/wp-content/uploads/2013/08/einhorn080623_3_250-200x300.jpg 200w" sizes="(max-width: 250px) 100vw, 250px" />](/assets/wp-content/uploads/2013/08/einhorn080623_3_250.jpg)
 

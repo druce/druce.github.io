@@ -10,22 +10,14 @@ post-views:
   - "9078"
 dsq_thread_id:
   - "3641068501"
-categories:
-  - Uncategorized
+categories: investing
+tags: investing
 ---
-<div id="attachment_3248" style="width: 310px" class="wp-caption alignright">
-  <a href="https://www.youtube.com/watch?v=lssO92BNsJc"><img class="size-medium wp-image-3248" title="Matthias Steiner, Beijing 2008" alt="4184728-16x9-940x529" src="/assets/wp-content/uploads/2015/03/4184728-16x9-940x529-300x168.jpg" width="300" height="168" srcset="/assets/wp-content/uploads/2015/03/4184728-16x9-940x529-300x168.jpg 300w, /assets/wp-content/uploads/2015/03/4184728-16x9-940x529.jpg 940w" sizes="(max-width: 300px) 100vw, 300px" /></a>
-  
-  <p class="wp-caption-text">
-    Matthias Steiner, Beijing 2008
-  </p>
-</div>
+>  *<a href="https://www.youtube.com/watch?v=lssO92BNsJc"><img title="Matthias Steiner, Beijing 2008" src="/assets/wp-content/uploads/2015/03/4184728-16x9-940x529-300x168.jpg" width="300" height="168"  /></a> Matthias Steiner, Beijing 2008. Pain is weakness leaving the body, and/or your central nervous system telling you you’re about to die. - source unknown*
+<!--more-->
+> _No matter what kind of math you use, you wind up measuring volatility with your gut. _ Ed Seykota_
 
-_Pain is weakness leaving the body, and/or your central nervous system telling you you’re about to die. _ seen on T-shirt_
-
-_No matter what kind of math you use, you wind up measuring volatility with your gut. _ Ed Seykota_
-
-_Never tell me the odds. _ Han Solo_
+> _Never tell me the odds. _ Han Solo_
 
 The difference between a good risk and bad risk is sort of like the difference between good pain and bad pain when you’re working out.
 

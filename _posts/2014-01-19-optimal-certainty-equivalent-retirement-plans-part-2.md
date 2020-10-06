@@ -11,10 +11,12 @@ post-views:
 dsq_thread_id:
   - "2144771133"
 categories:
-  - Uncategorized
+  - investing
+tags:
+  - investing
 ---
-[Last time](/2014/01/2534/) we solved the problem of the perfect retirement _spending plan_, assuming a _fixed known real return_, and a _CRRA utility function_.
-
+> *[Last time](/2014/01/2534/) we solved the problem of the perfect retirement spending plan, assuming a fixed known real return, and a CRRA utility function*.
+<!--more-->
 This time, we’ll try to look at the problem from the other angle:
 
   * Let’s assume a **fixed spending schedule** 

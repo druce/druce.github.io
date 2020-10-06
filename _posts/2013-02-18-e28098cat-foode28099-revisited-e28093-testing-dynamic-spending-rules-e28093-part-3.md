@@ -11,9 +11,11 @@ post-views:
 dsq_thread_id:
   - "1090882291"
 categories:
-  - Uncategorized
+  - investing
+tags:
+  - investing
 ---
-In the [last part](/2013/02/%E2%80%98cat-food%E2%80%99-revisited-%E2%80%93-testing-dynamic-spending-rules-%E2%80%93-part-2/) of our look at dynamic rules for spending in retirement, we discussed how changing the allocation between stocks and bonds affects the maximum sustainable spending rate. We can summarize this relationship by plotting the highest feasible initial spending rate for any acceptable shortfall level.<small><sup><a href="#f1">1</a></sup></small>  
+> *In the [last part](/2013/02/%E2%80%98cat-food%E2%80%99-revisited-%E2%80%93-testing-dynamic-spending-rules-%E2%80%93-part-2/) of our look at dynamic rules for spending in retirement, we discussed how changing the allocation between stocks and bonds affects the maximum sustainable spending rate. We can summarize this relationship by plotting the highest feasible initial spending rate for any acceptable shortfall level.<small><sup><a href="#f1">1</a></sup></small>*
 <!--more-->
 
   

@@ -10,12 +10,13 @@ post-views:
   - "3478"
 dsq_thread_id:
   - "3657942809"
-categories:
-  - Uncategorized
+categories: investing
+tags: investing
 ---
-_You have to choose between trusting to the natural stability of gold and the natural stability of the honesty and intelligence of the members of the government. And, with due respect to these gentlemen, I advise you, as long as the capitalist system lasts, to vote for gold. _ George Bernard Shaw_
+> *You have to choose between trusting to the natural stability of gold and the natural stability of the honesty and intelligence of the members of the government. And, with due respect to these gentlemen, I advise you, as long as the capitalist system lasts, to vote for gold. -  George Bernard Shaw*
 
-Here’s a quick update of a post I did a couple of years back on [Gold as part of a long run asset allocation](/2012/01/gold-as-part-of-long-run-asset-allocation/). Gold hasn’t fared too well since then.
+<!--more-->
+Here’s a quick update of a post I did a couple of years back on [Gold as part of a long run asset allocation](/2012/01/gold-as-part-of-long-run-asset-allocation/). Gold hasn’t fared too well since then. Is it still worth owning?
 
 Let’s look at four asset classes from 1928-2014: US stocks (ie S&P), medium-term Treasurys (ie 10-year), T-bills, and gold. (Would love to do international developed, emerging, TIPS, real estate, but data doesn’t go back that far.)
 

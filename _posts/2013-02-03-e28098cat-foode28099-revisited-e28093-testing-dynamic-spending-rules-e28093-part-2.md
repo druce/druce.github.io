@@ -11,9 +11,12 @@ post-views:
 dsq_thread_id:
   - "1063373696"
 categories:
-  - Uncategorized
+  - investing
+tags:
+  - investing
 ---
-The [last post](/2013/01/cat-food-revisited-testing-dynamic-spending-rules/ "‘Cat Food’ revisited – testing dynamic spending rules – Part 1") discussed a framework for evaluating simple dynamic spending rules. 
+> *The [last post](/2013/01/cat-food-revisited-testing-dynamic-spending-rules/ "‘Cat Food’ revisited – testing dynamic spending rules – Part 1") discussed a framework for evaluating simple dynamic spending rules.*
+<!--more-->
 
   * We defined a spending factor _s_ as spending each year at a rate of _s_/(remaining life expectancy); and _lifetime spending expectancy_ as the total amount you could expect to spend over your lifetime.
   * We showed how, as you increase the spending factor, _lifetime spend expectancy initially increases rapidly_, but the curve _flattens out_ as spending rate increases.

@@ -10,13 +10,11 @@ post-views:
   - "4458"
 dsq_thread_id:
   - "3550618177"
-categories:
-  - Uncategorized
+categories: economics
+tags: economics tech
 ---
-Really, the way to understand ‘net neutrality’ is it’s all about Netflix.
-
-The cable companies are outraged and scared to death about Netflix. If you’ve tried a Roku Internet TV appliance (or Apple TV, or Google Chromecast, or Amazon Fire TV), it’s a 10x user experience improvement on a cable box. For less money. 
-
+> *Really, the way to understand ‘net neutrality’ is it’s all about Netflix. The cable companies are outraged and scared to death about Netflix. If you’ve tried a Roku Internet TV appliance (or Apple TV, or Google Chromecast, or Amazon Fire TV), it’s a 10x user experience improvement on a cable box. For less money. *
+<!--more-->
 Netflix and cordcutting are [hurting the cable TV bundle business model](http://consumerist.com/2015/02/24/these-2-charts-from-comcast-show-why-net-neutrality-is-vital/). Internet customers are growing, and TV customers are declining.
 
 The idea that Internet TV could break the cable TV bundle and leave ISPs as a dumb Internet pipe is anathema to the cable companies.

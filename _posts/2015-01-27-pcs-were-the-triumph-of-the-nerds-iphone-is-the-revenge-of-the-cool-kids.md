@@ -11,11 +11,12 @@ post-views:
 dsq_thread_id:
   - "3461712758"
 categories:
-  - Uncategorized
+  - tech
+tags:
+  - tech
 ---
-Apple reported a [blowout iPhone 6 launch quarter](http://www.businessinsider.com/apple-q1-earnings-2015-1). In fact, reportedly [the largest quarterly profit ever reported by a public company](http://techcrunch.com/2015/01/27/apple-just-had-the-biggest-quarterly-earnings-of-any-company-ever/). I had a feeling they would blow away expectations, the iPhone 6 looks and feels great, it’s a must-have upgrade.  
-[<img src="/assets/wp-content/uploads/2015/01/download.jpg" alt="download" width="227" height="153" class="alignright size-full wp-image-3047" />](/assets/wp-content/uploads/2015/01/download.jpg)
-
+> [<img src="/assets/wp-content/uploads/2015/01/download.jpg" alt="download" width="227" height="153" class="alignright size-full wp-image-3047" />](/assets/wp-content/uploads/2015/01/download.jpg)*Apple reported a [blowout iPhone 6 launch quarter](http://www.businessinsider.com/apple-q1-earnings-2015-1). In fact, reportedly [the largest quarterly profit ever reported by a public company](http://techcrunch.com/2015/01/27/apple-just-had-the-biggest-quarterly-earnings-of-any-company-ever/). I had a feeling they would blow away expectations, the iPhone 6 looks and feels great, it’s a must-have upgrade.  *
+<!--more-->
 Apple now has, contra Steve Jobs, an iPhone/iPad for every size and pocketbook. Not to mention deep inroads in fast-growing economies where it’s very bling-y. _Everyone_ I know (mostly rich white NYC folks) either has one or wants one.
 
 And I’m an Android guy, cheap and tech-savvy, and I want one too! 

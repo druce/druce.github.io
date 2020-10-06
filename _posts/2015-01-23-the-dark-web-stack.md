@@ -11,11 +11,12 @@ post-views:
 dsq_thread_id:
   - "3448818455"
 categories:
-  - Uncategorized
+  - tech
+tags:
+  - tech
 ---
-_You have a choice of trusting the natural stability of gold or the honesty and intelligence of members of the government, and with all due respect to these gentleman, I advise you as long as the capitalist system lasts, vote for gold. _ George Bernard Shaw_
-
-[<img src="/assets/wp-content/uploads/2015/01/gqj5c-300x274.jpg" alt="Do You Want To Eff Up The Net? Because That&#039;s How You Eff Up The Net" width="300" height="274" class="alignright size-medium wp-image-3028" srcset="/assets/wp-content/uploads/2015/01/gqj5c-300x274.jpg 300w, /assets/wp-content/uploads/2015/01/gqj5c.jpg 490w" sizes="(max-width: 300px) 100vw, 300px" />](/assets/wp-content/uploads/2015/01/gqj5c.jpg)An interesting [dive](http://joel.mn/post/108657860988/deep-web-marketplaces) into “Deep Web Marketplaces” by the folks at [avc.com](http://avc.com/2015/01/deep-web-marketplaces/) and [USV](https://www.usv.com/).
+> [<img src="/assets/wp-content/uploads/2015/01/gqj5c-300x274.jpg" alt="Do You Want To Eff Up The Net? Because That&#039;s How You Eff Up The Net" />](/assets/wp-content/uploads/2015/01/gqj5c.jpg)An interesting [dive](http://joel.mn/post/108657860988/deep-web-marketplaces) into “Deep Web Marketplaces” by the folks at [avc.com](http://avc.com/2015/01/deep-web-marketplaces/) and [USV](https://www.usv.com/). _You have a choice of trusting the natural stability of gold or the honesty and intelligence of members of the government, and with all due respect to these gentleman, I advise you as long as the capitalist system lasts, vote for gold. -- George Bernard Shaw_
+<!--more-->
 
 A deep web marketplace is like the Ebay of anonymous e-commerce. Other elements of the stack include:
 
