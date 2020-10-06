@@ -1,6 +1,6 @@
 ---
 id: 3537
-title: 'A rant on food stamps as ‘subsidies’ to Walmart, and the $15 minimum wage'
+title: 'Are food stamps Walmart subsidies, and should the minimum wage be $15?'
 date: 2015-04-26T11:15:32+00:00
 author: Druce Vertes, CFA
 layout: post

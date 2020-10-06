@@ -1,6 +1,6 @@
 ---
 id: 2075
-title: '“Cat Food” revisited _ final thoughts _ part 4'
+title: '“Cat Food” Revisited: Final Thoughts - Part 4'
 date: 2013-05-15T11:05:51+00:00
 author: Druce Vertes, CFA
 layout: post
@@ -11,11 +11,12 @@ post-views:
 dsq_thread_id:
   - "1290539183"
 categories:
-  - Uncategorized
+  - investing
+tags:
+  - investing
 ---
-Here is the long-awaited conclusion to the wonky 4-part discussion of safe retirement spending. We went pretty far down the rabbit hole, and I think the conclusions are useful.  
+> *Here is the long-awaited conclusion to the wonky 4-part discussion of safe retirement spending. We went pretty far down the rabbit hole, and I think the conclusions are useful.*
 <!--more-->
-
   
 Attempting to finance a stable retirement from a risky portfolio is inherently fraught with risk and tradeoffs.
 

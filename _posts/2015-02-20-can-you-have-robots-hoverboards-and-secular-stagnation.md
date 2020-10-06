@@ -11,10 +11,12 @@ post-views:
 dsq_thread_id:
   - "3533285091"
 categories:
-  - Uncategorized
+  - economics
+tags:
+  - economics
 ---
-[Diane Coyle](http://blogs.ft.com/the-exchange/2015/01/20/diane-coyle-worry-about-robots-or-secular-stagnation-but-not-both/) says you can have either robots, or secular stagnation, but not both. In a somewhat confused tweetstorm, Marc Andreessen says [secular stagnation is BS](http://larrysummers.com/2015/01/12/response-to-marc-andreessen-on-secular-stagnation/). Larry Summers, who is one of the guys behind the secular stagnation hypothesis, [responds](http://larrysummers.com/2015/01/12/response-to-marc-andreessen-on-secular-stagnation/). But then, confusingly, [is reported to agree with Coyle](http://www.nextnewdeal.net/rortybomb/one-where-larry-summers-demolished-robots-and-skills-arguments).
-
+> *[Diane Coyle](http://blogs.ft.com/the-exchange/2015/01/20/diane-coyle-worry-about-robots-or-secular-stagnation-but-not-both/) says you can have either robots, or secular stagnation, but not both. In a somewhat confused tweetstorm, Marc Andreessen says [secular stagnation is BS](http://larrysummers.com/2015/01/12/response-to-marc-andreessen-on-secular-stagnation/). Larry Summers, who is one of the guys behind the secular stagnation hypothesis, [responds](http://larrysummers.com/2015/01/12/response-to-marc-andreessen-on-secular-stagnation/). But then, confusingly, [is reported to agree with Coyle](http://www.nextnewdeal.net/rortybomb/one-where-larry-summers-demolished-robots-and-skills-arguments).*
+<!--more-->
 While this is a statement one makes at one’s peril, I will say it anyway: Marc Andreessen is wrong, and it ties into his [wrongness about Piketty](http://vozag.com/marc-andreessen-pmarca-tweets-14/).
 
 Technology can be a very good complement to labor, or a very good substitute for labor.

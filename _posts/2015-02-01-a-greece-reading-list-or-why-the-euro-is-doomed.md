@@ -11,12 +11,12 @@ post-views:
 dsq_thread_id:
   - "3475567185"
 categories:
-  - Uncategorized
+  - economics
+tags:
+  - economics
 ---
-_Time converts the improbable to the inevitable _ Stephen Jay Gould_
-
-[TL;DR 50% odds Greece leaves euro this year. Odds eurozone breaks up eventually: 100%]
-
+> _Time converts the improbable to the inevitable -- Stephen Jay Gould. [TL;DR 50% odds Greece leaves euro this year. Odds eurozone breaks up eventually: ~100%]_
+<!--more-->
 If you don’t care too much about the Super Bowl today, here are some things you could be reading about Greece:
 
   * [Daniel Davies: Greek games and scenarios](http://crookedtimber.org/2015/01/25/greek-games-and-scenarios/)

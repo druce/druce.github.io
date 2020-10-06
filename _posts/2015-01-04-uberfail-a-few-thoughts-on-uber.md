@@ -11,11 +11,14 @@ post-views:
 dsq_thread_id:
   - "3390067754"
 categories:
-  - Uncategorized
+  - tech
+tags:
+  - tech
+  - economics
 ---
-_To lose one parent, Mr. Worthing, may be regarded as a misfortune; to lose both looks like carelessness. _ Oscar Wilde, The Importance of Being Earnest_ 
+> _To lose one parent, Mr. Worthing, may be regarded as a misfortune; to lose both looks like carelessness. _ Oscar Wilde, The Importance of Being Earnest_ 
 
-Some thoughts on Uber, some blindingly obvious, some maybe not. I’ll say at the outset that I think Uber is a 10x improvement on existing cabs, and I have no problem in principle with a supply/demand based surge pricing model. But here goes…
+<!--more-->Some thoughts on Uber, some blindingly obvious. I’ll say at the outset that I think Uber is a 10x improvement on existing cabs, and I have no problem in principle with a supply/demand based surge pricing model. But here goes…
 
 _1) Uber doesn’t have it together operationally._
 

@@ -1,6 +1,6 @@
 ---
 id: 2745
-title: 'Easy Pieces on Risk #2: Visualizing Diversification With Risk Triangles'
+title: 'Risk: Visualizing Diversification With Risk Triangles'
 date: 2014-10-05T09:27:42+00:00
 author: Druce Vertes, CFA
 layout: post
@@ -10,21 +10,14 @@ post-views:
   - "4667"
 dsq_thread_id:
   - "3085526616"
+tags:
+  - investing
 categories:
-  - Uncategorized
+  - investing
 ---
-<div id="attachment_2746" style="width: 469px" class="wp-caption alignleft">
-  <a href="http://xkcd.com/552/"><img class="size-full wp-image-2746" alt="XKCD" src="/assets/wp-content/uploads/2014/10/correlation.png" width="459" height="185" srcset="/assets/wp-content/uploads/2014/10/correlation.png 459w, /assets/wp-content/uploads/2014/10/correlation-300x120.png 300w" sizes="(max-width: 459px) 100vw, 459px" /></a>
-  
-  <p class="wp-caption-text">
-    Randall Munroe _ XKCD.com _ http://xkcd.com/552/
-  </p>
-</div>
+> *<a href="http://xkcd.com/552/"><img src="/assets/wp-content/uploads/2014/10/correlation.png" /></a> In this post we’re going to look at a simple way to visualize the power of diversification, and what correlation really tells us.*
 
-<div style="clear: both;">
-</div>
-
-In this post we’re going to look at a simple way to visualize the power of diversification, and what correlation really tells us.
+<!--more-->
 
 Suppose you have 2 investments, A and B.
 

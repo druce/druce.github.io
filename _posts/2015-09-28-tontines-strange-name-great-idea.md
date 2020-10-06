@@ -1,6 +1,6 @@
 ---
 id: 4092
-title: 'The tontine: strange name, great idea'
+title: 'The tontine: funny French name, brilliant idea'
 date: 2015-09-28T22:32:57+00:00
 author: Druce Vertes, CFA
 layout: post

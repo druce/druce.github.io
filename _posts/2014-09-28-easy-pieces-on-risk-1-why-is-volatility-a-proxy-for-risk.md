@@ -1,6 +1,6 @@
 ---
 id: 2727
-title: 'Easy Pieces on Risk, #1 _ Why is volatility a proxy for risk?'
+title: 'Risk: Why is volatility used to measure risk?'
 date: 2014-09-28T22:04:45+00:00
 author: Druce Vertes, CFA
 layout: post
@@ -11,10 +11,12 @@ post-views:
 dsq_thread_id:
   - "3063787065"
 categories:
-  - Uncategorized
+  - investing
+tags:
+  - investing
 ---
-_Why_ is volatility a proxy for investment risk?
-
+> *Volatility is a proxy for how risky Mr. Market thinks an asset is.*
+<!--more-->
 This is a foundational question about risk, but I’m not sure it gets taught very often explicitly, it kind of gets lost in the math as just another simplifying assumption.
 
 One post in particular that motivated this is Howard Marks’s [recent letter](http://www.oaktreecapital.com/MemoTree/Risk%20Revisited.pdf). Howard Marks inhabits the same circle of the investing pantheon as Warren Buffett. He has a stellar long-term record and writes very lucidly about complex concepts. If you want to be a fully-fledged member of the fellowship of educated investors, but haven’t read his collection “[The Most Important Thing”](http://www.amazon.com/The-Most-Important-Thing-Thoughtful/dp/0231153686 "Amazon: The Most Important Thing") and made his letters a regular read, start now!

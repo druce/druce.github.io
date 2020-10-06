@@ -11,12 +11,13 @@ post-views:
 dsq_thread_id:
   - "3142528765"
 categories:
-  - Uncategorized
+  - economics
+tags:
+  - economics
 ---
-A thought experiment:
+> A thought experiment: _If you could buy an asset that returned the GDP growth rate, would you, should you do it?_
 
-_If you could buy an asset that returned the GDP growth rate, would you, should you do it?_
-
+<!--more-->
 In other words, if you had a choice of Piketty’s _r_ and _g_, from his ‘Iron Law’ equation _r > g_, which would you choose?
 
 [Marc Andreessen](http://www.vox.com/2014/6/26/5837638/the-ipo-is-dying-marc-andreessen-explains-why) said, _“The funny thing about Piketty is that he has a lot more faith in returns on invested capital than any professional investor I’ve ever met.”_ And I tend to agree with him. If someone offered me a guarantee of _g_, I would put a good chunk of my retirement portfolio into it.

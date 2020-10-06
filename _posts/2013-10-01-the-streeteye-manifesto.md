@@ -13,25 +13,9 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-<div style="width: 301px" class="wp-caption alignright">
-  <a href="http://en.wikipedia.org/wiki/File:Rogue-Trader-Video-Poster.jpg" target="_blank"><img class="zemanta-img-inserted zemanta-img-configured" title="Rogue Trader (film)" alt="Rogue Trader (film)" src="http://upload.wikimedia.org/wikipedia/en/9/91/Rogue-Trader-Video-Poster.jpg" width="291" height="450" /></a>
-  
-  <p class="wp-caption-text">
-    Rogue Trader (film) (Photo credit: Wikipedia)
-  </p>
-</div>
-
-_“Being good…is not good enough! Everyone must be connected to our strategy, or we will find you, and weed you out!</p> 
-
-Information arbitrage is our business. If you don’t know what an information curve is, then find out!
-
-Position yourself in an information curve. Dominate the curve!
-
-[Nick Leeson](http://en.wikipedia.org/wiki/Nick_Leeson), who most of you know and all of you have heard of, runs our operation in Singapore, which l want all of you to try to emulate.”
-
-— Ron Baker, in [Rogue Trader (1999)](http://www.imdb.com/title/tt0131566/) 
-
-“It is this semi-sucker rather than the 100 percent article who is the real all-the-year-round support of the commission houses. He lasts about three and a half years on an average, as compared with a single season of from three to thirty weeks, which is the usual Wall Street life of a first offender. He knows all the don’ts that ever fell from the oracular lips of the old stagers-excepting the principal one, which is: Don’t be a sucker!” _ Jesse Livermore</em>
+> *<a href="http://en.wikipedia.org/wiki/File:Rogue-Trader-Video-Poster.jpg" target="_blank"><img class="zemanta-img-inserted zemanta-img-configured" title="Rogue Trader (film)" alt="Rogue Trader (film)" src="http://upload.wikimedia.org/wikipedia/en/9/91/Rogue-Trader-Video-Poster.jpg" width="291" height="450" /></a>“Being good…is not good enough! Everyone must be connected to our strategy, or we will find you, and weed you out! Information arbitrage is our business. If you don’t know what an information curve is, then find out! Position yourself in an information curve. Dominate the curve! [Nick Leeson](http://en.wikipedia.org/wiki/Nick_Leeson), who most of you know and all of you have heard of, runs our operation in Singapore, which l want all of you to try to emulate.” — Ron Baker, in [Rogue Trader (1999)](http://www.imdb.com/title/tt0131566/)* 
+<!--more-->
+> “It is this semi-sucker rather than the 100 percent article who is the real all-the-year-round support of the commission houses. He lasts about three and a half years on an average, as compared with a single season of from three to thirty weeks, which is the usual Wall Street life of a first offender. He knows all the don’ts that ever fell from the oracular lips of the old stagers-excepting the principal one, which is: Don’t be a sucker!” _ Jesse Livermore</em>
 
 In 2005-2006, briefly, inexplicably, I had an information edge over most of Wall Street. I was reading the top financial blogs of the era, [Calculated Risk](http://www.calculatedriskblog.com/) and [The Housing Bubble](http://thehousingbubbleblog.com/index.html), marveling at flippers, NINJA borrowers (no income, no job or assets), negative-amortization. I asked friends in Wall Street mortgage departments how come, after [Greenspan](http://www.nytimes.com/2005/05/21/business/21fed.html?_r=0) started raising rates, they weren’t shrinking profits and laying people off, what with a flat yield curve, shrinking net interest margin and all that. They said they were pushing ARMs, originating to sell, making it up on fees. I asked if they weren’t worried about defaults, was told the deals were overcollateralized to resist high defaults, and anyway it was the bondholders’ problem. I downloaded some applications for option ARMs and thought, ‘these guys are out of their cotton-picking minds.’ This was at a time when certain banks’ net profits consisted entirely of negative amortization, interest that was being tacked onto loan balances without any cash changing hands.
 

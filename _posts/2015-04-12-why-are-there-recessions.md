@@ -1,6 +1,6 @@
 ---
 id: 3375
-title: Why Are There Recessions? Going On Tilt About Business Cycles
+title: Why Are There Recessions And Business Cycles?
 date: 2015-04-12T19:21:26+00:00
 author: Druce Vertes, CFA
 layout: post
@@ -10,17 +10,15 @@ post-views:
   - "3990"
 dsq_thread_id:
   - "3676484656"
-categories:
-  - Uncategorized
+categories: Economics
+tags: Economics
 ---
-[<img src="/assets/wp-content/uploads/2015/04/rena-listing_2023721i-300x229.jpg" alt="rena-listing_2023721i" width="300" height="229" class="alignright size-medium wp-image-3422" srcset="/assets/wp-content/uploads/2015/04/rena-listing_2023721i-300x229.jpg 300w, /assets/wp-content/uploads/2015/04/rena-listing_2023721i.jpg 620w" sizes="(max-width: 300px) 100vw, 300px" />](/assets/wp-content/uploads/2015/04/rena-listing_2023721i.jpg)
-
-_To everything, turn, turn, turn.  
-There is a season, turn, turn, turn.  
-And a time to every purpose under heaven.  
-_ The Byrds, by way of Ecclesiastes  
-_ 
-
+> [<img src="/assets/wp-content/uploads/2015/04/rena-listing_2023721i-300x229.jpg" />](/assets/wp-content/uploads/2015/04/rena-listing_2023721i.jpg) 
+*To everything, turn, turn, turn.
+There is a season, turn, turn, turn.
+And a time to every purpose under heaven.
+The Byrds, by way of Ecclesiastes*
+<!--more-->
 Noah Smith has a good [post on recessions](http://www.bloombergview.com/articles/2015-04-10/how-sticky-prices-might-be-the-cause-of-recessions), in which he highlights the importance of sticky prices, and the academic ‘debate’ over sticky prices. I’m not sure there has really ever been a legitimate debate over [the existence of sticky prices and wages](http://econlog.econlib.org/archives/2015/04/there_is_no_sti.html). 
 
 But his focus on a proximate cause omits an elephant in the room. Cycles are pervasive in nature and in economic activity. Why is that? What makes a process cyclical, and what makes the economy more or less prone to large cyclical swings?

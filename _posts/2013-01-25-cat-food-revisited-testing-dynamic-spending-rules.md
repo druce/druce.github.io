@@ -1,6 +1,6 @@
 ---
 id: 1429
-title: '‘Cat Food’ revisited _ testing dynamic spending rules _ Part 1'
+title: '‘Cat Food’ revisited: testing dynamic spending rules - Part 1'
 date: 2013-01-25T20:08:34+00:00
 author: Druce Vertes, CFA
 layout: post
@@ -11,10 +11,12 @@ post-views:
 dsq_thread_id:
   - "1047006960"
 categories:
-  - Uncategorized
+  - investing
+tags:
+  - investing
 ---
-How much can you safely spend out of a portfolio in retirement? Spend conservatively and you may be unnecessarily curbing the lifestyle and aspirations of you and your loved ones. Overspend and risk a shortfall and painful adjustment _ in the extreme, the (hopefully apocryphal) “cat food” diet.
-
+> *How much can you safely spend out of a portfolio in retirement? Spend conservatively and you may be unnecessarily curbing the lifestyle and aspirations of you and your loved ones. Overspend and risk a shortfall and painful adjustment - in the extreme, the (hopefully apocryphal) “cat food” diet.*
+<!--more-->
 A traditional rule of thumb is [a fixed 4% per year](http://online.wsj.com/article/SB10001424052970203960804577241143142670660.html "WSJ: Testing the 4%-a-Year Retirement Rule") of your starting portfolio, adjusted each year for inflation. [A previous post](/2011/08/cat-food-in-an-age-of-diminished-expectations/) discussed why this rule may not be safe:
 
   * [Low bond yields](http://www.federalreserve.gov/releases/h15/update/ "Federal Reserve H. 15") _ 1.8% for 10-year Treasurys and negative TIPS out to 10 years _ mean historical bond returns are mathematically unobtainable.<sup>1</sup>
