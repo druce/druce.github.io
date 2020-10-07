@@ -1,5 +1,11 @@
 change footer logos to font-awesome , fixed linkedin
 get all your medium stuff
+favicon
+social card
+fix tags
+fix lil-log stuff
+fix errant tag
+validate html
 
 matrix
 

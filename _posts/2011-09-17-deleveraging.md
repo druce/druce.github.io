@@ -11,12 +11,12 @@ post-views:
 dsq_thread_id:
   - "417987797"
 categories:
-  - Uncategorized
+  - markets
+tags:
+  - markets
 ---
-It is a slow day in a small Irish town. The rain is misting and the streets are deserted.
-
-Times are tough, everybody is in debt, and having a hard time making ends meet, let alone climbing out of debt.
-
+> It is a slow day in a small Irish town. The rain is misting and the streets are deserted. Times are tough, everybody is in debt, and having a hard time making ends meet, let alone climbing out of debt.
+<!--more-->
 On this particular day a rich German drives into the town, stops at the local hotel and lays a €100 note on the desk, telling the hotel owner he wants to inspect the rooms upstairs in order to pick one to spend the night.
 
 The owner gives him the keys and, as soon as the visitor has walked upstairs, the hotelier grabs the €100 note and runs next door to pay his debt to the butcher.

@@ -11,21 +11,14 @@ post-views:
 dsq_thread_id:
   - "486834961"
 categories:
-  - Uncategorized
+  - datascience
+tags:
+  - datascience
 ---
-> [ROCKY HILL, Conn](http://newyork.cbslocal.com/2011/11/28/254-million-powerball-jackpot-winner-comes-forward/). &#8212; Three asset managers from Connecticut’s affluent New York suburbs claimed a $254 million Powerball jackpot on Monday off a $1 ticket.
+> *<a href="http://en.wikipedia.org/wiki/File:Nzlottopowerball.PNG"><img title="The Lotto Powerball logo" src="/assets/2020/powerball.jpg" alt="The Lotto Powerball logo" width="355" height="200" /></a>[ROCKY HILL, Conn](http://newyork.cbslocal.com/2011/11/28/254-million-powerball-jackpot-winner-comes-forward/). &#8212; Three asset managers from Connecticut’s affluent New York suburbs claimed a $254 million Powerball jackpot on Monday off a $1 ticket.*
+<!--more-->
 
-<div>
-  <div style="width: 130px" class="wp-caption alignright">
-    <a href="http://en.wikipedia.org/wiki/File:Nzlottopowerball.PNG"><img class="zemanta-img-inserted zemanta-img-configured" title="The Lotto Powerball logo" src="http://upload.wikimedia.org/wikipedia/en/7/72/Nzlottopowerball.PNG" alt="The Lotto Powerball logo" width="120" height="99" /></a>
-    
-    <p class="wp-caption-text">
-      Image via Wikipedia
-    </p>
-  </div>
-</div>
-
-Lottery tickets are generally a terrible deal in terms of expected value _ the lottery pays out far less in winnings than it receives in ticket sales. It has to pay expenses and show a profit. Then the winner has to pay a big income tax bill.
+Lottery tickets are generally a terrible deal in terms of expected value -- the lottery pays out far less in winnings than it receives in ticket sales. It has to pay expenses and show a profit. Then the winner has to pay a big income tax bill.
 
 But occasionally, after no one wins the big prize several drawings in a row, the jackpot gets so big that the expected value is positive.
 
