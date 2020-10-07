@@ -11,17 +11,11 @@ post-views:
 dsq_thread_id:
   - "493727511"
 categories:
-  - Uncategorized
+  - euro
+tags:
+  - euro
 ---
-<div style="width: 197px" class="wp-caption alignright">
-  <a href="http://en.wikipedia.org/wiki/File:Titanic%281943%29.jpg"><img class="zemanta-img-inserted zemanta-img-configured" title="Titanic (1943 film)" src="http://upload.wikimedia.org/wikipedia/en/3/3e/Titanic%281943%29.jpg" alt="Titanic (1943 film)" width="187" height="270" /></a>
-  
-  <p class="wp-caption-text">
-    Image via Wikipedia
-  </p>
-</div>
-
-Europe is heading into yet another moment of truth this week, with a Merkozy summit and a new plan, an ECB meeting and likely interest rate cut, and a full EU summit starting Friday.  
+> *<img class="zemanta-img-inserted zemanta-img-configured" title="Titanic (1943 film)" src="/assets/2020/Titanic%281943%29.jpg" alt="Titanic (1943 film)" width="187" height="270" /> Europe is heading into yet another moment of truth this week, with a Merkozy summit and a new plan, an ECB meeting and likely interest rate cut, and a full EU summit starting Friday.*
 <!--more-->
 
   

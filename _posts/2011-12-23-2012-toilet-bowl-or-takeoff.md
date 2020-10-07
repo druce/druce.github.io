@@ -11,10 +11,14 @@ post-views:
 dsq_thread_id:
   - "514019248"
 categories:
-  - Uncategorized
+  - markets
+  - euro
+tags:
+  - markets
+  - euro
 ---
-Some drive-by thoughts on Europe:
-
+> *Some drive-by thoughts on Europe:*
+<!--more-->
 While the LTRO takeup was larger than anticipated, the consensus seems to be the new ECB funding largely replaces old ECB funding, bank deposits that are fleeing, interbank credit and money market funding that has dried up.
 
 To the extent it signals the ECB will do everything necessary to prevent a bank failure, and potentially takes a Lehman scenario off the table for now, it is a positive development.

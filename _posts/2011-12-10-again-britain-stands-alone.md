@@ -11,9 +11,11 @@ post-views:
 dsq_thread_id:
   - "500085578"
 categories:
-  - Uncategorized
+  - euro
+tags:
+  - euro
 ---
-Two differing views on UK and the EC.[<img class="alignright size-medium wp-image-776" title="UpEurs" src="/assets/wp-content/uploads/2011/12/UpEurs-235x300.jpg" alt="" width="235" height="300" srcset="/assets/wp-content/uploads/2011/12/UpEurs-235x300.jpg 235w, /assets/wp-content/uploads/2011/12/UpEurs.jpg 600w" sizes="(max-width: 235px) 100vw, 235px" />](/assets/wp-content/uploads/2011/12/UpEurs.jpg)  
+> *Two differing views on UK and the EC.[<img class="alignright size-medium wp-image-776" title="UpEurs" src="/assets/wp-content/uploads/2011/12/UpEurs-235x300.jpg" alt="" width="235" height="300" srcset="/assets/wp-content/uploads/2011/12/UpEurs-235x300.jpg 235w, /assets/wp-content/uploads/2011/12/UpEurs.jpg 600w" sizes="(max-width: 235px) 100vw, 235px" />](/assets/wp-content/uploads/2011/12/UpEurs.jpg)*
 <!--more-->
 
   

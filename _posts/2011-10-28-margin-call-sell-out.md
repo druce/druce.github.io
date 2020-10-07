@@ -1,6 +1,6 @@
 ---
 id: 656
-title: 'Margin Call _ A Big Sell Out'
+title: 'Margin Call - A Big Sell Out'
 date: 2011-10-28T08:29:00+00:00
 author: Druce Vertes, CFA
 layout: post
@@ -11,10 +11,12 @@ post-views:
 dsq_thread_id:
   - "455612205"
 categories:
-  - Uncategorized
+  - markets
+tags:
+  - markets
 ---
-[<img src="/assets/wp-content/uploads/2011/10/gal_crashes-121-220x300.jpg" alt="" title="frontpage front pageh helicopter" width="220" height="300" class="alignright size-medium wp-image-676" srcset="/assets/wp-content/uploads/2011/10/gal_crashes-121-220x300.jpg 220w, /assets/wp-content/uploads/2011/10/gal_crashes-121.jpg 367w" sizes="(max-width: 220px) 100vw, 220px" />](/assets/wp-content/uploads/2011/10/gal_crashes-121.jpg)Watched Margin Call last night on [iTunes](http://entertainment.time.com/2011/10/28/whos-scared-of-streaming-could-margin-call-upend-the-hollywood-business-model/) and woke up cranky. Here is a short list of things that it gets wrong about Wall Street.<!--more-->
-
+> *[<img src="/assets/wp-content/uploads/2011/10/gal_crashes-121-220x300.jpg" alt="" title="frontpage front pageh helicopter" width="220" height="300" class="alignright size-medium wp-image-676" srcset="/assets/wp-content/uploads/2011/10/gal_crashes-121-220x300.jpg 220w, /assets/wp-content/uploads/2011/10/gal_crashes-121.jpg 367w" sizes="(max-width: 220px) 100vw, 220px" />](/assets/wp-content/uploads/2011/10/gal_crashes-121.jpg)Watched Margin Call last night on [iTunes](http://entertainment.time.com/2011/10/28/whos-scared-of-streaming-could-margin-call-upend-the-hollywood-business-model/) and woke up cranky. Here is a short list of things that it gets wrong about Wall Street.*
+<!--more-->
   * Helicopters can’t land on rooftops in Manhattan, ever since the [Pan Am building](http://wirednewyork.com/forum/showthread.php?t=13814&s=1d0663d337fd01fa89929b70faf21ba6) incident. 
   * They don’t do 2am partner meetings. More likely, an emergency conference call, and an early morning meeting.
   * Sorry, anonymous grim reapers do not prowl the trading floor. If you get fired, it’s your boss, plus someone from HR/legal, as a witness, to make it less likely the employee will go bizonkers in front of a stranger, and for all the formalities. And yeah, in many cases, if you have a sensitive job, you get cut off promptly, to prevent you sending mail to all, downloading customer files, sabotaging systems.
