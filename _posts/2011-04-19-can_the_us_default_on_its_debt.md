@@ -11,10 +11,12 @@ post-views:
 dsq_thread_id:
   - "384441705"
 categories:
-  - Uncategorized
+  - economics
+tags:
+  - economics
 ---
-The S&P rating downgrade was deservedly greeted as [a big joke](http://www.nytimes.com/roomfordebate/2011/04/18/is-anyone-listening-to-the-standard-poors/no-real-risk-of-default). 
-
+>*The S&P rating downgrade was deservedly greeted as [a big joke](http://www.nytimes.com/roomfordebate/2011/04/18/is-anyone-listening-to-the-standard-poors/no-real-risk-of-default). *
+<!--more-->
 Can the US default? Technically, the US defaulted twice in the 20th century, when it devalued the dollar against gold in 1933 and when it went off the gold standard completely and officially in 1971. 
 
 But can a sovereign nation default on domestic fiat currency debt? In theory, it can always print money to honor the obligations. In practice though, it has happened, in two scenarios. One is a change in government, like Vietnam, Burma, and Russia (1993). Another is as part of radical shock measures against hyperinflation or similar turmoil, as in Argentina, Brazil, Russia (1998).

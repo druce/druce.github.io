@@ -11,14 +11,12 @@ post-views:
 dsq_thread_id:
   - "384435784"
 categories:
-  - Uncategorized
+  - politics
+tags:
+  - politics
 ---
-We have been going through the stages of coming to terms with GOP berzerkers.
-
-  1. Denial _ “They’re just posturing”
-  2. Astonishment _ “Wow, some of them are dumb enough to believe their own BS”,
-  3. Facepalm _ “I can’t believe they’re actually going to do this.”
-
+> *We have been going through the stages of coming to terms with GOP berzerkers.  1. Denial: “They’re just posturing.”  2. Astonishment: “Wow, some of them are dumb enough to believe their own BS.” 3. Facepalm: “I can’t believe they’re actually going to do this.”*
+<!--more-->
 <div>
   As matters now stand, Boehner managed to pass a Frankenbill, which is apparently <a href="http://www.washingtonpost.com/blogs/ezra-klein/post/the-trigger-that-could-lead-to-a-debt-deal/2011/07/11/gIQADT4MiI_blog.html">the least conservative thing he can get through his caucus</a>, implements a small short-term debt ceiling rise, with another rise contingent on tax and entitlement reform and a balanced budget amendment.
 </div>

@@ -11,17 +11,17 @@ post-views:
 dsq_thread_id:
   - "360278542"
 categories:
-  - Uncategorized
+  - markets
+tags:
+  - markets
 ---
-_Sometimes the first duty of intelligent men is the restatement of the obvious. _ George Orwell_
-
+> *Sometimes the first duty of intelligent men is the restatement of the obvious. - George Orwell*
+<!--more-->
 A faction of Congress is preventing action to increase the debt limit without significant fiscal tightening, and some are [making a case that the US should not raise the limit under any circumstances, and that default on US obligations is preferable to raising the debt limit](http://www.tnr.com/blog/jonathan-chait/91886/the-republican-crazy-not-act).
 
 Meanwhile the bond market is rising, with the 10-year under 3%. 
 
 It might seem counterintuitive that bonds are going up while the Congress dithers about whether to pay them back. But it’s really not. Here’s why the bond market is doing well despite the debt ceiling debacle:  
-<!--more-->
-
   
 1) Everyone knows it’s all political theater. Except for [a few Tea Party loonies](http://www.redstate.com/erick/2011/07/15/dear-house-republicans-this-is-your-time-for-choosing/), no one is seriously thinking of messing with US credit, and creating catastrophe.
 

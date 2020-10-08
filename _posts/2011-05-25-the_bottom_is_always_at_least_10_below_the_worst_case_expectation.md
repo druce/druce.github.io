@@ -11,13 +11,12 @@ post-views:
 dsq_thread_id:
   - "474448090"
 categories:
-  - Uncategorized
+  - investing
+tags:
+  - investing
 ---
-  <a href="http://commons.wikipedia.org/wiki/File:Black_Swan_Flapping.jpg"><img src="/assets/2020/300px-Black_Swan_Flapping.jpg" alt="Black Swan, Lake Monger, 2010." width="300" height="198" /></a>
-  
-
-‘Black swan’ is a term which is overused and under-understood.
-
+><a href="http://commons.wikipedia.org/wiki/File:Black_Swan_Flapping.jpg"><img src="/assets/2020/300px-Black_Swan_Flapping.jpg" alt="Black Swan, Lake Monger, 2010." width="300" height="198" /></a> ‘Black swan’ is a term which is overused and under-understood.
+<!--more-->
 1) Evolutionary psychology: Humans aren’t very good at math, but especially intuitions about probability, and improbable things happen more often than we expect.
 
 2) Behavioral economics (or evolutionary psychology part deux) _ we feel worse about negative outcomes _ a small negative surprise is felt disproportionately sharply relative to a small positive surprise. When humans were evolving on the brink of survival, a small negative weather surprise was the difference between life and death.

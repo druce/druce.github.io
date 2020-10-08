@@ -11,9 +11,12 @@ post-views:
 dsq_thread_id:
   - "393461637"
 categories:
-  - Uncategorized
+  - investing
+tags:
+  - investing
 ---
-Tucked away in the neglected items in the ‘Tools’ menu above, you might have noticed the metaphorical [‘Cat Food Calculator’](http://blog.streeteye.com/calculator).
+> *Tucked away in the neglected items in the ‘Tools’ menu above, you might have noticed the metaphorical [‘Cat Food Calculator’](http://blog.streeteye.com/calculator).*
+<!--more-->
 
 The name may not be totally tongue-in-cheek in our world of neglected defined-contribution plans, depleted by poor performance and post-crisis raids.
 
@@ -23,8 +26,6 @@ The idea is pretty simple: 
   * imagine you retired with that portfolio in every year since 1928; 
   * apply the real withdrawal amount and the real returns experienced by that portfolio in each year;
   * and determine in how many retirement ‘vintages’ someone who did that would have run out of money before dying (and possibly had to live on cat food).
-
-<!--more-->
 
 [<img src="/assets/wp-content/uploads/2011/08/shortfall1.png" alt="" title="shortfall" width="630" height="378" class="aligncenter size-full wp-image-414" srcset="/assets/wp-content/uploads/2011/08/shortfall1.png 630w, /assets/wp-content/uploads/2011/08/shortfall1-300x180.png 300w" sizes="(max-width: 630px) 100vw, 630px" />](/assets/wp-content/uploads/2011/08/shortfall1.png)
 

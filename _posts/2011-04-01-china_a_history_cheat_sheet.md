@@ -1,6 +1,6 @@
 ---
 id: 5
-title: 'China: A history cheat sheet'
+title: 'China: A history primer'
 date: 2011-04-01T12:46:20+00:00
 author: StreetEYE
 layout: post
@@ -11,18 +11,13 @@ post-views:
 dsq_thread_id:
   - "417945523"
 categories:
-  - Uncategorized
+  - china
+tags:
+  - china
 ---
-<img alt="1937_Mao_Zhou_Bougu_Wang_Ming_in_Yan'an.jpg" src="http://streeteye.com/blog/img/1937_Mao_Zhou_Bougu_Wang_Ming_in_Yan%27an.jpg" width="375" height="249" class="mt-image-none" style="" />
-
-Fellow travelers: Zhou, Mao and 2 revolutionaries I never heard of in Shaanxi, 1937
-
-I spent most of March in Asia and trying to figure out China. To understand the present, you have to understand the past, so I turned to [The Search For Modern China](http://www.amazon.com/Search-Modern-China-Jonathan-Spence/dp/0393307808/ref=tmm_pap_title_0), by Jonathan Spence of Yale, which seems to be standard fare for undergrad history surveys. It was a great start, although I wished he had given his analysis of the whys as well as the who, what, when, where, despite the political sensitivities when talking about modern China.
-
-Here is a quick summary mixed with a few conclusions and speculations.
-
+> *<img alt="1937_Mao_Zhou_Bougu_Wang_Ming_in_Yan'an.jpg" src="http://streeteye.com/blog/img/1937_Mao_Zhou_Bougu_Wang_Ming_in_Yan%27an.jpg" width="375" height="249" class="mt-image-none" style="" />I spent March in Asia and trying to figure out China. Here is a quick summary mixed with a few conclusions and speculations.*
 <!--more-->
-
+To understand the present, you have to understand the past, so I turned to [The Search For Modern China](http://www.amazon.com/Search-Modern-China-Jonathan-Spence/dp/0393307808/ref=tmm_pap_title_0), by Jonathan Spence of Yale, which seems to be standard fare for undergrad history surveys. It was a great start, although I wished he had given his analysis of the whys as well as the who, what, when, where, despite the political sensitivities when talking about modern China.
   
 The history of China seems to be a cycle of a strong leader and faction taking over the country, ruling it for generations as a dynasty, then decaying, and eventually getting supplanted by a new dynasty (or a period of civil war and chaos) when they get too weak and corrupt to centrally manage a huge country,
 

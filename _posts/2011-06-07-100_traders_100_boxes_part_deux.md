@@ -11,17 +11,15 @@ post-views:
 dsq_thread_id:
   - "360278474"
 categories:
-  - Uncategorized
+  - datascience
+tags:
+  - datascience
 ---
-So, where were we? Ah yes, yesterday we posed a math conundrum:
+> *A math/probability problem I think is awesome and counterintuitive, and may be instructive about financial markets: A hedge fund manager puts 100 traders in a room and instructs them: “On the trading desk, there are 100 boxes. Each box has one of your names. You can go [one at a time] onto the trading desk and open any 50 boxes you choose, to try to find your name. If every one of the 100 traders in this room finds his or her name, you will each get a $1,000,000 bonus. If anyone fails, I will crush all your $100,000 BMWs to create my modern art masterpiece. You can devise a strategy before anyone leaves the room, but once a trader has opened the boxes, you must leave the trading desk exactly as it was before you entered and cannot communicate with anyone else.”*
+<!--more--> 
+Questions: Should they take the bet? Is there a correct strategy? What is the probability all 100 will each find their name?
 
-_A hedge fund manager puts 100 traders in a room and instructs them:_
-
- _“On the trading desk, there are 100 boxes. Each box has one of your names. You can go [one at a time] onto the trading desk and open any 50 boxes you choose, to try to find your name. If every one of the 100 traders in this room finds his or her name, you will each get a $1,000,000 bonus. If anyone fails, I will crush all your $100,000 BMWs to create my modern art masterpiece. You can devise a strategy before anyone leaves the room, but once a trader has opened the boxes, you must leave the trading desk exactly as it was before you entered and cannot communicate with anyone else.”_
-
-_Questions: Should they take the bet? Is there a correct strategy? What is the probability all 100 will each find their name?_
-
-<!--more--> Intuitively, that seems like a terrible bet. They can’t exchange information during the experiment, and without information on what the previous trader found, if each trader goes out and picks 50 boxes at random, he or she has a 50% chance of finding the right name. The chance of two in a row succeeding is .5 * .5 , or 25%. The chance of all 100 traders succeeding is 0.5
+Intuitively, that seems like a terrible bet. They can’t exchange information during the experiment, and without information on what the previous trader found, if each trader goes out and picks 50 boxes at random, he or she has a 50% chance of finding the right name. The chance of two in a row succeeding is .5 * .5 , or 25%. The chance of all 100 traders succeeding is 0.5
 
 <sup>100</sup>, or about 1 in 10<sup>30</sup>. If you did this experiment every second, it would probably take longer than the age of the universe to win. The chance of success on the first try is basically 0.
 

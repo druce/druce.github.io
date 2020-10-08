@@ -11,14 +11,14 @@ post-views:
 dsq_thread_id:
   - "366248005"
 categories:
-  - Uncategorized
+  - china
+tags:
+  - china
 ---
-China’s surge from basket case to the world’s factory is simply breathtaking. But the powerful rise has outpaced institutions that Westerners see as prerequisites to capitalism.
-
-[Pudong photos over 20 years](http://www.skyscrapercity.com/showpost.php?p=58158873&postcount=858).
-
+> *China’s surge from basket case to the world’s factory is simply breathtaking. But the powerful rise has outpaced institutions that Westerners see as prerequisites to capitalism.*
 <!--more-->
 
+[Shanghai photos over 20 years](http://www.skyscrapercity.com/showpost.php?p=58158873&postcount=858).
   
 **The growth story:** China has become the 2nd largest economy by GDP. China also reportedly surpassed Japan with the [2nd largest stock markets](http://www.bloomberg.com/apps/news?pid=newsarchive&sid=a_84o9PPPGqk) by market capitalization. It is already the [largest manufacturer in the world](http://streeteye.com/blog/2011/04/red-capitalism-potemkin-finance.html), ending a century of leadership by the USA. It is the [largest car manufacturer in the world](http://en.wikipedia.org/wiki/Automotive_industry_in_the_People's_Republic_of_China#cite_note-5), producing 18m vehicles in 2010. Depending whom you ask, China may surpass the US as the largest economy within [20 years](http://www.bbc.co.uk/news/business-12848449), or may be [about to do so on a PPP basis](http://blogs.barrons.com/stockstowatchtoday/2010/11/10/conference-board-china-gdp-could-surpass-us-in-2012/).&nbsp;
 

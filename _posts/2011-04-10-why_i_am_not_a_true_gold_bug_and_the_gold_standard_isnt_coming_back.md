@@ -11,16 +11,16 @@ post-views:
 dsq_thread_id:
   - "394776514"
 categories:
-  - Uncategorized
+  - economics
+  - markets
+  - investing
+tags:
+  - economics
+  - markets
+  - investing
 ---
-Let me say at the outset that I am bullish on gold in the long run. US demographics, politics, debt levels, harder-to-extract energy, peaking of globalization’s labor supply shock: all these point to inflation in the long run. And central bankers have not exactly covered themselves in glory lately.
-
-That being said, going back on the gold standard makes exactly as much sense as going back to horses and buggies.
-
-Here’s why. 
-
+>*Let me say at the outset that I am bullish on gold in the long run. US demographics, politics, debt levels, harder-to-extract energy, peaking of globalization’s labor supply shock: all these point to inflation in the long run. And central bankers have not exactly covered themselves in glory lately. That being said, going back on the gold standard makes exactly as much sense as going back to horses and buggies. Here’s why.*
 <!--more-->
-
   
 Gold enthusiasts point out that a good suit cost about an ounce of gold in Roman times, Revolutionary times, and (at least until the recent bull market) modern times.
 

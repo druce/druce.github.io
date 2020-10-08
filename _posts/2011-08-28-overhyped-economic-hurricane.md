@@ -11,11 +11,12 @@ post-views:
 dsq_thread_id:
   - "398716723"
 categories:
-  - Uncategorized
+  - markets
+tags:
+  - markets
 ---
-With the S&P down 13% since July 7, and the 10-year rate down a point to barely over 2%, markets are discounting the double dip. They might be doing a great job of early warning, sensitive to faint aromas in complex crosscurrents of data. Or they might be wrong.  
+> *With the S&P down 13% since July 7, and the 10-year rate down a point to barely over 2%, markets are discounting the double dip. They might be doing a great job of early warning, sensitive to faint aromas in complex crosscurrents of data. Or they might be wrong.*
 <!--more-->
-
   
 One story goes like this _ massive government intervention rescued the economy from crisis. But consumer balance sheets are still crippled, businesses reluctant to invest and hire in a low-growth, risky environment. The Fed has gone to the zero bound and beyond through QE, reaching the limit of its power. Initial fiscal stimulus has run out, the Federal government is gridlocked, and state and local cuts make government a net drag on growth. Inevitably, we are falling back into recession _ the double dip. And since that means financial pressure for banks and sovereigns, it means a potential repeat of financial crisis, deflation and even depression.
 

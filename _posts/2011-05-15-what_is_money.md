@@ -11,13 +11,13 @@ post-views:
 dsq_thread_id:
   - "360230320"
 categories:
-  - Uncategorized
+  - economics
+tags:
+  - economics
 ---
-<img src="/assets/2020/plato.png" alt="Plato" />
-
-_As far as the laws of mathematics refer to reality, they are not certain, as far as they are certain, they do not refer to reality. _ Albert Einstein_
-
-This is all Plato’s fault _ he founded Western philosophy on a theory of absolute reality, which humans vainly attempt to discern, like cave-dwellers pondering the source of shadows dancing on a wall.&nbsp;
+> *<img src="/assets/2020/plato.png" width="332" height="338" alt="Plato" /> *As far as the laws of mathematics refer to reality, they are not certain, as far as they are certain, they do not refer to reality. - Albert Einstein*
+<!--more-->
+This is all Plato’s fault _ he founded Western philosophy on a theory of absolute reality, which humans vainly attempt to discern, like cave-dwellers pondering the source of shadows dancing on a wall.
 
 A good metaphor, but modern science has given the existence of absolute reality a few hard knocks. Heisenberg showed that you can never perfectly know the location and velocity of an object. The more accurately you measure where it is, the less accurately you know where it’s going. It doesn’t even make sense to speak of particles as having absolute attributes, they are better understood as clouds of probability distributions. Space, time, mass stretch depending on the motion of the observer.
 
@@ -26,9 +26,6 @@ _Interactions_ between particles seem more tangible than the particles themselve
 Is there a ‘form’ of a chair? Or is it a chair if it’s something you can sit on? 
 
 Which brings us to money. 
-
-<!--more-->
-
   
 [Money is not a paper bill](http://szabo.best.vwh.net/shell.html), or a gold coin. It is not a physical object with some sort of divine blessing. It is a [set of interactions and relationships](http://macrobusiness.com.au/2011/05/overruled/): customs, rules, expectations, backed up by the laws of the state. It is the fact that you can go to a cash machine, get a piece of paper, and go into Staples and buy <a href="http://www.youtube.com/watch?v=R5Gppi-O3a8" style="text-decoration: underline; ">a pencil</a>, setting in motion lumberjacks in Canada, graphite miners in Peru, and sweatshops in China.
 

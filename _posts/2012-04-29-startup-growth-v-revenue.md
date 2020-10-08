@@ -16,11 +16,11 @@ tags:
   - tech
 ---
 > *Nick Bilton points to the [lack of revenue at startups as signs of a bubble](http://bits.blogs.nytimes.com/2012/04/29/disruptions-with-no-revenue-an-illusion-of-value/).*
+<!--more-->
 
 Now, I’m not going to say that things don’t look a little bubbleicious right now, with $1b valuations and [acquisitions of tiny startups with no revenue](http://venturebeat.com/2012/04/26/facebook-paranoia/).
 
 But to some degree Bilton is channeling Eduardo Saverin, who famously pushed for early revenue at Facebook, clashed with Zuckerberg, and got squeezed out with a mere [$2 billion or so for his trouble](http://www.forbes.com/profile/eduardo-saverin/).  
-<!--more-->
 
   
 Another example is YouTube. By all accounts, it’s doing pretty well for Google now, with more intrusive pre-roll video ads and popups during videos. Google also gets strategic benefits, good placement on iPhones, a better seat at the table for its so far not very successful TV products. 

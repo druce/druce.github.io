@@ -11,10 +11,12 @@ post-views:
 dsq_thread_id:
   - "498604984"
 categories:
-  - Uncategorized
+  - economics
+tags:
+  - economics
 ---
-A few years old, but new to me: [an interesting perspective from Yegor Gaidar](http://www.aei.org/issue/25991), reformist economist of the post-Gorbachev era.
-
+> *A few years old, but new to me: [an interesting perspective from Yegor Gaidar](http://www.aei.org/issue/25991), reformist economist of the post-Gorbachev era.*
+<!--more-->
 &bull; Collectivisation and urbanization left the Soviet Union with a grain shortfall. Rather than reform the agricultural sector, they paid for food with oil exports.
 
 &bull; In the 1985, the Saudis decided they would no longer act as swing producer and forgo exports while other members of OPEC cheated. The Saudis started a price war and broke up the cartel. Oil went briefly under $10 a barrel and Soviet oil revenue dried up.

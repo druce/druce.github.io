@@ -11,12 +11,12 @@ post-views:
 dsq_thread_id:
   - "445483270"
 categories:
-  - Uncategorized
+  - tech
+tags:
+  - tech
 ---
-A few technology megatrends:
-
+> *A few technology megatrends:*
 <!--more-->
-
 **1. The cloud**. Transition from a PC-centric world to a mobile/cloud-centric world. Microsoft is the new IBM. Google is the new Microsoft. Apple is the new Apple _ innovative, iconoclastic, beloved by early adopters, but not necessarily the mass market solution because they are expensive, closed, loathed by carriers/OEMs. But smartphones are still a niche market, when everyone needs a smartphone, and they have a choice of an almost free Android vs. an iPhone, I wouldn’t bet on the iPhone, especially internationally.
 
 Subtrends
