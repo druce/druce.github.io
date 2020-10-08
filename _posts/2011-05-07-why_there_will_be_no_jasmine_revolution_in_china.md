@@ -11,12 +11,12 @@ post-views:
 dsq_thread_id:
   - "384446057"
 categories:
-  - Uncategorized
+  - china
+tags:
+  - china
 ---
-  <img src="/assets/2020/300px-Ai_Weiwei.jpg" alt="Ai Weiwei during documenta 12 (2007)" width="300" height="400" />
-  
-The Chinese government has taken insecurity and paranoia up a notch in the wake of the Jasmine uprisings in the Arab world. They have ‘disappeared’ dissident artist [Ai Weiwei](http://loveaiww.blogspot.com/2011/04/2009620107.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed:+loveAiWeiwei+(%E7%88%B1%E8%89%BE%E6%9C%AA%E6%9C%AA)) and cracked down hard on human rights activists, [meddlesome lawyers](http://www.nytimes.com/2011/04/20/world/asia/20china.html?_r=2&gwh=6E61B57AD709E6FE808023DD0AE27E8D), and [dissidents](http://www.guardian.co.uk/world/2011/jan/17/china-prosecuted-hundreds-xinjiang-unrest).
-
+> <img src="/assets/2020/300px-Ai_Weiwei.jpg" alt="Ai Weiwei during documenta 12 (2007)" width="300" height="400" /> The Chinese government has taken insecurity and paranoia up a notch in the wake of the Jasmine uprisings in the Arab world. They have ‘disappeared’ dissident artist [Ai Weiwei](http://loveaiww.blogspot.com/2011/04/2009620107.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed:+loveAiWeiwei+(%E7%88%B1%E8%89%BE%E6%9C%AA%E6%9C%AA)) and cracked down hard on human rights activists, [meddlesome lawyers](http://www.nytimes.com/2011/04/20/world/asia/20china.html?_r=2&gwh=6E61B57AD709E6FE808023DD0AE27E8D), and [dissidents](http://www.guardian.co.uk/world/2011/jan/17/china-prosecuted-hundreds-xinjiang-unrest).
+<!--more-->
 That is **reason number one** there will be no revolution in the near future: _the government is perpetually on guard against any threats_. China is not a police state like East Germany was. Individualism thrives. But the government sets down bright lines. You can do or say anything you wish, as long as you do not threaten the legitimacy of the Chinese Communist Party’s hold on power. If you do, the full force of the state will be brought to bear.
 
 <!--more-->

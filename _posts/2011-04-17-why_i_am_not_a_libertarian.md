@@ -11,22 +11,17 @@ post-views:
 dsq_thread_id:
   - "384445977"
 categories:
-  - Uncategorized
+  - politics
+tags:
+  - politics
 ---
-  <img src="/assets/2020/atlasshrugged.jpg" alt="Atlas Shrugged" width="280" height="367" /></a></p> 
-  
-<span class="Apple-style-span" style="font-family: TimesRoman, serif; font-size: 16px; color: rgb(0, 0, 0); "></p> 
-
-<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0.75em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
-  I have been reading the <a href="http://www.rottentomatoes.com/m/atlas_shrugged_part_i/">poor reviews of Atlas Shrugged</a>. I feel almost disappointed that it is by collective consensus a steaming turd. I would welcome a thoughtful movie about an interesting thought experiment, and I think the country could use a rare substantive debate about the size and role of government.
-</p>
-
+> *<img src="/assets/2020/atlasshrugged.jpg" alt="Atlas Shrugged" width="280" height="367" /></a> I have been reading the <a href="http://www.rottentomatoes.com/m/atlas_shrugged_part_i/">poor reviews of Atlas Shrugged</a>. I feel almost disappointed that it is by collective consensus a steaming turd. I would welcome a thoughtful movie about an interesting thought experiment, and I think the country could use a rare substantive debate about the size and role of government.*
+<!--more-->
 <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0.75em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
   I like the libertarian ideal of as much economic and personal freedom as possible, consistent with the equal liberty of others.
-</p>
 
 <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0.75em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
-  Nevertheless, people who believe in <a href="http://en.wikipedia.org/wiki/Libertarianism">Libertarianism</a><span>&nbsp;o</span><span>r <a href="http://www.atlassociety.org/objectivism">Objectivism</a>&nbsp;</span>as a practical political ideology are a bit wacko.
+  Nevertheless, people who believe in <a href="http://en.wikipedia.org/wiki/Libertarianism">Libertarianism</a>&nbsp;or <a href="http://www.atlassociety.org/objectivism">Objectivism</a>&nbsp;as a practical political ideology are a bit wacko.
 </p>
 
 <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0.75em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
@@ -84,11 +79,3 @@ categories:
 <p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0.75em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
   Fortunately, these guys have no chance of forming a successful movement. How could you organize collective action by people who don’t believe in collective action?
 </p>
-
-<p>
-  </span>
-</p>
-
-<div class="zemanta-pixie" style="margin-top:10px;height:15px">
-  <a class="zemanta-pixie-a" href="http://www.zemanta.com/" title="Enhanced by Zemanta"><img class="zemanta-pixie-img" src="http://img.zemanta.com/zemified_e.png?x-id=ac60aae4-87fb-43ed-8175-3ea6f0d20ccb" alt="Enhanced by Zemanta" style="border:none;float:right" /></a>
-</div>

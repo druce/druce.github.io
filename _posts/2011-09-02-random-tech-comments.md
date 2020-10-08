@@ -11,11 +11,12 @@ post-views:
 dsq_thread_id:
   - "403200100"
 categories:
-  - Uncategorized
+  - tech
+tags:
+  - tech
 ---
-Wild and woolly couple of weeks in tech world _ ‘out with the old, in with the new.’  
+>*Wild and woolly couple of weeks in tech world ‘out with the old, in with the new.’*
 <!--more-->
-
   
 _ **HP in disarray**. Apotheker, their 3rd CEO since 2005, discontinued their mobile OS, which got OK reviews technically but was an initial flop, said they were looking at strategic alternatives for the PC division, and bought Autonomy, a UK enterprise software company. Communications were disastrous, twice now they had to rush out earnings after they were leaked, top PR guy took the fall and was sacked. Only a few months ago WebOS was going to be everywhere, and just like that it’s gone.
 

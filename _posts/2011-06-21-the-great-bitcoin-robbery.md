@@ -11,11 +11,12 @@ post-views:
 dsq_thread_id:
   - "338853909"
 categories:
-  - Uncategorized
+  - bitcoin
+tags:
+  - bitcoin
 ---
-[Bitcoin](http://www.bitcoin.org/bitcoin.pdf) is a fascinating experiment: digital currency that doesn’t depend on a central authority.  
+> *[Bitcoin](http://www.bitcoin.org/bitcoin.pdf) is a fascinating experiment: digital currency that doesn’t depend on a central authority.*
 <!--more-->
-
   
 _How it works:_ Suppose you put money in the bank. You open an account, and the bank has an electronic ledger that keeps track of how much money is in each account. Bitcoin is the same, but without the bank. Everybody who has an account effectively keeps a copy of the public ledger (the whole thing or the relevant parts). They can then share it with everyone else, like BitTorrent or Gnutella. If they want to transfer funds to someone else’s account, they add a transaction to the ledger and sign it digitally using public key cryptography. Then they share the updated ledger with the network. Nearby nodes pick up the changes, pass them on to people they are connected to, and the updated ledger propagates throughout the network.
 

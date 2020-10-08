@@ -1,6 +1,6 @@
 ---
 id: 254
-title: Fannie, Freddie, and the Financial Crisis
+title: Fannie, Freddie, And The Causes Of The Financial Crisis
 date: 2011-07-25T18:46:29+00:00
 author: Druce Vertes, CFA
 layout: post
@@ -11,10 +11,14 @@ post-views:
 dsq_thread_id:
   - "368480975"
 categories:
-  - Uncategorized
+  - markets
+  - economics
+tags:
+  - markets
+  - economics
 ---
-Once again, people are debating [here](http://marginalrevolution.com/marginalrevolution/2011/07/how-much-did-fannie-and-freddie-cause-the-financial-crisis.html) and [here](http://marginalrevolution.com/marginalrevolution/2011/07/the-four-flavors-of-financial-crisis-more-on-the-mortgage-agencies.html) and [here](http://www.nybooks.com/blogs/nyrblog/2011/jul/13/why-fannie-and-freddie-are-not-blame-crisis/) whether the GSEs like Fannie Mae and Freddie Mac caused the financial crisis.
-
+> *Once again, people are debating [here](http://marginalrevolution.com/marginalrevolution/2011/07/how-much-did-fannie-and-freddie-cause-the-financial-crisis.html) and [here](http://marginalrevolution.com/marginalrevolution/2011/07/the-four-flavors-of-financial-crisis-more-on-the-mortgage-agencies.html) and [here](http://www.nybooks.com/blogs/nyrblog/2011/jul/13/why-fannie-and-freddie-are-not-blame-crisis/) whether the GSEs like Fannie Mae and Freddie Mac caused the financial crisis.*
+<!--more-->
 I’m with [Barry Ritholtz](http://www.ritholtz.com/blog/2011/06/blame-emphasis-reveals/) _ it’s a case study of confirmation bias in action. If you are predisposed against X, the financial crisis was caused by X, where X is ACORN, or the CRA, the poor, minorities, Fannie Mae, regulations, unions, going off the gold standard, taxes, deficits, Goldman Sachs, hedge funds, and of course, the Fed.
 
 Additionally, the ‘blame-the-GSEs’ meme is a focused PR campaign by free market fundamentalists and banks who want to deflect blame from themselves, and roll back weak beer reforms.

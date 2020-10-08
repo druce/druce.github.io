@@ -1,6 +1,6 @@
 ---
 id: 89
-title: 'ETFs _ Get Off My Lawn!'
+title: 'ETFs: Get Off My Lawn!'
 date: 2011-06-29T22:47:47+00:00
 author: Druce Vertes, CFA
 layout: post
@@ -11,10 +11,14 @@ post-views:
 dsq_thread_id:
   - "346649210"
 categories:
-  - Uncategorized
+  - investing
+  - markets
+tags:
+  - investing
+  - markets
 ---
-_The greater the institution, the greater the chances of abuse. _ Mohandas K. Gandhi_
-
+> *The greater the institution, the greater the chances of abuse. - Mohandas K. Gandhi*
+<!--more-->
 Two diametrically opposing story lines, both true.
 
 In one corner _ [ETFs are making mutual funds obsolete](http://www.marketwatch.com/story/mutual-funds-lose-their-battle-with-etfs-2011-06-08?siteid=rss&rss=1).

@@ -1,6 +1,6 @@
 ---
 id: 8
-title: 'China Banks: Red capitalism, Potemkin finance'
+title: 'Red Capitalism, Potemkin Finance: Behind Facade Of Modern Buildings, Institutions, State Directs Dysfunctional Markets'
 date: 2011-04-04T07:54:13+00:00
 author: StreetEYE
 layout: post
@@ -11,19 +11,18 @@ post-views:
 dsq_thread_id:
   - "489312282"
 categories:
-  - Uncategorized
+  - china
+tags:
+  - china
 ---
-China’s remarkable growth continues _ China has apparently now passed the US in industrial production, with the world GDP title in its sights (see [previous post](http://streeteye.com/blog/2011/04/chinas-economy-future-world-dominator-or-paper-tiger.html)).
-
+>*China’s remarkable growth continues _ China has apparently now passed the US in industrial production, with the world GDP title in its sights (see [previous post](http://streeteye.com/blog/2011/04/chinas-economy-future-world-dominator-or-paper-tiger.html)).*
+<!--more-->
 So how incredibly fortunate it is that the USA retains its commanding lead in the services sector! Clearly, future opportunities will abound in such sectors as retail and food services, debt collection, and of course government and related services. Based on recent government initiatives, the medical and military service fields seem particularly well positioned. We owe a huge debt of gratitude to all our heroes who serve overseas, in present and future military adventures, declared and otherwise. But those also serve who merely wait at home, for where would our GDP be without imputed rent on owner occupied housing? The fortitude of our world-beating service providers and consumers makes my eyes well up. I can’t help whistling a few bars of John Philip Sousa as I suppress the urge to chant “USA! USA!”
 
 And yet there is one corner of the services sector, where we imagined we were invulnerable, but now find China surpassing the USA and emerging as world-beaters: bank shenanigans.
 
 I just read the remarkable book [Red Capitalism: The Fragile Financial Foundation of China’s Extraordinary Rise](http://www.amazon.com/Red-Capitalism-Financial-Foundation-Extraordinary/dp/0470825863), by Carl E. Walter and Fraser J. T. Howie, and think it’s worth a quick summary.
 
-<!--more-->
-
-  
 After the 1978 liberalization, banks expanded lending liberally to real estate ventures in the Special Economic Zones, moving their franchise beyond lending to state owned enterprises. As it turned out, the tropical island of Hainan did not have the anticipated potential that had enabled 20,000 real estate companies to flourish. And the backing of the rock solid Chinese government apparently did not extend to ensuring that state-owned enterprises (SOEs) which experienced the downside of the free (or freer) markets actually made good on the loans made to them at the behest of patriotic duty and the party.
 
 Hence, after some years of pursuing hope as a strategy and delaying recognition of non-performing loans (NPLs) and inadequate capital, a bailout of banks was deemed necessary and desirable. And where else to look but at the bastion of capitalism, the USA and its experience with massive leverage, the RTC, off-balance sheet entities and delayed recognition of losses and ‘too-big-to-fail’? The restructuring of the banks took shape in multiple steps.

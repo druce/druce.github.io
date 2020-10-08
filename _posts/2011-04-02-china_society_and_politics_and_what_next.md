@@ -11,12 +11,12 @@ post-views:
 dsq_thread_id:
   - "354232593"
 categories:
-  - Uncategorized
+  - china
+tags:
+  - china
 ---
-In the post-war period period (possibly throughout the dynasties), truth has been relative in China, while power has been absolute.
-
+>*In the post-war period period (possibly throughout the dynasties), truth has been relative in China, while power has been absolute.*
 <!--more-->
-
   
 Today’s propaganda and censorship can be shockingly ham-handed. Foreign websites are routinely blocked. While the policies change, unaccessible sites on my recent visit seemed to include YouTube, most social media platforms like Facebook and Twitter, and blogging platforms like Blogger, WordPress. Seemingly odd sites like Picasa for photo sharing were blocked. Other social media sites like Reddit were available, maybe they just not popular enough yet, and as every site goes social, you can’t block everything. Google and Gmail have seemed mostly accessible but occasionally not _ no way to tell if it was a problem on my end, Google’s end, or government interference, but Google complained that it was the government and I am inclined to take them at their word.
 
