@@ -721,23 +721,23 @@ Results
 
 ## Concluding remarks
 
-We observe a modest but non-negligeable improvement in the target metric with a less manual process vs. sequential tuning.
+When I did the original Iowa model I was surprised boosting didn't perform better. With better tuning, we observe a modest but non-negligeable improvement in the target metric. Tuning also runs a little faster with a less manual process vs. sequential tuning. 
 
-I intend to use HyperOpt and Optuna for XGBoost going forward, no more grid search for me! In every case I've applied them, I've gotten at least a small improvement in the best metrics I found using grid search methods. Additionally, it's fire and forget (although with a little elbow grease the 4-pass sequential grid search could be made fire and forget.)
+I intend to use HyperOpt and Optuna going forward, no more grid search for me! In every case I've applied them, I've gotten at least a small improvement in the best metrics I found using grid search methods. Additionally, it's fire and forget (although with a little elbow grease the 4-pass sequential grid search could be made fire and forget.)
 
 I intend to use LightGBM first, which still retains a huge speed advantage over XGBoost and better metrics. (Or use both, and CatBoost for categorical boosting).
 
-Is the Ray framework the way to go for hyperparameter tuning? Provisionally. What we really need and Ray provides here is good integration between the underlying ML (LightGBM), the Bayesian search (Optuna), and early stopping (ASHA). I need to do a little more work and understand what early stopping method HyperOpt and Optuna offer without Ray. 
+Is the Ray framework the way to go for hyperparameter tuning? Provisionally, yes. What we really need and Ray provides here is good integration between the underlying ML (LightGBM), the Bayesian search (Optuna), and early stopping (ASHA). I need to do a little more work and understand what performance HyperOpt and Optuna offer without Ray. 
 
-Clusters? In general I don't really have the need, costs add up, MacBook Pro w/16 threads and desktop with GPU are plenty powerful. But it's good to have clustering in the back pocket. In production it might be more maintainable to use eg Terraform, Kubernetes to launch a cluster vs. the Ray native YAML config interface to boot.
+Clusters? Most of the time I don't really have the need, costs add up, MacBook Pro w/16 threads and desktop with GPU are plenty powerful. But it's good to have clustering in the back pocket. In production it might be more maintainable to use eg Terraform, Kubernetes to launch a cluster vs. the Ray native YAML config interface to boot.
 
-HyperOpt and Optuna seem to be the most popular but I may try the other algos systematically. https://docs.ray.io/en/master/tune/api_docs/suggestion.html
+HyperOpt and Optuna seem to be the most popular but I may try [the other algos]( https://docs.ray.io/en/master/tune/api_docs/suggestion.html) systematically.
 
-One thing that continues to surprise me is that Elasticnet, i.e. regularized linear regression, outperforms boosting on this dataset. I heavily engineered features so that linear methods work well. Predictors were chosen using lasso/elasticnet and I used log and Box-Cox transforms to force predictors to follow assumptions of least-squares.
+It continues to surprise me is that Elasticnet, i.e. regularized linear regression, outperforms boosting on this dataset. I heavily engineered features so that linear methods work well. Predictors were chosen using lasso/elasticnet and I used log and Box-Cox transforms to force predictors to follow assumptions of least-squares.
 
-This maybe tends to validate one of the [critiques of machine learning](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3624052), that the most powerful ML methods don't necessarily converge all the way to the best solution. If you have a ground truth that is linear plus noise, a complex XGBoost or neural network algorithm should get arbitrarily close to the closed-form optimal solution, but will never match the optimal solution exactly. XGBoost is piecewise constant and the complex neural network is subject to the vagaries of stochastic gradient descent. 
+This may tend to validate one of the [critiques of machine learning](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3624052), that the most powerful ML methods don't necessarily converge all the way to the best solution. If you have a ground truth that is linear plus noise, a complex XGBoost or neural network algorithm should get arbitrarily close to the closed-form optimal solution, but will never match the optimal solution exactly. XGBoost is piecewise constant and the complex neural network is subject to the vagaries of stochastic gradient descent. I thought arbitrarily close meant almost indistinguishable but clearly here this is not the case.
 
-But Elasticnet with L1 + L2 regularization plus gradient descent and hyperparameter optimization is still machine learning. It's simply the form of ML best matched to the problem. In the real world where data doesn't match assumptions of least-squares, gradient boosting generally performs extremely well. And even on this dataset, engineered for the linear models, SVR and KernelRidge performed better than Elasticnet (not shown) and ensembling Elasticnet with XGBoost, LightGBM, SVR, neural networks worked best of all. 
+Elasticnet with L1 + L2 regularization plus gradient descent and hyperparameter optimization is still machine learning. It's simply the form of ML best matched to the problem. In the real world where data doesn't match assumptions of least-squares, gradient boosting generally performs extremely well. And even on this dataset, engineered for the linear models, SVR and KernelRidge performed better than Elasticnet (not shown) and ensembling Elasticnet with XGBoost, LightGBM, SVR, neural networks worked best of all. 
 
 To paraphrase Casey Stengel, clever feature engineering will always outperform clever model algorithms and vice-versa<sup>*</sup>. But improving your hyperparameters with these best practices will always improve your results.
 
