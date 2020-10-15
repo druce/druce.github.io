@@ -1,26 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-10-14T20:12:29-04:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">StreetEYE Blog</title><subtitle>Druce's Mad Science About Tech, Markets And Political Economy</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna</title><link href="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna" rel="alternate" type="text/html" title="Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna" /><published>2020-10-12T18:28:57-04:00</published><updated>2020-10-12T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-10-15T10:47:11-04:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">StreetEYE Blog</title><subtitle>Druce's Mad Science About Tech, Markets And Political Economy</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna</title><link href="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna" rel="alternate" type="text/html" title="Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna" /><published>2020-10-12T18:28:57-04:00</published><updated>2020-10-12T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna">&lt;blockquote&gt;
   &lt;p&gt;In this post we are going to demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization modules like HyperOpt and Optuna, running on… 2) the &lt;a href=&quot;https://ray.io/&quot;&gt;Ray&lt;/a&gt; distributed ML framework, with a &lt;a href=&quot;https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf&quot;&gt;unified API to many hyperparameter search algos&lt;/a&gt; with early stopping and… 3) a distributed cluster of cloud instances for even more speedup.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;!--more--&gt;
-
-&lt;h4 id=&quot;todo&quot;&gt;Todo:&lt;/h4&gt;
-
-&lt;p&gt;new data set&lt;/p&gt;
-
-&lt;p&gt;refactor 4-pass&lt;/p&gt;
-
-&lt;p&gt;nice wandb chart&lt;/p&gt;
-
-&lt;p&gt;run LightGBM on HyperOpt, check timings&lt;/p&gt;
-
-&lt;p&gt;try all the other Ray searches with LGBM&lt;/p&gt;
-
-&lt;p&gt;fix the Jekyll template and validate html&lt;/p&gt;
-
-&lt;p&gt;fix top links and header color&lt;/p&gt;
-
-&lt;p&gt;fix bottom copyright&lt;/p&gt;
 
 &lt;h2 id=&quot;outline&quot;&gt;Outline:&lt;/h2&gt;
 
@@ -47,7 +29,6 @@
     border-collapse: collapse;
     border:2px solid #000000;
 }
-
 th{
     border:2px solid #000000;
 }
@@ -151,13 +132,13 @@ td{
 
 &lt;p&gt;Times for single instance are on an Amazon t2.2xlarge, for cluster m5.large x17 (1 head node + 16 workers)&lt;/p&gt;
 
-&lt;p&gt;We see both speedup and RMSE improvement when using HyperOpt and Optuna, and the cluster. But our feature engineering was quite good and our simple linear model baselines still outperforms boostin. (Not shown, SVR and KernelRidge are high-performing and an ensemble improves over all individual algos)&lt;/p&gt;
+&lt;p&gt;We see both speedup and RMSE improvement when using HyperOpt and Optuna, and the cluster. But our feature engineering was quite good and our simple linear model baselines still outperforms boosting. (Not shown, SVR and KernelRidge are high-performing and an ensemble improves over all individual algos)&lt;/p&gt;
 
 &lt;h2 id=&quot;hyperparameter-tuning-overview&quot;&gt;Hyperparameter Tuning Overview&lt;/h2&gt;
 
-&lt;p&gt;(If you are a data scientist, you can safely skip to Bayesian optimization or the implementations. If you are an aspiring data scientist or someone who does modeling part-time, here is some context.)&lt;/p&gt;
+&lt;p&gt;(If you are not a hyperparameter tuning data scientist ninja, here is some context. If you are, you can safely skip to Bayesian optimization or the implementations.)&lt;/p&gt;
 
-&lt;p&gt;Any sufficiently advanced machine learning model is indistinguishable from magic, and any sufficiently advanced machine learning model needs sound tuning.&lt;/p&gt;
+&lt;p&gt;Any sufficiently advanced machine learning model is indistinguishable from magic, and any sufficiently advanced machine learning model needs good tuning.&lt;/p&gt;
 
 &lt;p&gt;Backing up a step, here is a typical modeling workflow:&lt;/p&gt;
 
@@ -165,28 +146,28 @@ td{
   &lt;li&gt;Exploratory data analysis to understand your data.&lt;/li&gt;
   &lt;li&gt;Feature engineering and feature selection to clean, transform, and engineer the best features to create the best possible model.&lt;/li&gt;
   &lt;li&gt;Modeling: model selection and hyperparameter tuning to identify the best model architecture. Possibly ensembling to combine multiple models.&lt;/li&gt;
-  &lt;li&gt;Evaluation: measure the out-of-sample error in your model.&lt;/li&gt;
+  &lt;li&gt;Evaluation: Describe the out-of-sample error and its expected distribution.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;To minimize the out-of-sample error, you minimize the error from &lt;em&gt;bias&lt;/em&gt;, meaning the model isn’t sufficiently sensitive to signal in the data and &lt;em&gt;variance&lt;/em&gt;, meaning the model overfits the training data in ways that don’t generalize out-of-sample. Modeling is 90% data prep, the other half is all finding the &lt;a href=&quot;http://scott.fortmann-roe.com/docs/BiasVariance.html&quot;&gt;optimal bias-variance tradeoff&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Hyperparameters are you how you tune the bias-variance tradeoff. For a simple logistic regression predicting survival on the Titanic, the regularization parameter lets you control overfitting by penalizing sensitivity to any individual feature. For a huge neural network doing machine translation, the number and types of layers, units, activation, in addition to regularization, are hyperparameters.&lt;/p&gt;
+&lt;p&gt;Hyperparameters are you how you tune the bias-variance tradeoff. For a simple logistic regression predicting survival on the Titanic, the regularization parameter lets you control overfitting by penalizing sensitivity to any individual feature. For a massive neural network doing machine translation, the number and types of layers, units, activation, in addition to regularization, are hyperparameters.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Gradient boosting&lt;/em&gt; is a tree-based method. A decision tree constructs rules like, if the passenger is in first class and female, they probably survived the sinking of the Titanic. Trees are powerful but a single deep decision tree with all your features will tend to overfit the training data. &lt;em&gt;Random forests&lt;/em&gt; constructs many decision trees based on random subsets of observations and features and lets them vote (&lt;em&gt;bagging&lt;/em&gt;). This prevents overfitting and performs better out-of-sample. Hyperparameters include the number of trees, tree depth, how many features and observations each tree should use.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Gradient boosting&lt;/em&gt; is a tree-based method. A decision tree constructs rules like, if the passenger is in first class and female, they probably survived the sinking of the Titanic. Trees are powerful, but a single deep decision tree with all your features will tend to overfit the training data. &lt;em&gt;Random forests&lt;/em&gt; are many decision trees based on random subsets of observations and features which then vote (&lt;em&gt;bagging&lt;/em&gt;). The outcome of the vote is less overfitted than training on all the data and features and performs better out-of-sample. Random forest hyperparameters include the number of trees, tree depth, how many features and observations each tree should use.&lt;/p&gt;
 
 &lt;p&gt;Gradient boosting:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Starts with a guess of the median or base rate&lt;/li&gt;
   &lt;li&gt;Fits a tree to the data&lt;/li&gt;
-  &lt;li&gt;Adjusts the prediction not all the way to the tree prediction, but part of the way based on a &lt;em&gt;learning rate&lt;/em&gt; (new hyperparameter)&lt;/li&gt;
-  &lt;li&gt;Fits another tree to the error in the prediction so far and again adjusts the prediction based on the learning rate&lt;/li&gt;
+  &lt;li&gt;Adjusts the prediction not all the way to the tree prediction, but part of the way based on a &lt;em&gt;learning rate&lt;/em&gt; (a hyperparameter)&lt;/li&gt;
+  &lt;li&gt;Fits another tree to the error in the prediction so far and again adjusts the prediction further based on the learning rate&lt;/li&gt;
   &lt;li&gt;Continues reducing the error for a specified number of boosting rounds (another hyperparameter)&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Bagging&lt;/em&gt; uses many trees in parallel and lets them vote. &lt;em&gt;Boosting&lt;/em&gt; uses many trees in series to successively reduce the error, and the estimate is a weighted sum of all of them.&lt;/p&gt;
 
-&lt;p&gt;Gradient boosting is the current state of the art for regression and classification on traditional structured tabular data (in contrast to less structured data like image/video/natural language processing which benefit from deep learning). Gradient boosting algorithms like  &lt;a href=&quot;https://xgboost.readthedocs.io/en/latest/parameter.html&quot;&gt;XGBoost&lt;/a&gt;, &lt;a href=&quot;https://lightgbm.readthedocs.io/en/latest/Parameters.html&quot;&gt;LightGBM&lt;/a&gt; and &lt;a href=&quot;https://catboost.ai/docs/concepts/python-reference_parameters-list.html&quot;&gt;CatBoost&lt;/a&gt; have a very large number of hyperparameters, and tuning is an important part of using them.&lt;/p&gt;
+&lt;p&gt;Gradient boosting is the current state of the art for regression and classification on traditional structured tabular data (in contrast to less structured data like image/video/natural language processing which benefit from deep learning). Gradient boosting algorithms like  &lt;a href=&quot;https://xgboost.readthedocs.io/en/latest/parameter.html&quot;&gt;XGBoost&lt;/a&gt;, &lt;a href=&quot;https://lightgbm.readthedocs.io/en/latest/Parameters.html&quot;&gt;LightGBM&lt;/a&gt; and &lt;a href=&quot;https://catboost.ai/docs/concepts/python-reference_parameters-list.html&quot;&gt;CatBoost&lt;/a&gt; have a very large number of hyperparameters, and tuning is a very important part of using them.&lt;/p&gt;
 
 &lt;p&gt;Here are &lt;a href=&quot;https://en.wikipedia.org/wiki/Hyperparameter_optimization&quot;&gt;the principal approaches to hyperparameter tuning&lt;/a&gt;&lt;/p&gt;
 
@@ -219,9 +200,9 @@ td{
 
 &lt;p&gt;Perhaps we might do two passes of grid search. After an initial search on a broad, coarsely spaced grid, we might do a deeper dive in a smaller area around the best metric from the first pass, with a more finely-spaced grid. In Bayesian terminology we &lt;em&gt;updated our prior&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;Bayesian optimization starts by sampling randomly, e.g. 30 combinations, and computes the cross-validation metric for each of the 30 randomly sampled combination using &lt;em&gt;&lt;a href=&quot;https://machinelearningmastery.com/k-fold-cross-validation/&quot;&gt;k-fold cross-validation&lt;/a&gt;&lt;/em&gt;. Then the algorithm updates the distribution it samples from, so it is more likely to sample combinations similar to the good metrics, and less likely to sample combinations to the poor metrics. As it continues to sample, it continues to update the search distribution based on the metrics it finds.&lt;/p&gt;
+&lt;p&gt;Bayesian optimization starts by sampling randomly, e.g. 30 combinations, and computes the cross-validation metric for each of the 30 randomly sampled combination using &lt;em&gt;&lt;a href=&quot;https://machinelearningmastery.com/k-fold-cross-validation/&quot;&gt;k-fold cross-validation&lt;/a&gt;&lt;/em&gt;. Then the algorithm updates the distribution it samples from, so it is more likely to sample combinations similar to the good metrics, and less likely to sample combinations similar to the poor metrics. As it continues to sample, it continues to update the search distribution based on the metrics it finds.&lt;/p&gt;
 
-&lt;p&gt;Early stopping of individual metric combinations is also highly beneficial. If while evaluating a hyperparameter combination, the eval metric is not improving or just not improving enough to beat our best to date, we can discard a combination without fully training on it. In this post we use &lt;em&gt;&lt;a href=&quot;https://arxiv.org/abs/1810.05934&quot;&gt;ASHA&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Early stopping of individual metric combinations is also highly beneficial. If while evaluating a hyperparameter combination, the eval metric is not improving in training or just not improving enough to beat our best to date, we can discard a combination without fully training on it. In this post we use &lt;em&gt;&lt;a href=&quot;https://arxiv.org/abs/1810.05934&quot;&gt;ASHA&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;further-reading&quot;&gt;Further reading:&lt;/h3&gt;
 
@@ -245,7 +226,7 @@ td{
 
 &lt;p&gt;We use 5 approaches :&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;em&gt;Native CV&lt;/em&gt;: In sklearn if an algo &lt;em&gt;xxx&lt;/em&gt; has hyperparameters it will often have an &lt;em&gt;xxxCV&lt;/em&gt; version like ElasticNetCV which performs automated hyperparameter tuning over a search space with specified kfolds.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Native CV&lt;/em&gt;: In sklearn if an algo &lt;em&gt;xxx&lt;/em&gt; has hyperparameters it will often have an &lt;em&gt;xxxCV&lt;/em&gt; version, like ElasticNetCV, which performs automated hyperparameter tuning over a search space with specified kfolds.&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;GridSearchCV&lt;/em&gt;: Abstracts CV that can wrap around any sklearn algo, running multithreaded trials over specified kfolds.&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;Manual sequential grid search&lt;/em&gt;: What we typically do with XGBoost, which doesn’t play well with GridSearchCV and has too many hyperparameters to tune in one pass.&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;Ray on local machine&lt;/em&gt;: HyperOpt and Optuna with early stopping.&lt;/li&gt;
@@ -291,6 +272,7 @@ td{
   &lt;li&gt;sklearn.model_selection.cross_val_score for evaluation&lt;/li&gt;
   &lt;li&gt;Jupyter %%time magic for wall time&lt;/li&gt;
   &lt;li&gt;n_jobs=-1 to run folds in parallel using all cores available.&lt;/li&gt;
+  &lt;li&gt;Note the wall time &amp;lt; 1 second and RMSE of 18192.&lt;/li&gt;
   &lt;li&gt;Full code is on &lt;a href=&quot;https://github.com/iowa/hyperparameter_optimization.ipynb&quot;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -355,9 +337,9 @@ Wall time: 3.16 s
 &lt;h3 id=&quot;notes-1&quot;&gt;Notes:&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;ElasticNet is linear regression with L1 and L2 regularization (2 hyperparameters)&lt;/li&gt;
-  &lt;li&gt;When we use regularization, we need to scale the data so the fixed coefficient penalty has a similar impact across features.&lt;/li&gt;
-  &lt;li&gt;Fit data and extract hyperparams.&lt;/li&gt;
-  &lt;li&gt;Then we do cross_val_score with reported hyperparams (doesn’t appear to be a way to extract the score from the fitted model without refitting)&lt;/li&gt;
+  &lt;li&gt;When we use regularization, we need to scale the data so the fixed coefficient penalty has a similar impact across features. We use a pipeline with RobustScaler for scaling.&lt;/li&gt;
+  &lt;li&gt;Fit data and extract hyperparameters from the fitted model.&lt;/li&gt;
+  &lt;li&gt;Then we do cross_val_score with reported hyperparams (There doesn’t appear to be a way to extract the score from the fitted model without refitting)&lt;/li&gt;
   &lt;li&gt;Verbose output reports 130 tasks, for full grid search on 10 folds expect 13x9x10=1170. Clever optimization - just updates reg penalty and doesn’t refit?&lt;/li&gt;
   &lt;li&gt;Note the modest $70 reduction in RMSE.&lt;/li&gt;
 &lt;/ul&gt;
@@ -425,7 +407,7 @@ Wall time: 4.64 s
   &lt;li&gt;Then tune subsample and colsample_bytree&lt;/li&gt;
   &lt;li&gt;Then tune alpha, lambda and gamma (regularization)&lt;/li&gt;
   &lt;li&gt;Finally, tune learning rate: lower learning rate will need more rounds/n_estimators&lt;/li&gt;
-  &lt;li&gt;Do 10-fold CV&lt;/li&gt;
+  &lt;li&gt;Do 10-fold CV on each hyperparameter combination&lt;/li&gt;
   &lt;li&gt;Use early stopping to halt training in each fold if no improvement after 100 rounds&lt;/li&gt;
   &lt;li&gt;Pick hyperparameters to minimize average RMSE over kfolds&lt;/li&gt;
   &lt;li&gt;After choosing hyperparameters, retrain and evaluate on full dataset.&lt;/li&gt;
@@ -761,10 +743,48 @@ discuss wandb&lt;/p&gt;
 
 &lt;h2 id=&quot;xgboost-on-ray-cluster-with-optuna&quot;&gt;XGBoost on Ray cluster with Optuna&lt;/h2&gt;
 
-&lt;p&gt;launch cluster discussion&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;ray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'localhost:6379'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_redis_password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'5241590000000000'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;Clusters are defined in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray1.1.yaml&lt;/code&gt;. (So far we have been using the current production ray 1.0, but I had difficulty getting cluster to run with ray 1.0 so I switched to the dev nightly.)&lt;/li&gt;
+  &lt;li&gt;boto3 and AWS CLI configured credentials are used, so &lt;a href=&quot;https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html&quot;&gt;install and configure AWS CLI&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray1.1.yaml&lt;/code&gt; file with your region, availability zone, subnet, imageid information
+    &lt;ul&gt;
+      &lt;li&gt;to get those variables launch the latest Deep Learning AMI (Ubuntu 18.04) Version 35.0 into a small instance in your favorite region/zone&lt;/li&gt;
+      &lt;li&gt;test that it works&lt;/li&gt;
+      &lt;li&gt;note those 4 variables: region, availability zone, subnet, AMI imageid&lt;/li&gt;
+      &lt;li&gt;terminate the instance and edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray1.1.yaml&lt;/code&gt; accordingly&lt;/li&gt;
+      &lt;li&gt;in future you can create your own image with everything pre-installed and specify its AMI imageid, instead of using the generic image and installing everything at launch.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;To run the cluster: 
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray up ray1.1.yaml&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Creates head instance using image specified.&lt;/li&gt;
+      &lt;li&gt;Installs ray and related requirements&lt;/li&gt;
+      &lt;li&gt;Clones this Iowa repo&lt;/li&gt;
+      &lt;li&gt;Launches worker nodes per auto-scaling parameters (currently we fix the number of nodes because we’re not benchmarking the time the cluster will take to auto-scale)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;After cluster starts you can check AWS console and note that several instances launched.&lt;/li&gt;
+  &lt;li&gt;Check &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray monitor ray1.1.yaml&lt;/code&gt; for any error messages&lt;/li&gt;
+  &lt;li&gt;Run Jupyter on the cluster with port forwarding
+ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray exec ray1.1.yaml --port-forward=8899 'source ~/anaconda3/bin/activate tensorflow_p36 &amp;amp;&amp;amp; jupyter notebook --port=8899'&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Open the notebook on the generated URL e.g. http://localhost:8899/?token=5f46d4355ae7174524ba71f30ef3f0633a20b19a204b93b4&lt;/li&gt;
+  &lt;li&gt;Make sure to choose the default kernel to make sure it runs in the conda environment with all installs&lt;/li&gt;
+  &lt;li&gt;Make sure to use the ray.init() command given in the startup messages.
+ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray.init(address='localhost:6379', _redis_password='5241590000000000')&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;You can also run a terminal on the head node of the cluster with
+ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray attach /Users/drucev/projects/iowa/ray1.1.yaml&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;You can also ssh explicitly with the IP address and the generated private key
+ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh -o IdentitiesOnly=yes -i ~/.ssh/ray-autoscaler_1_us-east-1.pem ubuntu@54.161.200.54&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;run port forwarding to the Ray dashboard with &lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray dashboard ray1.1.yaml&lt;/code&gt;
+and then open
+ http://localhost:8265/&lt;/li&gt;
+  &lt;li&gt;the cluster will incur AWS charges so &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray down ray1.1.yaml&lt;/code&gt; when complete&lt;/li&gt;
+  &lt;li&gt;Other than connecting to Ray cluster, runs identically to previous examples.&lt;/li&gt;
+  &lt;li&gt;See &lt;a href=&quot;https://github.com/druce/iowa/hyperparameter_optimization_cluster.ipynb&quot;&gt;hyperparameter_optimization_cluster.ipynb&lt;/a&gt;, separated out so each notebook can be run end-to-end with/without cluster setup&lt;/li&gt;
+  &lt;li&gt;See https://docs.ray.io/en/latest/cluster/launcher.html for additional info on Ray clusters.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;No other change to code to run on the cluster&lt;/p&gt;
 
@@ -810,7 +830,25 @@ discuss wandb&lt;/p&gt;
 
 &lt;p&gt;To paraphrase Casey Stengel, clever feature engineering will always outperform clever model algorithms and vice-versa&lt;sup&gt;*&lt;/sup&gt;. But improving your hyperparameters with these best practices will always improve your results.&lt;/p&gt;
 
-&lt;p&gt;&lt;sup&gt;*&lt;/sup&gt;This is not intended to make sense.&lt;/p&gt;</content><author><name>Druce Vertes</name></author><category term="datascience" /><category term="datascience" /><summary type="html">In this post we are going to demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization modules like HyperOpt and Optuna, running on… 2) the Ray distributed ML framework, with a unified API to many hyperparameter search algos with early stopping and… 3) a distributed cluster of cloud instances for even more speedup.</summary></entry><entry><title type="html">The Biggest Bluff: She Stoops To Conquer</title><link href="http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/" rel="alternate" type="text/html" title="The Biggest Bluff: She Stoops To Conquer" /><published>2020-07-09T18:28:57-04:00</published><updated>2020-07-09T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer</id><content type="html" xml:base="http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/">&lt;blockquote&gt;
+&lt;p&gt;&lt;sup&gt;*&lt;/sup&gt;This is not intended to make sense.&lt;/p&gt;
+
+&lt;h4 id=&quot;todo&quot;&gt;Todo:&lt;/h4&gt;
+
+&lt;p&gt;new data set&lt;/p&gt;
+
+&lt;p&gt;refactor 4-pass&lt;/p&gt;
+
+&lt;p&gt;nice wandb chart&lt;/p&gt;
+
+&lt;p&gt;run LightGBM on HyperOpt, check timings&lt;/p&gt;
+
+&lt;p&gt;try all the other Ray searches with LGBM&lt;/p&gt;
+
+&lt;p&gt;fix the Jekyll template and validate html&lt;/p&gt;
+
+&lt;p&gt;fix top links and header color&lt;/p&gt;
+
+&lt;p&gt;fix bottom copyright&lt;/p&gt;</content><author><name>Druce Vertes</name></author><category term="datascience" /><category term="datascience" /><summary type="html">In this post we are going to demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization modules like HyperOpt and Optuna, running on… 2) the Ray distributed ML framework, with a unified API to many hyperparameter search algos with early stopping and… 3) a distributed cluster of cloud instances for even more speedup.</summary></entry><entry><title type="html">The Biggest Bluff: She Stoops To Conquer</title><link href="http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/" rel="alternate" type="text/html" title="The Biggest Bluff: She Stoops To Conquer" /><published>2020-07-09T18:28:57-04:00</published><updated>2020-07-09T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer</id><content type="html" xml:base="http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/">&lt;blockquote&gt;
   &lt;p&gt;&lt;em&gt;I enjoyed &lt;a href=&quot;https://www.amazon.com/Biggest-Bluff-Learned-Attention-Master/dp/052552262X/&quot;&gt;The Biggest Bluff: How I Learned to Pay Attention, Master Myself, and Win, by Maria Konnikova&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
