@@ -10,7 +10,7 @@ categories: datascience
 tags: datascience
 
 ---
-> In this post we are going to demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization modules like HyperOpt and Optuna, running on… 2) the [Ray](https://ray.io/) distributed ML framework, with a [unified API to many hyperparameter search algos](https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf) with early stopping and… 3) a distributed cluster of cloud instances for even more speedup.
+> In this post we are going to demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization modules like HyperOpt and Optuna, running on… 2) the [Ray](https://ray.io/) distributed ML framework, with a [unified API to many hyperparameter search algos](https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf) with early stopping and… 3) a distributed cluster of cloud instances for even faster tuning.
 
 <!--more-->
 
@@ -44,15 +44,15 @@ td{
     border:1px solid #000000;
 }</style>
 
-| ML Algo          | Search algo                  | CV Error (RMSE in $) | Time h:mm::ss |
+| ML Algo          | Search algo                  | CV Error (RMSE in $) | Time mm::ss |
 |:-----------------:|:----------------------------:|:--------------------:|:--------:|
-| XGB               | Sequential Grid Search       | 18783                |   36:09  |
-| XGB               | HyperOpt (128 samples)       | 18770                |   13:36  |
-| XGB               | Optuna (256 samples)         | 18722                |   43:21  |
-| LightGBM          | HyperOpt (256 samples)       | 18612                |   45:08  |
-| LightGBM          | Optuna                       |  18534               |   34:54  |
-| XGB               | Optuna - 16-instance cluster | 18770                |   14:23  |
-| LightGBM          | Optuna - 16-instance cluster | 18612                |    4:22  |
+| XGB               | Sequential Grid Search               | 18775                |   32:39  |
+| XGB               | HyperOpt (128 samples)               | 18639                |   15:21  |
+| XGB               | Optuna (256 samples)                 | 18457                |   21:25  |
+| LightGBM          | HyperOpt (256 samples)               | 18582                |   06:31  |
+| LightGBM          | Optuna (256 samples)                 | 18627                |   05:05  |
+| XGB               | HyperOpt (256 samples) - 16x cluster | 18770                |   14:23  |
+| LightGBM          | HyperOpt (256 samples) - 16x cluster | 18612                |    4:22  |
 
 
 ### Baseline linear models
@@ -61,12 +61,12 @@ td{
 | ML Algo           | Search algo                  | CV Error (RMSE in $) | Time     |
 |:-----------------:|:----------------------------:|:--------------------:|:--------:|
 | Linear Regression | --                           | 18192                |   0:01s  |
-| ElasticNet        | ElasticNetCV (Grid Search)   | 18122                |   0:02s  |
+| ElasticNet        | ElasticNetCV (Grid Search)   | 18061                |   0:02s  |
 | ElasticNet        | GridSearchCV                 | 18061                |   0:05s  |
 |                   |                              |                      |          |
 
 
-Times for single instance are on an Amazon t2.2xlarge, for cluster m5.large x17 (1 head node + 16 workers)
+Times for single instance are on a local desktop similar to EC2 2xlarge, for cluster m5.large x17 (1 head node + 16 workers)
 
 We see both speedup and RMSE improvement when using HyperOpt and Optuna, and the cluster. But our feature engineering was quite good and our simple linear model baselines still outperforms boosting. (Not shown, SVR and KernelRidge are high-performing and an ensemble improves over all individual algos)
 
@@ -78,26 +78,26 @@ Any sufficiently advanced machine learning model is indistinguishable from magic
 
 Backing up a step, here is a typical modeling workflow:
 
-- Exploratory data analysis to understand your data.
-- Feature engineering and feature selection to clean, transform, and engineer the best features to create the best possible model.
+- Exploratory data analysis: understand your data.
+- Feature engineering and feature selection: clean, transform, and engineer the best features to create the best possible model.
 - Modeling: model selection and hyperparameter tuning to identify the best model architecture. Possibly ensembling to combine multiple models.
 - Evaluation: Describe the out-of-sample error and its expected distribution.
 
-To minimize the out-of-sample error, you minimize the error from *bias*, meaning the model isn't sufficiently sensitive to signal in the data and *variance*, meaning the model overfits the training data in ways that don't generalize out-of-sample. Modeling is 90% data prep, the other half is all finding the [optimal bias-variance tradeoff](http://scott.fortmann-roe.com/docs/BiasVariance.html). 
+To minimize the out-of-sample error, you minimize the error from *bias*, meaning the model isn't sufficiently sensitive to the signal in the data and *variance*, meaning the model is too sensitive to the signal specific to the training data in ways that don't generalize out-of-sample. Modeling is 90% data prep, the other half is all finding the [optimal bias-variance tradeoff](http://scott.fortmann-roe.com/docs/BiasVariance.html). 
 
 Hyperparameters are you how you tune the bias-variance tradeoff. For a simple logistic regression predicting survival on the Titanic, the regularization parameter lets you control overfitting by penalizing sensitivity to any individual feature. For a massive neural network doing machine translation, the number and types of layers, units, activation, in addition to regularization, are hyperparameters. 
 
-*Gradient boosting* is a tree-based method. A decision tree constructs rules like, if the passenger is in first class and female, they probably survived the sinking of the Titanic. Trees are powerful, but a single deep decision tree with all your features will tend to overfit the training data. *Random forests* are many decision trees based on random subsets of observations and features which then vote (*bagging*). The outcome of the vote is less overfitted than training on all the data and features and performs better out-of-sample. Random forest hyperparameters include the number of trees, tree depth, how many features and observations each tree should use. 
+*Gradient boosting* is a tree-based method. A decision tree constructs rules like, if the passenger is in first class and female, they probably survived the sinking of the Titanic. Trees are powerful, but a single deep decision tree with all your features will tend to overfit the training data. *Random forests* are many decision trees based on random subsets of observations and features which then vote (*bagging*). The outcome of the vote is less overfitted than training on all the data and all the features and performs better out-of-sample. Random forest hyperparameters include the number of trees, tree depth, how many features and observations each tree should use. In contrast to bagging:
 
 Gradient boosting:
 
-- Starts with a guess of the median or base rate
-- Fits a tree to the data 
-- Adjusts the prediction not all the way to the tree prediction, but part of the way based on a *learning rate* (a hyperparameter)
-- Fits another tree to the error in the prediction so far and again adjusts the prediction further based on the learning rate
-- Continues reducing the error for a specified number of boosting rounds (another hyperparameter)
+- Start with a simple model like the median or base rate
+- Fit a tree to the *error* in this prediction
+- If you can *predict* the error, you can *adjust* for it and improve the prediction. Adjust the prediction not all the way to the tree prediction, but part of the way based on a *learning rate* (a hyperparameter)
+- Fit another tree to the error in the prediction so far and again adjusts the prediction further based on the learning rate
+- Iteratively continue reducing the error for a specified number of boosting rounds (another hyperparameter)
 
-*Bagging* uses many trees in parallel and lets them vote. *Boosting* uses many trees in series to successively reduce the error, and the estimate is a weighted sum of all of them. 
+*Bagging* like random forest uses many trees in parallel and lets them vote. *Boosting* uses many trees in series to successively reduce the error, and the estimate is the initial prediction plus the sum of all the predicted necessary adjustments (weighted by the learning rate). 
 
 Gradient boosting is the current state of the art for regression and classification on traditional structured tabular data (in contrast to less structured data like image/video/natural language processing which benefit from deep learning). Gradient boosting algorithms like  [XGBoost](https://xgboost.readthedocs.io/en/latest/parameter.html), [LightGBM](https://lightgbm.readthedocs.io/en/latest/Parameters.html) and [CatBoost](https://catboost.ai/docs/concepts/python-reference_parameters-list.html) have a very large number of hyperparameters, and tuning is a very important part of using them.
 
@@ -119,13 +119,26 @@ In this post we focus on Bayesian optimization with HyperOpt and Optuna.
 
 ## Bayesian Optimization
 
-What is Bayesian optimization? When we perform a grid search, the search space can be considered a [prior](https://en.wikipedia.org/wiki/Prior_probability): we believe that the best hyperparameter vector is in this search space. And *a priori* the combinations have equal probability of being the best combination. So we try them all and pick the best one.
+What is Bayesian optimization? When we perform a grid search, the search space can be considered a [prior](https://en.wikipedia.org/wiki/Prior_probability): we believe that the best hyperparameter vector is in this search space. And *a priori* the hyperparameter combinations have equal probability of being the best combination. So we try them all and pick the best one.
 
 Perhaps we might do two passes of grid search. After an initial search on a broad, coarsely spaced grid, we might do a deeper dive in a smaller area around the best metric from the first pass, with a more finely-spaced grid. In Bayesian terminology we *updated our prior*.
 
-Bayesian optimization starts by sampling randomly, e.g. 30 combinations, and computes the cross-validation metric for each of the 30 randomly sampled combination using *[k-fold cross-validation](https://machinelearningmastery.com/k-fold-cross-validation/)*. Then the algorithm updates the distribution it samples from, so it is more likely to sample combinations similar to the good metrics, and less likely to sample combinations similar to the poor metrics. As it continues to sample, it continues to update the search distribution based on the metrics it finds.
+Bayesian optimization starts by sampling randomly, e.g. 30 combinations, and computes the cross-validation metric for each of the 30 randomly sampled combination using *[k-fold cross-validation](https://machinelearningmastery.com/k-fold-cross-validation/)*. Then the algorithm updates the distribution it samples from, so it is more likely to sample combinations similar to the good metrics, and less likely to sample combinations similar to the poor metrics. As it continues to sample, it continues to update the search distribution it samples from, based on the metrics it finds.
 
-Early stopping of individual metric combinations is also highly beneficial. If while evaluating a hyperparameter combination, the eval metric is not improving in training or just not improving enough to beat our best to date, we can discard a combination without fully training on it. In this post we use *[ASHA](https://arxiv.org/abs/1810.05934)*. 
+![Illustration of random search vs. Bayesian](/assets/2020/optuna_bayesian.png)
+Source: [Crissman Loomis, Optuna](https://medium.com/optuna/using-optuna-to-optimize-xgboost-hyperparameters-63bfcdfd3407) 
+
+As you can see, if good metrics are not random but found close to one another in an orderly pattern, Bayesian optimization is likely to be more efficient than random search.
+
+## Early Stopping
+
+Early stopping of individual metric combinations is also highly beneficial. If, while evaluating a hyperparameter combination, the eval metric is not improving in training, or just not improving enough to beat our best to date, we can discard a combination before fully training on it. 
+
+XGBoost and LightGBM helpfully implement early stopping callbacks ([XGBoost](https://xgboost.readthedocs.io/en/latest/python/callbacks.html) ; [LightGBM](https://lightgbm.readthedocs.io/en/latest/pythonapi/lightgbm.early_stopping.html#lightgbm.early_stopping)). 
+
+HyperOpt, Optuna, Ray can use these callbacks to stop useless trials quickly, and improve performance considerably.
+
+In this post, we use Asynchronous Successive Halving Algorithm (*[ASHA](https://arxiv.org/abs/1810.05934)*), described in this [blog post](https://blog.ml.cmu.edu/2018/12/12/massively-parallel-hyperparameter-optimization/).
 
 ### Further reading: 
 
@@ -135,7 +148,7 @@ Early stopping of individual metric combinations is also highly beneficial. If w
 
 ## Implementation
 
-We use data from the [Ames Housing Dataset](https://www.kaggle.com/c/house-prices-advanced-regression-techniques). The original data has 79 raw features. The data we will use has 100 features with a fair amount of feature engineering from [my own attempt at modeling](https://github.com/druce/iowa), which was in the top 5% or so when I submitted it to Kaggle. We model the log of the sale price, use RMSE as our metric for model selection. We convert the RMSE back to raw $ units for easier interpretability.
+We use data from the [Ames Housing Dataset](https://www.kaggle.com/c/house-prices-advanced-regression-techniques). The original data has 79 raw features. The data we will use has 100 features with a fair amount of feature engineering from [my own attempt at modeling](https://github.com/druce/iowa), which was in the top 5% or so when I submitted it to Kaggle. We model the log of the sale price, and use RMSE as our metric for model selection. We convert the RMSE back to raw $ units for easier interpretability.
 
 We use 4 regression algorithms:
 - *LinearRegression*: baseline with no hyperparameters
@@ -746,6 +759,10 @@ To paraphrase Casey Stengel, clever feature engineering will always outperform c
 
 
 #### Todo:
+
+add section on early stopping
+
+link to crissman / image
 
 new data set
 

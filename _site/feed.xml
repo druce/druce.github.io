@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-10-15T10:54:45-04:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">StreetEYE Blog</title><subtitle>Druce's Mad Science About Tech, Markets And Political Economy</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna</title><link href="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna" rel="alternate" type="text/html" title="Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna" /><published>2020-10-12T18:28:57-04:00</published><updated>2020-10-12T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna">&lt;blockquote&gt;
-  &lt;p&gt;In this post we are going to demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization modules like HyperOpt and Optuna, running on… 2) the &lt;a href=&quot;https://ray.io/&quot;&gt;Ray&lt;/a&gt; distributed ML framework, with a &lt;a href=&quot;https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf&quot;&gt;unified API to many hyperparameter search algos&lt;/a&gt; with early stopping and… 3) a distributed cluster of cloud instances for even more speedup.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-10-16T18:44:59-04:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">StreetEYE Blog</title><subtitle>Druce's Mad Science About Tech, Markets And Political Economy</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna</title><link href="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna" rel="alternate" type="text/html" title="Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna" /><published>2020-10-12T18:28:57-04:00</published><updated>2020-10-12T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna">&lt;blockquote&gt;
+  &lt;p&gt;In this post we are going to demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization modules like HyperOpt and Optuna, running on… 2) the &lt;a href=&quot;https://ray.io/&quot;&gt;Ray&lt;/a&gt; distributed ML framework, with a &lt;a href=&quot;https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf&quot;&gt;unified API to many hyperparameter search algos&lt;/a&gt; with early stopping and… 3) a distributed cluster of cloud instances for even faster tuning.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;!--more--&gt;
@@ -42,49 +42,49 @@ td{
       &lt;th style=&quot;text-align: center&quot;&gt;ML Algo&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Search algo&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;CV Error (RMSE in $)&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Time h:mm::ss&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Time mm::ss&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;XGB&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;Sequential Grid Search&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;18783&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;36:09&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;18775&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;32:39&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;XGB&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;HyperOpt (128 samples)&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;18770&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;13:36&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;18639&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;15:21&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;XGB&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;Optuna (256 samples)&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;18722&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;43:21&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;18457&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;21:25&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;LightGBM&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;HyperOpt (256 samples)&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;18612&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;45:08&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;18582&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;06:31&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;LightGBM&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Optuna&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;18534&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;34:54&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Optuna (256 samples)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;18627&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;05:05&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;XGB&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Optuna - 16-instance cluster&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;HyperOpt (256 samples) - 16x cluster&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;18770&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;14:23&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;LightGBM&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Optuna - 16-instance cluster&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;HyperOpt (256 samples) - 16x cluster&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;18612&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;4:22&lt;/td&gt;
     &lt;/tr&gt;
@@ -112,7 +112,7 @@ td{
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;ElasticNet&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;ElasticNetCV (Grid Search)&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;18122&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;18061&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;0:02s&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -130,7 +130,7 @@ td{
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Times for single instance are on an Amazon t2.2xlarge, for cluster m5.large x17 (1 head node + 16 workers)&lt;/p&gt;
+&lt;p&gt;Times for single instance are on a local desktop similar to EC2 2xlarge, for cluster m5.large x17 (1 head node + 16 workers)&lt;/p&gt;
 
 &lt;p&gt;We see both speedup and RMSE improvement when using HyperOpt and Optuna, and the cluster. But our feature engineering was quite good and our simple linear model baselines still outperforms boosting. (Not shown, SVR and KernelRidge are high-performing and an ensemble improves over all individual algos)&lt;/p&gt;
 
@@ -143,29 +143,29 @@ td{
 &lt;p&gt;Backing up a step, here is a typical modeling workflow:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Exploratory data analysis to understand your data.&lt;/li&gt;
-  &lt;li&gt;Feature engineering and feature selection to clean, transform, and engineer the best features to create the best possible model.&lt;/li&gt;
+  &lt;li&gt;Exploratory data analysis: understand your data.&lt;/li&gt;
+  &lt;li&gt;Feature engineering and feature selection: clean, transform, and engineer the best features to create the best possible model.&lt;/li&gt;
   &lt;li&gt;Modeling: model selection and hyperparameter tuning to identify the best model architecture. Possibly ensembling to combine multiple models.&lt;/li&gt;
   &lt;li&gt;Evaluation: Describe the out-of-sample error and its expected distribution.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;To minimize the out-of-sample error, you minimize the error from &lt;em&gt;bias&lt;/em&gt;, meaning the model isn’t sufficiently sensitive to signal in the data and &lt;em&gt;variance&lt;/em&gt;, meaning the model overfits the training data in ways that don’t generalize out-of-sample. Modeling is 90% data prep, the other half is all finding the &lt;a href=&quot;http://scott.fortmann-roe.com/docs/BiasVariance.html&quot;&gt;optimal bias-variance tradeoff&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To minimize the out-of-sample error, you minimize the error from &lt;em&gt;bias&lt;/em&gt;, meaning the model isn’t sufficiently sensitive to the signal in the data and &lt;em&gt;variance&lt;/em&gt;, meaning the model is too sensitive to the signal specific to the training data in ways that don’t generalize out-of-sample. Modeling is 90% data prep, the other half is all finding the &lt;a href=&quot;http://scott.fortmann-roe.com/docs/BiasVariance.html&quot;&gt;optimal bias-variance tradeoff&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Hyperparameters are you how you tune the bias-variance tradeoff. For a simple logistic regression predicting survival on the Titanic, the regularization parameter lets you control overfitting by penalizing sensitivity to any individual feature. For a massive neural network doing machine translation, the number and types of layers, units, activation, in addition to regularization, are hyperparameters.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Gradient boosting&lt;/em&gt; is a tree-based method. A decision tree constructs rules like, if the passenger is in first class and female, they probably survived the sinking of the Titanic. Trees are powerful, but a single deep decision tree with all your features will tend to overfit the training data. &lt;em&gt;Random forests&lt;/em&gt; are many decision trees based on random subsets of observations and features which then vote (&lt;em&gt;bagging&lt;/em&gt;). The outcome of the vote is less overfitted than training on all the data and features and performs better out-of-sample. Random forest hyperparameters include the number of trees, tree depth, how many features and observations each tree should use.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Gradient boosting&lt;/em&gt; is a tree-based method. A decision tree constructs rules like, if the passenger is in first class and female, they probably survived the sinking of the Titanic. Trees are powerful, but a single deep decision tree with all your features will tend to overfit the training data. &lt;em&gt;Random forests&lt;/em&gt; are many decision trees based on random subsets of observations and features which then vote (&lt;em&gt;bagging&lt;/em&gt;). The outcome of the vote is less overfitted than training on all the data and all the features and performs better out-of-sample. Random forest hyperparameters include the number of trees, tree depth, how many features and observations each tree should use. In contrast to bagging:&lt;/p&gt;
 
 &lt;p&gt;Gradient boosting:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Starts with a guess of the median or base rate&lt;/li&gt;
-  &lt;li&gt;Fits a tree to the data&lt;/li&gt;
-  &lt;li&gt;Adjusts the prediction not all the way to the tree prediction, but part of the way based on a &lt;em&gt;learning rate&lt;/em&gt; (a hyperparameter)&lt;/li&gt;
-  &lt;li&gt;Fits another tree to the error in the prediction so far and again adjusts the prediction further based on the learning rate&lt;/li&gt;
-  &lt;li&gt;Continues reducing the error for a specified number of boosting rounds (another hyperparameter)&lt;/li&gt;
+  &lt;li&gt;Start with a simple model like the median or base rate&lt;/li&gt;
+  &lt;li&gt;Fit a tree to the &lt;em&gt;error&lt;/em&gt; in this prediction&lt;/li&gt;
+  &lt;li&gt;If you can &lt;em&gt;predict&lt;/em&gt; the error, you can &lt;em&gt;adjust&lt;/em&gt; for it and improve the prediction. Adjust the prediction not all the way to the tree prediction, but part of the way based on a &lt;em&gt;learning rate&lt;/em&gt; (a hyperparameter)&lt;/li&gt;
+  &lt;li&gt;Fit another tree to the error in the prediction so far and again adjusts the prediction further based on the learning rate&lt;/li&gt;
+  &lt;li&gt;Iteratively continue reducing the error for a specified number of boosting rounds (another hyperparameter)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;em&gt;Bagging&lt;/em&gt; uses many trees in parallel and lets them vote. &lt;em&gt;Boosting&lt;/em&gt; uses many trees in series to successively reduce the error, and the estimate is a weighted sum of all of them.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Bagging&lt;/em&gt; like random forest uses many trees in parallel and lets them vote. &lt;em&gt;Boosting&lt;/em&gt; uses many trees in series to successively reduce the error, and the estimate is the initial prediction plus the sum of all the predicted necessary adjustments (weighted by the learning rate).&lt;/p&gt;
 
 &lt;p&gt;Gradient boosting is the current state of the art for regression and classification on traditional structured tabular data (in contrast to less structured data like image/video/natural language processing which benefit from deep learning). Gradient boosting algorithms like  &lt;a href=&quot;https://xgboost.readthedocs.io/en/latest/parameter.html&quot;&gt;XGBoost&lt;/a&gt;, &lt;a href=&quot;https://lightgbm.readthedocs.io/en/latest/Parameters.html&quot;&gt;LightGBM&lt;/a&gt; and &lt;a href=&quot;https://catboost.ai/docs/concepts/python-reference_parameters-list.html&quot;&gt;CatBoost&lt;/a&gt; have a very large number of hyperparameters, and tuning is a very important part of using them.&lt;/p&gt;
 
@@ -196,13 +196,26 @@ td{
 
 &lt;h2 id=&quot;bayesian-optimization&quot;&gt;Bayesian Optimization&lt;/h2&gt;
 
-&lt;p&gt;What is Bayesian optimization? When we perform a grid search, the search space can be considered a &lt;a href=&quot;https://en.wikipedia.org/wiki/Prior_probability&quot;&gt;prior&lt;/a&gt;: we believe that the best hyperparameter vector is in this search space. And &lt;em&gt;a priori&lt;/em&gt; the combinations have equal probability of being the best combination. So we try them all and pick the best one.&lt;/p&gt;
+&lt;p&gt;What is Bayesian optimization? When we perform a grid search, the search space can be considered a &lt;a href=&quot;https://en.wikipedia.org/wiki/Prior_probability&quot;&gt;prior&lt;/a&gt;: we believe that the best hyperparameter vector is in this search space. And &lt;em&gt;a priori&lt;/em&gt; the hyperparameter combinations have equal probability of being the best combination. So we try them all and pick the best one.&lt;/p&gt;
 
 &lt;p&gt;Perhaps we might do two passes of grid search. After an initial search on a broad, coarsely spaced grid, we might do a deeper dive in a smaller area around the best metric from the first pass, with a more finely-spaced grid. In Bayesian terminology we &lt;em&gt;updated our prior&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;Bayesian optimization starts by sampling randomly, e.g. 30 combinations, and computes the cross-validation metric for each of the 30 randomly sampled combination using &lt;em&gt;&lt;a href=&quot;https://machinelearningmastery.com/k-fold-cross-validation/&quot;&gt;k-fold cross-validation&lt;/a&gt;&lt;/em&gt;. Then the algorithm updates the distribution it samples from, so it is more likely to sample combinations similar to the good metrics, and less likely to sample combinations similar to the poor metrics. As it continues to sample, it continues to update the search distribution based on the metrics it finds.&lt;/p&gt;
+&lt;p&gt;Bayesian optimization starts by sampling randomly, e.g. 30 combinations, and computes the cross-validation metric for each of the 30 randomly sampled combination using &lt;em&gt;&lt;a href=&quot;https://machinelearningmastery.com/k-fold-cross-validation/&quot;&gt;k-fold cross-validation&lt;/a&gt;&lt;/em&gt;. Then the algorithm updates the distribution it samples from, so it is more likely to sample combinations similar to the good metrics, and less likely to sample combinations similar to the poor metrics. As it continues to sample, it continues to update the search distribution it samples from, based on the metrics it finds.&lt;/p&gt;
 
-&lt;p&gt;Early stopping of individual metric combinations is also highly beneficial. If while evaluating a hyperparameter combination, the eval metric is not improving in training or just not improving enough to beat our best to date, we can discard a combination without fully training on it. In this post we use &lt;em&gt;&lt;a href=&quot;https://arxiv.org/abs/1810.05934&quot;&gt;ASHA&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/2020/optuna_bayesian.png&quot; alt=&quot;Illustration of random search vs. Bayesian&quot; /&gt;
+Source: &lt;a href=&quot;https://medium.com/optuna/using-optuna-to-optimize-xgboost-hyperparameters-63bfcdfd3407&quot;&gt;Crissman Loomis, Optuna&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see, if good metrics are not random but found close to one another in an orderly pattern, Bayesian optimization is likely to be more efficient than random search.&lt;/p&gt;
+
+&lt;h2 id=&quot;early-stopping&quot;&gt;Early Stopping&lt;/h2&gt;
+
+&lt;p&gt;Early stopping of individual metric combinations is also highly beneficial. If, while evaluating a hyperparameter combination, the eval metric is not improving in training, or just not improving enough to beat our best to date, we can discard a combination before fully training on it.&lt;/p&gt;
+
+&lt;p&gt;XGBoost and LightGBM helpfully implement early stopping callbacks (&lt;a href=&quot;https://xgboost.readthedocs.io/en/latest/python/callbacks.html&quot;&gt;XGBoost&lt;/a&gt; ; &lt;a href=&quot;https://lightgbm.readthedocs.io/en/latest/pythonapi/lightgbm.early_stopping.html#lightgbm.early_stopping&quot;&gt;LightGBM&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;HyperOpt, Optuna, Ray can use these callbacks to stop useless trials quickly, and improve performance considerably.&lt;/p&gt;
+
+&lt;p&gt;In this post, we use Asynchronous Successive Halving Algorithm (&lt;em&gt;&lt;a href=&quot;https://arxiv.org/abs/1810.05934&quot;&gt;ASHA&lt;/a&gt;&lt;/em&gt;), described in this &lt;a href=&quot;https://blog.ml.cmu.edu/2018/12/12/massively-parallel-hyperparameter-optimization/&quot;&gt;blog post&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;further-reading&quot;&gt;Further reading:&lt;/h3&gt;
 
@@ -214,7 +227,7 @@ td{
 
 &lt;h2 id=&quot;implementation&quot;&gt;Implementation&lt;/h2&gt;
 
-&lt;p&gt;We use data from the &lt;a href=&quot;https://www.kaggle.com/c/house-prices-advanced-regression-techniques&quot;&gt;Ames Housing Dataset&lt;/a&gt;. The original data has 79 raw features. The data we will use has 100 features with a fair amount of feature engineering from &lt;a href=&quot;https://github.com/druce/iowa&quot;&gt;my own attempt at modeling&lt;/a&gt;, which was in the top 5% or so when I submitted it to Kaggle. We model the log of the sale price, use RMSE as our metric for model selection. We convert the RMSE back to raw $ units for easier interpretability.&lt;/p&gt;
+&lt;p&gt;We use data from the &lt;a href=&quot;https://www.kaggle.com/c/house-prices-advanced-regression-techniques&quot;&gt;Ames Housing Dataset&lt;/a&gt;. The original data has 79 raw features. The data we will use has 100 features with a fair amount of feature engineering from &lt;a href=&quot;https://github.com/druce/iowa&quot;&gt;my own attempt at modeling&lt;/a&gt;, which was in the top 5% or so when I submitted it to Kaggle. We model the log of the sale price, and use RMSE as our metric for model selection. We convert the RMSE back to raw $ units for easier interpretability.&lt;/p&gt;
 
 &lt;p&gt;We use 4 regression algorithms:&lt;/p&gt;
 &lt;ul&gt;
@@ -834,6 +847,10 @@ and then open
 
 &lt;h4 id=&quot;todo&quot;&gt;Todo:&lt;/h4&gt;
 
+&lt;p&gt;add section on early stopping&lt;/p&gt;
+
+&lt;p&gt;link to crissman / image&lt;/p&gt;
+
 &lt;p&gt;new data set&lt;/p&gt;
 
 &lt;p&gt;refactor 4-pass&lt;/p&gt;
@@ -848,7 +865,7 @@ and then open
 
 &lt;p&gt;fix top links and header color&lt;/p&gt;
 
-&lt;p&gt;fix bottom copyright&lt;/p&gt;</content><author><name>Druce Vertes</name></author><category term="datascience" /><category term="datascience" /><summary type="html">In this post we are going to demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization modules like HyperOpt and Optuna, running on… 2) the Ray distributed ML framework, with a unified API to many hyperparameter search algos with early stopping and… 3) a distributed cluster of cloud instances for even more speedup.</summary></entry><entry><title type="html">The Biggest Bluff: She Stoops To Conquer</title><link href="http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/" rel="alternate" type="text/html" title="The Biggest Bluff: She Stoops To Conquer" /><published>2020-07-09T18:28:57-04:00</published><updated>2020-07-09T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer</id><content type="html" xml:base="http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/">&lt;blockquote&gt;
+&lt;p&gt;fix bottom copyright&lt;/p&gt;</content><author><name>Druce Vertes</name></author><category term="datascience" /><category term="datascience" /><summary type="html">In this post we are going to demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization modules like HyperOpt and Optuna, running on… 2) the Ray distributed ML framework, with a unified API to many hyperparameter search algos with early stopping and… 3) a distributed cluster of cloud instances for even faster tuning.</summary></entry><entry><title type="html">The Biggest Bluff: She Stoops To Conquer</title><link href="http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/" rel="alternate" type="text/html" title="The Biggest Bluff: She Stoops To Conquer" /><published>2020-07-09T18:28:57-04:00</published><updated>2020-07-09T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer</id><content type="html" xml:base="http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/">&lt;blockquote&gt;
   &lt;p&gt;&lt;em&gt;I enjoyed &lt;a href=&quot;https://www.amazon.com/Biggest-Bluff-Learned-Attention-Master/dp/052552262X/&quot;&gt;The Biggest Bluff: How I Learned to Pay Attention, Master Myself, and Win, by Maria Konnikova&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
