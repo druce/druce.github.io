@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-10-18T10:30:18-04:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">StreetEYE Blog</title><subtitle>Druce's Mad Science About Tech, Markets And Political Economy</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna</title><link href="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna" rel="alternate" type="text/html" title="Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna" /><published>2020-10-12T18:28:57-04:00</published><updated>2020-10-12T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna">&lt;blockquote&gt;
-  &lt;p&gt;Automated hyperparameter tuning is faster and more effective than grid search. In this post we are going to demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization modules like HyperOpt and Optuna, running on… 2) the &lt;a href=&quot;https://ray.io/&quot;&gt;Ray&lt;/a&gt; distributed ML framework, with a &lt;a href=&quot;https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf&quot;&gt;unified API to many hyperparameter search algos&lt;/a&gt; with early stopping and… 3) a distributed cluster of cloud instances for even faster tuning.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-10-18T23:55:25-04:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">StreetEYE Blog</title><subtitle>Druce's Mad Science About Tech, Markets And Political Economy</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna</title><link href="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna" rel="alternate" type="text/html" title="Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna" /><published>2020-10-12T18:28:57-04:00</published><updated>2020-10-12T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna">&lt;blockquote&gt;
+  &lt;p&gt;Bayesian optimization for hyperparameter tuning is faster and more effective than grid search. Let’s demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization modules like HyperOpt and Optuna, running on… 2) the &lt;a href=&quot;https://ray.io/&quot;&gt;Ray&lt;/a&gt; distributed ML framework, with a &lt;a href=&quot;https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf&quot;&gt;unified API to many hyperparameter search algos&lt;/a&gt; with early stopping and… 3) a distributed cluster of cloud instances for even faster tuning.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;!--more--&gt;
@@ -13,11 +13,11 @@
   &lt;li&gt;Early stopping&lt;/li&gt;
   &lt;li&gt;Implementation details&lt;/li&gt;
   &lt;li&gt;Baseline linear regression with no hyperparameters&lt;/li&gt;
-  &lt;li&gt;ElasticNet with L1 and L2 regularization using ElasticNetCV hyperparameter optimization&lt;/li&gt;
-  &lt;li&gt;ElasticNet with GridSearchCV hyperparameter optimization&lt;/li&gt;
+  &lt;li&gt;ElasticNetCV (Linear regression with L1 and L2 regularization)&lt;/li&gt;
+  &lt;li&gt;ElasticNet with GridSearchCV&lt;/li&gt;
   &lt;li&gt;XGBoost: sequential grid search over hyperparameter subsets with early stopping&lt;/li&gt;
-  &lt;li&gt;XGBoost: with HyperOpt and Optuna search algorithms&lt;/li&gt;
-  &lt;li&gt;LightGBM: with HyperOpt and Optuna search algorithms&lt;/li&gt;
+  &lt;li&gt;XGBoost: HyperOpt and Optuna search algorithms&lt;/li&gt;
+  &lt;li&gt;LightGBM: HyperOpt and Optuna search algorithms&lt;/li&gt;
   &lt;li&gt;XGBoost: HyperOpt on a Ray cluster&lt;/li&gt;
   &lt;li&gt;LightGBM: HyperOpt on a Ray cluster&lt;/li&gt;
   &lt;li&gt;Concluding remarks&lt;/li&gt;
@@ -46,51 +46,63 @@ td{
       &lt;th style=&quot;text-align: center&quot;&gt;ML Algo&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Search algo&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;CV Error (RMSE in $)&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Time mm::ss&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Time h:mm::ss&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;XGB&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;Sequential Grid Search&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;18775&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;32:39&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;18193&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1:24:22&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;XGB&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;HyperOpt (128 samples)&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;18639&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;15:21&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;18338&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;7:31&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;XGB&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;Optuna (256 samples)&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;18457&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;21:25&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;18393&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;11:52&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;LightGBM&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;HyperOpt (256 samples)&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;18582&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;06:31&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;18475&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;16:52&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;LightGBM&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;Optuna (256 samples)&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;18627&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;05:05&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;18679&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;7:51&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;XGB&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;HyperOpt (256 samples) - 16x cluster&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;18770&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;14:23&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;HyperOpt (1024 samples) - 16x cluster&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;18321&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;31:44&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;XGB&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Optuna (1024 samples) - 16x cluster&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;18315&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;26:48&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;LightGBM&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;HyperOpt (256 samples) - 16x cluster&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;18612&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;4:22&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;HyperOpt (1024 samples) - 16x cluster&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;18475&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;24:46&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;LightGBM&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Optuna (1024 samples) - 16x cluster&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;18535&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;42:38&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -134,9 +146,9 @@ td{
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Times for single instance are on a local desktop similar to EC2 2xlarge, times for the cluster are on m5.large x17 (1 head node + 16 workers)&lt;/p&gt;
+&lt;p&gt;Times for single instance are on a local desktop with 12 threads, comparable to EC2 4xlarge. Times for the cluster are on m5.large x17 (1 head node + 15 workers)&lt;/p&gt;
 
-&lt;p&gt;We see both speedup and RMSE improvement when using HyperOpt and Optuna, and the cluster. But our feature engineering was quite good and our simple linear model baselines still outperforms boosting. (Not shown, SVR and KernelRidge are high-performing and an ensemble improves over all individual algos)&lt;/p&gt;
+&lt;p&gt;We see considerable speedup when using HyperOpt and Optuna, and the cluster. RMSEs are comparable, although our manual grid search is best. But our feature engineering was quite good and our simple linear model baselines outperform boosting. (Not shown, SVR and KernelRidge are high-performing and an ensemble improves over all individual algos)&lt;/p&gt;
 
 &lt;h2 id=&quot;2-hyperparameter-tuning-overview&quot;&gt;2. Hyperparameter Tuning Overview&lt;/h2&gt;
 
@@ -273,7 +285,7 @@ Source: &lt;a href=&quot;https://medium.com/optuna/using-optuna-to-optimize-xgbo
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scores&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cross_val_score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predictors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
                           &lt;span class=&quot;n&quot;&gt;scoring&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;neg_root_mean_squared_error&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
                           &lt;span class=&quot;n&quot;&gt;cv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kfolds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-						  &lt;span class=&quot;n&quot;&gt;n_jobs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                          &lt;span class=&quot;n&quot;&gt;n_jobs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;raw_scores&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cv_to_raw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scores&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Raw CV RMSE %.0f (STD %.0f)&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;raw_scores&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;raw_scores&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -354,11 +366,11 @@ Wall time: 3.16 s
 &lt;h3 id=&quot;notes-1&quot;&gt;Notes:&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;ElasticNet is linear regression with L1 and L2 regularization (2 hyperparameters)&lt;/li&gt;
-  &lt;li&gt;When we use regularization, we need to scale the data so the fixed coefficient penalty has a similar impact across features. We use a pipeline with RobustScaler for scaling.&lt;/li&gt;
+  &lt;li&gt;When we use regularization, we need to scale the data so the coefficient penalty has a similar impact across features. We use a pipeline with RobustScaler for scaling.&lt;/li&gt;
   &lt;li&gt;Fit data and extract hyperparameters from the fitted model.&lt;/li&gt;
   &lt;li&gt;Then we do cross_val_score with reported hyperparams (There doesn’t appear to be a way to extract the score from the fitted model without refitting)&lt;/li&gt;
   &lt;li&gt;Verbose output reports 130 tasks, for full grid search on 10 folds expect 13x9x10=1170. Clever optimization?&lt;/li&gt;
-  &lt;li&gt;Note the modest $70 reduction in RMSE.&lt;/li&gt;
+  &lt;li&gt;Note the modest reduction in RMSE vs. linear regression without regularization.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;8-gridsearchcv&quot;&gt;8. GridSearchCV&lt;/h2&gt;
@@ -420,14 +432,13 @@ Wall time: 4.64 s
 &lt;ul&gt;
   &lt;li&gt;Set an initial set of starting parameters.&lt;/li&gt;
   &lt;li&gt;Tune sequentially on groups of hyperparameters that don’t interact too much between groups to reduce combinations.&lt;/li&gt;
-  &lt;li&gt;First, tune max_depth and min_child_weight&lt;/li&gt;
-  &lt;li&gt;Then tune subsample and colsample_bytree&lt;/li&gt;
-  &lt;li&gt;Then tune alpha, lambda and gamma (regularization)&lt;/li&gt;
-  &lt;li&gt;Finally, tune learning rate: lower learning rate will need more rounds/n_estimators&lt;/li&gt;
+  &lt;li&gt;First, tune max_depth&lt;/li&gt;
+  &lt;li&gt;Then tune subsample, colsample_bytree and colsample_bylevel&lt;/li&gt;
+  &lt;li&gt;Finally, tune learning rate: lower learning rate will need more boosting rounds (n_estimators)&lt;/li&gt;
   &lt;li&gt;Do 10-fold CV on each hyperparameter combination&lt;/li&gt;
   &lt;li&gt;Use early stopping to halt training in each fold if no improvement after 100 rounds&lt;/li&gt;
   &lt;li&gt;Pick hyperparameters to minimize average RMSE over kfolds&lt;/li&gt;
-  &lt;li&gt;After choosing hyperparameters, retrain and evaluate on full dataset.&lt;/li&gt;
+  &lt;li&gt;After choosing hyperparameters, retrain and evaluate on full dataset without early stopping.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;It doesn’t seem possible to get XGBoost early stopping and also use GridSearchCV. GridSearchCV doesn’t pass the kfolds in a way that XGboost understands for early stopping. Alternative approaches:&lt;/p&gt;
@@ -824,21 +835,17 @@ and then open
 
 &lt;h2 id=&quot;14-concluding-remarks&quot;&gt;14. Concluding remarks&lt;/h2&gt;
 
-&lt;p&gt;When I did the original Iowa model I was surprised boosting didn’t perform better. With better tuning, we observe a modest but non-negligeable improvement in the target metric. Tuning also runs a little faster with a less manual process vs. sequential tuning.&lt;/p&gt;
+&lt;p&gt;Bayesian optimization tunes significantly faster with a less manual process vs. sequential tuning. The RMSE is slightly worse in this case.&lt;/p&gt;
 
-&lt;p&gt;I intend to use HyperOpt and Optuna going forward, no more grid search for me! In every case I’ve applied them, I’ve gotten at least a small improvement in the best metrics I found using grid search methods. Additionally, it’s fire and forget (although with a little elbow grease the 4-pass sequential grid search could be made fire and forget.)&lt;/p&gt;
+&lt;p&gt;In almost every case I’ve applied them, HyperOpt has given me at least a small improvement in the best metrics I found using grid search methods. Additionally, it’s fire and forget.&lt;/p&gt;
 
-&lt;p&gt;I intend to use LightGBM first, which still retains a huge speed advantage over XGBoost and better metrics. (Or use both, and CatBoost for categorical boosting).&lt;/p&gt;
+&lt;p&gt;Is the Ray framework the way to go for hyperparameter tuning? Provisionally, yes. What we really need and Ray provides here is good integration between the underlying ML (e.g. XGBoost), the Bayesian search (e.g. HyperOpt), and early stopping (ASHA). I need to do a little more work and understand what performance benefits HyperOpt and Optuna offer without Ray.&lt;/p&gt;
 
-&lt;p&gt;Is the Ray framework the way to go for hyperparameter tuning? Provisionally, yes. What we really need and Ray provides here is good integration between the underlying ML (LightGBM), the Bayesian search (Optuna), and early stopping (ASHA). I need to do a little more work and understand what performance HyperOpt and Optuna offer without Ray.&lt;/p&gt;
+&lt;p&gt;Clusters? Most of the time I don’t have the need, costs add up, The longest run I have tried, with 4096 samples, ran overnight on desktop. My MacBook Pro w/16 threads and desktop with 12 threads and GPU are plenty powerful. But it’s good to have the clustering alternative in the back pocket. In production it might be more maintainable to deploy with Terraform, Kubernetes than Ray native YAML config interface.&lt;/p&gt;
 
-&lt;p&gt;Clusters? Most of the time I don’t really have the need, costs add up, MacBook Pro w/16 threads and desktop with GPU are plenty powerful. But it’s good to have clustering in the back pocket. In production it might be more maintainable to use eg Terraform, Kubernetes to launch a cluster vs. the Ray native YAML config interface to boot.&lt;/p&gt;
+&lt;p&gt;It continues to surprise me that Elasticnet, i.e. regularized linear regression, outperforms boosting on this dataset. I heavily engineered features so that linear methods work well. Predictors were chosen using Lasso/Elasticnet and I used log and Box-Cox transforms to force predictors to follow assumptions of least-squares.&lt;/p&gt;
 
-&lt;p&gt;HyperOpt and Optuna seem to be the most popular but I may try &lt;a href=&quot;https://docs.ray.io/en/master/tune/api_docs/suggestion.html&quot;&gt;the other algos&lt;/a&gt; systematically.&lt;/p&gt;
-
-&lt;p&gt;It continues to surprise me is that Elasticnet, i.e. regularized linear regression, outperforms boosting on this dataset. I heavily engineered features so that linear methods work well. Predictors were chosen using lasso/elasticnet and I used log and Box-Cox transforms to force predictors to follow assumptions of least-squares.&lt;/p&gt;
-
-&lt;p&gt;This may tend to validate one of the &lt;a href=&quot;https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3624052&quot;&gt;critiques of machine learning&lt;/a&gt;, that the most powerful ML methods don’t necessarily converge all the way to the best solution. If you have a ground truth that is linear plus noise, a complex XGBoost or neural network algorithm should get arbitrarily close to the closed-form optimal solution, but will never match the optimal solution exactly. XGBoost is piecewise constant and the complex neural network is subject to the vagaries of stochastic gradient descent. I thought arbitrarily close meant almost indistinguishable but clearly here this is not the case.&lt;/p&gt;
+&lt;p&gt;This may tend to validate one of the &lt;a href=&quot;https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3624052&quot;&gt;critiques of machine learning&lt;/a&gt;, that the most powerful ML methods don’t necessarily converge all the way to the best solution. If you have a ground truth that is linear plus noise, a complex XGBoost or neural network algorithm should get arbitrarily close to the closed-form optimal solution, but will never match the optimal solution exactly. XGBoost is piecewise constant and the complex neural network is subject to the vagaries of stochastic gradient descent. I thought arbitrarily close meant almost indistinguishable but clearly here this is not quite the case.&lt;/p&gt;
 
 &lt;p&gt;Elasticnet with L1 + L2 regularization plus gradient descent and hyperparameter optimization is still machine learning. It’s simply the form of ML best matched to the problem. In the real world where data doesn’t match assumptions of least-squares, gradient boosting generally performs extremely well. And even on this dataset, engineered for the linear models, SVR and KernelRidge performed better than Elasticnet (not shown) and ensembling Elasticnet with XGBoost, LightGBM, SVR, neural networks worked best of all.&lt;/p&gt;
 
@@ -852,7 +859,7 @@ and then open
 
 &lt;p&gt;fix top links and header color&lt;/p&gt;
 
-&lt;p&gt;fix bottom copyright&lt;/p&gt;</content><author><name>Druce Vertes</name></author><category term="datascience" /><category term="datascience" /><summary type="html">Automated hyperparameter tuning is faster and more effective than grid search. In this post we are going to demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization modules like HyperOpt and Optuna, running on… 2) the Ray distributed ML framework, with a unified API to many hyperparameter search algos with early stopping and… 3) a distributed cluster of cloud instances for even faster tuning.</summary></entry><entry><title type="html">The Biggest Bluff: She Stoops To Conquer</title><link href="http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/" rel="alternate" type="text/html" title="The Biggest Bluff: She Stoops To Conquer" /><published>2020-07-09T18:28:57-04:00</published><updated>2020-07-09T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer</id><content type="html" xml:base="http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/">&lt;blockquote&gt;
+&lt;p&gt;fix bottom copyright&lt;/p&gt;</content><author><name>Druce Vertes</name></author><category term="datascience" /><category term="datascience" /><summary type="html">Bayesian optimization for hyperparameter tuning is faster and more effective than grid search. Let’s demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization modules like HyperOpt and Optuna, running on… 2) the Ray distributed ML framework, with a unified API to many hyperparameter search algos with early stopping and… 3) a distributed cluster of cloud instances for even faster tuning.</summary></entry><entry><title type="html">The Biggest Bluff: She Stoops To Conquer</title><link href="http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/" rel="alternate" type="text/html" title="The Biggest Bluff: She Stoops To Conquer" /><published>2020-07-09T18:28:57-04:00</published><updated>2020-07-09T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer</id><content type="html" xml:base="http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/">&lt;blockquote&gt;
   &lt;p&gt;&lt;em&gt;I enjoyed &lt;a href=&quot;https://www.amazon.com/Biggest-Bluff-Learned-Attention-Master/dp/052552262X/&quot;&gt;The Biggest Bluff: How I Learned to Pay Attention, Master Myself, and Win, by Maria Konnikova&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
