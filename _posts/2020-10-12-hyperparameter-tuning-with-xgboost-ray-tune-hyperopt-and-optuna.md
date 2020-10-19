@@ -10,7 +10,7 @@ categories: datascience
 tags: datascience
 
 ---
-> Automated hyperparameter tuning is faster and more effective than grid search. In this post we are going to demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization modules like HyperOpt and Optuna, running on… 2) the [Ray](https://ray.io/) distributed ML framework, with a [unified API to many hyperparameter search algos](https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf) with early stopping and… 3) a distributed cluster of cloud instances for even faster tuning.
+> Bayesian optimization for hyperparameter tuning is faster and more effective than grid search. Let's demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization modules like HyperOpt and Optuna, running on… 2) the [Ray](https://ray.io/) distributed ML framework, with a [unified API to many hyperparameter search algos](https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf) with early stopping and… 3) a distributed cluster of cloud instances for even faster tuning.
 
 <!--more-->
 
@@ -22,11 +22,11 @@ tags: datascience
 4. Early stopping
 5. Implementation details
 6. Baseline linear regression with no hyperparameters
-7. ElasticNet with L1 and L2 regularization using ElasticNetCV hyperparameter optimization
-8. ElasticNet with GridSearchCV hyperparameter optimization
+7. ElasticNetCV (Linear regression with L1 and L2 regularization)
+8. ElasticNet with GridSearchCV 
 9. XGBoost: sequential grid search over hyperparameter subsets with early stopping 
-10. XGBoost: with HyperOpt and Optuna search algorithms
-11. LightGBM: with HyperOpt and Optuna search algorithms
+10. XGBoost: HyperOpt and Optuna search algorithms
+11. LightGBM: HyperOpt and Optuna search algorithms
 12. XGBoost: HyperOpt on a Ray cluster
 13. LightGBM: HyperOpt on a Ray cluster
 14. Concluding remarks
@@ -49,15 +49,17 @@ td{
 #### XGB and LightGBM with various hyperparameter optimization methodologies
 
 
-| ML Algo          | Search algo                  | CV Error (RMSE in $) | Time mm::ss |
+| ML Algo          | Search algo                  | CV Error (RMSE in $) | Time h:mm::ss |
 |:-----------------:|:----------------------------:|:--------------------:|:--------:|
-| XGB               | Sequential Grid Search               | 18775                |   32:39  |
-| XGB               | HyperOpt (128 samples)               | 18639                |   15:21  |
-| XGB               | Optuna (256 samples)                 | 18457                |   21:25  |
-| LightGBM          | HyperOpt (256 samples)               | 18582                |   06:31  |
-| LightGBM          | Optuna (256 samples)                 | 18627                |   05:05  |
-| XGB               | HyperOpt (256 samples) - 16x cluster | 18770                |   14:23  |
-| LightGBM          | HyperOpt (256 samples) - 16x cluster | 18612                |    4:22  |
+| XGB               | Sequential Grid Search               | 18193           |  1:24:22  |
+| XGB               | HyperOpt (128 samples)               | 18338           |  7:31  |
+| XGB               | Optuna (256 samples)                 | 18393           |  11:52  |
+| LightGBM          | HyperOpt (256 samples)               | 18475           |  16:52  |
+| LightGBM          | Optuna (256 samples)                 | 18679           |     7:51      |
+| XGB               | HyperOpt (1024 samples) - 16x cluster | 18321           |     31:44     |
+| XGB               | Optuna (1024 samples) - 16x cluster | 18315           |     26:48     |
+| LightGBM          | HyperOpt (1024 samples) - 16x cluster | 18475           |     24:46     |
+| LightGBM          | Optuna (1024 samples) - 16x cluster | 18535           | 42:38  |
 
 
 #### Baseline linear models
@@ -71,9 +73,9 @@ td{
 |                   |                            |                      |             |
 
 
-Times for single instance are on a local desktop similar to EC2 2xlarge, times for the cluster are on m5.large x17 (1 head node + 16 workers)
+Times for single instance are on a local desktop with 12 threads, comparable to EC2 4xlarge. Times for the cluster are on m5.large x17 (1 head node + 15 workers)
 
-We see both speedup and RMSE improvement when using HyperOpt and Optuna, and the cluster. But our feature engineering was quite good and our simple linear model baselines still outperforms boosting. (Not shown, SVR and KernelRidge are high-performing and an ensemble improves over all individual algos)
+We see considerable speedup when using HyperOpt and Optuna, and the cluster. RMSEs are comparable, although our manual grid search is best. But our feature engineering was quite good and our simple linear model baselines outperform boosting. (Not shown, SVR and KernelRidge are high-performing and an ensemble improves over all individual algos)
 
 ## 2. Hyperparameter Tuning Overview
 
@@ -193,7 +195,7 @@ lr = LinearRegression()
 scores = -cross_val_score(lr, df[predictors], df[response],
                           scoring="neg_root_mean_squared_error",
                           cv=kfolds,
-						  n_jobs=-1)
+                          n_jobs=-1)
 raw_scores = [cv_to_raw(x) for x in scores]
 print("Raw CV RMSE %.0f (STD %.0f)" % (np.mean(raw_scores), np.std(raw_scores)))
 ```
@@ -273,11 +275,11 @@ Wall time: 3.16 s
 ```
 ### Notes:
  - ElasticNet is linear regression with L1 and L2 regularization (2 hyperparameters)
- - When we use regularization, we need to scale the data so the fixed coefficient penalty has a similar impact across features. We use a pipeline with RobustScaler for scaling.
+ - When we use regularization, we need to scale the data so the coefficient penalty has a similar impact across features. We use a pipeline with RobustScaler for scaling.
  - Fit data and extract hyperparameters from the fitted model.
  - Then we do cross_val_score with reported hyperparams (There doesn't appear to be a way to extract the score from the fitted model without refitting)
  - Verbose output reports 130 tasks, for full grid search on 10 folds expect 13x9x10=1170. Clever optimization?
- - Note the modest $70 reduction in RMSE.
+ - Note the modest reduction in RMSE vs. linear regression without regularization.
 
 ## 8. GridSearchCV
 
@@ -338,14 +340,13 @@ XGBoost has many tuning parameters so a complete grid search has an unreasonable
 ### Tuning methodology
 - Set an initial set of starting parameters.
 - Tune sequentially on groups of hyperparameters that don't interact too much between groups to reduce combinations.
-- First, tune max_depth and min_child_weight 
-- Then tune subsample and colsample_bytree
-- Then tune alpha, lambda and gamma (regularization)
-- Finally, tune learning rate: lower learning rate will need more rounds/n_estimators
+- First, tune max_depth
+- Then tune subsample, colsample_bytree and colsample_bylevel
+- Finally, tune learning rate: lower learning rate will need more boosting rounds (n_estimators)
 - Do 10-fold CV on each hyperparameter combination
 - Use early stopping to halt training in each fold if no improvement after 100 rounds
 - Pick hyperparameters to minimize average RMSE over kfolds
-- After choosing hyperparameters, retrain and evaluate on full dataset.
+- After choosing hyperparameters, retrain and evaluate on full dataset without early stopping.
 
 It doesn't seem possible to get XGBoost early stopping and also use GridSearchCV. GridSearchCV doesn't pass the kfolds in a way that XGboost understands for early stopping. Alternative approaches:
 
@@ -735,21 +736,17 @@ Results
 
 ## 14. Concluding remarks
 
-When I did the original Iowa model I was surprised boosting didn't perform better. With better tuning, we observe a modest but non-negligeable improvement in the target metric. Tuning also runs a little faster with a less manual process vs. sequential tuning. 
+Bayesian optimization tunes significantly faster with a less manual process vs. sequential tuning. The RMSE is slightly worse in this case. 
 
-I intend to use HyperOpt and Optuna going forward, no more grid search for me! In every case I've applied them, I've gotten at least a small improvement in the best metrics I found using grid search methods. Additionally, it's fire and forget (although with a little elbow grease the 4-pass sequential grid search could be made fire and forget.)
+In almost every case I've applied them, HyperOpt has given me at least a small improvement in the best metrics I found using grid search methods. Additionally, it's fire and forget.
 
-I intend to use LightGBM first, which still retains a huge speed advantage over XGBoost and better metrics. (Or use both, and CatBoost for categorical boosting).
+Is the Ray framework the way to go for hyperparameter tuning? Provisionally, yes. What we really need and Ray provides here is good integration between the underlying ML (e.g. XGBoost), the Bayesian search (e.g. HyperOpt), and early stopping (ASHA). I need to do a little more work and understand what performance benefits HyperOpt and Optuna offer without Ray. 
 
-Is the Ray framework the way to go for hyperparameter tuning? Provisionally, yes. What we really need and Ray provides here is good integration between the underlying ML (LightGBM), the Bayesian search (Optuna), and early stopping (ASHA). I need to do a little more work and understand what performance HyperOpt and Optuna offer without Ray. 
+Clusters? Most of the time I don't have the need, costs add up, The longest run I have tried, with 4096 samples, ran overnight on desktop. My MacBook Pro w/16 threads and desktop with 12 threads and GPU are plenty powerful. But it's good to have the clustering alternative in the back pocket. In production it might be more maintainable to deploy with Terraform, Kubernetes than Ray native YAML config interface.
 
-Clusters? Most of the time I don't really have the need, costs add up, MacBook Pro w/16 threads and desktop with GPU are plenty powerful. But it's good to have clustering in the back pocket. In production it might be more maintainable to use eg Terraform, Kubernetes to launch a cluster vs. the Ray native YAML config interface to boot.
+It continues to surprise me that Elasticnet, i.e. regularized linear regression, outperforms boosting on this dataset. I heavily engineered features so that linear methods work well. Predictors were chosen using Lasso/Elasticnet and I used log and Box-Cox transforms to force predictors to follow assumptions of least-squares.
 
-HyperOpt and Optuna seem to be the most popular but I may try [the other algos]( https://docs.ray.io/en/master/tune/api_docs/suggestion.html) systematically.
-
-It continues to surprise me is that Elasticnet, i.e. regularized linear regression, outperforms boosting on this dataset. I heavily engineered features so that linear methods work well. Predictors were chosen using lasso/elasticnet and I used log and Box-Cox transforms to force predictors to follow assumptions of least-squares.
-
-This may tend to validate one of the [critiques of machine learning](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3624052), that the most powerful ML methods don't necessarily converge all the way to the best solution. If you have a ground truth that is linear plus noise, a complex XGBoost or neural network algorithm should get arbitrarily close to the closed-form optimal solution, but will never match the optimal solution exactly. XGBoost is piecewise constant and the complex neural network is subject to the vagaries of stochastic gradient descent. I thought arbitrarily close meant almost indistinguishable but clearly here this is not the case.
+This may tend to validate one of the [critiques of machine learning](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3624052), that the most powerful ML methods don't necessarily converge all the way to the best solution. If you have a ground truth that is linear plus noise, a complex XGBoost or neural network algorithm should get arbitrarily close to the closed-form optimal solution, but will never match the optimal solution exactly. XGBoost is piecewise constant and the complex neural network is subject to the vagaries of stochastic gradient descent. I thought arbitrarily close meant almost indistinguishable but clearly here this is not quite the case.
 
 Elasticnet with L1 + L2 regularization plus gradient descent and hyperparameter optimization is still machine learning. It's simply the form of ML best matched to the problem. In the real world where data doesn't match assumptions of least-squares, gradient boosting generally performs extremely well. And even on this dataset, engineered for the linear models, SVR and KernelRidge performed better than Elasticnet (not shown) and ensembling Elasticnet with XGBoost, LightGBM, SVR, neural networks worked best of all. 
 
