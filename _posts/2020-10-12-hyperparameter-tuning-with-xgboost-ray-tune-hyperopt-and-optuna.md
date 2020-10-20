@@ -62,6 +62,7 @@ td{
 | LightGBM          | Optuna (2048 samples) - 16x cluster | 18537      | 1:30:01 |
 
 
+
 #### Baseline linear models
 
 
@@ -70,7 +71,6 @@ td{
 | Linear Regression |             --             |        18192         |    0:01     |
 |    ElasticNet     | ElasticNetCV (Grid Search) |        18061         |    0:02     |
 |    ElasticNet     |        GridSearchCV        |        18061         |    0:05     |
-|                   |                            |                      |             |
 
 Times for single instance are on a local desktop with 12 threads, comparable to EC2 4xlarge. 
 Times for cluster are on m5.large x16 (1 head node + 15 workers)
