@@ -75,9 +75,9 @@ td{
 Times for single instance are on a local desktop with 12 threads, comparable to EC2 4xlarge. 
 Times for cluster are on m5.large x16 (1 head node + 15 workers)
 
-We see considerable speedup when using HyperOpt and Optuna locally. The sequential search performed about 286 tests, so the XGB/Optuna trial did about 3x as many trials in half the time and got a better result. 
+We see considerable speedup when using HyperOpt and Optuna locally. The sequential search performed about 286 trials, so the XGB/Optuna run performed about 3x as many trials in half the time and got a better result. 
 
-The cluster of 16 instances gives a modest speedup vs. my local machine. Very roughly I think my local machine may be 4x faster than an m5.large, in better cases we get a slightly faster time on 2x the number of trials. 
+The cluster of 16 instances gives a modest speedup vs. my local machine. Very roughly I think my local machine may be 4x faster than an m5.large, in better cases we get a slightly slower time on 2x the number of trials. 
 
 RMSEs are fairly similar across the board, XGB/Optuna is best by a small margin. 
 
