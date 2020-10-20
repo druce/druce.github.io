@@ -218,8 +218,6 @@ print("Raw CV RMSE %.0f (STD %.0f)" % (np.mean(raw_scores), np.std(raw_scores)))
 
 ```Wall time: 65.4 ms```
 
-​					  
-
 ## 7. ElasticNetCV
 
  - ElasticNet is linear regression with L1 and L2 [regularization](https://en.wikipedia.org/wiki/Regularization_(mathematics)) (2 hyperparameters)
@@ -327,7 +325,7 @@ Wall time: 5 s
 ```
 
 
-## 9. XGBoost with manual sequential grid search
+## 9. XGBoost with sequential grid search
 
 It should be possible to use GridSearchCV with XGBoost, and a dedicated eval set for early stopping:
 
@@ -389,7 +387,7 @@ It's a Frankenstein methodology since GridSearchCV does k-fold cross-validation 
 
 Instead, we tune reduced sets sequentially using grid search and use early stopping. This is the typical non-automated methodology to tune XGBoost:
 
-#### XGBoost Tuning Methodology
+#### XGBoost tuning methodology
 
 - Set an initial set of starting parameters.
 - Tune sequentially on groups of hyperparameters that don't interact too much between groups to reduce the number of combinations tested.
@@ -866,7 +864,7 @@ In every case I've applied them, HyperOpt and Optuna have given me at least a sm
 
 Is the Ray framework the way to go for hyperparameter tuning? Provisionally, yes. Ray provides integration between the underlying ML (e.g. XGBoost), the Bayesian search (e.g. HyperOpt), and early stopping (ASHA). It allows us to easily swap in additional search algorithms, although HyperOpt and Optuna are the most popular (and I haven't yet had success with others). If after a while I find I am always using e.g. HyperOpt and never use clusters, I might use the native HyperOpt/XGBoost integration without Ray, to access any native features and because it's one less technology in the stack to break.. 
 
-Clusters? Most of the time I don't have the need, costs add up, The longest run I have tried, with 4096 samples, ran overnight on desktop. My MacBook Pro w/16 threads and desktop with 12 threads and GPU are plenty powerful for this data set, and I only see about 2x speedup on the 16-instance cluster. But it's good to have the clustering alternative in the back pocket. In production it may be more standard and maintainable to deploy with Terraform, Kubernetes than Ray native YAML config interface.
+Clusters? Most of the time I don't have the need, costs add up. The longest run I have tried, with 4096 samples, ran overnight on desktop. My MacBook Pro w/16 threads and desktop with 12 threads and GPU are plenty powerful for this data set, and I only see about 2x speedup on the 16-instance cluster. Setting up the test I expected at least 2x speedup and a better result and I didn't see that. Still, it's useful to have the clustering alternative in the back pocket. In production it may be more standard and maintainable to deploy with Terraform, Kubernetes than Ray native YAML config interface.
 
 It continues to surprise me that Elasticnet, i.e. regularized linear regression, outperforms boosting on this dataset. I heavily engineered features so that linear methods work well. Predictors were chosen using Lasso/Elasticnet and I used log and Box-Cox transforms to force predictors to follow assumptions of least-squares.
 
@@ -874,10 +872,10 @@ This may tend to validate one of the [critiques of machine learning](https://pap
 
 Elasticnet with L1 + L2 regularization plus gradient descent and hyperparameter optimization is still machine learning. It's simply the form of ML best matched to this problem. In the real world where data doesn't match assumptions of least-squares, gradient boosting generally performs extremely well. And even on this dataset, engineered for the linear models, SVR and KernelRidge performed better than Elasticnet (not shown) and ensembling Elasticnet with XGBoost, LightGBM, SVR, neural networks worked best of all. 
 
-To paraphrase Casey Stengel, clever feature engineering will always outperform clever model algorithms and vice-versa<sup>*</sup>. But improving your hyperparameters will always improve your results, and here Bayesian optimization can be considered a best practice.
+To paraphrase Casey Stengel, clever feature engineering will always outperform clever model algorithms and vice-versa[^1]. But improving your hyperparameters will always improve your results, and here Bayesian optimization can be considered a best practice.
 
 Again, full code is on [GitHub](https://github.com/iowa/hyperparameter_optimization.ipynb)
 
 ## 
 
-<sup>*</sup>This is not intended to make sense.
+[^1]: This is not intended to make sense.
