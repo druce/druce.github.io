@@ -876,6 +876,16 @@ To paraphrase Casey Stengel, clever feature engineering will always outperform c
 
 Again, full code is on [GitHub](https://github.com/iowa/hyperparameter_optimization.ipynb)
 
-## 
+<script>
+    var headings = document.querySelectorAll("h2[id]");
+
+    for (var i = 0; i < headings.length; i++) {
+        headings[i].innerHTML =
+            '<a href="#' + headings[i].id + '">' +
+                headings[i].innerText +
+            '</a>';
+    }
+</script>
+
 
 [^1]: This is not intended to make sense.
