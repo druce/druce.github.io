@@ -16,20 +16,20 @@ tags: datascience
 
 ## Outline:
 
-1. Results
-2. Hyperparameter tuning overview
-3. Bayesian optimization overview
-4. Early stopping
-5. Implementation details
-6. Baseline linear regression with no hyperparameters
-7. ElasticNetCV (Linear regression with L1 and L2 regularization)
-8. ElasticNet with GridSearchCV 
-9. XGBoost: sequential grid search over hyperparameter subsets with early stopping 
-10. XGBoost: HyperOpt and Optuna search algorithms
-11. LightGBM: HyperOpt and Optuna search algorithms
-12. XGBoost: HyperOpt on a Ray cluster
-13. LightGBM: HyperOpt on a Ray cluster
-14. Concluding remarks
+1. [Results](#1-results)
+2. [Hyperparameter tuning overview](#2-hyperparameter-tuning-overview)
+3. [Bayesian optimization](#3-bayesian-optimization)
+4. [Early stopping](#4-early-stopping)
+5. [Implementation details](#5-implementation-details)
+6. [Baseline linear regression](#6-baseline-linear-regression)
+7. [ElasticNetCV (Linear regression with L1 and L2 regularization)](#7-elasticnetcv)
+8. [ElasticNet with GridSearchCV ](#8-gridsearchcv)
+9. [XGBoost: sequential grid search over hyperparameter subsets with early stopping ](#9-xgboost-with-sequential-grid-search)
+10. [XGBoost: HyperOpt and Optuna search algorithms](#10-xgboost-with-hyperopt-optuna-and-ray)
+11. [LightGBM: HyperOpt and Optuna search algorithms](#11-lightgbm-with-hyperopt-and-optuna)
+12. [XGBoost on a Ray cluster](#12-xgboost-on-a-ray-cluster)
+13. [LightGBM on a Ray cluster](#13-lightgbm-on-a-ray-cluster)
+14. [Concluding remarks](#14-concluding-remarks)
 
 ## 1. Results
 
@@ -769,7 +769,7 @@ Swapping out HyperOpt for Optuna:
 Raw CV RMSE 18592 (STD 2410)
 ```
 
-## 12. XGBoost on Ray cluster with Optuna
+## 12. XGBoost on a Ray cluster
 
 Ray is a distributed framework, we can run a training job over many instances using a cluster with a *head node* and many *worker nodes*.
 
@@ -840,9 +840,28 @@ Optuna (time 1:03:17)
 Raw CV RMSE 18313 (STD 2403)
 ```
 
-## 13. LightGBM on Ray cluster with Optuna
+## 13. LightGBM on a Ray cluster
 
-Results for XGBM on cluster (2048 samples, cluster is 16 m5.large instances):
+Similarly for LightGBM:
+
+```python
+analysis = tune.run(my_lgbm,
+                    num_samples=NUM_SAMPLES,
+                    config = lgbm_tune_kwargs,
+                    name="hyperopt_lgbm",
+                    metric="rmse",
+                    mode="min",
+                    search_alg=algo,
+                    scheduler=scheduler,
+                    raise_on_failed_trial=False, # otherwise no reults df returned if any trial error                                                            
+                    verbose=1,
+                   )
+
+```
+
+
+
+Results for LightGBM on cluster (2048 samples, cluster is 16 m5.large instances):
 
 HyperOpt (time: 1:54:58) :
 
@@ -881,7 +900,7 @@ Again, full code is on [GitHub](https://github.com/iowa/hyperparameter_optimizat
 
     for (var i = 0; i < headings.length; i++) {
         headings[i].innerHTML =
-            '<a href="#' + headings[i].id + '">' +
+            '<a name="' + headings[i].id + '">' +
                 headings[i].innerText +
             '</a>';
     }

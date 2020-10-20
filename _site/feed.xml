@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-10-20T12:22:06-04:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">StreetEYE Blog</title><subtitle>Druce's Mad Science About Tech, Markets And Political Economy</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna</title><link href="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna" rel="alternate" type="text/html" title="Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna" /><published>2020-10-12T18:28:57-04:00</published><updated>2020-10-12T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-10-20T12:44:50-04:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">StreetEYE Blog</title><subtitle>Druce's Mad Science About Tech, Markets And Political Economy</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna</title><link href="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna" rel="alternate" type="text/html" title="Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna" /><published>2020-10-12T18:28:57-04:00</published><updated>2020-10-12T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna">&lt;blockquote&gt;
   &lt;p&gt;Bayesian optimization for hyperparameter tuning is faster and more effective than grid search. Let’s demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization modules like HyperOpt and Optuna, running on… 2) the &lt;a href=&quot;https://ray.io/&quot;&gt;Ray&lt;/a&gt; distributed ML framework, with a &lt;a href=&quot;https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf&quot;&gt;unified API to many hyperparameter search algos&lt;/a&gt; with early stopping and… 3) a distributed cluster of cloud instances for even faster tuning.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -7,20 +7,20 @@
 &lt;h2 id=&quot;outline&quot;&gt;Outline:&lt;/h2&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Results&lt;/li&gt;
-  &lt;li&gt;Hyperparameter tuning overview&lt;/li&gt;
-  &lt;li&gt;Bayesian optimization overview&lt;/li&gt;
-  &lt;li&gt;Early stopping&lt;/li&gt;
-  &lt;li&gt;Implementation details&lt;/li&gt;
-  &lt;li&gt;Baseline linear regression with no hyperparameters&lt;/li&gt;
-  &lt;li&gt;ElasticNetCV (Linear regression with L1 and L2 regularization)&lt;/li&gt;
-  &lt;li&gt;ElasticNet with GridSearchCV&lt;/li&gt;
-  &lt;li&gt;XGBoost: sequential grid search over hyperparameter subsets with early stopping&lt;/li&gt;
-  &lt;li&gt;XGBoost: HyperOpt and Optuna search algorithms&lt;/li&gt;
-  &lt;li&gt;LightGBM: HyperOpt and Optuna search algorithms&lt;/li&gt;
-  &lt;li&gt;XGBoost: HyperOpt on a Ray cluster&lt;/li&gt;
-  &lt;li&gt;LightGBM: HyperOpt on a Ray cluster&lt;/li&gt;
-  &lt;li&gt;Concluding remarks&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#1-results&quot;&gt;Results&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#2-hyperparameter-tuning-overview&quot;&gt;Hyperparameter tuning overview&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#3-bayesian-optimization&quot;&gt;Bayesian optimization&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#4-early-stopping&quot;&gt;Early stopping&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#5-implementation-details&quot;&gt;Implementation details&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#6-baseline-linear-regression&quot;&gt;Baseline linear regression&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#7-elasticnetcv&quot;&gt;ElasticNetCV (Linear regression with L1 and L2 regularization)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#8-gridsearchcv&quot;&gt;ElasticNet with GridSearchCV &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#9-xgboost-with-sequential-grid-search&quot;&gt;XGBoost: sequential grid search over hyperparameter subsets with early stopping &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#10-xgboost-with-hyperopt-optuna-and-ray&quot;&gt;XGBoost: HyperOpt and Optuna search algorithms&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#11-lightgbm-with-hyperopt-and-optuna&quot;&gt;LightGBM: HyperOpt and Optuna search algorithms&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#12-xgboost-on-a-ray-cluster&quot;&gt;XGBoost on a Ray cluster&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#13-lightgbm-on-a-ray-cluster&quot;&gt;LightGBM on a Ray cluster&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#14-concluding-remarks&quot;&gt;Concluding remarks&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&quot;1-results&quot;&gt;1. Results&lt;/h2&gt;
@@ -857,7 +857,7 @@ Wall time: 5 s
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Raw&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CV&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RMSE&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;18592&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;STD&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2410&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;12-xgboost-on-ray-cluster-with-optuna&quot;&gt;12. XGBoost on Ray cluster with Optuna&lt;/h2&gt;
+&lt;h2 id=&quot;12-xgboost-on-a-ray-cluster&quot;&gt;12. XGBoost on a Ray cluster&lt;/h2&gt;
 
 &lt;p&gt;Ray is a distributed framework, we can run a training job over many instances using a cluster with a &lt;em&gt;head node&lt;/em&gt; and many &lt;em&gt;worker nodes&lt;/em&gt;.&lt;/p&gt;
 
@@ -933,9 +933,25 @@ and then open
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Raw CV RMSE 18313 (STD 2403)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;13-lightgbm-on-ray-cluster-with-optuna&quot;&gt;13. LightGBM on Ray cluster with Optuna&lt;/h2&gt;
+&lt;h2 id=&quot;13-lightgbm-on-a-ray-cluster&quot;&gt;13. LightGBM on a Ray cluster&lt;/h2&gt;
 
-&lt;p&gt;Results for XGBM on cluster (2048 samples, cluster is 16 m5.large instances):&lt;/p&gt;
+&lt;p&gt;Similarly for LightGBM:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;analysis&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tune&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_lgbm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;num_samples&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NUM_SAMPLES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lgbm_tune_kwargs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hyperopt_lgbm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;metric&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;rmse&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;min&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;search_alg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;algo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;scheduler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scheduler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;raise_on_failed_trial&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# otherwise no reults df returned if any trial error                                                            
+&lt;/span&gt;                    &lt;span class=&quot;n&quot;&gt;verbose&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                   &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Results for LightGBM on cluster (2048 samples, cluster is 16 m5.large instances):&lt;/p&gt;
 
 &lt;p&gt;HyperOpt (time: 1:54:58) :&lt;/p&gt;
 
@@ -972,7 +988,7 @@ and then open
 
     for (var i = 0; i &lt; headings.length; i++) {
         headings[i].innerHTML =
-            '&lt;a href=&quot;#' + headings[i].id + '&quot;&gt;' +
+            '&lt;a name=&quot;' + headings[i].id + '&quot;&gt;' +
                 headings[i].innerText +
             '&lt;/a&gt;';
     }
