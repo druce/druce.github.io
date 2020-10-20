@@ -75,7 +75,13 @@ td{
 Times for single instance are on a local desktop with 12 threads, comparable to EC2 4xlarge. 
 Times for cluster are on m5.large x16 (1 head node + 15 workers)
 
-We see considerable speedup when using HyperOpt and Optuna locally, and to a lesser degree from the cluster. RMSEs are comparable, XGB/Optuna is best by a small margin. Our simple ElasticNet baseline outperforms boosting. This is possibly because our feature engineering was intensive and designed to fit the linear model. Not shown, SVR and KernelRidge outperform ElasticNet and an ensemble improves over all individual algos.
+We see considerable speedup when using HyperOpt and Optuna locally. The sequential search performed about 286 tests, so the XGB/Optuna trial did about 3x as many trials in half the time and got a better result. 
+
+The cluster of 16 instances gives a modest speedup vs. my local machine. Very roughly I think my local machine may be 4x faster than an m5.large, in better cases we get a slightly faster time on 2x the number of trials. 
+
+RMSEs are fairly similar across the board, XGB/Optuna is best by a small margin. 
+
+Our simple ElasticNet baseline outperforms boosting. This is possibly because our feature engineering was intensive and designed to fit the linear model. Not shown, SVR and KernelRidge outperform ElasticNet and an ensemble improves over all individual algos.
 
 ## 2. Hyperparameter Tuning Overview
 
