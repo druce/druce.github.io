@@ -72,8 +72,7 @@ td{
 |    ElasticNet     | ElasticNetCV (Grid Search) |        18061         |    0:02     |
 |    ElasticNet     |        GridSearchCV        |        18061         |    0:05     |
 
-Times for single instance are on a local desktop with 12 threads, comparable to EC2 4xlarge. 
-Times for cluster are on m5.large x16 (1 head node + 15 workers)
+Times for single instance are on a local desktop with 12 threads, comparable to EC2 4xlarge. Times for cluster are on m5.large x16 (1 head node + 15 workers).
 
 We see considerable speedup when using HyperOpt and Optuna locally. The sequential search performed about 286 trials, so the XGB/Optuna run performed about 3x as many trials in half the time and got a better result. 
 
@@ -82,6 +81,8 @@ The cluster of 16 instances gives a modest speedup vs. my local machine. Very ro
 RMSEs are fairly similar across the board, XGB/Optuna is best by a small margin. 
 
 Our simple ElasticNet baseline outperforms boosting. This is possibly because our feature engineering was intensive and designed to fit the linear model. Not shown, SVR and KernelRidge outperform ElasticNet and an ensemble improves over all individual algos.
+
+Full code is on [GitHub](https://github.com/iowa/hyperparameter_optimization.ipynb)
 
 ## 2. Hyperparameter Tuning Overview
 
@@ -176,8 +177,15 @@ We use 5 approaches :
 - *Ray on local machine*: HyperOpt and Optuna with early stopping.
 - *Ray on cluster*: Additionally scale out to run a single hyperparameter optimization task over many instances.
 
-
 ## 6. Baseline linear regression
+
+  - Use same kfolds for each run so variation in metric is not due to variation in kfolds
+  - We fit on the log response so we convert error back to dollar units, for interpretability.
+  - sklearn.model_selection.cross_val_score for evaluation
+  - Jupyter %%time magic for wall time
+  - n_jobs=-1 to run folds in parallel using all CPU cores available.
+  - Note the wall time &lt; 1 second and RMSE of 18192.
+  - Full code is on [GitHub](https://github.com/iowa/hyperparameter_optimization.ipynb)
 
 ```python
 %%time
@@ -210,15 +218,8 @@ print("Raw CV RMSE %.0f (STD %.0f)" % (np.mean(raw_scores), np.std(raw_scores)))
 
 ```Wall time: 65.4 ms```
 
-### Notes:
-  - Use same kfolds for each run so variation in metric is not due to variation in kfolds
-  - We fit on the log response so we convert error back to dollar units, for interpretability.
-  - sklearn.model_selection.cross_val_score for evaluation
-  - Jupyter %%time magic for wall time
-  - n_jobs=-1 to run folds in parallel using all CPU cores available.
-  - Note the wall time &lt; 1 second and RMSE of 18192.
-  - Full code is on [GitHub](https://github.com/iowa/hyperparameter_optimization.ipynb)
-						  
+​					  
+
 ## 7. ElasticNetCV
 
  - ElasticNet is linear regression with L1 and L2 [regularization](https://en.wikipedia.org/wiki/Regularization_(mathematics)) (2 hyperparameters)
@@ -386,19 +387,20 @@ print("Raw CV RMSE %.0f (STD %.0f)" % (np.mean(raw_scores), np.std(raw_scores)))
 
 It's a Frankenstein methodology since GridSearchCV does k-fold cross-validation but uses a dedicated eval set to determine early stopping. Also, XGBoost has many tuning parameters so a complete grid search has an unreasonable number of combinations. 
 
-Instead, we tune reduced sets sequentially using grid search and use early stopping. This is the typical non-automated methodology to tune hyperparameters:
+Instead, we tune reduced sets sequentially using grid search and use early stopping. This is the typical non-automated methodology to tune XGBoost:
+
+#### XGBoost Tuning Methodology
 
 - Set an initial set of starting parameters.
 - Tune sequentially on groups of hyperparameters that don't interact too much between groups to reduce the number of combinations tested.
-- First, tune max_depth.
-- Then tune subsample, colsample_bytree and colsample_bylevel.
-- Finally, tune learning rate: lower learning rate will need more boosting rounds (n_estimators).
-- Do 10-fold cross-validation on each hyperparameter combination.
+  - First, tune max_depth.
+  - Then tune subsample, colsample_bytree and colsample_bylevel.
+  - Finally, tune learning rate: lower learning rate will need more boosting rounds (n_estimators).
+  - Do 10-fold cross-validation on each hyperparameter combination. Pick hyperparameters to minimize average RMSE over kfolds.
 - Use native XGboost early stopping to halt training in each fold if no improvement after 100 rounds.
-- Pick hyperparameters to minimize average RMSE over kfolds.
 - After choosing hyperparameters, retrain and evaluate on full dataset without early stopping.
 
-- We use sklearn API and roll our own grid search which understands early stopping with k-folds, instead of GridSearchCV
+- We use the XGBoost sklearn API and roll our own grid search which understands early stopping with k-folds, instead of GridSearchCV
 - (An alternative would be to use native xgboost .cv which understands early stopping but doesn't use sklearn API (uses DMatrix, not numpy array or dataframe))
 
 ```python
@@ -516,8 +518,6 @@ current_params, results_df = cv_over_param_dict(df, full_search_dicts, predictor
 
 ```
 
-
-
 The total training duration (sum times over the 3 iterations) is 1:24:22. This may be an underestimate, since this search space is based on prior experience.
 
 Finally, we refit using the best hyperparameters and evaluate:
@@ -557,7 +557,7 @@ Raw CV RMSE 18193 (STD 2461)
 
 The steps to run a Ray tuning job with HyperOpt are:
 
-1. Set up a Ray search space with a config dict 
+1. Set up a Ray search space with a config dict.
 2. Refactor the training job into a function which takes the config dict as an argument and calls `tune.report(rmse=rmse)` to optimize a metric like RMSE.
 3. Call `ray.tune` with the `config` and a `num_samples` argument which specifies how many times to sample.
 
@@ -875,5 +875,9 @@ This may tend to validate one of the [critiques of machine learning](https://pap
 Elasticnet with L1 + L2 regularization plus gradient descent and hyperparameter optimization is still machine learning. It's simply the form of ML best matched to this problem. In the real world where data doesn't match assumptions of least-squares, gradient boosting generally performs extremely well. And even on this dataset, engineered for the linear models, SVR and KernelRidge performed better than Elasticnet (not shown) and ensembling Elasticnet with XGBoost, LightGBM, SVR, neural networks worked best of all. 
 
 To paraphrase Casey Stengel, clever feature engineering will always outperform clever model algorithms and vice-versa<sup>*</sup>. But improving your hyperparameters will always improve your results, and here Bayesian optimization can be considered a best practice.
+
+Again, full code is on [GitHub](https://github.com/iowa/hyperparameter_optimization.ipynb)
+
+## 
 
 <sup>*</sup>This is not intended to make sense.
