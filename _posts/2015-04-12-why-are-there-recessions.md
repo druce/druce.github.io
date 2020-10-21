@@ -10,8 +10,8 @@ post-views:
   - "3990"
 dsq_thread_id:
   - "3676484656"
-categories: Economics
-tags: Economics
+categories: economics
+tags: economics
 ---
 > [<img src="/assets/wp-content/uploads/2015/04/rena-listing_2023721i-300x229.jpg" />](/assets/wp-content/uploads/2015/04/rena-listing_2023721i.jpg) 
 *To everything, turn, turn, turn.

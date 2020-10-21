@@ -11,9 +11,9 @@ post-views:
 dsq_thread_id:
   - "3901806121"
 categories:
-  - EU
+  - euro
 tags:
-  - EU
+  - euro
 ---
 > [<img class="alignright size-medium wp-image-3723" />](/assets/wp-content/uploads/2015/07/CI9YzpLW8AArrtz.png) *More than any time in history mankind faces a crossroads. One path leads to despair and utter hopelessness, the other to total extinction. Let us pray that we have the wisdom to choose correctly. &#8212; Woody Allen*
 <!--more-->

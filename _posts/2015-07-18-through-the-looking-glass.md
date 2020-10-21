@@ -10,8 +10,8 @@ post-views:
   - "2778"
 dsq_thread_id:
   - "3947607153"
-categories: EU
-tags: EU
+categories: euro
+tags: euro
 ---
 > [<img src="/assets/wp-content/uploads/2015/07/ZJ7jjMD-300x240.jpg" />](/assets/wp-content/uploads/2015/07/ZJ7jjMD.jpg) _Curiouser and curiouser! &#8212; Alice in Wonderland. Having written about Greece the last couple of weeks, why stop now?_
 <!--more-->

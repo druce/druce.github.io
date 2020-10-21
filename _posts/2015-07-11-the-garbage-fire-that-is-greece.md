@@ -10,8 +10,8 @@ post-views:
   - "2189"
 dsq_thread_id:
   - "3924740780"
-categories: EU
-tags: EU
+categories: euro
+tags: euro
 ---
 >*So, last week I said, Greece was getting booted out of the eurozone.*
 <!--more-->
