@@ -1,13 +1,10 @@
+_posts/
 change footer logos to font-awesome , fixed linkedin
 get all your medium stuff
-favicon
-social card
-fix tags
-fix lil-log stuff
-fix errant tag
-validate html
+get aa stuff
 
-matrix
+check social card
+fix tags
 
 editor  markdown html php
 charts
@@ -367,10 +364,7 @@ jekyll build
 add custom css
 copy lil blog config
 lil blog header
-google analytics
 rss feed
-custom domain
-remove http:// links
 paginate main posts page
 
 

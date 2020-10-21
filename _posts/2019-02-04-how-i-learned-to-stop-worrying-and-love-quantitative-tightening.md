@@ -12,8 +12,12 @@ post-views:
   - "2371"
 dsq_thread_id:
   - "7210334266"
-categories: economy
-tags: economy
+categories: 
+  - economics 
+  - markets
+tags: 
+  - economics
+  - markets
 
 ---
 > *Many people are talking about ‘quantitative tightening’ and ‘balance sheet reduction’, and some people are blaming it for market volatility, discussed [here](https://www.nytimes.com/2019/01/30/business/fed-quantitative-tightening.html), [here](https://www.bloomberg.com/opinion/articles/2019-01-29/the-fed-s-balance-sheet-is-a-misunderstood-policy-tool), [here](https://www.wsj.com/articles/fed-officials-weigh-earlier-than-expected-end-to-bond-portfolio-runoff-11548412201). IMHO, blaming balance sheet reduction for market volatility is cargo cult mumbo jumbo.*
