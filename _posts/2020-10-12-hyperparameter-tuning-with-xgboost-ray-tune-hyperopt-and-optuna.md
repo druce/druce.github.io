@@ -10,7 +10,7 @@ categories: datascience
 tags: datascience
 
 ---
-> Bayesian optimization for hyperparameter tuning of machine learning models is faster and more effective than grid search. Let's demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization modules like HyperOpt and Optuna, running on… 2) the [Ray](https://ray.io/) distributed machine learning framework, with a [unified API to many hyperparameter search algos](https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf) with early stopping and… 3) a distributed cluster of cloud instances for even faster tuning.
+> *Bayesian optimization of machine learning model hyperparameters is faster and better than grid search. Let's demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization with Hyperopt and Optuna, running on… 2) the [Ray](https://ray.io/) distributed machine learning framework, with a [unified API to many hyperparameter search algos](https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf) and early stopping schedulers, and… 3) a distributed cluster of cloud instances for even faster tuning.*
 
 <!--more-->
 
@@ -25,45 +25,34 @@ tags: datascience
 7. [ElasticNetCV (Linear regression with L1 and L2 regularization)](#7-elasticnetcv)
 8. [ElasticNet with GridSearchCV ](#8-gridsearchcv)
 9. [XGBoost: sequential grid search over hyperparameter subsets with early stopping ](#9-xgboost-with-sequential-grid-search)
-10. [XGBoost: HyperOpt and Optuna search algorithms](#10-xgboost-with-hyperopt-optuna-and-ray)
-11. [LightGBM: HyperOpt and Optuna search algorithms](#11-lightgbm-with-hyperopt-and-optuna)
+10. [XGBoost: Hyperopt and Optuna search algorithms](#10-xgboost-with-hyperopt-optuna-and-ray)
+11. [LightGBM: Hyperopt and Optuna search algorithms](#11-lightgbm-with-hyperopt-and-optuna)
 12. [XGBoost on a Ray cluster](#12-xgboost-on-a-ray-cluster)
 13. [LightGBM on a Ray cluster](#13-lightgbm-on-a-ray-cluster)
 14. [Concluding remarks](#14-concluding-remarks)
 
 ## 1. Results
 
-Bottom line up front -- Here are results on the Ames housing data set, predicting Iowa home prices:
+Bottom line up front: Here are results on the Ames housing data set, predicting Iowa home prices:
 
-<style>table{
-    border-collapse: collapse;
-    border:2px solid #000000;
-}
-th{
-    border:2px solid #000000;
-}
-td{
-    border:1px solid #000000;
-}</style>
-
-#### XGB and LightGBM with various hyperparameter optimization methodologies
+### XGB and LightGBM using various hyperparameter optimization methodologies
 
 
-| ML Algo          | Search algo                  | CV Error (RMSE in $) | Time h:mm::ss |
+| ML Algo          | Search algo                  | CV Error<br /> (RMSE in $) | Time<br /> h:mm::ss |
 |:-----------------:|:----------------------------:|:--------------------:|:--------:|
 | XGB               | Sequential Grid Search               | 18193           |  1:24:22  |
-| XGB               | HyperOpt (1024 samples)            | 18321      |  1:07:02  |
+| XGB               | Hyperopt (1024 samples)           | 18321      |  1:07:02  |
 | XGB               | Optuna (1024 samples)             | **18179**  |    0:45:57    |
-| LightGBM          | HyperOpt (1024 samples)           | 18608      |    0:45:46    |
+| LightGBM          | Hyperopt (1024 samples)          | 18608      |    0:45:46    |
 | LightGBM          | Optuna (1024 samples)              | 18592      |    1:14:53    |
-| XGB               | HyperOpt (2048 samples) - 16x cluster | 18309      |    1:17:46    |
+| XGB               | Hyperopt (2048 samples) - 16x cluster | 18309      |    1:17:46    |
 | XGB               | Optuna (2048 samples) - 16x cluster | 18313      |    1:03:17    |
-| LightGBM          | HyperOpt (2048 samples) - 16x cluster | 18615      |    1:54:58    |
+| LightGBM          | Hyperopt (2048 samples) - 16x cluster | 18615      |    1:54:58    |
 | LightGBM          | Optuna (2048 samples) - 16x cluster | 18537      | 1:30:01 |
 
+&nbsp;
 
-
-#### Baseline linear models
+### Baseline linear models
 
 
 |      ML Algo      |        Search algo         | CV Error (RMSE in $) | Time mm::ss |
@@ -72,9 +61,9 @@ td{
 |    ElasticNet     | ElasticNetCV (Grid Search) |        18061         |    0:02     |
 |    ElasticNet     |        GridSearchCV        |        18061         |    0:05     |
 
-Times for single instance are on a local desktop with 12 threads, comparable to EC2 4xlarge. Times for cluster are on m5.large x16 (1 head node + 15 workers).
+*Times for single instance are on a local desktop with 12 threads, comparable to EC2 4xlarge. Times for cluster are on m5.large x 16 (1 head node + 15 workers).*
 
-We see considerable speedup when using HyperOpt and Optuna locally. The sequential search performed about 286 trials, so the XGB/Optuna run performed about 3x as many trials in half the time and got a better result. 
+We see considerable speedup when using Hyperopt and Optuna locally. The sequential search performed about 286 trials, so the XGB/Optuna search performed about 3x as many trials in half the time and got a better result. 
 
 The cluster of 16 instances gives a modest speedup vs. my local machine. Very roughly I think my local machine may be 4x faster than an m5.large, in better cases we get a slightly slower time on 2x the number of trials. 
 
@@ -131,7 +120,7 @@ Here are [the principal approaches to hyperparameter tuning](https://en.wikipedi
 
 - *Population-based training*: A method of performing hyperparameter optimization at the same time as training.
 
-In this post we focus on Bayesian optimization with HyperOpt and Optuna. 
+In this post we focus on Bayesian optimization with Hyperopt and Optuna. 
 
 ## 3. Bayesian Optimization
 
@@ -148,9 +137,9 @@ If good metrics are not randomly distributed but found close to one another in a
 
 ## 4. Early Stopping
 
-If, while evaluating a hyperparameter combination, the evaluation metric is not improving in training, or just not improving enough to beat our best to date, we can discard a combination before fully training on it. *Early stopping* of unsuccessful training runs increases the speed and effectiveness of our search.
+If, while evaluating a hyperparameter combination, the evaluation metric is not improving in training, or just not improving fast enough to beat our best to date, we can discard a combination before fully training on it. *Early stopping* of unsuccessful training runs increases the speed and effectiveness of our search.
 
-XGBoost and LightGBM helpfully provide early stopping callbacks to check on training progress and stop a training trial early ([XGBoost](https://xgboost.readthedocs.io/en/latest/python/callbacks.html) ; [LightGBM](https://lightgbm.readthedocs.io/en/latest/pythonapi/lightgbm.early_stopping.html#lightgbm.early_stopping)). HyperOpt, Optuna, and Ray use these callbacks to stop bad trials quickly, and accelerate performance.
+XGBoost and LightGBM helpfully provide early stopping callbacks to check on training progress and stop a training trial early ([XGBoost](https://xgboost.readthedocs.io/en/latest/python/callbacks.html) ; [LightGBM](https://lightgbm.readthedocs.io/en/latest/pythonapi/lightgbm.early_stopping.html#lightgbm.early_stopping)). Hyperopt, Optuna, and Ray use these callbacks to stop bad trials quickly, and accelerate performance.
 
 In this post, we will use Asynchronous Successive Halving Algorithm (*[ASHA](https://arxiv.org/abs/1810.05934)*) for early stopping, described in this [blog post](https://blog.ml.cmu.edu/2018/12/12/massively-parallel-hyperparameter-optimization/).
 
@@ -174,7 +163,7 @@ We use 5 approaches :
 - *Native CV*: In sklearn if an algo *xxx* has hyperparameters it will often have an *xxxCV* version, like ElasticNetCV, which performs automated hyperparameter tuning over a search space with specified kfolds.
 - *GridSearchCV*: Abstracts CV that can wrap around any sklearn algo, running multithreaded trials over specified kfolds. 
 - *Manual sequential grid search*: What we typically do with XGBoost, which doesn't play well with GridSearchCV and has too many hyperparameters to tune in one pass.
-- *Ray on local machine*: HyperOpt and Optuna with early stopping.
+- *Ray on local machine*: Hyperopt and Optuna with early stopping.
 - *Ray on cluster*: Additionally scale out to run a single hyperparameter optimization task over many instances.
 
 ## 6. Baseline linear regression
@@ -327,82 +316,9 @@ Wall time: 5 s
 
 ## 9. XGBoost with sequential grid search
 
-It should be possible to use GridSearchCV with XGBoost, and a dedicated eval set for early stopping:
+It *should* be possible to use GridSearchCV with XGBoost. But when we try to use early stopping, XGBoost wants an eval set. OK, i guess we can give it a static eval set held out from GridSearchCV. Now, GridSearchCV does k-fold cross-validation in the training set but XGBoost uses a dedicated eval set. It's a bit of a Frankenstein methodology, and I'm not sure it really works, see the [notebook](https://github.com/druce/iowa/blob/master/hyperparameter_optimization.ipynb) for the attempt at GridSearchCV with XGBoost and early stopping if you're really interested. Instead we write our own grid search that gives XGBoost the hold-out set for each fold:
 
 ```python
-gs = GridSearchCV(XGBRegressor(objective='reg:squarederror',
-                               n_estimators=1000,
-                               random_state=RANDOMSTATE,
-                               verbosity=1,
-                               n_jobs=1,
-                               booster='gbtree',   
-                               # early_stopping_rounds=50, #  pass to fit()
-                              ),
-                  param_grid={'max_depth': [3, 4],
-                              'colsample_bylevel' : [0.15, 0.2],
-                              'colsample_bytree': [0.2, 0.3],
-                              'subsample': [0.2, 0.3],
-                              'learning_rate': [0.01, 0.1],
-                             },
-                  scoring='neg_root_mean_squared_error',
-                  refit=True,
-                  cv=5,
-                  n_jobs=-1,
-                  verbose=1
-                 )
-print(gs)
-# do cv using kfolds on full dataset
-print("\nCV on train dataset")
-
-X_train, X_test, y_train, y_test = train_test_split(df[predictors], df[response],
-                                                    test_size=0.2, random_state=RANDOMSTATE)
-
-gs.fit(X_train, y_train, 
-       eval_set=[(X_test, y_test)],
-       early_stopping_rounds=50)
-print('best params', gs.best_params_)
-print('best score', -gs.best_score_)
-
-xgb = XGBRegressor(objective='reg:squarederror',
-                   n_estimators=1000,
-                   random_state=RANDOMSTATE,
-                   verbosity=1,
-                   n_jobs=-1,
-                   booster='gbtree',   
-                   **gs.best_params_)
-print(xgb)
-
-scores = -cross_val_score(xgb, df[predictors], df[response],
-                          scoring="neg_root_mean_squared_error",
-                          cv=kfolds,
-                          n_jobs=-1)
-raw_scores = [cv_to_raw(x) for x in scores]
-print()
-print("Log1p CV RMSE %.06f (STD %.04f)" % (np.mean(scores), np.std(scores)))
-print("Raw CV RMSE %.0f (STD %.0f)" % (np.mean(raw_scores), np.std(raw_scores)))
-
-```
-
-It's a Frankenstein methodology since GridSearchCV does k-fold cross-validation but uses a dedicated eval set to determine early stopping. Also, XGBoost has many tuning parameters so a complete grid search has an unreasonable number of combinations. 
-
-Instead, we tune reduced sets sequentially using grid search and use early stopping. This is the typical non-automated methodology to tune XGBoost:
-
-#### XGBoost tuning methodology
-
-- Set an initial set of starting parameters.
-- Tune sequentially on groups of hyperparameters that don't interact too much between groups to reduce the number of combinations tested.
-  - First, tune max_depth.
-  - Then tune subsample, colsample_bytree and colsample_bylevel.
-  - Finally, tune learning rate: lower learning rate will need more boosting rounds (n_estimators).
-  - Do 10-fold cross-validation on each hyperparameter combination. Pick hyperparameters to minimize average RMSE over kfolds.
-- Use native XGboost early stopping to halt training in each fold if no improvement after 100 rounds.
-- After choosing hyperparameters, retrain and evaluate on full dataset without early stopping.
-
-- We use the XGBoost sklearn API and roll our own grid search which understands early stopping with k-folds, instead of GridSearchCV
-- (An alternative would be to use native xgboost .cv which understands early stopping but doesn't use sklearn API (uses DMatrix, not numpy array or dataframe))
-
-```python
-BOOST_ROUNDS=50000   # we use early stopping so make this arbitrarily high
 EARLY_STOPPING_ROUNDS=100  # stop if no improvement after 100 rounds
 
 def my_cv(df, predictors, response, kfolds, regressor, verbose=False):
@@ -427,6 +343,29 @@ def my_cv(df, predictors, response, kfolds, regressor, verbose=False):
         metrics.append(np.sqrt(mean_squared_error(fold_y_test, y_pred_test)))
         best_iterations.append(regressor.best_iteration)
     return np.average(metrics), np.std(metrics), np.average(best_iterations)
+
+```
+
+Also, XGBoost has many tuning parameters so a complete grid search has an unreasonable number of combinations. 
+
+Instead, we tune reduced sets sequentially using grid search and use early stopping. This is the typical non-automated methodology to tune XGBoost:
+
+#### XGBoost tuning methodology
+
+- Set an initial set of starting parameters.
+- Tune sequentially on groups of hyperparameters that don't interact too much between groups to reduce the number of combinations tested.
+  - First, tune max_depth.
+  - Then tune subsample, colsample_bytree and colsample_bylevel.
+  - Finally, tune learning rate: lower learning rate will need more boosting rounds (n_estimators).
+  - Do 10-fold cross-validation on each hyperparameter combination. Pick hyperparameters to minimize average RMSE over kfolds.
+- Use native XGboost early stopping to halt training in each fold if no improvement after 100 rounds.
+- After choosing hyperparameters, retrain and evaluate on full dataset without early stopping.
+- As discussed, we use the XGBoost sklearn API and roll our own grid search which understands early stopping with k-folds, instead of GridSearchCV. (An alternative would be to use native xgboost .cv which understands early stopping but doesn't use sklearn API (uses DMatrix, not numpy array or dataframe))
+- We write a helper function `cv_over_param_dict` which takes a list of `param_dict` dictionaries, runs trials over all dictionaries, and returns the best `param_dict` dictionary plus a dataframe of results.
+- We run`cv_over_param_dict` 3 times to do 3 grid searches.
+
+```python
+BOOST_ROUNDS=50000   # we use early stopping so make this arbitrarily high
 
 def cv_over_param_dict(df, param_dict, predictors, response, kfolds, verbose=False):
     """given a list of dictionaries of xgb params
@@ -551,9 +490,9 @@ The result essentially matches linear regression but is not as good as ElasticNe
 Raw CV RMSE 18193 (STD 2461)
 ```
 
-## 10. XGBoost with HyperOpt, Optuna, and Ray
+## 10. XGBoost with Hyperopt, Optuna, and Ray
 
-The steps to run a Ray tuning job with HyperOpt are:
+The steps to run a Ray tuning job with Hyperopt are:
 
 1. Set up a Ray search space with a config dict.
 2. Refactor the training job into a function which takes the config dict as an argument and calls `tune.report(rmse=rmse)` to optimize a metric like RMSE.
@@ -658,7 +597,7 @@ With NUM_SAMPLES=1024 we obtain:
 Raw CV RMSE 18321 (STD 2479)
 ```
 
-- We can swap HyperOpt for Optuna as simply as:
+- We can swap out Hyperopt for Optuna as simply as:
 
   ```python
   algo = OptunaSearch()
@@ -670,9 +609,9 @@ With NUM_SAMPLES=1024 we obtain:
 Raw CV RMSE 18179 (STD 2431)
 ```
 
-## 11. LightGBM with HyperOpt and Optuna
+## 11. LightGBM with Hyperopt and Optuna
 
-We can easily swap XGBoost for LightGBM.
+We can easily swap out XGBoost for LightGBM.
 
 1. Update search space
 
@@ -763,7 +702,7 @@ Results for LGBM: (NUM_SAMPLES=1024):
 Raw CV RMSE 18608 (STD 2410)
 ```
 
-Swapping out HyperOpt for Optuna:
+Swapping out Hyperopt for Optuna:
 
 ```python
 Raw CV RMSE 18592 (STD 2410)
@@ -828,7 +767,7 @@ analysis = tune.run(my_xgb,
 
 Results for XGBM on cluster (2048 samples, cluster is 16 m5.large instances):
 
-HyperOpt (time 1:17:46)
+Hyperopt (time 1:17:46)
 
 ```
 Raw CV RMSE 18309 (STD 2428)
@@ -863,7 +802,7 @@ analysis = tune.run(my_lgbm,
 
 Results for LightGBM on cluster (2048 samples, cluster is 16 m5.large instances):
 
-HyperOpt (time: 1:54:58) :
+Hyperopt (time: 1:54:58) :
 
 ```
 Raw CV RMSE 18615 (STD 2354)
@@ -879,9 +818,9 @@ Raw CV RMSE 18537 (STD 2452)
 
 Bayesian optimization tunes faster with a less manual process vs. sequential tuning. The RMSE in this example is comparable.
 
-In every case I've applied them, HyperOpt and Optuna have given me at least a small improvement in the best metrics I found using grid search methods. Additionally, it's fire-and-forget.
+In every case I've applied them, Hyperopt and Optuna have given me at least a small improvement in the best metrics I found using grid search methods. Additionally, it's fire-and-forget.
 
-Is the Ray framework the way to go for hyperparameter tuning? Provisionally, yes. Ray provides integration between the underlying ML (e.g. XGBoost), the Bayesian search (e.g. HyperOpt), and early stopping (ASHA). It allows us to easily swap in additional search algorithms, although HyperOpt and Optuna are the most popular (and I haven't yet had success with others). If after a while I find I am always using e.g. HyperOpt and never use clusters, I might use the native HyperOpt/XGBoost integration without Ray, to access any native features and because it's one less technology in the stack to break.. 
+Is the Ray framework the way to go for hyperparameter tuning? Provisionally, yes. Ray provides integration between the underlying ML (e.g. XGBoost), the Bayesian search (e.g. Hyperopt), and early stopping (ASHA). It allows us to easily swap in additional search algorithms, although Hyperopt and Optuna are the most popular (and I haven't yet had success with others). If after a while I find I am always using e.g. Hyperopt and never use clusters, I might use the native Hyperopt/XGBoost integration without Ray, to access any native features and because it's one less technology in the stack to break.. 
 
 Clusters? Most of the time I don't have the need, costs add up. The longest run I have tried, with 4096 samples, ran overnight on desktop. My MacBook Pro w/16 threads and desktop with 12 threads and GPU are plenty powerful for this data set, and I only see about 2x speedup on the 16-instance cluster. Setting up the test I expected at least 2x speedup and a better result and I didn't see that. Still, it's useful to have the clustering alternative in the back pocket. In production it may be more standard and maintainable to deploy with Terraform, Kubernetes than Ray native YAML config interface.
 

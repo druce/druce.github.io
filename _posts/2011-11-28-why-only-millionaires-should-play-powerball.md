@@ -66,6 +66,3 @@ Left as an exercise, at what bankroll your expected return is exactly 0, the Sha
   * [Fortune’s Formula](http://www.amazon.com/Fortunes-Formula-Scientific-Betting-Casinos/dp/0809045990), by William Poundstone (a rollicking good read, if you’re into degenerate gamblers, investors and quants)
   * [A New Interpretation of Information Rate](http://www.bjmath.com/bjmath/kelly/kelly.pdf) By J. L. Kelly, Jr.
 
-<div class="zemanta-pixie" style="margin-top: 10px; height: 15px;">
-  <a class="zemanta-pixie-a" title="Enhanced by Zemanta" href="http://www.zemanta.com/"><img class="zemanta-pixie-img" style="border: none; float: right;" src="http://img.zemanta.com/zemified_e.png?x-id=5c37a1d9-4017-4317-9fa0-05016f2adf15" alt="Enhanced by Zemanta" /></a>
-</div>

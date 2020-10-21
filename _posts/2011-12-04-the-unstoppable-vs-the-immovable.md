@@ -40,7 +40,3 @@ If one may be permitted a bit of colorful imagery, the ECB and Germany are using
 Since the US currently has a bit less than 20% of the overall IMF quota, and stands behind the IMF, and there is talk of [the Fed providing token additional funds and moral support](http://www.reuters.com/article/2011/12/05/us-eurozone-imf-fed-idUSTRE7B30X320111205), some might say the US is helping bail out Europe. But it’s a pretty thin argument. It doesn’t seem likely significant US taxpayer funds will be at risk. The same is true for the Fed swap lines that allow the ECB to lend dollars. To the extent these operations are unsterilized they are additional QE.
 
 The best way to view this talking point is in the context of pressure from Rick Perry and others to prevent additional action by the Fed to help the economy. It’s a red-meat talking point, and fodder for those who would accuse the GOP of wanting European and US economic growth to suffer, in order to advance their electoral prospects.
-
-<div class="zemanta-pixie" style="margin-top: 10px; height: 15px;">
-  <a class="zemanta-pixie-a" title="Enhanced by Zemanta" href="http://www.zemanta.com/"><img class="zemanta-pixie-img" style="border: none; float: right;" src="http://img.zemanta.com/zemified_e.png?x-id=fb075c38-22a8-4f74-9b8f-102071532d8e" alt="Enhanced by Zemanta" /></a>
-</div>

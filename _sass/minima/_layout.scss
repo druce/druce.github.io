@@ -3,7 +3,7 @@
  */
 
 .site-header {
-  background: #111;
+  background: $navy-color-dark;
   opacity: 0.8;
   min-height: $spacing-unit * 1.865;
   position: relative;
@@ -24,7 +24,7 @@
   }
 
   &:hover {
-    color: $crimson-color-light;
+    color: $orange-color;
     text-decoration: none;
     cursor: pointer;
   }
@@ -54,7 +54,7 @@
     }
 
     &:hover {
-      color: $crimson-color-light;
+      color: $orange-color;
       text-decoration: none;
       cursor: pointer;
     }
@@ -126,10 +126,10 @@
     padding: 1px 5px;
     margin-left: 5px;
     &:hover {
-      border: 1px solid $brand-color;
+      border: 1px solid $navy-color;
       text-decoration: none;
       color: #ffffff;
-      background: $brand-color;
+      background: $navy-color;
     }
   }
 }
@@ -142,7 +142,7 @@
   font-color: #000000;
 
   &:hover {
-    color: $crimson-color-light;
+    color: $navy-color-light;
     text-decoration: none;
     cursor: pointer;
   }
@@ -232,8 +232,8 @@ div.qa {
     padding-bottom: 1px;
 
     &:hover {
-      color: $crimson-color-light;
-      border-bottom: 1px solid $crimson-color-light;
+      color: $navy-color-light;
+      border-bottom: 1px solid $navy-color-light;
       padding-bottom: 1px;
       text-decoration: none;
     }

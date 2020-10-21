@@ -50,7 +50,3 @@ It’s a great hack and experiment, but I still don’t see a mainstream legit f
 <sup><small>3</small></sup>Ironically, disruption of the existing financial arrangements inevitably entails exactly the same horrors of crisis and hyperinflation, which afficionados claim Bitcoin is the solution to. Sometimes you have to kill the village to save it. [Zombie economics](http://airshipdaily.com/the-political-economy-of-zombies/).
 
 <sup><small>4</small></sup> Even dollars or euros or gold held at some financial institution. Imagine that!
-
-<div class="zemanta-pixie" style="margin-top: 10px; height: 15px;">
-  <a class="zemanta-pixie-a" title="Enhanced by Zemanta" href="http://www.zemanta.com/?px"><img class="zemanta-pixie-img" style="border: none; float: right;" alt="Enhanced by Zemanta" src="http://img.zemanta.com/zemified_h.png?x-id=e0f3e4bb-189b-4b81-ad67-49c756da2d09" /></a>
-</div>
