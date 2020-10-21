@@ -36,7 +36,3 @@ No one can argue that China has not [‘stood up’](http://www.youtube.com/watc
 On a generational time scale, Chinese people will travel to Hong Kong and the West, and wonder why their Internet is censored, why they can’t criticize the government, and why so few of the benefits of growth filter down to the masses and so many accrue to princelings and corrupt officials. Eventually the economy will have a hard landing and the government will hit a wall. The government is like a white-water kayaker heading down the rapids _ every time a cataract is navigated or a boulder is averted, there are more and bigger dangers downstream. Or, as the saying goes, like an elephant riding a bicycle…as long as the wheels keep spinning all seems well, but when there is trouble it will be a very big mess. 
 
 But until the wheels fall off, dissent is likely to be limited and local, and the government has clearly shown the resolve and lack of scruples to head off wider unrest.
-
-<div class="zemanta-pixie" style="margin-top:10px;height:15px">
-  <a class="zemanta-pixie-a" href="http://www.zemanta.com/" title="Enhanced by Zemanta"><img class="zemanta-pixie-img" src="http://img.zemanta.com/zemified_e.png?x-id=dfce4e05-ed5b-4d70-a9dd-895b548455a0" alt="Enhanced by Zemanta" style="border:none;float:right" /></a>
-</div>

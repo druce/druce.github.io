@@ -174,15 +174,15 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-  color: $brand-color;
+  color: $navy-color;
   text-decoration: none;
 
   &:visited {
-    color: $brand-color;
+    color: $navy-color;
   }
 
   &:hover {
-    color: $crimson-color-light;
+    color: $navy-color-light;
     text-decoration: underline;
   }
 
@@ -200,13 +200,13 @@ a {
  * Blockquotes
  */
 blockquote {
-  color: #777777;
-  border-left: 4px solid #bbbbbb;
+  color: #66;
+  border-left: 4px solid #ddcc11;
   padding: 10px;
   margin: 10px;
   padding-left: 25px;
   @include relative-font-size(0.9);
-  background: #f0f0f0;
+  background: #f6f6fc;
 
   > :last-child {
     margin-bottom: 0;

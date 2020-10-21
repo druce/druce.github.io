@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-10-20T12:53:48-04:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">StreetEYE Blog</title><subtitle>Druce's Mad Science About Tech, Markets And Political Economy</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna</title><link href="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna" rel="alternate" type="text/html" title="Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna" /><published>2020-10-12T18:28:57-04:00</published><updated>2020-10-12T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna">&lt;blockquote&gt;
-  &lt;p&gt;Bayesian optimization for hyperparameter tuning of machine learning models is faster and more effective than grid search. Let’s demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization modules like HyperOpt and Optuna, running on… 2) the &lt;a href=&quot;https://ray.io/&quot;&gt;Ray&lt;/a&gt; distributed machine learning framework, with a &lt;a href=&quot;https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf&quot;&gt;unified API to many hyperparameter search algos&lt;/a&gt; with early stopping and… 3) a distributed cluster of cloud instances for even faster tuning.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-10-20T23:37:43-04:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">StreetEYE Blog</title><subtitle>Druce's Mad Science About Tech, Markets And Political Economy</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna</title><link href="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna" rel="alternate" type="text/html" title="Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna" /><published>2020-10-12T18:28:57-04:00</published><updated>2020-10-12T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna">&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;Bayesian optimization of machine learning model hyperparameters is faster and better than grid search. Let’s demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization with Hyperopt and Optuna, running on… 2) the &lt;a href=&quot;https://ray.io/&quot;&gt;Ray&lt;/a&gt; distributed machine learning framework, with a &lt;a href=&quot;https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf&quot;&gt;unified API to many hyperparameter search algos&lt;/a&gt; and early stopping schedulers, and… 3) a distributed cluster of cloud instances for even faster tuning.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;!--more--&gt;
@@ -16,8 +16,8 @@
   &lt;li&gt;&lt;a href=&quot;#7-elasticnetcv&quot;&gt;ElasticNetCV (Linear regression with L1 and L2 regularization)&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#8-gridsearchcv&quot;&gt;ElasticNet with GridSearchCV &lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#9-xgboost-with-sequential-grid-search&quot;&gt;XGBoost: sequential grid search over hyperparameter subsets with early stopping &lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#10-xgboost-with-hyperopt-optuna-and-ray&quot;&gt;XGBoost: HyperOpt and Optuna search algorithms&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#11-lightgbm-with-hyperopt-and-optuna&quot;&gt;LightGBM: HyperOpt and Optuna search algorithms&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#10-xgboost-with-hyperopt-optuna-and-ray&quot;&gt;XGBoost: Hyperopt and Optuna search algorithms&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#11-lightgbm-with-hyperopt-and-optuna&quot;&gt;LightGBM: Hyperopt and Optuna search algorithms&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#12-xgboost-on-a-ray-cluster&quot;&gt;XGBoost on a Ray cluster&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#13-lightgbm-on-a-ray-cluster&quot;&gt;LightGBM on a Ray cluster&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#14-concluding-remarks&quot;&gt;Concluding remarks&lt;/a&gt;&lt;/li&gt;
@@ -25,28 +25,17 @@
 
 &lt;h2 id=&quot;1-results&quot;&gt;1. Results&lt;/h2&gt;
 
-&lt;p&gt;Bottom line up front – Here are results on the Ames housing data set, predicting Iowa home prices:&lt;/p&gt;
+&lt;p&gt;Bottom line up front: Here are results on the Ames housing data set, predicting Iowa home prices:&lt;/p&gt;
 
-&lt;style&gt;table{
-    border-collapse: collapse;
-    border:2px solid #000000;
-}
-th{
-    border:2px solid #000000;
-}
-td{
-    border:1px solid #000000;
-}&lt;/style&gt;
-
-&lt;h4 id=&quot;xgb-and-lightgbm-with-various-hyperparameter-optimization-methodologies&quot;&gt;XGB and LightGBM with various hyperparameter optimization methodologies&lt;/h4&gt;
+&lt;h3 id=&quot;xgb-and-lightgbm-using-various-hyperparameter-optimization-methodologies&quot;&gt;XGB and LightGBM using various hyperparameter optimization methodologies&lt;/h3&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;ML Algo&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Search algo&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;CV Error (RMSE in $)&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Time h:mm::ss&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;CV Error&lt;br /&gt; (RMSE in $)&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Time&lt;br /&gt; h:mm::ss&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -58,7 +47,7 @@ td{
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;XGB&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;HyperOpt (1024 samples)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Hyperopt (1024 samples)&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;18321&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;1:07:02&lt;/td&gt;
     &lt;/tr&gt;
@@ -70,7 +59,7 @@ td{
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;LightGBM&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;HyperOpt (1024 samples)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Hyperopt (1024 samples)&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;18608&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;0:45:46&lt;/td&gt;
     &lt;/tr&gt;
@@ -82,7 +71,7 @@ td{
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;XGB&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;HyperOpt (2048 samples) - 16x cluster&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Hyperopt (2048 samples) - 16x cluster&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;18309&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;1:17:46&lt;/td&gt;
     &lt;/tr&gt;
@@ -94,7 +83,7 @@ td{
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;LightGBM&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;HyperOpt (2048 samples) - 16x cluster&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Hyperopt (2048 samples) - 16x cluster&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;18615&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;1:54:58&lt;/td&gt;
     &lt;/tr&gt;
@@ -107,7 +96,9 @@ td{
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;baseline-linear-models&quot;&gt;Baseline linear models&lt;/h4&gt;
+&lt;p&gt; &lt;/p&gt;
+
+&lt;h3 id=&quot;baseline-linear-models&quot;&gt;Baseline linear models&lt;/h3&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -140,9 +131,9 @@ td{
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Times for single instance are on a local desktop with 12 threads, comparable to EC2 4xlarge. Times for cluster are on m5.large x16 (1 head node + 15 workers).&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Times for single instance are on a local desktop with 12 threads, comparable to EC2 4xlarge. Times for cluster are on m5.large x 16 (1 head node + 15 workers).&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;We see considerable speedup when using HyperOpt and Optuna locally. The sequential search performed about 286 trials, so the XGB/Optuna run performed about 3x as many trials in half the time and got a better result.&lt;/p&gt;
+&lt;p&gt;We see considerable speedup when using Hyperopt and Optuna locally. The sequential search performed about 286 trials, so the XGB/Optuna search performed about 3x as many trials in half the time and got a better result.&lt;/p&gt;
 
 &lt;p&gt;The cluster of 16 instances gives a modest speedup vs. my local machine. Very roughly I think my local machine may be 4x faster than an m5.large, in better cases we get a slightly slower time on 2x the number of trials.&lt;/p&gt;
 
@@ -212,7 +203,7 @@ td{
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;In this post we focus on Bayesian optimization with HyperOpt and Optuna.&lt;/p&gt;
+&lt;p&gt;In this post we focus on Bayesian optimization with Hyperopt and Optuna.&lt;/p&gt;
 
 &lt;h2 id=&quot;3-bayesian-optimization&quot;&gt;3. Bayesian Optimization&lt;/h2&gt;
 
@@ -229,9 +220,9 @@ Source: &lt;a href=&quot;https://medium.com/optuna/using-optuna-to-optimize-xgbo
 
 &lt;h2 id=&quot;4-early-stopping&quot;&gt;4. Early Stopping&lt;/h2&gt;
 
-&lt;p&gt;If, while evaluating a hyperparameter combination, the evaluation metric is not improving in training, or just not improving enough to beat our best to date, we can discard a combination before fully training on it. &lt;em&gt;Early stopping&lt;/em&gt; of unsuccessful training runs increases the speed and effectiveness of our search.&lt;/p&gt;
+&lt;p&gt;If, while evaluating a hyperparameter combination, the evaluation metric is not improving in training, or just not improving fast enough to beat our best to date, we can discard a combination before fully training on it. &lt;em&gt;Early stopping&lt;/em&gt; of unsuccessful training runs increases the speed and effectiveness of our search.&lt;/p&gt;
 
-&lt;p&gt;XGBoost and LightGBM helpfully provide early stopping callbacks to check on training progress and stop a training trial early (&lt;a href=&quot;https://xgboost.readthedocs.io/en/latest/python/callbacks.html&quot;&gt;XGBoost&lt;/a&gt; ; &lt;a href=&quot;https://lightgbm.readthedocs.io/en/latest/pythonapi/lightgbm.early_stopping.html#lightgbm.early_stopping&quot;&gt;LightGBM&lt;/a&gt;). HyperOpt, Optuna, and Ray use these callbacks to stop bad trials quickly, and accelerate performance.&lt;/p&gt;
+&lt;p&gt;XGBoost and LightGBM helpfully provide early stopping callbacks to check on training progress and stop a training trial early (&lt;a href=&quot;https://xgboost.readthedocs.io/en/latest/python/callbacks.html&quot;&gt;XGBoost&lt;/a&gt; ; &lt;a href=&quot;https://lightgbm.readthedocs.io/en/latest/pythonapi/lightgbm.early_stopping.html#lightgbm.early_stopping&quot;&gt;LightGBM&lt;/a&gt;). Hyperopt, Optuna, and Ray use these callbacks to stop bad trials quickly, and accelerate performance.&lt;/p&gt;
 
 &lt;p&gt;In this post, we will use Asynchronous Successive Halving Algorithm (&lt;em&gt;&lt;a href=&quot;https://arxiv.org/abs/1810.05934&quot;&gt;ASHA&lt;/a&gt;&lt;/em&gt;) for early stopping, described in this &lt;a href=&quot;https://blog.ml.cmu.edu/2018/12/12/massively-parallel-hyperparameter-optimization/&quot;&gt;blog post&lt;/a&gt;.&lt;/p&gt;
 
@@ -260,7 +251,7 @@ Source: &lt;a href=&quot;https://medium.com/optuna/using-optuna-to-optimize-xgbo
   &lt;li&gt;&lt;em&gt;Native CV&lt;/em&gt;: In sklearn if an algo &lt;em&gt;xxx&lt;/em&gt; has hyperparameters it will often have an &lt;em&gt;xxxCV&lt;/em&gt; version, like ElasticNetCV, which performs automated hyperparameter tuning over a search space with specified kfolds.&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;GridSearchCV&lt;/em&gt;: Abstracts CV that can wrap around any sklearn algo, running multithreaded trials over specified kfolds.&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;Manual sequential grid search&lt;/em&gt;: What we typically do with XGBoost, which doesn’t play well with GridSearchCV and has too many hyperparameters to tune in one pass.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Ray on local machine&lt;/em&gt;: HyperOpt and Optuna with early stopping.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Ray on local machine&lt;/em&gt;: Hyperopt and Optuna with early stopping.&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;Ray on cluster&lt;/em&gt;: Additionally scale out to run a single hyperparameter optimization task over many instances.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -414,87 +405,9 @@ Wall time: 5 s
 
 &lt;h2 id=&quot;9-xgboost-with-sequential-grid-search&quot;&gt;9. XGBoost with sequential grid search&lt;/h2&gt;
 
-&lt;p&gt;It should be possible to use GridSearchCV with XGBoost, and a dedicated eval set for early stopping:&lt;/p&gt;
+&lt;p&gt;It &lt;em&gt;should&lt;/em&gt; be possible to use GridSearchCV with XGBoost. But when we try to use early stopping, XGBoost wants an eval set. OK, i guess we can give it a static eval set held out from GridSearchCV. Now, GridSearchCV does k-fold cross-validation in the training set but XGBoost uses a dedicated eval set. It’s a bit of a Frankenstein methodology, and I’m not sure it really works, see the &lt;a href=&quot;https://github.com/druce/iowa/blob/master/hyperparameter_optimization.ipynb&quot;&gt;notebook&lt;/a&gt; for the attempt at GridSearchCV with XGBoost and early stopping if you’re really interested. Instead we write our own grid search that gives XGBoost the hold-out set for each fold:&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;gs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GridSearchCV&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;XGBRegressor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objective&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'reg:squarederror'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                               &lt;span class=&quot;n&quot;&gt;n_estimators&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                               &lt;span class=&quot;n&quot;&gt;random_state&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RANDOMSTATE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                               &lt;span class=&quot;n&quot;&gt;verbosity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                               &lt;span class=&quot;n&quot;&gt;n_jobs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                               &lt;span class=&quot;n&quot;&gt;booster&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'gbtree'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;   
-                               &lt;span class=&quot;c1&quot;&gt;# early_stopping_rounds=50, #  pass to fit()
-&lt;/span&gt;                              &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-                  &lt;span class=&quot;n&quot;&gt;param_grid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'max_depth'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-                              &lt;span class=&quot;s&quot;&gt;'colsample_bylevel'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-                              &lt;span class=&quot;s&quot;&gt;'colsample_bytree'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-                              &lt;span class=&quot;s&quot;&gt;'subsample'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-                              &lt;span class=&quot;s&quot;&gt;'learning_rate'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.01&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-                             &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-                  &lt;span class=&quot;n&quot;&gt;scoring&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'neg_root_mean_squared_error'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                  &lt;span class=&quot;n&quot;&gt;refit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                  &lt;span class=&quot;n&quot;&gt;cv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                  &lt;span class=&quot;n&quot;&gt;n_jobs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                  &lt;span class=&quot;n&quot;&gt;verbose&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-                 &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# do cv using kfolds on full dataset
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;CV on train dataset&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;X_train&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;X_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y_train&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y_test&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;train_test_split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predictors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-                                                    &lt;span class=&quot;n&quot;&gt;test_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;random_state&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RANDOMSTATE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;gs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X_train&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y_train&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
-       &lt;span class=&quot;n&quot;&gt;eval_set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)],&lt;/span&gt;
-       &lt;span class=&quot;n&quot;&gt;early_stopping_rounds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'best params'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;best_params_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'best score'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;best_score_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;xgb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;XGBRegressor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objective&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'reg:squarederror'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                   &lt;span class=&quot;n&quot;&gt;n_estimators&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                   &lt;span class=&quot;n&quot;&gt;random_state&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RANDOMSTATE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                   &lt;span class=&quot;n&quot;&gt;verbosity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                   &lt;span class=&quot;n&quot;&gt;n_jobs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                   &lt;span class=&quot;n&quot;&gt;booster&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'gbtree'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;   
-                   &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;best_params_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xgb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;scores&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cross_val_score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xgb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predictors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-                          &lt;span class=&quot;n&quot;&gt;scoring&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;neg_root_mean_squared_error&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                          &lt;span class=&quot;n&quot;&gt;cv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kfolds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                          &lt;span class=&quot;n&quot;&gt;n_jobs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;raw_scores&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cv_to_raw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scores&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Log1p CV RMSE %.06f (STD %.04f)&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scores&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scores&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Raw CV RMSE %.0f (STD %.0f)&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;raw_scores&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;raw_scores&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;It’s a Frankenstein methodology since GridSearchCV does k-fold cross-validation but uses a dedicated eval set to determine early stopping. Also, XGBoost has many tuning parameters so a complete grid search has an unreasonable number of combinations.&lt;/p&gt;
-
-&lt;p&gt;Instead, we tune reduced sets sequentially using grid search and use early stopping. This is the typical non-automated methodology to tune XGBoost:&lt;/p&gt;
-
-&lt;h4 id=&quot;xgboost-tuning-methodology&quot;&gt;XGBoost tuning methodology&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Set an initial set of starting parameters.&lt;/li&gt;
-  &lt;li&gt;Tune sequentially on groups of hyperparameters that don’t interact too much between groups to reduce the number of combinations tested.
-    &lt;ul&gt;
-      &lt;li&gt;First, tune max_depth.&lt;/li&gt;
-      &lt;li&gt;Then tune subsample, colsample_bytree and colsample_bylevel.&lt;/li&gt;
-      &lt;li&gt;Finally, tune learning rate: lower learning rate will need more boosting rounds (n_estimators).&lt;/li&gt;
-      &lt;li&gt;Do 10-fold cross-validation on each hyperparameter combination. Pick hyperparameters to minimize average RMSE over kfolds.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Use native XGboost early stopping to halt training in each fold if no improvement after 100 rounds.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;After choosing hyperparameters, retrain and evaluate on full dataset without early stopping.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;We use the XGBoost sklearn API and roll our own grid search which understands early stopping with k-folds, instead of GridSearchCV&lt;/li&gt;
-  &lt;li&gt;(An alternative would be to use native xgboost .cv which understands early stopping but doesn’t use sklearn API (uses DMatrix, not numpy array or dataframe))&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;BOOST_ROUNDS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50000&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# we use early stopping so make this arbitrarily high
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EARLY_STOPPING_ROUNDS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# stop if no improvement after 100 rounds
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;EARLY_STOPPING_ROUNDS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# stop if no improvement after 100 rounds
 &lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;my_cv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;predictors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kfolds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;regressor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;verbose&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;Roll our own CV 
@@ -519,6 +432,33 @@ Wall time: 5 s
         &lt;span class=&quot;n&quot;&gt;best_iterations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;regressor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;best_iteration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;average&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;metrics&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;metrics&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;average&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;best_iterations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Also, XGBoost has many tuning parameters so a complete grid search has an unreasonable number of combinations.&lt;/p&gt;
+
+&lt;p&gt;Instead, we tune reduced sets sequentially using grid search and use early stopping. This is the typical non-automated methodology to tune XGBoost:&lt;/p&gt;
+
+&lt;h4 id=&quot;xgboost-tuning-methodology&quot;&gt;XGBoost tuning methodology&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Set an initial set of starting parameters.&lt;/li&gt;
+  &lt;li&gt;Tune sequentially on groups of hyperparameters that don’t interact too much between groups to reduce the number of combinations tested.
+    &lt;ul&gt;
+      &lt;li&gt;First, tune max_depth.&lt;/li&gt;
+      &lt;li&gt;Then tune subsample, colsample_bytree and colsample_bylevel.&lt;/li&gt;
+      &lt;li&gt;Finally, tune learning rate: lower learning rate will need more boosting rounds (n_estimators).&lt;/li&gt;
+      &lt;li&gt;Do 10-fold cross-validation on each hyperparameter combination. Pick hyperparameters to minimize average RMSE over kfolds.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Use native XGboost early stopping to halt training in each fold if no improvement after 100 rounds.&lt;/li&gt;
+  &lt;li&gt;After choosing hyperparameters, retrain and evaluate on full dataset without early stopping.&lt;/li&gt;
+  &lt;li&gt;As discussed, we use the XGBoost sklearn API and roll our own grid search which understands early stopping with k-folds, instead of GridSearchCV. (An alternative would be to use native xgboost .cv which understands early stopping but doesn’t use sklearn API (uses DMatrix, not numpy array or dataframe))&lt;/li&gt;
+  &lt;li&gt;We write a helper function &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cv_over_param_dict&lt;/code&gt; which takes a list of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;param_dict&lt;/code&gt; dictionaries, runs trials over all dictionaries, and returns the best &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;param_dict&lt;/code&gt; dictionary plus a dataframe of results.&lt;/li&gt;
+  &lt;li&gt;We run&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cv_over_param_dict&lt;/code&gt; 3 times to do 3 grid searches.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;BOOST_ROUNDS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50000&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# we use early stopping so make this arbitrarily high
+&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cv_over_param_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;param_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;predictors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kfolds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;verbose&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;given a list of dictionaries of xgb params
     run my_cv on params, store result in array
@@ -640,9 +580,9 @@ Wall time: 5 s
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Raw CV RMSE 18193 (STD 2461)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;10-xgboost-with-hyperopt-optuna-and-ray&quot;&gt;10. XGBoost with HyperOpt, Optuna, and Ray&lt;/h2&gt;
+&lt;h2 id=&quot;10-xgboost-with-hyperopt-optuna-and-ray&quot;&gt;10. XGBoost with Hyperopt, Optuna, and Ray&lt;/h2&gt;
 
-&lt;p&gt;The steps to run a Ray tuning job with HyperOpt are:&lt;/p&gt;
+&lt;p&gt;The steps to run a Ray tuning job with Hyperopt are:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Set up a Ray search space with a config dict.&lt;/li&gt;
@@ -746,7 +686,7 @@ Wall time: 5 s
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;We can swap HyperOpt for Optuna as simply as:&lt;/p&gt;
+    &lt;p&gt;We can swap out Hyperopt for Optuna as simply as:&lt;/p&gt;
 
     &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;algo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OptunaSearch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
@@ -758,9 +698,9 @@ Wall time: 5 s
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Raw&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CV&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RMSE&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;18179&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;STD&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2431&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;11-lightgbm-with-hyperopt-and-optuna&quot;&gt;11. LightGBM with HyperOpt and Optuna&lt;/h2&gt;
+&lt;h2 id=&quot;11-lightgbm-with-hyperopt-and-optuna&quot;&gt;11. LightGBM with Hyperopt and Optuna&lt;/h2&gt;
 
-&lt;p&gt;We can easily swap XGBoost for LightGBM.&lt;/p&gt;
+&lt;p&gt;We can easily swap out XGBoost for LightGBM.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -852,7 +792,7 @@ Wall time: 5 s
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Raw&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CV&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RMSE&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;18608&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;STD&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2410&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Swapping out HyperOpt for Optuna:&lt;/p&gt;
+&lt;p&gt;Swapping out Hyperopt for Optuna:&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Raw&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CV&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RMSE&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;18592&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;STD&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2410&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -923,7 +863,7 @@ and then open
 
 &lt;p&gt;Results for XGBM on cluster (2048 samples, cluster is 16 m5.large instances):&lt;/p&gt;
 
-&lt;p&gt;HyperOpt (time 1:17:46)&lt;/p&gt;
+&lt;p&gt;Hyperopt (time 1:17:46)&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Raw CV RMSE 18309 (STD 2428)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -953,7 +893,7 @@ and then open
 
 &lt;p&gt;Results for LightGBM on cluster (2048 samples, cluster is 16 m5.large instances):&lt;/p&gt;
 
-&lt;p&gt;HyperOpt (time: 1:54:58) :&lt;/p&gt;
+&lt;p&gt;Hyperopt (time: 1:54:58) :&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Raw CV RMSE 18615 (STD 2354)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -967,9 +907,9 @@ and then open
 
 &lt;p&gt;Bayesian optimization tunes faster with a less manual process vs. sequential tuning. The RMSE in this example is comparable.&lt;/p&gt;
 
-&lt;p&gt;In every case I’ve applied them, HyperOpt and Optuna have given me at least a small improvement in the best metrics I found using grid search methods. Additionally, it’s fire-and-forget.&lt;/p&gt;
+&lt;p&gt;In every case I’ve applied them, Hyperopt and Optuna have given me at least a small improvement in the best metrics I found using grid search methods. Additionally, it’s fire-and-forget.&lt;/p&gt;
 
-&lt;p&gt;Is the Ray framework the way to go for hyperparameter tuning? Provisionally, yes. Ray provides integration between the underlying ML (e.g. XGBoost), the Bayesian search (e.g. HyperOpt), and early stopping (ASHA). It allows us to easily swap in additional search algorithms, although HyperOpt and Optuna are the most popular (and I haven’t yet had success with others). If after a while I find I am always using e.g. HyperOpt and never use clusters, I might use the native HyperOpt/XGBoost integration without Ray, to access any native features and because it’s one less technology in the stack to break..&lt;/p&gt;
+&lt;p&gt;Is the Ray framework the way to go for hyperparameter tuning? Provisionally, yes. Ray provides integration between the underlying ML (e.g. XGBoost), the Bayesian search (e.g. Hyperopt), and early stopping (ASHA). It allows us to easily swap in additional search algorithms, although Hyperopt and Optuna are the most popular (and I haven’t yet had success with others). If after a while I find I am always using e.g. Hyperopt and never use clusters, I might use the native Hyperopt/XGBoost integration without Ray, to access any native features and because it’s one less technology in the stack to break..&lt;/p&gt;
 
 &lt;p&gt;Clusters? Most of the time I don’t have the need, costs add up. The longest run I have tried, with 4096 samples, ran overnight on desktop. My MacBook Pro w/16 threads and desktop with 12 threads and GPU are plenty powerful for this data set, and I only see about 2x speedup on the 16-instance cluster. Setting up the test I expected at least 2x speedup and a better result and I didn’t see that. Still, it’s useful to have the clustering alternative in the back pocket. In production it may be more standard and maintainable to deploy with Terraform, Kubernetes than Ray native YAML config interface.&lt;/p&gt;
 
@@ -1000,8 +940,8 @@ and then open
       &lt;p&gt;This is not intended to make sense. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/div&gt;</content><author><name>Druce Vertes</name></author><category term="datascience" /><category term="datascience" /><summary type="html">Bayesian optimization for hyperparameter tuning of machine learning models is faster and more effective than grid search. Let’s demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization modules like HyperOpt and Optuna, running on… 2) the Ray distributed machine learning framework, with a unified API to many hyperparameter search algos with early stopping and… 3) a distributed cluster of cloud instances for even faster tuning.</summary></entry><entry><title type="html">The Biggest Bluff: She Stoops To Conquer</title><link href="http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/" rel="alternate" type="text/html" title="The Biggest Bluff: She Stoops To Conquer" /><published>2020-07-09T18:28:57-04:00</published><updated>2020-07-09T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer</id><content type="html" xml:base="http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/">&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;I enjoyed &lt;a href=&quot;https://www.amazon.com/Biggest-Bluff-Learned-Attention-Master/dp/052552262X/&quot;&gt;The Biggest Bluff: How I Learned to Pay Attention, Master Myself, and Win, by Maria Konnikova&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;</content><author><name>Druce Vertes</name></author><category term="datascience" /><category term="datascience" /><summary type="html">Bayesian optimization of machine learning model hyperparameters is faster and better than grid search. Let’s demonstrate how we can speed up hyperparameter tuning with: 1) Bayesian optimization with Hyperopt and Optuna, running on… 2) the Ray distributed machine learning framework, with a unified API to many hyperparameter search algos and early stopping schedulers, and… 3) a distributed cluster of cloud instances for even faster tuning.</summary></entry><entry><title type="html">The Biggest Bluff: She Stoops To Conquer</title><link href="http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/" rel="alternate" type="text/html" title="The Biggest Bluff: She Stoops To Conquer" /><published>2020-07-09T18:28:57-04:00</published><updated>2020-07-09T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer</id><content type="html" xml:base="http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/">&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;I loved &lt;a href=&quot;https://www.amazon.com/Biggest-Bluff-Learned-Attention-Master/dp/052552262X/&quot;&gt;The Biggest Bluff: How I Learned to Pay Attention, Master Myself, and Win, by Maria Konnikova&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;!--more--&gt;
@@ -1050,7 +990,7 @@ and then open
 
 &lt;p&gt;The jailbird Ed Norton character in Rounders illustrates the darker side of the game. Not a great movie but &lt;a href=&quot;https://www.youtube.com/watch?v=i4A4TzHHdko&quot;&gt;High Roller: The Stu Ungar Story&lt;/a&gt; illustrates it. There’s something weirdly intoxicating and addictive to gambling, to be good at poker you have to be obsessive, and these guys are often prone to addictive behaviors and not very healthy mentally or physically. The household names who become stars on ESPN2 go bust and beg strangers to stake them. I’ve seen ridiculous tantrums and chair-throwing (which does get you banned LOL). I’ve seen college students fresh off the bus tilt and lose a semester of savings in 30 minutes.&lt;/p&gt;
 
-&lt;p&gt;Poker is a great training ground for investing, but investing is a positive-sum game in the long run. Ultimately there is a social purpose, to &lt;a href=&quot;https://www.brainyquote.com/quotes/john_maynard_keynes_152044#:~:text=John%20Maynard%20Keynes%20Quotes&amp;amp;text=The%20social%20object%20of%20skilled%20investment%20should%20be%20to%20defeat,ignorance%20which%20envelope%20our%20future.&quot;&gt;defeat the dark forces of time and ignorance that envelop our future.&lt;/a&gt; The market is not always as fun and you can’t bluff the market, and it has its share of con artists and angle-shooters, but I think it’s a more proper object of talent for people who understand risk, expected value, human nature… and luck.&lt;/p&gt;</content><author><name>Druce Vertes, CFA</name></author><category term="poker" /><category term="poker" /><category term="books" /><summary type="html">I enjoyed The Biggest Bluff: How I Learned to Pay Attention, Master Myself, and Win, by Maria Konnikova.</summary></entry><entry><title type="html">Why Blockchain Is (Mostly) Useless</title><link href="http://0.0.0.0:4000/2019/09/why-blockchain-is-mostly-useless/" rel="alternate" type="text/html" title="Why Blockchain Is (Mostly) Useless" /><published>2019-09-07T08:31:36-04:00</published><updated>2019-09-07T08:31:36-04:00</updated><id>http://0.0.0.0:4000/2019/09/why-blockchain-is-mostly-useless</id><content type="html" xml:base="http://0.0.0.0:4000/2019/09/why-blockchain-is-mostly-useless/">&lt;blockquote&gt;
+&lt;p&gt;Poker is a great training ground for investing, but investing is a positive-sum game in the long run. Ultimately there is a social purpose, to &lt;a href=&quot;https://www.brainyquote.com/quotes/john_maynard_keynes_152044#:~:text=John%20Maynard%20Keynes%20Quotes&amp;amp;text=The%20social%20object%20of%20skilled%20investment%20should%20be%20to%20defeat,ignorance%20which%20envelope%20our%20future.&quot;&gt;defeat the dark forces of time and ignorance that envelop our future.&lt;/a&gt; The market is not always as fun and you can’t bluff the market, and it has its share of con artists and angle-shooters, but I think it’s a more proper object of talent for people who understand risk, expected value, human nature… and luck.&lt;/p&gt;</content><author><name>Druce Vertes, CFA</name></author><category term="poker" /><category term="poker" /><category term="books" /><summary type="html">I loved The Biggest Bluff: How I Learned to Pay Attention, Master Myself, and Win, by Maria Konnikova.</summary></entry><entry><title type="html">Why Blockchain Is (Mostly) Useless</title><link href="http://0.0.0.0:4000/2019/09/why-blockchain-is-mostly-useless/" rel="alternate" type="text/html" title="Why Blockchain Is (Mostly) Useless" /><published>2019-09-07T08:31:36-04:00</published><updated>2019-09-07T08:31:36-04:00</updated><id>http://0.0.0.0:4000/2019/09/why-blockchain-is-mostly-useless</id><content type="html" xml:base="http://0.0.0.0:4000/2019/09/why-blockchain-is-mostly-useless/">&lt;blockquote&gt;
   &lt;p&gt;&lt;em&gt;Cryptocurrencies are useless. They’re only used by speculators looking for quick riches, people who don’t like government-backed currencies, and criminals who want a black-market way to exchange money._ _ &lt;a href=&quot;https://www.schneier.com/blog/archives/2019/02/blockchain_and_.html&quot;&gt;Bruce Schneier&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
