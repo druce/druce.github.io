@@ -64,13 +64,13 @@ Let’s review how to interpret the ROC plot:
 
  - The *true-positive rate (TPR)* is the number of *true positives / ground truth positives* (also called *recall* or *sensitivity*). *Ground truth positives = true positives + false negatives*: 
 
-   *TPR = tp / (tp+fn)*
+   $$ TPR = \frac{tp}{tp+fn} $$
 
  - A *false positive* is a false observation incorrectly predicted to be true.
 
  - The *false-positive rate (FPR)* is the number of *false positives / ground truth negatives* (1 — *FPR* is the *specificity*). *Ground truth negatives = true negatives + false positives*: 
 
-   *FPR = fp / (tn + fp)*
+   $$ FPR = \frac{fp}{tn + fp} $$
 
  - The best place to be on the ROC chart is the top left corner, with 100% TPR, sensitivity, or recall, and 0% FPR, or 100% specificity. This is usually not feasible.
 
