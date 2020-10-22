@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-10-22T01:10:03-04:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">StreetEYE Blog</title><subtitle>Druce's Mad Science About Tech, Markets And Political Economy</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna</title><link href="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna" rel="alternate" type="text/html" title="Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna" /><published>2020-10-12T18:28:57-04:00</published><updated>2020-10-12T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-10-22T14:20:56-04:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">StreetEYE Blog</title><subtitle>Druce's Mad Science About Tech, Markets And Political Economy</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna</title><link href="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna" rel="alternate" type="text/html" title="Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna" /><published>2020-10-12T18:28:57-04:00</published><updated>2020-10-12T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna">&lt;blockquote&gt;
   &lt;p&gt;&lt;em&gt;Bayesian optimization of machine learning model hyperparameters works faster and better than grid search. Here’s how we can speed up hyperparameter tuning with 1) Bayesian optimization with Hyperopt and Optuna, running on… 2) the &lt;a href=&quot;https://ray.io/&quot;&gt;Ray&lt;/a&gt; distributed machine learning framework, with a &lt;a href=&quot;https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf&quot;&gt;unified API to many hyperparameter search algos&lt;/a&gt; and early stopping schedulers, and… 3) a distributed cluster of cloud instances for even faster tuning.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -209,7 +209,7 @@
 
 &lt;h2 id=&quot;3-bayesian-optimization&quot;&gt;3. Bayesian Optimization&lt;/h2&gt;
 
-&lt;p&gt;What is Bayesian optimization? When we perform a grid search, the search space is a &lt;a href=&quot;https://en.wikipedia.org/wiki/Prior_probability&quot;&gt;prior&lt;/a&gt;: we believe that the best hyperparameter vector is in this search space. And &lt;em&gt;a priori&lt;/em&gt; each hyperparameter combinations has equal probability of being the best combination. So we try them all and pick the best one.&lt;/p&gt;
+&lt;p&gt;What is Bayesian optimization? When we perform a grid search, the search space is a &lt;a href=&quot;https://en.wikipedia.org/wiki/Prior_probability&quot;&gt;prior&lt;/a&gt;: we believe that the best hyperparameter vector is in this search space. And &lt;em&gt;a priori&lt;/em&gt; each hyperparameter combinations has equal probability of being the best combination (a uniform distribution). So we try them all and pick the best one.&lt;/p&gt;
 
 &lt;p&gt;Perhaps we might do two passes of grid search. After an initial search on a broad, coarsely spaced grid, we do a deeper dive in a smaller area around the best metric from the first pass, with a more finely-spaced grid. In Bayesian terminology, we &lt;em&gt;updated our prior&lt;/em&gt;.&lt;/p&gt;
 
@@ -218,7 +218,7 @@
 &lt;p&gt;&lt;img src=&quot;/assets/2020/optuna_bayesian.png&quot; alt=&quot;Illustration of random search vs. Bayesian&quot; /&gt;
 Source: Crissman Loomis, &lt;a href=&quot;https://medium.com/optuna/using-optuna-to-optimize-xgboost-hyperparameters-63bfcdfd3407&quot;&gt;Using Optuna to Optimize XGBoost Hyperparameters&lt;/a&gt; (2020)&lt;/p&gt;
 
-&lt;p&gt;If good metrics are not randomly distributed but found close to one another in an orderly pattern, Bayesian optimization is likely to be more efficient than random search.&lt;/p&gt;
+&lt;p&gt;If good metrics are not uniformly distributed, but found close to one another in a Gaussian distribution or any distribution which we can model, then Bayesian optimization can exploit the underlying pattern, and is likely to be more efficient than random search.&lt;/p&gt;
 
 &lt;h2 id=&quot;4-early-stopping&quot;&gt;4. Early Stopping&lt;/h2&gt;
 
@@ -1044,7 +1044,7 @@ and then open
   &lt;li&gt;
     &lt;p&gt;The &lt;em&gt;true-positive rate (TPR)&lt;/em&gt; is the number of &lt;em&gt;true positives / ground truth positives&lt;/em&gt; (also called &lt;em&gt;recall&lt;/em&gt; or &lt;em&gt;sensitivity&lt;/em&gt;). &lt;em&gt;Ground truth positives = true positives + false negatives&lt;/em&gt;:&lt;/p&gt;
 
-    &lt;p&gt;&lt;em&gt;TPR = tp / (tp+fn)&lt;/em&gt;&lt;/p&gt;
+\[TPR = \frac{tp}{tp+fn}\]
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;A &lt;em&gt;false positive&lt;/em&gt; is a false observation incorrectly predicted to be true.&lt;/p&gt;
@@ -1052,7 +1052,7 @@ and then open
   &lt;li&gt;
     &lt;p&gt;The &lt;em&gt;false-positive rate (FPR)&lt;/em&gt; is the number of &lt;em&gt;false positives / ground truth negatives&lt;/em&gt; (1 — &lt;em&gt;FPR&lt;/em&gt; is the &lt;em&gt;specificity&lt;/em&gt;). &lt;em&gt;Ground truth negatives = true negatives + false positives&lt;/em&gt;:&lt;/p&gt;
 
-    &lt;p&gt;&lt;em&gt;FPR = fp / (tn + fp)&lt;/em&gt;&lt;/p&gt;
+\[FPR = \frac{fp}{tn + fp}\]
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;The best place to be on the ROC chart is the top left corner, with 100% TPR, sensitivity, or recall, and 0% FPR, or 100% specificity. This is usually not feasible.&lt;/p&gt;

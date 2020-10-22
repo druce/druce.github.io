@@ -126,7 +126,7 @@ In this post, we focus on Bayesian optimization with Hyperopt and Optuna.
 
 ## 3. Bayesian Optimization
 
-What is Bayesian optimization? When we perform a grid search, the search space is a [prior](https://en.wikipedia.org/wiki/Prior_probability): we believe that the best hyperparameter vector is in this search space. And *a priori* each hyperparameter combinations has equal probability of being the best combination. So we try them all and pick the best one.
+What is Bayesian optimization? When we perform a grid search, the search space is a [prior](https://en.wikipedia.org/wiki/Prior_probability): we believe that the best hyperparameter vector is in this search space. And *a priori* each hyperparameter combinations has equal probability of being the best combination (a uniform distribution). So we try them all and pick the best one.
 
 Perhaps we might do two passes of grid search. After an initial search on a broad, coarsely spaced grid, we do a deeper dive in a smaller area around the best metric from the first pass, with a more finely-spaced grid. In Bayesian terminology, we *updated our prior*.
 
@@ -135,7 +135,7 @@ Bayesian optimization starts by sampling randomly, e.g. 30 combinations, and com
 ![Illustration of random search vs. Bayesian](/assets/2020/optuna_bayesian.png)
 Source: Crissman Loomis, [Using Optuna to Optimize XGBoost Hyperparameters](https://medium.com/optuna/using-optuna-to-optimize-xgboost-hyperparameters-63bfcdfd3407) (2020)
 
-If good metrics are not randomly distributed but found close to one another in an orderly pattern, Bayesian optimization is likely to be more efficient than random search.
+If good metrics are not uniformly distributed, but found close to one another in a Gaussian distribution or any distribution which we can model, then Bayesian optimization can exploit the underlying pattern, and is likely to be more efficient than random search.
 
 ## 4. Early Stopping
 
