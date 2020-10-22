@@ -517,8 +517,16 @@
 <lastmod>2019-09-07T08:31:36-04:00</lastmod>
 </url>
 <url>
+<loc>http://0.0.0.0:4000/2019/10/understanding-classification-thresholds-using-isocurves</loc>
+<lastmod>2019-10-15T18:28:57-04:00</lastmod>
+</url>
+<url>
 <loc>http://0.0.0.0:4000/2020/07/the-biggest-bluff-she-stoops-to-conquer/</loc>
 <lastmod>2020-07-09T18:28:57-04:00</lastmod>
+</url>
+<url>
+<loc>http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna</loc>
+<lastmod>2020-10-12T18:28:57-04:00</lastmod>
 </url>
 <url>
 <loc>http://0.0.0.0:4000/tag/EU.html</loc>
