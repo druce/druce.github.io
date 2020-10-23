@@ -67,7 +67,7 @@ Bottom line up front: Here are results on the Ames housing data set, predicting 
 
 We see a big speedup when using Hyperopt and Optuna locally compared to grid search. The sequential search performed about 261 trials, so the XGB/Optuna search performed about 3x as many trials in half the time and got a similar result. 
 
-The cluster of 16 instances (32 threads) gives a modest speedup vs. a local desktop. The 12-thread local desktop is actually a little faster than an 16-thread m5.4x.large on this task, despite having only 12 threads vs.16. In the best cases (XGB/Optuna), we get a slightly slower time on 2x the number of trials. The task scales but you need a lot of instances to beat a dedicated box.
+The cluster of 16 instances (32 threads) gives a modest speedup vs. a local desktop. In the best cases (XGB/Optuna), we get a slightly slower time on 2x the number of trials. The task scales but you need a lot of instances to beat a dedicated box. The 12-thread local desktop performs similarly to a 16-thread m5.4x.large on this task (a little faster actually, despite having only 12 threads vs.16). 
 
 RMSEs are similar across the board, the sequential grid search is best by a small margin. I have seen XGB beat this sequential grid search by a small margin but not on this final run. 
 
