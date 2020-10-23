@@ -94,9 +94,7 @@ This helps us interpret the slope: The slope is the number of additional true po
 
 The 45º line has a slope of 1 in TPR/FPR space (percentage point increase in TPR per percentage point of FPR). In raw true positive/false positive space, the slope of the 45º line is the total number of positives/total number of negatives. 
 
-If the positive class occurs with probability *p*, the slope is:
-
- $$ \frac{p}{1 - p} $$
+If the positive class occurs with probability *p*, the slope is: $$ \frac{p}{1 - p} $$ 
 
 If you have an ideal ROC curve with a continuously decreasing slope (concave down), you can start at the bottom left and keep going toward the top right as long as the cost of additional true positives expressed in false negatives is acceptable.
 
