@@ -45,10 +45,10 @@ Bottom line up front: Here are results on the Ames housing data set, predicting 
 | XGB               | Sequential Grid Search               | 18302      |       1:27:14       |
 | XGB               | Hyperopt (1024 samples)           | 18309 |       0:53:41       |
 | XGB               | Optuna (1024 samples)             | 18325 |       0:48:02       |
-| LightGBM          | Hyperopt (1024 samples)          | 18615 |       1:13:40       |
-| LightGBM          | Optuna (1024 samples)              | 18614 |       1:08:40       |
 | XGB               | Hyperopt (2048 samples) - 16x cluster | 18309      |    1:17:46    |
 | XGB               | Optuna (2048 samples) - 16x cluster | 18313      |    1:03:17    |
+| LightGBM          | Hyperopt (1024 samples)          | 18615 |       1:13:40       |
+| LightGBM          | Optuna (1024 samples)              | 18614 |       1:08:40       |
 | LightGBM          | Hyperopt (2048 samples) - 16x cluster | 18615      |    1:54:58    |
 | LightGBM          | Optuna (2048 samples) - 16x cluster | 18537      | 1:30:01 |
 
@@ -70,6 +70,8 @@ We see a big speedup when using Hyperopt and Optuna locally compared to grid sea
 The cluster of 16 instances (32 threads) gives a modest speedup vs. a local desktop. The 12-thread local desktop is actually a little faster than an 16-thread m5.4x.large on this task, despite having only 12 threads vs.16. In the best cases (XGB/Optuna), we get a slightly slower time on 2x the number of trials. The task scales but you need a lot of instances to beat a dedicated box.
 
 RMSEs are similar across the board, the sequential grid search is best by a small margin. I have seen XGB beat this sequential grid search by a small margin but not on this final run. 
+
+LightGBM doesn't offer improvement. In my experience LightGBM is usually faster but we don't see that here. I tried to tune the same hyperparameters as XGB. Possibly LightGBM needs different tuning. Possibly XGB interacts better with ASHA early stopping.
 
 Our simple ElasticNet baseline outperforms boosting. This may be because our feature engineering was intensive and designed to fit the linear model. Not shown, SVR and KernelRidge outperform ElasticNet and an ensemble improves over all individual algos.
 
@@ -681,10 +683,10 @@ Where it gets more complicated is we need to specify all the AWS details, instan
 
 - Clusters are defined in `ray1.1.yaml`. (So far in this notebook we have been using the current production ray 1.0, but I had difficulty getting a cluster to run with ray 1.0 so I switched to the dev nightly. YMMV.)
 - boto3 and AWS CLI configured credentials are used to spawn instances, so [install and configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
-- Edit `ray1.1.yaml` file with your region, availability zone, subnet, imageid information
+- Edit `ray1.1.yaml` file with, at a minimum, your region, availability zone. Imageid may vary across regions. You may not need to specify subnet, I had an issue with an inaccessible subnet when I let Ray default the subnet, possibly bad defaults somewhere.
     - To obtain those variables, launch the latest Deep Learning AMI (Ubuntu 18.04) Version 35.0 into a small instance in your favorite region/zone
     - Test that it works
-    - Note these 4 variables: region, availability zone, subnet, AMI imageid
+    - Note the 4 variables: region, availability zone, subnet, AMI imageid
     - Terminate the instance and edit `ray1.1.yaml` with your region, availability zone, subnet, AMI imageid
     - It may be advisable to run updates and installs, create your own image with everything pre-installed and specify its AMI imageid, instead of using the generic image and installing everything at launch.
 - To run the cluster: 
