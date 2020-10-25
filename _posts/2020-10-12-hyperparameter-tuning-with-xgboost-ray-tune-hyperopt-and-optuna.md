@@ -1,6 +1,6 @@
 ---
 id: 7104
-title: 'Hyperparameter tuning with XGBoost, Ray Tune, Hyperopt and Optuna'
+title: 'Hyperparameter tuning XGBoost with Ray Tune, Hyperopt and Optuna'
 date: 2020-10-12T22:28:57+00:00
 author: Druce Vertes
 layout: post
