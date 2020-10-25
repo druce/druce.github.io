@@ -1,22 +1,41 @@
 <header class="site-header" role="banner" id="header-bar">
 
-    <div class="wrapper">
-        {% assign default_paths = site.pages | map: "path" %}
-        <a class="site-title" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+  <div class="wrapper">
+    {% assign default_paths = site.pages | map: "path" %}
+    <a class="site-title" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
 
-        <nav class="site-nav">
-            <a class="page-link" href="{{ '/contact.html' | relative_url }}"><i class='fa fa-at'></i> Contact</a>
-        </nav>
-        <nav class="site-nav">
-            <a class="page-link" href="{{ '/FAQ.html' | relative_url }}"><i class='fa fa-question-circle'></i> FAQ</a>
-        </nav>
-        <!-- <nav class="site-nav">
-            <a class="page-link" href="{{ '/log.html' | relative_url }}">&#x231b; Log</a>
-        </nav> -->
-        <nav class="site-nav">
-            <a class="page-link" href="{{ '/archive.html' | relative_url }}"><i class='fa fa-folder-open'></i> Archive</a>
-        </nav>
+    <nav class="site-nav">
+      <a class="page-link" href="{{ '/contact.html' | relative_url }}"><i class='fa fa-at'></i> Contact</a>
+    </nav>
+    
+    <nav class="site-nav">
+      <a class="page-link" href="{{ '/archive.html' | relative_url }}"><i class='fa fa-folder-open'></i> Archive</a>
+    </nav>
+    
+    <nav class="site-nav">
+      <a class="page-link" href="{{ '/FAQ.html' | relative_url }}"><i class='fa fa-question-circle'></i> About</a>
+    </nav>
+    
+    <nav class="site-nav">
+      <ul class="nav-items">
+        <!-- Dropdown menu -->
+        <li class="nav-item nav-item-dropdown">
+          <a class="dropdown-trigger page-link" href="#">Projects</a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-menu-item">
+              <a href="#">Dropdown Item 1</a>
+            </li>
+            <li class="dropdown-menu-item">
+              <a href="#">Dropdown Item 2</a>
+            </li>
+            <li class="dropdown-menu-item">
+              <a href="#">Dropdown Item 3</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
 
-    </div>
-
+  </div>
+  
 </header>
