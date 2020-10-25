@@ -80,7 +80,8 @@ Full notebooks are on [GitHub](https://github.com/druce/iowa/blob/master/hyperpa
 
 ## 2. Hyperparameter Tuning Overview
 
-(If you are not a data scientist ninja, here is some context. If you are, you can safely skip to Bayesian optimization or the implementations.)
+(If you are not a data scientist ninja, here is some context. If you are, you can safely skip to [Bayesian optimization](#3-bayesian-optimization)
+and implementations below.)
 
 Any sufficiently advanced machine learning model is indistinguishable from magic, and any sufficiently advanced machine learning model needs good tuning.
 
@@ -360,13 +361,13 @@ Instead, we tune reduced sets sequentially using grid search and use early stopp
 #### XGBoost tuning methodology
 
 - Set an initial set of starting parameters.
-- Tune sequentially on groups of hyperparameters that don't interact too much between groups to reduce the number of combinations tested.
+- Tune sequentially on groups of hyperparameters that don't interact too much between groups, to reduce the number of combinations tested.
   - First, tune `max_depth`.
   - Then tune `subsample`, `colsample_bytree`, and `colsample_bylevel`.
   - Finally, tune `learning rate`: lower learning rate will need more boosting rounds (`n_estimators`).
-  - Do 10-fold cross-validation on each hyperparameter combination. Pick hyperparameters to minimize average RMSE over kfolds.
+- Do 10-fold cross-validation on each hyperparameter combination. Pick hyperparameters to minimize average RMSE over kfolds.
 - Use XGboost early stopping to halt training in each fold if no improvement after 100 rounds.
-- After tuning and selecting the best hyperparameters, retrain and evaluate on the full dataset without early stopping. (To measure the RMSE expected out of sample, It would be very important to evaluate in a holdout set. But for the purpose of comparing tuning methods, the CV error is OK. We just want to see how fast we get good hyperparameters in CV. A holdout set would actually introduce some noise.)
+- After tuning and selecting the best hyperparameters, retrain and evaluate on the full dataset without early stopping, using the average boosting rounds across xval kfolds. (In a real world scenario, we should keep a holdout test set. Retrain on the full training dataset (not kfolds) to get the number of boosting rounds. Then measure RMSE in the test set using cross-validated parameters including number of boosting rounds for the expected OOS RMSE. But for the purpose of comparing tuning methods, the CV error  is OK. We just want to see how fast we get good hyperparameters in CV and not worry too much about how they generalize out-of-sample.)
 - As discussed, we use the XGBoost sklearn API and roll our own grid search which understands early stopping with k-folds, instead of GridSearchCV. (An alternative would be to use native xgboost .cv which understands early stopping but doesn't use sklearn API (uses DMatrix, not numpy array or dataframe))
 - We write a helper function `cv_over_param_dict` which takes a list of `param_dict` dictionaries, runs trials over all dictionaries, and returns the best `param_dict` dictionary plus a dataframe of results.
 - We run `cv_over_param_dict` 3 times to do 3 grid searches over our 3 tuning rounds.
