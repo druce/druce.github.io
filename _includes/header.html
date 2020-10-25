@@ -5,37 +5,39 @@
     <a class="site-title" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
 
     <nav class="site-nav">
-      <a class="page-link" href="{{ '/contact.html' | relative_url }}"><i class='fa fa-at'></i> Contact</a>
-    </nav>
-    
-    <nav class="site-nav">
-      <a class="page-link" href="{{ '/archive.html' | relative_url }}"><i class='fa fa-folder-open'></i> Archive</a>
-    </nav>
-    
-    <nav class="site-nav">
-      <a class="page-link" href="{{ '/FAQ.html' | relative_url }}"><i class='fa fa-question-circle'></i> About</a>
+      <a class="page-link" href="{{ '/tags.html' | relative_url }}"><i class='fa fa-folder-open'></i> Archive</a>
     </nav>
     
     <nav class="site-nav">
       <ul class="nav-items">
         <!-- Dropdown menu -->
         <li class="nav-item nav-item-dropdown">
-          <a class="dropdown-trigger page-link" href="#">Projects</a>
+          <a class="dropdown-trigger page-link" href="#"><i class="fa fa-rocket"></i> Projects</a>
           <ul class="dropdown-menu">
             <li class="dropdown-menu-item">
-              <a href="#">Dropdown Item 1</a>
+              <a href="http://www.streeteye.com/static/fintwit201901">Fintwit graph</a>
             </li>
             <li class="dropdown-menu-item">
-              <a href="#">Dropdown Item 2</a>
+              <a href="http://www.streeteye.com/namegenerator/">Hedge fund name generator</a>
             </li>
             <li class="dropdown-menu-item">
-              <a href="#">Dropdown Item 3</a>
+              <a href="http://www.streeteye.com/calculator/">Retirement calculator</a>
+            </li>
+            <li class="dropdown-menu-item">
+              <a href="http://blog.streeteye.com/blog/2016/08/safe-retirement-spending-using-certainty-equivalent-cash-flow-and-tensorflow/">Certainty-equivalent retirement spending</a>
+            </li>
+            <li class="dropdown-menu-item">
+              <a href="http://www.streeteye.com/static/Pizza/">Pizza Pizza Pizza</a>
             </li>
           </ul>
         </li>
       </ul>
     </nav>
 
+    <nav class="site-nav">
+      <a class="page-link" href="{{ '/contact.html' | relative_url }}"><i class='fa fa-question-circle'></i> About</a>
+    </nav>
+    
   </div>
   
 </header>

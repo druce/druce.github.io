@@ -69,7 +69,7 @@ nav li {
   right: -10px;
   opacity: 0;
   transition: opacity 0.5s ease; 
-  width: 160px;
+  width: 320px;
 
   a {
     color: #fff;
@@ -78,8 +78,8 @@ nav li {
 
 .dropdown-menu-item {
   cursor: pointer;
-  // padding: 1em;
-  text-align: center;
+  padding-left: 1em;
+  text-align: left;
   line-height: 2.5;
   font-size: $small-font-size;
   background-color: #eef;

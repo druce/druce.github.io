@@ -1,6 +1,6 @@
 ---
 id: 2960
-title: 'UberFail _ a few thoughts on Uber'
+title: 'UberFail - a few thoughts on Uber'
 date: 2015-01-04T16:14:59+00:00
 author: Druce Vertes, CFA
 layout: post
