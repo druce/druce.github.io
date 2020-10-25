@@ -67,14 +67,14 @@ Bottom line up front: Here are results on the Ames housing data set, predicting 
 
 - We saw a big speedup when using Hyperopt and Optuna locally, compared to grid search. The sequential search performed about 261 trials, so the XGB/Optuna search performed about 3x as many trials in half the time and got a similar result. 
 
-- The cluster of 32 instances (64 threads) gave very modest speedup vs. the local desktop with 12 threads. I attempted to set this up so we would get some improvement in RMSE (which we did with 2048 trials), and some speedup in training time (which we did not get with 64 threads). It ran twice the number of trials in slightly less than twice the time. The 12-thread local desktop performs similarly to a 16-thread m5.4x.large on this task (a little faster actually, despite having only 12 threads vs.16). So with 64 threads in the cluster I would expect significant speedup. The comparison is imperfect, local desktop vs. AWS, running Ray 1.0 on local and 1.1 on the cluster, different number of trials (better hyperparameter configs don't get early-stopped and take longer to train). But the point was to see what kind of improvement one might obtain in practice, leveraging a cluster vs. a local desktop or laptop. Bottom line, modest benefit here from even a 32-node cluster. 
+- The cluster of 32 instances (64 threads) gave very modest speedup vs. the local desktop with 12 threads. I attempted to set this up so we would get some improvement in RMSE (which we did with 2048 trials), and some speedup in training time (which we did not get with 64 threads). It ran twice the number of trials in slightly less than twice the time. The 12-thread local desktop performs similarly to a 16-thread m5.4xlarge on this task (a little faster actually, despite having only 12 threads vs.16). So with 64 threads in the cluster I would expect significant speedup. The comparison is imperfect, local desktop vs. AWS, running Ray 1.0 on local and 1.1 on the cluster, different number of trials (better hyperparameter configs don't get early-stopped and take longer to train). But the point was to see what kind of improvement one might obtain in practice, leveraging a cluster vs. a local desktop or laptop. Bottom line, modest benefit here from even a 32-node cluster. 
 
 - RMSEs are similar across the board. XGB with 2048 trials is best by a small margin. 
 
 - LightGBM doesn't offer improvement over XGBoost. In my experience LightGBM is often faster and hence you can tune more in same time. But we don't see that here. Possibly XGB interacts better with ASHA early stopping.
 - Similar RMSE between Hyperopt and Optuna. Optuna is consistently slightly faster.
 
-Our simple ElasticNet baseline yields similar results to boosting, in seconds. This may be because our feature engineering was intensive and designed to fit the linear model. Not shown, SVR and KernelRidge outperform ElasticNet and an ensemble improves over all individual algos.
+Our simple ElasticNet baseline yields similar results to boosting, in seconds. This may be because our feature engineering was intensive and designed to fit the linear model. Not shown, SVR and KernelRidge outperform ElasticNet, and an ensemble improves over all individual algos.
 
 Full notebooks are on [GitHub](https://github.com/druce/iowa/blob/master/hyperparameter_optimization.ipynb).
 
@@ -367,7 +367,7 @@ Instead, we tune reduced sets sequentially using grid search and use early stopp
   - Finally, tune `learning rate`: lower learning rate will need more boosting rounds (`n_estimators`).
 - Do 10-fold cross-validation on each hyperparameter combination. Pick hyperparameters to minimize average RMSE over kfolds.
 - Use XGboost early stopping to halt training in each fold if no improvement after 100 rounds.
-- After tuning and selecting the best hyperparameters, retrain and evaluate on the full dataset without early stopping, using the average boosting rounds across xval kfolds. (In a real world scenario, we should keep a holdout test set. Retrain on the full training dataset (not kfolds) to get the number of boosting rounds. Then measure RMSE in the test set using cross-validated parameters including number of boosting rounds for the expected OOS RMSE. But for the purpose of comparing tuning methods, the CV error  is OK. We just want to see how fast we get good hyperparameters in CV and not worry too much about how they generalize out-of-sample.)
+- After tuning and selecting the best hyperparameters, retrain and evaluate on the full dataset without early stopping, using the average boosting rounds across xval kfolds.[^1] 
 - As discussed, we use the XGBoost sklearn API and roll our own grid search which understands early stopping with k-folds, instead of GridSearchCV. (An alternative would be to use native xgboost .cv which understands early stopping but doesn't use sklearn API (uses DMatrix, not numpy array or dataframe))
 - We write a helper function `cv_over_param_dict` which takes a list of `param_dict` dictionaries, runs trials over all dictionaries, and returns the best `param_dict` dictionary plus a dataframe of results.
 - We run `cv_over_param_dict` 3 times to do 3 grid searches over our 3 tuning rounds.
@@ -801,7 +801,7 @@ This may tend to validate one of the [critiques of machine learning](https://pap
 
 Elasticnet with L1 + L2 regularization plus gradient descent and hyperparameter optimization is still machine learning. It's simply the form of ML best matched to this problem. In the real world where data sets don't match assumptions of OLS, gradient boosting generally performs extremely well. And even on this dataset, engineered for success with the linear models, SVR and KernelRidge performed better than Elasticnet (not shown) and ensembling Elasticnet with XGBoost, LightGBM, SVR, neural networks worked best of all. 
 
-To paraphrase Casey Stengel, clever feature engineering will always outperform clever model algorithms and vice-versa[^1]. But improving your hyperparameters will always improve your results. Bayesian optimization can be considered a best practice.
+To paraphrase Casey Stengel, clever feature engineering will always outperform clever model algorithms and vice-versa[^2]. But improving your hyperparameters will always improve your results. Bayesian optimization can be considered a best practice.
 
 Again, the full code is on [GitHub](https://github.com/druce/iowa)
 
@@ -817,4 +817,8 @@ Again, the full code is on [GitHub](https://github.com/druce/iowa)
 </script>
 
 
-[^1]: This is not intended to make sense.
+[^1]: It would be more sound separately tune the stopping rounds. Just averaging the best stopping time across kfolds is questionable. In a real world scenario, we should keep a holdout test set. We should retrain on the full training dataset (not kfolds) with early stopping to get the best number of boosting rounds. Then we should measure RMSE in the test set using all the cross-validated parameters including number of boosting rounds for the expected OOS RMSE. However, for the purpose of comparing tuning methods, the CV error is OK. We just want to look at how we would make model decisions using CV and not worry too much about the generalization error. One could even argue it adds a little more noise to the comparison of hyperparameter selection. But that would be the correct methodology in practice. It wouldn't change conclusions directionally and I'm not going to rerun everything but if I were to start over I would do it that way.
+
+[^2]: This is not intended to make sense.
+
+
