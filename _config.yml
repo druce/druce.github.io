@@ -15,16 +15,16 @@
 
 # site settings
 host: 0.0.0.0
-title: StreetEYE Blog
+title: Druce.ai
 name: "Druce Vertes"
 author: Druce Vertes
 twitter_username: streeteye
 github_username: druce
 linkedin_username: drucevertes
 email: streeteye@streeteye.com
-url: "https://blog.streeteye.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://druce.ai" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: ""
-description:   Druce's Mad Science About Tech, Markets And Political Economy
+description:   Druce's Blog on Machine Learning, Tech, Markets and Economics
 profile_url: "http://druce.github.io"
 copyright: Druce Vertes
 
