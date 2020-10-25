@@ -45,12 +45,12 @@ Bottom line up front: Here are results on the Ames housing data set, predicting 
 | XGB               | Sequential Grid Search               | 18302      |       1:27:14       |
 | XGB               | Hyperopt (1024 samples)           | 18309 |       0:53:41       |
 | XGB               | Optuna (1024 samples)             | 18325 |       0:48:02       |
-| XGB               | Hyperopt (2048 samples) - 16x cluster | 18309      |    1:17:46    |
-| XGB               | Optuna (2048 samples) - 16x cluster | 18313      |    1:03:17    |
+| XGB               | Hyperopt (2048 samples) - 32x cluster | 18030 |    1:30:58    |
+| XGB               | Optuna (2048 samples) - 32x cluster | 18028 |       1:29:57       |
 | LightGBM          | Hyperopt (1024 samples)          | 18615 |       1:13:40       |
 | LightGBM          | Optuna (1024 samples)              | 18614 |       1:08:40       |
-| LightGBM          | Hyperopt (2048 samples) - 16x cluster | 18615      |    1:54:58    |
-| LightGBM          | Optuna (2048 samples) - 16x cluster | 18537      | 1:30:01 |
+| LightGBM          | Hyperopt (2048 samples) - 32x cluster | 18459 |       1:05:19       |
+| LightGBM          | Optuna (2048 samples) - 32x cluster | 18458 | 0:48:16 |
 
 &nbsp;
 
@@ -63,17 +63,18 @@ Bottom line up front: Here are results on the Ames housing data set, predicting 
 |    ElasticNet     | ElasticNetCV (Grid Search) |        18061         |    0:02     |
 |    ElasticNet     |        GridSearchCV        |        18061         |    0:05     |
 
-*Times for single-instance are on a local desktop with 12 threads, comparable to EC2 4xlarge. Times for cluster are on m5.large x 16 (1 head node + 15 workers).*
+*Times for single-instance are on a local desktop with 12 threads, comparable to EC2 4xlarge. Times for cluster are on m5.large x 32 (1 head node + 31 workers).*
 
-We see a big speedup when using Hyperopt and Optuna locally compared to grid search. The sequential search performed about 261 trials, so the XGB/Optuna search performed about 3x as many trials in half the time and got a similar result. 
+- We saw a big speedup when using Hyperopt and Optuna locally compared to grid search. The sequential search performed about 261 trials, so the XGB/Optuna search performed about 3x as many trials in half the time and got a similar result. 
 
-The cluster of 16 instances (32 threads) gives a modest speedup vs. a local desktop. In the best cases (XGB/Optuna), we get a slightly slower time on 2x the number of trials. The task scales but you need a lot of instances to beat a dedicated box. The 12-thread local desktop performs similarly to a 16-thread m5.4x.large on this task (a little faster actually, despite having only 12 threads vs.16). 
+- The cluster of 32 instances (64 threads) gave very modest speedup vs. a local desktop with 12 threads. I attempted to set this up so we would get some improvement in RMSE (which we did with 2048 trials), and some speedup in training time (which we did not get with 64 threads). It ran twice the number of trials in slightly less than twice the time. The 12-thread local desktop performs similarly to a 16-thread m5.4x.large on this task (a little faster actually, despite having only 12 threads vs.16). So with 64 threads in the cluster I would expect significant speedup. The comparison is imperfect, local desktop vs. AWS, running Ray 1.0 on local and 1.1 on the cluster, different number of trials (better hyperparameter configs don't get early-stopped and take longer to train). But the point was to see what kind of improvement one might in practice leveraging a cluster vs. a local desktop or laptop. Bottom line, modest benefit here. 
 
-RMSEs are similar across the board, the sequential grid search is best by a small margin. I have seen XGB beat this sequential grid search by a small margin but not on this final run. 
+- RMSEs are similar across the board. XGB with 2048 trials is best by a small margin. 
 
-LightGBM doesn't offer improvement. In my experience LightGBM is usually faster but we don't see that here. I tried to tune the same hyperparameters as XGB. Possibly LightGBM needs different tuning. Possibly XGB interacts better with ASHA early stopping.
+- LightGBM doesn't offer improvement over XGBoost. In my experience LightGBM is often faster and hence you can tune more. But we don't see that here. Possibly XGB interacts better with ASHA early stopping.
+- Similar RMSE between Hyperopt and Optuna. Optuna is consistently slightly faster.
 
-Our simple ElasticNet baseline outperforms boosting. This may be because our feature engineering was intensive and designed to fit the linear model. Not shown, SVR and KernelRidge outperform ElasticNet and an ensemble improves over all individual algos.
+Our simple ElasticNet baseline yields similar results to boosting, in seconds. This may be because our feature engineering was intensive and designed to fit the linear model. Not shown, SVR and KernelRidge outperform ElasticNet and an ensemble improves over all individual algos.
 
 Full notebooks are on [GitHub](https://github.com/druce/iowa/blob/master/hyperparameter_optimization.ipynb).
 
@@ -87,18 +88,18 @@ Backing up a step, here is a typical modeling workflow:
 
 - Exploratory data analysis: understand your data.
 - Feature engineering and feature selection: clean, transform and engineer the best possible features
-- Modeling: model selection and hyperparameter tuning to identify the best model architecture, ensembling to combine multiple models
+- Modeling: model selection and hyperparameter tuning to identify the best model architecture, and ensembling to combine multiple models
 - Evaluation: Describe the out-of-sample error and its expected distribution.
 
-To minimize the out-of-sample error, you minimize the error from *bias*, meaning the model isn't sufficiently sensitive to the signal in the data and *variance*, meaning the model is too sensitive to the signal specific to the training data in ways that don't generalize out-of-sample. Modeling is 90% data prep, the other half is all finding the [optimal bias-variance tradeoff](http://scott.fortmann-roe.com/docs/BiasVariance.html). 
+To minimize the out-of-sample error, you minimize the error from *bias*, meaning the model isn't sufficiently sensitive to the signal in the data, and *variance*, meaning the model is too sensitive to the signal specific to the training data in ways that don't generalize out-of-sample. Modeling is 90% data prep, the other half is all finding the [optimal bias-variance tradeoff](http://scott.fortmann-roe.com/docs/BiasVariance.html). 
 
-Hyperparameters help you tune the bias-variance tradeoff. For a simple logistic regression predicting survival on the Titanic, the regularization parameter lets you control overfitting by penalizing sensitivity to any individual feature. For a massive neural network doing machine translation, the number and types of layers, units, activation, in addition to regularization, are hyperparameters. 
+Hyperparameters help you tune the bias-variance tradeoff. For a simple logistic regression predicting survival on the Titanic, a regularization parameter lets you control overfitting by penalizing sensitivity to any individual feature. For a massive neural network doing machine translation, the number and types of layers, units, activation function, in addition to regularization, are hyperparameters. We select the best hyperparameters using *[k-fold cross-validation](https://machinelearningmastery.com/k-fold-cross-validation/)*; this is what we call hyperparameter tuning.
 
-In this post, we use XGBoost and LightGBM. *Gradient boosting* is a tree-based method. A decision tree constructs rules like, if the passenger is in first class and female, they probably survived the sinking of the Titanic. Trees are powerful, but a single deep decision tree with all your features will tend to overfit the training data. A *random forest* algorithm builds many decision trees based on random subsets of observations and features which then vote (*bagging*). The outcome of the vote is less overfitted than training on all the data rows and all the feature columns, and performs better out-of-sample. Random forest hyperparameters include the number of trees, tree depth, and how many features and observations each tree should use. 
+The regression algorithms we use in this post are XGBoost and LightGBM, which are *gradient boosting*. Gradient boosting is an ensembling method that usually involves decision trees. A decision tree constructs rules like, if the passenger is in first class and female, they probably survived the sinking of the Titanic. Trees are powerful, but a single deep decision tree with all your features will tend to overfit the training data. A *random forest* algorithm builds many decision trees based on random subsets of observations and features which then vote (*bagging*). The outcome of a vote by *weak learners* is less overfitted than training on all the data rows and all the feature columns, and performs better out-of-sample. Random forest hyperparameters include the number of trees, tree depth, and how many features and observations each tree should use. 
 
-Instead of aggregating many independent learners working in parallel, like bagging, *Boosting* uses many learners in series:
+Instead of aggregating many independent learners working in parallel, *i.e.* bagging, *boosting* uses many learners in series:
 
-- Start with a simple estimate like the median or base rate
+- Start with a simple estimate like the median or base rate.
 - Fit a tree to the *error* in this prediction.
 - If you can *predict* the error, you can *adjust* for it and improve the prediction. Adjust the prediction not all the way to the tree prediction, but part of the way based on a *learning rate* (a hyperparameter). 
 - Fit another tree to the error in the updated prediction and adjust the prediction further based on the learning rate.
@@ -106,17 +107,17 @@ Instead of aggregating many independent learners working in parallel, like baggi
 - The final estimate is the initial prediction plus the sum of all the predicted necessary adjustments (weighted by the learning rate). 
 - The learning rate performs a similar function to voting in random forest, in the sense that no single decision tree determines too much of the final estimate. This 'wisdom of crowds' approach helps prevent overfitting.
 
-Gradient boosting is the current state of the art for regression and classification on traditional structured tabular data (in contrast to less structured data like image/video/natural language processing which benefit from deep learning). 
+Gradient boosting is the current state of the art for regression and classification on traditional structured tabular data (in contrast to less structured data like image/video/natural language processing, where deep learning, *i.e.* deep neural net are state of the art). 
 
-Gradient boosting algorithms like  [XGBoost](https://xgboost.readthedocs.io/en/latest/parameter.html), [LightGBM](https://lightgbm.readthedocs.io/en/latest/Parameters.html), and [CatBoost](https://catboost.ai/docs/concepts/python-reference_parameters-list.html) have a very large number of hyperparameters, and tuning is a very important part of using them.
+Gradient boosting algorithms like  [XGBoost](https://xgboost.readthedocs.io/en/latest/parameter.html), [LightGBM](https://lightgbm.readthedocs.io/en/latest/Parameters.html), and [CatBoost](https://catboost.ai/docs/concepts/python-reference_parameters-list.html) have a very large number of hyperparameters, and tuning is an important part of using them.
 
-Here are [the principal approaches to hyperparameter tuning](https://en.wikipedia.org/wiki/Hyperparameter_optimization):
+These are [the principal approaches to hyperparameter tuning](https://en.wikipedia.org/wiki/Hyperparameter_optimization):
 
-- *Grid search*: Given a finite set of discrete values for each hyperparameter, exhaustively cross-validate all combinations
+- *Grid search*: Given a finite set of discrete values for each hyperparameter, exhaustively cross-validate all combinations.
 
 - *Random search*: Given a discrete or continuous distribution for each hyperparameter, randomly sample from the joint distribution. Generally [more efficient than exhaustive grid search.](https://dl.acm.org/doi/10.5555/2188385.2188395 ) 
 
-- *Bayesian optimization*: Update the search space as you go based on outcomes of prior searches.
+- *Bayesian optimization*: Sample like random search, but update the search space you sample from as you go, based on outcomes of prior searches.
 
 - *Gradient-based optimization*: Attempt to estimate the gradient of the cross-validation metric with respect to the hyperparameters and ascend/descend the gradient.
 
@@ -137,7 +138,7 @@ Bayesian optimization starts by sampling randomly, e.g. 30 combinations, and com
 ![Illustration of random search vs. Bayesian](/assets/2020/optuna_bayesian.png)
 Source: Crissman Loomis, [Using Optuna to Optimize XGBoost Hyperparameters](https://medium.com/optuna/using-optuna-to-optimize-xgboost-hyperparameters-63bfcdfd3407) (2020)
 
-If good metrics are not uniformly distributed, but found close to one another in a Gaussian distribution or any distribution which we can model, then Bayesian optimization can exploit the underlying pattern, and is likely to be more efficient than random search.
+If good metrics are not uniformly distributed, but found close to one another in a Gaussian distribution or any distribution which we can model, then Bayesian optimization can exploit the underlying pattern, and is likely to be more efficient than grid search or naive random search.
 
 ## 4. Early Stopping
 
@@ -164,11 +165,11 @@ We use 4 regression algorithms:
 - *LightGBM*
 
 We use 5 approaches:
-- *Native CV*: In sklearn if an algorithm *xxx* has hyperparameters it will often have an *xxxCV* version, like ElasticNetCV, which performs automated hyperparameter tuning over a search space with specified kfolds.
-- *GridSearchCV*: Abstracts CV that can wrap around any sklearn algorithm, running multithreaded trials over specified kfolds. 
-- *Manual sequential grid search*: What we typically do with XGBoost, which doesn't play well with GridSearchCV and has too many hyperparameters to tune in one pass.
-- *Ray on local desktop*: Hyperopt and Optuna with early stopping.
-- *Ray on AWS cluster*: Additionally scale out to run a single hyperparameter optimization task over many instances.
+- *Native CV*: In sklearn if an algorithm *xxx* has hyperparameters it will often have an *xxxCV* version, like ElasticNetCV, which performs automated grid search over hyperparameter iterators with specified kfolds.
+- *GridSearchCV*: Abstract grid search that can wrap around any sklearn algorithm, running multithreaded trials over specified kfolds. 
+- *Manual sequential grid search*: How would typically implement grid search with XGBoost, which doesn't play very well with GridSearchCV and has too many hyperparameters to tune in one pass.
+- *Ray on local desktop*: Hyperopt and Optuna with ASHA early stopping.
+- *Ray on AWS cluster*: Additionally scale out to run a single hyperparameter optimization task over many instances in a cluster.
 
 ## 6. Baseline linear regression
 
@@ -217,7 +218,7 @@ print("Raw CV RMSE %.0f (STD %.0f)" % (np.mean(raw_scores), np.std(raw_scores)))
  - When we use regularization, we need to scale our data so that the coefficient penalty has a similar impact across features. We use a pipeline with RobustScaler for scaling.
  - Fit a model and extract hyperparameters from the fitted model.
  - Then we do cross_val_score with reported hyperparams (There doesn't appear to be a way to extract the score from the fitted model without refitting)
- - Verbose output reports 130 tasks, for full grid search on 10 folds expect 13x9x10=1170. Presumably a clever optimization.
+ - Verbose output reports 130 tasks, for full grid search on 10 folds expect 13x9x10=1170. Apparently a clever optimization.
  - Note the modest reduction in RMSE vs. linear regression without regularization.
 
 ```python
@@ -320,7 +321,9 @@ Wall time: 5 s
 
 ## 9. XGBoost with sequential grid search
 
-It *should* be possible to use GridSearchCV with XGBoost. But when we try to use early stopping, XGBoost wants an eval set. OK, we can give it a static eval set held out from GridSearchCV. Now, GridSearchCV does k-fold cross-validation in the training set but XGBoost uses a separate dedicated eval set. It seems like a bit of a Frankenstein methodology. See the [notebook](https://github.com/druce/iowa/blob/master/hyperparameter_optimization.ipynb) for the attempt at GridSearchCV with XGBoost and early stopping if you're really interested. Instead we write our own grid search that gives XGBoost the correct hold-out set for each fold:
+It *should* be possible to use GridSearchCV with XGBoost. But when we try to use early stopping, XGBoost wants an eval set. OK, we can give it a static eval set held out from GridSearchCV. Now, GridSearchCV does k-fold cross-validation in the training set but XGBoost uses a separate dedicated eval set. It seems like a bit of a Frankenstein methodology. See the [notebook](https://github.com/druce/iowa/blob/master/hyperparameter_optimization.ipynb) for the attempt at GridSearchCV with XGBoost and early stopping if you're really interested. 
+
+Instead we write our own grid search that gives XGBoost the correct hold-out set for each fold:
 
 ```python
 EARLY_STOPPING_ROUNDS=100  # stop if no improvement after 100 rounds
@@ -352,18 +355,18 @@ def my_cv(df, predictors, response, kfolds, regressor, verbose=False):
 
 XGBoost has many tuning parameters so a complete grid search has an unreasonable number of combinations. 
 
-Instead, we tune reduced sets sequentially using grid search and use early stopping. This is the typical non-automated methodology to tune XGBoost:
+Instead, we tune reduced sets sequentially using grid search and use early stopping. This is the typical grid search methodology to tune XGBoost:
 
 #### XGBoost tuning methodology
 
 - Set an initial set of starting parameters.
 - Tune sequentially on groups of hyperparameters that don't interact too much between groups to reduce the number of combinations tested.
-  - First, tune max_depth.
-  - Then tune subsample, colsample_bytree, and colsample_bylevel.
-  - Finally, tune learning rate: lower learning rate will need more boosting rounds (n_estimators).
+  - First, tune `max_depth`.
+  - Then tune `subsample`, `colsample_bytree`, and `colsample_bylevel`.
+  - Finally, tune `learning rate`: lower learning rate will need more boosting rounds (`n_estimators`).
   - Do 10-fold cross-validation on each hyperparameter combination. Pick hyperparameters to minimize average RMSE over kfolds.
 - Use XGboost early stopping to halt training in each fold if no improvement after 100 rounds.
-- After tuning and selecting the best hyperparameters, retrain and evaluate on the full dataset without early stopping.
+- After tuning and selecting the best hyperparameters, retrain and evaluate on the full dataset without early stopping. (To measure the RMSE expected out of sample, It would be very important to evaluate in a holdout set. But for the purpose of comparing tuning methods, the CV error is OK. We just want to see how fast we get good hyperparameters in CV. A holdout set would actually introduce some noise.)
 - As discussed, we use the XGBoost sklearn API and roll our own grid search which understands early stopping with k-folds, instead of GridSearchCV. (An alternative would be to use native xgboost .cv which understands early stopping but doesn't use sklearn API (uses DMatrix, not numpy array or dataframe))
 - We write a helper function `cv_over_param_dict` which takes a list of `param_dict` dictionaries, runs trials over all dictionaries, and returns the best `param_dict` dictionary plus a dataframe of results.
 - We run `cv_over_param_dict` 3 times to do 3 grid searches over our 3 tuning rounds.
@@ -615,7 +618,7 @@ Raw CV RMSE 18325 (STD 2473)
 
 ## 11. LightGBM with Hyperopt and Optuna
 
-We can easily swap out XGBoost for LightGBM.
+We can also easily swap out XGBoost for LightGBM.
 
 1. Update search space
 
@@ -677,22 +680,22 @@ Raw CV RMSE 18614 (STD 2423)
 
 ## 12. XGBoost on a Ray cluster
 
-Ray is a distributed framework, we can run a training job over many instances using a cluster with a *head node* and many *worker nodes*. The Ray part is straightforward. on the head node we run `ray start`. On each worker node we run `ray start --address x.x.x.x`  with the address of the head node. Then in python we call `ray.init()` to connect to the head node. Everything else proceeds as before, and the head node runs trials on all instances in the cluster.
+Ray is a distributed framework, we can run a training job over many instances using a cluster with a *head node* and many *worker nodes*. The Ray part is straightforward. On the head node we run `ray start`. On each worker node we run `ray start --address x.x.x.x`  with the address of the head node. Then in python we call `ray.init()` to connect to the head node. Everything else proceeds as before, and the head node runs trials using all instances in the cluster and stores results in Redis.
 
 Where it gets more complicated is we need to specify all the AWS details, instance types, regions, subnets, etc.
 
 - Clusters are defined in `ray1.1.yaml`. (So far in this notebook we have been using the current production ray 1.0, but I had difficulty getting a cluster to run with ray 1.0 so I switched to the dev nightly. YMMV.)
-- boto3 and AWS CLI configured credentials are used to spawn instances, so [install and configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
-- Edit `ray1.1.yaml` file with, at a minimum, your region, availability zone. Imageid may vary across regions. You may not need to specify subnet, I had an issue with an inaccessible subnet when I let Ray default the subnet, possibly bad defaults somewhere.
-    - To obtain those variables, launch the latest Deep Learning AMI (Ubuntu 18.04) Version 35.0 into a small instance in your favorite region/zone
+- `boto3` and AWS CLI configured credentials are used to spawn instances, so [install and configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
+- Edit `ray1.1.yaml` file with, at a minimum, your region, and availability zone. Imageid may vary across regions, search for the current Deep Learning AMI (Ubuntu 18.04). You may not need to specify subnet, I had an issue with an inaccessible subnet when I let Ray default the subnet, possibly bad defaults somewhere.
+    - To obtain those variables, launch the latest Deep Learning AMI (Ubuntu 18.04) currently Version 35.0 into a small instance in your favorite region/zone
     - Test that it works
     - Note the 4 variables: region, availability zone, subnet, AMI imageid
-    - Terminate the instance and edit `ray1.1.yaml` with your region, availability zone, subnet, AMI imageid
+    - Terminate the instance and edit `ray1.1.yaml` with your region, availability zone, AMI imageid, optionally subnet
     - It may be advisable to run updates and installs, create your own image with everything pre-installed and specify its AMI imageid, instead of using the generic image and installing everything at launch.
 - To run the cluster: 
 `ray up ray1.1.yaml`
     - Creates head instance using image specified.
-    - Installs ray and related requirements
+    - Installs Ray and related requirements including XGBoost from `requirements.txt`
     - Clones this Iowa repo from GitHub 
     - Launches worker nodes per auto-scaling parameters (currently we fix the number of nodes because we're not benchmarking the time the cluster will take to auto-scale)
 - After the cluster starts you can check the AWS console and note that several instances were launched.
@@ -714,7 +717,7 @@ and then open
 - The cluster will incur AWS charges so `ray down ray1.1.yaml` when complete
 - Other than connecting to a Ray cluster, code is identical to previous examples.
 - See [hyperparameter_optimization_cluster.ipynb](https://github.com/druce/iowa/blob/master/hyperparameter_optimization_cluster.ipynb), separated out so each notebook can be run end-to-end with/without cluster setup
-- See https://docs.ray.io/en/latest/cluster/launcher.html for additional info on Ray clusters.
+- See [Ray docs](https://docs.ray.io/en/latest/cluster/launcher.html) for additional info on Ray clusters.
 
 Besides connecting to the cluster instead of running ray locally, no other change to code is needed to run on the cluster
 
@@ -734,18 +737,18 @@ analysis = tune.run(my_xgb,
 
 ```
 
-Results for XGBM on cluster (2048 samples, cluster is 16 m5.large instances):
+Results for XGBM on cluster (2048 samples, cluster is 32 m5.large instances):
 
-Hyperopt (time 1:17:46)
-
-```
-Raw CV RMSE 18309 (STD 2428)
-```
-
-Optuna (time 1:03:17)
+Hyperopt (time 1:30:58)
 
 ```
-Raw CV RMSE 18313 (STD 2403)
+Raw CV RMSE 18030 (STD 2356)
+```
+
+Optuna (time 1:29:57)
+
+```
+Raw CV RMSE 18028 (STD 2353)
 ```
 
 ## 13. LightGBM on a Ray cluster
@@ -769,33 +772,33 @@ analysis = tune.run(my_lgbm,
 
 
 
-Results for LightGBM on cluster (2048 samples, cluster is 16 m5.large instances):
+Results for LightGBM on cluster (2048 samples, cluster is 32 m5.large instances):
 
-Hyperopt (time: 1:54:58) :
-
-```
-Raw CV RMSE 18615 (STD 2354)
-```
-
-Optuna (time 1:30:01):
+Hyperopt (time: 1:05:19) :
 
 ```
-Raw CV RMSE 18537 (STD 2452)
+Raw CV RMSE 18459 (STD 2511)
+```
+
+Optuna (time 0:48:16):
+
+```
+Raw CV RMSE 18458 (STD 2511)
 ```
 
 ## 14. Concluding remarks
 
-In every case I've applied them, Hyperopt and Optuna have given me at least a small improvement in the best metrics I found using grid search methods. The RMSEs in this example are similar. Bayesian optimization tunes faster with a less manual process vs. sequential tuning.  It's fire-and-forget.
+In every case I've applied them, Hyperopt and Optuna have given me at least a small improvement in the best metrics I found using grid search methods. Bayesian optimization tunes faster with a less manual process vs. sequential tuning.  It's fire-and-forget.
 
-Is the Ray framework the way to go for hyperparameter tuning? Provisionally, yes. Ray provides integration between the underlying ML (e.g. XGBoost), the Bayesian search (e.g. Hyperopt), and early stopping (ASHA). It allows us to easily swap  search algorithms. If after a while I find I am always using e.g. Hyperopt and never use clusters, I might use the native Hyperopt/XGBoost integration without Ray, to access any native features and because it's one less technology in the stack to break.
+Is the Ray framework the way to go for hyperparameter tuning? Provisionally, yes. Ray provides integration between the underlying ML (e.g. XGBoost), the Bayesian search (e.g. Hyperopt), and early stopping (ASHA). It allows us to easily swap  search algorithms. There are other alternatives in the [Ray docs](https://docs.ray.io/en/master/tune/api_docs/suggestion.html) but these seem to be the most popular, and I haven't got the others to run yet. If after a while I find I am always using e.g. Hyperopt and never use clusters, I might use the native Hyperopt/XGBoost integration without Ray, to access any native Hyperopt features and because it's one less technology in the stack.
 
-Clusters? Most of the time I don't have a need, costs add up. The longest run I have tried, with 4096 samples, ran overnight on desktop. My MacBook Pro w/16 threads and desktop with 12 threads and GPU is plenty powerful for this data set, and I only see < 2x speedup on the 16-instance cluster. Setting up the test I expected at least 2x speedup and a better result and that didn't happen. Still, it's useful to have the clustering alternative in the back pocket. In production, it may be more standard and maintainable to deploy with Terraform, Kubernetes than the Ray native YAML config interface.
+Clusters? Most of the time I don't have a need, costs add up, did not see as large a speedup as expected. I only see < 2x speedup on the 32-instance cluster.  Setting up the test I expected at least 2-4x speedup, and a better RMSE, and the former didn't happen. The longest run I have tried, with 4096 samples, ran overnight on desktop. My MacBook Pro w/16 threads and desktop with 12 threads and GPU are plenty powerful for this data set. Still, it's useful to have the clustering option in the back pocket. In production, it may be more standard and maintainable to deploy with e.g. Terraform, Kubernetes than the Ray native YAML cluster config file.
 
-It continues to surprise me that Elasticnet, i.e. regularized linear regression, outperforms boosting on this dataset. I heavily engineered features so that linear methods work well. Predictors were chosen using Lasso/Elasticnet and I used log and Box-Cox transforms to force predictors to follow assumptions of least-squares.
+It continues to surprise me that Elasticnet, i.e. regularized linear regression, performs similar to boosting on this dataset. I heavily engineered features so that linear methods work well. Predictors were chosen using Lasso/Elasticnet and I used log and Box-Cox transforms to force predictors to follow assumptions of least-squares.
 
-This may tend to validate one of the [critiques of machine learning](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3624052), that the most powerful ML methods don't necessarily always converge all the way to the best solution. If you have a ground truth that is linear plus noise, a complex XGBoost or neural network algorithm should get arbitrarily close to the closed-form optimal solution, but will probably never match the optimal solution exactly. XGBoost is piecewise constant and the complex neural network is subject to the vagaries of stochastic gradient descent. I thought arbitrarily close meant almost indistinguishable, but clearly this is not always the case.
+This may tend to validate one of the [critiques of machine learning](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3624052), that the most powerful ML methods don't necessarily always converge all the way to the best solution. If you have a ground truth that is linear plus noise, a complex XGBoost or neural network algorithm should get arbitrarily close to the closed-form optimal solution, but will probably never match the optimal solution exactly. XGBoost regression is piecewise constant and the complex neural network is subject to the vagaries of stochastic gradient descent. I thought arbitrarily close meant almost indistinguishable, but clearly this is not always the case.
 
-Elasticnet with L1 + L2 regularization plus gradient descent and hyperparameter optimization is still machine learning. It's simply the form of ML best matched to this problem. In the real world where data sets don't match assumptions of OLS, gradient boosting generally performs extremely well. And even on this dataset, engineered for the linear models, SVR and KernelRidge performed better than Elasticnet (not shown) and ensembling Elasticnet with XGBoost, LightGBM, SVR, neural networks worked best of all. 
+Elasticnet with L1 + L2 regularization plus gradient descent and hyperparameter optimization is still machine learning. It's simply the form of ML best matched to this problem. In the real world where data sets don't match assumptions of OLS, gradient boosting generally performs extremely well. And even on this dataset, engineered for success with the linear models, SVR and KernelRidge performed better than Elasticnet (not shown) and ensembling Elasticnet with XGBoost, LightGBM, SVR, neural networks worked best of all. 
 
 To paraphrase Casey Stengel, clever feature engineering will always outperform clever model algorithms and vice-versa[^1]. But improving your hyperparameters will always improve your results. Bayesian optimization can be considered a best practice.
 
