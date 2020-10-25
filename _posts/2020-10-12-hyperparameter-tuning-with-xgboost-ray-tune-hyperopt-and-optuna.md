@@ -322,7 +322,7 @@ Wall time: 5 s
 
 ## 9. XGBoost with sequential grid search
 
-It *should* be possible to use GridSearchCV with XGBoost. But when we try to use early stopping, XGBoost wants an eval set. OK, we can give it a static eval set held out from GridSearchCV. Now, GridSearchCV does k-fold cross-validation in the training set but XGBoost uses a separate dedicated eval set. It seems like a bit of a Frankenstein methodology. See the [notebook](https://github.com/druce/iowa/blob/master/hyperparameter_optimization.ipynb) for the attempt at GridSearchCV with XGBoost and early stopping if you're really interested. 
+It *should* be possible to use GridSearchCV with XGBoost. But when we try to use early stopping, XGBoost wants an eval set. OK, we can give it a static eval set held out from GridSearchCV. Now, GridSearchCV does k-fold cross-validation in the training set but XGBoost uses a separate dedicated eval set for early stopping. It seems like a bit of a Frankenstein methodology. See the [notebook](https://github.com/druce/iowa/blob/master/hyperparameter_optimization.ipynb) for the attempt at GridSearchCV with XGBoost and early stopping if you're really interested. 
 
 Instead we write our own grid search that gives XGBoost the correct hold-out set for each fold:
 
@@ -817,7 +817,7 @@ Again, the full code is on [GitHub](https://github.com/druce/iowa)
 </script>
 
 
-[^1]: It would be more sound separately tune the stopping rounds. Just averaging the best stopping time across kfolds is questionable. In a real world scenario, we should keep a holdout test set. We should retrain on the full training dataset (not kfolds) with early stopping to get the best number of boosting rounds. Then we should measure RMSE in the test set using all the cross-validated parameters including number of boosting rounds for the expected OOS RMSE. However, for the purpose of comparing tuning methods, the CV error is OK. We just want to look at how we would make model decisions using CV and not worry too much about the generalization error. One could even argue it adds a little more noise to the comparison of hyperparameter selection. But that would be the correct methodology in practice. It wouldn't change conclusions directionally and I'm not going to rerun everything but if I were to start over I would do it that way.
+[^1]: It would be more sound to separately tune the stopping rounds. Just averaging the best stopping time across kfolds is questionable. In a real world scenario, we should keep a holdout test set. We should retrain on the full training dataset (not kfolds) with early stopping to get the best number of boosting rounds. Then we should measure RMSE in the test set using all the cross-validated parameters including number of boosting rounds for the expected OOS RMSE. However, for the purpose of comparing tuning methods, the CV error is OK. We just want to look at how we would make model decisions using CV and not worry too much about the generalization error. One could even argue it adds a little more noise to the comparison of hyperparameter selection. But that would be the correct methodology in practice. It wouldn't change conclusions directionally and I'm not going to rerun everything but if I were to start over I would do it that way.
 
 [^2]: This is not intended to make sense.
 
