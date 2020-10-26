@@ -1,6 +1,6 @@
 ---
 id: 7104
-title: 'Hyperparameter tuning for XGBoost with Ray Tune, Hyperopt and Optuna'
+title: 'Beyond Grid Search: Using Hyperopt, Optuna, and Ray Tune to hypercharge hyperparameter tuning for XGBoost and LightGBM'
 date: 2020-10-12T22:28:57+00:00
 author: Druce Vertes
 layout: post
@@ -10,11 +10,9 @@ categories: datascience
 tags: datascience
 
 ---
-> *Bayesian optimization of machine learning model hyperparameters works faster and better than grid search. Here's how we can speed up hyperparameter tuning with 1) Bayesian optimization with Hyperopt and Optuna, running on… 2) the [Ray](https://ray.io/) distributed machine learning framework, with a [unified API to many hyperparameter search algos](https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf) and early stopping schedulers, and… 3) a distributed cluster of cloud instances for even faster tuning.*
-
+![Image source: Crissman Loomis, Using Optuna to Optimize XGBoost Hyperparameters (2020)](/assets/2020/optuna_bayesian.png)
+> *Bayesian optimization of machine learning model hyperparameters works faster and better than grid search. Here's how we can speed up hyperparameter tuning with 1) Bayesian optimization with Hyperopt and Optuna, running on… 2) the [Ray](https://ray.io/) distributed machine learning framework, with a [unified API to many hyperparameter search algos](https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf) and early stopping schedulers, and… 3) a distributed cluster of cloud instances for even faster tuning. [Image source: Crissman Loomis](https://medium.com/optuna/using-optuna-to-optimize-xgboost-hyperparameters-63bfcdfd3407)*
 <!--more-->
-
-![Enjoying hard-won liberty from long hyperparameter searches](\assets\2020\liberty2020-926.jpg)
 
 ## Outline:
 
@@ -814,7 +812,7 @@ Again, the full code is on [GitHub](https://github.com/druce/iowa)
 </script>
 
 
-[^1]: It would be more sound to separately tune the stopping rounds. Just averaging the best stopping time across kfolds is questionable. In a real world scenario, we should keep a holdout test set. We should retrain on the full training dataset (not kfolds) with early stopping to get the best number of boosting rounds. Then we should measure RMSE in the test set using all the cross-validated parameters including number of boosting rounds for the expected OOS RMSE. However, for the purpose of comparing tuning methods, the CV error is OK. We just want to look at how we would make model decisions using CV and not worry too much about the generalization error. One could even argue it adds a little more noise to the comparison of hyperparameter selection. But that would be the correct methodology in practice. It wouldn't change conclusions directionally and I'm not going to rerun everything but if I were to start over I would do it that way.
+[^1]: It would be more sound to separately tune the stopping rounds. Just averaging the best stopping time across kfolds is questionable. In a real world scenario, we should keep a holdout test set. We should retrain on the full training dataset (not kfolds) with early stopping to get the best number of boosting rounds. Then we should measure RMSE in the test set using all the cross-validated parameters including number of boosting rounds for the expected OOS RMSE. However, for the purpose of comparing tuning methods, the CV error is OK. We just want to look at how we would make model decisions using CV and not worry too much about the generalization error. One could even argue it adds a little more noise to the comparison of hyperparameter selection. But a test set would be the correct methodology in practice. It wouldn't change conclusions directionally and I'm not going to rerun everything but if I were to start over I would do it that way.
 
 [^2]: This is not intended to make sense.
 
