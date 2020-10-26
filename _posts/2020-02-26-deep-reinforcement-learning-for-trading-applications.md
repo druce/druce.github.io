@@ -14,7 +14,7 @@ tags:
 - investing
 
 ---
-
+![Observing one reinforcement learning episode of stock trading](/assets/2020/rl.png)
 > Reinforcement learning is a machine learning paradigm that can learn behavior to achieve maximum reward in complex dynamic environments, as simple as Tic-Tac-Toe, or as complex as Go, and options trading. In this post, we will try to explain what reinforcement learning is, share code to apply it, and references to learn more about it. First, we’ll learn a simple algorithm to play Tic-Tac-Toe, then learn to trade a non-random price series. Finally, we’ll talk about how reinforcement learning can master complex financial concepts like option pricing and optimal diversification.
 
 <!--more-->

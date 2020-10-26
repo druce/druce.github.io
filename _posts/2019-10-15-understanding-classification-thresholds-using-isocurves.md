@@ -10,7 +10,7 @@ categories: datascience
 tags: datascience
 
 ---
-
+![Four isocurve plots](/assets/2020/isocurves.png)
 > As a data scientist, you might say…“A blog post about thresholds? It’s not even a data science problem, it’s more of a business decision.” And you would not be wrong! Threshold selection lacks the appeal of say, generative adversarial networks.
 
 <!--more-->
@@ -24,8 +24,6 @@ This post is for you.
 Your job as a data scientist isn’t done until you explain how to interpret the model and apply it. That means threshold selection for the business decision that motivated the model.
 
 Here’s a deep dive into threshold selection, including the F1-score and how it compares to other metrics. Let’s dive in!
-
-![Header image](/assets/2019/fig0.png)
 
 ## 1. You need a metric or a cost function to optimize.
 

@@ -16,6 +16,8 @@ categories: poker
 tags: poker books
 
 ---
+
+![The Biggest Bluff, by Maria Konnikova (cover art)](/assets/2020/biggestbluff.jpg) 
 > *I loved [The Biggest Bluff: How I Learned to Pay Attention, Master Myself, and Win, by Maria Konnikova](https://www.amazon.com/Biggest-Bluff-Learned-Attention-Master/dp/052552262X/).*
 
 <!--more-->
