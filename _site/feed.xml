@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-10-26T18:11:21-04:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Druce.ai</title><subtitle>Druce's Blog on Machine Learning, Tech, Markets and Economics</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Beyond Grid Search: Using Hyperopt, Optuna, and Ray Tune to hypercharge hyperparameter tuning for XGBoost and LightGBM</title><link href="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna" rel="alternate" type="text/html" title="Beyond Grid Search: Using Hyperopt, Optuna, and Ray Tune to hypercharge hyperparameter tuning for XGBoost and LightGBM" /><published>2020-10-12T18:28:57-04:00</published><updated>2020-10-12T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna">&lt;p&gt;&lt;img src=&quot;/assets/2020/optuna_bayesian.png&quot; alt=&quot;Image source: Crissman Loomis, Using Optuna to Optimize XGBoost Hyperparameters (2020)&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-10-26T19:56:23-04:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Druce.ai</title><subtitle>Druce's Blog on Machine Learning, Tech, Markets and Economics</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Beyond Grid Search: Using Hyperopt, Optuna, and Ray Tune to hypercharge hyperparameter tuning for XGBoost and LightGBM</title><link href="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna" rel="alternate" type="text/html" title="Beyond Grid Search: Using Hyperopt, Optuna, and Ray Tune to hypercharge hyperparameter tuning for XGBoost and LightGBM" /><published>2020-10-12T18:28:57-04:00</published><updated>2020-10-12T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna">&lt;p&gt;&lt;img src=&quot;/assets/2020/optuna_bayesian.png&quot; alt=&quot;Image source: Crissman Loomis, Using Optuna to Optimize XGBoost Hyperparameters (2020)&quot; /&gt;&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;&lt;em&gt;Bayesian optimization of machine learning model hyperparameters works faster and better than grid search. Here’s how we can speed up hyperparameter tuning with 1) Bayesian optimization with Hyperopt and Optuna, running on… 2) the &lt;a href=&quot;https://ray.io/&quot;&gt;Ray&lt;/a&gt; distributed machine learning framework, with a &lt;a href=&quot;https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf&quot;&gt;unified API to many hyperparameter search algos&lt;/a&gt; and early stopping schedulers, and… 3) a distributed cluster of cloud instances for even faster tuning. &lt;a href=&quot;https://medium.com/optuna/using-optuna-to-optimize-xgboost-hyperparameters-63bfcdfd3407&quot;&gt;Image source: Crissman Loomis&lt;/a&gt;&lt;/em&gt;
 &lt;!--more--&gt;&lt;/p&gt;
@@ -253,7 +253,7 @@ Source: Crissman Loomis, &lt;a href=&quot;https://medium.com/optuna/using-optuna
 &lt;ul&gt;
   &lt;li&gt;&lt;em&gt;Native CV&lt;/em&gt;: In sklearn if an algorithm &lt;em&gt;xxx&lt;/em&gt; has hyperparameters it will often have an &lt;em&gt;xxxCV&lt;/em&gt; version, like ElasticNetCV, which performs automated grid search over hyperparameter iterators with specified kfolds.&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;GridSearchCV&lt;/em&gt;: Abstract grid search that can wrap around any sklearn algorithm, running multithreaded trials over specified kfolds.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Manual sequential grid search&lt;/em&gt;: How would typically implement grid search with XGBoost, which doesn’t play very well with GridSearchCV and has too many hyperparameters to tune in one pass.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Manual sequential grid search&lt;/em&gt;: How we typically implement grid search with XGBoost, which doesn’t play very well with GridSearchCV and has too many hyperparameters to tune in one pass.&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;Ray on local desktop&lt;/em&gt;: Hyperopt and Optuna with ASHA early stopping.&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;Ray on AWS cluster&lt;/em&gt;: Additionally scale out to run a single hyperparameter optimization task over many instances in a cluster.&lt;/li&gt;
 &lt;/ul&gt;
@@ -261,11 +261,11 @@ Source: Crissman Loomis, &lt;a href=&quot;https://medium.com/optuna/using-optuna
 &lt;h2 id=&quot;6-baseline-linear-regression&quot;&gt;6. Baseline linear regression&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Use same kfolds for each run so variation in metric is not due to variation in kfolds&lt;/li&gt;
-  &lt;li&gt;We fit on the log response so we convert error back to dollar units, for interpretability.&lt;/li&gt;
-  &lt;li&gt;sklearn.model_selection.cross_val_score for evaluation&lt;/li&gt;
-  &lt;li&gt;Jupyter %%time magic for wall time&lt;/li&gt;
-  &lt;li&gt;n_jobs=-1 to run folds in parallel using all CPU cores available.&lt;/li&gt;
+  &lt;li&gt;Use the same kfolds for each run so the variation in the RMSE metric is not due to variation in kfolds.&lt;/li&gt;
+  &lt;li&gt;We fit on the log response, so we convert error back to dollar units, for interpretability.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sklearn.model_selection.cross_val_score&lt;/code&gt; for evaluation&lt;/li&gt;
+  &lt;li&gt;Jupyter &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%%time&lt;/code&gt; magic for wall time&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n_jobs=-1&lt;/code&gt; to run folds in parallel using all CPU cores available.&lt;/li&gt;
   &lt;li&gt;Note the wall time &amp;lt; 1 second and RMSE of 18192.&lt;/li&gt;
   &lt;li&gt;Full notebooks are on &lt;a href=&quot;https://github.com/druce/iowa/blob/master/hyperparameter_optimization.ipynb&quot;&gt;GitHub&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
@@ -303,11 +303,11 @@ Source: Crissman Loomis, &lt;a href=&quot;https://medium.com/optuna/using-optuna
 &lt;h2 id=&quot;7-elasticnetcv&quot;&gt;7. ElasticNetCV&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;ElasticNet is linear regression with L1 and L2 &lt;a href=&quot;https://en.wikipedia.org/wiki/Regularization_(mathematics)&quot;&gt;regularization&lt;/a&gt; (2 hyperparameters)&lt;/li&gt;
+  &lt;li&gt;ElasticNet is linear regression with L1 and L2 &lt;a href=&quot;https://en.wikipedia.org/wiki/Regularization_(mathematics)&quot;&gt;regularization&lt;/a&gt; (2 hyperparameters).&lt;/li&gt;
   &lt;li&gt;When we use regularization, we need to scale our data so that the coefficient penalty has a similar impact across features. We use a pipeline with RobustScaler for scaling.&lt;/li&gt;
   &lt;li&gt;Fit a model and extract hyperparameters from the fitted model.&lt;/li&gt;
-  &lt;li&gt;Then we do cross_val_score with reported hyperparams (There doesn’t appear to be a way to extract the score from the fitted model without refitting)&lt;/li&gt;
-  &lt;li&gt;Verbose output reports 130 tasks, for full grid search on 10 folds expect 13x9x10=1170. Apparently a clever optimization.&lt;/li&gt;
+  &lt;li&gt;Then we do &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cross_val_score&lt;/code&gt; with reported hyperparams (There doesn’t appear to be a way to extract the score from the fitted model without refitting)&lt;/li&gt;
+  &lt;li&gt;Verbose output reports 130 tasks, for full grid search on 10 folds we would expect 13x9x10=1170. Apparently a clever optimization.&lt;/li&gt;
   &lt;li&gt;Note the modest reduction in RMSE vs. linear regression without regularization.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -356,7 +356,7 @@ Wall time: 1.61 s
 &lt;h2 id=&quot;8-gridsearchcv&quot;&gt;8. GridSearchCV&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Identical result, runs a little slower&lt;/li&gt;
+  &lt;li&gt;Identical result, runs a little slower.&lt;/li&gt;
   &lt;li&gt;GridSearchCV verbose output shows 1170 jobs, which is the expected number 13x9x10.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -408,9 +408,9 @@ Wall time: 5 s
 
 &lt;h2 id=&quot;9-xgboost-with-sequential-grid-search&quot;&gt;9. XGBoost with sequential grid search&lt;/h2&gt;
 
-&lt;p&gt;It &lt;em&gt;should&lt;/em&gt; be possible to use GridSearchCV with XGBoost. But when we try to use early stopping, XGBoost wants an eval set. OK, we can give it a static eval set held out from GridSearchCV. Now, GridSearchCV does k-fold cross-validation in the training set but XGBoost uses a separate dedicated eval set for early stopping. It seems like a bit of a Frankenstein methodology. See the &lt;a href=&quot;https://github.com/druce/iowa/blob/master/hyperparameter_optimization.ipynb&quot;&gt;notebook&lt;/a&gt; for the attempt at GridSearchCV with XGBoost and early stopping if you’re really interested.&lt;/p&gt;
+&lt;p&gt;It &lt;em&gt;should&lt;/em&gt; be possible to use GridSearchCV with XGBoost. But when we also try to use early stopping, XGBoost wants an eval set. OK, we can give it a static eval set held out from GridSearchCV. Now, GridSearchCV does k-fold cross-validation in the training set but XGBoost uses a separate dedicated eval set for early stopping. It seems like a bit of a Frankenstein methodology. See the &lt;a href=&quot;https://github.com/druce/iowa/blob/master/hyperparameter_optimization.ipynb&quot;&gt;notebook&lt;/a&gt; for the attempt at GridSearchCV with XGBoost and early stopping if you’re really interested.&lt;/p&gt;
 
-&lt;p&gt;Instead we write our own grid search that gives XGBoost the correct hold-out set for each fold:&lt;/p&gt;
+&lt;p&gt;Instead we write our own grid search that gives XGBoost the correct hold-out set for each CV fold:&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;EARLY_STOPPING_ROUNDS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# stop if no improvement after 100 rounds
 &lt;/span&gt;
@@ -439,9 +439,9 @@ Wall time: 5 s
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;XGBoost has many tuning parameters so a complete grid search has an unreasonable number of combinations.&lt;/p&gt;
+&lt;p&gt;XGBoost has many tuning parameters so an exhaustive grid search has an unreasonable number of combinations. Instead, we tune reduced sets sequentially using grid search and use early stopping.&lt;/p&gt;
 
-&lt;p&gt;Instead, we tune reduced sets sequentially using grid search and use early stopping. This is the typical grid search methodology to tune XGBoost:&lt;/p&gt;
+&lt;p&gt;This is the typical grid search methodology to tune XGBoost:&lt;/p&gt;
 
 &lt;h4 id=&quot;xgboost-tuning-methodology&quot;&gt;XGBoost tuning methodology&lt;/h4&gt;
 
@@ -451,7 +451,7 @@ Wall time: 5 s
     &lt;ul&gt;
       &lt;li&gt;First, tune &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;max_depth&lt;/code&gt;.&lt;/li&gt;
       &lt;li&gt;Then tune &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;subsample&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;colsample_bytree&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;colsample_bylevel&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;Finally, tune &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;learning rate&lt;/code&gt;: lower learning rate will need more boosting rounds (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n_estimators&lt;/code&gt;).&lt;/li&gt;
+      &lt;li&gt;Finally, tune &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;learning rate&lt;/code&gt;: a lower learning rate will need more boosting rounds (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n_estimators&lt;/code&gt;).&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;Do 10-fold cross-validation on each hyperparameter combination. Pick hyperparameters to minimize average RMSE over kfolds.&lt;/li&gt;
@@ -552,7 +552,7 @@ Wall time: 5 s
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;The total training duration (sum times over the 3 iterations) is 1:24:22. This may be an underestimate, since this search space is based on prior experience.&lt;/p&gt;
+&lt;p&gt;The total training duration (the sum of times over the 3 iterations) is 1:24:22. This time may be an underestimate, since this search space is based on prior experience.&lt;/p&gt;
 
 &lt;p&gt;Finally, we refit using the best hyperparameters and evaluate:&lt;/p&gt;
 
@@ -590,7 +590,7 @@ Wall time: 5 s
 &lt;p&gt;The steps to run a Ray tuning job with Hyperopt are:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Set up a Ray search space using a config dict.&lt;/li&gt;
+  &lt;li&gt;Set up a Ray search space as a config dict.&lt;/li&gt;
   &lt;li&gt;Refactor the training loop into a function which takes the config dict as an argument and calls &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tune.report(rmse=rmse)&lt;/code&gt; to optimize a metric like RMSE.&lt;/li&gt;
   &lt;li&gt;Call &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray.tune&lt;/code&gt; with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config&lt;/code&gt; and a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;num_samples&lt;/code&gt; argument which specifies how many times to sample.&lt;/li&gt;
 &lt;/ol&gt;
@@ -610,7 +610,7 @@ Wall time: 5 s
 &lt;span class=&quot;n&quot;&gt;xgb_tune_params&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Set up the training function. Note that some search algos expect all hyperparams to be floats and search intervals to start at 0. So we convert params as necessary.&lt;/p&gt;
+&lt;p&gt;Set up the training function. Note that some search algos expect all hyperparameters to be floats and some search intervals to start at 0. So we convert params as necessary.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;my_xgb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
 
@@ -638,7 +638,7 @@ Wall time: 5 s
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;rmse&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rmse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Run Ray&lt;/p&gt;
+&lt;p&gt;Run Ray Tune:&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;algo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HyperOptSearch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random_state_seed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RANDOMSTATE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;# ASHA
@@ -656,7 +656,7 @@ Wall time: 5 s
                    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Extract the best hyperparameters, evaluate using them:&lt;/p&gt;
+&lt;p&gt;Extract the best hyperparameters, and evaluate a model using them:&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# results dataframe sorted by best metric
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;param_cols&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'config.'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xgb_tune_params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
@@ -689,14 +689,10 @@ Wall time: 5 s
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Raw&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CV&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RMSE&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;18309&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;STD&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2428&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;We can swap out Hyperopt for Optuna as simply as:&lt;/p&gt;
+&lt;p&gt;We can swap out Hyperopt for Optuna as simply as:&lt;/p&gt;
 
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;algo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OptunaSearch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;algo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OptunaSearch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;With NUM_SAMPLES=1024 we obtain:&lt;/p&gt;
 
@@ -709,7 +705,7 @@ Wall time: 5 s
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;Update search space&lt;/p&gt;
+    &lt;p&gt;Update the search space using &lt;a href=&quot;https://sites.google.com/view/lauraepp/parameters&quot;&gt;LightGBM equivalents&lt;/a&gt;.&lt;/p&gt;
 
     &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;lgbm_tune_kwargs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;s&quot;&gt;&quot;n_estimators&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tune&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loguniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
@@ -768,28 +764,30 @@ Wall time: 5 s
 
 &lt;h2 id=&quot;12-xgboost-on-a-ray-cluster&quot;&gt;12. XGBoost on a Ray cluster&lt;/h2&gt;
 
-&lt;p&gt;Ray is a distributed framework, we can run a training job over many instances using a cluster with a &lt;em&gt;head node&lt;/em&gt; and many &lt;em&gt;worker nodes&lt;/em&gt;. The Ray part is straightforward. On the head node we run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray start&lt;/code&gt;. On each worker node we run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray start --address x.x.x.x&lt;/code&gt;  with the address of the head node. Then in python we call &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray.init()&lt;/code&gt; to connect to the head node. Everything else proceeds as before, and the head node runs trials using all instances in the cluster and stores results in Redis.&lt;/p&gt;
+&lt;p&gt;Ray is a distributed framework. We can run a Ray Tune job over many instances using a cluster with a &lt;em&gt;head node&lt;/em&gt; and many &lt;em&gt;worker nodes&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;Where it gets more complicated is we need to specify all the AWS details, instance types, regions, subnets, etc.&lt;/p&gt;
+&lt;p&gt;Launching Ray is straightforward. On the head node we run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray start&lt;/code&gt;. On each worker node we run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray start --address x.x.x.x&lt;/code&gt;  with the address of the head node. Then in python we call &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray.init()&lt;/code&gt; to connect to the head node. Everything else proceeds as before, and the head node runs trials using all instances in the cluster and stores results in Redis.&lt;/p&gt;
+
+&lt;p&gt;Where it gets more complicated is specifying all the AWS details, instance types, regions, subnets, etc.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Clusters are defined in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray1.1.yaml&lt;/code&gt;. (So far in this notebook we have been using the current production ray 1.0, but I had difficulty getting a cluster to run with ray 1.0 so I switched to the dev nightly. YMMV.)&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;boto3&lt;/code&gt; and AWS CLI configured credentials are used to spawn instances, so &lt;a href=&quot;https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html&quot;&gt;install and configure AWS CLI&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray1.1.yaml&lt;/code&gt; file with, at a minimum, your region, and availability zone. Imageid may vary across regions, search for the current Deep Learning AMI (Ubuntu 18.04). You may not need to specify subnet, I had an issue with an inaccessible subnet when I let Ray default the subnet, possibly bad defaults somewhere.
+  &lt;li&gt;Edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray1.1.yaml&lt;/code&gt; file with, at a minimum, your AWS region and availability zone. Imageid may vary across regions, search for the current Deep Learning AMI (Ubuntu 18.04). You may not need to specify subnet, I had an issue with an inaccessible subnet when I let Ray default the subnet, possibly bad defaults somewhere.
     &lt;ul&gt;
       &lt;li&gt;To obtain those variables, launch the latest Deep Learning AMI (Ubuntu 18.04) currently Version 35.0 into a small instance in your favorite region/zone&lt;/li&gt;
       &lt;li&gt;Test that it works&lt;/li&gt;
       &lt;li&gt;Note the 4 variables: region, availability zone, subnet, AMI imageid&lt;/li&gt;
       &lt;li&gt;Terminate the instance and edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray1.1.yaml&lt;/code&gt; with your region, availability zone, AMI imageid, optionally subnet&lt;/li&gt;
-      &lt;li&gt;It may be advisable to run updates and installs, create your own image with everything pre-installed and specify its AMI imageid, instead of using the generic image and installing everything at launch.&lt;/li&gt;
+      &lt;li&gt;It may be advisable create your own image with all updates and requirements pre-installed and specify its AMI imageid, instead of using the generic image and installing everything at launch.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;To run the cluster: 
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray up ray1.1.yaml&lt;/code&gt;
     &lt;ul&gt;
-      &lt;li&gt;Creates head instance using image specified.&lt;/li&gt;
+      &lt;li&gt;Creates head instance using AMI specified.&lt;/li&gt;
       &lt;li&gt;Installs Ray and related requirements including XGBoost from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;requirements.txt&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;Clones this Iowa repo from GitHub&lt;/li&gt;
+      &lt;li&gt;Clones the druce/iowa repo from GitHub&lt;/li&gt;
       &lt;li&gt;Launches worker nodes per auto-scaling parameters (currently we fix the number of nodes because we’re not benchmarking the time the cluster will take to auto-scale)&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
@@ -798,24 +796,23 @@ Wall time: 5 s
   &lt;li&gt;Run Jupyter on the cluster with port forwarding
  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray exec ray1.1.yaml --port-forward=8899 'jupyter notebook --port=8899'&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;Open the notebook on the generated URL which is printed on the console at startup e.g. http://localhost:8899/?token=5f46d4355ae7174524ba71f30ef3f0633a20b19a204b93b4&lt;/li&gt;
-  &lt;li&gt;Make sure to choose the default kernel to make sure it runs in the correct conda environment with all installs&lt;/li&gt;
-  &lt;li&gt;Make sure to use the ray.init() command given in the startup messages.
- &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray.init(address='localhost:6379', _redis_password='5241590000000000')&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;You can also run a terminal on the head node of the cluster with
+  &lt;li&gt;You can run a terminal on the head node of the cluster with
  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray attach /Users/drucev/projects/iowa/ray1.1.yaml&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;You can also ssh explicitly with the IP address and the generated private key
+  &lt;li&gt;You can ssh explicitly with the IP address and the generated private key
  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh -o IdentitiesOnly=yes -i ~/.ssh/ray-autoscaler_1_us-east-1.pem ubuntu@54.161.200.54&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;Run port forwarding to the Ray dashboard with &lt;br /&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray dashboard ray1.1.yaml&lt;/code&gt;
 and then open
  http://localhost:8265/&lt;/li&gt;
+  &lt;li&gt;Make sure to choose the default kernel in Jupyter to run in the correct conda environment with all installs&lt;/li&gt;
+  &lt;li&gt;Make sure to use the ray.init() command given in the startup messages.
+ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray.init(address='localhost:6379', _redis_password='5241590000000000')&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;The cluster will incur AWS charges so &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ray down ray1.1.yaml&lt;/code&gt; when complete&lt;/li&gt;
-  &lt;li&gt;Other than connecting to a Ray cluster, code is identical to previous examples.&lt;/li&gt;
   &lt;li&gt;See &lt;a href=&quot;https://github.com/druce/iowa/blob/master/hyperparameter_optimization_cluster.ipynb&quot;&gt;hyperparameter_optimization_cluster.ipynb&lt;/a&gt;, separated out so each notebook can be run end-to-end with/without cluster setup&lt;/li&gt;
   &lt;li&gt;See &lt;a href=&quot;https://docs.ray.io/en/latest/cluster/launcher.html&quot;&gt;Ray docs&lt;/a&gt; for additional info on Ray clusters.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Besides connecting to the cluster instead of running ray locally, no other change to code is needed to run on the cluster&lt;/p&gt;
+&lt;p&gt;Besides connecting to the cluster instead of running Ray Tune locally, no other change to code is needed to run on the cluster&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;analysis&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tune&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_xgb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
                     &lt;span class=&quot;n&quot;&gt;num_samples&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NUM_SAMPLES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
@@ -825,11 +822,10 @@ and then open
                     &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;min&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
                     &lt;span class=&quot;n&quot;&gt;search_alg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;algo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
                     &lt;span class=&quot;n&quot;&gt;scheduler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scheduler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                    &lt;span class=&quot;c1&quot;&gt;# add this because distributed jobs sometimes error out
+                    &lt;span class=&quot;c1&quot;&gt;# add this because distributed jobs occasionally error out
 &lt;/span&gt;                    &lt;span class=&quot;n&quot;&gt;raise_on_failed_trial&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# otherwise no reults df returned if any trial error           
 &lt;/span&gt;                    &lt;span class=&quot;n&quot;&gt;verbose&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
                    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Results for XGBM on cluster (2048 samples, cluster is 32 m5.large instances):&lt;/p&gt;
@@ -859,7 +855,6 @@ and then open
                     &lt;span class=&quot;n&quot;&gt;raise_on_failed_trial&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# otherwise no reults df returned if any trial error                                                            
 &lt;/span&gt;                    &lt;span class=&quot;n&quot;&gt;verbose&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
                    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Results for LightGBM on cluster (2048 samples, cluster is 32 m5.large instances):&lt;/p&gt;
@@ -878,15 +873,17 @@ and then open
 
 &lt;p&gt;In every case I’ve applied them, Hyperopt and Optuna have given me at least a small improvement in the best metrics I found using grid search methods. Bayesian optimization tunes faster with a less manual process vs. sequential tuning.  It’s fire-and-forget.&lt;/p&gt;
 
-&lt;p&gt;Is the Ray framework the way to go for hyperparameter tuning? Provisionally, yes. Ray provides integration between the underlying ML (e.g. XGBoost), the Bayesian search (e.g. Hyperopt), and early stopping (ASHA). It allows us to easily swap  search algorithms. There are other alternatives in the &lt;a href=&quot;https://docs.ray.io/en/master/tune/api_docs/suggestion.html&quot;&gt;Ray docs&lt;/a&gt; but these seem to be the most popular, and I haven’t got the others to run yet. If after a while I find I am always using e.g. Hyperopt and never use clusters, I might use the native Hyperopt/XGBoost integration without Ray, to access any native Hyperopt features and because it’s one less technology in the stack.&lt;/p&gt;
+&lt;p&gt;Is Ray Tune the way to go for hyperparameter tuning? Provisionally, yes. Ray provides integration between the underlying ML (e.g. XGBoost), the Bayesian search (e.g. Hyperopt), and early stopping (ASHA). It allows us to easily swap search algorithms.&lt;/p&gt;
 
-&lt;p&gt;Clusters? Most of the time I don’t have a need, costs add up, did not see as large a speedup as expected. I only see &amp;lt; 2x speedup on the 32-instance cluster.  Setting up the test I expected at least 2-4x speedup, and a better RMSE, and the former didn’t happen. The longest run I have tried, with 4096 samples, ran overnight on desktop. My MacBook Pro w/16 threads and desktop with 12 threads and GPU are plenty powerful for this data set. Still, it’s useful to have the clustering option in the back pocket. In production, it may be more standard and maintainable to deploy with e.g. Terraform, Kubernetes than the Ray native YAML cluster config file. If you want to train big data at scale you need to really understand and streamline your pipeline&lt;/p&gt;
+&lt;p&gt;There are other alternative search algorithms in the &lt;a href=&quot;https://docs.ray.io/en/master/tune/api_docs/suggestion.html&quot;&gt;Ray docs&lt;/a&gt; but these seem to be the most popular, and I haven’t got the others to run yet. If after a while I find I am always using e.g. Hyperopt and never use clusters, I might use the native Hyperopt/XGBoost integration without Ray, to access any native Hyperopt features and because it’s one less technology in the stack.&lt;/p&gt;
 
-&lt;p&gt;It continues to surprise me that Elasticnet, i.e. regularized linear regression, performs similar to boosting on this dataset. I heavily engineered features so that linear methods work well. Predictors were chosen using Lasso/Elasticnet and I used log and Box-Cox transforms to force predictors to follow assumptions of least-squares.&lt;/p&gt;
+&lt;p&gt;Clusters? Most of the time I don’t have a need, costs add up, did not see as large a speedup as expected. I only see  ~2x speedup on the 32-instance cluster.  Setting up the test I expected a bit less than 4x speedup accounting for slightly less-than-linear scaling.. The longest run I have tried, with 4096 samples, ran overnight on desktop. My MacBook Pro w/16 threads and desktop with 12 threads and GPU are plenty powerful for this data set. Still, it’s useful to have the clustering option in the back pocket. In production, it may be more standard and maintainable to deploy with e.g. Terraform, Kubernetes than the Ray native YAML cluster config file. If you want to train big data at scale you need to really understand and streamline your pipeline.&lt;/p&gt;
 
-&lt;p&gt;This may tend to validate one of the &lt;a href=&quot;https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3624052&quot;&gt;critiques of machine learning&lt;/a&gt;, that the most powerful ML methods don’t necessarily always converge all the way to the best solution. If you have a ground truth that is linear plus noise, a complex XGBoost or neural network algorithm should get arbitrarily close to the closed-form optimal solution, but will probably never match the optimal solution exactly. XGBoost regression is piecewise constant and the complex neural network is subject to the vagaries of stochastic gradient descent. I thought arbitrarily close meant almost indistinguishable, but clearly this is not always the case.&lt;/p&gt;
+&lt;p&gt;It continues to surprise me that ElasticNet, i.e. regularized linear regression, performs similar to boosting on this dataset. I heavily engineered features so that linear methods work well. Predictors were chosen using Lasso/ElasticNet and I used log and Box-Cox transforms to force predictors to follow assumptions of least-squares.&lt;/p&gt;
 
-&lt;p&gt;Elasticnet with L1 + L2 regularization plus gradient descent and hyperparameter optimization is still machine learning. It’s simply the form of ML best matched to this problem. In the real world where data sets don’t match assumptions of OLS, gradient boosting generally performs extremely well. And even on this dataset, engineered for success with the linear models, SVR and KernelRidge performed better than Elasticnet (not shown) and ensembling Elasticnet with XGBoost, LightGBM, SVR, neural networks worked best of all.&lt;/p&gt;
+&lt;p&gt;This may tend to validate one of the &lt;a href=&quot;https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3624052&quot;&gt;critiques of machine learning&lt;/a&gt;, that the most powerful machine learning methods don’t necessarily always converge all the way to the best solution. If you have a ground truth that is linear plus noise, a complex XGBoost or neural network algorithm should get arbitrarily close to the closed-form optimal solution, but will probably never match the optimal solution exactly. XGBoost regression is piecewise constant and the complex neural network is subject to the vagaries of stochastic gradient descent. I thought arbitrarily close meant almost indistinguishable, given that gradient boosting is the gold standard for tabular data. But clearly this is not always the case.&lt;/p&gt;
+
+&lt;p&gt;ElasticNet with L1 + L2 regularization plus gradient descent and hyperparameter optimization is still machine learning. It’s simply a form of ML better matched to this problem. In the real world where data sets don’t match assumptions of OLS, gradient boosting generally performs extremely well. And even on this dataset, engineered for success with the linear models, SVR and KernelRidge performed better than ElasticNet (not shown) and ensembling ElasticNet with XGBoost, LightGBM, SVR, neural networks worked best of all.&lt;/p&gt;
 
 &lt;p&gt;To paraphrase Casey Stengel, clever feature engineering will always outperform clever model algorithms and vice-versa&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;. But improving your hyperparameters will always improve your results. Bayesian optimization can be considered a best practice.&lt;/p&gt;
 
