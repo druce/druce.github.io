@@ -24,10 +24,11 @@ linkedin_username: drucevertes
 email: streeteye@streeteye.com
 url: "https://druce.ai" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: ""
-description:   Druce's Blog on Machine Learning, Tech, Markets and Economics
+description: Druce's Blog on Machine Learning, Tech, Markets and Economics
 profile_url: "http://druce.github.io"
 copyright: Druce Vertes
-
+google_analytics_code: G-E1305JTTCL
+  
 # Disqus Comments
 disqus:
   # Leave shortname blank to disable comments site-wide.

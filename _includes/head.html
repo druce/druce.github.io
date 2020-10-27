@@ -68,13 +68,13 @@
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E1305JTTCL"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics_code }}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-E1305JTTCL');
+    gtag('config', '{{ site.google_analytics_code }}');
   </script>
 
 </head>
