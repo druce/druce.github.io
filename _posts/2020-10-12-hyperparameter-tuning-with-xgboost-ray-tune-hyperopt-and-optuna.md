@@ -91,7 +91,7 @@ To minimize the out-of-sample error, you minimize the error from *bias*, meaning
 
 Hyperparameters help you tune the bias-variance tradeoff. For a simple logistic regression predicting survival on the Titanic, a regularization parameter lets you control overfitting by penalizing sensitivity to any individual feature. For a massive neural network doing machine translation, the number and types of layers, units, activation function, in addition to regularization, are hyperparameters. We select the best hyperparameters using *[k-fold cross-validation](https://machinelearningmastery.com/k-fold-cross-validation/)*; this is what we call hyperparameter tuning.
 
-The regression algorithms we use in this post are XGBoost and LightGBM, which are *gradient boosting*. Gradient boosting is an ensembling method that usually involves decision trees. A decision tree constructs rules like, if the passenger is in first class and female, they probably survived the sinking of the Titanic. Trees are powerful, but a single deep decision tree with all your features will tend to overfit the training data. A *random forest* algorithm builds many decision trees based on random subsets of observations and features which then vote (*bagging*). The outcome of a vote by *weak learners* is less overfitted than training on all the data rows and all the feature columns, and performs better out-of-sample. Random forest hyperparameters include the number of trees, tree depth, and how many features and observations each tree should use. 
+The regression algorithms we use in this post are XGBoost and LightGBM, which are variations on  *gradient boosting*. Gradient boosting is an ensembling method that usually involves decision trees. A decision tree constructs rules like, if the passenger is in first class and female, they probably survived the sinking of the Titanic. Trees are powerful, but a single deep decision tree with all your features will tend to overfit the training data. A *random forest* algorithm builds many decision trees based on random subsets of observations and features which then vote (*bagging*). The outcome of a vote by *weak learners* is less overfitted than training on all the data rows and all the feature columns to generate a single strong learner, and performs better out-of-sample. Random forest hyperparameters include the number of trees, tree depth, and how many features and observations each tree should use. 
 
 Instead of aggregating many independent learners working in parallel, *i.e.* bagging, *boosting* uses many learners in series:
 
@@ -101,7 +101,8 @@ Instead of aggregating many independent learners working in parallel, *i.e.* bag
 - Fit another tree to the error in the updated prediction and adjust the prediction further based on the learning rate.
 - Iteratively continue reducing the error for a specified number of boosting rounds (another hyperparameter).
 - The final estimate is the initial prediction plus the sum of all the predicted necessary adjustments (weighted by the learning rate). 
-- The learning rate performs a similar function to voting in random forest, in the sense that no single decision tree determines too much of the final estimate. This 'wisdom of crowds' approach helps prevent overfitting.
+
+The learning rate performs a similar function to voting in random forest, in the sense that no single decision tree determines too much of the final estimate. This 'wisdom of crowds' approach helps prevent overfitting.
 
 Gradient boosting is the current state of the art for regression and classification on traditional structured tabular data (in contrast to less structured data like image/video/natural language processing, where deep learning, *i.e.* deep neural net are state of the art). 
 
