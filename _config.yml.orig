@@ -1,0 +1,54 @@
+# see https://github.com/jekyll/minima/blob/master/_config.yml
+
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you: 
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+# site settings
+host: 0.0.0.0
+title: Druce.ai
+name: "Druce Vertes"
+author: Druce Vertes
+twitter_username: streeteye
+github_username: druce
+linkedin_username: drucevertes
+email: streeteye@streeteye.com
+url: "https://druce.ai" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: ""
+description: Druce's Blog on Machine Learning, Tech, Markets and Economics
+profile_url: "http://druce.github.io"
+copyright: Druce Vertes
+google_analytics_code: G-GGGGGGGGGG
+  
+# Disqus Comments
+disqus:
+  # Leave shortname blank to disable comments site-wide.
+  # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
+  shortname: disqus-com-99
+  
+# Build settings
+markdown: kramdown
+highlighter: rouge
+excerpt_separator: <!--more-->
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll_picture_tag  
+  - jekyll-archives
+exclude:
+  - Gemfile
+  - Gemfile.lock
+kramdown:
+  input: GFM
+  auto_ids: true
+  syntax_highlighter: rouge
