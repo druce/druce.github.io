@@ -137,6 +137,11 @@ Source: Crissman Loomis, [Using Optuna to Optimize XGBoost Hyperparameters](http
 
 If good metrics are not uniformly distributed, but found close to one another in a Gaussian distribution or any distribution which we can model, then Bayesian optimization can exploit the underlying pattern, and is likely to be more efficient than grid search or naive random search.
 
+[HyperOpt](http://hyperopt.github.io/hyperopt/) is a Bayesian optimization algorithm by [James Bergstra et al.](https://conference.scipy.org/proceedings/scipy2013/pdfs/bergstra_hyperopt.pdf). See this [excellent blog post by Subir Mansukhani](https://blog.dominodatalab.com/hyperopt-bayesian-hyperparameter-optimization/).
+
+[Optuna](https://optuna.org/) is a Bayesian optimization algorithm by [Takuya Akiba, et al.](https://arxiv.org/abs/1907.10902). See this [excellent blog post by Crissman Loomis](https://medium.com/optuna/using-optuna-to-optimize-xgboost-hyperparameters-63bfcdfd3407) from which the visualization is taken.
+
+
 ## 4. Early Stopping
 
 If, while evaluating a hyperparameter combination, the evaluation metric is not improving in training, or not improving fast enough to beat our best to date, we can discard a combination before fully training on it. *Early stopping* of unsuccessful training runs increases the speed and effectiveness of our search.
@@ -788,7 +793,7 @@ Is Ray Tune the way to go for hyperparameter tuning? Provisionally, yes. Ray pro
 
 There are other alternative search algorithms in the [Ray docs](https://docs.ray.io/en/master/tune/api_docs/suggestion.html) but these seem to be the most popular, and I haven't got the others to run yet. If after a while I find I am always using e.g. Hyperopt and never use clusters, I might use the native Hyperopt/XGBoost integration without Ray, to access any native Hyperopt features and because it's one less technology in the stack.
 
-Clusters? Most of the time I don't have a need, costs add up, did not see as large a speedup as expected. I only see  ~2x speedup on the 32-instance cluster.  Setting up the test I expected a bit less than 4x speedup accounting for slightly less-than-linear scaling.. The longest run I have tried, with 4096 samples, ran overnight on desktop. My MacBook Pro w/16 threads and desktop with 12 threads and GPU are plenty powerful for this data set. Still, it's useful to have the clustering option in the back pocket. In production, it may be more standard and maintainable to deploy with e.g. Terraform, Kubernetes than the Ray native YAML cluster config file. If you want to train big data at scale you need to really understand and streamline your pipeline.
+Clusters? Most of the time I don't have a need, costs add up, did not see as large a speedup as expected. I only see  ~2x speedup on the 32-instance cluster.  Setting up the test I expected a bit less than 4x speedup accounting for slightly less-than-linear scaling. The longest run I have tried, with 4096 samples, ran overnight on desktop. My MacBook Pro w/16 threads and desktop with 12 threads and GPU are plenty powerful for this data set. Still, it's useful to have the clustering option in the back pocket. In production, it may be more standard and maintainable to deploy with e.g. Terraform, Kubernetes than the Ray native YAML cluster config file. If you want to train big data at scale you need to really understand and streamline your pipeline.
 
 It continues to surprise me that ElasticNet, i.e. regularized linear regression, performs similar to boosting on this dataset. I heavily engineered features so that linear methods work well. Predictors were chosen using Lasso/ElasticNet and I used log and Box-Cox transforms to force predictors to follow assumptions of least-squares.
 
@@ -812,7 +817,7 @@ Again, the full code is on [GitHub](https://github.com/druce/iowa)
 </script>
 
 
-[^1]: It would be more sound to separately tune the stopping rounds. Just averaging the best stopping time across kfolds is questionable. In a real world scenario, we should keep a holdout test set. We should retrain on the full training dataset (not kfolds) with early stopping to get the best number of boosting rounds. Then we should measure RMSE in the test set using all the cross-validated parameters including number of boosting rounds for the expected OOS RMSE. However, for the purpose of comparing tuning methods, the CV error is OK. We just want to look at how we would make model decisions using CV and not worry too much about the generalization error. One could even argue it adds a little more noise to the comparison of hyperparameter selection. But a test set would be the correct methodology in practice. It wouldn't change conclusions directionally and I'm not going to rerun everything but if I were to start over I would do it that way.
+[^1]: It would be more sound to separately tune the stopping rounds. Just averaging the best stopping time across kfolds is questionable. In a real world scenario, we should keep a holdout test set. We should retrain on the full training dataset (not kfolds) with early stopping to get the best number of boosting rounds. Then we should measure RMSE in the test set using all the cross-validated parameters including number of boosting rounds for the expected OOS RMSE. For the purpose of comparing tuning algorithms, comparing the CV error is OK. We are evaluating how we would make model decisions using CV and not too concerned about the generalization error. One could even argue it adds a little more noise to the comparison of hyperparameter selection. But a test set would be the correct methodology in most real-world scenarios. It wouldn't change conclusions directionally and I'm not going to rerun everything, but if I were to start over I would do it that way.
 
 [^2]: This is not intended to make sense.
 
