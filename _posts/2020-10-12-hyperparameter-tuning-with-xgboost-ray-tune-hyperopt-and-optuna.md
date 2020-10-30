@@ -67,7 +67,7 @@ Bottom line up front: Here are results on the Ames housing data set, predicting 
 - The cluster of 32 instances (64 threads) gave very modest improvement vs. the local desktop with 12 threads. I attempted to set this up so we would get some improvement in RMSE (which we did with 2048 trials), and some speedup in training time (which we did not get with 64 threads). It ran twice the number of trials in slightly less than twice the time. The comparison is imperfect, local desktop vs. AWS, running Ray 1.0 on local and 1.1 on the cluster, different number of trials (better hyperparameter configs don't get early-stopped and take longer to train). But the point was to see what kind of improvement one might obtain in practice, leveraging a cluster vs. a local desktop or laptop. Bottom line, modest benefit here from even a pretty large 32-node cluster. 
 - RMSEs are similar across the board. XGB with 2048 trials is best by a small margin. 
 - LightGBM doesn't offer improvement over XGBoost here in RMSE or run time. In my experience LightGBM is often faster so  you can train and tune more in a given time. But we don't see that here. Possibly XGB interacts better with ASHA early stopping.
-- Similar RMSE between Hyperopt and Optuna. Optuna is consistently slightly faster.
+- Similar RMSE between Hyperopt and Optuna. Optuna is consistently slightly faster (up to 35% with LGBM/cluster).
 
 Our simple ElasticNet baseline yields similar results to boosting, in seconds. This may be because our feature engineering was intensive and designed to fit the linear model. Not shown, SVR and KernelRidge outperform ElasticNet, and an ensemble improves over all individual algos.
 
