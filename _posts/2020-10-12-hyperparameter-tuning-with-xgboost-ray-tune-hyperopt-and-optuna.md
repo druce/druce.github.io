@@ -132,8 +132,9 @@ Perhaps we might do two passes of grid search. After an initial search on a broa
 
 Bayesian optimization starts by sampling randomly, e.g. 30 combinations, and computes the cross-validation metric for each of the 30 randomly sampled combinations using *[k-fold cross-validation](https://machinelearningmastery.com/k-fold-cross-validation/)*. Then the algorithm updates the distribution it samples from, so that it is more likely to sample combinations similar to the good metrics, and less likely to sample combinations similar to the poor metrics. As it continues to sample, it continues to update the search distribution it samples from, based on the metrics it finds.
 
-![Illustration of random search vs. Bayesian](/assets/2020/optuna_bayesian.png)
-Source: Crissman Loomis, [Using Optuna to Optimize XGBoost Hyperparameters](https://medium.com/optuna/using-optuna-to-optimize-xgboost-hyperparameters-63bfcdfd3407) (2020)
+{% raw %}
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="720" height="360" src="/assets/2020/plotly.html"></iframe>
+{% endraw %}
 
 If good metrics are not uniformly distributed, but found close to one another in a Gaussian distribution or any distribution which we can model, then Bayesian optimization can exploit the underlying pattern, and is likely to be more efficient than grid search or naive random search.
 
