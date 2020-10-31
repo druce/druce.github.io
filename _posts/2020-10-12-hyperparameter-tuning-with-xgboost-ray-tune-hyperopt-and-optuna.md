@@ -11,7 +11,7 @@ tags: datascience
 
 ---
 ![RandomizedSearch HPO vs. Bayesian HPO](/assets/2020/fig1.png)
-> *Bayesian optimization of machine learning model hyperparameters works faster and better than grid search. Here's how we can speed up hyperparameter tuning with 1) Bayesian optimization with Hyperopt and Optuna, running on… 2) the [Ray](https://ray.io/) distributed machine learning framework, with a [unified API to many hyperparameter search algos](https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf) and early stopping schedulers, and… 3) a distributed cluster of cloud instances for even faster tuning. [Image source: Crissman Loomis](https://medium.com/optuna/using-optuna-to-optimize-xgboost-hyperparameters-63bfcdfd3407)*
+> *Bayesian optimization of machine learning model hyperparameters works faster and better than grid search. Here's how we can speed up hyperparameter tuning using 1) Bayesian optimization with Hyperopt and Optuna, running on… 2) the [Ray](https://ray.io/) distributed machine learning framework, with a [unified API to many hyperparameter search algos](https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf) and early stopping schedulers, and… 3) a distributed cluster of cloud instances for even faster tuning.*
 <!--more-->
 
 ## Outline:
@@ -58,18 +58,18 @@ Bottom line up front: Here are results on the Ames housing data set, predicting 
 |      ML Algo      |        Search algo         | CV Error (RMSE in $) | Time mm::ss |
 | :---------------: | :------------------------: | :------------------: | :---------: |
 | Linear Regression |             --             |        18192         |    0:01     |
-|    ElasticNet     | ElasticNetCV (Grid Search) |        18061         |    0:02     |
-|    ElasticNet     |        GridSearchCV        |        18061         |    0:05     |
+|    ElasticNet     | ElasticNetCV (Grid Search) |        17964         |    0:02     |
+|    ElasticNet     |        GridSearchCV        |        17964         |    0:05     |
 
 *Times for single-instance are on a local desktop with 12 threads, comparable to EC2 4xlarge. Times for cluster are on m5.large x 32 (1 head node + 31 workers).*
 
-- We saw a big speedup when using Hyperopt and Optuna locally, compared to grid search. The sequential search performed about 261 trials, so the XGB/Optuna search performed about 3x as many trials in half the time and got a similar result. 
-- The cluster of 32 instances (64 threads) gave very modest improvement vs. the local desktop with 12 threads. I attempted to set this up so we would get some improvement in RMSE (which we did with 2048 trials), and some speedup in training time (which we did not get with 64 threads). It ran twice the number of trials in slightly less than twice the time. The comparison is imperfect, local desktop vs. AWS, running Ray 1.0 on local and 1.1 on the cluster, different number of trials (better hyperparameter configs don't get early-stopped and take longer to train). But the point was to see what kind of improvement one might obtain in practice, leveraging a cluster vs. a local desktop or laptop. Bottom line, modest benefit here from even a pretty large 32-node cluster. 
-- RMSEs are similar across the board. XGB with 2048 trials is best by a small margin. 
+- We saw a big speedup when using Hyperopt and Optuna locally, compared to grid search. The sequential search performed about 261 trials, so the XGB/Optuna search performed about 3x as many trials in half the time and got a similar RMSE. 
+- The cluster of 32 instances (64 threads) gave a modest RMSE improvement vs. the local desktop with 12 threads. I attempted to set this up so we would get some improvement in RMSE vs. local Hyperopt/Optuna (which we did with 2048 trials), and some speedup in training time (which we did not get with 64 threads). It ran twice the number of trials in slightly less than twice the time. The comparison is imperfect, local desktop vs. AWS, running Ray 1.0 on local and 1.1 on the cluster, different number of trials (better hyperparameter configs don't get early-stopped and take longer to train). But the point was to see what kind of improvement one might obtain in practice, leveraging a cluster vs. a local desktop or laptop. Bottom line, modest benefit here from a 32-node cluster. 
+- RMSEs are similar across the board. XGB with 2048 trials is best by a small margin among the boosting models. 
 - LightGBM doesn't offer improvement over XGBoost here in RMSE or run time. In my experience LightGBM is often faster so  you can train and tune more in a given time. But we don't see that here. Possibly XGB interacts better with ASHA early stopping.
-- Similar RMSE between Hyperopt and Optuna. Optuna is consistently slightly faster (up to 35% with LGBM/cluster).
+- Similar RMSE between Hyperopt and Optuna. Optuna is consistently faster (up to 35% with LGBM/cluster).
 
-Our simple ElasticNet baseline yields similar results to boosting, in seconds. This may be because our feature engineering was intensive and designed to fit the linear model. Not shown, SVR and KernelRidge outperform ElasticNet, and an ensemble improves over all individual algos.
+Our simple ElasticNet baseline yields slightly better results than boosting, in seconds. This may be because our feature engineering was intensive and designed to fit the linear model. Not shown, SVR and KernelRidge outperform ElasticNet, and an ensemble improves over all individual algos.
 
 Full notebooks are on [GitHub](https://github.com/druce/iowa/blob/master/hyperparameter_optimization.ipynb).
 
@@ -136,7 +136,7 @@ Bayesian optimization starts by sampling randomly, e.g. 30 combinations, and com
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="720" height="360" src="/assets/2020/plotly.html"></iframe>
 {% endraw %}
 
-(The size of the markers corresponds to the size of RMSE. On the left, markers are the same color, but if two markers overlap the alpha will show darker overlap. On the right marker color corresponds ot the search order, so we can see later trials are close to the final value.)
+(The size of the markers corresponds to the size of RMSE. On the left, markers are the same color, but if two markers overlap the alpha will show darker overlap. On the right marker color corresponds ot the search order, so we can see later trials are close to the final value. Hover the mouse over markers for more info.)
 
 If good metrics are not uniformly distributed, but found close to one another in a Gaussian distribution or any distribution which we can model, then Bayesian optimization can exploit the underlying pattern, and is likely to be more efficient than grid search or naive random search.
 
@@ -790,7 +790,7 @@ Raw CV RMSE 18458 (STD 2511)
 
 ## 14. Concluding remarks
 
-In every case I've applied them, Hyperopt and Optuna have given me at least a small improvement in the best metrics I found using grid search methods. Bayesian optimization tunes faster with a less manual process vs. sequential tuning.  It's fire-and-forget.
+In every case I've applied them, Hyperopt and Optuna have obtained at least a small improvement in the best metrics I found using grid search methods. Bayesian optimization tunes faster with a less manual process vs. sequential tuning.  It's fire-and-forget.
 
 Is Ray Tune the way to go for hyperparameter tuning? Provisionally, yes. Ray provides integration between the underlying ML (e.g. XGBoost), the Bayesian search (e.g. Hyperopt), and early stopping (ASHA). It allows us to easily swap search algorithms. 
 
@@ -798,9 +798,9 @@ There are other alternative search algorithms in the [Ray docs](https://docs.ray
 
 Clusters? Most of the time I don't have a need, costs add up, did not see as large a speedup as expected. I only see  ~2x speedup on the 32-instance cluster.  Setting up the test I expected a bit less than 4x speedup accounting for slightly less-than-linear scaling. The longest run I have tried, with 4096 samples, ran overnight on desktop. My MacBook Pro w/16 threads and desktop with 12 threads and GPU are plenty powerful for this data set. Still, it's useful to have the clustering option in the back pocket. In production, it may be more standard and maintainable to deploy with e.g. Terraform, Kubernetes than the Ray native YAML cluster config file. If you want to train big data at scale you need to really understand and streamline your pipeline.
 
-It continues to surprise me that ElasticNet, i.e. regularized linear regression, performs similar to boosting on this dataset. I heavily engineered features so that linear methods work well. Predictors were chosen using Lasso/ElasticNet and I used log and Box-Cox transforms to force predictors to follow assumptions of least-squares.
+It continues to surprise me that ElasticNet, i.e. regularized linear regression, performs slightly better than boosting on this dataset. I heavily engineered features so that linear methods work well. Predictors were chosen using Lasso/ElasticNet and I used log and Box-Cox transforms to force predictors to follow assumptions of least-squares. But still, boosting is supposed to be the gold standard for tabular data.
 
-This may tend to validate one of the [critiques of machine learning](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3624052), that the most powerful machine learning methods don't necessarily always converge all the way to the best solution. If you have a ground truth that is linear plus noise, a complex XGBoost or neural network algorithm should get arbitrarily close to the closed-form optimal solution, but will probably never match the optimal solution exactly. XGBoost regression is piecewise constant and the complex neural network is subject to the vagaries of stochastic gradient descent. I thought arbitrarily close meant almost indistinguishable, given that gradient boosting is the gold standard for tabular data. But clearly this is not always the case.
+This may tend to validate one of the [critiques of machine learning](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3624052), that the most powerful machine learning methods don't necessarily always converge all the way to the best solution. If you have a ground truth that is linear plus noise, a complex XGBoost or neural network algorithm should get arbitrarily close to the closed-form optimal solution, but will probably never match the optimal solution exactly. XGBoost regression is piecewise constant and the complex neural network is subject to the vagaries of stochastic gradient descent. I thought arbitrarily close meant almost indistinguishable. But clearly this is not always the case.
 
 ElasticNet with L1 + L2 regularization plus gradient descent and hyperparameter optimization is still machine learning. It's simply a form of ML better matched to this problem. In the real world where data sets don't match assumptions of OLS, gradient boosting generally performs extremely well. And even on this dataset, engineered for success with the linear models, SVR and KernelRidge performed better than ElasticNet (not shown) and ensembling ElasticNet with XGBoost, LightGBM, SVR, neural networks worked best of all. 
 
