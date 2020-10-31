@@ -10,7 +10,7 @@ categories: datascience
 tags: datascience
 
 ---
-![Image source: Crissman Loomis, Using Optuna to Optimize XGBoost Hyperparameters (2020)](/assets/2020/optuna_bayesian.png)
+![RandomizedSearch HPO vs. Bayesian HPO](/assets/2020/fig1.png)
 > *Bayesian optimization of machine learning model hyperparameters works faster and better than grid search. Here's how we can speed up hyperparameter tuning with 1) Bayesian optimization with Hyperopt and Optuna, running on… 2) the [Ray](https://ray.io/) distributed machine learning framework, with a [unified API to many hyperparameter search algos](https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf) and early stopping schedulers, and… 3) a distributed cluster of cloud instances for even faster tuning. [Image source: Crissman Loomis](https://medium.com/optuna/using-optuna-to-optimize-xgboost-hyperparameters-63bfcdfd3407)*
 <!--more-->
 
@@ -136,11 +136,13 @@ Bayesian optimization starts by sampling randomly, e.g. 30 combinations, and com
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="720" height="360" src="/assets/2020/plotly.html"></iframe>
 {% endraw %}
 
+(The size of the markers corresponds to the size of RMSE. On the left, markers are the same color, but if two markers overlap the alpha will show darker overlap. On the right marker color corresponds ot the search order, so we can see later trials are close to the final value.)
+
 If good metrics are not uniformly distributed, but found close to one another in a Gaussian distribution or any distribution which we can model, then Bayesian optimization can exploit the underlying pattern, and is likely to be more efficient than grid search or naive random search.
 
-[HyperOpt](http://hyperopt.github.io/hyperopt/) is a Bayesian optimization algorithm by [James Bergstra et al.](https://conference.scipy.org/proceedings/scipy2013/pdfs/bergstra_hyperopt.pdf). See this [excellent blog post by Subir Mansukhani](https://blog.dominodatalab.com/hyperopt-bayesian-hyperparameter-optimization/).
+[HyperOpt](http://hyperopt.github.io/hyperopt/) is a Bayesian optimization algorithm by [James Bergstra et al.](https://conference.scipy.org/proceedings/scipy2013/pdfs/bergstra_hyperopt.pdf), see this [excellent blog post by Subir Mansukhani](https://blog.dominodatalab.com/hyperopt-bayesian-hyperparameter-optimization/).
 
-[Optuna](https://optuna.org/) is a Bayesian optimization algorithm by [Takuya Akiba, et al.](https://arxiv.org/abs/1907.10902). See this [excellent blog post by Crissman Loomis](https://medium.com/optuna/using-optuna-to-optimize-xgboost-hyperparameters-63bfcdfd3407) from which the visualization is taken.
+[Optuna](https://optuna.org/) is a Bayesian optimization algorithm by [Takuya Akiba et al.](https://arxiv.org/abs/1907.10902), see this [excellent blog post by Crissman Loomis](https://medium.com/optuna/using-optuna-to-optimize-xgboost-hyperparameters-63bfcdfd3407).
 
 
 ## 4. Early Stopping
