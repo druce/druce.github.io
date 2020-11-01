@@ -80,14 +80,18 @@ and implementations below.)
 
 Any sufficiently advanced machine learning model is indistinguishable from magic, and any sufficiently advanced machine learning model needs good tuning.
 
-Backing up a step, here is a typical modeling workflow:
+Suppose you have a neural network to predict whether a stock will go up or down next week (binary classification). Suppose the neural network is described by  3 discrete hyperparameters: how many layers, how many units in each layer, and an activation function (relu or logistic). The hyperparameter optimization problem is to find the parameter vector that yields the best results. 
+
+One dumb way is an exhaustive grid search over all possible values. Another way is a random search, drawing hyperparameter values from independent uniform distributions. A smarter Bayesian search starts off sampling from independent uniform distributions but tries to learn the best region and distribution to sample from. So it works faster and better. That’s pretty much it.
+
+To dive in a little, here is a typical modeling workflow:
 
 - Exploratory data analysis: understand your data.
 - Feature engineering and feature selection: clean, transform and engineer the best possible features
 - Modeling: model selection and hyperparameter tuning to identify the best model architecture, and ensembling to combine multiple models
 - Evaluation: Describe the out-of-sample error and its expected distribution.
 
-To minimize the out-of-sample error, you minimize the error from *bias*, meaning the model isn't sufficiently sensitive to the signal in the data, and *variance*, meaning the model is too sensitive to the signal specific to the training data in ways that don't generalize out-of-sample. Modeling is 90% data prep, the other half is all finding the [optimal bias-variance tradeoff](http://scott.fortmann-roe.com/docs/BiasVariance.html). 
+To minimize the out-of-sample error, you minimize the error from *bias*, meaning the model is too simple or insufficiently sensitive to the signal in the data, and *variance*, meaning the model is too complex or too sensitive to noise in the training data in ways that don't generalize out-of-sample. Modeling is 90% data prep, the other half is all finding the [optimal bias-variance tradeoff](http://scott.fortmann-roe.com/docs/BiasVariance.html). 
 
 Hyperparameters help you tune the bias-variance tradeoff. For a simple logistic regression predicting survival on the Titanic, a regularization parameter lets you control overfitting by penalizing sensitivity to any individual feature. For a massive neural network doing machine translation, the number and types of layers, units, activation function, in addition to regularization, are hyperparameters. We select the best hyperparameters using *[k-fold cross-validation](https://machinelearningmastery.com/k-fold-cross-validation/)*; this is what we call hyperparameter tuning.
 
@@ -104,7 +108,7 @@ Instead of aggregating many independent learners working in parallel, *i.e.* bag
 
 The learning rate performs a similar function to voting in random forest, in the sense that no single decision tree determines too much of the final estimate. This 'wisdom of crowds' approach helps prevent overfitting.
 
-Gradient boosting is the current state of the art for regression and classification on traditional structured tabular data (in contrast to less structured data like image/video/natural language processing, where deep learning, *i.e.* deep neural net are state of the art). 
+Gradient boosting is the current state of the art for regression and classification on traditional structured tabular data (in contrast to less structured data like image/video/natural language processing, where deep learning, *i.e.* deep neural nets are state of the art). 
 
 Gradient boosting algorithms like  [XGBoost](https://xgboost.readthedocs.io/en/latest/parameter.html), [LightGBM](https://lightgbm.readthedocs.io/en/latest/Parameters.html), and [CatBoost](https://catboost.ai/docs/concepts/python-reference_parameters-list.html) have a very large number of hyperparameters, and tuning is an important part of using them.
 
@@ -126,7 +130,7 @@ In this post, we focus on Bayesian optimization with Hyperopt and Optuna.
 
 ## 3. Bayesian Optimization
 
-What is Bayesian optimization? When we perform a grid search, the search space is a [prior](https://en.wikipedia.org/wiki/Prior_probability): we believe that the best hyperparameter vector is in this search space. And *a priori* each hyperparameter combinations has equal probability of being the best combination (a uniform distribution). So we try them all and pick the best one.
+What is Bayesian optimization? When we perform a grid search, the search space is a [prior](https://en.wikipedia.org/wiki/Prior_probability): we believe that the best hyperparameter vector is in this search space. And *a priori* each hyperparameter combination has equal probability of being the best combination (a uniform distribution). So we try them all and pick the best one.
 
 Perhaps we might do two passes of grid search. After an initial search on a broad, coarsely spaced grid, we do a deeper dive in a smaller area around the best metric from the first pass, with a more finely-spaced grid. In Bayesian terminology, we *updated our prior*.
 
