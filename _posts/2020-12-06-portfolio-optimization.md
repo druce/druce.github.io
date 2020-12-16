@@ -14,10 +14,6 @@ tags: datascience markets investing
 > *Do you want to do pretty fast and easy portfolio optimization with Python? Then CVXOPT, and this post, are for you! Along the way we'll do an intro to Capital Asset Pricing Model (CAPM) concepts. [Code here](https://github.com/druce/portfolio_optimization/blob/master/Portfolio%20optimization.ipynb).*
 <!--more-->
 
-- conclusion
-- maybe revisit triangle pngs
-- fix &alphas inline to use latex
-
 [Gold](https://stockcharts.com/h-sc/ui?s=gld&id=p33407302522&def=Y&listNum=1#) has been performing well in the Covid-19 market, rising close to $2000/oz. before trading recently around $1700. Should long-term investors have gold in their portfolio, and how much? 
 
 One way to answer this question is to look at how portfolios with and without gold performed. Using a portfolio optimization framework, we can find the highest-return portfolio for any feasible level of risk: the classic *efficient frontier*:
@@ -402,11 +398,12 @@ Mean-variance optimization is a useful framework. I tend to think markets are bo
 
 3. *Everyone should index because it is game-theory optimal.* Granted, if you hold the market portfolio, and the market portfolio never changes, and you never need to trade, you are guaranteed the market return. However, once you have to trade, once you receive dividend or interest income to reinvest, your returns depend on your trading efficiency and alignment with market timing. And the smart money, like market-makers or Warren Buffett, who you have to trade with, can demand an explicit or implicit bid-ask by only giving the other side of the trade when it's worth their while. And when the index changes, you are forced to trade to match it, and people will front-run you. If Tesla goes into the S&P at $1000/share as a top-10 market cap, and you buy it at $1000/share you will match the index, but it doesn't mean you didn't get fleeced. If you don't have an edge, indexing and implicitly trying to tag along with the average investor is smart. But you also have to trade as little as possible, and avoid buyig at the top and selling at the bottom. Most investors don't. Every time you trade, you are prey to the smarter money. Most retail investors don't match the market [for many reasons](https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/behavior%20of%20individual%20investors.pdf), some of which are neutralized by indexing. But even retail index investors underperform because they tend to buy and sell at the worst times.
 
+[Code here](https://github.com/druce/portfolio_optimization)
+
 &nbsp;
 
 &nbsp;
 
 
 [^1]: We reverse the sign because of the inconvenient convention of how triangle angles are measured. Suppose we you start walking in the direction of segment a<sub>1</sub> for the first asset. If for segment a<sub>2</sub> you keep going in the same direction, that corresponds to &alpha;' = 0&deg;, correlation = 1.0. If you do a 180, that corresponds to &alpha;' = 180&deg;, correlation = -1.0. If you make a right angle turn in either direction, that corresponds to &alpha;' = +/- 90&deg;, correlation = 0. The way we usually measure triangle angles, an angle of 0 corresponds to doing a 180, which is a slightly backwards way of looking at it. So we have to reverse the sign on the classic cosine rule to make cosine math correspond to correlation math. But the spatial relation is the same.
-
 
