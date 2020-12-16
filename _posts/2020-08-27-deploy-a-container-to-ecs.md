@@ -1,10 +1,10 @@
 ---
-id: 7105
+id: 7111
 title: 'Deploy a Microservice to AWS Elastic Container Service: The Harder Way and the Easier Way'
 date: 2020-08-27T22:28:57+00:00
 author: Druce Vertes
 layout: post
-guid: /?p=7105
+guid: /?p=7111
 permalink: /2020/08/deploy-a-container-to-ecs
 categories: datascience
 tags: datascience

@@ -1,4 +1,438 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-11-17T13:58:08-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Druce.ai</title><subtitle>Druce's Blog on Machine Learning, Tech, Markets and Economics</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Beyond Grid Search: Using Hyperopt, Optuna, and Ray Tune to hypercharge hyperparameter tuning for XGBoost and LightGBM</title><link href="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna" rel="alternate" type="text/html" title="Beyond Grid Search: Using Hyperopt, Optuna, and Ray Tune to hypercharge hyperparameter tuning for XGBoost and LightGBM" /><published>2020-10-12T18:28:57-04:00</published><updated>2020-10-12T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna">&lt;p&gt;&lt;img src=&quot;/assets/2020/fig1.png&quot; alt=&quot;RandomizedSearch HPO vs. Bayesian HPO&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-12-16T16:51:25-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Druce.ai</title><subtitle>Druce's Blog on Machine Learning, Tech, Markets and Economics</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Portfolio Optimization with cvxopt</title><link href="http://0.0.0.0:4000/2020/12/portfolio-opimization" rel="alternate" type="text/html" title="Portfolio Optimization with cvxopt" /><published>2020-12-06T17:28:57-05:00</published><updated>2020-12-06T17:28:57-05:00</updated><id>http://0.0.0.0:4000/2020/12/portfolio-optimization</id><content type="html" xml:base="http://0.0.0.0:4000/2020/12/portfolio-opimization">&lt;p&gt;&lt;img src=&quot;/assets/2020/transitionmap1.png&quot; alt=&quot;Transition map&quot; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;Do you want to do pretty fast and easy portfolio optimization with Python? Then CVXOPT, and this post, are for you! Along the way we’ll do an intro to Capital Asset Pricing Model (CAPM) concepts. &lt;a href=&quot;https://github.com/druce/portfolio_optimization/blob/master/Portfolio%20optimization.ipynb&quot;&gt;Code here&lt;/a&gt;.&lt;/em&gt;
+&lt;!--more--&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://stockcharts.com/h-sc/ui?s=gld&amp;amp;id=p33407302522&amp;amp;def=Y&amp;amp;listNum=1#&quot;&gt;Gold&lt;/a&gt; has been performing well in the Covid-19 market, rising close to $2000/oz. before trading recently around $1700. Should long-term investors have gold in their portfolio, and how much?&lt;/p&gt;
+
+&lt;p&gt;One way to answer this question is to look at how portfolios with and without gold performed. Using a portfolio optimization framework, we can find the highest-return portfolio for any feasible level of risk: the classic &lt;em&gt;efficient frontier&lt;/em&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020/efficientfrontier1.png&quot; alt=&quot;Efficient frontier&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For each asset, the marker represents &lt;em&gt;the historical mean real return&lt;/em&gt; (y-axis) vs. &lt;em&gt;the historical standard deviation of returns&lt;/em&gt; (x-axis). The line represents the return and risk for optimal combinations of these 5 assets that maximize the return for that level of risk (or vice versa, minimize the level of risk for a specified threshold return). The efficient frontier line slopes upward, because the more risk you take, the more return you should get. More to the point, if it sloped down, that would mean you accepted more risk for less return, which by our definition would not be an optimal combination.&lt;/p&gt;
+
+&lt;p&gt;By looking at whether optimal portfolios contain gold, and over which time periods and risk levels, we can get a sense of whether to own gold, and how much. For the answer, skip down.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-do-we-use-the-standard-deviation-of-returns-as-a-proxy-for-risk&quot;&gt;Why do we use the standard deviation of returns as a proxy for risk?&lt;/h3&gt;
+
+&lt;p&gt;Using &lt;a href=&quot;https://fs.blog/2013/11/mr-market/&quot;&gt;Warren Buffet’s analogy&lt;/a&gt;, we anthropomorphize Mr. Market as a moody partner who co-invests in our stocks. When he’s having a good day, Mr. Market values a security according to the best-case scenario: at the high end of the range of potential valuations. On a bad day he values it according to the worst-case scenario, at the low end of the range.&lt;/p&gt;
+
+&lt;p&gt;On a &lt;em&gt;typical&lt;/em&gt; day Mr. Market moves a typical distance between the two extremes of fear and greed. &lt;em&gt;‘Volatility’ is how much a stock moves on a typical day based on Mr. Market’s mood swings.&lt;/em&gt; This distance is a proxy for how wide Mr. Market’s valuation range is, hence &lt;em&gt;how risky the market thinks the security is&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;As an investor, should you care how the market perceives risk? That depends. First, do you believe the market’s implicit risk perception is worth knowing to inform your own decisions? And even if not, are you going to trade with the market?&lt;/p&gt;
+
+&lt;p&gt;If the answer to both questions is ‘no’, then maybe you don’t care about volatility. If you are an omniscient Warren Buffett, with your own deeply-considered valuation of a company, and you want to hold forever, then the daily market price and volatility don’t affect your actions in any way. Risk just means that many futures &lt;em&gt;can&lt;/em&gt; unfold but only one of them &lt;em&gt;will&lt;/em&gt; unfold, even when you know as much as possible. The meaningful measure of risk is the margin of error around your own valuation, due to factors outside your control. You should spend your time thinking about those factors and the margin of error, not the market volatility.&lt;/p&gt;
+
+&lt;p&gt;So, if you have confidence in your own risk estimation, the &lt;em&gt;market&lt;/em&gt; volatility may be irrelevant to your risk estimate. But if you have to &lt;em&gt;trade&lt;/em&gt; with the market, you may still wish to take volatility into account.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Fundamental&lt;/em&gt; valuation metrics like price/earnings, price/book, enterprise value/EBITDA are a bit like looking at your poker hand and determining if you have a pair of aces or a pair of unsuited rags. &lt;em&gt;Technical&lt;/em&gt; metrics like volatility are a bit like looking at how your opponents have been playing and what their patterns and tells are. Any good poker player will tell you it’s a good idea to pay attention to all of that. (To be honest, in most cases if I had to pick between knowing the value of my hand and knowing how the players will react to my betting, I would pick &lt;a href=&quot;https://www.sportingnews.com/us/other-sports/news/annette-obrestad-on-legendary-blind-poker-tournament-win/nsw780tdkfmx187t3rx67bgeh&quot;&gt;the latter&lt;/a&gt;.)&lt;/p&gt;
+
+&lt;p&gt;If you are Warren Buffett, you don’t &lt;em&gt;have&lt;/em&gt; to trade, ever. That is a big part of his edge. Market volatility is Buffett’s opportunity. But if you’re planning to retire or might need to sell in the foreseeable future, you should have a feel for volatility. Otherwise you end up trading at an inopportune time, and worst of all, getting thrown off your game by unforeseen volatility.&lt;/p&gt;
+
+&lt;p&gt;Just like historical P/Es, historical volatilities are a tool for investing judgement, not a substitute for it. But most of us aren’t Warren Buffett and are students of the markets. Understanding volatility and risk are part of our journey. Maybe one day I’ll stop caring about volatility, but today is not that day.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-do-you-compute-portfolio-volatility-from-individual-asset-volatilities&quot;&gt;How do you compute portfolio volatility from individual asset volatilities?&lt;/h3&gt;
+
+&lt;p&gt;Given the historical volatility of each of our assets, how do we compute the volatility of our portfolio?&lt;/p&gt;
+
+&lt;p&gt;Of course, we can compute all the historical asset-weighted returns of the portfolio and then compute the standard deviation. But if we want to do optimization we need an expression to optimize. And we want to understand how portfolio volatility is determined.&lt;/p&gt;
+
+&lt;p&gt;Suppose you own 1 share of asset a&lt;sub&gt;1&lt;/sub&gt; and 1 share of asset a&lt;sub&gt;2&lt;/sub&gt;. And you know the standard deviation of a&lt;sub&gt;1&lt;/sub&gt;’s absolute returns \(\sigma_{1}=\) $3 and the standard deviation of a&lt;sub&gt;2&lt;/sub&gt;’s absolute returns \(\sigma_{2} =\) $4. What is the volatility of a portfolio with one share of each?&lt;/p&gt;
+
+&lt;p&gt;To compute the portfolio return SD, the &lt;em&gt;correlation&lt;/em&gt; ρ (rho) between a&lt;sub&gt;1&lt;/sub&gt; and a&lt;sub&gt;2&lt;/sub&gt; comes into play, because you need to know if the assets generally move in the same direction or in opposite directions. The correlation is how many SDs we expect a&lt;sub&gt;1&lt;/sub&gt;’s return to move from its mean when a&lt;sub&gt;2&lt;/sub&gt;’s return moves 1 SD from its mean, and vice versa.&lt;/p&gt;
+
+&lt;p&gt;The expression for the risk of the combined portfolio of a&lt;sub&gt;1&lt;/sub&gt; and a&lt;sub&gt;2&lt;/sub&gt; is:&lt;/p&gt;
+
+\[\sigma_{port} = \sqrt{\sigma_{1}^2 + \sigma_{2}^2 + 2 \cdot \rho \cdot \sigma_{1} \cdot \sigma_{2} }\]
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Return vol \(\sigma_{1}\)&lt;/th&gt;
+      &lt;th&gt;Return vol \(\sigma_{2}\)&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Return correlation \(\rho_{12}\)&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Portfolio volatility&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$3&lt;/td&gt;
+      &lt;td&gt;$4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3 + 4 = $7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$3&lt;/td&gt;
+      &lt;td&gt;$4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-1.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4 - 3 = $1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$3&lt;/td&gt;
+      &lt;td&gt;$4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;\(\sqrt{3^2 + 4^2 + 2 \cdot 3 \cdot 4 \cdot 0.5}  = \sqrt{37} = $6.08\)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$3&lt;/td&gt;
+      &lt;td&gt;$4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-0.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;\(\sqrt{3^2 + 4^2 + 2 \cdot 3 \cdot 4 \cdot (-0.5)} = \sqrt{13} = $3.61\)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$3&lt;/td&gt;
+      &lt;td&gt;$4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;\(\sqrt{3^2 + 4^2} = $5\)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt; &amp;nbsp; &lt;/p&gt;
+
+&lt;p&gt;This should remind you of Pythagoras and square triangles and the cosine rule in trigonometry.&lt;/p&gt;
+
+&lt;p&gt;Cosine rule:&lt;/p&gt;
+
+\[a = \sqrt{b^2 + c^2 - 2 \cdot cos{\alpha} \cdot b \cdot c }\]
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020/cosinerule.png&quot; height=&quot;348&quot; width=&quot;432&quot; alt=&quot;cosine rule&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Correlation math is like the cosine rule, except we &lt;em&gt;change the sign&lt;/em&gt; of the last term.&lt;/p&gt;
+
+&lt;h3 id=&quot;illustrating-risk-math-with-triangles&quot;&gt;Illustrating risk math with triangles&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Consider our 2 assets
+    &lt;ul&gt;
+      &lt;li&gt;Asset a&lt;sub&gt;1&lt;/sub&gt; has SD of returns σ&lt;sub&gt;1&lt;/sub&gt;&lt;/li&gt;
+      &lt;li&gt;Asset a&lt;sub&gt;2&lt;/sub&gt; has SD of returns σ&lt;sub&gt;2&lt;/sub&gt;&lt;/li&gt;
+      &lt;li&gt;ρ is the correlation between the returns of a&lt;sub&gt;1&lt;/sub&gt; and a&lt;sub&gt;2&lt;/sub&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Take the inverse cosine of the correlation. Find the angle α’ = 180° - cos&lt;sup&gt;-1&lt;/sup&gt;ρ
+    &lt;ul&gt;
+      &lt;li&gt;If ρ=1, cos&lt;sup&gt;-1&lt;/sup&gt; 1 = 0°, α‘=180°&lt;/li&gt;
+      &lt;li&gt;If ρ=0, cos&lt;sup&gt;-1&lt;/sup&gt; 0 = 90°, α’ = 180 - 90 = 90°&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Make a triangle with 2 sides of length σ&lt;sub&gt;1&lt;/sub&gt; and σ&lt;sub&gt;2&lt;/sub&gt; and the angle α’ between those 2 sides&lt;/li&gt;
+  &lt;li&gt;The SD of the portfolio returns is given by the length of the third side.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;When we plug in angle α’ = 180° - cos&lt;sup&gt;-1&lt;/sup&gt;ρ in place of α, we reverse the sign of the last term&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, and the cosine rule becomes:&lt;/p&gt;
+
+\[a = \sqrt{b^2 + c^2 + 2 \cdot cos \alpha' \cdot b \cdot c }\]
+
+&lt;p&gt;where \(\alpha' = 180^\circ - \alpha\)&lt;/p&gt;
+
+&lt;h3 id=&quot;examples&quot;&gt;Examples:&lt;/h3&gt;
+
+&lt;p style=&quot;color:#666; font-size: 100%; font-weight: bold; text-align: center;&quot;&gt;Correlation ρ = 0, α’ = 90°:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020/corr0.png&quot; height=&quot;268&quot; width=&quot;434&quot; alt=&quot;0 correlation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p style=&quot;color:#666; font-size: 100%; font-weight: bold; text-align: center;&quot;&gt;Correlation ρ = 0.5, α’ = 60°:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020/corr0.5.png&quot; height=&quot;222&quot; width=&quot;440&quot; alt=&quot;0.5 correlation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p style=&quot;color:#666; font-size: 100%; font-weight: bold; text-align: center;&quot;&gt;Correlation ρ = 1.0, α’ = 0°:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020/corr1.png&quot; height=&quot;176&quot; width=&quot;378&quot; alt=&quot;1 correlation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p style=&quot;color:#666; font-size: 100%; font-weight: bold; text-align: center;&quot;&gt;Correlation ρ = -1.0, α’ = 180°:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020/corr-1.png&quot; height=&quot;124&quot; width=&quot;360&quot; alt=&quot;1 correlation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p style=&quot;color:#666; font-size: 100%; font-weight: bold; text-align: center;&quot;&gt;Correlation ρ = -0.5, α’ = 120°:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020/corr-0.5.png&quot; height=&quot;236&quot; width=&quot;454&quot; alt=&quot;1 correlation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;These risk triangles and the modified cosine rule are a handy way to visualize the how correlation and risk interact.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-covariance-matrix-and-generalizing-to-n-assets&quot;&gt;The covariance matrix, and generalizing to &lt;em&gt;n&lt;/em&gt; assets&lt;/h3&gt;
+
+&lt;p&gt;\(\sigma_{1}\sigma_{2}\rho_{12}\) is the &lt;em&gt;covariance&lt;/em&gt; \(\sigma_{12}\). So we can rewrite:&lt;/p&gt;
+
+\[\sigma_{port} = \sqrt{\sigma_{1}^2 + \sigma_{2}^2 + 2\sigma_{12}}\]
+
+&lt;p&gt;The covariance is the expected value of the product of A’s deviation from its mean and B’s deviation from its mean. The correlation is the covariance scaled by (divided by) the product of A’s standard deviation and B’s standard deviation.&lt;/p&gt;
+
+&lt;p&gt;The triangles above are drawn assuming 1 share of each asset and absolute dollar returns. To use portfolio weights and percentage returns, we can rewrite:&lt;/p&gt;
+
+\[r_{port} = w_{1}r_{1} + w_{2}r_{2}\]
+
+&lt;p&gt;and the volatility:&lt;/p&gt;
+
+\[\sigma_{port} = \sqrt{ w_{1}^2\sigma_{1}^2 + w_{2}^2\sigma_{2}^2 + 2w_{1}w_{2}\sigma_{12}}\]
+
+&lt;p&gt;Generalizing to n assets and using \(\sigma_{ii}\) to denote the variance of asset &lt;em&gt;i&lt;/em&gt;:&lt;/p&gt;
+
+\[\sigma_{port} = \sum_{i=1}^{n}\sum_{j=1}^{n}w_{i}w_{j}\sigma_{ij}\]
+
+&lt;p&gt;When you are doing a nested summation over a square array, you should think of a matrix. Define the &lt;em&gt;covariance matrix&lt;/em&gt; Σ (ρ=0.5) as:&lt;/p&gt;
+
+\[\Sigma = \begin{vmatrix}
+\sigma_{1}^2 &amp;amp; \sigma_{12} \\
+\sigma_{21} &amp;amp; \sigma_{2}^2
+\end{vmatrix} = \begin{vmatrix}
+9 &amp;amp; 6 \\
+6 &amp;amp; 16
+\end{vmatrix}\]
+
+&lt;p&gt;with variances σ&lt;sup&gt;2&lt;/sup&gt; on the diagonal and covariances σ&lt;sub&gt;ij&lt;/sub&gt; off the diagonal.&lt;/p&gt;
+
+&lt;p&gt;Then we get an elegant matrix notation for the above double summation:&lt;/p&gt;
+
+\[\sigma_{port} = \sqrt{\boldsymbol{w^T} \Sigma \boldsymbol{w}}\]
+
+&lt;h3 id=&quot;drawing-the-efficient-frontier&quot;&gt;Drawing the efficient frontier&lt;/h3&gt;
+
+&lt;p&gt;What is the efficient frontier? The line describing the set of feasible portfolios a rational investor might choose.&lt;/p&gt;
+
+&lt;p&gt;What is the leftmost point on the efficient frontier? it’s the minimum volatility portfolio.&lt;/p&gt;
+
+&lt;p&gt;We can find the weights for the minimum volatility portfolio through an convex optimzation.&lt;/p&gt;
+
+&lt;p&gt;CVXPY is a Python modeling framework for convex optimization (&lt;a href=&quot;https://arxiv.org/abs/1603.00943&quot;&gt;paper&lt;/a&gt;), by Steven Diamond and Stephen Boyd of Stanford (who wrote a &lt;a href=&quot;https://web.stanford.edu/~boyd/cvxbook/&quot;&gt;textbook&lt;/a&gt; on convex optimization.) In the way Pandas is a Python extension for dataframes, CVXPY is a Python extension for describing convex optimization problems.&lt;/p&gt;
+
+&lt;p&gt;CVXPY is a little more user-friendly and more performant than &lt;a href=&quot;https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html&quot;&gt;scipy.optimize&lt;/a&gt;, and CVXPY supports &lt;a href=&quot;https://www.cvxpy.org/tutorial/advanced/index.html#solve-method-options&quot;&gt;many solvers&lt;/a&gt; on the back end, open-source and commercial.&lt;/p&gt;
+
+&lt;p&gt;In particular, CVXPY’s parameter abstraction allows solvers to efficiently re-use previous calculations when tracing out an efficient frontier.&lt;/p&gt;
+
+&lt;p&gt;The first step is to load some data from Professor Aswath Damodaran’s website into a Pandas dataframe:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;data_xls&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'http://www.stern.nyu.edu/~adamodar/pc/datasets/histretSP.xls'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data_sheet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Returns by year&quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# these will change as rows get added on Damodaran website
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;skiprows&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;17&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;skipfooter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;download_df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_excel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'http://www.stern.nyu.edu/~adamodar/pc/datasets/histretSP.xls'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+                         &lt;span class=&quot;n&quot;&gt;sheet_name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data_sheet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+                         &lt;span class=&quot;n&quot;&gt;skiprows&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;skiprows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                         &lt;span class=&quot;n&quot;&gt;skipfooter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;skipfooter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;download_df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;download_df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Year'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Similarly we can load data from the FRED economic indicator database:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import pandas_datareader as pdr
+# load gold data from FRED API &amp;amp; save copy locally to CSV file
+series = ['GOLDAMGBD228NLBM']
+gold_download = pdr.data.DataReader(series, 
+                                    'fred', 
+                                    start='1968-12-31')
+# convert daily to annual
+gold_download = gold_download.resample('A').last().reset_index()
+gold_download.set_index(pd.DatetimeIndex(gold_download['DATE']).year, inplace=True)
+gold_download['return'] = gold_download['GOLDAMGBD228NLBM'].pct_change()
+gold_download.to_csv('gold_fred.csv')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After some additional data-wrangling we have a dataframe &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;df&lt;/code&gt; of returns 1928-1999 for T-bills, T-notes, Baa corporate bonds, S&amp;amp;P, and gold.&lt;/p&gt;
+
+&lt;p&gt;To find the minimum-volatility portfolio:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;cvxpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# compute covariance matrix (df being the dataframe of historical returns)
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sigma&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cov&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transpose&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# number of assets
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Sigma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# average returns
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mu&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# asset SDs
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;asset_vols&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sigma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diagonal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# variable to optimize over - portfolio weights
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# objectives to optimize
+# portfolio return
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; 
+&lt;span class=&quot;c1&quot;&gt;# volatility
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vol&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quad_form&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Sigma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;prob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Problem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Minimize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# minimie volatility
+&lt;/span&gt;                  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# sum of weights = 1
+&lt;/span&gt;                   &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;           &lt;span class=&quot;c1&quot;&gt;# weights &amp;gt; 0 (long-only)
+&lt;/span&gt;                 &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;prob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;solve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;wts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'%0.4f'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The highest possible return we could have achieved was 100% in the highest-performing asset. We know it’s the S&amp;amp;P but let’s let CVXPY figure it out:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Solve max return portfolio (corner solution)
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Problem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Maximize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# maximize return
+&lt;/span&gt;                  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+                   &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+                 &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;prob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;solve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;wts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'%0.4f'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Finally, we trace out the rest of the frontier. We create an array of say 200 volatilities between minvol and maxvol inclusive. For each volatility, we solve the optimization for the highest return portfolio subject to volatility &amp;lt;= vol&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vol_limit = cp.Parameter(nonneg=True)
+
+prob = cp.Problem(cp.Maximize(ret),
+                  [cp.sum(w) == 1, 
+                   w &amp;gt;= 0,
+                   vol &amp;lt;= vol_limit   # new constraint: vol &amp;lt;= vol_limit parameter
+                  ]
+                 )
+
+# define helper function to solve many in parallel
+def solve_vl(vl_val):
+    vol_limit.value = vl_val
+    result = prob.solve()
+    return (ret.value, np.sqrt(vol.value), w.value)
+
+# number of points on the frontier
+NPOINTS = 200
+vl_vals = np.linspace(minvol, maxretvol, NPOINTS)
+
+# iterate over vl_vals
+results_dict = {}
+for vl_val in vl_vals:
+    # print(datetime.strftime(datetime.now(), &quot;%H:%M:%S&quot;), vl_val)
+    results_dict[vl_val] = solve_vl(vl_val)
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then we draw the frontier with matplotlib:
+&lt;img src=&quot;/assets/2020/efficientfrontier1.png&quot; alt=&quot;Efficient frontier&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We can plot a transition map of the composition of the portfolio as you move along the efficient frontier:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020/transitionmap1.png&quot; alt=&quot;Transition map&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We observe that a small allocation of gold is present in most portfolios, except the most risky optimal portfolios. The minimum-volatility portfolio is T-bills plus a little bit of S&amp;amp;P plus a little bit of gold. The highest-volatility portfolio is of course 100% stocks, but the first asset you add is gold.&lt;/p&gt;
+
+&lt;p&gt;This covers a very long range of history. Let’s look at 1972-2019, i.e. after the US abandonment of the gold standard:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020/efficientfrontier2.png&quot; alt=&quot;Efficient frontier&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020/transitionmap2.png&quot; alt=&quot;Transition map&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally, let’s look at 1983-2018, i.e. the era of disinflation:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020/efficientfrontier3.png&quot; alt=&quot;Efficient frontier&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020/transitionmap3.png&quot; alt=&quot;Transition map&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Gold added value in the most inflationary period, but is present even in the last period. I would argue that the question is not whether you should have some inflation hedge in your portfolio but if you should have gold or something else, like TIPS, Bitcoin, leveraged real estate.&lt;/p&gt;
+
+&lt;h3 id=&quot;long-short-optimization&quot;&gt;Long-short optimization&lt;/h3&gt;
+
+&lt;p&gt;To illustrate CVXOPT for a long-short portfolio, we create a synthetic asset which returns -5% per year and has 0.9 correlation with the S&amp;amp;P, which we called ‘stonks’. We remove the constraint of weights being positive but add a constraint that the gross exposure must be less than 150%:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vol_limit = cp.Parameter(nonneg=True)
+
+prob = cp.Problem(cp.Maximize(ret), 
+                  [cp.norm1(w) &amp;lt;= 1.5,  # 1-norm &amp;lt;= 1.5, i.e. gross exposure &amp;lt; 150%
+                   cp.sum(w) == 1,
+                   vol &amp;lt;= vol_limit]
+                 )
+
+# define function so we can solve many in parallel
+def solve_vl(vl_val):
+    vol_limit.value = vl_val
+    result = prob.solve()
+    return (ret.value, np.sqrt(vol.value), w.value)
+
+# number of points on the frontier
+NPOINTS = 200
+vl_vals = np.linspace(minvol, maxretvol, NPOINTS)
+
+# iterate in-process
+results_dict = {}
+for vl_val in vl_vals:
+    # print(datetime.strftime(datetime.now(), &quot;%H:%M:%S&quot;), vl_val)
+    results_dict[vl_val] = solve_vl(vl_val)
+  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020/efficientfrontier4.png&quot; alt=&quot;Efficient frontier&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020/transitionmap4.png&quot; alt=&quot;Transition map&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Blinding glimpse of the obvious: if you can find good shorts and use leverage, you can supercharge returns. Note that the transition map uses gross exposures, but the stonks and occasionally some of the other assets go short.&lt;/p&gt;
+
+&lt;h3 id=&quot;factor-model&quot;&gt;Factor model&lt;/h3&gt;
+
+&lt;p&gt;As a final CVXOPT example, we can create a set of random factors and stocks with random exposures to these factors and random returns, and solve for the minimum-volatility portfolio and an efficient frontier:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# number of stocks
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt; 
+&lt;span class=&quot;c1&quot;&gt;# random historical mean returns for each stock
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mu&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;normal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# number of factors
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# factor covariance matrix - random symmetrical matrix
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SigmaFactor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;SigmaFactor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SigmaFactor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SigmaFactor&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# factor loadings, determine volatility and covariances between stocks
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;F&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# idiosyncratic risk of each stock
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;D&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;ret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;             &lt;span class=&quot;c1&quot;&gt;# solve for weights that maximize portfolio return
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;                &lt;span class=&quot;c1&quot;&gt;# portfolio factor loading
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Lmax&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Parameter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;# leverage constraint
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Lmax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# portfolio volatility: factor risk + idiosyncratic risk
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;risk&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quad_form&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SigmaFactor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quad_form&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;prob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Problem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Minimize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;risk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+                   &lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Lmax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;prob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;solve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;solver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OSQP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;minvol&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;risk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;minvolret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Min vol portfolio (return=%.4f, risk=%.4f)&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;minvolret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;minvol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Mean-variance optimization is a useful framework. I tend to think markets are boundedly efficient, and efficient-market maximalists have done investors a disservice by overselling moderrn portfolio theory. Beyond the forms of the &lt;a href=&quot;https://www.investopedia.com/ask/answers/032615/what-are-differences-between-weak-strong-and-semistrong-versions-efficient-market-hypothesis.asp#:~:text=The%20strong%20form%20version%20of,an%20advantage%20on%20the%20market.&quot;&gt;efficient market hypothesis&lt;/a&gt;, here are 3 important fallacies that sometimes get taught.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;em&gt;Betas (or factors) are all that matters.&lt;/em&gt; If you assume that factors capture all the correlations between stocks, and the unsystematic risk of one stock is always uncorrelated with the risk of other stocks, then with a sufficent number of stocks, the unsystematic risk cancels out and all that’s left is beta. In practice, this is a bad assumption, especially at times of market stress. No factor model can never capture all the underlying real-world correlations and potential correlations, many of which are never realized. For instance, if California tumbles into the sea, a lot of stocks that previously had low correlations will be highly correlated. First of all, because California exposure was not previously a factor but now suddenly is. And secondly because in a big market discontinuity correlations tend to go to one. The discontinuity overwhelms everything else, traders trade what there is a market for and not what is specifically impacted by news, and betas tend not to sway them. The modeled risk of a portfolio should be viewed as a lower bound in a normal market where the present is like the past.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;em&gt;The capital market line.&lt;/em&gt; If you have a risk-free rate, you can draw a line tangent to the efficient frontier, representing a mix of the risk-free asset and the market portfolio, and similarly if you can borrow at some rate you can use leverage to increase returns at a linear relationship with risk. It follows that everyone should just own the market portfolio with varying leverage. In practice, if you are allocating for a timeframe greater than say 10 years, you should be focusing on real inflation-adjusted, after-tax returns, not nominal returns. In that context there is no risk-free rate and there can be no risk-free positive real rate, in a real world subject to disasters and policy discontinuities. To expect markets or governments to ensure investors are guaranteed a positive real after-tax return in a world of wars and pandemics, where participants in goods and labor markets receive no such guarantee, is a chimerical notion.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;em&gt;Everyone should index because it is game-theory optimal.&lt;/em&gt; Granted, if you hold the market portfolio, and the market portfolio never changes, and you never need to trade, you are guaranteed the market return. However, once you have to trade, once you receive dividend or interest income to reinvest, your returns depend on your trading efficiency and alignment with market timing. And the smart money, like market-makers or Warren Buffett, who you have to trade with, can demand an explicit or implicit bid-ask by only giving the other side of the trade when it’s worth their while. And when the index changes, you are forced to trade to match it, and people will front-run you. If Tesla goes into the S&amp;amp;P at $1000/share as a top-10 market cap, and you buy it at $1000/share you will match the index, but it doesn’t mean you didn’t get fleeced. If you don’t have an edge, indexing and implicitly trying to tag along with the average investor is smart. But you also have to trade as little as possible, and avoid buyig at the top and selling at the bottom. Most investors don’t. Every time you trade, you are prey to the smarter money. Most retail investors don’t match the market &lt;a href=&quot;https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/behavior%20of%20individual%20investors.pdf&quot;&gt;for many reasons&lt;/a&gt;, some of which are neutralized by indexing. But even retail index investors underperform because they tend to buy and sell at the worst times.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;We reverse the sign because of the inconvenient convention of how triangle angles are measured. Suppose we you start walking in the direction of segment a&lt;sub&gt;1&lt;/sub&gt; for the first asset. If for segment a&lt;sub&gt;2&lt;/sub&gt; you keep going in the same direction, that corresponds to α’ = 0°, correlation = 1.0. If you do a 180, that corresponds to α’ = 180°, correlation = -1.0. If you make a right angle turn in either direction, that corresponds to α’ = +/- 90°, correlation = 0. The way we usually measure triangle angles, an angle of 0 corresponds to doing a 180, which is a slightly backwards way of looking at it. So we have to reverse the sign on the classic cosine rule to make cosine math correspond to correlation math. But the spatial relation is the same. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name>Druce Vertes</name></author><category term="datascience" /><category term="datascience" /><category term="markets" /><category term="investing" /><summary type="html">Do you want to do pretty fast and easy portfolio optimization with Python? Then CVXOPT, and this post, are for you! Along the way we’ll do an intro to Capital Asset Pricing Model (CAPM) concepts. Code here.</summary></entry><entry><title type="html">Beyond Grid Search: Using Hyperopt, Optuna, and Ray Tune to hypercharge hyperparameter tuning for XGBoost and LightGBM</title><link href="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna" rel="alternate" type="text/html" title="Beyond Grid Search: Using Hyperopt, Optuna, and Ray Tune to hypercharge hyperparameter tuning for XGBoost and LightGBM" /><published>2020-10-12T18:28:57-04:00</published><updated>2020-10-12T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna">&lt;p&gt;&lt;img src=&quot;/assets/2020/fig1.png&quot; alt=&quot;RandomizedSearch HPO vs. Bayesian HPO&quot; /&gt;&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;&lt;em&gt;Bayesian optimization of machine learning model hyperparameters works faster and better than grid search. Here’s how we can speed up hyperparameter tuning using 1) Bayesian optimization with Hyperopt and Optuna, running on… 2) the &lt;a href=&quot;https://ray.io/&quot;&gt;Ray&lt;/a&gt; distributed machine learning framework, with a &lt;a href=&quot;https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf&quot;&gt;unified API to many hyperparameter search algos&lt;/a&gt; and early stopping schedulers, and… 3) a distributed cluster of cloud instances for even faster tuning.&lt;/em&gt;
 &lt;!--more--&gt;&lt;/p&gt;
@@ -1771,76 +2205,4 @@ docker compose down
 
 &lt;p&gt;If you want to build something great, the first step is to build something that sucks a little. I think that’s true for StreetEYE, and for social in general. May all our next iterations be better!&lt;/p&gt;
 
-&lt;p&gt;Mostly, many thanks for being part of this experiment, and look forward to continuing to interact in other ways online, and in person!&lt;/p&gt;</content><author><name>Druce Vertes, CFA</name></author><category term="tech" /><category term="tech" /><summary type="html">The StreetEYE news aggregator experiment came to an end on 3/31/2019. Many thanks for supporting StreetEYE over the years!</summary></entry><entry><title type="html">How I learned to stop worrying and love quantitative tightening</title><link href="http://0.0.0.0:4000/2019/02/how-i-learned-to-stop-worrying-and-love-quantitative-tightening/" rel="alternate" type="text/html" title="How I learned to stop worrying and love quantitative tightening" /><published>2019-02-04T12:29:12-05:00</published><updated>2019-02-04T12:29:12-05:00</updated><id>http://0.0.0.0:4000/2019/02/how-i-learned-to-stop-worrying-and-love-quantitative-tightening</id><content type="html" xml:base="http://0.0.0.0:4000/2019/02/how-i-learned-to-stop-worrying-and-love-quantitative-tightening/">&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;Many people are talking about ‘quantitative tightening’ and ‘balance sheet reduction’, and some people are blaming it for market volatility, discussed &lt;a href=&quot;https://www.nytimes.com/2019/01/30/business/fed-quantitative-tightening.html&quot;&gt;here&lt;/a&gt;, &lt;a href=&quot;https://www.bloomberg.com/opinion/articles/2019-01-29/the-fed-s-balance-sheet-is-a-misunderstood-policy-tool&quot;&gt;here&lt;/a&gt;, &lt;a href=&quot;https://www.wsj.com/articles/fed-officials-weigh-earlier-than-expected-end-to-bond-portfolio-runoff-11548412201&quot;&gt;here&lt;/a&gt;. IMHO, blaming balance sheet reduction for market volatility is cargo cult mumbo jumbo.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;!--more--&gt;
-
-&lt;p&gt;What is QT? During the crisis, a lot of bad loans were made and a lot of risky bonds got issued. When the market had its Minsky moment in 2008, everybody simultaneously realized they had too many risky assets and needed to adjust portfolios. When everyone tried to sell at once, prices overcorrected. Worse, there was the risk of a debt-deflation spiral, where the financial crisis tanks the economy, making even more mortgages and bonds unsound, in turn further worsening the crisis and tanking the economy.&lt;/p&gt;
-
-&lt;p&gt;Driving base rates to zero seemed inadequate to the task of restoring equilibrium. So the Fed stepped in with quantitative easing: buying the securities no one else wanted to own, taking toxic assets off of private sector balance sheets onto its own balance sheet. Effectively out of the system.&lt;/p&gt;
-
-&lt;p&gt;By pegging overnight rates at 0, committing to keeping them at 0 for an extended period, and buying at the long end, the Fed was expanding the zero interest rate policy (ZIRP) down the yield curve.&lt;/p&gt;
-
-&lt;p&gt;Today, when the Fed has stopped doing QE, every day the portfolio on the balance sheet shortens by a day, and some of it rolls off of the short end.&lt;/p&gt;
-
-&lt;p&gt;When a bond on the Fed’s balance sheet matures, it’s (sort of) the reverse of QE, so some people call it quantitative tightening. (A more exact opposite of QE would be selling long-term securities into the market.) The maturity is a forced sale of an overnight obligation. The maturing bond used to be a long-term instrument, but now it has rolled down the yield curve so it’s short-term. The Fed gets cash, the bond obligation is canceled.&lt;/p&gt;
-
-&lt;p&gt;It’s a little like when a bond matures in your brokerage account, broker calls and ask what you want to do.&lt;/p&gt;
-
-&lt;p&gt;Maybe you say, roll it into a T-bill or money market fund, which is the most neutral thing to do.&lt;/p&gt;
-
-&lt;p&gt;Technically, when the bond matured, it changed your positioning.&lt;/p&gt;
-
-&lt;p&gt;But the maturity didn’t constrain your position at any time, you could offset it any way you wanted, you could sell it, swap it. Rolling into another short-term position would be the most neutral action.&lt;/p&gt;
-
-&lt;p&gt;It’s the same for the Fed. In the Fed’s case the maturity drained liquidity. The market lost a cash asset when it paid off the bond, and lost a corresponding cash obligation when the bond was paid off.&lt;/p&gt;
-
-&lt;p&gt;The maturity reduces the Fed’s balance sheet. But doesn’t constrain monetary policy in any way. The Fed pegs base rates like Fed Funds. Every day it can add or drain liquidity to keep short rates close to target.&lt;/p&gt;
-
-&lt;p&gt;So, to sum up: QT is like a scheduled sale of a short-term security.&lt;/p&gt;
-
-&lt;p&gt;And short rates are pegged.&lt;/p&gt;
-
-&lt;p&gt;So QT doesn’t affect short rates. The Fed will do whatever is necessary to maintain the peg, including adding liquidity to offset any drain from QT.&lt;/p&gt;
-
-&lt;p&gt;And QT doesn’t really affect long rates.&lt;sup&gt;&lt;small&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;/a&gt;&lt;/small&gt;&lt;/sup&gt;&lt;/p&gt;
-
-&lt;p&gt;Monetary policy affects the market and the economy through interest rates, which tell you everything you need to know about liquidity and expectations. How else would it work? If it’s not impacting rates, it’s not impacting policy, the economy, the stock market.&lt;/p&gt;
-
-&lt;p&gt;So why are people hand-wringing about QT? It’s nonsense. Voodoo economics.&lt;/p&gt;
-
-&lt;p&gt;What do QT hand-wringers want the Fed to do, not let the drain happen at the short end of the curve? Indeed, the Fed &lt;em&gt;doesn’t&lt;/em&gt; necessarily drain, because they peg the short end of the curve. They will end up buying back whatever is needed to maintain the peg, adding liquidity.&lt;/p&gt;
-
-&lt;p&gt;And there are &lt;a href=&quot;https://fred.stlouisfed.org/series/EXCSRESNS&quot;&gt;$1.5t in excess reserves&lt;/a&gt;, and via &lt;a href=&quot;https://fred.stlouisfed.org/series/IOER&quot;&gt;interest on excess reserves&lt;/a&gt;, any bank can increase or reduce deposits to the Fed at a fixed rate. If the Fed does nothing to offset the drain when a bond matures, all that happens is excess reserves get drawn down. (Bank customer who issued the bond instructs the bank to pay the Fed. Bank instructs the Fed to debit their excess reserve account at the Fed. Deposits go down, excess reserves go down.)&lt;/p&gt;
-
-&lt;p&gt;A (partially valid&lt;sup&gt;&lt;small&gt;&lt;a href=&quot;#2&quot;&gt;2&lt;/a&gt;&lt;/small&gt;&lt;/sup&gt;) criticism of QE was that if the Fed adds liquidity, but people just park it back at the Fed in the form of excess reserves, it doesn’t impact the real economy. The same applies when the process is reversed. If the Fed drains liquidity, but people just draw down their excess reserves, it doesn’t impact the real economy.&lt;/p&gt;
-
-&lt;p&gt;Do QT hand-wringers want the Fed to buy at the long end? That’s ridiculous, the yield curve is flat. It would be nutty to be tightening and simultaneously doing QE.&lt;/p&gt;
-
-&lt;p&gt;Do the QT hand-wringers think Fed tightened too much and should ease? There they may have a point, but that has absolutely nothing to do with balance sheet reduction and QT &lt;em&gt;per se&lt;/em&gt;. For any given tightening posture, it’s essentially a technical matter whether the Fed implements it by automatically rolling stuff off the short end of the balance sheet, or automatic adjustments via excess reserves and IOER, or discretionary open market operations at the short end.&lt;/p&gt;
-
-&lt;p&gt;The &lt;a href=&quot;https://www.federalreserve.gov/monetarypolicy/policy-normalization.htm&quot;&gt;Fed statement&lt;/a&gt; responding to market concerns about the balance sheet reduction and QT seemed a little like telling the market ‘oh yes dear, anything you say’ but just doing same thing they’ve been doing all along.&lt;/p&gt;
-
-&lt;p&gt;It seems like some board members thought they had to say something but there’s nothing to say, so they’re like ‘ok fine whatever’.&lt;/p&gt;
-
-&lt;p&gt;I think Timaraos in WSJ and Duy on Bloomberg are on the money. There are always talking heads blaming something for market gyrations. If it’s not QT, then it’s ETFs, risk parity, algos. It’s just mumbo jumbo to explain movements that are pretty stochastic. And QT is not really a thing, except to the extent that a technical side effect of policy normalization is balance sheet reduction.&lt;/p&gt;
-
-&lt;p&gt;The worst part is, a lot of the QT hand-wringers are free market fetishists who were probably complaining about QE in the first place. They sure seem to think the market is pretty effing fragile… OMG QE! OMG QT! Algos! Risk parity! ETFs! They are are messing with the function of the free market! If the market has a cow and can’t deal with this crap and has a crisis every 10 years, maybe it’s not all it’s cracked up to be.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.nytimes.com/2014/10/19/business/economy/when-a-stock-market-theory-is-contagious.html?ref=business&quot;&gt;The market runs on bullshit&lt;/a&gt;. It goes up, people find a reason. It goes down, people find a reason. Today, QT is the story it fixates on, but it’s mostly &lt;a href=&quot;https://giphy.com/explore/bullshit&quot;&gt;bullshit&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I believe in complementarity, the idea that you can’t necessarily have one deep consistent model of reality, possibly the best you can do is many shallow models that are applicable in overlapping circumstances.&lt;/p&gt;
-
-&lt;p&gt;But it’s still pretty impressive that markets work as well as they do most of the time, when so many people are mostly applying simplistic heuristics that don’t reflect underlying reality.&lt;/p&gt;
-
-&lt;p&gt;I could write a series a la Penn Jillette’s “Bullshit!” and go all Lewis Black/Andy Rooney on why easing does not cause deflation, there is no such thing as a chronic safe asset shortage, and MMT is not really a new thing.&lt;/p&gt;
-
-&lt;p&gt;But I won’t. Just stay off my lawn!&lt;/p&gt;
-
-&lt;p&gt;&lt;small&gt;&lt;sup&gt;&lt;a name=&quot;1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;Suppose the bond that matures is a 10-year, and the issuer floats a new 10-year. If you have a lot of new issuance, that would pressure long rates. Hence the policy of allowing at most $50b per month to mature without replacing it at the long end. &amp;lt;/p&amp;gt;&lt;/small&gt;&lt;/p&gt;
-
-&lt;p&gt;
-  &lt;sup&gt;&lt;a name=&quot;2&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;QE pushed rates down at the long end. By pegging overnight rates at 0, committing to keeping them at 0 for an extended period, and buying at the long end, the Fed was pushing ZIRP down the yield curve. QT doesn’t directly impact rates at the long end, although maturing bonds maybe be refunded with new issuance. Given that the yield curve is flat, and credit spreads &lt;a href=&quot;https://fred.stlouisfed.org/series/BAA10Y&quot;&gt;pretty normal&lt;/a&gt;, seems like no big deal. &amp;lt;/small&amp;gt;
-&lt;/p&gt;</content><author><name>Druce Vertes, CFA</name></author><category term="economics" /><category term="markets" /><category term="economics" /><category term="markets" /><summary type="html">Many people are talking about ‘quantitative tightening’ and ‘balance sheet reduction’, and some people are blaming it for market volatility, discussed here, here, here. IMHO, blaming balance sheet reduction for market volatility is cargo cult mumbo jumbo.</summary></entry></feed>
+&lt;p&gt;Mostly, many thanks for being part of this experiment, and look forward to continuing to interact in other ways online, and in person!&lt;/p&gt;</content><author><name>Druce Vertes, CFA</name></author><category term="tech" /><category term="tech" /><summary type="html">The StreetEYE news aggregator experiment came to an end on 3/31/2019. Many thanks for supporting StreetEYE over the years!</summary></entry></feed>
