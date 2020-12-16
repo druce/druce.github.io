@@ -14,6 +14,10 @@ tags: datascience markets investing
 > *Do you want to do pretty fast and easy portfolio optimization with Python? Then CVXOPT, and this post, are for you! Along the way we'll do an intro to Capital Asset Pricing Model (CAPM) concepts. [Code here](https://github.com/druce/portfolio_optimization/blob/master/Portfolio%20optimization.ipynb).*
 <!--more-->
 
+- conclusion
+- maybe revisit triangle pngs
+- fix &alphas inline to use latex
+
 [Gold](https://stockcharts.com/h-sc/ui?s=gld&id=p33407302522&def=Y&listNum=1#) has been performing well in the Covid-19 market, rising close to $2000/oz. before trading recently around $1700. Should long-term investors have gold in their portfolio, and how much? 
 
 One way to answer this question is to look at how portfolios with and without gold performed. Using a portfolio optimization framework, we can find the highest-return portfolio for any feasible level of risk: the classic *efficient frontier*:
@@ -390,7 +394,7 @@ print("Min vol portfolio (return=%.4f, risk=%.4f)" % (minvolret, minvol))
 
 ```
 
-Mean-variance optimization is a useful framework. I tend to think markets are boundedly efficient, and efficient-market maximalists have done investors a disservice by overselling moderrn portfolio theory. Beyond the forms of the [efficient market hypothesis](https://www.investopedia.com/ask/answers/032615/what-are-differences-between-weak-strong-and-semistrong-versions-efficient-market-hypothesis.asp#:~:text=The%20strong%20form%20version%20of,an%20advantage%20on%20the%20market.), here are 3 important fallacies that sometimes get taught.
+Mean-variance optimization is a useful framework. I tend to think markets are boundedly efficient, and efficient-market maximalists have done investors a disservice by overselling moderrn portfolio theory. Beyond the forms of the [efficient market hypothesis](https://www.investopedia.com/ask/answers/032615/what-are-differences-between-weak-strong-and-semistrong-versions-efficient-market-hypothesis.asp#:~:text=The%20strong%20form%20version%20of,an%20advantage%20on%20the%20market.), here are 3 important fallacies (or at least oversimplifications) that sometimes get taught.
 
 1. *Betas (or factors) are all that matters.* If you assume that factors capture all the correlations between stocks, and the unsystematic risk of one stock is always uncorrelated with the risk of other stocks, then with a sufficent number of stocks, the unsystematic risk cancels out and all that's left is beta. In practice, this is a bad assumption, especially at times of market stress. No factor model can never capture all the underlying real-world correlations and potential correlations, many of which are never realized. For instance, if California tumbles into the sea, a lot of stocks that previously had low correlations will be highly correlated. First of all, because California exposure was not previously a factor but now suddenly is. And secondly because in a big market discontinuity correlations tend to go to one. The discontinuity overwhelms everything else, traders trade what there is a market for and not what is specifically impacted by news, and betas tend not to sway them. The modeled risk of a portfolio should be viewed as a lower bound in a normal market where the present is like the past.
 
