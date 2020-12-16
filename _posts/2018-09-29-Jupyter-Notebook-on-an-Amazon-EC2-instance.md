@@ -1,11 +1,11 @@
 ---
-id: 7104
+id: 7101
 layout: post
 title:  "Jupyter Notebook on an AWS instance"
 author: Druce Vertes
 date:   2018-09-29 00:00:57 +0000
 tags: datascience
-guid: /?p=7103
+guid: /?p=7101
 permalink: /2018/09/Jupyter-Notebook-on-an-Amazon-EC2-instance/
 
 ---
