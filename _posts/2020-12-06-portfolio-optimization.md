@@ -1,6 +1,6 @@
 ---
 id: 7112
-title: 'Portfolio Optimization with cvxopt'
+title: 'Demystifying and Coding Portfolio Optimization with Python and CVXOPT'
 date: 2020-12-06T22:28:57+00:00
 author: Druce Vertes
 layout: post
