@@ -14,10 +14,6 @@ tags: datascience markets investing
 > *Do you want to do pretty fast and easy portfolio optimization with Python? Then CVXOPT, and this post, are for you! Along the way we'll do an intro to Capital Asset Pricing Model (CAPM) concepts. [Code here](https://github.com/druce/portfolio_optimization/blob/master/Portfolio%20optimization.ipynb).*
 <!--more-->
 
-- conclusion
-- maybe revisit triangle pngs
-- fix &alphas inline to use latex
-
 [Gold](https://stockcharts.com/h-sc/ui?s=gld&id=p33407302522&def=Y&listNum=1#) has been performing well in the Covid-19 market, rising close to $2000/oz. before trading recently around $1700. Should long-term investors have gold in their portfolio, and how much? 
 
 One way to answer this question is to look at how portfolios with and without gold performed. Using a portfolio optimization framework, we can find the highest-return portfolio for any feasible level of risk: the classic *efficient frontier*:
@@ -400,9 +396,15 @@ Mean-variance optimization is a useful framework. I tend to think markets are bo
 
 2. *The capital market line.* If you have a risk-free rate, you can draw a line tangent to the efficient frontier, representing a mix of the risk-free asset and the market portfolio, and similarly if you can borrow at some rate you can use leverage to increase returns at a linear relationship with risk. It follows that everyone should just own the market portfolio with varying leverage. In practice, if you are allocating for a timeframe greater than say 10 years, you should be focusing on real inflation-adjusted, after-tax returns, not nominal returns. In that context there is no risk-free rate and there can be no risk-free positive real rate, in a real world subject to disasters and policy discontinuities. To expect markets or governments to ensure investors are guaranteed a positive real after-tax return in a world of wars and pandemics, where participants in goods and labor markets receive no such guarantee, is a chimerical notion.
 
-3. *Everyone should index because it is game-theory optimal.* Granted, if you hold the market portfolio, and the market portfolio never changes, and you never need to trade, you are guaranteed the market return. However, once you have to trade, once you receive dividend or interest income to reinvest, your returns depend on your trading efficiency and alignment with market timing. And the smart money, like market-makers or Warren Buffett, who you have to trade with, can demand an explicit or implicit bid-ask by only giving the other side of the trade when it's worth their while. And when the index changes, you are forced to trade to match it, and people will front-run you. If Tesla goes into the S&P at $1000/share as a top-10 market cap, and you buy it at $1000/share you will match the index, but it doesn't mean you didn't get fleeced. If you don't have an edge, indexing and implicitly trying to tag along with the average investor is smart. But you also have to trade as little as possible, and avoid buyig at the top and selling at the bottom. Most investors don't. Every time you trade, you are prey to the smarter money. Most retail investors don't match the market [for many reasons](https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/behavior%20of%20individual%20investors.pdf), some of which are neutralized by indexing. But even retail index investors underperform because they tend to buy and sell at the worst times.
+3. *Everyone should index because it is game-theory optimal.* Granted, if you hold the market portfolio, and the market portfolio never changes, and you never need to trade, you are guaranteed the market return. However, once you have to trade, once you receive dividend or interest income to reinvest, your returns depend on your trading efficiency and alignment with market timing. Everyone has to trade and make an active decision sometime; no one can be 100% passive. And when you have to trade, the sharks are waiting to exploit them. The smart money, like market-makers or Warren Buffett, can demand an explicit or implicit bid-ask by only giving the other side of the trade when it's worth their while. And when the index changes, you are forced to trade to match it, and people will front-run you. If Tesla goes into the S&P at $1000/share as a top-10 market cap, and you buy it at $1000/share you will match the index, but it doesn't mean you didn't get fleeced. Passive investing may contain the seeds of its own destruction, because the more money indexes, the more inefficient the market gets. If you don't have an edge, indexing and implicitly trying to tag along with the average investor is smart. But you also have to trade as little as possible, and avoid buyig at the top and selling at the bottom. Most retail investors don't match the market [for many reasons](https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/behavior%20of%20individual%20investors.pdf), some of which are neutralized by indexing. But even retail index investors underperform because they tend to buy and sell at the worst times.
+
+The CAPM and mean-variance analysis are brilliant models but they are a model of reality, not reality itself. They can be taken to extremes where they lose some of their usefulness.
 
 [Code here](https://github.com/druce/portfolio_optimization)
+
+*Ceci n'est pas une pipe -- Ren&eacute; Magritte*
+
+*Experience without theory is blind, but theory without experience is mere intellectual play. -- Immanuel Kant*
 
 &nbsp;
 
