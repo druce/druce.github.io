@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-12-18T12:36:33-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Druce.ai</title><subtitle>Druce's Blog on Machine Learning, Tech, Markets and Economics</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Demystifying Portfolio Optimization with Python and CVXOPT</title><link href="http://0.0.0.0:4000/2020/12/portfolio-opimization" rel="alternate" type="text/html" title="Demystifying Portfolio Optimization with Python and CVXOPT" /><published>2020-12-06T17:28:57-05:00</published><updated>2020-12-06T17:28:57-05:00</updated><id>http://0.0.0.0:4000/2020/12/portfolio-optimization</id><content type="html" xml:base="http://0.0.0.0:4000/2020/12/portfolio-opimization">&lt;p&gt;&lt;img src=&quot;/assets/2020/transitionmap1.png&quot; alt=&quot;Transition map&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-12-18T18:57:21-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Druce.ai</title><subtitle>Druce's Blog on Machine Learning, Tech, Markets and Economics</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Demystifying Portfolio Optimization with Python and CVXOPT</title><link href="http://0.0.0.0:4000/2020/12/portfolio-opimization" rel="alternate" type="text/html" title="Demystifying Portfolio Optimization with Python and CVXOPT" /><published>2020-12-06T17:28:57-05:00</published><updated>2020-12-06T17:28:57-05:00</updated><id>http://0.0.0.0:4000/2020/12/portfolio-optimization</id><content type="html" xml:base="http://0.0.0.0:4000/2020/12/portfolio-opimization">&lt;p&gt;&lt;img src=&quot;/assets/2020/transitionmap1.png&quot; alt=&quot;Transition map&quot; /&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;Do you want to do pretty fast and easy portfolio optimization with Python? Then CVXOPT, and this post, are for you! Here’s a gentle intro to portfolio theoryand some &lt;a href=&quot;https://github.com/druce/portfolio_optimization/blob/master/Portfolio%20optimization.ipynb&quot;&gt;code&lt;/a&gt; to get you started.&lt;/em&gt;
+  &lt;p&gt;&lt;em&gt;Do you want to do fast and easy portfolio optimization with Python? Then CVXOPT, and this post, are for you! Here’s a gentle intro to portfolio theory and some &lt;a href=&quot;https://github.com/druce/portfolio_optimization/blob/master/Portfolio%20optimization.ipynb&quot;&gt;code&lt;/a&gt; to get you started.&lt;/em&gt;
 &lt;!--more--&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -12,23 +12,19 @@
 
 &lt;p&gt;For each asset, the marker represents &lt;em&gt;the historical mean real return&lt;/em&gt; (y-axis) vs. &lt;em&gt;the historical standard deviation of real returns&lt;/em&gt; (x-axis). The line represents the return and risk for optimal combinations of these 5 assets that maximize the return for that level of risk (or vice versa, minimize the level of risk for a specified threshold return). The efficient frontier line slopes upward, because the more risk you take, the more return you should get. More to the point, if it sloped down, that would mean you accepted more risk for less return, which by our definition would not be an optimal combination.&lt;/p&gt;
 
-&lt;p&gt;By looking at whether optimal portfolios contain gold, and over which time periods and risk levels, we can get a sense of whether to own gold, and how much.&lt;/p&gt;
+&lt;p&gt;By looking at whether optimal portfolios contain gold, and over which time periods and risk levels, we can get a sense of whether we should own gold, and how much.&lt;/p&gt;
 
-&lt;p&gt;We can plot a transition map of the composition of the portfolio as you move along the efficient frontier:&lt;/p&gt;
+&lt;p&gt;We can plot a transition map of the composition of the portfolio as you move along the efficient frontier. That’s the optimal portfolio transition map chart at the top of this post. The transition map is a stacked area chart of the composition of the portfolio at each point on the frontier. The leftmost point shows the minimum risk portfolio, with the risk on the top x-axis and the return on the bottom x-axis, and the colors representing each asset in the portfolio. The rightmost point shows the riskiest optimal portfolio, which is 100% stocks. In between, we see the composition of the optimal portfolio as we vary our maximum risk constraint and move along the efficient frontier.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/2020/transitionmap1.png&quot; alt=&quot;Transition map&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;We observe that a small allocation of gold is present in most portfolios, except the riskiest optimal portfolios. The minimum-volatility portfolio is T-bills plus a little bit of S&amp;amp;P plus a little bit of gold. The highest-volatility portfolio is of course 100% stocks, but if you lower the volatility constraint, the first asset you add is gold.&lt;/p&gt;
 
-&lt;p&gt;The transition map is a stacked area chart of the composition of the portfolio at each point on the frontier. The leftmost point shows the minimum risk portfolio, with the risk on the top x-axis and the return on the bottom x-axis, and the colors representing each asset in the portfolio. The rightmost point show the riskiest optimal portfolio, which is 100% stocks. In between we see the composition of the optimal portfolio as we vary our maximum risk constraint and move along the efficient frontier.&lt;/p&gt;
-
-&lt;p&gt;We observe that a small allocation of gold is present in most portfolios, except the most risky optimal portfolios. The minimum-volatility portfolio is T-bills plus a little bit of S&amp;amp;P plus a little bit of gold. The highest-volatility portfolio is of course 100% stocks, but if you lower the volatility constraint, the first asset you add is gold.&lt;/p&gt;
-
-&lt;p&gt;Next, we’ll discuss why we define optimal portfolios in this way, how we compute the risk, and how we optimize with CVXOPT.&lt;/p&gt;
+&lt;p&gt;Next, we’ll take a step back and discuss portfolio theory basics, how we compute the risk, and how we optimize with CVXOPT.&lt;/p&gt;
 
 &lt;h3 id=&quot;why-do-we-use-the-standard-deviation-of-returns-as-a-proxy-for-risk&quot;&gt;Why do we use the standard deviation of returns as a proxy for risk?&lt;/h3&gt;
 
-&lt;p&gt;Using &lt;a href=&quot;https://fs.blog/2013/11/mr-market/&quot;&gt;Warren Buffet’s analogy&lt;/a&gt;, we anthropomorphize the market as a moody partner who co-invests in our stocks. When he’s having a good day, Mr. Market values a security according to the best-case scenario: at the high end of the range of potential valuations. On a bad day he values it according to the worst-case scenario, at the low end of the range.&lt;/p&gt;
+&lt;p&gt;Using &lt;a href=&quot;https://fs.blog/2013/11/mr-market/&quot;&gt;Warren Buffet’s analogy&lt;/a&gt;, we anthropomorphize the market as a moody partner who co-invests in our stocks. When he’s having a good day, Mr. Market values a security according to the best-case scenario: at the high end of the range of potential valuations. On a bad day, he values it according to the worst-case scenario, at the low end of the range.&lt;/p&gt;
 
-&lt;p&gt;On a &lt;em&gt;typical&lt;/em&gt; day Mr. Market moves a typical distance between the two extremes of fear and greed. &lt;em&gt;‘Volatility’ is how much a stock moves on a typical day based on Mr. Market’s mood swings.&lt;/em&gt; This distance is a proxy for how wide Mr. Market’s valuation range is, hence &lt;em&gt;how risky the market thinks the security is&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;On a &lt;em&gt;typical&lt;/em&gt; day, Mr. Market moves a typical distance between the two extremes of fear and greed. &lt;em&gt;‘Volatility’ is how much a stock moves on a typical day based on Mr. Market’s mood swings.&lt;/em&gt; This distance is a proxy for how wide Mr. Market’s valuation range is, hence &lt;em&gt;how risky the market thinks the security is&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;As an investor, should you care how the market perceives risk? That depends. First, do you believe the market’s implicit risk perception is worth knowing to inform your own decisions? And even if not, are you going to trade with the market?&lt;/p&gt;
 
@@ -38,9 +34,9 @@
 
 &lt;p&gt;&lt;em&gt;Fundamental&lt;/em&gt; valuation metrics like price/earnings, price/book, enterprise value/EBITDA are a bit like looking at your poker hand and determining if you have a pair of aces or a pair of unsuited rags. &lt;em&gt;Technical&lt;/em&gt; metrics like volatility are a bit like looking at how your opponents have been playing and what their patterns and tells are. Any good poker player will tell you it’s a good idea to pay attention to all of that. (To be honest, in most cases if I had to pick between knowing the value of my hand and knowing how the players will react to my betting, I would pick &lt;a href=&quot;https://www.sportingnews.com/us/other-sports/news/annette-obrestad-on-legendary-blind-poker-tournament-win/nsw780tdkfmx187t3rx67bgeh&quot;&gt;the latter&lt;/a&gt;.)&lt;/p&gt;
 
-&lt;p&gt;If you are Warren Buffett, you don’t &lt;em&gt;have&lt;/em&gt; to trade, ever. That is a big part of his edge. Market volatility is Buffett’s opportunity. But if you’re planning to retire or might need to sell in the foreseeable future, you should have a feel for volatility. Otherwise you end up trading at an inopportune time, and worst of all, getting thrown off your game by unforeseen volatility.&lt;/p&gt;
+&lt;p&gt;If you are Warren Buffett, you don’t &lt;em&gt;have&lt;/em&gt; to trade, ever. That is a big part of his edge. Market volatility is Buffett’s opportunity. But if you’re planning to retire or might need to sell in the foreseeable future, you should have a feel for volatility. Otherwise, you end up trading at an inopportune time, and worst of all, getting thrown off your game by unforeseen volatility.&lt;/p&gt;
 
-&lt;p&gt;Just like historical P/Es, historical volatilities are a tool for investing judgement, not a substitute for it. But most of us aren’t Warren Buffett and are students of the markets. Understanding volatility and risk are part of our journey. Maybe one day I’ll stop caring about portfolio volatility, but today is not that day.&lt;/p&gt;
+&lt;p&gt;Just like historical P/Es, historical volatilities are a tool for investing judgment, not a substitute for it. But most of us aren’t Warren Buffett and are students of the markets. Understanding volatility and risk are part of our journey. Maybe one day I’ll stop caring about portfolio volatility, but today is not that day.&lt;/p&gt;
 
 &lt;h3 id=&quot;how-do-you-compute-portfolio-volatility-from-individual-asset-volatilities&quot;&gt;How do you compute portfolio volatility from individual asset volatilities?&lt;/h3&gt;
 
@@ -117,7 +113,7 @@
 
 &lt;p&gt;Correlation math is like the cosine rule, except we &lt;em&gt;change the sign&lt;/em&gt; of the last term. This gives us a handy way to visualize how correlation and risk interact.&lt;/p&gt;
 
-&lt;h3 id=&quot;illustrating-risk-math-with-triangles&quot;&gt;Illustrating risk math with triangles&lt;/h3&gt;
+&lt;h3 id=&quot;visualizing-risk-math-geometrically-with-triangles&quot;&gt;Visualizing risk math geometrically with triangles&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Consider our 2 assets
@@ -127,7 +123,7 @@
       &lt;li&gt;\(\rho\) is the correlation between the returns of \(a_1\) and \(a_2\)&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;Take the inverse cosine of the correlation. Find the angle \(\alpha'\) = 180° - cos&lt;sup&gt;-1&lt;/sup&gt;\(\rho\)
+  &lt;li&gt;Take the inverse cosine of the correlation. Find the angle \(\alpha' = 180^{\circ} - cos^{-1}\rho\)
     &lt;ul&gt;
       &lt;li&gt;If \(\rho=1, cos^{-1}1 = 0^{\circ}, \alpha'=180^{\circ}\)&lt;/li&gt;
       &lt;li&gt;If \(\rho=0, cos^{-1}0 = 90^{\circ}, \alpha' = 180^{\circ} - 90^{\circ} = 90^{\circ}\)&lt;/li&gt;
@@ -159,13 +155,13 @@
 
 &lt;p style=&quot;font-size: 120%; text-align: center;&quot;&gt;Correlation \(\rho = 1.0, \alpha' = 0^{\circ}\)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/2020/corr1.png&quot; height=&quot;176&quot; width=&quot;378&quot; alt=&quot;1 correlation&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/2020/corr1.png&quot; height=&quot;130&quot; width=&quot;463&quot; alt=&quot;1 correlation&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt; &lt;/p&gt;
 
 &lt;p style=&quot;font-size: 120%; text-align: center;&quot;&gt;Correlation \(\rho = -1.0, \alpha' = 180^{\circ}\)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/2020/corr-1.png&quot; height=&quot;124&quot; width=&quot;360&quot; alt=&quot;1 correlation&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/2020/corr-1.png&quot; height=&quot;117&quot; width=&quot;396&quot; alt=&quot;1 correlation&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt; &lt;/p&gt;
 
@@ -183,17 +179,17 @@
 
 &lt;p&gt;The triangles above are drawn assuming 1 share of each asset and absolute dollar returns. To use portfolio weights and percentage returns, we can write the return as:&lt;/p&gt;
 
-\[r_{port} = w_{1}r_{1} + w_{2}r_{2}\]
+\[r_{p} = w_{1}r_{1} + w_{2}r_{2}\]
 
-&lt;p&gt;and the volatility:&lt;/p&gt;
+&lt;p&gt;and the volatility as:&lt;/p&gt;
 
-\[\sigma_{port} = \sqrt{ w_{1}^2\sigma_{1}^2 + w_{2}^2\sigma_{2}^2 + 2w_{1}w_{2}\sigma_{12}}\]
+\[\sigma_{p} = \sqrt{ w_{1}^2\sigma_{1}^2 + w_{2}^2\sigma_{2}^2 + 2w_{1}w_{2}\sigma_{12}}\]
 
-&lt;p&gt;Generalizing to n assets and using \(\sigma_{ii}\) to denote the variance of asset &lt;em&gt;i&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;\(\sigma_{p}\) is now the volatility in return space instead of absolute space. Generalizing to n assets and using \(\sigma_{ii}\) to denote the variance of asset &lt;em&gt;i&lt;/em&gt;:&lt;/p&gt;
 
-\[\sigma_{port} = \sqrt{\sum_{i=1}^{n}\sum_{j=1}^{n}w_{i}w_{j}\sigma_{ij}}\]
+\[\sigma_{p} = \sqrt{\sum_{i=1}^{n}\sum_{j=1}^{n}w_{i}w_{j}\sigma_{ij}}\]
 
-&lt;p&gt;When you do a nested summation over a square array, you should probably think of a matrix. Define the &lt;em&gt;covariance matrix&lt;/em&gt; Σ (\(\rho=0.5\)) as:&lt;/p&gt;
+&lt;p&gt;When you do a nested summation over a square array, you should probably consider a matrix. Define the &lt;em&gt;covariance matrix&lt;/em&gt; \(\Sigma (\rho=0.5)\) as:&lt;/p&gt;
 
 \[\Sigma = \begin{vmatrix}
 \sigma_{1}^2 &amp;amp; \sigma_{12} \\
@@ -205,9 +201,9 @@
 
 &lt;p&gt;with variances \(\sigma^2\) on the diagonal and covariances \(\sigma_{ij}\) off the diagonal.&lt;/p&gt;
 
-&lt;p&gt;Then we get an elegant matrix notation for the above double summation:&lt;/p&gt;
+&lt;p&gt;Then we get an elegant matrix notation for the double summation above:&lt;/p&gt;
 
-\[\sigma_{port} = \sqrt{\boldsymbol{w^T} \Sigma \boldsymbol{w}}\]
+\[\sigma_{p} = \sqrt{\boldsymbol{w^T} \Sigma \boldsymbol{w}}\]
 
 &lt;h3 id=&quot;drawing-the-efficient-frontier&quot;&gt;Drawing the efficient frontier&lt;/h3&gt;
 
@@ -215,7 +211,7 @@
 
 &lt;p&gt;What is the leftmost point on the efficient frontier? It’s the minimum volatility portfolio.&lt;/p&gt;
 
-&lt;p&gt;We can find the weights for the minimum volatility portfolio through a convex optimzation.&lt;/p&gt;
+&lt;p&gt;We can find the weights for the minimum volatility portfolio through a convex optimization.&lt;/p&gt;
 
 &lt;p&gt;CVXPY is a Python modeling framework for convex optimization (&lt;a href=&quot;https://arxiv.org/abs/1603.00943&quot;&gt;paper&lt;/a&gt;), by Steven Diamond and Stephen Boyd of Stanford (who wrote a &lt;a href=&quot;https://web.stanford.edu/~boyd/cvxbook/&quot;&gt;textbook&lt;/a&gt; on convex optimization). In the way Pandas is a Python extension for dataframes, CVXPY is a Python extension for describing convex optimization problems.&lt;/p&gt;
 
@@ -274,7 +270,7 @@ gold_download.to_csv('gold_fred.csv')
 &lt;span class=&quot;c1&quot;&gt;# volatility
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vol&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quad_form&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Sigma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;prob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Problem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Minimize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# minimie volatility
+&lt;span class=&quot;n&quot;&gt;prob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Problem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Minimize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# minimize volatility
 &lt;/span&gt;                  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# sum of weights = 1
 &lt;/span&gt;                   &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;           &lt;span class=&quot;c1&quot;&gt;# weights &amp;gt; 0 (long-only)
 &lt;/span&gt;                 &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -283,7 +279,7 @@ gold_download.to_csv('gold_fred.csv')
 &lt;span class=&quot;n&quot;&gt;minvol&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;The highest possible return we could have achieved was 100% in the highest-performing asset. We know it’s the S&amp;amp;P but let’s let CVXPY figure it out:&lt;/p&gt;
+&lt;p&gt;The rightmost point on the efficient frontier is the highest possible return we could have achieved, which is 100% in the highest-performing asset. We know it’s the S&amp;amp;P but let’s let CVXPY figure it out for us:&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Solve max return portfolio (corner solution)
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Problem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Maximize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# maximize return
@@ -296,7 +292,7 @@ gold_download.to_csv('gold_fred.csv')
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Finally, we trace out the rest of the frontier. We create an array of say 200 volatilities between minvol and maxretvol inclusive. For each volatility, we solve the optimization for the highest return portfolio subject to volatility &amp;lt;= vol&lt;/p&gt;
+&lt;p&gt;Finally, we trace out the rest of the frontier. We create an array of 200 volatilities between minvol and maxretvol inclusive. For each volatility, we solve the optimization for the highest return portfolio subject to volatility &amp;lt;= vol&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vol_limit = cp.Parameter(nonneg=True)
 
@@ -325,7 +321,7 @@ for vl_val in vl_vals:
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Then we draw the frontier with matplotlib:
+&lt;p&gt;Then we draw the frontier with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;matplotlib&lt;/code&gt; (same chart as at the top of this post):
 &lt;img src=&quot;/assets/2020/efficientfrontier1.png&quot; alt=&quot;Efficient frontier&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;And the transition map:&lt;/p&gt;
@@ -338,7 +334,7 @@ for vl_val in vl_vals:
 
 &lt;p&gt;&lt;img src=&quot;/assets/2020/transitionmap2.png&quot; alt=&quot;Transition map&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;In this period somewhat more gold would have been optimal.&lt;/p&gt;
+&lt;p&gt;In this more inflationary period, somewhat more gold would have been optimal.&lt;/p&gt;
 
 &lt;p&gt;Finally, let’s look at 1983-2018, i.e. the era of disinflation:&lt;/p&gt;
 
@@ -350,7 +346,7 @@ for vl_val in vl_vals:
 
 &lt;h3 id=&quot;long-short-optimization&quot;&gt;Long-short optimization&lt;/h3&gt;
 
-&lt;p&gt;To illustrate CVXOPT for a long-short portfolio, we create a synthetic asset which returns -5% per year and has 0.9 correlation with the S&amp;amp;P, which we called ‘stonks’. We remove the constraint of weights being positive but add a constraint that the gross exposure must be less than 150%:&lt;/p&gt;
+&lt;p&gt;To illustrate CVXOPT for a long-short portfolio, we create a synthetic asset that returns -5% per year and has 0.9 correlation with the S&amp;amp;P, which we called ‘stonks’. We remove the constraint of weights being positive but add a constraint that the gross exposure must be less than 150%:&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vol_limit = cp.Parameter(nonneg=True)
 
@@ -373,7 +369,6 @@ vl_vals = np.linspace(minvol, maxretvol, NPOINTS)
 # iterate in-process
 results_dict = {}
 for vl_val in vl_vals:
-    # print(datetime.strftime(datetime.now(), &quot;%H:%M:%S&quot;), vl_val)
     results_dict[vl_val] = solve_vl(vl_val)
   
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -423,21 +418,23 @@ for vl_val in vl_vals:
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Mean-variance optimization is a useful framework. I view markets are boundedly efficient, and I believe efficient-market maximalists have done investors a disservice by overselling modern portfolio theory. Beyond the forms of the &lt;a href=&quot;https://www.investopedia.com/ask/answers/032615/what-are-differences-between-weak-strong-and-semistrong-versions-efficient-market-hypothesis.asp#:~:text=The%20strong%20form%20version%20of,an%20advantage%20on%20the%20market.&quot;&gt;efficient market hypothesis&lt;/a&gt;, here are 3 important fallacies (or at least oversimplifications) that sometimes get taught.&lt;/p&gt;
+&lt;h3 id=&quot;concluding-remarks&quot;&gt;Concluding remarks&lt;/h3&gt;
+
+&lt;p&gt;Mean-variance optimization is a useful framework. I think of markets as boundedly efficient, and I believe efficient-market maximalists have done investors a disservice by overselling modern portfolio theory. Beyond the forms of the &lt;a href=&quot;https://www.investopedia.com/ask/answers/032615/what-are-differences-between-weak-strong-and-semistrong-versions-efficient-market-hypothesis.asp#:~:text=The%20strong%20form%20version%20of,an%20advantage%20on%20the%20market.&quot;&gt;efficient market hypothesis&lt;/a&gt;, even the weakest of which is only approximately true, here are 3 important fallacies (or at least oversimplifications) that sometimes get taught:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;em&gt;The risk-free rate and the capital market line.&lt;/em&gt; Suppose there is a risk-free rate with an SD of 0 and some positive return. If you draw a line on the efficient frontier chart, starting from the risk-free rate and tangent to the efficient frontier, it represents the highest feasible Sharpe ratio. You can maximize the Sharpe ratio, by holding the market portfolio at the tangent point, and the risk-free asset in some combination, choosing your desired level of risk and return. Similarly if you can borrow at some rate you can lever up the max-Sharpe portfolio to achieve the highest possible Sharpe at higher levels of risk. It follows that everyone should just hold something close to the market portfolio with varying degrees of leverage based on their risk tolerance. But in practice, there is no risk-free rate. If you are allocating for a timeframe greater than a few years, you should be focusing on real inflation-adjusted, after-tax returns, not nominal returns. In that context there is no risk-free rate and there can be no risk-free positive real rate, in a real world subject to disasters and policy discontinuities. To expect markets or governments to ensure investors are guaranteed a positive real after-tax return, in a world of wars and pandemics, where participants in goods and labor markets receive no such guarantee, is a chimerical notion.&lt;/p&gt;
+    &lt;p&gt;&lt;em&gt;The risk-free rate and the capital market line.&lt;/em&gt; Suppose there is a risk-free rate with an SD of 0 and some positive return. If you draw a line on the efficient frontier chart, starting from the risk-free rate and tangent to the efficient frontier, it represents the highest feasible Sharpe ratio. You can maximize the Sharpe ratio by holding the market portfolio at the tangent point, and the risk-free asset in some combination, choosing your desired level of risk and return. Similarly, if you can borrow at some rate you can lever up the max-Sharpe portfolio to achieve the highest possible Sharpe at higher levels of risk. It follows that everyone should just hold something close to the market portfolio with varying degrees of leverage based on their risk tolerance. But in practice, there is no risk-free rate. If you are allocating for a timeframe greater than a few years, you should be focusing on real inflation-adjusted, after-tax returns, not nominal returns. In that context, there is no risk-free rate. And there can be no risk-free positive real rate in a real world subject to disasters and policy discontinuities. To expect markets or governments to ensure investors are guaranteed a positive real after-tax return, in a world of wars and pandemics, where participants in goods and labor markets receive no such guarantee, is a chimerical notion.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;em&gt;Betas (or factors) are all that matters.&lt;/em&gt; If you assume that factors capture all the correlations between stocks, then the unsystematic risk of one stock is always uncorrelated with the risk of other stocks, and furthermore, with a sufficent number of stocks, the unsystematic risk diversifies out. All that’s left is beta, the risk captured by the factors. In practice, this is a bad assumption, particularly at times of market stress. No factor model can never capture all the underlying real-world correlations and potential correlations, many of which are never realized. For instance, if California tumbles into the sea, a lot of stocks that previously had low correlations will be highly correlated. Because, first of all, California exposure was not previously a factor but now suddenly is. And secondly because in a big market discontinuity correlations tend to go to one, and seemingly diversified portfolios become riskier than predicted. The discontinuity overwhelms everything else, traders trade what there is a market for and not what is specifically impacted by news, and betas tend not to sway them. The modeled risk of a portfolio should be viewed as a lower bound in a normal market where the present is like the past.&lt;/p&gt;
+    &lt;p&gt;&lt;em&gt;Betas (or factors) are all that matters.&lt;/em&gt; If you assume that factors capture all the correlations between stocks, then the unsystematic risk of one stock is always uncorrelated with the risk of other stocks, and furthermore, with a sufficient number of stocks, the unsystematic risk diversifies out. All that’s left is beta, the risk captured by the factors. In practice, this is a bad assumption, particularly at times of market stress. No factor model can never capture all the underlying real-world correlations and potential correlations, many of which are never realized. For instance, if California tumbles into the sea, a lot of stocks that previously had low correlations will be highly correlated. Because, first of all, California exposure was not previously a factor but now suddenly is. And secondly because in a big market discontinuity correlations tend to go to one, and seemingly diversified portfolios become riskier than predicted. The discontinuity overwhelms everything else, traders trade what there is a market for and not what is specifically impacted by news flows, and betas tend not to sway them. The modeled risk of a portfolio should be viewed as a lower bound in a normal market where the present is like the past.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;em&gt;Everyone should hold the market portolio because it is game-theory optimal.&lt;/em&gt; Granted, if you hold the market portfolio, and the market portfolio never changes, and you never need to trade, you are guaranteed the market return. But everyone &lt;em&gt;has&lt;/em&gt; to trade &lt;em&gt;sometime&lt;/em&gt;. Once you receive dividend or interest income to reinvest, or need to rebalance, or have any cash flows into or out of the portfolio, your returns depend on your trading efficiency and alignment with market timing. No one can be 100% passive. And when you have to trade, the sharks are waiting to exploit you. The smart money, like market-makers or Warren Buffett, can demand an explicit or implicit bid-ask by only giving the other side of the trade when it’s worth their while. Furthermore, when the index changes, you are forced to trade to match it, and people will front-run you. If Tesla goes into the S&amp;amp;P at $1000/share as a top-10 market cap, and you are able to buy it at $1000/share, you will match the index, but it doesn’t mean you didn’t get fleeced. The dominance of indexing assumes cost-free trading. But in practice, the more money indexes, the more inefficient the market gets, making it more costly to trade, and increasing the opportunity set for non-indexers.  If you don’t have an edge, indexing and implicitly trying to tag along with the average investor is sensible. But it is not guaranteed to be a free lunch. You have to trade as little as possible, and avoid buying at the top and selling at the bottom. Most retail investors don’t match the market &lt;a href=&quot;https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/behavior%20of%20individual%20investors.pdf&quot;&gt;for many reasons&lt;/a&gt;, some of which are neutralized by indexing. But even retail index investors underperform because they tend to buy and sell at the worst times.&lt;/p&gt;
+    &lt;p&gt;&lt;em&gt;Everyone should hold the market portfolio because it is game-theory optimal.&lt;/em&gt; Granted, if you hold the market portfolio, and the market portfolio never changes, and you never need to trade, you are guaranteed the market return. But everyone &lt;em&gt;has&lt;/em&gt; to trade &lt;em&gt;sometime&lt;/em&gt;. Once you receive dividend or interest income to reinvest, or need to rebalance, or have any cash flows into or out of the portfolio, your returns depend on your trading efficiency and alignment with market timing. No one can be 100% passive. And when you have to trade, the sharks are waiting to exploit you. The smart money, like market-makers or Warren Buffett, can demand an explicit or implicit bid-ask by only giving the other side of the trade when it’s worth their while. Furthermore, when the index changes, you are forced to trade to match it, and people will front-run you. If Tesla goes into the S&amp;amp;P at $700/share as a top-10 market cap, and you are able to buy it at $700/share, you will match the index, but it doesn’t mean you didn’t get fleeced. The dominance of indexing assumes cost-free trading. But in practice, the more investors index, the more inefficient the market gets, making it more costly to trade, and increasing the opportunity set for non-indexers.  If you don’t have an edge, indexing and implicitly trying to tag along with the average investor is extremely sensible. But it is not guaranteed to be a free lunch. You have to trade as little as possible, and avoid buying at the top and selling at the bottom. Most retail investors don’t match the market &lt;a href=&quot;https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/behavior%20of%20individual%20investors.pdf&quot;&gt;for many reasons&lt;/a&gt;, some of which are neutralized by indexing. But even retail index investors underperform because they tend to buy and sell at the worst times.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;I’m reminded of Donald Knuth, “Beware of bugs in the above code; I have only proved it correct, not tried it,” which may apply to what I just wrote or to modern portolio theory itself. Economics is the only discipline that can award a Nobel to two academics whose research directly contradicts each other (Fama and Shiller). Portfolio theory creates brilliant and useful models of reality, &lt;a href=&quot;https://www.museumtv.art/artnews/articles/rene-magritte-ceci-nest-pas-une-pipe/&quot;&gt;not reality itself&lt;/a&gt;. Reasoning on the basis of imperfect models can be taken to extremes where models lose some of their usefulness.&lt;/p&gt;
+&lt;p&gt;I’m reminded of Donald Knuth, “Beware of bugs in the above code; I have only proved it correct, not tried it.” This maxim may apply to modern portfolio theory as well as to what I just wrote. Economics is the only discipline in which two academics can receive a Nobel Prize for research where they directly contradict each other (Fama and Shiller). Portfolio theory is a brilliant and useful model of reality, &lt;a href=&quot;https://www.museumtv.art/artnews/articles/rene-magritte-ceci-nest-pas-une-pipe/&quot;&gt;not reality itself&lt;/a&gt;. Reasoning on the basis of imperfect models can be taken to extremes where models lose some of their usefulness.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/druce/portfolio_optimization&quot;&gt;Code here&lt;/a&gt;&lt;/p&gt;
 
@@ -450,10 +447,10 @@ for vl_val in vl_vals:
 &lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;We reverse the sign because of the inconvenient convention of how triangle angles are measured. Suppose we you start walking in the direction of segment \(a_1\) for the first asset. If for segment \(a_2\) you keep going in the same direction, that corresponds to \(\alpha'\) = 0°, correlation = 1.0. If you do a 180, that corresponds to \(\alpha'\) = 180°, correlation = -1.0. If you make a right angle turn in either direction, that corresponds to \(\alpha'\) = +/- 90°, correlation = 0. The way we usually measure triangle angles, an angle of 0 corresponds to doing a 180, which is a slightly backwards way of looking at it. So we have to reverse the sign on the classic cosine rule to make cosine math correspond to correlation math. But the spatial relation is the same. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;We reverse the sign because of the inconvenient convention of how triangle angles are measured. Suppose you start walking in the direction of segment \(a_1\) for the first asset. If for segment \(a_2\) you keep going in the same direction, that corresponds to \(\alpha'\) = 0°, correlation = 1.0. If you do a 180, that corresponds to \(\alpha'\) = 180°, correlation = -1.0. If you make a right-angle turn in either direction, that corresponds to \(\alpha'\) = +/- 90°, correlation = 0. The way we usually measure triangle angles, an angle of 0 corresponds to doing a 180, which is a slightly backwards way of looking at it. So we have to reverse the sign on the classic cosine rule to make cosine math correspond to correlation math. But the spatial relationship is the same. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/div&gt;</content><author><name>Druce Vertes</name></author><category term="datascience" /><category term="datascience" /><category term="markets" /><category term="investing" /><summary type="html">Do you want to do pretty fast and easy portfolio optimization with Python? Then CVXOPT, and this post, are for you! Here’s a gentle intro to portfolio theoryand some code to get you started.</summary></entry><entry><title type="html">Beyond Grid Search: Using Hyperopt, Optuna, and Ray Tune to hypercharge hyperparameter tuning for XGBoost and LightGBM</title><link href="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna" rel="alternate" type="text/html" title="Beyond Grid Search: Using Hyperopt, Optuna, and Ray Tune to hypercharge hyperparameter tuning for XGBoost and LightGBM" /><published>2020-10-12T18:28:57-04:00</published><updated>2020-10-12T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna">&lt;p&gt;&lt;img src=&quot;/assets/2020/fig1.png&quot; alt=&quot;RandomizedSearch HPO vs. Bayesian HPO&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;</content><author><name>Druce Vertes</name></author><category term="datascience" /><category term="datascience" /><category term="markets" /><category term="investing" /><summary type="html">Do you want to do fast and easy portfolio optimization with Python? Then CVXOPT, and this post, are for you! Here’s a gentle intro to portfolio theory and some code to get you started.</summary></entry><entry><title type="html">Beyond Grid Search: Using Hyperopt, Optuna, and Ray Tune to hypercharge hyperparameter tuning for XGBoost and LightGBM</title><link href="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna" rel="alternate" type="text/html" title="Beyond Grid Search: Using Hyperopt, Optuna, and Ray Tune to hypercharge hyperparameter tuning for XGBoost and LightGBM" /><published>2020-10-12T18:28:57-04:00</published><updated>2020-10-12T18:28:57-04:00</updated><id>http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna">&lt;p&gt;&lt;img src=&quot;/assets/2020/fig1.png&quot; alt=&quot;RandomizedSearch HPO vs. Bayesian HPO&quot; /&gt;&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;&lt;em&gt;Bayesian optimization of machine learning model hyperparameters works faster and better than grid search. Here’s how we can speed up hyperparameter tuning using 1) Bayesian optimization with Hyperopt and Optuna, running on… 2) the &lt;a href=&quot;https://ray.io/&quot;&gt;Ray&lt;/a&gt; distributed machine learning framework, with a &lt;a href=&quot;https://medium.com/riselab/cutting-edge-hyperparameter-tuning-with-ray-tune-be6c0447afdf&quot;&gt;unified API to many hyperparameter search algos&lt;/a&gt; and early stopping schedulers, and… 3) a distributed cluster of cloud instances for even faster tuning.&lt;/em&gt;
 &lt;!--more--&gt;&lt;/p&gt;
