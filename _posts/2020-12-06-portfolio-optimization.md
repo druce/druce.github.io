@@ -10,21 +10,22 @@ categories: datascience
 tags: datascience markets investing
 
 ---
-![Transition map](/assets/2020/transitionmap1.png)
+![Efficient frontier](/assets/2020/efficientfrontier1.png)
+
 > *Do you want to do fast and easy portfolio optimization with Python? Then CVXOPT, and this post, are for you! Here's a gentle intro to portfolio theory and some [code](https://github.com/druce/portfolio_optimization/blob/master/Portfolio%20optimization.ipynb) to get you started.*
 <!--more-->
 
 [Gold](https://stockcharts.com/h-sc/ui?s=gld&id=p33407302522&def=Y&listNum=1#) has been performing well in the Covid-19 market, rising close to $2000/oz. before trading recently around $1700. Should long-term investors have gold in their portfolio, and how much? 
 
-One way to answer this question is to look at how portfolios with and without gold performed. Using a portfolio optimization framework, we can find the highest-return portfolio for any feasible level of risk: the classic *efficient frontier*:
-
-![Efficient frontier](/assets/2020/efficientfrontier1.png)
+One way to answer this question is to look at how portfolios with and without gold performed. Using a portfolio optimization framework, we can find the highest-return portfolio for any feasible level of risk: the classic *efficient frontier* above.
 
 For each asset, the marker represents *the historical mean real return* (y-axis) vs. *the historical standard deviation of real returns* (x-axis). The line represents the return and risk for optimal combinations of these 5 assets that maximize the return for that level of risk (or vice versa, minimize the level of risk for a specified threshold return). The efficient frontier line slopes upward, because the more risk you take, the more return you should get. More to the point, if it sloped down, that would mean you accepted more risk for less return, which by our definition would not be an optimal combination.
 
-By looking at whether optimal portfolios contain gold, and over which time periods and risk levels, we can get a sense of whether we should own gold, and how much. 
+By looking at whether optimal portfolios contain gold, and over which time periods and risk levels, we can get a sense of whether we should own gold, and how much. We can plot a transition map of the composition of the portfolio as you move along the efficient frontier:
 
-We can plot a transition map of the composition of the portfolio as you move along the efficient frontier. That's the optimal portfolio transition map chart at the top of this post. The transition map is a stacked area chart of the composition of the portfolio at each point on the frontier. The leftmost point shows the minimum risk portfolio, with the risk on the top x-axis and the return on the bottom x-axis, and the colors representing each asset in the portfolio. The rightmost point shows the riskiest optimal portfolio, which is 100% stocks. In between, we see the composition of the optimal portfolio as we vary our maximum risk constraint and move along the efficient frontier. 
+![Transition map](/assets/2020/transitionmap1.png)
+
+The transition map is a stacked area chart of the composition of the portfolio at each point on the frontier. The leftmost point shows the minimum risk portfolio, with the risk on the top x-axis and the return on the bottom x-axis, and the colors representing each asset in the portfolio. The rightmost point shows the riskiest optimal portfolio, which is 100% stocks. In between, we see the composition of the optimal portfolio as we vary our maximum risk constraint and move along the efficient frontier. 
 
 We observe that a small allocation of gold is present in most portfolios, except the riskiest optimal portfolios. The minimum-volatility portfolio is T-bills plus a little bit of S&P plus a little bit of gold. The highest-volatility portfolio is of course 100% stocks, but if you lower the volatility constraint, the first asset you add is gold.
 
