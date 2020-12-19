@@ -290,7 +290,6 @@ vl_vals = np.linspace(minvol, maxretvol, NPOINTS)
 # iterate over vl_vals
 results_dict = {}
 for vl_val in vl_vals:
-    # print(datetime.strftime(datetime.now(), "%H:%M:%S"), vl_val)
     results_dict[vl_val] = solve_vl(vl_val)
 
 ```
