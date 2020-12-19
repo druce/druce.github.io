@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-12-18T18:57:21-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Druce.ai</title><subtitle>Druce's Blog on Machine Learning, Tech, Markets and Economics</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Demystifying Portfolio Optimization with Python and CVXOPT</title><link href="http://0.0.0.0:4000/2020/12/portfolio-opimization" rel="alternate" type="text/html" title="Demystifying Portfolio Optimization with Python and CVXOPT" /><published>2020-12-06T17:28:57-05:00</published><updated>2020-12-06T17:28:57-05:00</updated><id>http://0.0.0.0:4000/2020/12/portfolio-optimization</id><content type="html" xml:base="http://0.0.0.0:4000/2020/12/portfolio-opimization">&lt;p&gt;&lt;img src=&quot;/assets/2020/transitionmap1.png&quot; alt=&quot;Transition map&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-12-18T19:55:57-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Druce.ai</title><subtitle>Druce's Blog on Machine Learning, Tech, Markets and Economics</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Demystifying Portfolio Optimization with Python and CVXOPT</title><link href="http://0.0.0.0:4000/2020/12/portfolio-opimization" rel="alternate" type="text/html" title="Demystifying Portfolio Optimization with Python and CVXOPT" /><published>2020-12-06T17:28:57-05:00</published><updated>2020-12-06T17:28:57-05:00</updated><id>http://0.0.0.0:4000/2020/12/portfolio-optimization</id><content type="html" xml:base="http://0.0.0.0:4000/2020/12/portfolio-opimization">&lt;p&gt;&lt;img src=&quot;/assets/2020/transitionmap1.png&quot; alt=&quot;Transition map&quot; /&gt;&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;&lt;em&gt;Do you want to do fast and easy portfolio optimization with Python? Then CVXOPT, and this post, are for you! Here’s a gentle intro to portfolio theory and some &lt;a href=&quot;https://github.com/druce/portfolio_optimization/blob/master/Portfolio%20optimization.ipynb&quot;&gt;code&lt;/a&gt; to get you started.&lt;/em&gt;
 &lt;!--more--&gt;&lt;/p&gt;
@@ -69,12 +69,6 @@
       &lt;td style=&quot;text-align: right&quot;&gt;\(\sqrt{3^2 + 4^2 + 2 \cdot 3 \cdot 4 \cdot 1} =  3 + 4 = $7\)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
       &lt;td&gt;$3&lt;/td&gt;
       &lt;td&gt;$4&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;-1.0&lt;/td&gt;
@@ -111,7 +105,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/2020/cosinerule.png&quot; height=&quot;348&quot; width=&quot;432&quot; alt=&quot;cosine rule&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Correlation math is like the cosine rule, except we &lt;em&gt;change the sign&lt;/em&gt; of the last term. This gives us a handy way to visualize how correlation and risk interact.&lt;/p&gt;
+&lt;p&gt;Correlation math is like the cosine rule, we &lt;em&gt;change the sign&lt;/em&gt; of the last term. This gives us a handy way to visualize how correlation and risk interact.&lt;/p&gt;
 
 &lt;h3 id=&quot;visualizing-risk-math-geometrically-with-triangles&quot;&gt;Visualizing risk math geometrically with triangles&lt;/h3&gt;
 
@@ -434,7 +428,7 @@ for vl_val in vl_vals:
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;I’m reminded of Donald Knuth, “Beware of bugs in the above code; I have only proved it correct, not tried it.” This maxim may apply to modern portfolio theory as well as to what I just wrote. Economics is the only discipline in which two academics can receive a Nobel Prize for research where they directly contradict each other (Fama and Shiller). Portfolio theory is a brilliant and useful model of reality, &lt;a href=&quot;https://www.museumtv.art/artnews/articles/rene-magritte-ceci-nest-pas-une-pipe/&quot;&gt;not reality itself&lt;/a&gt;. Reasoning on the basis of imperfect models can be taken to extremes where models lose some of their usefulness.&lt;/p&gt;
+&lt;p&gt;I’m reminded of Donald Knuth, “Beware of bugs in the above code; I have only proved it correct, not tried it.” This maxim may apply to modern portfolio theory as well as to what I just wrote. Economics is the only discipline in which two academics can receive a Nobel Prize for research where they directly contradict each other (&lt;a href=&quot;https://www.nytimes.com/2013/10/15/business/3-american-professors-awarded-nobel-in-economic-sciences.html&quot;&gt;Fama and Shiller&lt;/a&gt;). Portfolio theory is a brilliant and useful map of reality, &lt;a href=&quot;https://www.museumtv.art/artnews/articles/rene-magritte-ceci-nest-pas-une-pipe/&quot;&gt;not reality itself&lt;/a&gt;. Navigating with &lt;a href=&quot;https://www.travelandleisure.com/travel-news/baunei-sardinia-italy-bans-google-maps-after-tourists-drive-wrong-directions&quot;&gt;excessive confidence&lt;/a&gt; on the basis of imperfect models can be taken to extremes where models lose some of their usefulness.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/druce/portfolio_optimization&quot;&gt;Code here&lt;/a&gt;&lt;/p&gt;
 
