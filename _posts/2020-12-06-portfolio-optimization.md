@@ -27,7 +27,7 @@ By looking at whether optimal portfolios contain gold, and over which time perio
 
 The transition map is a stacked area chart of the composition of the portfolio at each point on the frontier. The leftmost point shows the minimum risk portfolio, with the risk on the top x-axis and the return on the bottom x-axis, and the colors representing each asset in the portfolio. The rightmost point shows the riskiest optimal portfolio, which is 100% stocks. In between, we see the composition of the optimal portfolio as we vary our maximum risk constraint and move along the efficient frontier. 
 
-We observe that a small allocation of gold is present in most portfolios, except the riskiest optimal portfolios. The minimum-volatility portfolio is T-bills plus a little bit of S&P plus a little bit of gold. The highest-volatility portfolio is of course 100% stocks, but if you lower the volatility constraint, the first asset you add is gold.
+We observe that a small allocation of gold is present in most portfolios, except the riskiest optimal portfolio. The minimum-volatility portfolio is T-bills plus a little bit of S&P plus a little bit of gold. The highest-volatility portfolio is of course 100% stocks, but if you lower the volatility constraint, the first asset you add is gold.
 
 Next, we'll take a step back and discuss portfolio theory basics, how we compute the risk, and how we optimize with CVXOPT.
 
@@ -81,7 +81,7 @@ $$ a = \sqrt{b^2 + c^2 - 2 \cdot cos{\alpha} \cdot b \cdot c } $$
 
 <img src="/assets/2020/cosinerule.png" height="348" width="432" alt="cosine rule">
 
-Correlation math is like the cosine rule, we *change the sign* of the last term. This gives us a handy way to visualize how correlation and risk interact.
+Correlation math is like the cosine rule, but we *change the sign* of the last term. This gives us a handy way to visualize how correlation and risk interact.
 
 ### Visualizing risk math geometrically with triangles
 
@@ -99,7 +99,7 @@ When we plug in angle $$\alpha'$$ = 180&deg; - cos<sup>-1</sup>$$\rho$$ in place
 
 $$ a = \sqrt{b^2 + c^2 + 2 \cdot cos \alpha' \cdot b \cdot c } $$
 
-This matches the cosine rule when we use $$ \alpha' = 180^\circ - \alpha $$.
+This matches the risk expression when we use $$ \alpha' = 180^\circ - \alpha $$.
 
 
 ### Examples:
@@ -144,7 +144,7 @@ $$ \sigma_{1}\sigma_{2}\rho_{12} $$ is the *covariance* $$ \sigma_{12} $$. So we
 
 $$ \sigma_{port} = \sqrt{\sigma_{1}^2 + \sigma_{2}^2 + 2\sigma_{12}} $$
 
-The covariance is the expected value of the product of A's deviation from its mean and B's deviation from its mean. The correlation is the covariance scaled by (divided by) the product of A's standard deviation and B's standard deviation. 
+The covariance is the expected value of the product of A's deviation from its mean and B's deviation from its mean. The correlation is the covariance scaled by (divided by) the product of A's standard deviation and B's standard deviation (the maximum possible covariance if $$\rho=1$$. 
 
 The triangles above are drawn assuming 1 share of each asset and absolute dollar returns. To use portfolio weights and percentage returns, we can write the return as:
 
@@ -154,11 +154,11 @@ and the volatility as:
 
 $$ \sigma_{p} = \sqrt{ w_{1}^2\sigma_{1}^2 + w_{2}^2\sigma_{2}^2 + 2w_{1}w_{2}\sigma_{12}} $$
 
-$$\sigma_{p}$$ is now the volatility in return space instead of absolute space. Generalizing to n assets and using $$\sigma_{ii}$$ to denote the variance of asset *i*:
+$$\sigma_{p}$$ is now the volatility in return space instead of absolute space. Generalizing to $$n$$ assets and using $$\sigma_{ii}$$ to denote the variance of asset $$i$$:
 
 $$ \sigma_{p} = \sqrt{\sum_{i=1}^{n}\sum_{j=1}^{n}w_{i}w_{j}\sigma_{ij}} $$
 
-When you do a nested summation over a square array, you should probably consider a matrix. Define the *covariance matrix* $$\Sigma (\rho=0.5)$$ as:
+When you do a nested summation over a square array, you should probably consider a matrix. Define the *covariance matrix* $$\Sigma$$ (using $$\rho=0.5$$) as:
 
 $$ \Sigma = \begin{vmatrix}
 \sigma_{1}^2 & \sigma_{12} \\
@@ -252,7 +252,7 @@ wts = [float('%0.4f' % v) for v in w.value]
 minvol = vol.value
 ```
 
-The rightmost point on the efficient frontier is the highest possible return we could have achieved, which is 100% in the highest-performing asset. We know it's the S&P but let's let CVXPY figure it out for us:
+Now we have the leftmost point on the efficient frontier. The rightmost point is the highest possible return we could have achieved, which is 100% in the highest-performing asset. We know it's the S&P but let's let CVXPY figure it out for us:
 
 ```python
 # Solve max return portfolio (corner solution)
@@ -266,7 +266,7 @@ maxretvol = vol.value
 
 ```
 
-Finally, we trace out the rest of the frontier. We create an array of 200 volatilities between minvol and maxretvol inclusive. For each volatility, we solve the optimization for the highest return portfolio subject to volatility <= vol
+Finally, we trace out the rest of the frontier. We create an array of 200 volatilities between minvol and maxretvol inclusive. For each volatility, we solve the optimization for the highest return portfolio subject to volatility <= vol:
 
 ```
 vol_limit = cp.Parameter(nonneg=True)
@@ -310,7 +310,7 @@ This covers a very long timespan. Let's look at 1972-2019, i.e. after the US aba
 
 In this more inflationary period, somewhat more gold would have been optimal.
 
-Finally, let's look at 1983-2018, i.e. the era of disinflation:
+Finally, let's look at 1983-2018, i.e. the era of disinflation (compare the gold marker vs. the previous chart):
 
 ![Efficient frontier](/assets/2020/efficientfrontier3.png)
 
@@ -353,7 +353,7 @@ for vl_val in vl_vals:
 
 ![Transition map](/assets/2020/transitionmap4.png)
 
-For the same risk as stocks, you get a much higher return, or you get an equal return to stocks at about half the risk. Blinding glimpse of the obvious: if you can find good shorts and use leverage, you can supercharge returns. Note that the transition map visualizes gross exposures, but the stonks and occasionally some of the other assets go short.
+On the efficient frontier, for the same risk as stocks, you get a much higher return, or you get an equal return to stocks at about half the risk. Blinding glimpse of the obvious: if you can find good shorts and use leverage, you can supercharge returns. Note that the transition map visualizes gross exposures, but the stonks and occasionally some of the other assets go short.
 
 ### Factor model
 
@@ -399,11 +399,11 @@ print("Min vol portfolio (return=%.4f, risk=%.4f)" % (minvolret, minvol))
 
 Mean-variance optimization is a useful framework. I think of markets as boundedly efficient, and I believe efficient-market maximalists have done investors a disservice by overselling modern portfolio theory. Beyond the forms of the [efficient market hypothesis](https://www.investopedia.com/ask/answers/032615/what-are-differences-between-weak-strong-and-semistrong-versions-efficient-market-hypothesis.asp#:~:text=The%20strong%20form%20version%20of,an%20advantage%20on%20the%20market.), even the weakest of which is only approximately true, here are 3 important fallacies (or at least oversimplifications) that sometimes get taught:
 
-1. *The risk-free rate and the capital market line.* Suppose there is a risk-free rate with an SD of 0 and some positive return. If you draw a line on the efficient frontier chart, starting from the risk-free rate and tangent to the efficient frontier, it represents the highest feasible Sharpe ratio. You can maximize the Sharpe ratio by holding the market portfolio at the tangent point, and the risk-free asset in some combination, choosing your desired level of risk and return. Similarly, if you can borrow at some rate you can lever up the max-Sharpe portfolio to achieve the highest possible Sharpe at higher levels of risk. It follows that everyone should just hold something close to the market portfolio with varying degrees of leverage based on their risk tolerance. But in practice, there is no risk-free rate. If you are allocating for a timeframe greater than a few years, you should be focusing on real inflation-adjusted, after-tax returns, not nominal returns. In that context, there is no risk-free rate. And there can be no risk-free positive real rate in a real world subject to disasters and policy discontinuities. To expect markets or governments to ensure investors are guaranteed a positive real after-tax return, in a world of wars and pandemics, where participants in goods and labor markets receive no such guarantee, is a chimerical notion.
+1. *The risk-free rate and the capital market line.* Suppose there is a risk-free rate with an SD of 0 and some positive return. If you draw a line on the efficient frontier chart, starting from the risk-free rate and tangent to the efficient frontier, it represents the highest feasible Sharpe ratio. You can maximize the Sharpe ratio by holding the market portfolio at the tangent point, and the risk-free asset in some combination, choosing your desired level of risk and return. Similarly, if you can borrow at some rate you can lever up the max-Sharpe portfolio to achieve the highest possible Sharpe at higher levels of risk. It follows that everyone should just hold something close to the market portfolio with varying degrees of leverage based on their risk tolerance. But in practice, **there ain't no such thing as a risk-free rate**. If you are allocating for a timeframe greater than a few years, you should be focusing on real inflation-adjusted, after-tax returns, not nominal returns. In that context, there is no risk-free rate. And there can be no risk-free positive real rate in a real world subject to disasters and policy discontinuities. To expect markets or governments to ensure investors are guaranteed a positive real after-tax return, in a world of wars and pandemics, where participants in goods and labor markets receive no such guarantee, is a chimerical notion.
 
-2. *Betas (or factors) are all that matters.* If you assume that factors capture all the correlations between stocks, then the unsystematic risk of one stock is always uncorrelated with the risk of other stocks, and furthermore, with a sufficient number of stocks, the unsystematic risk diversifies out. All that's left is beta, the risk captured by the factors. In practice, this is a bad assumption, particularly at times of market stress. No factor model can never capture all the underlying real-world correlations and potential correlations, many of which are never realized. For instance, if California tumbles into the sea, a lot of stocks that previously had low correlations will be highly correlated. Because, first of all, California exposure was not previously a factor but now suddenly is. And secondly because in a big market discontinuity correlations tend to go to one, and seemingly diversified portfolios become riskier than predicted. The discontinuity overwhelms everything else, traders trade what there is a market for and not what is specifically impacted by news flows, and betas tend not to sway them. The modeled risk of a portfolio should be viewed as a lower bound in a normal market where the present is like the past.
+2. *Betas (or factors) are all that matters.* If you assume that factors capture all the correlations between stocks, then the unsystematic risk of one stock is always uncorrelated with the risk of other stocks, and furthermore, with a sufficient number of stocks, the unsystematic risk diversifies out. All that's left is beta, the risk captured by the factors. In practice, this is a bad assumption, particularly at times of market stress. No factor model can never capture all the underlying real-world correlations and potential correlations, many of which are never realized. **No model captures everything.** For instance, if California tumbles into the sea, a lot of stocks that previously had low correlations will be highly correlated. Because, first of all, California exposure was not previously a factor but now suddenly is. And secondly because in a big market discontinuity correlations tend to go to one, and seemingly diversified portfolios become riskier than predicted. The discontinuity overwhelms everything else, traders trade what there is a market for and not what is specifically impacted by news flows, and betas tend not to sway them. The modeled risk of a portfolio should be viewed as a lower bound in a normal market where the present is like the past. 
 
-3. *Everyone should hold the market portfolio because it is game-theory optimal.* Granted, if you hold the market portfolio, and the market portfolio never changes, and you never need to trade, you are guaranteed the market return. But everyone *has* to trade *sometime*. Once you receive dividend or interest income to reinvest, or need to rebalance, or have any cash flows into or out of the portfolio, your returns depend on your trading efficiency and alignment with market timing. No one can be 100% passive. And when you have to trade, the sharks are waiting to exploit you. The smart money, like market-makers or Warren Buffett, can demand an explicit or implicit bid-ask by only giving the other side of the trade when it's worth their while. Furthermore, when the index changes, you are forced to trade to match it, and people will front-run you. If Tesla goes into the S&P at $700/share as a top-10 market cap, and you are able to buy it at $700/share, you will match the index, but it doesn't mean you didn't get fleeced. The dominance of indexing assumes cost-free trading. But in practice, the more investors index, the more inefficient the market gets, making it more costly to trade, and increasing the opportunity set for non-indexers.  If you don't have an edge, indexing and implicitly trying to tag along with the average investor is extremely sensible. But it is not guaranteed to be a free lunch. You have to trade as little as possible, and avoid buying at the top and selling at the bottom. Most retail investors don't match the market [for many reasons](https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/behavior%20of%20individual%20investors.pdf), some of which are neutralized by indexing. But even retail index investors underperform because they tend to buy and sell at the worst times.
+3. *Everyone should hold the market portfolio because it is game-theory optimal.* Granted, if you hold the market portfolio, and the market portfolio never changes, and you never need to trade, you are guaranteed the market return. But everyone *has* to trade *sometime*. Once you receive dividend or interest income to reinvest, or need to rebalance, or have any cash flows into or out of the portfolio, your returns depend on your trading efficiency and alignment with market timing. No one can be 100% passive. And when you have to trade, the sharks are waiting to exploit you. The smart money, like market-makers or Warren Buffett, can demand an explicit or implicit bid-ask by only giving the other side of the trade when it's worth their while. Furthermore, when the index changes, you are forced to trade to match it, and people will front-run you. If Tesla goes into the S&P at $700/share as a top-10 market cap, and you are able to buy it at $700/share, you will match the index, but it doesn't mean you didn't get fleeced. The dominance of indexing assumes cost-free trading, and **trading always costs money, sometimes a lot**. In practice, the more investors index, the more inefficient the market gets, making it more costly to trade, and increasing the opportunity set for non-indexers.  If you don't have an edge, indexing and implicitly trying to tag along with the average investor is extremely sensible. But it is not guaranteed to be a free lunch. You have to trade as little as possible, and avoid buying at the top and selling at the bottom. Most retail investors don't match the market [for many reasons](https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/behavior%20of%20individual%20investors.pdf), some of which are neutralized by indexing. But even retail index investors underperform because they tend to buy and sell at the worst times.
 
 I'm reminded of Donald Knuth, "Beware of bugs in the above code; I have only proved it correct, not tried it." This maxim may apply to modern portfolio theory as well as to what I just wrote. Economics is the only discipline in which two academics can receive a Nobel Prize for research where they directly contradict each other ([Fama and Shiller](https://www.nytimes.com/2013/10/15/business/3-american-professors-awarded-nobel-in-economic-sciences.html)). Portfolio theory is a brilliant and useful map of reality, [not reality itself](https://www.museumtv.art/artnews/articles/rene-magritte-ceci-nest-pas-une-pipe/). Navigating with [excessive confidence](https://www.travelandleisure.com/travel-news/baunei-sardinia-italy-bans-google-maps-after-tourists-drive-wrong-directions) on the basis of imperfect models can be taken to extremes where models lose some of their usefulness.
 
