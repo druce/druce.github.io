@@ -53,7 +53,7 @@ Just like historical P/Es, historical volatilities are a tool for investing judg
 
 Given the historical volatility of each of our assets, how do we compute the volatility of our portfolio? 
 
-Of course, we can compute all the historical asset-weighted returns of the portfolio and then compute the standard deviation. But if we want to do optimization we need an expression to optimize. And we want to understand how portfolio volatility is determined. 
+Of course, we can compute all the historical asset-weighted returns of the portfolio and then compute the standard deviation. But if we want to do optimization we need an expression to optimize, we need to understand how portfolio volatility is determined. 
 
 Suppose you own 1 share of asset $$a_1$$ and 1 share of asset $$a_2$$. And you know the standard deviation of $$a_1$$'s absolute returns $$ \sigma_{1}=$$ $3 and the standard deviation of $$a_2$$'s absolute returns $$ \sigma_{2} =$$ $4. What is the volatility of a portfolio with one share of each?
 
@@ -144,7 +144,7 @@ $$ \sigma_{1}\sigma_{2}\rho_{12} $$ is the *covariance* $$ \sigma_{12} $$. So we
 
 $$ \sigma_{port} = \sqrt{\sigma_{1}^2 + \sigma_{2}^2 + 2\sigma_{12}} $$
 
-The covariance is the expected value of the product of A's deviation from its mean and B's deviation from its mean. The correlation is the covariance scaled by (divided by) the product of A's standard deviation and B's standard deviation (the maximum possible covariance if $$\rho=1$$. 
+The covariance is the expected value of the product of A's deviation from its mean and B's deviation from its mean. The correlation is the covariance scaled by (divided by) the product of A's standard deviation and B's standard deviation (the maximum possible covariance if $$\rho=1$$). 
 
 The triangles above are drawn assuming 1 share of each asset and absolute dollar returns. To use portfolio weights and percentage returns, we can write the return as:
 
@@ -180,7 +180,7 @@ What is the efficient frontier? The line describing the set of feasible portfoli
 
 What is the leftmost point on the efficient frontier? It's the minimum volatility portfolio.
 
-We can find the weights for the minimum volatility portfolio through a convex optimization.
+We can find the weights for the minimum volatility portfolio through a [convex optimization](https://en.wikipedia.org/wiki/Convex_optimization). When the objective function is convex, there is a global minimum which we can find efficiently by [various methods](http://homepages.laas.fr/henrion/courses/lmi06/lmiIII1.pdf).
 
 CVXPY is a Python modeling framework for convex optimization ([paper](https://arxiv.org/abs/1603.00943)), by Steven Diamond and Stephen Boyd of Stanford (who wrote a [textbook](https://web.stanford.edu/~boyd/cvxbook/) on convex optimization). In the way Pandas is a Python extension for dataframes, CVXPY is a Python extension for describing convex optimization problems.
 
@@ -302,7 +302,7 @@ And the transition map:
 
 ![Transition map](/assets/2020/transitionmap1.png)
 
-This covers a very long timespan. Let's look at 1972-2019, i.e. after the US abandonment of the gold standard:
+This covers a very long timespan. Let's look at 1972-2019, i.e. after the US abandoned the gold standard:
 
 ![Efficient frontier](/assets/2020/efficientfrontier2.png)
 
@@ -402,7 +402,7 @@ Mean-variance optimization is a useful framework. I think of markets as boundedl
 1. *The risk-free rate and the capital market line.* Suppose there is a risk-free rate with an SD of 0 and some positive return. If you draw a line on the efficient frontier chart, starting from the risk-free rate and tangent to the efficient frontier, it represents the highest feasible Sharpe ratio. You can maximize the Sharpe ratio by holding the market portfolio at the tangent point, and the risk-free asset in some combination, choosing your desired level of risk and return. Similarly, if you can borrow at some rate you can lever up the max-Sharpe portfolio to achieve the highest possible Sharpe at higher levels of risk. It follows that everyone should just hold something close to the market portfolio with varying degrees of leverage based on their risk tolerance. But in practice, **there ain't no such thing as a risk-free rate**. If you are allocating for a timeframe greater than a few years, you should be focusing on real inflation-adjusted, after-tax returns, not nominal returns. In that context, there is no risk-free rate. And there can be no risk-free positive real rate in a real world subject to disasters and policy discontinuities. To expect markets or governments to ensure investors are guaranteed a positive real after-tax return, in a world of wars and pandemics, where participants in goods and labor markets receive no such guarantee, is a chimerical notion.
 
 2. *Betas (or factors) are all that matters.* If you assume that factors capture all the correlations between stocks, then the unsystematic risk of one stock is always uncorrelated with the risk of other stocks, and furthermore, with a sufficient number of stocks, the unsystematic risk diversifies out. All that's left is beta, the risk captured by the factors. In practice, this is a bad assumption, particularly at times of market stress. No factor model can never capture all the underlying real-world correlations and potential correlations, many of which are never realized. **No model captures everything.** For instance, if California tumbles into the sea, a lot of stocks that previously had low correlations will be highly correlated. Because, first of all, California exposure was not previously a factor but now suddenly is. And secondly because in a big market discontinuity correlations tend to go to one, and seemingly diversified portfolios become riskier than predicted. The discontinuity overwhelms everything else, traders trade what there is a market for and not what is specifically impacted by news flows, and betas tend not to sway them. The modeled risk of a portfolio should be viewed as a lower bound in a normal market where the present is like the past. 
-
+   
 3. *Everyone should hold the market portfolio because it is game-theory optimal.* Granted, if you hold the market portfolio, and the market portfolio never changes, and you never need to trade, you are guaranteed the market return. But everyone *has* to trade *sometime*. Once you receive dividend or interest income to reinvest, or need to rebalance, or have any cash flows into or out of the portfolio, your returns depend on your trading efficiency and alignment with market timing. No one can be 100% passive. And when you have to trade, the sharks are waiting to exploit you. The smart money, like market-makers or Warren Buffett, can demand an explicit or implicit bid-ask by only giving the other side of the trade when it's worth their while. Furthermore, when the index changes, you are forced to trade to match it, and people will front-run you. If Tesla goes into the S&P at $700/share as a top-10 market cap, and you are able to buy it at $700/share, you will match the index, but it doesn't mean you didn't get fleeced. The dominance of indexing assumes cost-free trading, and **trading always costs money, sometimes a lot**. In practice, the more investors index, the more inefficient the market gets, making it more costly to trade, and increasing the opportunity set for non-indexers.  If you don't have an edge, indexing and implicitly trying to tag along with the average investor is extremely sensible. But it is not guaranteed to be a free lunch. You have to trade as little as possible, and avoid buying at the top and selling at the bottom. Most retail investors don't match the market [for many reasons](https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/behavior%20of%20individual%20investors.pdf), some of which are neutralized by indexing. But even retail index investors underperform because they tend to buy and sell at the worst times.
 
 I'm reminded of Donald Knuth, "Beware of bugs in the above code; I have only proved it correct, not tried it." This maxim may apply to modern portfolio theory as well as to what I just wrote. Economics is the only discipline in which two academics can receive a Nobel Prize for research where they directly contradict each other ([Fama and Shiller](https://www.nytimes.com/2013/10/15/business/3-american-professors-awarded-nobel-in-economic-sciences.html)). Portfolio theory is a brilliant and useful map of reality, [not reality itself](https://www.museumtv.art/artnews/articles/rene-magritte-ceci-nest-pas-une-pipe/). Navigating with [excessive confidence](https://www.travelandleisure.com/travel-news/baunei-sardinia-italy-bans-google-maps-after-tourists-drive-wrong-directions) on the basis of imperfect models can be taken to extremes where models lose some of their usefulness.
@@ -412,9 +412,6 @@ I'm reminded of Donald Knuth, "Beware of bugs in the above code; I have only pro
 *A desk is a dangerous place from which to view the world. -- John Le Carré*
 
 &nbsp;
-
-&nbsp;
-
 
 [^1]: We reverse the sign because of the inconvenient convention of how triangle angles are measured. Suppose you start walking in the direction of segment $$a_1$$ for the first asset. If for segment $$a_2$$ you keep going in the same direction, that corresponds to $$\alpha'$$ = 0&deg;, correlation = 1.0. If you do a 180, that corresponds to $$\alpha'$$ = 180&deg;, correlation = -1.0. If you make a right-angle turn in either direction, that corresponds to $$\alpha'$$ = +/- 90&deg;, correlation = 0. The way we usually measure triangle angles, an angle of 0 corresponds to doing a 180, which is a slightly backwards way of looking at it. So we have to reverse the sign on the classic cosine rule to make cosine math correspond to correlation math. But the spatial relationship is the same.
 

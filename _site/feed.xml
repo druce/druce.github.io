@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-12-19T10:44:57-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Druce.ai</title><subtitle>Druce's Blog on Machine Learning, Tech, Markets and Economics</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Demystifying Portfolio Optimization with Python and CVXOPT</title><link href="http://0.0.0.0:4000/2020/12/portfolio-opimization" rel="alternate" type="text/html" title="Demystifying Portfolio Optimization with Python and CVXOPT" /><published>2020-12-06T17:28:57-05:00</published><updated>2020-12-06T17:28:57-05:00</updated><id>http://0.0.0.0:4000/2020/12/portfolio-optimization</id><content type="html" xml:base="http://0.0.0.0:4000/2020/12/portfolio-opimization">&lt;p&gt;&lt;img src=&quot;/assets/2020/efficientfrontier1.png&quot; alt=&quot;Efficient frontier&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-12-20T09:35:21-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Druce.ai</title><subtitle>Druce's Blog on Machine Learning, Tech, Markets and Economics</subtitle><author><name>Druce Vertes</name></author><entry><title type="html">Demystifying Portfolio Optimization with Python and CVXOPT</title><link href="http://0.0.0.0:4000/2020/12/portfolio-opimization" rel="alternate" type="text/html" title="Demystifying Portfolio Optimization with Python and CVXOPT" /><published>2020-12-06T17:28:57-05:00</published><updated>2020-12-06T17:28:57-05:00</updated><id>http://0.0.0.0:4000/2020/12/portfolio-optimization</id><content type="html" xml:base="http://0.0.0.0:4000/2020/12/portfolio-opimization">&lt;p&gt;&lt;img src=&quot;/assets/2020/efficientfrontier1.png&quot; alt=&quot;Efficient frontier&quot; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;em&gt;Do you want to do fast and easy portfolio optimization with Python? Then CVXOPT, and this post, are for you! Here’s a gentle intro to portfolio theory and some &lt;a href=&quot;https://github.com/druce/portfolio_optimization/blob/master/Portfolio%20optimization.ipynb&quot;&gt;code&lt;/a&gt; to get you started.&lt;/em&gt;
@@ -43,7 +43,7 @@
 
 &lt;p&gt;Given the historical volatility of each of our assets, how do we compute the volatility of our portfolio?&lt;/p&gt;
 
-&lt;p&gt;Of course, we can compute all the historical asset-weighted returns of the portfolio and then compute the standard deviation. But if we want to do optimization we need an expression to optimize. And we want to understand how portfolio volatility is determined.&lt;/p&gt;
+&lt;p&gt;Of course, we can compute all the historical asset-weighted returns of the portfolio and then compute the standard deviation. But if we want to do optimization we need an expression to optimize, we need to understand how portfolio volatility is determined.&lt;/p&gt;
 
 &lt;p&gt;Suppose you own 1 share of asset \(a_1\) and 1 share of asset \(a_2\). And you know the standard deviation of \(a_1\)’s absolute returns \(\sigma_{1}=\) $3 and the standard deviation of \(a_2\)’s absolute returns \(\sigma_{2} =\) $4. What is the volatility of a portfolio with one share of each?&lt;/p&gt;
 
@@ -170,7 +170,7 @@
 
 \[\sigma_{port} = \sqrt{\sigma_{1}^2 + \sigma_{2}^2 + 2\sigma_{12}}\]
 
-&lt;p&gt;The covariance is the expected value of the product of A’s deviation from its mean and B’s deviation from its mean. The correlation is the covariance scaled by (divided by) the product of A’s standard deviation and B’s standard deviation (the maximum possible covariance if \(\rho=1\).&lt;/p&gt;
+&lt;p&gt;The covariance is the expected value of the product of A’s deviation from its mean and B’s deviation from its mean. The correlation is the covariance scaled by (divided by) the product of A’s standard deviation and B’s standard deviation (the maximum possible covariance if \(\rho=1\)).&lt;/p&gt;
 
 &lt;p&gt;The triangles above are drawn assuming 1 share of each asset and absolute dollar returns. To use portfolio weights and percentage returns, we can write the return as:&lt;/p&gt;
 
@@ -206,7 +206,7 @@
 
 &lt;p&gt;What is the leftmost point on the efficient frontier? It’s the minimum volatility portfolio.&lt;/p&gt;
 
-&lt;p&gt;We can find the weights for the minimum volatility portfolio through a convex optimization.&lt;/p&gt;
+&lt;p&gt;We can find the weights for the minimum volatility portfolio through a &lt;a href=&quot;https://en.wikipedia.org/wiki/Convex_optimization&quot;&gt;convex optimization&lt;/a&gt;. When the objective function is convex, there is a global minimum which we can find efficiently by &lt;a href=&quot;http://homepages.laas.fr/henrion/courses/lmi06/lmiIII1.pdf&quot;&gt;various methods&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;CVXPY is a Python modeling framework for convex optimization (&lt;a href=&quot;https://arxiv.org/abs/1603.00943&quot;&gt;paper&lt;/a&gt;), by Steven Diamond and Stephen Boyd of Stanford (who wrote a &lt;a href=&quot;https://web.stanford.edu/~boyd/cvxbook/&quot;&gt;textbook&lt;/a&gt; on convex optimization). In the way Pandas is a Python extension for dataframes, CVXPY is a Python extension for describing convex optimization problems.&lt;/p&gt;
 
@@ -322,7 +322,7 @@ for vl_val in vl_vals:
 
 &lt;p&gt;&lt;img src=&quot;/assets/2020/transitionmap1.png&quot; alt=&quot;Transition map&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;This covers a very long timespan. Let’s look at 1972-2019, i.e. after the US abandonment of the gold standard:&lt;/p&gt;
+&lt;p&gt;This covers a very long timespan. Let’s look at 1972-2019, i.e. after the US abandoned the gold standard:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/2020/efficientfrontier2.png&quot; alt=&quot;Efficient frontier&quot; /&gt;&lt;/p&gt;
 
@@ -433,8 +433,6 @@ for vl_val in vl_vals:
 &lt;p&gt;&lt;a href=&quot;https://github.com/druce/portfolio_optimization&quot;&gt;Code here&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;A desk is a dangerous place from which to view the world. – John Le Carré&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt; &lt;/p&gt;
 
 &lt;p&gt; &lt;/p&gt;
 
