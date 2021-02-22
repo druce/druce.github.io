@@ -31,7 +31,7 @@ Let me give a result first and then explain in more detail what it means, and ho
 
 - Allocate 73.3% to stocks. Each year, withdraw 3.516% of starting portfolio + 1.114% of current portfolio. 
 - Average spending over 30-year retirement: 5.309% of starting portfolio
-- Worst spending: 3.555% of starting portfolio
+- Worst-case spending: 3.555% of starting portfolio
 
 Chart of 30-year spending outcomes of 64 retirement cohorts 1928-1991, risk aversion=16 (Shaded area is middle 50% of outcomes.)
 	![Chart of 30-year spending outcomes of 64 retirement cohorts 1928-1991](/assets/2021/gamma16.png)
@@ -40,7 +40,7 @@ Chart of 30-year spending outcomes of 64 retirement cohorts 1928-1991, risk aver
 **'Risky' rule:**
 - Allocate 88.6% to stocks. Each year, withdraw 2.700% of starting portfolio + 2.985% of current portfolio.
 - Average spending over 30-year retirement: 6.914% of starting portfolio
-- Worst spending: 2.784% of starting portfolio
+- Worst-case spending: 2.784% of starting portfolio
 
 Chart of 30-year spending outcomes of 64 retirement cohorts 1928-1991, risk aversion=4 (Shaded area is middle 50% of outcomes.)
 ![Chart of 30-year spending outcomes of 64 retirement cohorts 1928-1991](/assets/2021/gamma4.png)
