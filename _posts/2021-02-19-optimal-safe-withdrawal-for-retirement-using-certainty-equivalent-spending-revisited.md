@@ -83,7 +83,7 @@ I don't claim that CE spending is the perfect metric to maximize according to an
 
 This is a simple model but it may useful. Here is a complete table of results at different levels of risk aversion gamma.
 
-![optimal_CE_table.png](/assets/2021/optimal_ce_table.png)
+![optimal_CE_table.png](/assets/2021/optimal_CE_table.png)
 
 Using some of these rules, a retiree could often achieve a higher expected withdrawal rate, at the cost of a modest worsening of the worst-case withdrawal rate.
 
@@ -105,4 +105,4 @@ In creating this analysis, the goals were:
 	
 - *Any (gradient-free) optimizer* to find best parameters: e.g. asset allocation, withdrawal parameters to maximize a metric in the given market environment.
 
-[^1]: One thing I did was attempt to optimize over a full asset allocation and spending glidepath, i.e. a schedule of stock/bond allocation and spending for each year of retirement. A problem with that is that when you optimize over all historical cohorts, it will overfit to the worst year of the worst retirement cohort. If 1966 is the worst year to retire and 1974 is the most damaging equity year, it will reduce equity for the 18th year of retirement everywhere. One approach to mitigate that is to force the glidepath to be strictly descending, so at least it doesn't chop equity and then arbitrarily restore it in the 19th year. Another approach could be to ditch optimizing over historical cohorts and do Monte Carlo only. A second problem was that, on the one hand TensorFlow lets you use the GPU for fast optimization, but it's a gradient-based method, and the gradients seem to turn out to be more messy than one might expect, you may have to restart several times to get a good result. So gradient-free optimizers and simpler parameters may be a better approach.
+[^1]: One thing I did in 2016 was attempt to optimize over a full asset allocation and spending glidepath, i.e. a schedule of stock/bond allocation and spending for each year of retirement. A problem with that is that when you optimize over all historical cohorts, it will overfit to the worst year of the worst retirement cohort. If 1966 is the worst year to retire and 1974 is the most damaging equity year, it will reduce equity for the 18th year of retirement everywhere. One approach to mitigate that is to force the glidepath to be strictly descending, so at least it doesn't chop equity and then arbitrarily restore it in the 19th year. Another approach could be to ditch optimizing over historical cohorts and do Monte Carlo only. A second problem was that, on the one hand TensorFlow lets you use the GPU for fast optimization, but it's a gradient-based method, and the gradients seem to turn out to be more messy than one might expect, you may have to restart several times to get a good result. So gradient-free optimizers and simpler parameters may be a better approach.
