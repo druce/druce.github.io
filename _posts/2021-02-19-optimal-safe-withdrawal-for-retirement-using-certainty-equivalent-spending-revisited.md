@@ -23,7 +23,7 @@ Then I started thinking, what would happen if, instead of a hard no-shortfall co
 
 So I [maximized 'certainty-equivalent' spending](https://druce.ai/2016/08/safe-retirement-spending-using-certainty-equivalent-cash-flow-and-tensorflow/), i.e. actual spending discounted by volatility, at different levels of risk aversion. But I might have overcomplicated it.[^1]  So in this post I rerun it with simpler rules, newer optimization modules, and a more flexible Python framework.
 
-This leads to a generalized Bengen rule where the 4% rule is the 'infinite-risk-aversion' solution that requires a fixed constant withdrawal level and never experiences any shortfall or reduction in withdrawal. A 'risk-neutral' rule would find the withdrawal amount that would have maximized spending irrespective of any reductions (probably not recommended). In between, different levels of risk aversion lead to different rules.
+This leads to a generalized Bengen rule where the 4% rule is the 'infinite-risk-aversion' solution that requires a fixed constant withdrawal level and never experiences any shortfall or reduction in withdrawals. A risk-neutral rule would find the withdrawal amount that would have maximized spending irrespective of any reductions (probably not recommended). In between, different levels of risk aversion lead to different rules that trade off higher mean withdrawals against the risk of lower worst-case withdrawals.
 
 Let me give a result first and then explain in more detail what it means, and how it was computed:
 
