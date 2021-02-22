@@ -67,9 +67,9 @@ And given 64 historical retirement cohorts, we can calculate all the cohort reti
 
 The metric we choose to maximize here is *certainty-equivalent spending (CE spending)* under *constant relative risk aversion (CRRA).*
 
-CRRA means that you prefer a certain or constant cash stream to a variable or risky one drawn from a distribution; and your preference is scale-invariant, i.e. if I give you a coin-flip with a given positive expected value, for example lose $1/win $2, you will bet the same percentage of your wealth, whether you have $100 or $100,000. And your risk aversion parameter *gamma* determines how much you choose to bet. If you are risk-neutral you bet more, if you are highly risk-averse, you bet less. The [Kelly-optimal](https://en.wikipedia.org/wiki/Kelly_criterion) bet corresponds to *gamma*=1, or log utility.
+CRRA means that you prefer a certain or constant cash stream to a variable or risky one drawn from a distribution; and your preference is scale-invariant, i.e. if I give you a coin-flip with a given positive expected value, for example lose $1/win $2, you will bet the same percentage of your wealth, whether you have $100 or $100,000. And your risk aversion parameter *gamma* determines whether or how much you choose to bet. If you are risk-neutral you bet more, if you are highly risk-averse, you bet less or refuse the bet. The [Kelly-optimal](https://en.wikipedia.org/wiki/Kelly_criterion) betting strategy corresponds to *gamma*=1, or log utility.
 
-To calculate CE spending at a level of risk aversion *gamma*, we convert dollar income streams to CRRA utility using *gamma*. We take the average utility, and convert that utility back to dollar spending. This gives us the constant-stream cash flow that would have the same utility as the original variable cash flow.
+To calculate CE spending at a level of risk aversion *gamma*, we convert dollar income streams to CRRA utility using *gamma*. We take the average utility, and convert that utility back to dollar spending. This gives us the constant-stream cash flow that would have the same utility as the original variable cash flow at the given level of risk aversion.
 
 In essence, we are discounting the cash flows based on their volatility, in the manner implied by CRRA utility. And we find the retirement strategies that maximize CE spending.
 
@@ -87,7 +87,7 @@ This is a simple model but it may useful. Here is a complete table of results at
 
 Using some of these rules, a retiree could often achieve a higher expected withdrawal rate than 4%, at the cost of a modest worsening of the worst-case withdrawal rate.
 
-In creating this analysis, the goals were:
+In creating this analysis, my goals were:
 
 1) *A simple model* where we can create understandable strategies that may improve on a fixed withdrawal, at varying levels of risk aversion.
 
@@ -104,5 +104,8 @@ In creating this analysis, the goals were:
 - *Any metrics* to evaluate retirement cohort outcomes: total spending, certainty-equivalent spending, roll your own. Support survival tables, i.e. calculate expected metric for living retirees taking into account retirement age and survivorship)
 	
 - *Any (gradient-free) optimizer* to find best parameters: e.g. asset allocation, withdrawal parameters to maximize a metric in the given market environment.
+
+[Code can be found here.](https://github.com/druce/swr)
+
 
 [^1]: One thing I did in 2016 was attempt to optimize over a full asset allocation and spending glidepath, i.e. a schedule of stock/bond allocation and spending for each year of retirement. A problem with that is that when you optimize over all historical cohorts, it will overfit to the worst year of the worst retirement cohort. If 1966 is the worst year to retire and 1974 is the most damaging equity year, it will reduce equity for the 18th year of retirement everywhere. One approach to mitigate that is to force the glidepath to be strictly descending, so at least it doesn't chop equity and then arbitrarily restore it in the 19th year. Another approach could be to ditch optimizing over historical cohorts and do Monte Carlo only. A second problem was that, on the one hand TensorFlow lets you use the GPU for fast optimization, but it's a gradient-based method, and the gradients seem to turn out to be more messy than one might expect, you may have to restart several times to get a good result. So gradient-free optimizers and simpler parameters may be a better approach.
