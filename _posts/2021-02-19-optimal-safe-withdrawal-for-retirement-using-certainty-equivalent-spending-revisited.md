@@ -21,9 +21,9 @@ Bengen's approach optimizes by finding the highest withdrawal rate subject to a 
 
 Then I started thinking, what would happen if, instead of a hard no-shortfall constraint and a fixed withdrawal rate, we asked what flexible rule would maximize spending for different levels of risk aversion?
 
-So I [maximized 'certainty-equivalent' spending](https://druce.ai/2016/08/safe-retirement-spending-using-certainty-equivalent-cash-flow-and-tensorflow/), i.e. actual spending discounted by volatility, at different levels of risk aversion. But I might have overcomplicated it.[^1]  So here I reran it with simpler rules, newer optimization modules, and a more flexible Python framework.
+So I [maximized 'certainty-equivalent' spending](https://druce.ai/2016/08/safe-retirement-spending-using-certainty-equivalent-cash-flow-and-tensorflow/), i.e. actual spending discounted by volatility, at different levels of risk aversion. But I might have overcomplicated it.[^1]  So in this post I rerun it with simpler rules, newer optimization modules, and a more flexible Python framework.
 
-This leads to a generalized Bengen rule where the 4% rule is the 'infinite-risk-aversion' solution that requires a fixed constant withdrawal level and never experiences any reduction. A 'risk-neutral' rule would find the withdrawal amount that would have maximized spending irrespective of any reductions (probably not recommended). In between, different levels of risk aversion lead to different rules.
+This leads to a generalized Bengen rule where the 4% rule is the 'infinite-risk-aversion' solution that requires a fixed constant withdrawal level and never experiences any shortfall or reduction in withdrawal. A 'risk-neutral' rule would find the withdrawal amount that would have maximized spending irrespective of any reductions (probably not recommended). In between, different levels of risk aversion lead to different rules.
 
 Let me give a result first and then explain in more detail what it means, and how it was computed:
 
@@ -67,33 +67,33 @@ And given 64 historical retirement cohorts, we can calculate all the cohort reti
 
 The metric we choose to maximize here is *certainty-equivalent spending (CE spending)* under *constant relative risk aversion (CRRA).*
 
-CRRA means that you prefer a certain or constant cash stream to a variable or risky one drawn from a distribution; and your preference is scale-invariant, i.e. if I give you a coin-flip for a given edge, say lose $1/win $2, you will bet the same percentage of your wealth, whether you have $100 or $100,000. And your risk aversion parameter *gamma* determines how much you choose to bet. If you are risk-neutral you bet more, if you are highly risk-averse, you bet less. The Kelly-optimal bet corresponds to gamma=1, or log utility.
+CRRA means that you prefer a certain or constant cash stream to a variable or risky one drawn from a distribution; and your preference is scale-invariant, i.e. if I give you a coin-flip with a given positive expected value, for example lose $1/win $2, you will bet the same percentage of your wealth, whether you have $100 or $100,000. And your risk aversion parameter *gamma* determines how much you choose to bet. If you are risk-neutral you bet more, if you are highly risk-averse, you bet less. The [Kelly-optimal](https://en.wikipedia.org/wiki/Kelly_criterion) bet corresponds to *gamma*=1, or log utility.
 
-To calculate CE spending at a level of risk aversion gamma, we convert dollar income streams to CRRA utility using gamma. We take the average utility, and convert that utility back to dollar spending. This gives us the constant-stream cash flow that would have the same utility as the original variable cash flow.
+To calculate CE spending at a level of risk aversion *gamma*, we convert dollar income streams to CRRA utility using *gamma*. We take the average utility, and convert that utility back to dollar spending. This gives us the constant-stream cash flow that would have the same utility as the original variable cash flow.
 
 In essence, we are discounting the cash flows based on their volatility, in the manner implied by CRRA utility. And we find the retirement strategies that maximize CE spending.
 
 I don't claim that CE spending is the perfect metric to maximize according to any economic theory. But I assert that:
 
-- CE spending is intuitive, it's real spending discounted based on volatility and a risk aversion parameter. Units are real dollars. CE spending is the variable income stream converted to an equivalently desirable constant income stream.
+- CE spending is *intuitive*, it's real spending discounted based on volatility and a risk aversion parameter. Units are real dollars. CE spending is the variable income stream converted to an equivalently desirable constant income stream.
 - In practice we *can* find strategies that maximimize CE spending. Maximizing expected utility directly is more abstract, less intuitive and leads to computational, calibration problems.
 - Directionally, CE spending is a metric that you *could* plausibly *want* to maximize.
 - CE spending is a quantity that is derived from CRRA utility and *consistent* with it (even though maximizing CE spending over a distribution of returns is not at all the same as maximizing expected utility).
-- Maximizing CE spending is *informative*. It allows us to tweak a single gamma dial to identify plausibly optimal parameters for complex strategies at different levels of risk aversion.
+- Maximizing CE spending is *informative*. It allows us to tweak a single *gamma* dial to identify plausibly optimal parameters for complex strategies at different levels of risk aversion.
 
-This is a simple model but it may useful. Here is a complete table of results at different levels of risk aversion gamma.
+This is a simple model but it may useful. Here is a complete table of results at different levels of risk aversion *gamma*.
 
-![optcetable.png](https://raw.githubusercontent.com/druce/druce.github.io/master/assets/2021/optcetable.png)
+![optcetable.png](../../../assets/2021/optcetable.png)
 
-Using some of these rules, a retiree could often achieve a higher expected withdrawal rate, at the cost of a modest worsening of the worst-case withdrawal rate.
+Using some of these rules, a retiree could often achieve a higher expected withdrawal rate than 4%, at the cost of a modest worsening of the worst-case withdrawal rate.
 
 In creating this analysis, the goals were:
 
 1) *A simple model* where we can create understandable strategies that may improve on a fixed withdrawal, at varying levels of risk aversion.
 
-2) Try out leading gradient-free optimizing frameworks, including scipy.optimize [L-BFGS-B](https://docs.scipy.org/doc/scipy/reference/optimize.minimize-lbfgsb.html#optimize-minimize-lbfgsb), [Optuna](https://optuna.org/), [Hyperopt](http://hyperopt.github.io/hyperopt/), [Platypus](https://github.com/Project-Platypus/Platypus), [Nevergrad](https://facebookresearch.github.io/nevergrad/optimization.html), [Ax](https://ax.dev/). (L-BFGS-B and Optuna worked best, with Dlib, Platypus, and Nevergrad yielding useful results.)
+2) *To evaluate leading gradient-free optimizing frameworks*, including scipy.optimize [L-BFGS-B](https://docs.scipy.org/doc/scipy/reference/optimize.minimize-lbfgsb.html#optimize-minimize-lbfgsb), [Optuna](https://optuna.org/), [Hyperopt](http://hyperopt.github.io/hyperopt/), [Platypus](https://github.com/Project-Platypus/Platypus), [Nevergrad](https://facebookresearch.github.io/nevergrad/optimization.html), [Ax](https://ax.dev/). (L-BFGS-B and Optuna worked best, with Dlib, Platypus, and Nevergrad yielding useful results.)
 
-3) *Build a Python framework* for safe withdrawal retirement problems that accomodates:
+3) *To build a flexible Python framework* for safe withdrawal retirement problems that accomodates:
 
 - *Any generator of historical asset returns:* historical, Monte Carlo, roll your own market environment as a Python generator function.
 	
