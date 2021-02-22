@@ -83,7 +83,7 @@ I don't claim that CE spending is the perfect metric to maximize according to an
 
 This is a simple model but it may useful. Here is a complete table of results at different levels of risk aversion gamma.
 
-![optimal_CE_table.png](/assets/2021/optimal_CE_table.png)
+![optimal_CE_table.png](/assets/2021/optcetable.png)
 
 Using some of these rules, a retiree could often achieve a higher expected withdrawal rate, at the cost of a modest worsening of the worst-case withdrawal rate.
 
