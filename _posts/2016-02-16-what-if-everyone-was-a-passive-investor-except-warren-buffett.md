@@ -455,6 +455,7 @@ Takeaways:
   * The math that proves indexers can always closely or perfectly match the index performance, doesn’t add up when the indexer has to trade, and trades are big enough to move markets.
   * Instead, there’s a Nash-like mixed strategy equilibrium: too little passive, passive can exploit active, too much active, active can exploit passive.
   * Dumb money doesn’t become smart money because it indexes. It just finds another way to lose. There is always a game beyond the game. 
+  * If most people are bad at active management, it's better for them to be mostly passive, trade as little as possible, choose active decisions only at market extremes. And if a few people are pretty good at active management, it's better for Buffett if they don't compete with him at his own game. Although I doubt many good active investors have been deterred by academic passive zealotry.
   * And finally, everybody likes a good Buffett angle, even if it’s a [MacGuffin](https://en.wikipedia.org/wiki/MacGuffin) for a boring discussion of limits of active v. passive.
 
 This benefited from discussion with [Will Ortel](https://blogs.cfainstitute.org/investor/author/willortel/) of [CFA Institute](http://www.cfainstitute.org) and [Wes Gray](https://twitter.com/alphaarchitect) of [Alpha Architect](http://www.alphaarchitect.com/).
