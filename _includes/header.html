@@ -1,43 +1,30 @@
-<header class="site-header" role="banner" id="header-bar">
+<header class="site-header page-header header container-fluid" role="banner" id="header-bar">
+  <nav class="navbar navbar-expand-md">
+    <div class="container">      
 
-  <div class="wrapper">
-    {% assign default_paths = site.pages | map: "path" %}
-    <a class="site-title" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+      {% assign default_paths = site.pages | map: "path" %}
+      <a class="site-title navbar-brand" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
 
-    <nav class="site-nav">
-      <a class="dv-page-link" href="{{ '/tags.html' | relative_url }}"><i class='fa fa-folder-open'></i> Archive</a>
-    </nav>
-    
-    <nav class="site-nav">
-      <ul class="nav-items">
-        <!-- Dropdown menu -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item site-nav">
+	  <a class="nav-link dv-page-link" href="{{ '/contact.html' | relative_url }}"><i class="fa fa-address-card"></i> About</a>
+        </li>
         <li class="nav-item nav-item-dropdown">
-          <a class="dropdown-trigger dv-page-link" href="#"><i class="fa fa-rocket"></i> Projects</a>
-          <ul class="dropdown-menu">
-            <li class="dropdown-menu-item">
-              <a href="http://www.streeteye.com/static/fintwit201901">Fintwit graph</a>
-            </li>
-            <li class="dropdown-menu-item">
-              <a href="http://www.streeteye.com/namegenerator/">Hedge fund name generator</a>
-            </li>
-            <li class="dropdown-menu-item">
-              <a href="http://www.streeteye.com/calculator/">Retirement calculator</a>
-            </li>
-            <li class="dropdown-menu-item">
-              <a href="http://blog.streeteye.com/blog/2016/08/safe-retirement-spending-using-certainty-equivalent-cash-flow-and-tensorflow/">Certainty-equivalent retirement spending</a>
-            </li>
-            <li class="dropdown-menu-item">
-              <a href="http://www.streeteye.com/static/Pizza/">Pizza Pizza Pizza</a>
-            </li>
-          </ul>
+	  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
+            <i class="fa fa-rocket"></i> Projects
+	  </a>
+	  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Pizza Pizza Pizza</a>
+            <a class="dropdown-item" href="http://www.streeteye.com/namegenerator/">Hedge Fund Name Generator</a>
+            <a class="dropdown-item" href="http://www.streeteye.com/static/fintwit201901/">FinTwit Graph</a>
+            <a class="dropdown-item" href="http://blog.streeteye.com/blog/2016/08/safe-retirement-spending-using-certainty-equivalent-cash-flow-and-tensorflow/">Certainty-Equivalent Retirement Spending</a>
+            <a class="dropdown-item" href="http://www.streeteye.com/calculator/">Cat Food Calculator</a>
+	  </div>
+        </li>
+        <li class="nav-item site-nav">
+	  <a class="nav-link dv-page-link" href="{{ '/tags.html' | relative_url }}"><i class='fa fa-folder-open'></i> Archive</a>
         </li>
       </ul>
-    </nav>
-
-    <nav class="site-nav">
-      <a class="dv-page-link" href="{{ '/contact.html' | relative_url }}"><i class='fa fa-question-circle'></i> About</a>
-    </nav>
-    
-  </div>
-  
+    </div>
+  </nav>
 </header>
