@@ -6,8 +6,8 @@ author: Druce Vertes
 layout: post
 guid: /?p=7114
 permalink: /2021/02/optimal-safe-withdrawal-for-retirement-using-certainty-equivalent-spending-revisited
-categories: 
-tags: 
+categories: investing
+tags: investing
 
 ---
 > *Revisiting Bengen's "4% Rule" at various levels of risk aversion, generalizing beyond a simple fixed-withdrawal, no-shortfall rule.*
@@ -76,16 +76,16 @@ In essence, we are discounting the cash flows based on their volatility, in the 
 I don't claim that CE spending is the perfect metric to maximize according to any economic theory. But I assert that:
 
 - CE spending is *intuitive*, it's real spending discounted based on volatility and a risk aversion parameter. Units are real dollars. CE spending is the variable income stream converted to an equivalently desirable constant income stream.
-- In practice we *can* find strategies that maximimize CE spending. Maximizing expected utility directly is more abstract, less intuitive and leads to computational, calibration problems.
+- In practice we *can* find strategies that maximize CE spending. Maximizing expected utility directly is more abstract, less intuitive and leads to computational, calibration problems.
 - Directionally, CE spending is a metric that you *could* plausibly *want* to maximize.
 - CE spending is a quantity that is derived from CRRA utility and *consistent* with it (even though maximizing CE spending over a distribution of returns is not at all the same as maximizing expected utility).
 - Maximizing CE spending is *informative*. It allows us to tweak a single *gamma* dial to identify plausibly optimal parameters for complex strategies at different levels of risk aversion.
 
-This is a simple model but it may useful. Here is a complete table of results at different levels of risk aversion *gamma*.
+If you are making consistent choices, there is some function you are trying to maximize. CE spending is one possible such function, that can show you different options based on the level of risk you are willing to accept. Here is a complete table of results at different levels of risk aversion *gamma*:
 
 ![optcetable.png](../../../assets/2021/optcetable.png)
 
-Using some of these rules, a retiree could often achieve a higher expected withdrawal rate than 4%, at the cost of a modest worsening of the worst-case withdrawal rate.
+Using some of these rules, a retiree could often have achieved a higher expected withdrawal rate than 4%, at the cost of a modest worsening of the worst-case withdrawal rate.
 
 In creating this analysis, my goals were:
 
