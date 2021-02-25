@@ -5,6 +5,7 @@
       {% assign default_paths = site.pages | map: "path" %}
       <a class="site-title navbar-brand" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
 
+      <div>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item site-nav">
 	  <a class="nav-link dv-page-link" href="{{ '/contact.html' | relative_url }}"><i class="fa fa-address-card"></i> About</a>
@@ -14,7 +15,7 @@
             <i class="fa fa-rocket"></i> Projects
 	  </a>
 	  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Pizza Pizza Pizza</a>
+            <a class="dropdown-item" href="http://www.streeteye.com/static/Pizza/">Pizza Pizza Pizza</a>
             <a class="dropdown-item" href="http://www.streeteye.com/namegenerator/">Hedge Fund Name Generator</a>
             <a class="dropdown-item" href="http://www.streeteye.com/static/fintwit201901/">FinTwit Graph</a>
             <a class="dropdown-item" href="http://blog.streeteye.com/blog/2016/08/safe-retirement-spending-using-certainty-equivalent-cash-flow-and-tensorflow/">Certainty-Equivalent Retirement Spending</a>
@@ -25,6 +26,7 @@
 	  <a class="nav-link dv-page-link" href="{{ '/tags.html' | relative_url }}"><i class='fa fa-folder-open'></i> Archive</a>
         </li>
       </ul>
+      </div>
     </div>
   </nav>
 </header>

@@ -10,7 +10,7 @@ categories: politics
 tags: politics
 
 ---
-> *Our decision to permanently suspend Donald Trump from the Twitter platform, may be a major inflection point in Twitter's history. As CEO, I owe our users and employees a clear statement of why we took this action and how this decision evolved, i.e. not just some pablum about what a hard decision and potentially dangerous decision it was.*
+> *"Our decision to permanently suspend Donald Trump from the Twitter platform, may be a major inflection point in Twitter's history. As CEO, I owe our users and employees a clear statement of why we took this action and how this decision evolved, i.e. not just some pablum about what a hard decision and potentially dangerous decision it was."*
 <!--more-->
 
 In the early days of Twitter, we took a position as ["The free speech wing of the free speech party."](https://www.eff.org/deeplinks/2014/05/twitter-steps-down-free-speech-party). Unfortunately, over time that position has proved untenable.
