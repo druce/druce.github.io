@@ -13,7 +13,7 @@ tags: investing
 > *Revisiting Bengen's "4% Rule" at various levels of risk aversion, generalizing beyond a simple fixed-withdrawal, no-shortfall rule.*
 <!--more-->
 
-*Disclaimer: not investment advice! For educational purposes only. Past performance may not be representative of future results.*
+*Disclaimer: this is not investment advice! For educational purposes only. Past performance may not be representative of future results.*
 
 A few years ago I was researching withdrawal rates for a relative, and I came across the [wonderful paper by Bill Bengen](https://www.retailinvestor.org/pdf/Bengen1.pdf) on the '4% rule.' The original 4% rule, subsequently [updated](https://www.amazon.com/Conserving-Client-Portfolios-During-Retirement/dp/0975344838) by Bengen, says that you can spend 4% of your portfolio in the first year of retirement, adjust that number for inflation each year, and, in a 30-year retirement, empirically you would never have run out of money.
 
