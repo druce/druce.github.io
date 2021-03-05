@@ -75,19 +75,21 @@ To calculate CE spending at a level of risk aversion *gamma*, we convert dollar 
 
 In essence, we are discounting the cash flows based on their volatility, in the manner implied by CRRA utility. Then, for a given level of risk aversion, we can find the retirement strategies that maximize CE spending.
 
-I don't claim that CE spending is the perfect metric to maximize according to any economic theory. But I believe that:
+I don't claim that CE spending is a perfect metric to maximize according to any economic theory. But I believe that:
 
 - CE spending is *intuitive*, it's real spending discounted based on volatility and a risk aversion parameter. Units are real dollars. CE spending is the variable income stream converted to an equivalently desirable constant income stream.
-- In practice we *can* find strategies that maximize CE spending. Maximizing expected utility directly is more abstract, less intuitive and leads to computational and calibration problems.[^2]
+- We *can* find strategies that maximize CE spending. Maximizing expected utility directly is a bit abstract, unintuitive, and leads to computational and calibration problems.[^2]
 - Directionally, CE spending is a metric that you *could* plausibly *want* to maximize.
 - CE spending is a quantity that is derived from CRRA utility and *consistent* with it (even though maximizing CE spending over a distribution of returns is not at all the same as maximizing expected utility).
 - Maximizing CE spending is *informative*. It allows us to tweak a single *gamma* dial to identify plausibly optimal parameters for complex strategies at different levels of risk aversion.
 
-If you are making consistent choices, then there is some function you are trying to maximize. CE spending is one possible such function, that can show you different options based on the level of risk you are willing to accept. Here is a complete table of results at different levels of risk aversion *gamma*:
+If you are making consistent choices, those choices can be described as a function you are maximizing. CE spending is one possible such function, that can show you different options based on the level of risk you are willing to accept. Here is a complete table of results at different levels of risk aversion *gamma*:
 
 ![optcetable.png](../../../assets/2021/optcetable.png)
 
 Using some of these rules, a retiree could often have achieved a higher expected withdrawal rate than 4%, at the cost of a modest worsening of the worst-case withdrawal rate.
+
+I don't assert that you *should* maximize CE spending, or that empirically people *do* maximize it, merely that you *can*, and it generates reasonable strategies along a risk continuum. There may be even better parameter setups and a better function to optimize, which this general framework may accommodate. All models are simplifications, but some are useful, and perhaps this is one. 
 
 In creating this analysis, my goals were:
 
