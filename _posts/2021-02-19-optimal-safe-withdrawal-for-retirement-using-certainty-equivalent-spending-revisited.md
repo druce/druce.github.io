@@ -23,7 +23,7 @@ Then I started thinking, what would happen if, I updated the rule to 4% of the o
 
 So I [maximized 'certainty-equivalent' spending](https://druce.ai/2016/08/safe-retirement-spending-using-certainty-equivalent-cash-flow-and-tensorflow/), i.e. actual spending discounted by volatility, at different levels of risk aversion. But I probably overcomplicated it.[^1]  So in this post I rerun the same analysis with simpler rules, modern optimization frameworks, and write a more flexible Python module.
 
-This leads to us to a generalized Bengen rule, where the 4% rule is the 'infinite-risk-aversion' solution that requires a fixed constant withdrawal level and never experiences any shortfall or reduction in withdrawals. A *risk-neutral* rule would find the withdrawal amount historically maximized spending irrespective of any reduction in spending or shortfalls (probably not recommended). In between, different levels of risk aversion lead to different rules that trade off higher mean withdrawals against the risk of lower worst-case withdrawals.
+This leads to us to a generalized Bengen rule, where the 4% rule is the 'infinite-risk-aversion' solution that requires a fixed constant withdrawal level and never experiences any shortfall or reduction in withdrawals. A *risk-neutral* rule would find the withdrawal amount that historically maximized spending irrespective of volatility, tolerating reductions in spending or shortfalls in some years, as long as they are offset by gains in other years (probably not recommended). In between, different levels of risk aversion lead to different rules that trade off higher mean withdrawals against the risk of lower worst-case withdrawals.
 
 Here are a couple of example results first, and then I'll explain in more detail what it means, and how it was computed:
 
@@ -65,7 +65,7 @@ The rules I evaluated work like this:
 
 Given these 4 parameters: `stock_alloc`, `fixed_pct`, `variable_pct`, `floor_pct`, a stream of stock and bond returns, and a starting portfolio, we can calculate how much you would have spent in each year of a 30-year retirement.
 
-And given 64 historical retirement cohorts, we can calculate all the cohort retirement outcomes for a set of parameters, assign a metric to each one, and apply an optimization algorithm to find the parameters that yield the best metric.
+And given 64 historical retirement cohorts, we can calculate all the cohort retirement outcomes for a set of parameters, assign a score to each one, and apply an optimization algorithm to find the parameters that yield the best score.
 
 The metric we choose to maximize here is *certainty-equivalent spending (CE spending)* under *constant relative risk aversion (CRRA).*
 
@@ -80,16 +80,16 @@ I don't claim that CE spending is a perfect metric to maximize according to any 
 - CE spending is *intuitive*, it's real spending discounted based on volatility and a risk aversion parameter. Units are real dollars. CE spending is the variable income stream converted to an equivalently desirable constant income stream.
 - We *can* find strategies that maximize CE spending. Maximizing expected utility directly is a bit abstract, unintuitive, and leads to computational and calibration problems.[^2]
 - Directionally, CE spending is a metric that you *could* plausibly *want* to maximize.
-- CE spending is a quantity that is derived from CRRA utility and *consistent* with it (even though maximizing CE spending over a distribution of returns is not at all the same as maximizing expected utility).
+- CE spending is a quantity that is derived from CRRA utility and *consistent* with it (even though maximizing expected CE spending over a distribution of returns is not at all the same as maximizing expected utility).
 - Maximizing CE spending is *informative*. It allows us to tweak a single *gamma* dial to identify plausibly optimal parameters for complex strategies at different levels of risk aversion.
 
-If you are making consistent choices, those choices can be described as a function you are maximizing. CE spending is one possible such function, that can show you different options based on the level of risk you are willing to accept. Here is a complete table of results at different levels of risk aversion *gamma*:
+If you are making consistent choices, those choices can be described as maximizing some objective function. CE spending is one possible such objective function, that can show you different options based on the level of risk you are willing to accept. Here is a complete table of results at different levels of risk aversion *gamma*:
 
 ![optcetable.png](../../../assets/2021/optcetable.png)
 
 Using some of these rules, a retiree could often have achieved a higher expected withdrawal rate than 4%, at the cost of a modest worsening of the worst-case withdrawal rate.
 
-I don't assert that you *should* maximize CE spending, or that empirically people *do* maximize it, merely that you *can*, and it generates reasonable strategies along a risk continuum. There may be even better parameter setups and a better function to optimize, which this general framework may accommodate. All models are simplifications, but some are useful, and perhaps this is one. 
+I don't assert that you *should* maximize CE spending, or that empirically people *do* try to maximize it. But you *could*, and it generates reasonable strategies along a risk continuum. There may be even better parameter setups and a better objective function to optimize. This general framework should accommodate those improved parameters and objective functions. All models are simplifications, but some are useful, and perhaps this is one. 
 
 In creating this analysis, my goals were:
 
@@ -109,10 +109,17 @@ In creating this analysis, my goals were:
 	
 - *Any (gradient-free) optimizer* to find best parameters: e.g. asset allocation, withdrawal parameters to maximize a metric in the given market environment.
 
+Additional research that may be be pursued within this framework:
+
+ - Consider additional asset classes and allocation glidepaths instead of fixed allocations.
+ - Consider spending glidepaths that change the formula to allow you to spend more as you get older.
+ - Instead of fixed 30-year retirements, incorporate an age parameter and consider only trajectories where the subject is alive
+ - Consider other objective functions that can be maximized subject to some risk or loss aversion parameter.
+ 
 [Code can be found here.](https://github.com/druce/swr)
 
 [Online calculator and visualization here.](http://www.streeteye.com/static/swr/)
 
 [^1]: One thing I did in 2016 was attempt to optimize over a full asset allocation and spending glidepath, i.e. a schedule of stock/bond allocation and spending for each year of retirement. A problem with that is that when you optimize over all historical cohorts, it will overfit to the worst year of the worst retirement cohort. If 1966 is the worst year to retire and 1974 is the most damaging equity year, it will reduce equity for the 8th year of retirement everywhere. One approach to mitigate that is to force the glidepath to be strictly descending, so at least it doesn't chop equity and then arbitrarily restore it in the 19th year. Another approach could be to ditch optimizing over historical cohorts and do Monte Carlo only. A second problem was that, on the one hand TensorFlow lets you use the GPU for fast optimization, but it's a gradient-based method, and the gradients seem to turn out to be more messy than one might expect, you may have to restart several times to get a good result. So gradient-free optimizers and simpler parameters may be a better approach.
 
-[^2]: At higher levels of risk aversion, CRRA utility is negative infinity if wealth goes to zero, and is bounded by a constant as wealth goes to infinity. Functions that diverge to infinity can cause optimization algorithms to become unstable. If you are optimizing at a high level of wealth, utility approaches the upper bound and the gradient goes to 0, again causing optimization problems. If you are maximizing CRRA utility, you need to calibrate inputs to stay within a numerically well-behaved region that gets smaller as you increase risk aversion.
+[^2]: At higher levels of risk aversion, CRRA utility is negative infinity if wealth goes to zero, and is bounded by a constant as wealth goes to infinity. Objective functions that diverge to infinity can cause optimization algorithms to become unstable. If you are optimizing at a high level of wealth, utility approaches the upper bound and the gradient goes to 0, again causing optimization problems. If you are maximizing CRRA utility, you need to calibrate inputs to stay within a numerically well-behaved region that gets smaller as you increase risk aversion.
