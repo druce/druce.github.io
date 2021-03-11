@@ -91,7 +91,9 @@ If you are making consistent choices, there is some objective function you are m
 
 ![optcetable.png](../../../assets/2021/optcetable.png)
 
-Using some of these rules, a retiree could often have achieved a higher expected withdrawal rate than 4%, at the cost of a modest worsening of the worst-case withdrawal rate.
+![optcechart.png](../../../assets/2021/optcechart.png)
+
+Using some of these rules, a retiree could often have achieved a higher expected withdrawal rate than 4%, at the cost of a modest worsening of the worst-case withdrawal rate. As risk aversion increases, stock allocation decreases, fixed spending increases, and variable spending decreases. The floor parameter is used only at low risk aversion, but may be generally useful in explaining rules, if one sets the floor to the same value as fixed spending. (Or if not, it may be superfluous.)
 
 I don't assert that you *should* maximize certainty-equivalent spending, or that empirically people *do* try to maximize it. But you *could*, and it generates reasonable strategies along a risk continuum. You can then choose based on your own subjective preference. There may be even better parameter setups (glidepaths etc.) and a better objective function to optimize. This general approach can accommodate diferent parameters and objective functions. 
 
@@ -103,7 +105,14 @@ In creating this analysis, my goals were:
 
 2) *To evaluate leading gradient-free optimizing frameworks*, including scipy.optimize [L-BFGS-B](https://docs.scipy.org/doc/scipy/reference/optimize.minimize-lbfgsb.html#optimize-minimize-lbfgsb), [Optuna](https://optuna.org/), [Hyperopt](http://hyperopt.github.io/hyperopt/), [Platypus](https://github.com/Project-Platypus/Platypus), [Nevergrad](https://facebookresearch.github.io/nevergrad/optimization.html), [Ax](https://ax.dev/). (L-BFGS-B and Optuna worked best, with Dlib, Platypus yielding useful results.)[^2] Numerical optimization leads to an approximation of the best parameters and best objective. However we see the optimizers mostly converge to very similar answers, in a reasonable amount of time.
 
-[ 2-panel chart here, describe hardware setup ] 
+Best objective value found by gamma, selected optimizers
+
+![alloptimizers.png](../../../assets/2021/alloptimizers.png)
+
+Optimizer runtimes, selected optimizers (10 runs at 5000 iterations)
+
+![runtimes.png](../../../assets/2021/runtimes.png)
+
 
 3) *To build a flexible Python framework* for safe withdrawal retirement problems that accomodates:
 
@@ -119,7 +128,7 @@ In creating this analysis, my goals were:
 
 [Code can be found here.](https://github.com/druce/swr)
 
-Try out different rules using an [Online calculator and visualization here.](http://www.streeteye.com/static/swr/)
+Try out different rules using an [online calculator and visualization here.](http://www.streeteye.com/static/swr/)
 
 Additional research that may be be pursued within this framework:
 
