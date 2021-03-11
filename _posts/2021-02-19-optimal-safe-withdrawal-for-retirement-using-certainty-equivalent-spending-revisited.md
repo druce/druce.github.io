@@ -99,9 +99,9 @@ I don't assert that you *should* maximize certainty-equivalent spending, or that
 
 There may be even better parameter setups (glidepaths etc.) and a better objective function to optimize. This general approach can accommodate diferent parameters and objective functions. 
 
-All models are simplifications, but some are useful, and perhaps this is one. In practice, it may allow retirees to choose between good rules at varying levels of risk tolerance. In times of adversity, visualizing the rule's historical performance with the knowledge that, among all similarly risky rules, it is in some sense the best performing, may allow retirees to stay the course or make necessary adjustments.
+All models are simplifications, but some are useful. In practice, this framework may allow retirees to choose between good rules at varying levels of risk tolerance. We can then visualizing the rule's historical performance. Knowing that a rule is in some sense the best performing, and being able to visualize historical performance, may allow retirees to stay the course or make necessary adjustments in adverse environments.
 
-In creating this analysis, my goals were:
+In performing this analysis, my goals were:
 
 1) *A simple model* where we can create understandable strategies that may improve on a fixed withdrawal, at varying levels of risk aversion.
 
