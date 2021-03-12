@@ -95,7 +95,7 @@ If you are making consistent choices, there is some objective function you are m
 
 Using some of these rules, a retiree could often have achieved a higher expected withdrawal rate than 4%, at the cost of a modest worsening of the worst-case withdrawal rate. As risk aversion increases, stock allocation decreases, fixed spending increases, and variable spending decreases. The floor parameter is used only at low risk aversion, but may be generally useful in explaining rules. (Or if not, it may be superfluous.)
 
-I don't assert that you *should* maximize certainty-equivalent spending, or that empirically people *do* try to maximize it. But you *could*, and it generates reasonable strategies along a risk continuum. 
+I don't assert that one *should* maximize certainty-equivalent spending, or that empirically people *do* try to maximize it. But one *could*, and it generates reasonable strategies along a risk continuum. 
 
 All models are simplifications, but some are useful. In practice, this framework may allow retirees to choose between good rules at varying levels of risk tolerance. We can then visualize the rule's historical performance. Knowing that a rule is the best performing according to our metric, and being able to visualize historical performance, may allow retirees to stay the course or make necessary adjustments in adverse environments.
 
