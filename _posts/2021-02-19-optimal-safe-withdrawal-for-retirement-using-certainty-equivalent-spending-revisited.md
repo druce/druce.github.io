@@ -83,7 +83,7 @@ I don't claim that certainty-equivalent spending is a perfect metric to maximize
 
 - Certainty-equivalent spending is *intuitive*: it's real spending discounted based on volatility and a risk aversion parameter. Units are real dollars. Certainty-equivalent spending is the variable income stream converted to an equivalently desirable constant income stream for a retiree with a given level of risk aversion under CRRA.
 - We *can*, in practice, find strategies that maximize certainty-equivalent spending. Maximizing expected utility directly is more abstract, and can lead to computational and calibration problems.[^1]
-- Certainty-equivalent spending is a quantity that is derived from CRRA utility and *consistent* with it (even though maximizing expected certainty-equivalent spending over a distribution of returns the same as maximizing expected utility).
+- Certainty-equivalent spending is a quantity that is derived from CRRA utility and *consistent* with it (even though maximizing expected certainty-equivalent spending over a distribution of returns is *not* the same as maximizing expected utility).
 - Directionally, certainty-equivalent spending is a metric that you *could* plausibly *want* to maximize.
 - Maximizing certainty-equivalent spending is *informative*. It allows us to turn a single *gamma* dial to compute historically optimal parameters for complex strategies at different levels of risk aversion.
 
