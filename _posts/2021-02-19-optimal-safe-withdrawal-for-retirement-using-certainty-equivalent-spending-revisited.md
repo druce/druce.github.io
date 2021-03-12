@@ -145,12 +145,12 @@ Optimizer runtimes, selected optimizers (10 runs, 5000 iterations requested, des
 
 An [online tool allowing you to try out and visualize different rules is here.](http://www.streeteye.com/static/swr/)
 
-Additional research that may be be pursued within this framework:
+Additional research that may be pursued within this framework:
 
  - Consider additional asset classes and allocation glidepaths instead of fixed allocations.
  - Consider more complex spending rules, such as glidepaths, that change the spending formula over time to allow you to spend more as you get older.
  - Instead of fixed 30-year retirements, incorporate an age parameter and mortality curve, and consider only trajectories where the beneficiary is alive.
- - Consider the amount left over at death as equivalent to some fraction of similar lifetime certainty-equivalent spending, i.e. 'bequest utility'.
+ - Consider *bequest utility*, add to spending the amount left over at death as equivalent to some fraction of similar lifetime certainty-equivalent spending.
  - Consider other objective functions that can be maximized subject to a risk aversion or loss aversion parameter.
  - Compare the recommendations of optimal rules empirically estimated from annual historical returns to recommendations from the formulas derived by Nobel Prize winner Robert C. Merton under continuous-time and lognormal return assumptions, as in ["Optimum consumption and portfolio rules in a continuous-time model (1970)"](https://dspace.mit.edu/handle/1721.1/63980) and related papers. ([Wikipedia](https://en.wikipedia.org/wiki/Merton%27s_portfolio_problem)).
 
