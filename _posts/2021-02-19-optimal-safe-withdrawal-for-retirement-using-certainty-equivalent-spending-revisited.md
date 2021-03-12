@@ -25,28 +25,28 @@ Using Python, I maximized *certainty-equivalent* spending, i.e. actual spending 
 
 This leads to us to a generalized set of rules, where: 
 
-- the Bengen 4% rule is the *infinite-risk-aversion* solution that requires a fixed constant withdrawal level and never experiences any shortfall or reduction in withdrawals.
-- a *risk-neutral* rule finds the withdrawal amount that historically maximized spending irrespective of volatility, tolerating reductions in spending or shortfalls in some years, as long as they are offset by gains in other years (not recommended for most people). 
-- in between, different levels of risk aversion lead to different rules that trade off higher mean withdrawals against the risk of lower worst-case withdrawals.
+- The Bengen 4% rule is the *infinite-risk-aversion* solution that requires a fixed constant withdrawal level and never experiences any shortfall or reduction in withdrawals.
+- A *risk-neutral* rule finds the withdrawal amount that historically maximized spending irrespective of volatility, tolerating reductions in spending or shortfalls in some years, as long as they are offset by gains in other years (not recommended for most people). 
+- In between, different levels of risk aversion lead to different rules that trade off higher mean withdrawals against the risk of lower worst-case withdrawals.
 
 Here are a couple of example results first, and then I'll explain in more detail what it means, and how it was computed:
 
 **A safer rule:**
 
-- Allocate 73.3% to stocks. Each year, withdraw 3.516% of starting portfolio + 1.114% of current portfolio. 
-- Starting spending: 4.630%
-- Average spending over 30-year retirement: 5.309% of starting portfolio
-- Worst-case spending: 3.555% of starting portfolio
+- Allocate 75.20% to stocks. Each year, withdraw 3.54% of starting portfolio + 1.06% of current portfolio. 
+- Starting spending: 4.60%
+- Average spending over 30-year retirement: 5.29% of starting portfolio
+- Worst-case spending: 3.58% of starting portfolio
 
 Chart of 30-year spending outcomes of 64 retirement cohorts 1928-1991, risk aversion=16 (Shaded area is middle 50% of outcomes.)
 	![Chart of 30-year spending outcomes of 64 retirement cohorts 1928-1991](/assets/2021/gamma16.png)
 
 
 **A riskier rule:**
-- Allocate 88.6% to stocks. Each year, withdraw 2.700% of starting portfolio + 2.985% of current portfolio.
-- Starting spending: 5.685%
-- Average spending over 30-year retirement: 6.914% of starting portfolio
-- Worst-case spending: 2.784% of starting portfolio
+- Allocate 87.94% to stocks. Each year, withdraw 2.68% of starting portfolio + 2.96% of current portfolio.
+- Starting spending: 5.64%
+- Average spending over 30-year retirement: 6.87% of starting portfolio
+- Worst-case spending: 2.87% of starting portfolio
 
 Chart of 30-year spending outcomes of 64 retirement cohorts 1928-1991, risk aversion=4 (Shaded area is middle 50% of outcomes.)
 ![Chart of 30-year spending outcomes of 64 retirement cohorts 1928-1991](/assets/2021/gamma4.png)
