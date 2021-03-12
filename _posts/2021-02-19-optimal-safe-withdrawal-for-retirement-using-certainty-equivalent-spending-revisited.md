@@ -93,13 +93,13 @@ If you are making consistent choices, there is some objective function you are m
 
 ![optcechart.png](../../../assets/2021/optcechart.png)
 
-Using some of these rules, a retiree could often have achieved a higher expected withdrawal rate than 4%, at the cost of a modest worsening of the worst-case withdrawal rate. As risk aversion increases, stock allocation decreases, fixed spending increases, and variable spending decreases. The floor parameter is used only at low risk aversion, but may be generally useful in explaining rules, if one sets the floor to the same value as fixed spending. (Or if not, it may be superfluous.)
+Using some of these rules, a retiree could often have achieved a higher expected withdrawal rate than 4%, at the cost of a modest worsening of the worst-case withdrawal rate. As risk aversion increases, stock allocation decreases, fixed spending increases, and variable spending decreases. The floor parameter is used only at low risk aversion, but may be generally useful in explaining rules. (Or if not, it may be superfluous.)
 
-I don't assert that you *should* maximize certainty-equivalent spending, or that empirically people *do* try to maximize it. But you *could*, and it generates reasonable strategies along a risk continuum. You can then choose a rule based on your own subjective preference by examining how it performed historically. 
+I don't assert that you *should* maximize certainty-equivalent spending, or that empirically people *do* try to maximize it. But you *could*, and it generates reasonable strategies along a risk continuum. 
+
+All models are simplifications, but some are useful. In practice, this framework may allow retirees to choose between good rules at varying levels of risk tolerance. We can then visualize the rule's historical performance. Knowing that a rule is the best performing according to our metric, and being able to visualize historical performance, may allow retirees to stay the course or make necessary adjustments in adverse environments.
 
 There may be even better parameter setups (glidepaths etc.) and a better objective function to optimize. This general approach can accommodate diferent parameters and objective functions. 
-
-All models are simplifications, but some are useful. In practice, this framework may allow retirees to choose between good rules at varying levels of risk tolerance. We can then visualizing the rule's historical performance. Knowing that a rule is in some sense the best performing, and being able to visualize historical performance, may allow retirees to stay the course or make necessary adjustments in adverse environments.
 
 In performing this analysis, my goals were:
 
@@ -128,9 +128,9 @@ Optimizer runtimes, selected optimizers (10 runs at 5000 iterations)
 	
 - *Any (gradient-free) optimizer* to find best parameters: e.g. asset allocation, withdrawal parameters to maximize a metric in the given market environment.
 
-[Code can be found here.](https://github.com/druce/swr)
+[Code is found here.](https://github.com/druce/swr)
 
-Try out different rules using an [online calculator and visualization here.](http://www.streeteye.com/static/swr/)
+An [online tool allowing you to try out and visualize different rules is here.](http://www.streeteye.com/static/swr/)
 
 Additional research that may be be pursued within this framework:
 
@@ -139,7 +139,7 @@ Additional research that may be be pursued within this framework:
  - Instead of fixed 30-year retirements, incorporate an age parameter and mortality curve, and consider only trajectories where the beneficiary is alive.
  - Consider the amount left over at death as equivalent to some fraction of similar lifetime certainty-equivalent spending, i.e. 'bequest utility'.
  - Consider other objective functions that can be maximized subject to a risk aversion or loss aversion parameter.
- - Compare the recommendations of optimal rules empirically estimated from annual historical returns to recommendations from the formulas derived by Nobelist Robert C. Merton under continuous-time and lognormal return assumptions, in ["Optimum consumption and portfolio rules in a continuous-time model (1970)"](https://dspace.mit.edu/handle/1721.1/63980) and related papers. ([Wikipedia](https://en.wikipedia.org/wiki/Merton%27s_portfolio_problem)).
+ - Compare the recommendations of optimal rules empirically estimated from annual historical returns to recommendations from the formulas derived by Nobel Prize winner Robert C. Merton under continuous-time and lognormal return assumptions, as in ["Optimum consumption and portfolio rules in a continuous-time model (1970)"](https://dspace.mit.edu/handle/1721.1/63980) and related papers. ([Wikipedia](https://en.wikipedia.org/wiki/Merton%27s_portfolio_problem)).
  
 [^1]: At higher levels of risk aversion, as wealth approaches zero, CRRA utility approaches -&infin;. Objective functions that diverge to infinity can prevent optimization algorithms from converging. CRRA utility is bounded by a constant as wealth approaches +&infin;. When you are optimizing at a high level of wealth, utility approaches the upper bound and the gradient approaches 0, again causing optimization problems. If you are maximizing CRRA utility, you may need to calibrate inputs to stay within a numerically well-behaved region that shrinks as you increase risk aversion. Still, it should be feasible to find utility-maximizing rules, but it may take longer and be less intuitive.
 
