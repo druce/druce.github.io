@@ -15,23 +15,23 @@ tags: investing
 
 *Disclaimer: this is not investment advice! For educational purposes only. Past performance may not be representative of future results.*
 
-A few years ago I was researching withdrawal rates for a relative, and I came across the [wonderful paper by Bill Bengen](https://www.retailinvestor.org/pdf/Bengen1.pdf) on the '4% rule.' The original 4% rule, subsequently [updated](https://www.amazon.com/Conserving-Client-Portfolios-During-Retirement/dp/0975344838) by Bengen, says that you can invest 50/50 in stocks and bonds, spend 4% of your portfolio in the first year of retirement, adjust that number for inflation each year thereafter, and in a 30-year retirement, you would never have exhausted your money in any retirement cohort since 1928.
+A few years ago I was researching withdrawal rates for a relative, and I found the [wonderful paper by Bill Bengen on the '4% rule.'](https://www.retailinvestor.org/pdf/Bengen1.pdf) The original 4% rule, subsequently [updated](https://www.amazon.com/Conserving-Client-Portfolios-During-Retirement/dp/0975344838) by Bengen, says that you can invest 50/50 in stocks and bonds, withdraw 4% of your starting portfolio each year of retirement, adjust that number for inflation every year, and in a 30-year retirement, you would never have exhausted your money in any retirement cohort since 1928.
 
-Bengen's approach optimizes by finding the highest withdrawal rate subject to a hard no-shortfall constraint.
+Bengen's approach finds the highest withdrawal rate subject to a hard no-shortfall constraint.
 
 Then I started thinking, what would happen if, instead of a hard no-shortfall constraint and a fixed withdrawal rate, we asked what flexible rule would maximize spending for different levels of risk aversion?
 
-Using Python, I maximized 'certainty-equivalent' spending, i.e. actual spending discounted by volatility, at different levels of risk aversion, using modern optimization frameworks.
+Using Python, I maximized *certainty-equivalent* spending, i.e. actual spending discounted by volatility, at different levels of risk aversion, using modern optimization frameworks.
 
 This leads to us to a generalized set of rules, where: 
 
-- the Bengen 4% rule is the 'infinite-risk-aversion' solution that requires a fixed constant withdrawal level and never experiences any shortfall or reduction in withdrawals.
+- the Bengen 4% rule is the *infinite-risk-aversion* solution that requires a fixed constant withdrawal level and never experiences any shortfall or reduction in withdrawals.
 - a *risk-neutral* rule finds the withdrawal amount that historically maximized spending irrespective of volatility, tolerating reductions in spending or shortfalls in some years, as long as they are offset by gains in other years (not recommended for most people). 
 - in between, different levels of risk aversion lead to different rules that trade off higher mean withdrawals against the risk of lower worst-case withdrawals.
 
 Here are a couple of example results first, and then I'll explain in more detail what it means, and how it was computed:
 
-**A 'Safe' rule:**
+**A safer rule:**
 
 - Allocate 73.3% to stocks. Each year, withdraw 3.516% of starting portfolio + 1.114% of current portfolio. 
 - Starting spending: 4.630%
@@ -42,7 +42,7 @@ Chart of 30-year spending outcomes of 64 retirement cohorts 1928-1991, risk aver
 	![Chart of 30-year spending outcomes of 64 retirement cohorts 1928-1991](/assets/2021/gamma16.png)
 
 
-**A 'Risky' rule:**
+**A riskier rule:**
 - Allocate 88.6% to stocks. Each year, withdraw 2.700% of starting portfolio + 2.985% of current portfolio.
 - Starting spending: 5.685%
 - Average spending over 30-year retirement: 6.914% of starting portfolio
@@ -89,15 +89,28 @@ I don't claim that certainty-equivalent spending is a perfect metric to maximize
 
 If you are making consistent choices, there is some objective function you are maximizing. Certainty-equivalent spending is one possible such objective function, which allows us to compute historically optimal strategies based on the level of risk you are willing to accept. Here is a complete table of results at different levels of risk aversion *gamma*:
 
-![optcetable.png](../../../assets/2021/optcetable.png)
+| Gamma  | Stock %  | Fixed %  | Variable %  | Floor %  | Mean Spending %  | Worst Case % |
+| -----  | -------  | -------  | ----------  | -------  | -------------  | ---------- |
+| 0   | 100.00 | 0.00  | 6.31  | 3.73  | 8.12  | 0.00 |
+| 1   | 100.00 | 0.00  | 6.58  | 3.43  | 8.11  | 2.11 |
+| 2   | 98.81  | 0.69  | 5.76  | 3.43  | 7.97  | 2.82 |
+| 4   | 87.94  | 2.68  | 2.96  | 3.30  | 6.87  | 2.87 |
+| 6   | 81.77  | 3.00  | 2.27  | 0.00  | 6.34  | 3.07 |
+| 8   | 78.67  | 3.19  | 1.83  | 0.00  | 5.98  | 3.25 |
+| 10  | 76.62  | 3.35  | 1.49  | 0.00  | 5.68  | 3.39 |
+| 12  | 75.94  | 3.42  | 1.32  | 0.00  | 5.53  | 3.47 |
+| 14  | 75.38  | 3.50  | 1.15  | 0.00  | 5.38  | 3.54 |
+| 16  | 75.20  | 3.54  | 1.06  | 0.00  | 5.29  | 3.58 |
+
+&nbsp;
 
 ![optcechart.png](../../../assets/2021/optcechart.png)
 
 Using some of these rules, a retiree could often have achieved a higher expected withdrawal rate than 4%, at the cost of a modest worsening of the worst-case withdrawal rate. As risk aversion increases, stock allocation decreases, fixed spending increases, and variable spending decreases. The floor parameter is used only at low risk aversion, but may be generally useful in explaining rules. (Or if not, it may be superfluous.)
 
-I don't assert that one *should* maximize certainty-equivalent spending, or that empirically people *do* try to maximize it. But one *could*, and it generates reasonable strategies along a risk continuum. 
+I don't assert that one necessarily *should* maximize certainty-equivalent spending, or that empirically people *do* try to maximize it. But one *could*, and it generates a useful menu of strategy choices along a risk continuum. 
 
-All models are simplifications, but some are useful. In practice, this framework may allow retirees to choose between good rules at varying levels of risk tolerance. We can then visualize the rule's historical performance. Knowing that a rule is the best performing according to our metric, and being able to visualize historical performance, may allow retirees to stay the course or make necessary adjustments in adverse environments.
+All models are simplifications, but some are useful. In practice, this framework may allow retirees to visualize and choose between good rules at varying levels of risk tolerance. Knowing that a rule is the best performing according to our metric, and being able to visualize historical performance, may allow retirees to stay the course or make necessary adjustments in adverse environments.
 
 There may be even better parameter setups (glidepaths etc.) and a better objective function to optimize. This general approach can accommodate diferent parameters and objective functions. 
 
@@ -105,13 +118,13 @@ In performing this analysis, my goals were:
 
 1) *A simple model* where we can create understandable strategies that may improve on a fixed withdrawal, at varying levels of risk aversion.
 
-2) *To evaluate leading gradient-free optimizing frameworks*, including scipy.optimize [L-BFGS-B](https://docs.scipy.org/doc/scipy/reference/optimize.minimize-lbfgsb.html#optimize-minimize-lbfgsb), [Optuna](https://optuna.org/), [Hyperopt](http://hyperopt.github.io/hyperopt/), [Platypus](https://github.com/Project-Platypus/Platypus), [Nevergrad](https://facebookresearch.github.io/nevergrad/optimization.html), [Ax](https://ax.dev/). (L-BFGS-B and Optuna worked best, with Dlib, Platypus yielding useful results.)[^2] Numerical optimization leads to an approximation of the best parameters and best objective. However we see the optimizers mostly converge to very similar answers, in a reasonable amount of time.
+2) *To evaluate leading gradient-free optimizing frameworks*, including scipy.optimize [L-BFGS-B](https://docs.scipy.org/doc/scipy/reference/optimize.minimize-lbfgsb.html#optimize-minimize-lbfgsb), [Optuna](https://optuna.org/), [Hyperopt](http://hyperopt.github.io/hyperopt/), [Platypus](https://github.com/Project-Platypus/Platypus), [Nevergrad](https://facebookresearch.github.io/nevergrad/optimization.html), [Ax](https://ax.dev/). L-BFGS-B and Optuna worked best, with Dlib, Platypus yielding useful results.[^2] Numerical optimization leads to an approximation of the best parameters and best objective. However we see the optimizers mostly converge to very similar answers, in a reasonable amount of time.
 
-Best objective value found by gamma, selected optimizers
+Best objective value found by gamma, selected optimizers:
 
 ![alloptimizers.png](../../../assets/2021/alloptimizers.png)
 
-Optimizer runtimes, selected optimizers (10 runs at 5000 iterations)
+Optimizer runtimes, selected optimizers (10 runs, 5000 iterations requested, desktop with 12 CPU threads):
 
 ![runtimes.png](../../../assets/2021/runtimes.png)
 
