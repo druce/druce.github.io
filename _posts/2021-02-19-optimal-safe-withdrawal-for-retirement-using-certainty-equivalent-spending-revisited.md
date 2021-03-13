@@ -154,6 +154,8 @@ Additional research that may be pursued within this framework:
  - Consider other objective functions that can be maximized subject to a risk aversion or loss aversion parameter.
  - Compare the recommendations of optimal rules empirically estimated from annual historical returns to recommendations from the formulas derived by Nobel Prize winner Robert C. Merton under continuous-time and lognormal return assumptions, as in ["Optimum consumption and portfolio rules in a continuous-time model (1970)"](https://dspace.mit.edu/handle/1721.1/63980) and related papers. ([Wikipedia](https://en.wikipedia.org/wiki/Merton%27s_portfolio_problem)).
 
+*Much appreciation to Adam Goldstein and Rudy Beutell for helpful comments and suggestions.*
+
 Notes:
 
 [^1]: At risk aversion >=1, as wealth approaches zero, CRRA utility approaches -&infin;. Objective functions that diverge to infinity can prevent optimization algorithms from converging. At risk aversion > 1, CRRA utility is bounded by a constant as wealth approaches +&infin;. When you are optimizing at a high level of wealth, utility approaches the upper bound and the gradient approaches 0, again causing optimization convergence problems. If you are maximizing CRRA utility, you may need to calibrate inputs to stay within a numerically well-behaved region that shrinks as you increase risk aversion. Still, it should be feasible to find utility-maximizing rules, but it may take longer and be less intuitive.
