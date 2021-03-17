@@ -43,7 +43,7 @@ Chart of 30-year spending outcomes of 64 retirement cohorts 1928-1991, risk aver
 
 
 **A riskier rule:**
-- Allocate 87.94% to stocks. Each year, withdraw 2.68% of starting portfolio + 2.96% of current portfolio.
+- Allocate 87.94% to stocks. Each year, withdraw 2.68% of starting portfolio + 2.96% of current portfolio, *or* 3.3%, whichever is greater.
 - Starting spending: 5.64%
 - Average spending over 30-year retirement: 6.87% of starting portfolio
 - Worst-case spending: 2.87% of starting portfolio
@@ -118,7 +118,7 @@ In performing this analysis, my goals were:
 
 1) *A simple model* where we can create understandable strategies that may improve on a fixed withdrawal, at varying levels of risk aversion.
 
-2) *To evaluate leading gradient-free optimizing frameworks*, including scipy.optimize [L-BFGS-B](https://docs.scipy.org/doc/scipy/reference/optimize.minimize-lbfgsb.html#optimize-minimize-lbfgsb), [Optuna](https://optuna.org/), [Hyperopt](http://hyperopt.github.io/hyperopt/), [Platypus](https://github.com/Project-Platypus/Platypus), [Nevergrad](https://facebookresearch.github.io/nevergrad/optimization.html), [Ax](https://ax.dev/). L-BFGS-B and Optuna worked best, with Dlib, Platypus yielding useful results.[^2] Numerical optimization leads to an approximation of the best parameters and best objective. However we see the optimizers mostly converge to very similar answers, in a reasonable amount of time.
+2) *To evaluate leading gradient-free optimizing frameworks*, including scipy.optimize [L-BFGS-B](https://docs.scipy.org/doc/scipy/reference/optimize.minimize-lbfgsb.html#optimize-minimize-lbfgsb), [Optuna](https://optuna.org/), [Hyperopt](http://hyperopt.github.io/hyperopt/), [Platypus](https://github.com/Project-Platypus/Platypus), [Nevergrad](https://facebookresearch.github.io/nevergrad/optimization.html), and [Ax](https://ax.dev/). The two that worked best were L-BFGS-B and Optuna, with Dlib, Platypus also yielding useful results. Optimizations were run with and without the floor parameter ('No floor': floor fixed at 0). [^2] Numerical optimization leads to an approximation of the best parameters and best objective. However we see the optimizers mostly converge to very similar answers, in a reasonable amount of time.
 
 Best objective value found by gamma, selected optimizers:
 
@@ -158,6 +158,6 @@ Additional research that may be pursued within this framework:
 
 Notes:
 
-[^1]: At risk aversion >=1, as wealth approaches zero, CRRA utility approaches -&infin;. Objective functions that diverge to infinity can prevent optimization algorithms from converging. At risk aversion > 1, CRRA utility is bounded by a constant as wealth approaches +&infin;. When you are optimizing at a high level of wealth, utility approaches the upper bound and the gradient approaches 0, again causing optimization convergence problems. If you are maximizing CRRA utility, you may need to calibrate inputs to stay within a numerically well-behaved region that shrinks as you increase risk aversion. Still, it should be feasible to find utility-maximizing rules, but it may take longer and be less intuitive.
+[^1]: At risk aversion >=1, as wealth approaches zero, CRRA utility approaches -&infin;. Objective functions that diverge to infinity can prevent optimization algorithms from converging. At risk aversion > 1, CRRA utility is bounded by a constant as wealth approaches +&infin;. When you are optimizing at a high level of wealth, utility approaches the upper bound and the gradient approaches 0, again causing optimization convergence problems. If you are maximizing CRRA utility, you may need to calibrate inputs to stay within a numerically well-behaved region that shrinks as you increase risk aversion. Still, it should be feasible to find utility-maximizing rules, but it may take longer, and the concept of utility may be even harder to explain than certainty-equivalent spending.
 
 [^2]: Gradient-free optimization frameworks can run on any objective function without special accomodation. Gradient-based optimization frameworks, such as [TensorFlow](https://www.tensorflow.org/) or [cvxopt](https://cvxopt.org/), generally require an objective function built to framework specifications that enable automatic differentiation. This allows the use of GPUs and algorithms that scale to extremely large convex and non-convex problems.
