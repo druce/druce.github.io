@@ -165,7 +165,8 @@ table.info {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: $base-font-weight;
+    font-weight: $base-font-weight;
+    line-height: 125%;
 }
 
 
@@ -174,15 +175,15 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-  color: $navy-color;
+  color: $navy-color-dark;
   text-decoration: none;
 
   &:visited {
-    color: $navy-color;
+    color: $navy-color-dark;
   }
 
   &:hover {
-    color: $navy-color-light;
+    color: $navy-color;
     text-decoration: underline;
   }
 

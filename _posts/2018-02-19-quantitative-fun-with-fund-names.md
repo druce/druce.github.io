@@ -139,6 +139,10 @@ It’s a bit like taking a word and algorithmically free-associating similar wor
 
 Finally, we can train a machine learning algorithm to automatically generate realistic-sounding new names based on our corpus! Use [this link](http://www.streeteye.com/namegenerator) or the form below to generate names based on a starting string (or leave blank).
 
+<div class="nameframe-container">
+    <iframe src="http://www.streeteye.com/namegenframe/">
+    </iframe>
+</div>
 
 
 &nbsp;  
