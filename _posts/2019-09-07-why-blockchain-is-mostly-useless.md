@@ -17,7 +17,50 @@ tags: bitcoin blockchain
 
 ---
 
-> *Cryptocurrencies are useless. They’re only used by speculators looking for quick riches, people who don’t like government-backed currencies, and criminals who want a black-market way to exchange money._ _ [Bruce Schneier](https://www.schneier.com/blog/archives/2019/02/blockchain_and_.html)*
+<table style="font-family:arial, helvetica, sans-serif; font-size: 13px; border: 2px solid #FFFFFF; width: 100%; text-align: center; border-collapse: collapse; ">
+    <tr>
+      <th>
+        &nbsp;
+      </th>
+      
+      <th>
+        Strong State<br />Able to repress crypto
+      </th>
+      
+      <th>
+        Weak State<br />Unable to repress crypto
+      </th>
+    </tr>
+    
+    <tr>
+      <th>
+        High trust society<br />Low demand for crypto
+      </th>
+      
+      <td style="border: solid 2px black; background-color: #c9edff;">
+        USA<br /> Europe<br /> Japan
+      </td>
+      
+      <td style="border: solid 2px black; background-color: #c9edff;">
+        ??? Island paradises ??? <br />Polynesia? <br /> Bhutan?
+      </td>
+    </tr>
+    
+    <tr>
+      <th>
+        Low trust society<br />High demand for crypto
+      </th>
+      
+      <td style="border: solid 2px black; background-color: #c9edff;">
+        China <br /> North Korea
+      </td>
+      
+      <td style="border: solid 2px black; background-color: #c9fc9d;">
+        Venezuela <br /> Somalia
+      </td>
+    </tr>
+  </table>
+> *Cryptocurrencies are useless. They’re only used by speculators looking for quick riches, people who don’t like government-backed currencies, and criminals who want a black-market way to exchange money. - [Bruce Schneier](https://www.schneier.com/blog/archives/2019/02/blockchain_and_.html)*
 
 <!--more-->
 
@@ -35,7 +78,7 @@ AWS now offers a [centralized immutable ledger](https://aws.amazon.com/qldb/faqs
 
 Any sufficiently advanced database system has a language, like SQL stored procedures, to extend it with more complex business logic. Let’s add a language to our centralized database. Suppose the language is Python. And suppose we make the codebase immutable. You can add new code, but you can’t delete any old code.
 
-In other words you can create a Python app, like a restaurant reservation service with a REST API, or a Web UI, and write code that supports all the necessary operations, like _add_restaurant_, _add_diner_, _add_reservation_, _cancel_reservation_, etc. And then once you publish the app, that code can never be changed.
+In other words you can create a Python app, like a restaurant reservation service with a REST API, or a Web UI, and write code that supports all the necessary operations, like *add_restaurant*, *add_diner*, *add_reservation*, *cancel_reservation*, etc. And then once you publish the app, that code can never be changed.
 
 If that sounds weird, imagine you store the code in an append-only structure, the way Git version control keeps every version ever committed. And every time you commit a new version of the code, the immutable ledger, where it stores restaurant data, is forked. So the app is immutable in the sense that you can create new versions which inherit the underlying data, but the old version always remains.
 
@@ -43,11 +86,11 @@ Now Bitcoin runs as long as it has enough miners to keep the ecosystem going. Fo
 
 There could be more complex models, premium tiers, profits directed to the developers or a foundation, but the key points are: no one can extract rents beyond the hosting cost or what is initially agreed; no one can change the software unless everyone migrates to the new fork; and AWS is the trusted third party that guarantees that.
 
-The way this is _similar_ to a blockchain is that once an app is published, it can’t be changed unless all the users agree to fork it. If the developers write something new, they can publish it, but as long as any users keep using the old system, it’s still around and no one can force anyone to change.
+The way this is *similar* to a blockchain is that once an app is published, it can’t be changed unless all the users agree to fork it. If the developers write something new, they can publish it, but as long as any users keep using the old system, it’s still around and no one can force anyone to change.
 
 (end architecture astronautics)
 
-This contract offers the benefits of a distributed ledger app that no single individual can own or fork. The essential way it’s _different_ from blockchain is that you have to trust AWS. And pay them instead of paying to run distributed mining rigs. And running one centralized server is far simpler, cheaper, more efficient, you can have instantaneous transactions at a high rate for low cost.
+This contract offers the benefits of a distributed ledger app that no single individual can own or fork. The essential way it’s *different* from blockchain is that you have to trust AWS. And pay them instead of paying to run distributed mining rigs. And running one centralized server is far simpler, cheaper, more efficient, you can have instantaneous transactions at a high rate for low cost.
 
 A key benefit of a blockchain app is the elimination of certain agent-principal problems. Back in the day, there was an open-source app called CDDB. You put a CD in your PC, and CDDB would read it, look up a hash in a remote database and give your audio client all the metadata, artist, album titles, song titles. And if your CD wasn’t in the master database you could contribute metadata and everyone else could use it.
 
@@ -61,7 +104,7 @@ Logically, if you trust someone like Amazon for e.g. payments/fulfillment at the
 
 As long as you trust AWS to be an honest broker and charge only reasonable hosting, and never try to extract the value of the underlying app, you don’t really care about distributed ledger vs. centralized ledger, you just want it to work. And centralized will always be simpler and have better throughput than distributed; it just works better. And if you can trust AWS and the real-world legal system, you can write a contract and governance structure that provides the benefits of a distributed ledger. 
 
-Blockchain is _almost_ always useless. The exception is where you can’t trust AWS. More to the point, where you can’t trust the government. If you want to create an app that the government may want to block, collect taxes on, enforce capital controls, protect government monopolies, censor forms of expression, then you can never trust a central nexus. The government can show up and seize servers, shut it down and go after the users.
+Blockchain is *almost* always useless. The exception is where you can’t trust AWS. More to the point, where you can’t trust the government. If you want to create an app that the government may want to block, collect taxes on, enforce capital controls, protect government monopolies, censor forms of expression, then you can never trust a central nexus. The government can show up and seize servers, shut it down and go after the users.
 
 But effective strong states can maybe block distributed ledger services too. China has shown that they can do a pretty good job of policing the decentralized Internet. Few things are so decentralized that a strong government can’t drive it deep underground. The US banned private gold ownership in 1933 and it was mostly effective. People could still have gold necklaces and maybe trade using gold jewelry, but without coins and bars it was no longer economical to store and exchange value on a large scale. If the motivation exists, governments can crack down on anything. 
 
@@ -73,6 +116,7 @@ In a nutshell, the US government’s technical means and motive to regulate Bitc
 
 But this isn’t true everywhere. You can draw a 2&#215;2 matrix:
 
+    
 <div>
   <table style="font-family:arial, helvetica, sans-serif; font-size: 13px; border: 2px solid #FFFFFF; width: 100%; text-align: center; border-collapse: collapse; ">
     <tr>
@@ -99,7 +143,7 @@ But this isn’t true everywhere. You can draw a 2&#215;2 matrix:
       </td>
       
       <td style="border: solid 2px black; background-color: #c9edff;">
-        ??? Island paradises ??? <br />Micronesia? <br />Bhutan?
+        ??? Island paradises ??? <br />Polynesia? <br /> Bhutan?
       </td>
     </tr>
     
@@ -118,37 +162,22 @@ But this isn’t true everywhere. You can draw a 2&#215;2 matrix:
     </tr>
   </table>
   
-  <p>
-    &nbsp; </div> 
+</div> 
+
+&nbsp;
+
+I think only the Venezuela/Somalia quadrant, with low trust in local currencies and financial institutions, and which are also weak states hard-pressed to universally enforce their will, will see significant adoption of Bitcoin. And maybe gold and USD may be more practical for black markets.
     
-    <p>
-      I think only the Venezuelas of the world, with low trust in local currencies and financial institutions, which are also weak states hard-pressed to universally enforce their will, will see significant adoption of Bitcoin. And maybe gold and USD may be more practical for black markets.
-    </p>
+Satoshi Nakamoto’s paper and Bitcoin launch happened in 2008…over 10 years ago. The iPhone was launched in 2007. If blockchain really is a platform that will change everything, it’s a real sleeper success story. Typically you see killer apps on a new platform a lot quicker. Web 1.0 launched Amazon and Netflix within the first couple of years. Where are all the blockchain apps?
     
-    <p>
-      Satoshi Nakamoto’s paper and Bitcoin launch happened in 2008…over 10 years ago. The iPhone was launched in 2007. If blockchain really is a platform that will change everything, it’s a real sleeper success story. Typically you see killer apps on a new platform a lot quicker. Web 1.0 launched Amazon and Netflix within the first couple of years. Where are all the blockchain apps?
-    </p>
+The only industries that have really been impacted are ransomware, money laundering, and facilities for exchanging and speculating on tokens.
     
-    <p>
-      The only industries that have really been impacted are ransomware, money laundering, and facilities for exchanging and speculating on tokens.
-    </p>
+There are unloved monopoly ledger companies like OpenTable and Ticketmaster. Where has any centralized application actually been disrupted? If distributed ledger technology can’t disrupt Ticketmaster, what use is it?
     
-    <p>
-      There are unloved monopoly ledger companies like OpenTable and Ticketmaster. Where has any centralized application actually been disrupted? If distributed ledger technology can’t disrupt Ticketmaster, what use is it?
-    </p>
+My best guess is that blockchain and Bitcoin adoption will remain a curiosity and a niche phenomenon linked to black markets, illicit activities, weak states with unreliable payments and money.
     
-    <p>
-      My best guess is that blockchain and Bitcoin adoption will remain a curiosity and a niche phenomenon linked to black markets, illicit activities, weak states with unreliable payments and money.
-    </p>
+And blockchain apps that cross the chasm to mainstream adoption will migrate to more efficient centralized systems that use governance and trust architectures to offer benefits similar to distributed ledgers…for average Joes who demand convenience and have no alternative but to trust the government.
     
-    <p>
-      And blockchain apps will migrate to more efficient centralized systems that use governance and trust architectures to offer benefits similar to distributed ledgers…for average Joes who have no choice but to trust the government.
-    </p>
+TL; DR Anything you can do with blockchain you can do better without it. Except maybe in low-trust environments, but if the reason for low trust is strong state enemies, they can probably repress blockchain applications they don’t like. Eventually you have to trust somebody. So might as well pick the right parties to trust, and build applications people love.
     
-    <p>
-      TL; DR Anything you can do with blockchain you can do better without it. Except maybe in low-trust environments, but if the reason for low trust is strong state enemies, they can probably repress blockchain applications they don’t like. Eventually you have to trust somebody. So might as well pick the right parties to trust, and build applications people love.
-    </p>
-    
-    <p>
-      <em>Bury it in the desert. Wear gloves. _ <a href="https://xkcd.com/2030/">xkcd</a></em>
-    </p>
+<em>Bury it in the desert. Wear gloves. - <a href="https://xkcd.com/2030/">xkcd</a></em>
