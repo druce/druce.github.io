@@ -11,7 +11,7 @@ tags: datascience
 
 ---
 ![Four isocurve plots](/assets/2020/isocurves.png)
-> As a data scientist, you might say…“A blog post about thresholds? It’s not even a data science problem, it’s more of a business decision.” And you would not be wrong! Threshold selection lacks the appeal of say, generative adversarial networks.
+> *As a data scientist, you might say…“A blog post about thresholds? It’s not even a data science problem, it’s more of a business decision.” And you would not be wrong! Threshold selection lacks the appeal of say, generative adversarial networks.*
 
 <!--more-->
 

@@ -11,7 +11,7 @@ tags: datascience
 
 ---
 
-> A while back I made this [Pizza service ](http://www.streeteye.com/static/Pizza/#) weekend project and I thought I could just press a button in AWS and deploy it in the cloud. It turned out to be… more complicated. With the latest version of Docker it's getting easier. Here's the harder (old) way and the easier (new) way. After some configuration, you can just say `docker compose up` and your container is deployed.
+> *A while back I made this [Pizza service ](http://www.streeteye.com/static/Pizza/#) weekend project and I thought I could just press a button in AWS and deploy it in the cloud. It turned out to be… more complicated. With the latest version of Docker it's getting easier. Here's the harder (old) way and the easier (new) way. After some configuration, you can just say `docker compose up` and your container is deployed.*
 <!--more-->
 ## The harder way
 
