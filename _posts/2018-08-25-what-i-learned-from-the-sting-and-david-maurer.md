@@ -38,7 +38,7 @@ Let’s review the elements of the big con as exemplified by _The Sting_, and se
 <li>Authority.</li>
 <li>Scarcity.</li>
 </ol>
-<p>'><sup>1</sup></a></span>
+<p><sup>1</sup></a></span>
 
 **The Mark:**
 
