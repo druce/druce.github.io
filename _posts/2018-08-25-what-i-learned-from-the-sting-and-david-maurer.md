@@ -164,12 +164,4 @@ Referenced books (and a couple more)
 
 [Grifter movies](https://www.imdb.com/list/ls074140055/). (I would add [The Last Seduction](https://www.imdb.com/title/tt0110308/reference)).
 
-[^1]: Also worth keeping in mind <a href="https://www.influenceatwork.com/principles-of-persuasion">Cialdini’s 6 principles of persuasion</a>:
-<ol>
-<li>Reciprocity.</li>
-<li>Commitment &#038; Consistency.</li>
-<li>Social Proof.</li>
-<li>Liking.</li>
-<li>Authority.</li>
-<li>Scarcity.</li>
-</ol>
+[^1]: Also worth keeping in mind <a href="https://www.influenceatwork.com/principles-of-persuasion">Cialdini’s 6 principles of persuasion</a>: 1. Reciprocity; 2. Commitment/consistency; 3. Social Proof; 4. Liking; 5. Authority; 6. Scarcity;
