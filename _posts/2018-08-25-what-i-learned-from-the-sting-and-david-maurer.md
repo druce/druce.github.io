@@ -29,16 +29,7 @@ We can add David Maurer’s 1940 [The Big Con](https://www.goodreads.com/book/sh
 
 Wall Street is the land of castles in the air. Every few years, you get a con job seemingly as brazen as _The Sting_: John Law, Gregor MacGregor, Charles Ponzi, Ivar Kreuger, Tino De Angelis, Eddie Antar, Bre-X, Barry Minkow, Jordan Belfort, Bernie Madoff, Sam Israel, Allen Stanford, the list goes on. And those are just the big ones; small-time schemes and vanilla accounting scandals are a dime a dozen.
 
-Let’s review the elements of the big con as exemplified by _The Sting_, and see if it teaches us how to avoid becoming victims. <span id='easy-footnote-1-6678' class='easy-footnote-margin-adjust'></span><span class='easy-footnote'><a href='/2018/08/what-i-learned-from-the-sting-and-david-maurer/#easy-footnote-bottom-1-6678' title='Also worth keeping in mind <a href=&quot;https://www.influenceatwork.com/principles-of-persuasion/&quot;>Cialdini’s 6 principles of persuasion</a>:</p>
-<ol>
-<li>Reciprocity.</li>
-<li>Commitment &#038; Consistency.</li>
-<li>Social Proof.</li>
-<li>Liking.</li>
-<li>Authority.</li>
-<li>Scarcity.</li>
-</ol>
-<p><sup>1</sup></a></span>
+Let’s review the elements of the big con as exemplified by _The Sting_, and see if it teaches us how to avoid becoming victims.[^1] 
 
 **The Mark:**
 
@@ -172,3 +163,14 @@ Referenced books (and a couple more)
 [Money: A Suicide Note, by Martin Amis](https://www.amazon.com/Money-Suicide-Note-Penguin-Ink/dp/0143116959)
 
 [Grifter movies](https://www.imdb.com/list/ls074140055/). (I would add [The Last Seduction](https://www.imdb.com/title/tt0110308/reference)).
+
+[^1]: Also worth keeping in mind <a href="https://www.influenceatwork.com/principles-of-persuasion">Cialdini’s 6 principles of persuasion</a>:</p>
+<ol>
+<li>Reciprocity.</li>
+<li>Commitment &#038; Consistency.</li>
+<li>Social Proof.</li>
+<li>Liking.</li>
+<li>Authority.</li>
+<li>Scarcity.</li>
+</ol>
+<p>
