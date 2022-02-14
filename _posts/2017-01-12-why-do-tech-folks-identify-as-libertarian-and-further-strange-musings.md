@@ -27,6 +27,9 @@ Where all is free
 It just couldn’t be  
 And only a fool would say that _ [Steely Dan](https://www.youtube.com/watch?v=YTt-URVOYos)*
 
+*Whoever wishes a market to be free, 
+Wants what ne'er was, nor is, nor e'er shall be. [after Alexander Pope](https://www.brainyquote.com/quotes/alexander_pope_140911)*
+
 Here’s a ramble that’s been hanging in my drafts for a while: _Why do so many tech folks identify as libertarian? What do they mean? Is politics ripe for tech disruption?_ It’s a brand new year, and all old posts must go! 
 
 Now, I tend to lean, as the cliché goes, socially liberal, fiscally conservative, market-oriented. So I have an affinity for libertarian thinking. Libertarians emphasize human rights, think outside the box and reason from first principles. I love that. 
