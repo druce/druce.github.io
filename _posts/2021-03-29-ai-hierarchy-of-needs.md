@@ -1,10 +1,10 @@
 ---
-id: 7116
-title: 'The AI Hierarchy Of Needs'
+id: 7117
+title: 'The AI Hierarchy of Needs'
 date: 2021-03-29T01:01:01+00:00
 author: Druce Vertes
 layout: post
-guid: /?p=7116
+guid: /?p=7117
 permalink: /2021/03/ai-hierarchy-of-needs
 categories: datascience
 tags: datascience
