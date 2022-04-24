@@ -98,6 +98,12 @@ You have to trust some people to do their individual jobs, disciplined by the ma
 
 App stores, payments, and the central IAM to permission backends are weak links, whoever controls those can create some hassles. But no one can hijack the full value of the app to the community and hike prices massively and sell the IP, operations, data. 
 
+Twitter is advertising-supported. Nothing really prevents us from connecting an app to an ad network, where the proceeds get distributed to devs and trusted services via some split, instead of processing payments. Of course, this means integrating into a proprietary database of everything everyone does online and who they do it with, and where they go and with whom in the real world, via location-tracking. So maybe instead we should think about what a user-centric advertising network would look like and build that first.
+
+Similarly, over time perhaps we should move to central bank digital currency and loosen the sway and taxation of banks and credit card companies and other extractive interests. If crypto shows anything, it's that instant, free payments don't need much government capacity, just the political will to overcome extractive vested interests.
+
+The point of the digital revolution should be to deliver that people love, with good governance, without super oligarchs, without benevolent (or not) dictators for life, bubble dynamics, or weird utopian agendas. If crypto helps build performant services, then use it. If not, make building blocks, platforms and institutions that work.
+
 It would be super interesting to see full-blown Web3 apps for online ticketing, or restaurant reservations, or ride-sharing or Airbnb. It would be nice to get away from the privacy data-rape nightmare of the current mobile ecosystem. (See [John Oliver](https://www.youtube.com/watch?v=wqn3gR1WTcA) and multiple [spyware fiascos](https://theintercept.com/2022/04/22/anomaly-six-phone-tracking-zignal-surveillance-cia-nsa/)). I'm just not sure Web3 can perform at scale as well as the most efficient centrally-governed solutions.
 
 The Internet, DNS, packet routing, are distributed systems that are hard to take down and didn't need crypto. Pirate Bay, couldn't take that sucker down despite copyright holders spending millions. On the other hand, a long list of blockchain suckers have gotten exit-scammed, rug-pulled, hacked, drained due to bugs. IMHO you can get a lot of the benefits of blockchain and a lot of mileage by creating a distributed system using standard cloud services and governance.
@@ -115,8 +121,6 @@ Between those 2 extremes, there are many ways to create apps that may offer some
 Eventually you have to trust somebody in the real world, and you should localize a minimum of trust in structures with appropriate governance and checks and balance. 
 
 The crypto bubble is driven by bubble dynamics and ideologies that are anti-government, anti-establishment, pro-disruption, regardless of consequences.
-
-Crypto isn't a magic bullet. The point is to deliver services that people love, without resorting to benevolent (or not) dictators for life. 
 
 You can't eliminate politics with math. But you can improve it.
 
