@@ -84,7 +84,7 @@ So now, our ticketing service can run something like this:
 - So, a backend instance launches, it looks for the all the other permissioned backends per the configuration and connects to them. When a quorum is online, the backend is open for client connections. All individual transactions are commited once a quorum accepts them. 
 - A theater wants to sign up, they go to the devs, buy a license, which generates a keypair and a certificate from the devs saying, this theater has this license. The theater downloads the management client, which presents the certificate and sets up their seating plans and upcoming shows and goes live on the system. they own all their data and set policies for sharing it, like, public, any authenticated user, or only users who are authorized by the theater using encryption at rest. 
 - A ticket buyer wants to buy a ticket, they go to their mobile app store and download the app, they browse and pay for tickets via in-app-services.
-- I think an Apache-type umbrella organization independent of the devs would need to own the publishing of the app into app stores, handle in-app purchases, IAM user authentication. And then, per a pre-agreed structure, funnel proceeds to the theater, the devs, and pay for the back-end.
+- I think an Apache-type umbrella organization independent of the devs would need to own the publishing of the app into app stores, handle in-app purchases, IAM user authentication as an OAuth identity provider to backends. And then, per a pre-agreed structure, funnel proceeds to the theater, the devs, and pay for the back-end.
 
 So, this should work like a proprietary service. But when the devs want to release a new version, anybody can opt out and keep running on the old version and the old data, and it is guaranteed to be available, as long as anyone is paying for it. Once it's set up, it's un-take-down-able.
 
@@ -97,6 +97,8 @@ You have to trust some people to do their individual jobs, disciplined by the ma
 - Cloud services
 
 App stores, payments, and the central IAM to permission backends are weak links, whoever controls those can create some hassles. But no one can hijack the full value of the app to the community and hike prices massively and sell the IP, operations, data. 
+
+Ideally, the Apache umbrella org is eventually a first-class citizen app store for all mobile devices.
 
 Twitter is advertising-supported. Nothing really prevents us from connecting an app to an ad network, where the proceeds get distributed to devs and trusted services via some split, instead of processing payments. Of course, this means integrating into a proprietary database of everything everyone does online and who they do it with, and where they go and with whom in the real world, via location-tracking. So maybe instead we should think about what a user-centric advertising network would look like and build that first.
 
