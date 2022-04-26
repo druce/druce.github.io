@@ -63,7 +63,7 @@ Let's consider levels of openness / resilience to a single party extracting rent
 
 - Apache-like organization controls the intellectual property and provides a legal framework which governs decision-making, funding, etc.
 
-I think this covers the key points of the current open source paradigm. At this point, if you had a discontinued Google Reader account or Insteon devices and regularly exported your data, and everything was open source, it would be feasible to spin up a new service without running into IP issues. But it's still a major service interruption if the developer walks away. The blockchain people will say, it's not distributed, the government could seize servers, etc.
+I think this covers the key points of the current open source paradigm. Modulo an Apache license and governance, it's how e.g. Wordpress works. At this point, if Wordpress.com or Google Reader or Insteon shut down and you had regularly exported your data, it would be feasible to spin up a new service without running into IP issues. But it's still a major service interruption if the developer walks away. The blockchain people will say, it's not distributed, the government could seize servers, etc.
 
 **Step 5: Open Multi-cloud Backend-as-a-Service.** 
 
@@ -80,7 +80,7 @@ So now running a back end instance takes characteristics of open source in that 
 So now, our ticketing service can run something like this:
 - Devs write the front and backend software and the devops service definitions. Put it all under an open source license and governance framework.
 - Devs set up the backend running on multiple trusted BEaaS agents on say, AWS, GCS, Azure, with an 'immutable' SLA such that it cannot be taken offline as long as someone pays for it. 
-- Devs grant irrevocable permission to the trusted BEaaS agents to run the service. (Via something like, putting keys in initial configs or DNS or some other distributed database, plus some contracts and governance docs. Details left as an exercise)
+- Devs grant irrevocable permission to the trusted BEaaS agents to run the service. (Via something like, putting keys in initial configs or DNS or some other distributed database, plus some contracts and governance docs. Anybody can run the software, but they are configuring and permissioning a group of cloud-platform and geographically dispersed backends to act as a single service. Futher details left as an exercise)
 - So, a backend instance launches, it looks for the all the other permissioned backends per the configuration and connects to them. When a quorum is online, the backend is open for client connections. All individual transactions are commited once a quorum accepts them. 
 - A theater wants to sign up, they go to the devs, buy a license, which generates a keypair and a certificate from the devs saying, this theater has this license. The theater downloads the management client, which presents the certificate and sets up their seating plans and upcoming shows and goes live on the system. they own all their data and set policies for sharing it, like, public, any authenticated user, or only users who are authorized by the theater using encryption at rest. 
 - A ticket buyer wants to buy a ticket, they go to their mobile app store and download the app, they browse and pay for tickets via in-app-services.
