@@ -22,9 +22,9 @@ Ah, yeah (Trust somebody) - mangling Bob Dylan*<br />
 
 This post is motivated by this tweet from [Fred Wilson](https://twitter.com/fredwilson/status/1514564762142752768). And these two posts about limitations of blockchain from [David Rosenthal](https://blog.dshr.org/2022/0/ee380-talk.html) and [Moxie Marlinspike](https://moxie.org/2022/01/07/web3-first-impressions.html). And the recent [Insteon debacle](https://arstechnica.com/gadgets/2022/04/insteon-finally-comes-clean-about-its-sudden-smart-home-shutdown/), where a large IoT service suddenly went offline.
 
-I appreciate the appeal of writing code for a Web3 ecosystem that runs on all the computing devices in the world, paying for services to run while getting paid for your own compute contribution, which is sort of the goal of Web3 and the Ethereum ecosystem. It's cool. But practically, it's never going to be the most performant way to deliver most services. Some of the proposed benefits, like de-politicizing everything and running society with perfect algorithms, are illusory pipe dreams. The risks and drawbacks are considerable. And you can usually achieve the goal of an shenanigans-resistant resilient computing ecosystem in simpler ways.
+I appreciate the appeal of writing code for a Web3 ecosystem that runs on all the computing devices in the world, paying for services to run while getting paid for your own compute contribution, which is sort of the goal of Web3 and the Ethereum ecosystem. It's cool. But practically, it's never going to be the most performant way to deliver most services. Some of the proposed benefits, like de-politicizing everything and running society with perfect algorithms, are Quixotic pipe dreams. The risks and drawbacks are considerable. And you can usually achieve the goal of an shenanigans-resistant resilient computing ecosystem in simpler ways.
 
-We all want services with the perceived benefits of Web3. In particular, we want them to be immune to any single point of failure or any single individual who can pull a switch and take services offline because it doesn't fit their plans, or change the terms to their advantage in unfavorable ways. We don't want to be hostages to capricious developers, governments, etc.
+We all want services with the perceived benefits of Web3. We want them to be immune to any single point of failure or any single individual who can pull a switch and take services offline because it no longer fits their interests, or change the terms in their favor at the expense of the rest of the ecosystem. We don't want to be hostages to capricious developers, managers, governments, etc.
 
 This is a challenge, as the 14-year history of blockchain has shown.
 - No crypto app has really disrupted any major industry or crossed the chasm to mass adoption, as opposed to early adopters.
@@ -91,10 +91,18 @@ So, this should work like a proprietary service. But when the devs want to relea
 If the devs go AWOL or do something unpalatable, the old system remains up and running. Anyone can fork the service. Theaters and users can migrate to the new system by connecting to the new system and uploading their data. 
 
 You have to trust some people to do their individual jobs, disciplined by the marketplace and the legal mumbo-jumbo:
-- Cloud source code repo to host source code reliably
-- Apache-type umbrella orgs for governance, payments, user IAM login/privacy stuff
-- App stores
+- Apache-type umbrella orgs for governance, payments, user IAM login/privacy stuff, manage a source code repoa
 - Cloud services
+  - Compute
+  - Storage
+  - IAM
+  - App stores
+  - Payments
+  - DNS / discovery
+
+I'd argue that you could stand up orgs to provide all of the components of cloud apps in open, standard, distributed, sufficiently resilient ways, and finally the end-user apps themselves.
+
+DNS and domain registry is already implemented as a highly distributed database under mostly non-profit standards. You could make DNS a blockchain app, but it seems like overkill. The same logic applies all the more to the rest of the chain, which isn't in the blockchain's sweetspot of small data, eventually consistent.
 
 App stores, payments, and the central IAM to permission backends are weak links, whoever controls those can create some hassles. But no one can hijack the full value of the app to the community and hike prices massively and sell the IP, operations, data. 
 
