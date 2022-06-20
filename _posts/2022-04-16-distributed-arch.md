@@ -144,11 +144,6 @@ Between those two extremes, there are many ways to create apps that may offer so
 
 Eventually you have to trust somebody in the real world, and you should localize a minimum of trust in structures with appropriate governance and checks and balance. 
 
-Cypto has been driven at least partly by bubble dynamics and weird pro-disruption, anti-establishment ideologies.
+Crypto has been driven at least partly by bubble dynamics and weird pro-disruption, anti-establishment ideologies, without actually disrupting any extractive business models.
 
-You can't eliminate politics with math. But you can improve it.
-
-
-
-
-
+You can't eliminate politics with math. But you can improve stuff. Maybe do that in a practical way, and actually disrupt something, instead of blowing bubbles.
