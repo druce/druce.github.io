@@ -9,6 +9,13 @@ Gemfile.lock
 ### Emacs cruft ###
 *~
 \#*
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
 
 ### MacOS ###
 .DS_Store
