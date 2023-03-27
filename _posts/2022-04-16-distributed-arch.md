@@ -142,7 +142,9 @@ At the other extreme is a [fully distributed app](https://docs.deso.org/about-de
 
 Between those two extremes, there are many ways to create apps that may offer some of the benefits of blockchain apps without having the compute and storage be fully distributed among all clients. Ideally we want to reduce the say of cloud platform monopoly and move toward open standards like [Open Compute](https://www.opencompute.org/about) for hardware, [Docker](https://www.docker.com/) and [Kubernetes](https://kubernetes.io/) for containers, and everything in between. It should be possible using some combination of cloud services and governance, to mirror the success of open source paradigms, and create something like Twitter, or Reader, with a high degree of resilience, such that no individual entity can decide to discontinue it or evolve it against the community's wishes. 
 
-Eventually you have to trust somebody in the real world, and you should localize a minimum of trust in structures with appropriate governance and checks and balance. 
+Iron law: there ain't no such thing as a trust-free solution to a problem of human coordination, cooperation, interaction. Eventually you have to trust somebody in the real world, you have to do evolve the system. You should localize a minimum of trust in structures with appropriate governance and checks and balance. Trust, but verify.
+
+Iron law: Anything you can do with a permissionless blockchain, you can do more efficiently with a permissioed system. There are diminishing returns to reducing the trust surface. By the time you get to something like blockchain, the costs are prohibitively high for many applications.
 
 Crypto has been driven at least partly by bubble dynamics and weird pro-disruption, anti-establishment ideologies, without actually disrupting any extractive business models.
 
