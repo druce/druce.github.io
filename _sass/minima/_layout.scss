@@ -189,6 +189,20 @@ div.qa {
   max-width: 100%;
 }
 
+.post-subtitle {
+  @include relative-font-size(1.2);
+  letter-spacing: -1px;
+  line-height: 1.2;
+
+  @include media-query($on-laptop) {
+    @include relative-font-size(1.2);
+  }
+
+  font-weight: $base-font-weight * 1.2;
+  width: $content-width * 0.85;
+  max-width: 100%;
+}
+
 .post-content {
   margin-bottom: $spacing-unit;
 
