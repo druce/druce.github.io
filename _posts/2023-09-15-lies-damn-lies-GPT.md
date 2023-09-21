@@ -201,7 +201,7 @@ If you could ask AI to check if something is AI-generated, you could probably te
 
 We have a bullshit problem. Software is eating the world, all our interactions mediated online now. In a democracy, if we don't have a shared reality, if citizens are uninformed, if they don't have critical thinking, if they care more about being entertained by the reality show of politics than the deadly serious consequences of shared decisionmaking, we're pretty screwed. 
 
-[Brandolini's law](https://en.wikipedia.org/wiki/Brandolini%27s_law), the Bullshit Asymmetry principle, says it takes humans an order of magnitude more energy to counter bullshit than to create it. With AI generating bullshit, the asymmetry increases without bound.
+[Brandolini's law](https://en.wikipedia.org/wiki/Brandolini%27s_law), the Bullshit Asymmetry Principle, says it takes humans an order of magnitude more energy to counter bullshit than to create it. With AI generating bullshit, the asymmetry increases without bound.
 
 A little game theory: if you have a 20% chance of getting busted for, say, taking contraband Cuban cigars through customs, the penalty must be more than 5x the benefit to be effective. When people don't pay a price for dishonesty, they are incentivized for more pervasive and extreme dishonesty, and then society goes to hell. Nobody trusts anyone because being untrustworthy pays. You want to be able to trust people at the price of maybe being fooled occasionally. But if the public square is a toxic stew of bullshit, there is no more shared reality. Which is what some people want, because it creates a vacuum where they can abuse their power unimpeded by laws or public opinion.
 
@@ -213,24 +213,24 @@ There's a silver lining, which is that tech can (imperfectly) help filter bullsh
 
 Suppose cancer labs all used electronic notebooks with a full audit trail? It would be a lot harder to just photoshop evidence.
 
-We are going to have some ridiculous issues around deepfakes. We are starting to get ['Tank Man' selfies](https://futurism.com/the-byte/google-ai-generated-fake-tank-man) rewriting history. We have [Drake deepfakes](https://www.theverge.com/2023/4/18/23688141/ai-drake-song-ghostwriter-copyright-umg-the-weeknd), and will undoubtedly have new songs by long-dead artists. I want new Ray Charles and Aretha Franklin music as much as anybody but it's probably going to be bullshit and rewriting and cheapening their legacy.
+We are going to have big problems to solve around deepfakes. We are starting to get ['Tank Man' selfies](https://futurism.com/the-byte/google-ai-generated-fake-tank-man) rewriting history. We have [Drake deepfakes](https://www.theverge.com/2023/4/18/23688141/ai-drake-song-ghostwriter-copyright-umg-the-weeknd), and will undoubtedly have new songs by long-dead artists. I want new Ray Charles and Aretha Franklin music as much as anybody but it's probably going to be bullshit and rewriting and cheapening their legacy.
 
 We want to follow something like the [C.R.A.P. framework](https://www.linkedin.com/pulse/workplace-bullshit-crap-framework-cutting-down-pei-ying-chua/).
 
-C - *Comprehend* the nature of the bullshit economy. Who is creating what bullshit and why. Especially the 'why', and what the incentives exist around bullshit.
+C - *Comprehend* the nature of the bullshit economy. Who is creating what bullshit and why. Especially the 'why', and what the incentives exist around that bullshit.
 
 R - *Recognize* bullshit when it rears its head. Here I think some standards and probably legislation may be necessary.
 - In public speech there should be mandatory disclosure of AI-generated content. You can't just [generate the voice of a public figure saying stuff](https://www.politico.com/news/2023/07/17/desantis-pac-ai-generated-trump-in-ad-00106695) and pretend it's real. You can imitate and parody people, but you have to disclose that is what it is.
-- Generative AI platforms are currently large static targets. When they are used to create images and videos, the content should contain metadata specifying that it is AI-generated and a way to get the audit trail of who created it. If you use open-source models, you must similarly tag metadata.
+- Generative AI platforms are currently large static targets. When they are used to create images and videos, the content should contain metadata specifying that it is AI-generated and a way to get the audit trail of who created it. If you use open-source software, your PC or phone, you must similarly tag metadata.
 - Use the power of tech to detect and track bullshit.
 
 A - *Act* to stop bullshit. When people are busted spreading bullshit, they have to be penalized. If you're a scientific faker, your papers are retracted. If you are a commercial faker, the profits have to get disgorged and those involved penalized. This means the whole value chain: The entity that sold fake stuff, the ad network / 'native advertising platform', and the media platform. 
 
-P - *Prevent* bullshit. We have to disrupt the economics of bullshit. The fundamental problem is that creating bullshit is free, and it pays bigtime. The attention economy rewards clicks, and it doesn't care a while lot if it's a click on a toxic Alex Jones meme, or important investigative journalism.
-- Tax online all forms of online advertising, flackery. bullshit is an externality. you have to internalize the costs of bullshit.
-- Liability for fraudulent bullshit up and down the value chain as discussed above.
-- Support anti-bullshit programs, public-interest peer review, investigation of bullshit.
+P - *Prevent* bullshit. We have to disrupt the economics of bullshit. The fundamental problem is that creating bullshit is free, and it pays bigtime. The attention economy rewards clicks, and it doesn't care a whole lot if it's a click on a toxic Alex Jones meme, or important investigative journalism.
+- Tax all forms of online advertising, flackery. Bullshit is an externality. You have to internalize the costs of bullshit.
+- Liability for fraudulent bullshit up and down the value chain.
+- Support [anti-bullshit critical thinking education](https://www.callingbullshit.org/case_studies.html) and other programs, public-interest peer review of fake content, investigation of bullshit.
 
-Lies can be countered with the truth. Bullshit cannot because it was never about truth in the first place. The word 'meme' was invented by [Richard Dawkins](https://en.wikipedia.org/wiki/Meme) based on the selfish gene. It's content that is highly adapted to arouse people to spread it. Humans see what we want to see, and good bullshitters leverage that, creating outrage bait that confirms our priors. With generative AI, it's cheap to create infinite amounts of bullshit, and without penalties, bad actors are strongly incentivized to create it. Unless we change course, the singularity could end up being a singularity of bullshit.
+Lies can be countered with the truth. Bullshit cannot, because it was never about truth in the first place. The word 'meme' was invented by [Richard Dawkins](https://en.wikipedia.org/wiki/Meme) based on the 'selfish gene'. It's content that is highly adapted to arouse people to spread it. Humans see what we want to see, and good bullshitters leverage that, creating outrage bait that confirms our priors. With generative AI, it's cheap to create infinite amounts of bullshit, and without penalties, bad actors are strongly incentivized to create it. Unless we change course, the singularity will end up being a singularity of bullshit.
 
 
