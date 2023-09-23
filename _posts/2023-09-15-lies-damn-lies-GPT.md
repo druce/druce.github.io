@@ -22,11 +22,11 @@ What does ChatGPT really know? Where does it falter? Where do we stand on the jo
 
 Every new generation of media and tech since TV seems to make us dumber. How do we break the cycle and harness AI that makes us smarter, by helping us sort through the glut of information and misinformation and bullshit? 
 
-ChatGPT can generate infinite 'truthy' bullshit at near-zero cost, including 'deepfake' audio and video. And then it can potentially further train itself of the ones that go viral, concentrating fake 'truth' deep in our information infrastructure and knowledge frameworks. The singularity might be a singularity of bullshit.
+Generative AI can manufacture infinite 'truthy' bullshit at near-zero cost, including 'deepfake' audio and video. And then it can potentially further train itself of the ones that go viral, concentrating fake 'truth' deep in our information infrastructure and knowledge frameworks. The singularity might be a singularity of bullshit.
 
 How do we engineer our knowledge ecosystem to disrupt bullshit instead of perpetuating and maginifying it, and further intensifying the acid bath our ever-shorter attention spans soak in? How do we deal with deepfakes, misinformation, and other forms of AI-assisted fraud and bullshit? 
 
-First let's talk about what ChatGPT currently knows, and how it might evolve. Then let's explore the nature of human bullshit and its ecosystem, and what humans know vs. what we think we know. Finally, let's discuss some takeaways and possible policies.
+First let's explore what ChatGPT currently knows, and how it might evolve. Then let's think about the nature of human bullshit and its ecosystem, and what humans know vs. what we think we know. Finally, let's discuss some takeaways and possible policies.
 
 ### ChatGPT and bullshit
 
@@ -94,7 +94,75 @@ If you can keep ChatGPT grounded in reality and avoid situations where it goes o
 
 - **Physical interaction.** Robotic manipulation of complex novel environments.
 
-- **Sentience.** Even defining consciousness remains elusive. We can experience it directly but there is no test for it. It's a poignant element of the human condition that we are social creatures, language creatures, but our most direct experiences are ones about which we can say and share very little. [Whereof one cannot speak, etc.](https://www.brainyquote.com/authors/ludwig-wittgenstein-quotes)
+- **Sentience.** Defining consciousness seems a fool's errand. We can experience it directly but there is no test for it or know if a dolphin or octopus is sentient. It's a poignant element of the human condition that we are social creatures, language creatures, but our most direct experiences are ones about which we can say and share very little. [Whereof one cannot speak, etc.](https://www.brainyquote.com/authors/ludwig-wittgenstein-quotes)
 
 ChatGPT is a giant leap forward. Unlike humans, computers are fungible and once you create one intelligence, you can create millions. Then they can communicate with each other at much higher rates than humans, self-improving rapidly. The [singularity](https://en.wikipedia.org/wiki/The_Singularity_Is_Near) starts to come into focus. We're maybe only a couple of ChatGPT-size leaps away, and the leaps might get easier because we can use the machine learning tools we built before to make the next leap. We're not there, but maybe we can start to see it from here.
+
+### The Dari&eacute;n gap between poets and quants, wordcels and shape rotators
+
+![sheinstein.png](/assets/2023/sheinstein.png)
+
+ChatGPT often fails at [obvious riddles](https://www.scientificamerican.com/article/i-gave-chatgpt-an-iq-test-heres-what-i-discovered/), like “What is the first name of the father of Sebastian’s children?”.
+
+![/assets/2023/John.png](/assets/2023/John.png)
+![/assets/2023/Sebastian.png](/assets/2023/Sebastian.png)
+![/assets/2023/Milarus.png](/assets/2023/Milarus.png)
+
+If you ask ChatGPT to play tic-tac-toe, it might find creative ways to win:
+
+![/assets/2023/tictactoe.png](/assets/2023/tictactoe.png)
+
+ChatGPT isn't reliable at simple math problems. 
+
+![/assets/2023/gptmathfail.png](/assets/2023/gptmathfail.png)
+
+In the first question, the final answer is correct but the first paragraph is wrong and superfluous. In the second question, the correct calculation is 41x67x83=228001. ([It helps](https://arxiv.org/pdf/2302.13814.pdf) many problems if you ask it to 'show your work and think step by step,' and it seems to have gotten better over time.)
+
+As noted above, ChatGPT gets low scores on the AP Calculus test and on the American Mathematics Competition tests. Computers are supposed to be good at math. Why is ChatGPT so bad at math?
+
+If you try to travel from North America to South America, you can't go the whole way by ground transport. There's a segment that is impassable to vehicles, for reasons of history, geography, economy, and politics. That’s the [Dari&eacute;n gap](https://en.wikipedia.org/wiki/Dari%C3%A9n_Gap).
+
+We're in a liminal state, a transitional phase where computers are incredibly good at computation, and now incredibly good at language, but we are missing a piece to bridge the gap. The latest iPhones can perform up to 15 trillion floating point operations per second. Wolfram tools perform brilliantly at symbolic integration, and solving systems of differential equations. But ChatGPT struggles to translate word problems into the right representation to solve them.
+
+If you want to navigate a road network from point A to point B, there is more than one way to do it. One method is to know your current GPS coordinates and the GPS coordinates of your destination, look at which way the road you are on is going, and keep moving toward your destination, continuously updating your position based on the direction and velocity of travel and making turns as necessary. This is, I suppose, the way people with a keen sense of direction navigate. Unfortunately, I am not one of them, I'm more like [Captain Sobel](https://www.youtube.com/watch?v=W0scF0yxpNU) in Band of Brothers. Another approach is to construct the graph of all the roads and intersections and apply [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) to find the shortest route. I have the graph of NYC roads and public transport memorized at this stage and do this automatically. A third way is to memorize text directions from Google Maps, or from a human, like the ['rutters'](https://en.wikipedia.org/wiki/Rutter_(nautical)) or pilot books of the early explorers.
+
+ChatGPT is text-oriented. It's a poet, or a [wordcel](https://roonscape.ai/p/a-song-of-shapes-and-words).
+
+To solve systems of differential equations, you need a quant, a coder, a shape rotator who models problems visually and numerically.
+
+[Richard Feynman](https://chem.fsu.edu/chemlab/isc3523c/feyn_surely.pdf) explained his 'shape rotator' mode of thinking:
+
+*I had a scheme, which I still use today when somebody is explaining something that I’m trying to understand: I keep making up examples. For instance, the mathematicians would come in with a terrific theorem, and they’re all excited. As they’re telling me the conditions of the theorem, I construct something which fits all the conditions. You know, you have a set (one ball) – disjoint (two balls). Then the balls turn colors, grow hairs, or whatever, in my head as they put more conditions on. Finally they state the theorem, which is some dumb thing about the ball which isn’t true for my hairy green ball thing, so I say, ‘False!’*
+
+...
+
+*I can’t understand anything in general unless I’m carrying along in my mind a specific example and watching it go. Some people think in the beginning that I’m kind of slow and I don’t understand the problem, because I ask a lot of these “dumb” questions: “Is a cathode plus or minus? Is an an-ion this way, or that way?” But later, when the guy’s in the middle of a bunch of equations, he’ll say something and I’ll say, “Wait a minute! There’s an error! That can’t be right!” The guy looks at his equations, and sure enough, after a while, he finds the mistake and wonders, “How the hell did this guy, who hardly understood at the beginning, find that mistake in the mess of all these equations?” He thinks I’m following the steps mathematically, but that’s not what I’m doing. I have the specific, physical example of what he’s trying to analyze, and I know from instinct and experience the properties of the thing. So when the equation says it should behave so-and-so, and I know that’s the wrong way around, I jump up and say, “Wait! There’s a mistake!*
+
+Humans seem to use multiple modes of reasoning simultaneously and cross-check between them as part of 'common sense'. There is more than one path to enlightenment. The more paths you use, the better. ChatGPT is a one-trick pattern-matching pony. And sometimes generative AI generates more fingers and teeth than what's anatomically accurate. It feels like you could combine Stable Diffusion with another AI and instruct it to please ensure humans have five fingers and their teeth match the properties in this anatomy lesson. For instance [ideogram.ai](https://ideogram.ai/) will now let you specify text to appear in an AI-generated image, where other AIs struggle and write nonsense.
+
+There can be a 'brittleness' to AI solutions. The Adversarial in 'Generative Adversarial Networks' means you are training an AI to make images another AI can't detect as fakes. And yet a simple finger count or dental examination defeats it. Similarly, a bit of trickery helped [a human defeat AlphaGo](https://www.vice.com/en/article/v7v5xb/a-human-amateur-beat-a-top-go-playing-ai-using-a-simple-trick). It feels like a bit of model heterogeneity and diversification might help.
+
+A few ChatGPT improvements we might see in the not-too-distant future:
+
+ChatGPT is reportedly architected as a [mixture of experts model](https://pub.towardsai.net/gpt-4-8-models-in-one-the-secret-is-out-e3d16fd1eee0). When posed with a question, it routes it to the optimal model to answer it. So adding an expert model optimized for math word problems, trained by [rewarding it for each successful step](https://openai.com/research/improving-mathematical-reasoning-with-process-supervision), will help it perform better. Think of it as a horizontal scaling approach: add many more specialized models and use the best one.
+
+Another approach is to decompose problems into components and solve them sequentially. Using an 'agent' workflow with [function calling, code interpreter, data analytics](https://www.oneusefulthing.org/p/what-ai-can-do-with-a-toolbox-getting), ChatGPT can translate questions into a function call, or SQL, or Wolfram Mathematica, or a REST API, get answers back, make further calls as necessary and finally translate the result into English. Think of this as a vertical scaling approach: solve problems using deep chains of models.
+
+You can combine these approaches and send questions to multiple expert models that try to solve things in different ways, cross-check each other and fix errors, and then return the explanation back to the user.
+
+We see that the LLM is evolving into something different. The LLM itself becomes sort of a glue code generator, it resolves impedence mismatches between different systems. You can take a natural language question, translate part of it into SQL, part of it into a search engine query, a REST API, whatever, and then combine the results into a natural-language answer. 
+
+We can to train LLMs for specialized problem-solving using SQL, or [REST API specs](https://gorilla.cs.berkeley.edu/). 
+
+Updating an LLM with new information is a challenge. You have to retrain it from scratch on a new corpus, [or use fine-tuning, or use retrieval-augmented generation](https://towardsdatascience.com/rag-vs-finetuning-which-is-the-best-tool-to-boost-your-llm-application-94654b1eaba7). There is a transfer learning problem here that feels solvable. With an understanding of how LLMs represent a knowledge graph, we could abstract the knowledge graph from the capacity for language. We could train the LLM against multiple unrelated knowledge graphs, in a way that generalizes to unknown future knowledge graphs. Then you could potentially swap knowledge in and out. It might turn out that everything is so intermingled, there is no way to disentangle the language capability from the factual representation. It just feels like retraining a whole model from scratch is inefficient, and we might be able to represent a knowledge base in a transformer network which could be transfered into a separately trained LLM, and vastly reduce the amount of training to add new data. Then you could update ChatGPT every day with new information from news, instead of having data through January 2022 as of late 2023.
+
+I foresee a very long runway for ChatGPT to get a lot smarter, with transfer learning, wider mixture of expert models, deeper models that chain multiple heterogenous experts, smart bagging and boosting where they cross-check each other and fix each others' errors. 
+
+ChatGPT has mastered language. It turns out that to master language you have to master a great deal of knowledge and reasoning. 
+
+There is a long way to go to fill out the AGI capabilities listed above, to master human-like ability to use reason, intelligence, creativity to solve problems in novel, complex, constantly-changing environments. But machines are pretty good at most of the activities involved in AGI. The challenge is to build functionality that can bridge the Dari&eacute;n gap(s), and integrate all the different aspects of human intelligence.
+
+Then ChatGPT can pass the Steve Wozniak [coffee test](https://www.fastcompany.com/1568187/wozniak-could-computer-make-cup-coffee). Can a robot assistant go into a random house, locate the essential tools and ingredients, and make a decent cup of coffee?
+
+To be continued: The taxonomy and ecology of human bullshit; and possible policies to avoid the bullshit singularity.
 
