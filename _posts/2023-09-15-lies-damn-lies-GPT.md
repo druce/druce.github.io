@@ -299,10 +299,4 @@ Who knows what AI will be able to do in the near future? Some people say it migh
 
 Even without AI we have a major bullshit problem, AI makes it much worse. The big new challenges will be hard to meet without the sort of clear-eyed reality-based thinking that AI itself disrupts, absent proper incentives.
 
-> *Poets, priests and politicians*
-
-> *Have words to thank for their positions*
-
-> *Words that scream for your submission*
-
-> *And no one's jamming their transmission - The Police*
+> *Poets, priests and politicians<br />Have words to thank for their positions<br />Words that scream for your submission<br />And no one's jamming their transmission - The Police*
