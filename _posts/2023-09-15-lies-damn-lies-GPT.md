@@ -216,7 +216,7 @@ Take Dr. Fauci's shifting stance on masks. He initially discouraged their use bu
 
 Similarly, consider economists who don't critique aspects of capitalism lest they [give ammunition to the barbarians](https://rodrik.typepad.com/dani_rodriks_weblog/2007/05/are_there_barba.html). If it's directed reasoning, it's bullshit. If Fed chairman Powell is talking to calm markets and transparent about why, it's not necessarily bullshit.
 
-Anyway, I have to call bullshit on Frankfurt's main claim here, that bullshit is purely the middle column of indifference to truth. Those are important forms of bullshit, but speech in bad faith and contrary to the correct order of things, can occur in other forms. Communication depend on context, and occurs on many levels. Fruit flies like a banana.
+Anyway, I have to call bullshit on Frankfurt's main claim here, that bullshit is purely the middle column of indifference to truth. Those are important forms of bullshit, but speech in bad faith and contrary to the correct order of things, can occur in other forms. Communication takes place on multiple levels, and can have multiple meanings depending on context. Fruit flies like a banana.
 
 That 1990s modem dialup sound can be annoying noise and can also be conveying important signals, depending on context. Bullshit, like beauty, can be in the eye of the beholder, a property of the interaction between speaker and listener, and not inherently of the message itself. Something might be bullshit on one level but not on another.  And inherently a lot of communication contains elements of both bullshit and non-bullshit.
 
@@ -226,7 +226,7 @@ That 1990s modem dialup sound can be annoying noise and can also be conveying im
 
 > *Doubt is an uncomfortable condition, but certainty is a ridiculous one. - Voltaire*
 
-> *The only things that separate us from the animals are pointless rituals and mindless superstitions. - Latka Gravas*
+> *In my country, we believe that the only things that separate us from the animals are pointless rituals and mindless superstitions. - [Latka Gravas](https://www.youtube.com/watch?v=z2HM-9uxsq8)*
 
 If this isn't digressive enough, I want to talk about Feynman's [Caltech lecture on cargo cults](https://calteches.library.caltech.edu/51/2/CargoCult.htm). "The first principle is that you must not fool yourself—and you are the easiest person to fool." Also [Feynman](https://www.youtube.com/watch?v=p2xhb-SdK0g): “It doesn't matter how beautiful your theory is, it doesn't matter how smart you are. If it doesn't agree with experiment, it's wrong.”
 
