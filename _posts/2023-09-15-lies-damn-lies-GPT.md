@@ -262,11 +262,11 @@ Bullshit is everywhere. The line between fraud, self-delusion, bullshit, cargo-c
 
 But when it comes time to make high-stakes decisions, you have to make maximum effort to avoid fooling yourself. The Trump phenomenon and the widespread acceptance of facially ridiculous conspiracy theories does not bode well. There is going to be so much bullshit that it will drive out reality-based thinking, and not fooling ourselves will cease to be an option.
 
-![/assets/2023/bullhit_tg.gif](/assets/2023/bullhit_tg.gif)
+![/assets/2023/bullshit_tg.gif](/assets/2023/bullshit_tg.gif)
 
 ### The C.R.A.P. Framework, or a Tax on Bullshit
 
-So far, we've noted that 1) generative AI is remarkably effective at generating bullshit; 2) there's an infinite supply and also very strong demand for bullshit. Furthermore, there's no effective test for human or AI-generated bullshit. 
+So far, we've noted that 1) generative AI is remarkably effective at generating bullshit; 2) there's an infinite supply and also inherently strong demand for bullshit. Furthermore, there's no effective test for human or AI-generated bullshit. 
 
 If you could ask AI to check if something is AI-generated, you could probably tell an AI to create something that can defeat all the checks. AI detection seems like an 'AI-hard' problem.  [There's no Voight-Kampff test](https://bladerunner.fandom.com/wiki/Voight-Kampff_test). We currently have a situation where AI creates 6-fingered people, but given enough time and access to the test, a smart enough AI can keep fixing or regenerating content until it passes any given test. 
 
@@ -304,6 +304,8 @@ P - *Prevent* bullshit. Disrupt the economics of bullshit. The fundamental probl
 - Liability for fraudulent bullshit all the way up and down the value chain.
 - Support [anti-bullshit critical thinking education](https://www.callingbullshit.org/case_studies.html), [research](https://www.washingtonpost.com/technology/2023/09/23/online-misinformation-jim-jordan/), public-interest peer review of fake content, fact-checking of bullshit, other good-faith anti-bullshit programs.
 
+![/assets/2023/bullshit.gif](/assets/2023/bullshit.gif)
+
 Lies can be countered with the truth. Bullshit cannot, because it was never about truth in the first place. 'Bias' doesn't mean having a point of view, but having a belief that cannot be swayed by new information. The word 'meme' was invented by [Richard Dawkins](https://en.wikipedia.org/wiki/Meme) based on the 'selfish gene'. It's content that is highly adapted to arouse people to spread it. Humans see what we want to see, and good bullshitters leverage that, creating rage bait that confirms our priors. With generative AI, it's cheap to create infinite amounts of bullshit, and without penalties, bad actors are strongly incentivized to create it. Unless we build a marketplace of ideas with a better immune system, the singularity will end up being a singularity of bullshit.
 
 There is no such thing as a 'free market.' If a market is designed by sellers, it will privilege winner's curse auction dynamics. If it's designed by buyers, it's not going to be bothered by buyer collusion. If it's designed by traders, it will privilege volatility. Markets are human institutions that need to be designed to solve problems and lead to efficient outcomes. Good markets have the maximum amount of freedom consistent with efficiency. 
@@ -318,4 +320,4 @@ Who knows what AI will be able to do in the near future? Some people say it migh
 
 Before AI we had a major bullshit problem. AI makes it much worse. The big new challenges will be hard to meet without the sort of clear-eyed reality-based thinking that AI itself disrupts, absent proper incentives.
 
-> *Poets, priests and politicians<br />Have words to thank for their positions<br />Words that scream for your submission<br />And no one's jamming their transmission - The Police*
+![/assets/2023/bullshit2.gif](/assets/2023/bullshit2.gif)
