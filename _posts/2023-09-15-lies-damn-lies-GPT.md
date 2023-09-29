@@ -23,7 +23,7 @@ Every new generation of media and tech since TV seems to make us dumber. How do 
 
 Generative AI can manufacture infinite 'truthy' bullshit at near-zero cost, including 'deepfake' audio and video. And then it could potentially further train itself on the ones that go viral, concentrating fake 'truth' deep in our information infrastructure and knowledge frameworks. The singularity might prove a 'singularity of bullshit'.
 
-How do we engineer our knowledge ecosystem to disrupt bullshit instead of perpetuating and magnifying it, and further intensifying the acid bath our shrinking attention spans soak in? How do we deal with deepfakes, misinformation, and other forms of AI-assisted fraud and bullshit? 
+How do we engineer our [hackable knowledge ecosystem](https://www.theguardian.com/us-news/2023/sep/26/mehrans-steak-house-new-york-opening) to disrupt bullshit instead of perpetuating and magnifying it, and further intensifying the acid bath our shrinking attention spans soak in? How do we deal with deepfakes, misinformation, and other forms of AI-assisted fraud and bullshit? 
 
 First let's explore what ChatGPT currently knows, and how it might evolve. Then let's think about the nature of human bullshit and its ecosystem, and what humans know vs. what we think we know. Finally, let's discuss some takeaways and possible policies.
 
@@ -262,7 +262,7 @@ I’m not a follower of organized religion, but if it helps you be a happier bet
 
 Bullshit is everywhere. The line between fraud, self-delusion, bullshit, cargo-cult, and solid evidence-based search for truth is finer than we might think.  There's an infinite supply of bullshit, and there's also a ton of human demand for it. People need bullshit to get through the day and the night. The eye sees what it is prepared to see and the mind believes what it wants to believe. 
 
-But when it comes time to make high-stakes decisions, you have to make maximum effort to avoid fooling yourself. The Trump phenomenon and the widespread acceptance of facially ridiculous conspiracy theories does not bode well. There is going to be so much bullshit that it will drive out reality-based thinking, and not fooling ourselves will cease to be an option.
+But when it comes time to make high-stakes decisions, you have to make maximum effort to avoid fooling yourself. There's a fine line between sugar-coating harsh reality a little, choosing to believe in a Panglossian fool's paradise, and living in your own [bullshit cinematic universe](https://www.cnn.com/2022/12/16/investing/donald-trump-nft-trading/index.html).  The Trump phenomenon and the widespread acceptance of facially ridiculous conspiracy theories does not bode well. There is going to be so much bullshit that it will drive out reality-based thinking, and not fooling ourselves will cease to be an option.
 
 ![/assets/2023/bullshit_tg.gif](/assets/2023/bullshit_tg.gif)
 
