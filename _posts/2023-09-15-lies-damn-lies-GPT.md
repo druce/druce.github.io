@@ -17,7 +17,7 @@ tags: datascience
 ![greatimposterposter.jpg](/assets/2023/greatimposterposter.jpg)
 <!--more-->
 
-What does ChatGPT really know? Where does it falter? Where do we stand on the journey to Artificial General Intelligence (AGI)? Are we approaching the [singularity](https://en.wikipedia.org/wiki/The_Singularity_Is_Near)? What does generative AI mean for increasingly computer-mediated [human reality](https://en.wikipedia.org/wiki/The_Social_Construction_of_Reality)?
+What does ChatGPT actually know? Where does it falter? Where do we stand on the journey to Artificial General Intelligence (AGI)? Are we approaching the [singularity](https://en.wikipedia.org/wiki/The_Singularity_Is_Near)? What does generative AI mean for increasingly computer-mediated [human reality](https://en.wikipedia.org/wiki/The_Social_Construction_of_Reality)?
 
 Every new generation of media and tech since TV seems to make us dumber. How do we break the cycle and harness AI that makes us smarter, by helping us sort through the glut of information and misinformation and bullshit? 
 
@@ -65,7 +65,7 @@ ChatGPT's ability to bullshit is a trap. We will get a ton of terrible, directed
 
 ChatGPT is an AI [Ferdinand Waldo Damara](https://www.businessinsider.com/ferdinand-waldo-demara-greatest-con-artist-ever-great-imposter-2016-9#the-brave-and-generous-surgeons-fame-spread--all-the-way-back-to-the-real-dr-joseph-cyr-15). The exploits of Damara, dubbed [The Great Impostor](https://www.imdb.com/title/tt0053879/?ref_=fn_al_tt_1), exceed the [possibly exaggerated frauds of Frank Abagnale](https://nypost.com/2023/03/13/catch-me-if-you-can-conman-frank-abagnale-lied-about-his-lies/).  Damara had a photographic memory and an exceptional IQ, and undoubtedly had the ability to be a legitimate doctor, or civil engineer, if not the character and temperament. Are you a surgeon because you have degrees and appointments, or because you [save lives](https://nowiknow.com/the-doctor-is-in-we-think/)? To bullshit well, you have to know a lot about what you are doing. 
 
-Maybe what ChatGPT shows us is that the line between deceit, bullshit, cargo-culting and good research is finer than we think.
+Maybe what ChatGPT shows us is that a lot of people who seem smart are actually stochastic parrots. Maybe the line between deceit, bullshit, cargo-culting and good research is finer than we think.
 
 ChatGPT excels at plausible, ['truthy' explanations](https://www.cc.com/video/63ite2/the-colbert-report-the-word-truthiness). It will happily make stuff up if you ask it about fictional characters or APIs. Fortunately, it's such a people-pleaser that, if you merely instruct it to use only a specific source of truth, or to think step by step and be careful not to say anything that isn't true, then it will generally avoid making stuff up. 
 
