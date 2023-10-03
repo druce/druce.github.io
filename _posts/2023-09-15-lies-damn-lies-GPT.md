@@ -12,7 +12,7 @@ tags: datascience
 
 ---
 
->*That was just bullshit, Joel. - Miles, in [Risky Business (1983)](https://getyarn.io/yarn-clip/60423ed3-f7a6-4807-a43d-bf71c85214d1)*
+>*There are three kinds of lies: lies, damned lies, and statistics. - Mark Twain*
 
 ![greatimposterposter.jpg](/assets/2023/greatimposterposter.jpg)
 <!--more-->
@@ -28,8 +28,6 @@ How do we engineer our [hackable knowledge ecosystem](https://www.theguardian.co
 First let's explore what ChatGPT currently knows, and how it might evolve. Then let's think about the nature of human bullshit and its ecosystem, and what humans know vs. what we think we know. Finally, let's discuss some takeaways and possible policies.
 
 ### ChatGPT and bullshit
-
->*There are three kinds of lies: lies, damned lies, and statistics. - Mark Twain*
 
 ![liarliar.png](/assets/2023/liarliar.png)
 
