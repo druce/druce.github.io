@@ -1,0 +1,76 @@
+body {
+  position: relative; }
+
+.overlay {
+  position: absolute;
+  min-height: 740px;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5); }
+
+.navbar {
+  background: #aa3311; }
+  .navbar .nav-link,
+  .navbar .navbar-brand {
+    color: white;
+    cursor: pointer; }
+  .navbar .nav-link:hover,
+  .navbar .navbar-brand:hover {
+    color: #ccffcc; }
+
+.jumbotron {
+  background: rgba(0, 0, 0, 0);
+  color: white; }
+
+#keyword_button,
+#location_button {
+  background: #6ab446;
+  color: white; }
+
+#content {
+  background: rgba(0, 0, 0, 0);
+  color: white; }
+
+#output {
+  min-height: 150px;
+  padding-bottom: 2rem !important; }
+
+#output_table {
+  font-size: 10pt;
+  color: black;
+  background: #eeddcc; }
+  #output_table tr {
+    overflow: hidden;
+    height: 14px;
+    white-space: nowrap; }
+  #output_table td {
+    text-overflow: ellipsis;
+    padding: 4px 4px 4px 4px; }
+
+.footer {
+  background: #eeddcc;
+  color: black; }
+  .footer a {
+    color: black; }
+
+.github_cl {
+  color: #721779; }
+
+.gmaps_cl {
+  color: #cc5641; }
+
+.yelp_cl {
+  color: #d32323; }
+
+.foursquare_cl {
+  color: #d56079; }
+
+.leaflet_cl {
+  color: #bbdd66; }
+
+img.huechange {
+  filter: hue-rotate(120deg); }
+
+.table_rollover_bold {
+  font-weight: bold; }
