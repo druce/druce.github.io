@@ -196,7 +196,7 @@ Which is what some people want, because it creates a vacuum where they can abuse
 
 So what are we going to do about it?
 
-There's a silver lining, which is that tech can (imperfectly) help filter bullshit. There is [more academic fakery](https://en.wikipedia.org/wiki/List_of_scientific_misconduct_incidents) than we would like to admit, but people are also [doing a better job catching it](https://www.wired.com/story/scientific-fraud-is-slippery-to-catch-but-easier-to-combat/). 
+There's a silver lining, which is that tech can (imperfectly) help filter bullshit. There is [more academic fakery](https://en.wikipedia.org/wiki/List_of_scientific_misconduct_incidents) than we would like to admit, but people are also [doing a better job catching it](https://www.wired.com/story/scientific-fraud-is-slippery-to-catch-but-easier-to-combat/). ([Another example](https://www.nature.com/articles/d41586-023-02920-y))
 
 We want to follow something like the [C.R.A.P. framework](https://www.linkedin.com/pulse/workplace-bullshit-crap-framework-cutting-down-pei-ying-chua/).
 
