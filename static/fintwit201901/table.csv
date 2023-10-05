@@ -1,0 +1,483 @@
+,tweep_screen_name,tweep_name,tweep_pagerank,tweep_avg_score,topic_order
+0,pdacosta,Pedro Nicolaci da Costa,6.78,7.39,149
+1,TheStalwart,Joe Weisenthal,10.0,2.48,122
+2,ReformedBroker,Downtown Josh Brown,8.87,2.99,87
+3,ritholtz,Barry Ritholtz,7.68,4.1,86
+4,felixsalmon,Felix Salmon,8.82,2.73,470
+5,Noahpinion,Noah Smith,5.12,6.07,310
+6,Frances_Coppola,(((Frances Coppola))),3.64,7.48,49
+7,hblodget,Henry Blodget,6.43,4.59,252
+8,crampell,Catherine Rampell,5.26,5.34,338
+9,sdonnan,Shawn Donnan,3.23,6.94,366
+10,moorehn,Heidi N. Moore,3.96,6.06,401
+11,paulkrugman,Paul Krugman,6.91,2.44,358
+12,M_C_Klein,Matthew C. Klein,7.45,1.74,333
+13,davidmwessel,David Wessel,5.96,3.22,364
+14,matt_levine,Matt Levine,8.36,0.81,121
+15,tracyalloway,Tracy Alloway,8.45,0.62,123
+16,IvanTheK,Ivan the K™,5.78,3.29,263
+17,edwardnh,Edward Harrison,4.01,4.75,146
+18,Nouriel,Nouriel Roubini,6.29,2.42,183
+19,BCAppelbaum,Binyamin Appelbaum,6.98,1.7,351
+20,carlquintanilla,Carl Quintanilla,5.19,3.33,261
+21,acrossthecurve,across the curve.com,0.92,7.53,131
+22,MarkThoma,Mark Thoma,5.09,3.27,317
+23,AdamPosen,Adam Posen,4.18,4.07,295
+24,JustinWolfers,Justin Wolfers,6.75,1.48,356
+25,jennablan,Jennifer Ablan,5.48,2.75,162
+26,elerianm,Mohamed A. El-Erian,5.85,2.15,151
+27,tomkeene,tom keene,7.09,0.87,148
+28,CardiffGarcia,Cardiff Garcia,6.57,1.31,332
+29,jasonzweigwsj,Jason Zweig,6.28,1.56,114
+30,delong,Brad DeLong 🖖🏻,5.2,2.62,345
+31,ObsoleteDogma,Matt O'Brien,6.6,1.23,355
+32,greg_ip,Greg Ip,6.67,0.94,107
+33,RobinWigg,Robin Wigglesworth,5.5,2.1,5
+34,JacobWolinsky,Jacob Wolinsky,2.29,5.31,238
+35,TimOBrien,Tim O'Brien,2.94,4.63,442
+36,izakaminska,Izabella Kaminska,7.34,0.1,178
+37,tylercowen,tylercowen,5.62,1.8,307
+38,NateSilver538,Nate Silver,6.52,0.87,344
+39,jbarro,Josh Barro,4.7,2.65,339
+40,jessefelder,Jesse Felder,2.04,5.23,130
+41,ezraklein,Ezra Klein,6.0,1.26,340
+42,EddyElfenbein,Eddy Elfenbein,4.16,3.05,138
+43,johnauthers,John Authers,6.08,1.13,1
+44,TabbFORUM,TabbFORUM,0.2,7.0,42
+45,AmyResnick,Amy Resnick,2.32,4.75,394
+46,activiststocks,Activist Stocks,0.81,6.13,198
+47,eisingerj,Jesse Eisinger,4.77,2.14,435
+48,TimHarford,Tim Harford,4.37,2.47,14
+49,Neil_Irwin,Neil Irwin,6.1,0.71,350
+50,Jesse_Livermore,Jesse Livermore,4.69,1.97,89
+51,carney,John Carney,5.72,0.91,265
+52,mims,Christopher Mims 🎆,3.46,3.13,448
+53,conorsen,Conor Sen,3.96,2.61,142
+54,lisaabramowicz1,Lisa Abramowicz,4.32,2.16,128
+55,JohnCassidy,John Cassidy,3.92,2.55,441
+56,economistmeg,Megan Greene,5.12,1.34,292
+57,Austan_Goolsbee,Austan Goolsbee,4.67,1.78,357
+58,lopezlinette,Linette Lopez,2.75,3.7,264
+59,prchovanec,Patrick Chovanec,2.2,4.22,279
+60,mark_dow,Dow,5.23,1.18,262
+61,DLeonhardt,David Leonhardt,5.72,0.65,354
+62,niubi,Bill Bishop,2.35,3.89,275
+63,interfluidity,Steve Randy Waldman,4.4,1.84,304
+64,karaswisher,Kara Swisher,3.55,2.68,453
+65,tomgara,Tom Gara,2.45,3.74,375
+66,Convertbond,Lawrence McDonald,5.48,0.64,135
+67,AlephBlog,David Merkel,2.13,3.96,129
+68,SamRo,Sam Ro,3.9,2.19,137
+69,katie_martin_fx,Katie Martin,4.51,1.54,23
+70,JimPethokoukis,James Pethokoukis,3.59,2.44,368
+71,EpicureanDeal,TED,3.05,2.97,411
+72,TimDuy,Tim Duy,3.18,2.83,144
+73,abnormalreturns,Tadas Viskanta,4.78,1.22,94
+74,ianbremmer,ian bremmer,4.95,0.92,284
+75,rortybomb,Mike Konczal,3.92,1.94,303
+76,matthewstoller,Matt Stoller,1.79,4.07,378
+77,georgemagnus1,George Magnus,3.87,1.98,281
+78,Alea_,JC Kommer,1.87,3.96,170
+79,ModeledBehavior,Adam Ozimek,3.55,2.24,325
+80,PekingMike,Mike Forsythe  傅才德,1.21,4.57,287
+81,kadhimshubber,kadhim (＾ｰ^)ノ,2.16,3.59,27
+82,morningmoneyben,Ben White,3.89,1.83,428
+83,NinjaEconomics,Ninja Economics,2.17,3.54,312
+84,BaldwinRE,Richard Baldwin,2.45,3.25,297
+85,valuewalk,ValueWalk,3.49,2.2,197
+86,LaurenLaCapra,Lauren Tara LaCapra,2.17,3.52,404
+87,ryanavent,Ryan Avent,5.04,0.63,331
+88,D_Blanchflower,Danny Blanchflower,3.28,2.36,150
+89,danprimack,Dan Primack,3.97,1.67,475
+90,cullenroche,Cullen Roche,4.58,1.03,88
+91,scottlincicome,Scott Lincicome,1.11,4.46,367
+92,MikeIsaac,rat king,2.58,2.87,454
+93,jmackin2,James Mackintosh,4.81,0.64,17
+94,LorcanRK,Lorcan Roche Kelly,4.93,0.51,67
+95,alex,in Providence alex,0.72,4.72,477
+96,MattGoldstein26,Matthew Goldstein,2.65,2.79,431
+97,AnnPettifor,Ann Pettifor,2.52,2.88,50
+98,modestproposal1,modest proposal,3.91,1.48,243
+99,rodrikdani,Dani Rodrik,4.26,1.12,318
+100,faisalislam,Faisal Islam,4.97,0.4,58
+101,boes_,博思乐,4.68,0.68,120
+102,NickTimiraos,Nick Timiraos,3.79,1.56,108
+103,DuncanWeldon,Duncan Weldon,3.57,1.77,51
+104,benedictevans,Benedict Evans,2.65,2.68,481
+105,foxjust,Justin Fox,4.8,0.52,335
+106,pkedrosky,Paul Kedrosky,4.19,1.1,480
+107,lizzieohreally,Lizzie O'Leary,2.55,2.73,409
+108,SimoneFoxman,Simone Foxman,4.1,1.17,419
+109,dsquareddigest,Dan Davies,3.82,1.43,53
+110,ComfortablySmug,Comfortably Smug,2.23,3.0,387
+111,LiveSquawk,LiveSquawk,1.83,3.39,169
+112,LadyFOHF,FOHF,4.08,1.11,39
+113,BarbarianCap,Barbarian Capital,3.08,2.1,188
+114,lindayueh,Linda Yueh,3.19,1.95,293
+115,AnnieLowrey,Annie Lowrey,3.86,1.27,342
+116,Birdyword,Mike Bird,3.76,1.36,18
+117,cabaum1,Caroline Baum,1.43,3.67,361
+118,bencasselman,Ben Casselman,4.09,1.0,352
+119,calculatedrisk,Bill McBride,4.55,0.53,117
+120,willwilkinson,Will Wilkinson 🌐,1.72,3.35,349
+121,FlitterOnFraud,Emily Flitter,1.0,4.0,415
+122,WallStCynic,Diogenes,3.48,1.49,187
+123,mccarthyryanj,Ryan McCarthy,2.72,2.24,445
+124,fbonacci,Pfeifer,1.0,3.95,400
+125,jimtankersley,Jim Tankersley,3.12,1.77,353
+126,markgongloff,Mark Gongloff,2.32,2.57,433
+127,peter_tl,Peter Thal Larsen,3.3,1.56,20
+128,BruceBartlett,Bruce Bartlett,1.67,3.18,439
+129,MattZeitlin,Matthew Zeitlin,2.49,2.32,408
+130,BobBrinker,Bob Brinker,2.17,2.6,226
+131,fmanjoo,Farhad Manjoo,3.82,0.93,373
+132,SpiegelPeter,Peter Spiegel,4.25,0.49,30
+133,mdc,Mary Childs,3.88,0.83,403
+134,howardlindzon,STFR Lindzon,3.24,1.47,214
+135,AlbertoNardelli,Alberto Nardelli,2.42,2.25,56
+136,DavidSchawel,David Schawel,4.03,0.63,133
+137,michaelsantoli,Michael Santoli,4.62,0.02,124
+138,Richard_Florida,Richard Florida,2.33,2.27,336
+139,GreekAnalyst,The Greek Analyst,1.85,2.72,80
+140,NickatFP,Nick,2.76,1.8,234
+141,FGoria,Fabrizio Goria,2.18,2.36,19
+142,lionelbarber,Lionel Barber,3.14,1.37,31
+143,DianeCoyle1859,Diane Coyle,2.36,2.11,301
+144,GTCost,Constantin Gurdgiev,1.54,2.93,173
+145,R_Thaler,Richard H Thaler,4.14,0.29,305
+146,dianabhenriques,Diana B. Henriques,1.03,3.39,438
+147,TonyTassell,Tony Tassell,3.22,1.21,4
+148,LDrogen,Leigh Drogen,1.35,3.05,206
+149,jposhaughnessy,Jim O'Shaughnessy,2.43,1.97,95
+150,jsphctrl,Joseph Cotterill,4.17,0.22,21
+151,Jeffrey_Cane,Jeffrey Cane,1.64,2.72,193
+152,TFMkts,Peter Tchir,3.36,1.0,126
+153,fwred,Frederik Ducrozet,3.58,0.78,68
+154,kimmaicutler,Kim-Mai Cutler,1.36,3.0,379
+155,pearkes,George Pearkes,3.11,1.23,145
+156,asymmetricinfo,Megan McArdle,2.75,1.58,337
+157,DKThomp,Derek Thompson,3.64,0.68,341
+158,DavidBeckworth,David Beckworth,2.36,1.96,322
+159,AlanTonelson,(((Alan Tonelson))),0.79,3.53,371
+160,BennSteil,Benn Steil,1.62,2.7,363
+161,Reddy,Sudeep Reddy,3.81,0.5,427
+162,ProPublica,ProPublica,3.03,1.26,437
+163,davemcclure,Dave McClure,1.06,3.23,478
+164,nosunkcosts,No Sunk Costs,1.32,2.96,240
+165,kevinroose,Kevin Roose,3.17,1.1,459
+166,meganmurp,Megan Murphy,2.53,1.73,425
+167,qhardy,Quentin Hardy,0.97,3.3,383
+168,jdportes,Jonathan Portes,2.57,1.68,62
+169,johngapper,John Gapper,3.85,0.39,26
+170,neelkashkari,Neel Kashkari,3.34,0.9,320
+171,SonyKapoor,Sony Kapoor,3.36,0.87,66
+172,CGasparino,Charles Gasparino,2.06,2.17,268
+173,B_Eichengreen,Barry Eichengreen,3.71,0.51,294
+174,kaylatausche,Kayla Tausche,3.74,0.48,247
+175,davidjoachim,David S. Joachim,0.44,3.76,443
+176,BenDWalsh,Ben Walsh,1.97,2.23,405
+177,TimAeppel,Timothy Aeppel,1.5,2.69,365
+178,YanniKouts,Yannis Koutsomitis,2.81,1.38,72
+179,ReutersJamie,Jamie McGeever,3.45,0.73,47
+180,umairh,❤️,1.07,3.1,347
+181,OpenOutcrier,Open Outcrier,0.52,3.64,192
+182,michaelbatnick,Michael Batnick,3.56,0.59,97
+183,morganhousel,Morgan Housel,3.49,0.64,99
+184,DavidKeo,David Keohane,3.84,0.26,22
+185,MylesUdland,Myles Udland,1.83,2.25,143
+186,Ian_Fraser,Ian Fraser,1.37,2.71,43
+187,awealthofcs,Ben Carlson,3.5,0.57,98
+188,BrankoMilan,Branko Milanovic,3.31,0.74,308
+189,herbgreenberg,Herb Greenberg,3.19,0.85,195
+190,Fullcarry,Ed Bradford,3.57,0.47,140
+191,JHWeissmann,Jordan Weissmann,2.03,2.01,343
+192,Schuldensuehner,Holger Zschaepitz,2.35,1.66,69
+193,TimFernholz,Tim Fernholz,1.29,2.72,410
+194,ShiraOvide,Shira Ovide,1.87,2.13,449
+195,Simon_Nixon,Simon Nixon,3.13,0.87,57
+196,grossdm,Daniel Gross,2.93,1.05,229
+197,jeffjarvis,Jeff Jarvis,0.88,3.1,382
+198,MissTrade,Matt Davio,0.8,3.17,176
+199,ATabarrok,Alex Tabarrok,1.98,1.98,306
+200,mekosoff,maya kosoff,1.17,2.78,381
+201,robenfarzad,Roben Farzad,1.67,2.28,399
+202,NHendersonWSJ,Nell Henderson,1.67,2.24,106
+203,MebFaber,Meb Faber,3.51,0.4,91
+204,wonkmonk_,wonkmonk,2.38,1.53,154
+205,SoberLook,(((The Daily Shot))),3.7,0.19,125
+206,MaxCRoser,Max Roser,3.53,0.36,309
+207,s_m_i,stacy-marie ishmael,2.29,1.58,407
+208,gideonrachman,Gideon Rachman,2.88,1.0,10
+209,erikbryn,Erik Brynjolfsson,2.81,1.05,466
+210,DanielAlpert,Dan Alpert,2.76,1.09,147
+211,SaraEisen,Sara Eisen,3.05,0.78,258
+212,ChrisGiles_,Chris Giles,3.32,0.5,29
+213,amonck,α∂яιαη,0.89,2.93,35
+214,drvox,David Roberts,0.83,2.98,348
+215,SteveCase,Steve Case,2.17,1.64,469
+216,planetmoney,NPR's Planet Money,3.63,0.13,360
+217,t0nyyates,Tony Yates,2.31,1.45,299
+218,MarkYusko,Mark W. Yusko,2.75,0.99,184
+219,anatadmati,Anat Admati,3.38,0.36,302
+220,jyarow,Jay Yarow,1.76,1.96,250
+221,FD,Dan McCrum,2.9,0.81,2
+222,inafried,Ina Fried,1.08,2.63,476
+223,anildash,Anil Dash 🥭,1.56,2.14,380
+224,johnvanreenen,John Van Reenen,2.03,1.63,300
+225,charlesforelle,Charles Forelle,3.15,0.47,111
+226,TBraithwaite,Tom Braithwaite,2.2,1.42,3
+227,StockTwits,StockTwits,3.54,0.08,100
+228,FWIWmacro,For What It's Worth,1.24,2.38,280
+229,kairyssdal,Kai Ryssdal,2.03,1.58,260
+230,John_Hempton,John_Hempton,3.27,0.34,186
+231,Alan_Krueger,Alan B. Krueger,2.82,0.78,330
+232,JedKolko,Jed Kolko,1.9,1.7,324
+233,bespokeinvest,Bespoke,3.5,0.1,134
+234,sjwrenlewis,simon wren-lewis,2.33,1.25,63
+235,footnoted,footnoted,3.51,0.04,102
+236,RudyHavenstein,"Rudolf E. Havenstein, Greater Gradualist",2.83,0.7,156
+237,davidgaffen,David Gaffen,2.23,1.31,393
+238,JohnPaczkowski,John Paczkowski,0.59,2.94,457
+239,Spencerjakab,Spencer Jakab,2.56,0.96,116
+240,JeffMacke,Jeff Macke,2.73,0.79,227
+241,MatinaStevis,Matina Stevis-Gridneff,3.08,0.41,84
+242,_SidVerma,Sid Verma,2.34,1.15,40
+243,ylanmui,Ylan Q. Mui,2.1,1.39,259
+244,nxthompson,Nicholas Thompson,2.04,1.43,451
+245,Claudia_Sahm,Claudia Sahm,2.27,1.2,316
+246,hmeisler,Helene Meisler,2.82,0.64,139
+247,CGrantWSJ,Charley Grant,2.33,1.11,196
+248,MiriamElder,Miriam Elder,0.73,2.71,377
+249,DougKass,Douglas Kass,2.72,0.68,267
+250,davidenrich,David Enrich,2.24,1.15,416
+251,nicolas_veron,Nicolas Veron,1.84,1.55,78
+252,NewYorkFed,New York Fed,3.34,0.05,119
+253,nasiripour,Shahien Nasiripour,1.68,1.7,436
+254,treehcapital,Rob Majteles,0.73,2.65,235
+255,michaelsderby,Michael S. Derby,1.89,1.48,105
+256,JesseDrucker,Jesse Drucker,1.57,1.79,444
+257,kitjuckes,Kit Juckes,2.63,0.73,55
+258,Stalingrad_Poor,Stalingrad & Poorski,1.18,2.16,164
+259,gusbaratta,Gustavo Baratta,2.8,0.53,81
+260,S_Rabinovitch,Simon Rabinovitch,1.99,1.33,271
+261,WhelanKarl,Karl Whelan,2.81,0.48,61
+262,NicTrades,Nicola Duke,2.71,0.57,159
+263,yanisvaroufakis,Yanis Varoufakis,3.02,0.25,75
+264,esoltas,Evan Soltas,2.19,1.09,326
+265,stacyherbert,Stacy Herbert,0.99,2.26,161
+266,dandolfa,David Andolfatto,1.98,1.27,323
+267,shaneferro,Shane,1.9,1.33,406
+268,ThemisSal,Themis Sal,1.21,1.98,181
+269,rcwhalen,Christopher Whalen,2.15,1.03,182
+270,larsonchristina,Christina Larson 可心,0.62,2.55,277
+271,JoeSaluzzi,Joe Saluzzi,1.45,1.71,179
+272,bondvigilantes,Bond Vigilantes,2.75,0.4,152
+273,nickbilton,Nick Bilton,1.8,1.34,426
+274,cate_long,Cate Long,2.47,0.68,171
+275,_CB01,Max,1.49,1.65,220
+276,DrPippaM,Pippa Malmgren,1.22,1.9,177
+277,gadyepstein,Gady Epstein,1.6,1.52,286
+278,MacroPru,MacroPru,1.65,1.47,155
+279,toby_n,Toby Nangle,2.41,0.7,52
+280,ktbenner,Katie Benner,2.14,0.95,374
+281,stephenkinsella,Stephen Kinsella,2.38,0.7,298
+282,naufalsanaullah,Naufal Sanaullah,1.83,1.25,132
+283,steve_hanke,Prof. Steve Hanke,2.07,1.0,175
+284,paulmasonnews,Paul Mason,2.59,0.48,65
+285,NKingofDC,Neil King,1.06,2.0,440
+286,nitashatiku,Oumuamua ahoy,1.01,2.03,461
+287,EmanuelDerman,Emanuel Derman,2.65,0.39,313
+288,alansmurray,Alan Murray,2.61,0.43,253
+289,BreakingNews,Breaking News,2.13,0.9,386
+290,mjmauboussin,Michael Mauboussin,2.36,0.67,96
+291,kmac,Kate Mackenzie,2.23,0.78,12
+292,m_delamerced,Michael J. de la Merced,1.74,1.26,414
+293,humenm,Neil Hume,2.83,0.15,6
+294,Billbrowder,Bill Browder,1.84,1.13,83
+295,bobivry,Bob Ivry,1.17,1.8,434
+296,NoahShachtman,Noah Shachtman,0.87,2.1,376
+297,TheBubbleBubble,Jesse Colombo,1.98,0.96,136
+298,katekelly,Kate Kelly,2.21,0.71,417
+299,Ed_Crooks,Ed Crooks,2.5,0.4,7
+300,ldelevingne,Lawrence Delevingne,2.01,0.87,194
+301,MadameButcher,Sarah Butcher,1.62,1.25,45
+302,SteveRattner,Steven Rattner,1.53,1.33,362
+303,aarontask,Aaron Task,2.58,0.26,213
+304,cr_harper,Christine Harper,1.81,1.03,420
+305,darioperkins,Dario Perkins,1.82,1.01,153
+306,chigrl,ℭhi 🛢️,1.7,1.13,163
+307,ryanchittum,Ryan Chittum,0.92,1.91,396
+308,timoreilly,Tim O'Reilly,1.48,1.35,467
+309,gabrielsnyder,Gabriel Snyder,0.84,1.96,446
+310,johnpmcdermott,John McDermott,2.63,0.16,11
+311,creditplumber,David McKibbin,2.34,0.45,44
+312,waltmossberg,Walt Mossberg,2.04,0.74,452
+313,firoozye,firoozye,0.97,1.81,172
+314,jotted,Alexandra Stevenson,1.85,0.92,272
+315,Anthony,SUBPOENA POWER🗽,1.96,0.79,447
+316,SMTuffy,Sean Tuffy,1.02,1.73,41
+317,BrookingsEcon,Brookings Econ,2.64,0.1,327
+318,ericjackson,Eric Jackson,1.78,0.95,248
+319,ewong,Edward Wong,0.89,1.81,288
+320,MattGarrahan,Matthew Garrahan,1.02,1.67,28
+321,AtlantaFed,Atlanta Fed,2.61,0.08,118
+322,macrocredit,Alberto Gallo,2.2,0.48,70
+323,ericbeebo,Eric Burroughs 📈🏳️‍🌈,2.36,0.32,244
+324,researchpuzzler,tom brakke,2.0,0.68,92
+325,charliebilello,Charlie Bilello,2.62,0.05,101
+326,WillauerProsky,WPWAM,0.39,2.27,199
+327,ProfSteveKeen,Steve Keen,1.43,1.23,48
+328,RichardHaass,Richard N. Haass,1.64,1.0,285
+329,WilliamCohan,William D. Cohan,1.76,0.88,430
+330,petersgoodman,Peter S. Goodman,1.37,1.26,289
+331,peterlattman,Peter Lattman,1.82,0.82,412
+332,AllisonSchrager,Allison Schrager,1.91,0.69,315
+333,JamesGRickards,Jim Rickards,1.97,0.63,158
+334,porszag,Peter Orszag,2.42,0.16,329
+335,econhedge,econhedge,1.96,0.62,166
+336,simonh_dk,Simon H,1.61,0.97,38
+337,delaney,Kevin Delaney,2.56,0.01,462
+338,mbusigin,Matt Busigin,2.33,0.23,216
+339,BrunoBrussels,Bruno Waterfield,1.66,0.9,59
+340,rationalwalk,The Rational Walk,0.2,2.34,233
+341,joebrusuelas,Joseph Brusuelas,1.74,0.8,370
+342,pkafka,Peter Kafka,1.85,0.7,455
+343,Morgan_03,null.,1.68,0.86,239
+344,sabrush,Silla Brush,1.32,1.22,418
+345,russian_market,Russian Market,1.62,0.92,157
+346,spignal,Stanley Pignal,1.94,0.59,16
+347,farmerrf,Roger E. A. Farmer,1.84,0.69,319
+348,trengriffin,Tren Griffin,1.42,1.1,209
+349,todd_harrison,Todd Harrison,2.07,0.44,222
+350,BrookingsInst,Brookings,2.19,0.31,369
+351,mhewson_CMC,Michael Hewson 🇬🇧,1.61,0.89,167
+352,MaglanCapital,Maglan Capital,0.18,2.31,200
+353,EconomicsOne,John B. Taylor,2.16,0.31,321
+354,dinabass,Dina Bass,0.56,1.91,385
+355,graemewearden,Graeme Wearden,2.46,0.0,46
+356,Hugodixon,Hugo Dixon,2.19,0.27,60
+357,vshih2,Victor Shih,1.12,1.34,276
+358,maxabelson,Max Abelson,2.24,0.19,422
+359,samgadjones,Sam Gad Jones,2.09,0.33,24
+360,TonysAngle,Tony Addison,1.11,1.3,296
+361,mattbish,Matthew Bishop,1.88,0.53,15
+362,DSORennie,David Rennie,0.98,1.43,273
+363,sarahkliff,Sarah Kliff,2.05,0.34,334
+364,ZekeJMiller,Zeke Miller,1.1,1.29,429
+365,rebeccaballhaus,Rebecca Ballhaus,1.14,1.24,113
+366,yvessmith,Yves Smith,2.23,0.12,390
+367,prashantrao,Prashant Rao,0.49,1.85,291
+368,RolfeWinkler,Rolfe Winkler,1.93,0.4,458
+369,GZuckerman,Gregory Zuckerman,1.83,0.48,115
+370,bgurley,Bill Gurley,2.01,0.29,471
+371,SallieKrawcheck,Sallie Krawcheck,1.88,0.42,256
+372,NickMalkoutzis,Nick Malkoutzis,1.7,0.59,73
+373,sanderwagner,Sander Wagner,0.96,1.32,36
+374,asymco,Horace Dediu,1.63,0.65,472
+375,AaronLucchetti,Aaron Lucchetti,1.81,0.45,110
+376,Kiffmeister,John Kiff,0.64,1.62,180
+377,firstadopter,📉Tae Kim,1.77,0.48,249
+378,ampressman,Aaron Pressman,0.74,1.49,473
+379,OpenEurope,Open Europe,1.71,0.52,71
+380,ErikFossing,Erik Fossing Nielsen,1.17,1.03,82
+381,sm_sears,Steve Sears,1.42,0.78,231
+382,RiskReversal,Dan Nathan,1.42,0.77,254
+383,sapna,Sapna Maheshwari,0.79,1.39,372
+384,mileskimball,Miles Kimball,1.79,0.38,314
+385,raluca3000,econgirl,1.3,0.86,37
+386,AlexWhite1812,Alex White,1.12,1.03,79
+387,george_chen,George Chen,0.95,1.19,278
+388,DividendMaster,Dividend Master,0.56,1.58,389
+389,williamalden,Will Alden,1.21,0.93,460
+390,volatilitysmile,Volatility Smile,1.29,0.84,219
+391,JBoorman,Jon Boorman,1.21,0.92,93
+392,sheelahk,Sheelah Kolhatkar,1.16,0.95,423
+393,robpas,Rob Passarella,1.46,0.64,208
+394,SconsetCapital,Timothy Connolly CFA,0.95,1.14,388
+395,KidDynamiteBlog,Kid Dynamite,1.15,0.93,237
+396,RANsquawk,RANsquawk,1.43,0.64,168
+397,asentance,Andrew Sentance,1.37,0.68,64
+398,nichcarlson,Nicholas Carlson,0.74,1.28,402
+399,fiatcurrency,fiatcurrency 💰,1.07,0.95,160
+400,mhbergen,Mark Bergen,0.76,1.23,450
+401,MichaelKitces,MichaelKitces,1.42,0.56,207
+402,HBoushey,Heather Boushey,1.14,0.83,346
+403,joshchin,Josh Chin,0.68,1.29,270
+404,mcelarier,michelle celarier,0.69,1.28,432
+405,AlderLaneeggs,Marc Cohodes,1.34,0.62,201
+406,Brenda_Kelly,Brenda Kelly,1.92,0.03,33
+407,KaraScannell,Kara Scannell,1.35,0.55,424
+408,maxseddon,max seddon,0.88,1.02,25
+409,GabrielSterne,Gabriel Sterne,1.54,0.32,54
+410,LongShortTrader,LST,1.47,0.39,189
+411,sbanjo,Shelly Banjo,1.47,0.38,283
+412,SamAntar,Sam E. Antar,0.73,1.11,202
+413,nancefinance,Nancy Miller,1.17,0.67,232
+414,Dvolatility,Dvolatility,0.57,1.26,225
+415,Chris_Whittall,Chris Whittall,1.69,0.13,103
+416,INETeconomics,Institute for New Economic Thinking,1.58,0.24,311
+417,mikejcasey,Michael Casey,1.41,0.39,185
+418,MOstwald1,Marc Ostwald,0.52,1.27,174
+419,PreetaTweets,Anupreeta Das,1.74,0.05,109
+420,ToddSullivan,Todd Sullivan,1.16,0.62,228
+421,AnjuliDavies,Anjuli,1.23,0.54,32
+422,rafat,Rafat Ali رفعت,0.7,1.07,464
+423,HirokoTabuchi,Hiroko Tabuchi,1.1,0.65,290
+424,YiannisMouzakis,Yiannis Mouzakis,1.49,0.24,85
+425,EfiEfthimiou,Efthimia Efthimiou,1.53,0.14,74
+426,jpressler,Jessica Pressler,1.05,0.6,413
+427,MarioGabelli,Mario Gabelli,0.94,0.69,191
+428,mgsiegler,M.G. Siegler,1.09,0.53,474
+429,Wexboy_Value,Wexboy,0.05,1.52,236
+430,lemasabachthani,lemasabachthani,1.45,0.12,76
+431,GregorMacdonald,Gregor Macdonald,1.37,0.17,224
+432,LWinthorpe,Louis Winthorpe III,0.54,0.99,218
+433,louisabojesen,Louisa Bojesen,0.96,0.57,266
+434,Bill_Gross,Bill Gross,1.42,0.1,468
+435,davidpilling,david pilling,1.43,0.08,9
+436,InterestArb,InterestArb,1.15,0.35,141
+437,MxSba,Maxime Sbaihi,0.92,0.56,77
+438,jledbetter,James Ledbetter,1.32,0.15,398
+439,jsblokland,jeroen blokland,1.43,0.03,127
+440,LaurenYoung,Lauren Young,1.23,0.21,392
+441,annalouiesuss,Anna Louie Sussman,0.97,0.47,397
+442,panphil,Philip P. Pan,0.5,0.93,274
+443,georgikantchev,Georgi Kantchev,1.13,0.29,112
+444,stephenfoley,Stephen Foley,1.4,0.01,0
+445,KateDavidson,Kate Davidson,0.89,0.51,104
+446,pointsnfigures,Jeffrey Carter,0.57,0.82,223
+447,HaidiLun,Haidi Lun Stroud-Watts 伦海迪,1.15,0.24,282
+448,bauhiniacapital,baufinanciaphaster,0.66,0.72,245
+449,NeckarValue,NeckarCap,1.2,0.15,90
+450,ActivistShorts,AI Shorts,1.16,0.18,190
+451,ZekeFaux,Zeke Faux,0.95,0.38,421
+452,TheArmoTrader,Jerry Khachoyan,0.83,0.48,215
+453,JoshRosner,joshua rosner,1.27,0.04,391
+454,MalcolmMoore,malcolmmoore,0.67,0.59,8
+455,SquawkStreet,Squawk on the Street,1.07,0.15,246
+456,andrewtghill,Andrew Hill,1.15,0.06,13
+457,lucymarcus,Lucy P. Marcus,0.54,0.66,395
+458,TDS_55,Stephen Collins,1.13,0.04,221
+459,pierre,Pierre Omidyar,0.79,0.37,359
+460,GuyAdami,Guy Adami,0.9,0.15,257
+461,LauricellaTom,Tom Lauricella,1.02,0.03,205
+462,chicagosean,Sean McLaughlin 📈,0.93,0.11,211
+463,Kantrowitz,Alex Kantrowitz,0.49,0.54,456
+464,Megan,Megan McCarthy,0.66,0.35,463
+465,UpdatedPriors,Ryan Decker,0.63,0.37,328
+466,JBoorstin,Julia Boorstin,0.83,0.16,251
+467,DavidBarboza2,David Barboza,0.83,0.1,269
+468,maoxian,C. Maoxian,0.78,0.15,241
+469,TheBasisPoint,Julian Hebron,0.19,0.72,230
+470,JournalofValue,ShadowStock,0.34,0.56,210
+471,cschweitz,Callie Schweitzer,0.5,0.38,465
+472,Justin_B_Smith,Justin B. Smith,0.75,0.11,384
+473,sellputs,sP,0.51,0.3,217
+474,vitaliyk,Vitaliy Katsenelson,0.76,0.04,212
+475,bengoldacre,ben goldacre,0.5,0.26,34
+476,HardcoreValue,Hardcore Value,0.57,0.16,479
+477,TheIntuitInvest,"Jason A. Voss, CFA",0.36,0.34,242
+478,50Pips,50 Pips,0.41,0.22,165
+479,TALENTEDBLONDE,TALENTEDBLONDE ™,0.15,0.13,255
+480,AlphaClone,AlphaClone,0.06,0.13,204
+481,hedge_funds,Hedge Funds,0.0,0.13,203
