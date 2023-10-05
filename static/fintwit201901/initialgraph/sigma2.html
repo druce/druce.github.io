@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FinTwit Network Browser</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style type="text/css">
+  #container {
+    max-width: 800px;
+    height: 800px;
+    margin: auto;
+  }
+</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<!-- top right nav -->
+			<nav class="col-md-12 navbar navbar-expand-lg navbar-light bg-faded">
+				<a class="d-lg-none" href="http://www.streeteye.com"><img src="/static/img/dv3-72.png" /></a>
+				<a class="d-none d-lg-block" href="http://www.streeteye.com"><img src="/static/img/dv3-header.png" /></a>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="http://blog.streeteye.com/blog/?page_id=2">Contact</a>
+					</li>
+					<li class="navbar-item">
+						<a class="nav-link" href="http://blog.streeteye.com/blog/?page_id=84">About</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="row">
+			<!-- main nav -->
+			<ul class="nav">
+				<li class="nav-item">
+					<a class="nav-link" href="http://www.streeteye.com/">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://blog.streeteye.com/blog/">Blog</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Tools</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="http://blog.streeteye.com/calculator/">Cat Food Calculator</a>
+						<a class="dropdown-item" href="http://blog.streeteye.com/blog/?page_id=177">Blogroll</a>
+						<div class="dropdown-divider"></div>
+						<h5 class="dropdown-item disabled">Chartroom</h5>
+						<a class="dropdown-item" href="#">   GDP</a>
+						<a class="dropdown-item" href="#">   CPI</a>
+						<a class="dropdown-item" href="#">   IP</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-2">
+			<div><button type="button" id="button">Force Layout</button></div>
+			<div><button type="button" id="button2">Reset</button></div>
+			<div class="popover" id="popover">
+
+				pop
+			</div>
+		</div>
+		<div class="col-md-10" id="graphcontainer"></div>
+	</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="sigma.require.js"></script>
+<script src="sigma.js/plugins/sigma.parsers.json/sigma.parsers.json.js"></script>
+<script src="sigma.js/plugins/sigma.layout.forceAtlas2/worker.js"></script>
+<script src="sigma.js/plugins/sigma.layout.forceAtlas2/supervisor.js"></script>
+
+<script>
+	var globalsigma;
+
+	function doForce() {
+		window.globalsigma.startForceAtlas2({worker: true, barnesHutOptimize: false});
+		setTimeout(function() {window.globalsigma.stopForceAtlas2(); }, 5000);
+	}
+
+	function doReinit() {
+		// clear the graph nodes and edges
+		s=window.globalsigma;
+		s.graph.clear();
+	    // remove any methods you've attached to s.
+    	s.graph.kill();
+		var g = document.querySelector('#graphcontainer');
+	    var p = g.parentNode;
+	    p.removeChild(g);
+	    var c = document.createElement('div');
+	    c.setAttribute('id', 'graphcontainer');
+	    p.appendChild(c);		
+		sigma.parsers.json("se.json",
+			{container: 'graphcontainer'},
+			reinit
+		);
+	}
+ 
+	function reinit (s) {
+		window.globalsigma=s;
+		s.settings('verbose', true);
+//		s.settings('defaultEdgeColor', '#ccc');
+//		s.settings('defaultNodeColor', '#903');
+		s.settings('defaultLabelSize', '10');
+		s.settings('maxNodeSize', 3);
+		s.settings('labelThreshold', 0);
+//		s.settings('defaultLabelColor', '#900');
+//		s.settings('defaultLabelBGColor', '#ddd');
+		s.settings('drawNodes', true);
+		s.settings('drawEdges', false);
+		s.settings('labelColor', 'node');
+		s.settings('zoomMin', 1);
+		s.settings('zoomMax', 1);
+				
+		s.bind('clickNode', function(event) { console.log(event); } );
+		s.unbind('overNode');
+		s.unbind('outNode');
+		s.bind('overNode outNode clickNode doubleClickNode rightClickNode', function(e) {
+				console.log(e.type, e.data.node.label, e.data.captor);
+			});
+		s.bind('overNode', function(e) {
+			var prefix = s.renderers[0].options.prefix;
+			console.log(prefix);
+			var node = e.data.node;
+			for(var key in node){
+								  console.log(key);
+								};
+			var x = e.data.node[prefix + 'x'];
+			var y = e.data.node[prefix + 'y'];
+			console.log(x);
+			console.log(y);
+			  // Now render some div based on these coordinates
+			});		
+
+		s.bind('clickNode', function(e) {
+			clicknode = e.data.node;
+			var left = e['data']['node']['renderer1:x'];
+			var top = e['data']['node']['renderer1:y'];
+			$('.popover').html(clicknode.label);
+			var theHeight = $('.popover').height();
+			var theWidth = $('.popover').width();
+			$('.popover').css('left', (left)-30 -theWidth+ 'px');
+			$('.popover').css('top', (top-(theHeight/2))+35 + 'px');
+			$('.popover').show();
+		});
+		s.bind('clickStage', function(e) {
+			 $('.popover').hide()
+			});
+
+		s.refresh();
+		document.getElementById("button").onclick=doForce;
+		document.getElementById("button2").onclick=doReinit;
+	}
+	alert('hello2');
+
+	sigma.parsers.json(
+		"se.json", 
+		{container: 'graphcontainer'},
+		reinit
+	);
+</script>
+</body>
+</html>

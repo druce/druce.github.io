@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+  #container {
+    max-width: 1000px;
+    height: 800px;
+    margin: auto;
+  }
+</style>
+</head>
+<body>
+<div><button type="button" id="button">Force Layout</button></div>
+<div><button type="button2" id="button2">Reset</button></div>
+<div id="container"></div>
+<script src="sigma.require.js"></script>
+<script src="sigma.js/plugins/sigma.parsers.json/sigma.parsers.json.js"></script>
+<script src="sigma.js/plugins/sigma.layout.forceAtlas2/worker.js"></script>
+<script src="sigma.js/plugins/sigma.layout.forceAtlas2/supervisor.js"></script>
+
+<script>
+	var globalsigma;
+
+	function doForce() {
+		window.globalsigma.startForceAtlas2({worker: true, barnesHutOptimize: false});
+		setTimeout(function() {window.globalsigma.stopForceAtlas2(); }, 5000);
+	}
+
+	function doReinit() {
+		// clear the graph nodes and edges
+		s=window.globalsigma;
+		s.graph.clear();
+	    // remove any methods you've attached to s.
+    	s.graph.kill();
+		var g = document.querySelector('#container');
+	    var p = g.parentNode;
+	    p.removeChild(g);
+	    var c = document.createElement('div');
+	    c.setAttribute('id', 'container');
+	    p.appendChild(c);		
+		sigma.parsers.json("se.json",
+			{container: 'container'},
+			reinit
+		);
+	}
+ 
+	function reinit (s) {
+		window.globalsigma=s;
+		s.settings('verbose', true);
+		s.settings('defaultEdgeColor', '#ccc');
+		s.settings('defaultNodeColor', '#903');
+		s.settings('defaultLabelSize', '9');
+		s.settings('defaultLabelColor', '#900');
+		s.settings('defaultLabelBGColor', '#ddd');
+		s.settings('drawNodes', false);
+		s.settings('drawEdges', false);
+		s.settings('labelColor', 'node');
+		s.settings('zoomMin', 1);
+		s.settings('zoomMax', 1);
+				
+		s.bind('clickNode', function(event) { console.log(event); } );
+		s.bind('overNode', function(e) {
+			  var prefix = s.renderers[0].options.prefix;
+			  var node = e.data.node;
+			  for(var key in node){
+				  console.log(key);
+				}
+			  var x = e.data.node[prefix + 'x'];
+			  var y = e.data.node[prefix + 'y'];
+			  console.log(x);
+			  console.log(y);
+			  // Now render some div based on these coordinates
+			});		
+		//s.unbind('overNode');
+		//s.unbind('outNode');
+		//s.bind('overNode outNode clickNode doubleClickNode rightClickNode', function(e) {
+		//		console.log(e.type, e.data.node.label, e.data.captor);
+		//	}); 
+		// override default render to do nothing
+//		sigma.canvas.nodes.def = function(node, context, settings) { };
+		document.getElementById("button").onclick=doForce;
+		document.getElementById("button2").onclick=doReinit;
+	}
+	sigma.parsers.json(
+		"se.json", 
+		{container: 'container'},
+		reinit
+	);
+
+
+</script>
+</body>
+</html>
+
+
