@@ -56,10 +56,11 @@ If you have a team of 12 analysts or bankers, and you could save each an hour a 
 
 A good ChatGPT prompt creates a zero-shot or few-shot machine learning model, and may get you 80% of the value of a trained machine learning model for tasks like classification, data scrubbing etc. For many tasks, the answer to, 'what is the simplest thing that might actually work', is ChatGPT. 
 
-If you wouldn't sneer at getting those benefits by writing an Excel macro or Python program to automate your work, no reason to object to learning ChatGPT's strange ways to get good results. Yeah, the future is weird.
+If you wouldn't sneer at getting those benefits by writing an Excel macro or Python program to automate your work, no reason to object to learning ChatGPT's strange ways to get good results. 
 
 If tech offers me 'infinite interns', I'll take'em. You don't have to, but you might get outperformed by the people who have'em!
 
+Yeah, the future is weird.
 
 **Additional Reading:**
   - [Short prompt engineering course from OpenAI](https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/) (not just for devs because prompts are same in chat UI but this course uses API and Jupyter) 
