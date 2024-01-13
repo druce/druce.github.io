@@ -39,14 +39,14 @@ Here is a checklist of 15 bullet points to follow to improve your prompting:
 >   
     A:
    
-10. **Idioms**. Give ChatGPT time to think with phrases that cause it to pause and check: think step by step, let's work this out and think step by step to check that X is true
+10. **Idioms**. Give ChatGPT time to think with phrases that cause it to pause and check: think step by step, let's work this out and think step by step to check that requirement X is true.
 11. **Reflective pattern**. Ask ChatGPT, "explain the reasoning steps you used to arrive at this answer like you would to a 5 year-old". Ask ChatGPT to critique its answer and offer counterpoints, propose alternative answers and compare them, list assumptions and facts that the answer depends on. "Create a set of facts that the answer depends on that should be fact-checked and list this set of facts at the end of your output. Only include facts related to X."
 12. **Let ChatGPT improve your prompt**. Ask ChatGPT to critique the prompt along specific lines, and then fix it. Ask ChatGPT to suggest good prompts for your domain. There are many lists of good prompts on the web, search for relevant ones.
 13. **Iterative Q&A**. Ask ChatGPT to first ask you 3 clarifying questions, and then answer your questions.
 14. **Progressive refinement**. When you get an answer, ask ChatGPT to iteratively improve it in the direction you find useful. Start generally and then ask more in-depth questions.
 15. **Starting text**. Consider giving the start of the answer like "Here is a checklist of 15 bullet points to follow to improve your prompting."
 
-I get some pushback along the lines of, this isn't proper engineering, do your own work, etc.
+I get some pushback along the lines of, seems weird to cajole and simp an AI to do your work, this isn't proper engineering, do your own work instead of relying on a hallucinatory opaque assistant, etc.
 
 This is prompting, not 'prompt engineering'. If you want to learn a programming language well it will take 6 months of practice, if you want to be great at algorithms and best practices in software engineering it will take a lifetime. If you want to write proper prompts it will take you an hour and following a checklist. If you are systematically A/B testing prompts from a well-chosen corpus, it gets closer to engineering. Good engineers hack! A good or bad thing about engineering is, it's not just book learning and formal training, it's getting things built. So I won't gatekeep and begrudge anyone who builds stuff the term 'engineer' too much. Even if a plumber calls themselves a heating engineer.
 
@@ -54,7 +54,7 @@ If you have a task amenable to natural language processing that you perform ever
 
 If you have a team of 12 analysts or bankers, and you could save each an hour a day, it might even pay to have an FTE prompt engineer who collects tasks and good outputs and writes good prompts and A/B tests them for the team.
 
-A good ChatGPT prompt creates a zero-shot or few-shot machine learning model, and may get you 80% of the value of a trained machine learning model for tasks like classification, data scrubbing etc. For many tasks, the answer to, 'what is the simplest thing that might actually work', is ChatGPT. 
+A good ChatGPT prompt creates a zero-shot or few-shot machine learning model, and may get you 80% of the value of a trained machine learning model for tasks like classification, data scrubbing etc. For many tasks, the answer to, 'what is the simplest thing that might actually work', is ChatGPT. And of course, for writing tasks, for generating a first cut at Python code, ChatGPT can be nothing short of miraculous.
 
 If you wouldn't sneer at getting those benefits by writing an Excel macro or Python program to automate your work, no reason to object to learning ChatGPT's strange ways to get good results. 
 
