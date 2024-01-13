@@ -1,0 +1,70 @@
+---
+id: 7129
+title: 'Practical ChatGPT Prompting: A Checklist of 15 Patterns to Improve Your Prompts'
+subtitle: ''
+date: 2024-01-13T01:01:01+00:00
+author: Druce Vertes
+layout: post
+guid: /?p=7129
+permalink: /2024/01/prompting
+categories: datascience
+tags: datascience
+
+---
+
+> A logician saves the life of a small omniscient space alien. The alien is very grateful and, being omniscient, offers a reward: they offer to answer any question the logician might pose. Naturally the logician asks: "What is the best question to ask and what is the correct answer to that question?" The tiny alien pauses momentarily, and replies, "The best question is the one you just asked; and the correct answer is this one." And just like that...they are gone.
+
+<!--more-->
+
+Perhaps there is a ChatGPT prompt you use every day and you want to improve it as much as possible. Perhaps you are not getting exactly the result you want and you want to make it better. 
+
+Here is a checklist of 15 bullet points to follow to improve your prompting:
+
+1. **Throw in the kitchen sink.** More is better. Don't shy away from long, detailed prompts. The objective of prompting is similar to programming in the sense of using a language to tell the computer to perform a task. But ChatGPT knows your language and pays attention to you. Think of ChatGPT as a small omniscient alien intern who has read everything on the Internet but needs very detailed instructions.  Ask and ye shall receive.
+2. **Add a Persona and Context**. State who ChatGPT will respond as:
+   > You are a strategy consultant from a firm like McKinsey, with a Harvard MBA and deep subject matter knowledge of supply chains who has been tasked with outsourcing production of auto parts.
+3. **Audience**. Who is the answer for? "Explain this to a business analyst", or a data scientist, or a 5 year old. "Assume that I know little about the topic that we are discussing and define any terms that are not general knowledge". 
+4. **Output Style**. Request a detailed or concise response, professional or academic tone, or a style resembling a popular blogger. Specify the emotional tone, cultural background, or the particular style of an author, publication, or specific text. For coding, follow these variable naming conventions, style paradigms, object-oriented patterns. A persona can help, like a Goldman Sachs investment banker, like a McKinsey consultant, like a Gartner research analyst.
+5. **Output Format**. Bullets, markdown, links, citations, or a specific outline, structure or template.
+6. **Input Format**. Would specific delimiters or placeholders or a 'domain specific language' help ChatGPT understand the input template, like "summarize the input delimited by '", or "classify records I will provide in the following format" (JSON or CSV or python dict are good), use these bullets using this hierarchical tree structure.
+7. **Be As Specific As Possible.** Is there anything you can clarify and make more clear, less ambiguous? Tell ChatGPT what elements to focus on in the answer, what to ignore. Add constraints, requirements, key qualities of a good answer. Try to avoid negative prompts like don't do X, or make those super specific if necessary.
+8. **Add Examples.** Provide as many examples of good input/output pairs as possible.
+9. **Chain of Thought.** Can you provide a recipe to follow step by step to arrive at a good answer? 
+   
+   >Q: Mary has 5 apples. She eats one apple and gives one to Jane. How many apples does she have left?
+   >
+   A: Mary starts with 5 apples. She eats one apple, leaving 5-1=4 apples. She gives one to Jane, leaving 4-1=3 apples. The answer is 3 apples. 
+>   
+   Q: Helen has 12 bananas. She uses 4 to bake banana bread and 1 for a banana split. How many bananas does Helen have left?
+>   
+    A:
+   
+10. **Idioms**. Give ChatGPT time to think with phrases that cause it to pause and check: think step by step, let's work this out and think step by step to check that X is true
+11. **Reflective pattern**. Ask ChatGPT, "explain the reasoning steps you used to arrive at this answer like you would to a 5 year-old". Ask ChatGPT to critique its answer and offer counterpoints, propose alternative answers and compare them, list assumptions and facts that the answer depends on. "Create a set of facts that the answer depends on that should be fact-checked and list this set of facts at the end of your output. Only include facts related to X."
+12. **Let ChatGPT improve your prompt**. Ask ChatGPT to critique the prompt along specific lines, and then fix it. Ask ChatGPT to suggest good prompts for your domain. There are many lists of good prompts on the web, search for relevant ones.
+13. **Iterative Q&A**. Ask ChatGPT to first ask you 3 clarifying questions, and then answer your questions.
+14. **Progressive refinement**. When you get an answer, ask ChatGPT to iteratively improve it in the direction you find useful. Start generally and then ask more in-depth questions.
+15. **Starting text**. Consider giving the start of the answer like "Here is a checklist of 15 bullet points to follow to improve your prompting."
+
+I get some pushback along the lines of, this isn't proper engineering, do your own work, etc.
+
+This is prompting, not 'prompt engineering'. If you want to learn a programming language well it will take 6 months of practice, if you want to be great at algorithms and best practices in software engineering it will take a lifetime. If you want to write proper prompts it will take you an hour and following a checklist. If you are systematically A/B testing prompts from a well-chosen corpus, it gets closer to engineering. Good engineers hack! A good or bad thing about engineering is, it's not just book learning and formal training, it's getting things built. So I won't gatekeep and begrudge anyone the term 'engineer' too much. Even if a plumber calls themselves a heating engineer.
+
+If you have a task amenable to natural language processing that you perform every day, like looking up data and grabbing some pieces and summarizing, and if you spend 30 minutes on a prompt and it saves you 15 minutes every day, that's a lot of return on investment. 
+
+If you have a team of 12 analysts or bankers, and you could save each an hour a day, it might even pay to have an FTE prompt engineer who collects tasks and good outputs and writes good prompts and A/B tests them for the team.
+
+If you wouldn't sneer at getting those benefits by writing an Excel macro or Python program to automate your work, no reason to object to learning ChatGPT's strange ways to get good results. Yeah, the future is weird.
+
+If tech offers me 'infinite interns', I'll take'em. You don't have to, but you might get outperformed by the people who have'em!
+
+
+**Additional Reading:**
+  - [Short prompt engineering course from OpenAI](https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/) (not just for devs because prompts are same in chat UI but this course uses API and Jupyter) 
+  - [OpenAI Prompt Engineering documentation](https://platform.openai.com/docs/guides/prompt-engineering)
+  - [Prompt engineering for normies in the web or mobile UI](https://www.coursera.org/learn/prompt-engineering)
+  - [Prompt engineering patterns paper](https://www.dre.vanderbilt.edu/~schmidt/PDF/prompt-patterns.pdf) 
+  - [Lilian Weng (OpenAI) prompt engineering post](https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/) 
+  - [Awesome Prompt Engineering](https://github.com/promptslab/Awesome-Prompt-Engineering)
+  - [Prompt Engineering Guide](https://github.com/dair-ai/Prompt-Engineering-Guide)
+
