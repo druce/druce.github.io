@@ -69,6 +69,7 @@ Yeah, the future is weird.
   - [OpenAI Prompt Engineering documentation](https://platform.openai.com/docs/guides/prompt-engineering)
   - [Prompt engineering for normies in the web or mobile UI](https://www.coursera.org/learn/prompt-engineering)
   - [Prompt engineering patterns paper](https://www.dre.vanderbilt.edu/~schmidt/PDF/prompt-patterns.pdf) 
+  - [Principled questions are all you need paper](https://arxiv.org/pdf/2312.16171.pdf)
   - [Lilian Weng (OpenAI) prompt engineering post](https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/) 
   - [Awesome Prompt Engineering](https://github.com/promptslab/Awesome-Prompt-Engineering)
   - [Prompt Engineering Guide](https://github.com/dair-ai/Prompt-Engineering-Guide)
