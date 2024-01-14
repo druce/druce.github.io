@@ -20,7 +20,7 @@ Perhaps there is a ChatGPT prompt you use every day and you want to improve it a
 
 Here is a checklist of 15 bullet points to follow to improve your prompting:
 
-1. **Throw in the kitchen sink.** More is better. Don't shy away from long, detailed prompts. The objective of prompting is similar to programming in the sense of using a language to tell the computer to perform a task. But ChatGPT knows your language and pays attention to you. Think of ChatGPT as a small omniscient alien intern who has read everything on the Internet but needs very detailed instructions.  Ask and ye shall receive.
+1. **Throw in the kitchen sink.** More is better. Don't shy away from long, detailed prompts. The objective of prompting is similar to programming in the sense of using a language to tell the computer to perform a task. But ChatGPT knows your language, and pays attention to everything you write. And the context window is big, so use it, within reason. Think of ChatGPT as a small omniscient alien intern who has read everything on the Internet but needs very detailed instructions.  Ask and ye shall receive.
 2. **Add a Persona and Context**. State who ChatGPT will respond as:
    > You are a strategy consultant from a firm like McKinsey, with a Harvard MBA and deep subject matter knowledge of supply chains who has been tasked with outsourcing production of auto parts.
 3. **Audience**. Who is the answer for? "Explain this to a business analyst", or a data scientist, or a 5 year old. "Assume that I know little about the topic that we are discussing and define any terms that are not general knowledge". 
@@ -48,7 +48,7 @@ Here is a checklist of 15 bullet points to follow to improve your prompting:
 
 I get some pushback along the lines of, seems weird to cajole and simp an AI to do your work, this isn't proper engineering, do real work instead of relying on a hallucinatory opaque stochastic parrot assistant, etc.
 
-This is prompting, not 'prompt engineering'. If you want to learn a programming language well it will take 6 months of practice. If you want to be great at algorithms and best practices in software engineering it will take a lifetime. If you want to write good prompts it will take you an hour and following a checklist. If you are systematically A/B testing prompts from a well-chosen corpus, writing queries to build the best examples for a prompt on the fly, then it gets closer to engineering. 
+This is prompting, not 'prompt engineering'. If you want to learn a programming language well it will take 6 months of practice. If you want to be great at algorithms and best practices in software engineering it will take a lifetime. If you want to write good prompts it will take you an hour and a disciplined checklist. If you are systematically A/B testing prompts from a well-chosen corpus, writing queries to build the best examples for a prompt on the fly, then it gets closer to engineering. 
 
 A good or bad thing about engineering is, it's not just book learning and formal training, it's getting things built. Good engineers hack! So I won't gatekeep and begrudge anyone who builds stuff the term 'engineer' too much. Even if a plumber calls themselves a heating engineer.
 
