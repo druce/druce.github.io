@@ -16,11 +16,11 @@ tags: datascience
 
 <!--more-->
 
-Perhaps there is a ChatGPT prompt you use every day and you want to improve it as much as possible. Perhaps you are not getting exactly the result you want and you want to make it better. 
+Perhaps you are not getting exactly the answer you want from your ChatGPT question, and want to make it better. Perhaps there is a ChatGPT prompt you use every day, and you want to improve it as much as possible. 
 
 Here is a checklist of 15 bullet points to follow to improve your prompting:
 
-1. **Throw in the kitchen sink.** More is better. Don't shy away from long, detailed prompts. The objective of prompting is similar to programming in the sense of using a language to tell the computer to perform a task. But ChatGPT knows your language, and pays attention to everything you write. And the context window is big, so use it, within reason. Think of ChatGPT as a small omniscient alien intern who has read everything on the Internet but needs very detailed instructions.  Ask and ye shall receive.
+1. **Throw in the kitchen sink.** More is better. Don't shy away from long, detailed prompts. The objective of prompting is similar to programming in the sense of using a language to tell the computer to perform a task. But ChatGPT knows your language, and pays attention to everything you write. And the context window is big, so use it, within reason. Think of ChatGPT as a small omniscient alien intern who has read everything on the Internet but needs very specific, detailed instructions.  Ask and ye shall receive.
 2. **Add a Persona and Context**. State who ChatGPT will respond as:
    > You are a strategy consultant from a firm like McKinsey, with a Harvard MBA and deep subject matter knowledge of supply chains who has been tasked with outsourcing production of auto parts.
 3. **Audience**. Who is the answer for? "Explain this to a business analyst", or a data scientist, or a 5 year old. "Assume that I know little about the topic that we are discussing and define any terms that are not general knowledge". 
