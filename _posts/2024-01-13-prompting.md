@@ -46,7 +46,7 @@ Here is a checklist of 15 bullet points to follow to improve your prompting:
 14. **Progressive refinement**. When you get an answer, ask ChatGPT to iteratively improve it in the direction you find useful. Start generally and then ask more in-depth questions.
 15. **Starting text**. Consider giving the start of the answer like "Here is a checklist of 15 bullet points to follow to improve your prompting."
 
-I get some pushback along the lines of, seems weird to cajole and simp an AI to do your work, this isn't proper engineering, do your own work instead of relying on a hallucinatory opaque stochastic parrot assistant, etc.
+I get some pushback along the lines of, seems weird to cajole and simp an AI to do your work, this isn't proper engineering, do real work instead of relying on a hallucinatory opaque stochastic parrot assistant, etc.
 
 This is prompting, not 'prompt engineering'. If you want to learn a programming language well it will take 6 months of practice. If you want to be great at algorithms and best practices in software engineering it will take a lifetime. If you want to write good prompts it will take you an hour and following a checklist. If you are systematically A/B testing prompts from a well-chosen corpus, writing queries to build the best examples for a prompt on the fly, then it gets closer to engineering. 
 
