@@ -12,7 +12,7 @@ tags: datascience
 
 ---
 
-> A logician is hiking through snowy woods and sees a small spaceship, and next to it, two tiny legs, sticking out of a snow drift. He digs the critter out, and it's a small omniscient space alien. The alien is extremely grateful and, being omniscient, offers to answer any question the logician may have. Naturally the logician asks: "What is the best question to ask and what is the correct answer to that question?" The tiny alien pauses momentarily, and replies, "The best question is the one you just asked; and the correct answer is this one." And just like that...the alien hops in the spaceship and flies off.
+> A logician is hiking through snowy woods and sees a small spaceship, and next to it, two tiny legs, sticking out of a snow drift. He digs the critter out, and it's a small omniscient space alien. The alien is extremely grateful and, being omniscient, offers to answer any question the logician may have. Naturally the logician asks: "What is the best question to ask and what is the correct answer to that question?" The tiny alien pauses momentarily, and replies, "The best question is the one you just asked; and the correct answer is this one." And just like that...the alien hops in their spaceship and flies away.
 
 <figure>
   <img
