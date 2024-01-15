@@ -25,7 +25,7 @@ tags: datascience
 
 Perhaps you are not getting exactly the answer you want from a ChatGPT prompt, and you want to make it better. Perhaps there is a ChatGPT prompt you use every day, and you want to improve it as much as possible. 
 
-Here is a checklist of 15 bullet points to follow to improve your prompting:
+Here is a checklist of 15 bullet points to improve your prompting:
 
 1. **Throw in the kitchen sink.** More is better. Don't shy away from long, detailed prompts. The objective of prompting is similar to programming in the sense of using a language to tell the computer to perform a task. But ChatGPT speaks your language, and pays attention to everything you write. And the context window is big. So use it, within reason. Think of ChatGPT as a small omniscient alien intern who has read everything on the Internet but needs very specific, detailed instructions. Ask (specifically) and ye shall receive. And it can help a lot if you learn how to be understood by its alien intelligence.
 2. **Add a Persona and Context**. State who ChatGPT will respond as:
@@ -51,7 +51,7 @@ Here is a checklist of 15 bullet points to follow to improve your prompting:
 12. **Let ChatGPT improve your prompt**. Ask ChatGPT to critique your prompt along specific lines, and then fix it. Ask ChatGPT to suggest good prompts for your domain. There are many lists of good prompts on the web, see the additional links below, and search for relevant ones.
 13. **Iterative Q&A**. Ask ChatGPT to first ask you 3 clarifying questions, and then answer your questions.
 14. **Progressive refinement**. When you get an answer, ask ChatGPT to iteratively improve it in the direction you find useful. Start generally and then ask more in-depth questions.
-15. **Starting text**. Consider giving the start of the answer like "Here is a checklist of 15 bullet points to follow to improve your prompting."
+15. **Starting text**. Consider giving the start of the answer like "Here is a checklist of 15 bullet points to improve your prompting."
 
 I get some pushback along the lines of, seems weird to cajole and simp an AI to do your work, this isn't proper engineering, do real work instead of relying on a hallucinatory opaque stochastic parrot assistant, etc.
 
