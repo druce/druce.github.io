@@ -14,6 +14,13 @@ tags: datascience
 
 > A logician is hiking through snowy woods and sees a small spaceship, and next to it, two tiny legs, sticking out of a snow drift. He digs the critter out, and it's a small omniscient space alien. The alien is extremely grateful and, being omniscient, offer to answer any question the logician might pose. Naturally the logician asks: "What is the best question to ask and what is the correct answer to that question?" The tiny alien pauses momentarily, and replies, "The best question is the one you just asked; and the correct answer is this one." And just like that...hops in the spaceship and flies off.
 
+<figure>
+  <img
+  src="/assets/2024/young_lady_chatgpt.png"
+  alt="Young lady prompting ChatGPT.">
+  <figcaption>An image in the style of an arty Japanese cartoon film with vibrant colors, side view of a young lady sitting at a desk in front of a laptop in a library, looking dreamy and inquisitive. a thought bubble appears over her head containing a question mark. On her laptop screen, a futuristic robot is depicted sitting at a sleek desk facing the young lady.
+</figcaption>
+</figure>
 <!--more-->
 
 Perhaps you are not getting exactly the answer you want from your ChatGPT question, and want to make it better. Perhaps there is a ChatGPT prompt you use every day, and you want to improve it as much as possible. 
