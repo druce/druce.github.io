@@ -18,7 +18,7 @@ tags: datascience
   <img
   src="/assets/2024/young_lady_chatgpt.png"
   alt="Young lady prompting ChatGPT.">
-  <figcaption>An image in the style of an arty Japanese cartoon film with vibrant colors, side view of a young lady sitting at a desk in front of a laptop in a library, looking dreamy and inquisitive. A thought bubble appears over her head containing a question mark. On her laptop screen, a futuristic robot is depicted sitting at a sleek desk facing the young lady.
+  <figcaption>An image in the style of an arty Japanese cartoon film with vibrant colors, side view of a young lady sitting at a desk in front of a laptop in a library, looking dreamy and inquisitive. On her laptop screen, a futuristic robot is depicted sitting at a sleek desk facing the young lady.
 </figcaption>
 </figure>
 <!--more-->
@@ -63,7 +63,7 @@ If you have a task amenable to natural language processing that you perform ever
 
 If you have a team of 12 analysts or bankers, and you could save each an hour a day, it might even pay to have an FTE 'prompt analyst' (if not 'engineer')  who collects tasks and good outputs and writes good prompts and A/B tests them for the team.
 
-A good ChatGPT prompt creates a zero-shot or few-shot machine learning model. It may get you 80% of the value of a trained machine learning model for tasks like classification, data scrubbing etc. A couple of years ago, that would require a substantial ML effort. For many tasks, the answer to, 'what is the simplest thing that might actually work', is ChatGPT. And of course, for writing tasks, for generating a first cut at Python code, ChatGPT can be nothing short of miraculous.
+A good ChatGPT prompt creates a zero-shot or few-shot machine learning model. It may get you 80% of the value of a fully trained machine learning model for tasks like classification, data scrubbing etc. A couple of years ago, that would require a substantial ML effort. For many tasks, the answer to, 'what is the simplest thing that might actually work', is ChatGPT. And of course, for writing tasks, for generating a first cut at Python code, ChatGPT can be nothing short of miraculous.
 
 If you wouldn't sneer at getting productivity gains by writing an Excel macro or Python program to automate your work, there is no reason to object to learning ChatGPT's strange ways to get good results. 
 
