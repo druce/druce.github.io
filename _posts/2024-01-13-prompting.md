@@ -18,7 +18,7 @@ tags: datascience
   <img
   src="/assets/2024/young_lady_chatgpt.png"
   alt="Young lady prompting ChatGPT.">
-  <figcaption>An image in the style of an arty Japanese animated film with vibrant colors, side view of a young lady sitting at a desk in front of a laptop in a library, looking dreamy and inquisitive. On her laptop screen, a futuristic robot is depicted sitting at a sleek desk facing the young lady.
+  <figcaption>Image via Dall-E: An image in the style of an arty Japanese animated film with vibrant colors, side view of a young lady sitting at a desk in front of a laptop in a library, looking dreamy and inquisitive. On her laptop screen, a futuristic robot is depicted sitting at a sleek desk facing the young lady.
 </figcaption>
 </figure>
 <!--more-->
