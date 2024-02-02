@@ -80,4 +80,7 @@ Yeah, the future is weird.
   - [Lilian Weng (OpenAI) prompt engineering post](https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/) 
   - [Awesome Prompt Engineering](https://github.com/promptslab/Awesome-Prompt-Engineering)
   - [Prompt Engineering Guide](https://github.com/dair-ai/Prompt-Engineering-Guide)
+  - [Search the GPT store for prompt assistant GPTs](https://chat.openai.com/gpts)
+  - [Prompt assistant extensions for Chrome](https://chromewebstore.google.com/search/prompt)
+  - [Prompt generator using a template](https://mitenmit.github.io/gpt/)
 
