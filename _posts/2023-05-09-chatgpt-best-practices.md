@@ -10,7 +10,7 @@ categories: datascience
 tags: datascience
 
 ---
->*Intro slide presentation for a discussion with HBS Next Chapter*
+>* A slide presentation for a discussion with HBS Next Chapter.*
 <!--more-->
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSl_CtxMnkROI9KVqI9OMXKGkO4xb7Y34qticI0iAoUX7-3aaXkhoeunPWGO-imazHqLqFENit6muFj/embed?start=true&loop=false&delayms=10000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
