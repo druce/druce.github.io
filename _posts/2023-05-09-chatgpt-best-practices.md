@@ -1,17 +1,16 @@
 ---
-id: 7125
-title: '6 Things A CTO Can Do With ChatGPT'
-date: 2023-05-09T01:01:01+00:00
+id: 7130
+title: 'Generative AI in 2024'
+date: 2024-02-27T01:01:01+00:00
 author: Druce Vertes
 layout: post
-guid: /?p=7125
-permalink: /2023/03/chatgpt-best-practices
+guid: /?p=7130
+permalink: /2023/03/chatgpt-in-2024
 categories: datascience
 tags: datascience
 
 ---
->*A few ChatGPT best practices for hedge funds and many other firms*
+>*Intro slide presentation for a discussion with HBS Next Chapter*
 <!--more-->
-
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTnYGskAdty5_fs19jYtlo2cOOGgPz0s6cUTyPZGjJMuixHOmKR6pg2Zw0t4FQ1D5wpETnuxTohdwwX/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSl_CtxMnkROI9KVqI9OMXKGkO4xb7Y34qticI0iAoUX7-3aaXkhoeunPWGO-imazHqLqFENit6muFj/embed?start=true&loop=false&delayms=10000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
