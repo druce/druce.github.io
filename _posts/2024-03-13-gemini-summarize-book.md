@@ -1,6 +1,6 @@
 ---
 id: 7131
-title: 'Summarize a complete book with 1-million-token context in Gemini 1.5'
+title: 'Summarize a complete book using the giant context window in Gemini 1.5'
 date: 2024-03-14T01:01:01+00:00
 author: Druce Vertes
 layout: post
@@ -11,8 +11,8 @@ tags: datascience
 
 ---
 >*A short (< 10-minute) demo video, with a couple of intro comments about early 2024 LLM developments*
-<!--more-->
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3Izq_9lzVac?si=W_uKJcIiSqK3NIgQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<!--more-->
 
 ## Output
 
