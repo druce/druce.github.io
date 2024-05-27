@@ -46,7 +46,7 @@ Here is a checklist of 15 ways to improve your prompts:
 >   
     A:
    
-10. **Idioms**. Use phrases that give ChatGPT 'time to think' and cause it to pause and check: "let's think step by step"; "let's work this out and check carefully to make sure that requirement X is true".
+10. **Idioms**. Use phrases that act as 'speed bumps', give ChatGPT 'time to think', and cause it to pause and check: "let's think step by step"; "let's work this out and check carefully to make sure that requirement X is true".
 11. **Reflective pattern**. Prompt ChatGPT to explain its reasoning, critique its own answers, and list assumptions and facts. Ask ChatGPT, "explain the steps you used to arrive at this answer like you would to a 5 year-old". Ask ChatGPT to offer counterarguments, propose alternative answers and compare them, list assumptions and facts that the answer depends on. "Create a set of facts that the answer depends on that should be fact-checked and list this set of facts at the end of your output. Only include facts related to X."
 12. **Let ChatGPT improve your prompt**. Ask ChatGPT to provide specific criticism of your prompt, and then fix it. Ask ChatGPT to suggest good prompts for your topic. There are many lists of good prompts on the web; see the additional links below, and search for relevant ones.
 13. **Iterative Q&A**. Ask ChatGPT to read your question carefully, ask you 3 clarifying questions, and then answer the question.
