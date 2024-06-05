@@ -39,7 +39,7 @@ Here are prompts that work well:
 
 - Ask ChatGPT about a specific fact on a random Wikipedia page from [WikiRoulette](https://wikiroulette.co/). It will probably be correct, because it trained on Wikipedia. It does make stuff up sometimes though. You have to be super careful that it has a well-grounded basis to answer from training or in the prompt.
 
-ChatGPT is a poet, not a quant. It's a wordcel, not a shape rotator. It understands 'rhetorical logic' but not complex reasoning. Its understanding is skin deep, beautiful language notwithstanding. Many demos and papers are overhyped and there is often less there than meets the eye. 
+ChatGPT is a poet, not a quant. It's a wordcel, not a shape rotator. It understands 'rhetorical logic' but not complex reasoning. Its understanding of the world is skin deep, beautiful language notwithstanding. Many demos and papers are overhyped and there is often less there than meets the eye. 
 
 And of course it hallucinates. When it doesn't know, it makes up something that sounds plausible. It is a BS artist. 
 
@@ -51,7 +51,9 @@ So:
 
 - Use [advanced prompting patterns](https://druce.ai/2024/01/prompting) like reflection and chain-of-thought to improve reasoning and reduce hallucination. Use prompt helpers from the [GPT Store](https://gptstore.ai/gpts?q=prompt) to create and improve prompts. But they only go so far. Test prompts systematically. If small variations in prompts or data change results dramatically during validation, beware. It will only get worse on unseen inputs in production.
 
-- Read [Ethan Mollick](https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged). Use AI as a super hardworking but dumb assistant who needs explanations in gory detail, and good foolproof tools like code interpreter for tasks that exceed its grasp. There is a 'jagged frontier' where it performs superbly at some tasks but shockingly poorly at seemingly similarly tasks that barely exceed its grasp.  Lose track of where you stand on the 'jagged frontier' at your peril. 
+- Read [Ethan Mollick](https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged). There is a 'jagged frontier' where it performs superbly at some tasks but shockingly poorly at seemingly similarly tasks that barely exceed its grasp.  Lose track of where you stand on the 'jagged frontier' at your peril. 
+
+- Use AI as a super hardworking but dumb assistant who needs very specific and detailed instructions, and sometimes might still go off the rails. Supervise it closely, and give it foolproof tools like code interpreter for tasks that exceed its grasp. 
 
 This is the most important chart on applying AI in your daily work:
 
@@ -68,5 +70,5 @@ I don't know who needed to hear this. But I have come to realize not everyone un
 
 Don't fall victim to the [Eliza Effect](https://en.wikipedia.org/wiki/ELIZA_effect). Don't [make serving as a bad example to others](https://www.npr.org/2023/12/30/1222273745/michael-cohen-ai-fake-legal-cases) the purpose of your existence. But also, don't miss out on massive productivity gains from AI. 
 
-Move fast, but follow [common-sense rules](https://www.forbes.com/sites/peterhigh/2024/05/07/ethan-mollick-on-the-four-rules-of-co-intelligence-with-ai/?sh=600ff1a63004), and tread carefully my friends!
+Move fast, but follow [common-sense rules](https://www.forbes.com/sites/peterhigh/2024/05/07/ethan-mollick-on-the-four-rules-of-co-intelligence-with-ai/?sh=600ff1a63004), and stay safe my friends!
 
