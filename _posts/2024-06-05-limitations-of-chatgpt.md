@@ -21,7 +21,7 @@ tags: datascience
 
 <!--more-->
 
-Greetings friends, gather round if you want to dodge reputational and career risk using ChatGPT!
+Friends, gather round if you want to dodge a ChatGPT disaster! ChatGPT can be a huge boon to productivity, but also a source of [significant reputational and career risk](https://www.npr.org/2023/12/30/1222273745/michael-cohen-ai-fake-legal-cases).
 
 Here are simple prompts that you might expect to work but do not:
 
