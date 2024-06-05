@@ -1,6 +1,6 @@
 ---
 id: 7135
-title: 'Avoiding AI Disasters: How to Use ChatGPT Effectively Without Risking Your Reputation or Career, and the Most Important Chart in Applying AI'
+title: 'Avoiding AI Disasters: How to Use ChatGPT Effectively Without Risking Your Reputation or Career'
 date: 2024-06-05T01:01:01+00:00
 author: Druce Vertes
 layout: post
@@ -10,7 +10,7 @@ categories: datascience
 tags: datascience
 
 ---
->*The most important chart in applying AI, and avoiding reputational and career risk when using ChatGPT*
+>*The most important chart in applying AI.*
 
 <figure>
   <img
