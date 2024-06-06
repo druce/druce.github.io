@@ -51,9 +51,9 @@ So:
 
 - Improve ChatGPT's reasoning and reduce hallucinations by using [advanced prompting patterns](https://druce.ai/2024/01/prompting) like reflection (prompt ChatGPT to explain or improve its thought process) and chain-of-thought (give it a thought process to follow). Use prompt helpers from the [GPT Store](https://gptstore.ai/gpts?q=prompt) to create and improve prompts. However, better prompts only go so far. Test your prompts systematically. If small variations in prompts or data change results dramatically during validation, beware. It will only get worse on unseen inputs in production.
 
-- Read [Ethan Mollick](https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged). There is a 'jagged frontier' where ChatGPT performs superbly at some tasks but shockingly poorly at seemingly similar tasks that barely exceed its grasp.  Lose track of where you stand on the 'jagged frontier' at your peril. 
+- Read [Ethan Mollick](https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged). There is a 'jagged frontier' where ChatGPT performs superbly at some tasks but shockingly poorly at seemingly similar tasks that slightly exceed its grasp.  Lose track of where you stand on the 'jagged frontier' at your peril. 
 
-- Use ChatGPT as a super hard-working but not-very-bright assistant who needs specific and detailed instructions, and sometimes might still go off the rails. Supervise it closely, and give it foolproof tools like the code interpreter for tasks that outside its reach. 
+- Use ChatGPT as a super hard-working but not-very-bright assistant who needs specific and detailed instructions, and sometimes might still go off the rails. Supervise it closely, and give it foolproof tools like the code interpreter for tasks that fall outside its reach. 
 
 This is the most important chart on applying AI in your daily work:
 
