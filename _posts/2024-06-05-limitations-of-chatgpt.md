@@ -66,7 +66,7 @@ This is the most important chart on applying AI in your daily work:
   <figcaption>Distribution of output quality across all the tasks. The blue group did not use AI, the green and red groups used AI. The red group got additional training on how to use AI.</figcaption>
 </figure>
 
-Most users get better results with AI. However, beware of the left tail of this distribution. Some people who got trained probably became overconfident and put too much stock in bad, possibly hallucinatory responses, and scored much worse. Don't get conned by AI and dumped on the left side of this distribution.
+This figure is from a [random controlled trial of BCG consultants, who were asked to perform a set of consulting-related tasks](https://www.hbs.edu/ris/Publication%20Files/24-013_d9b45b68-9e74-42d6-a1c6-c72fb70c7282.pdf). Most users got better results with AI. However, beware of the left tail of this distribution. Some people who got trained probably became overconfident and put too much stock in bad, possibly hallucinatory responses, and scored much worse. Don't get conned by AI and dumped on the left side of this distribution.
 
 I don't know who needed to hear this, but I have come to realize not everyone understands ChatGPT's limitations. Every day, I see news stories where foolish editors and reporters ask ChatGPT to perform tasks beyond its capabilities, like [predict the price of Bitcoin at the end of this month, or year](https://finbold.com/ai-sets-xrp-price-for-june-30-2024/). They are just using a modern-day version of reading tea leaves, or tarot cards, or the I Ching. Please, just stop! You are not only making fools of yourselves, but also teaching other people to be foolish.
 
