@@ -23,7 +23,7 @@ tags: datascience
 
 Ask ChatGPT a simple question: [How many r's are there in 'cranberry'?](/assets/2024/cranberry.png). It often answers 2 instead of 3.
 
-ChatGPT can generate huge productivity gains, but can also generate huge [reputational and career risk](https://www.npr.org/2023/12/30/1222273745/michael-cohen-ai-fake-legal-cases) when it makes embarrassing mistakes. Professional users should consider how and when it might mess up.  Gather round if you want to dodge a ChatGPT disaster! 
+ChatGPT can generate huge productivity gains, but can also generate huge [reputational and career risk](https://www.npr.org/2023/12/30/1222273745/michael-cohen-ai-fake-legal-cases) when it makes embarrassing mistakes. Professional users should consider when and why it might mess up.  Gather round if you want to dodge a ChatGPT disaster! 
 
 Here are more simple prompts that you might expect to work but do not:
 
@@ -39,7 +39,7 @@ Here are prompts that work well:
 
 - Write a limerick about hedge funds where the first letter of each verse spells 'hedge'. It's incredibly fluent with language understanding and generation, including complex nuances and connotations. There's a reason it's called a 'language model'.
 
-- Ask ChatGPT about a specific fact on a random Wikipedia page from [WikiRoulette](https://wikiroulette.co/). It will probably be correct if asked in a straightforward say, because it trained on Wikipedia. However, it does make stuff up sometimes. You have to be very careful to stick to questions where it has a well-grounded basis to answer from training or in the prompt. Also, if you introduce a small variation it may fail: [if it knows Tom Cruise's mother is Mary Lee Pfeiffer, it may not know who any of Mary Lee Pfeiffer's sons are.](https://arxiv.org/abs/2309.12288)
+- Ask ChatGPT about a specific fact on a random Wikipedia page from [WikiRoulette](https://wikiroulette.co/). It will probably be correct if asked in a straightforward way, because it trained on Wikipedia. However, it does make stuff up sometimes. You have to be very careful to stick to questions where it has a well-grounded basis to answer from training or in the prompt. Also, if you introduce a small variation it may fail: [if it knows Tom Cruise's mother is Mary Lee Pfeiffer, it may not know who any of Mary Lee Pfeiffer's sons are.](https://arxiv.org/abs/2309.12288)
 
 ChatGPT is a poet, not a quant. It's a [wordcel, not a shape rotator](https://www.vice.com/en/article/pkpqzb/ok-wtf-are-wordcels-and-shape-rotators). It understands 'rhetorical logic' but not complex reasoning. Its understanding of the world is skin deep, notwithstanding sophisticated, even beautiful language. Many demos and papers are overhyped and there is often less there than meets the eye. 
 
@@ -55,7 +55,7 @@ So:
 
 - Read [Ethan Mollick](https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged). There is a 'jagged frontier' where ChatGPT performs superbly at some tasks but shockingly poorly at seemingly similar tasks that slightly exceed its grasp.  Lose track of where you stand on the 'jagged frontier' at your peril. 
 
-- Use ChatGPT as a super hard-working but not-very-bright assistant who needs specific and detailed instructions, and sometimes might still go off the rails. Supervise it closely, and give it foolproof tools like the code interpreter for tasks that fall outside its reach. 
+- Use ChatGPT as a super hard-working but not-very-bright assistant who needs specific and detailed instructions, and sometimes might still go off the rails. Supervise it closely, and give it foolproof tools like the code interpreter for tasks that fall outside its reach. Trust nothing, and verify everything.
 
 This is the most important chart on applying AI in your daily work:
 
