@@ -39,7 +39,7 @@ Here are prompts that work well:
 
 - Write a limerick about hedge funds where the first letter of each verse spells 'hedge'. It's incredibly fluent with language understanding and generation, including complex nuances and connotations. There's a reason it's called a 'language model'.
 
-- Ask ChatGPT about a specific fact on a random Wikipedia page from [WikiRoulette](https://wikiroulette.co/). It will probably be correct if asked in a straightforward say, because it trained on Wikipedia. However, it does make stuff up sometimes. You have to be very careful to stick to questions where it has a well-grounded basis to answer from training or in the prompt. Also, if you introduce a small variation it may fail: [if it knows Tom Cruise's mother is Mary Lee Pfeiffer, it may not know who any of Mary Lou Pfeiffer's sons are.](https://arxiv.org/abs/2309.12288)
+- Ask ChatGPT about a specific fact on a random Wikipedia page from [WikiRoulette](https://wikiroulette.co/). It will probably be correct if asked in a straightforward say, because it trained on Wikipedia. However, it does make stuff up sometimes. You have to be very careful to stick to questions where it has a well-grounded basis to answer from training or in the prompt. Also, if you introduce a small variation it may fail: [if it knows Tom Cruise's mother is Mary Lee Pfeiffer, it may not know who any of Mary Lee Pfeiffer's sons are.](https://arxiv.org/abs/2309.12288)
 
 ChatGPT is a poet, not a quant. It's a [wordcel, not a shape rotator](https://www.vice.com/en/article/pkpqzb/ok-wtf-are-wordcels-and-shape-rotators). It understands 'rhetorical logic' but not complex reasoning. Its understanding of the world is skin deep, notwithstanding sophisticated, even beautiful language. Many demos and papers are overhyped and there is often less there than meets the eye. 
 
@@ -47,7 +47,7 @@ And of course, it hallucinates. When it doesn't know, it makes up something that
 
 So:
 
-- Use gen-AI when you need infinite indefatigable interns (even if they are stoner interns). Use it especially for language tasks, for generating a first draft of anything creative, ideating, editing and proofreading.
+- Use gen-AI when you need [infinite indefatigable interns](https://www.wired.com/story/artificial-intelligence-labor/) (even if they are stoner interns). Use it especially for language tasks, for generating a first draft of anything creative, ideating, editing and proofreading.
 
 - Danger lurks if you ask it to follow a process, or algorithm, or chain of logic that requires more than a couple of steps. If it's something that would benefit from writing a program, use the [code interpreter](https://www.zdnet.com/article/how-to-use-chatgpt-to-write-code/) or [advanced data analysis](https://www.zdnet.com/article/how-to-use-chatgpt-to-make-charts-and-tables-with-advanced-data-analysis/) functionality.
 
