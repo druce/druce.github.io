@@ -23,7 +23,7 @@ tags: datascience
 
 Ask ChatGPT a simple question: [How many r's are there in 'cranberry'?](/assets/2024/cranberry.png). It often answers 2 instead of 3.
 
-ChatGPT can generate huge productivity, but can also generate [reputational and career risk](https://www.npr.org/2023/12/30/1222273745/michael-cohen-ai-fake-legal-cases) when it makes embarrassing mistakes. Professional users should consider how and when it might mess up.  Gather round if you want to dodge a ChatGPT disaster! 
+ChatGPT can generate huge productivity gains, but can also generate huge [reputational and career risk](https://www.npr.org/2023/12/30/1222273745/michael-cohen-ai-fake-legal-cases) when it makes embarrassing mistakes. Professional users should consider how and when it might mess up.  Gather round if you want to dodge a ChatGPT disaster! 
 
 Here are more simple prompts that you might expect to work but do not:
 
