@@ -21,11 +21,13 @@ tags: datascience
 
 <!--more-->
 
-ChatGPT can be a giant boon to productivity, but also a source of [significant reputational and career risk](https://www.npr.org/2023/12/30/1222273745/michael-cohen-ai-fake-legal-cases) when it makes embarrassing mistakes. It can pay to understand how and when it can mess up.  Gather round if you want to dodge a ChatGPT disaster! 
+Let's ask ChatGPT a simple question: [How many r's are there in 'cranberry'?](/assets/2024/cranberry.png). It often answers 2 instead of 3.
 
-Here are simple prompts that you might expect to work but do not:
+ChatGPT can generate huge productivity, but can also generate [reputational and career risk](https://www.npr.org/2023/12/30/1222273745/michael-cohen-ai-fake-legal-cases) when it makes embarrassing mistakes. Professional users should consider how and when it might mess up.  Gather round if you want to dodge a ChatGPT disaster! 
 
-- [How many r's are there in 'cranberry'?](/assets/2024/cranberry.png) (It often gets 2 instead of 3.)
+Here are some more simple prompts that you might expect to work but do not:
+
+- [Mary has 3 brothers and she also has 5 sisters. How many sisters does Mary's brother have?](/assets/2024/sisters.png) (I got "same number of sisters as Mary, which is 5". [A recent paper on this type of error.](https://arxiv.org/html/2406.02061v1))
 
 - [Make a list of 50 cities that do not contain the letter 'a', or any diacritical variation thereof](/assets/2024/chicago.png) (It returned 'Chicago'. Sometimes, with longer answers, it starts to forget the original question.)
 
@@ -72,3 +74,6 @@ Don't fall victim to the [Eliza Effect](https://en.wikipedia.org/wiki/ELIZA_effe
 
 Move fast, but follow [common-sense rules](https://www.forbes.com/sites/peterhigh/2024/05/07/ethan-mollick-on-the-four-rules-of-co-intelligence-with-ai/?sh=600ff1a63004), and stay safe, my friends!
 
+### Further reading:
+
+[Alice in Wonderland: Simple Tasks Showing Complete Reasoning Breakdown in State-Of-the-Art Large Language Models](https://arxiv.org/pdf/2406.02061v1). See the References section for various papers showing failure to understand that 'a is b' implies 'b is a', lack of causality modeling and reasoning ability. Many successful problem-solving demos rely on close analogies to memorized training data.
