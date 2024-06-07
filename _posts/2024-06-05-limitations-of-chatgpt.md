@@ -31,9 +31,9 @@ Here are more simple prompts that you might expect to work but do not:
 
 - [Make a list of 50 cities that do not contain the letter 'a', or any diacritical variation thereof](/assets/2024/chicago.png). It returned 'Chicago'. Sometimes, with longer answers, it starts to forget the original question.
 
-- [Give me the list of all the countries with 'v' in their name](/assets/2024/countries.png). Missed El Salvador, Moldova. Sometimes if you ask it for countries starting with 'V' or 'K' it will miss Vietnam or Kenya
+- [Give me the list of all the countries with 'v' in their name](/assets/2024/countries.png). It missed El Salvador, Moldova. Sometimes if you ask it for countries starting with 'V' or 'K' it will miss Vietnam or Kenya.
 
-- Ask ChatGPT to play Tic-Tac-Toe. It got better since 3.5 when it would cheat or go nuts, but doesn't play optimally. If you ask it to play chess, it generates illegal moves and plays like a small child. Think about this before you ask it to perform a complex analytical task like picking stocks!
+- Ask ChatGPT to play Tic-Tac-Toe. It got better since 3.5 when it would cheat or go nuts, but doesn't play optimally. If you ask it to play chess, it makes illegal moves and plays like a small child. Think about this before you ask it to perform a complex analytical task like picking stocks!
 
 Here are prompts that work well:
 
@@ -41,7 +41,7 @@ Here are prompts that work well:
 
 - Ask ChatGPT about a specific fact on a random Wikipedia page from [WikiRoulette](https://wikiroulette.co/). It will probably be correct if asked in a straightforward way, because it trained on Wikipedia. However, it does make stuff up sometimes. You have to be very careful to stick to questions where it has a well-grounded basis to answer from training or in the prompt. Also, if you introduce a small variation it may fail: [if it knows Tom Cruise's mother is Mary Lee Pfeiffer, it may not know who any of Mary Lee Pfeiffer's sons are.](https://arxiv.org/abs/2309.12288)
 
-- "What is this news story about? Classify it as belonging to national, local, business, politics, tech, sports." Good: classification tasks involving deep text understanding. Not as good: classifying over a very large list of classess, or doing regression to predict a numerical value, or unsupervised learning like clustering.
+- "What is this news story about? Classify it as belonging to national, local, business, politics, tech, sports." Very good: classification tasks involving deep text understanding. Not as good: classifying over a very large list of classess, or doing regression to predict a numerical value, or unsupervised learning like clustering. ChatGPT's training has nothing to do with these tasks.
 
 ChatGPT is a poet, not a quant. It's a [wordcel, not a shape rotator](https://www.vice.com/en/article/pkpqzb/ok-wtf-are-wordcels-and-shape-rotators). It understands 'rhetorical logic' but not complex reasoning. Its understanding of the world is skin deep, notwithstanding sophisticated, even beautiful language. Some demos of it performing complex tasks may be cherry-picked or overhyped and there may be less there than meets the eye. 
 
@@ -68,11 +68,11 @@ This is the most important chart on applying AI in your daily work:
   <figcaption>Distribution of output quality across all the tasks. The blue group did not use AI, the green and red groups used AI. The red group got additional training on how to use AI.</figcaption>
 </figure>
 
-This figure is from a [random controlled trial of BCG consultants, who were asked to perform a set of consulting-related tasks](https://www.hbs.edu/ris/Publication%20Files/24-013_d9b45b68-9e74-42d6-a1c6-c72fb70c7282.pdf). Most users got better results with AI. However, beware of the left tail of this distribution. Some people who got trained probably became overconfident and put too much stock in bad, possibly hallucinatory responses, and scored much worse. Don't get conned by AI and dumped on the left side of this distribution.
+This figure is from a [random control trial of BCG consultants, who were asked to perform a set of consulting-related tasks](https://www.hbs.edu/ris/Publication%20Files/24-013_d9b45b68-9e74-42d6-a1c6-c72fb70c7282.pdf). Most users got better results with AI. However, beware of the left tail of this distribution. Some people who got trained probably became overconfident and put too much stock in bad, possibly hallucinatory responses, and scored much worse. Don't get conned by AI and dumped on the left side of this distribution.
 
 I don't know who needed to hear this, but I have come to realize not everyone understands ChatGPT's limitations. Every day, I see news stories where foolish editors and reporters ask ChatGPT to perform tasks beyond its capabilities, like [predict the price of Bitcoin at the end of this month, or year](https://finbold.com/ai-sets-xrp-price-for-june-30-2024/). They are just using a modern-day version of reading tea leaves, or tarot cards, or the I Ching. Please, just stop! You are not only making fools of yourselves, but also teaching other people to be foolish.
 
-Don't fall victim to the [Eliza Effect](https://en.wikipedia.org/wiki/ELIZA_effect), where people mistook simple algorithms for deep understanding. Don't [become a bad example to others](https://www.npr.org/2023/12/30/1222273745/michael-cohen-ai-fake-legal-cases). But also, don't miss out on massive productivity gains from AI. 
+Don't fall victim to the [Eliza Effect](https://en.wikipedia.org/wiki/ELIZA_effect), where people mistake simple algorithms for deep understanding. Don't [become a bad example to others](https://www.npr.org/2023/12/30/1222273745/michael-cohen-ai-fake-legal-cases). But also, don't miss out on massive productivity gains from AI. 
 
 Move fast, but follow [common-sense rules](https://www.forbes.com/sites/peterhigh/2024/05/07/ethan-mollick-on-the-four-rules-of-co-intelligence-with-ai/?sh=600ff1a63004), and stay safe, my friends!
 
