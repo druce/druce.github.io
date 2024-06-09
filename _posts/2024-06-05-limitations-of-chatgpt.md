@@ -27,6 +27,8 @@ ChatGPT can generate huge productivity gains, but can also generate huge [reputa
 
 Here are more simple prompts that you might expect to work but do not:
 
+- [How many letters are in this sentence: It was a bright cold day in April, and the clocks were striking thirteen.](/assets/2024/1984.png) I got 60, should be 72.
+
 - [Mary has 3 brothers and she also has 5 sisters. How many sisters does Mary's brother have?](/assets/2024/sisters.png) I got "same number of sisters as Mary, which is 5".
 
 - [Make a list of 50 cities that do not contain the letter 'a', or any diacritical variation thereof](/assets/2024/chicago.png). It returned 'Chicago'. Sometimes, with longer answers, it starts to forget the original question.
