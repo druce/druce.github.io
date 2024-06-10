@@ -80,7 +80,7 @@ Don't fall victim to the [Eliza Effect](https://en.wikipedia.org/wiki/ELIZA_effe
 
 The ability of computers to understand and generate human language is a huge advance. It's also highly orthogonal to everything computers did well until now. It makes many tasks that required coding accessible to ordinary mortals. There is work in progress to [better understand how LLMs work](https://openai.com/index/extracting-concepts-from-gpt-4/) and how their limitations arise, and resolving the impedance mismatch between wooly right-brain poet LLMs and hard-boiled left-brain Dr. Spock [data stores](https://paperswithcode.com/method/associative-lstm#:~:text=An%20Associative%20LSTM%20combines%20an,key%20and%20its%20associated%20content) and [coders](https://atlasiko.com/news/ai/google-alphacode-ai-code-generation/). As Sam Altman says, this is the [dumbest AI you will ever have to use](https://www.tomsguide.com/ai/chatgpt/gpt-4-is-the-dumbest-model-any-of-you-will-ever-have-to-use-declares-openai-ceo-sam-altman-as-he-bets-big-on-a-superingtelligence).
 
-If you're an engineer, a big part of your role is [to make reliable systems using unreliable components.](https://www.ben-evans.com/benedictevans/2024/6/8/building-ai-products)
+If you're an engineer, part of your role is [to make reliable systems using unreliable components.](https://www.ben-evans.com/benedictevans/2024/6/8/building-ai-products)
 
 Move fast, but follow [common-sense rules](https://www.forbes.com/sites/peterhigh/2024/05/07/ethan-mollick-on-the-four-rules-of-co-intelligence-with-ai/?sh=600ff1a63004), and stay safe, my friends!
 
