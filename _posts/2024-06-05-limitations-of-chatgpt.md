@@ -45,9 +45,9 @@ Here are prompts that work well:
 
 - "What is this news story about? Classify it as belonging to national, local, business, politics, tech, sports." Very good: classification tasks involving deep text understanding. Not as good: classifying over a very large list of classess, or doing regression to predict a numerical value, or unsupervised learning like clustering. ChatGPT's training has nothing to do with these tasks.
 
-ChatGPT is a poet, not a quant. It's a [wordcel, not a shape rotator](https://www.vice.com/en/article/pkpqzb/ok-wtf-are-wordcels-and-shape-rotators). It understands 'rhetorical logic' but not complex reasoning. Its understanding of the world is skin deep, notwithstanding sophisticated, even beautiful language. Some demos of it performing complex tasks may be cherry-picked or overhyped and there may be less there than meets the eye. 
+ChatGPT is a poet, not a quant. It's a [wordcel, not a shape rotator](https://www.vice.com/en/article/pkpqzb/ok-wtf-are-wordcels-and-shape-rotators). It understands 'rhetorical logic' but not complex reasoning. Its understanding of the world is skin deep, notwithstanding sophisticated, even beautiful language. It knows what it was told and does not have any ability to answer questions from first principles and data. Some demos of it performing complex tasks may be cherry-picked or overhyped and there may be less there than meets the eye.
 
-And of course, it hallucinates. When it doesn't know, it makes up something that sounds plausible. It is a BS artist. 
+And of course, it hallucinates. When it doesn't know, it makes up something that sounds plausible. It is a BS artist. It is trained to make labelers happy with plausible answers, to speak for effect and not underlying truth, which is the [definition of BS](https://druce.ai/2023/09/bullshit).
 
 So:
 
