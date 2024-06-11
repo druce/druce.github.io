@@ -43,7 +43,7 @@ Here are prompts that work well:
 
 - Ask ChatGPT about a specific fact on a random Wikipedia page from [WikiRoulette](https://wikiroulette.co/). It will probably be correct if asked in a straightforward way, because it trained on Wikipedia. However, it does make stuff up sometimes. You have to be very careful to stick to questions where it has a well-grounded basis to answer from training or in the prompt. Also, if you introduce a small variation it may fail: [if it knows Tom Cruise's mother is Mary Lee Pfeiffer, it might not know who Mary Lee Pfeiffer's son is.](https://arxiv.org/abs/2309.12288)
 
-- "What is this news story about? Classify it as belonging to national, local, business, politics, tech, sports." Very good: classification tasks involving deep text understanding. Not as good: classifying over a very large list of classess, or doing regression to predict a numerical value, or unsupervised learning like clustering. ChatGPT's training has nothing to do with these tasks.
+- "What is this news story about? Classify it as belonging to national, local, business, politics, tech, sports." Very good: classification tasks involving deep text understanding. Not as good: classifying over a very large list of classes, or doing regression to predict a numerical value, or unsupervised learning like clustering. ChatGPT's training has nothing to do with these tasks.
 
 ChatGPT is a poet, not a quant. It's a [wordcel, not a shape rotator](https://www.vice.com/en/article/pkpqzb/ok-wtf-are-wordcels-and-shape-rotators). It understands 'rhetorical logic' but not complex reasoning. Its understanding of the world is skin deep, notwithstanding sophisticated, even beautiful language. It knows what it was told and does not have any ability to answer questions from first principles and data. Some demos of it performing complex tasks may be cherry-picked or overhyped and there may be less there than meets the eye.
 
@@ -53,13 +53,17 @@ So:
 
 - Use generative AI when you need [infinite indefatigable interns](https://www.wired.com/story/artificial-intelligence-labor/) (even if they are stoner interns). Use it especially for language tasks, for generating a first draft of anything creative, ideating, editing and proofreading.
 
-- Danger lurks if you ask it to follow a process, or algorithm, or chain of logic that requires more than a couple of steps. If it's a task that would benefit from writing a program, use the [code interpreter](https://www.zdnet.com/article/how-to-use-chatgpt-to-write-code/) or [advanced data analysis](https://www.zdnet.com/article/how-to-use-chatgpt-to-make-charts-and-tables-with-advanced-data-analysis/) functionality.
+- Use generative AI for looking up, summarizing, and explaining texts that you have or that many reliable people have posted online. 
+
+- Danger lurks if you ask it to follow a process, or algorithm, or chain of logic on its own that requires more than a couple of steps. If it's a task that would benefit from writing a program, use the [code interpreter](https://www.zdnet.com/article/how-to-use-chatgpt-to-write-code/) or [advanced data analysis](https://www.zdnet.com/article/how-to-use-chatgpt-to-make-charts-and-tables-with-advanced-data-analysis/) functionality.
 
 - Improve ChatGPT's reasoning and reduce hallucinations by using [advanced prompting patterns](https://druce.ai/2024/01/prompting) like reflection (prompt ChatGPT to explain or criticize its own thought process and improve it) and chain-of-thought (give it a thought process to follow). Use prompt helpers from the [GPT Store](https://gptstore.ai/gpts?q=prompt) to create and improve prompts. However, better prompts only go so far. Test your prompts systematically. If small variations change results dramatically during validation, beware. It will only get worse on unseen inputs in production.
 
 - Read [Ethan Mollick](https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged). There is a 'jagged frontier' where ChatGPT performs superbly at some tasks but shockingly poorly at seemingly similar tasks that slightly exceed its grasp.  Lose track of where you stand on the 'jagged frontier' at your peril. 
 
 - Use ChatGPT as a super hard-working, quick, but not-very-bright assistant who needs specific and detailed instructions, and sometimes might still go off the rails. Supervise it closely, and give it foolproof tools like the code interpreter for tasks that fall outside its reach. Trust nothing, and verify everything.
+
+- Of course, review anything generated with ChatGPT closely. Don't be the person who pastes ['as a large language model'](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&as_ylo=2023&q=%22I%20am%20an%20AI%20language%20model%22+-chatgpt+-llm&btnG=) or ['regenerate response'](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&as_ylo=2023&q=%22regenerate+response%22+-chatgpt+-llm&btnG=) in e.g. client-facing materials. (used to be more of these in Google but publications have cleaned them up!)
 
 This is the most important chart on applying AI in your daily work:
 
