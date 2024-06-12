@@ -74,7 +74,7 @@ This is the most important chart on applying AI in your daily work:
   <figcaption>Distribution of output quality across all the tasks. The blue group did not use AI, the green and red groups used AI. The red group got additional training on how to use AI.</figcaption>
 </figure>
 
-This figure is from a [randomized control trial of BCG consultants, who were asked to perform a set of consulting-related tasks](https://www.hbs.edu/ris/Publication%20Files/24-013_d9b45b68-9e74-42d6-a1c6-c72fb70c7282.pdf). Most users obtained significant benefits from AI tools despite their limitations. 
+This figure is from a [randomized control trial of BCG consultants, who were asked to perform a set of consulting-related tasks](https://www.hbs.edu/ris/Publication%20Files/24-013_d9b45b68-9e74-42d6-a1c6-c72fb70c7282.pdf). Most users obtained significant benefits from AI tools despite their limitations. For many tasks, language understanding is enough to unlock big gains.
 
 But beware of the left tail of this distribution. Some users who got trained probably became overconfident and put too much stock in bad, possibly hallucinatory responses, and scored much worse. Don't get conned by AI and dumped on the left side of this distribution.
 
