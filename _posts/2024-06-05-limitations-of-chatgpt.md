@@ -61,9 +61,9 @@ So:
 
 - Read [Ethan Mollick](https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged). There is a 'jagged frontier' where ChatGPT performs superbly at some tasks but shockingly poorly at seemingly similar tasks that slightly exceed its grasp.  Lose track of where you stand on the 'jagged frontier' at your peril. 
 
-- Use ChatGPT as a super hard-working, quick, but not-very-bright assistant who needs specific and detailed instructions, and sometimes might still go off the rails. Supervise it closely, and give it foolproof tools like the code interpreter for tasks that fall outside its reach. Trust nothing, and verify everything.
+- Use ChatGPT as a super hard-working, quick, but not-very-bright assistant who needs specific and detailed instructions, and sometimes might still go off the rails. Supervise it closely, and give it foolproof tools like the code interpreter for tasks that fall outside its reach. 
 
-- Of course, review anything generated with ChatGPT closely. Don't be the person who pastes ['as a large language model'](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&as_ylo=2023&q=%22I%20am%20an%20AI%20language%20model%22+-chatgpt+-llm&btnG=) or ['regenerate response'](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&as_ylo=2023&q=%22regenerate+response%22+-chatgpt+-llm&btnG=) in e.g. client-facing materials. (used to be more of these in Google but publications have cleaned them up!)
+- Trust nothing, and verify everything. Review anything generated with ChatGPT closely. Don't be the person who pastes ['as a large language model'](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&as_ylo=2023&q=%22I%20am%20an%20AI%20language%20model%22+-chatgpt+-llm&btnG=) or ['regenerate response'](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&as_ylo=2023&q=%22regenerate+response%22+-chatgpt+-llm&btnG=) into client-facing work product. (There used to be even more of these in Google Scholar but authors publications have cleaned them up!)
 
 This is the most important chart on applying AI in your daily work:
 
