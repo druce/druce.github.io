@@ -53,7 +53,7 @@ So:
 
 - Use generative AI when you need [infinite indefatigable interns](https://www.wired.com/story/artificial-intelligence-labor/) (even if they are stoner interns). Use it especially for language tasks, for generating a first draft of anything creative, ideating, editing and proofreading.
 
-- Use generative AI for looking up, summarizing, and explaining reliable texts that you have or that many knowledgable authors have posted online. 
+- Use generative AI for looking up, summarizing, and explaining reliable texts in your firm's knowledge base, or obtained online from knowledgable authors and reliable sources. 
 
 - Danger lurks if you ask it to follow a process, or algorithm, or chain of logic on its own that requires more than a couple of steps. If it's a task that would benefit from writing a program, use the [code interpreter](https://www.zdnet.com/article/how-to-use-chatgpt-to-write-code/) or [advanced data analysis](https://www.zdnet.com/article/how-to-use-chatgpt-to-make-charts-and-tables-with-advanced-data-analysis/) functionality.
 
