@@ -33,6 +33,8 @@ Here are more simple prompts that you might expect to work but do not:
 
 - [Make a list of 50 cities that do not contain the letter 'a', or any diacritical variation thereof](/assets/2024/chicago.png). It returned 'Chicago'. Sometimes, with longer answers, it starts to forget the original question.
 
+- [Are there any prime numbers whose digits sum to nine?](/assets/2024/primes.png). The answer should be no, because according to 6th-grade math, a number is divisible by 3 if the sum of its digits is divisible by 3, but ChatGPT bizarrely says 'yes, because 3 is prime and 229 is prime.'
+
 - [Give me the list of all the countries with 'v' in their name](/assets/2024/countries.png). It missed El Salvador, Moldova. Sometimes if you ask it for countries starting with 'V' or 'K' it will miss Vietnam or Kenya.
 
 - Ask ChatGPT to play Tic-Tac-Toe. It got better since 3.5 when it would cheat or go nuts, but doesn't play optimally. If you ask it to play chess, it makes illegal moves and plays like a small child. Think about this before you ask it to perform a complex analytical task like picking stocks!
