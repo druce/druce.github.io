@@ -84,7 +84,7 @@ The ability of computers to understand and generate human language is a huge adv
 
 Don't [become a bad example to others](https://www.npr.org/2023/12/30/1222273745/michael-cohen-ai-fake-legal-cases). Don't fall victim to the [Eliza Effect](https://en.wikipedia.org/wiki/ELIZA_effect), where people mistake natural language algorithms for human-level understanding. It’s an easy mistake to make, because the only entity we ever encountered that could write as well as a human...*was* a human. So it’s a shock to see ChatGPT write an Elizbethan sonnet in no time flat, and then [stumble on problems a small child could solve](https://www.washingtonpost.com/science/2024/06/12/how-smart-ai-chatgpt-intelligent-child/). 
 
-If you're an engineer, part of your role is [to make reliable systems using unreliable components.](https://www.ben-evans.com/benedictevans/2024/6/8/building-ai-products)
+If even Google engineers, whose should know how [to make reliable systems using unreliable components.](https://www.ben-evans.com/benedictevans/2024/6/8/building-ai-products), got caught flat-footed by how much their Gemin LLM gets wrong, how careful do the rest of us have to be?
 
 Move fast, don't miss out on the opportunity for massive productivity gains from AI, but follow [common-sense rules](https://www.forbes.com/sites/peterhigh/2024/05/07/ethan-mollick-on-the-four-rules-of-co-intelligence-with-ai/?sh=600ff1a63004), and stay safe, my friends!
 
