@@ -53,8 +53,6 @@ And of course, it hallucinates. When it doesn't know, it makes up something that
 
 So:
 
-- Use generative AI when you need [infinite indefatigable interns](https://www.wired.com/story/artificial-intelligence-labor/) (even if they are stoner interns). Use it especially for language tasks, for generating a first draft of anything creative, ideating, editing and proofreading.
-
 - Use generative AI for looking up, summarizing, and explaining reliable texts in your firm's knowledge base, or obtained online from knowledgable authors and reliable sources. 
 
 - Danger lurks if you ask it to follow a process, or algorithm, or chain of logic on its own that requires more than a couple of steps. If it's a task that would benefit from writing a program, use the [code interpreter](https://www.zdnet.com/article/how-to-use-chatgpt-to-write-code/) or [advanced data analysis](https://www.zdnet.com/article/how-to-use-chatgpt-to-make-charts-and-tables-with-advanced-data-analysis/) functionality.
@@ -66,6 +64,9 @@ So:
 - Use ChatGPT as a super hard-working, quick, but not-very-bright assistant who needs specific and detailed instructions, and sometimes might still go off the rails. Supervise it closely, and give it foolproof tools like the code interpreter for tasks that fall outside its reach. 
 
 - Trust nothing, and verify everything. Review anything generated with ChatGPT closely. Don't be the person who pastes ['as a large language model'](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&as_ylo=2023&q=%22I%20am%20an%20AI%20language%20model%22+-chatgpt+-llm&btnG=) or ['regenerate response'](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&as_ylo=2023&q=%22regenerate+response%22+-chatgpt+-llm&btnG=) into client-facing work product. (There used to be even more of these in Google Scholar but authors and publications have cleaned them up!)
+
+- Use generative AI when you need [infinite indefatigable interns](https://www.wired.com/story/artificial-intelligence-labor/), even if they might be stoner interns. Use it especially for language tasks, for generating a first draft of anything creative, ideating, editing and proofreading.
+
 
 This is the most important chart on applying AI in your daily work:
 
@@ -84,7 +85,7 @@ I don't know who needed to hear this, but I have come to realize not everyone un
 
 The ability of computers to understand and generate human language is a huge advance. It makes computers great at tasks which experience tells us they shouldn't be good at, like creating poetry and [music](https://suno.com/) and [art](https://www.midjourney.com/explore?tab=random) and [movies](https://lumalabs.ai/dream-machine) and [code](https://www.youtube.com/watch?v=LvGmVmHv69s). This ability is completely orthogonal to everything computers did well until now. There is work in progress to [better understand how LLMs work](https://openai.com/index/extracting-concepts-from-gpt-4/) and how their limitations arise, and resolving the impedance mismatch between wooly right-brain poet LLMs and hard-boiled left-brain Dr. Spock [data stores](https://paperswithcode.com/method/associative-lstm#:~:text=An%20Associative%20LSTM%20combines%20an,key%20and%20its%20associated%20content) and [coders](https://atlasiko.com/news/ai/google-alphacode-ai-code-generation/). As Sam Altman says, this is the [dumbest AI you will ever have to use](https://www.tomsguide.com/ai/chatgpt/gpt-4-is-the-dumbest-model-any-of-you-will-ever-have-to-use-declares-openai-ceo-sam-altman-as-he-bets-big-on-a-superingtelligence). But right now, ChatGPT is pretty terrible at some tasks we expect computers to be very good at.
 
-Don't [become a bad example to others](https://www.npr.org/2023/12/30/1222273745/michael-cohen-ai-fake-legal-cases). Don't fall victim to the [Eliza Effect](https://en.wikipedia.org/wiki/ELIZA_effect), where people mistake natural language algorithms for human-level understanding. It’s an easy mistake to make, because the only entity we ever encountered that could write as well as a human...*was* a human. So it’s jarring to see ChatGPT write an Elizbethan sonnet in a flash, and then [stumble on problems a small child could solve](https://www.washingtonpost.com/science/2024/06/12/how-smart-ai-chatgpt-intelligent-child/). 
+Don't [become a bad example to others](https://www.npr.org/2023/12/30/1222273745/michael-cohen-ai-fake-legal-cases). Don't fall victim to the [Eliza Effect](https://en.wikipedia.org/wiki/ELIZA_effect), where people mistake natural language algorithms for human-level understanding. It’s an easy mistake to make, because the only entity we ever encountered that could write as well as a human...*was* a human. So it’s jarring to see ChatGPT write an Elizabethan sonnet in a flash, and then [stumble on problems a small child could solve](https://www.washingtonpost.com/science/2024/06/12/how-smart-ai-chatgpt-intelligent-child/). 
 
 If even Google engineers, who should know how [to make reliable systems using unreliable components](https://www.ben-evans.com/benedictevans/2024/6/8/building-ai-products), got caught out by [how much their Gemini LLM gets wrong](https://originality.ai/blog/worst-google-ai-responses), how careful do the rest of us have to be?
 
