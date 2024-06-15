@@ -37,7 +37,7 @@ Here are more simple prompts that you might expect to work but do not:
 
 - [Give me the list of all the countries with 'v' in their name](/assets/2024/countries.png). It missed El Salvador, Moldova. Sometimes if you ask it for countries starting with 'V' or 'K' it will miss Vietnam or Kenya.
 
-- Ask ChatGPT to play Tic-Tac-Toe. It got better since 3.5 when it would cheat or go nuts, but doesn't play optimally. If you ask it to play chess, it makes illegal moves and plays like a small child. It also [struggles with th NYT Spelling Bee game](https://www.engadget.com/if-ai-is-going-to-take-over-the-world-why-cant-it-solve-the-spelling-bee-170034469.html). Think about this before you ask it to perform a complex analytical task like picking stocks!
+- Ask ChatGPT to play Tic-Tac-Toe. It got better since 3.5 when it would cheat or go nuts, but doesn't play optimally. If you ask it to play chess, it makes illegal moves and plays like a small child. It also [struggles with the NYT Spelling Bee game](https://www.engadget.com/if-ai-is-going-to-take-over-the-world-why-cant-it-solve-the-spelling-bee-170034469.html). Think about this before you ask it to perform a complex analytical task like picking stocks!
 
 Here are prompts that work well:
 
