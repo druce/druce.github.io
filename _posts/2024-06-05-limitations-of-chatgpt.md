@@ -47,7 +47,7 @@ Here are prompts that work well:
 
 ChatGPT is a poet, not a quant. It's a [wordcel, not a shape rotator](https://www.vice.com/en/article/pkpqzb/ok-wtf-are-wordcels-and-shape-rotators). It understands 'rhetorical logic' but not causal reasoning. Its understanding of the world is skin deep, notwithstanding sophisticated, even beautiful language. It knows what it was told and does not have any ability to answer questions from first principles and data. Some demos of it performing complex tasks may be cherry-picked or overhyped or due to training data contamination with similar examples, and there may be less there than meets the eye.
 
-Endowing a computer system with human language and creativity has somehow made it less consistent, reliable and conscientious. It 'hallucinates'. When it doesn't know, it makes up something that sounds plausible. It is a BS artist. It is trained to make labelers happy with plausible answers, to speak for effect and not underlying truth, which is the [definition of BS](https://druce.ai/2023/09/bullshit).
+Endowing a computer system with a gift for language and art and creativity somehow makes it less reliable and conscientious. It 'hallucinates'. When it doesn't know, it makes up something that sounds plausible. It is a BS artist. It is trained to make labelers happy with plausible answers, to speak for effect and not underlying truth, which is the [definition of BS](https://druce.ai/2023/09/bullshit).
 
 So:
 
