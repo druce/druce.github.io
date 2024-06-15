@@ -14,7 +14,7 @@ tags: datascience
   <img
   src="/assets/2024/leonardo.png"
   alt="Leonardo painting a perplexed Mona Lisa.">
-  <figcaption>"I could have been one of the great ones, if I could just remember how many fingers humans have, and where the canvas stops."</figcaption>
+  <figcaption>"I could have been the greatest, if I could just remember how many fingers humans have, and where the canvas stops."</figcaption>
 </figure>
 
 <!--more-->
