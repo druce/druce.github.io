@@ -10,13 +10,11 @@ categories: datascience
 tags: datascience
 
 ---
->*The most important chart in applying AI.*
-
 <figure>
   <img
-  src="/assets/2024/mollick-curve.png"
-  alt="Distribution of output scores on a consulting task, with and without AI.">
-  <figcaption>Distribution of output quality across all the tasks. The blue group did not use AI, the green and red groups used AI. The red group got additional training on how to use AI.</figcaption>
+  src="/assets/2024/leonardo.png"
+  alt="Leonardo painting a perplexed Mona Lisa.">
+  <figcaption>"I could have been one of the great ones, if I could just remember how many fingers humans have, and stop painting outside the canvas."</figcaption>
 </figure>
 
 <!--more-->
