@@ -12,9 +12,10 @@ tags: datascience
 ---
 <figure>
   <img
-  src="/assets/2024/leonardo.png"
-  alt="Leonardo painting a perplexed Mona Lisa.">
-  <figcaption>"I could have been the greatest, if I could just remember how many fingers humans have, and where the canvas stops."</figcaption>
+  src="/assets/2024/beast_jesus_bob_ross.png"
+  alt="Artist Bob Ross smiling in front of a terrible painting of Beast Jesus.">
+  <figcaption style="text-align: center;">
+"I would have been the greatest,<br />if I could just remember how many fingers humans have."</figcaption>
 </figure>
 
 <!--more-->
