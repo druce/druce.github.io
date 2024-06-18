@@ -1,6 +1,6 @@
 ---
 id: 7135
-title: 'AI Disasters and How to Avoid Them: Use Tools Like ChatGPT Effectively Without Risking Your Reputation and Career 
+title: 'AI Disasters and How to Avoid Them: Use Tools Like ChatGPT Effectively Without Risking Your Reputation and Career'
 date: 2024-06-05T01:01:01+00:00
 author: Druce Vertes
 layout: post
