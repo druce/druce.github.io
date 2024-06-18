@@ -1,6 +1,6 @@
 ---
 id: 7135
-title: 'Avoiding AI Disasters: How to Use ChatGPT Effectively Without Risking Your Reputation or Career'
+title: 'AI Disasters and How to Avoid Them: Use Tools Like ChatGPT Effectively Without Risking Your Reputation and Career 
 date: 2024-06-05T01:01:01+00:00
 author: Druce Vertes
 layout: post
@@ -15,7 +15,7 @@ tags: datascience
   src="/assets/2024/beast_jesus_bob_ross.png"
   alt="Artist Bob Ross smiling in front of a terrible painting of Beast Jesus.">
   <figcaption style="text-align: center;">
-"I would have been the greatest,<br />if I could just remember how many fingers humans have."</figcaption>
+"I would have been the greatest artist ever,<br />if I could just remember how many fingers humans have."</figcaption>
 </figure>
 
 <!--more-->
