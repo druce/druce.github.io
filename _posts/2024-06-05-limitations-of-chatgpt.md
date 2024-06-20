@@ -1,6 +1,6 @@
 ---
 id: 7135
-title: 'AI Disasters and How to Avoid Them: Use Tools Like ChatGPT Effectively Without Risking Your Reputation and Career'
+title: 'AI Disasters and How to Avoid Them, and Use Tools Like ChatGPT Effectively Without Risking Your Reputation and Career'
 date: 2024-06-05T01:01:01+00:00
 author: Druce Vertes
 layout: post
@@ -22,7 +22,7 @@ tags: datascience
 
 Ask ChatGPT a simple question: [How many r's are there in 'cranberry'?](/assets/2024/cranberry.png). It often answers 2 instead of 3.
 
-ChatGPT can generate huge productivity gains, but can also generate huge [reputational and career risks](https://www.npr.org/2023/12/30/1222273745/michael-cohen-ai-fake-legal-cases) when it makes embarrassing mistakes. Professional users should consider when and why it might mess up.  Gather round if you want to dodge a ChatGPT disaster! 
+ChatGPT can generate huge productivity gains, but can also generate huge [reputational and career risks](https://www.npr.org/2023/12/30/1222273745/michael-cohen-ai-fake-legal-cases) when it makes embarrassing mistakes. Users should understand when and why it might mess up.  Gather round if you want to dodge a ChatGPT disaster! 
 
 Here are more simple prompts that you might expect to work but do not:
 
@@ -56,7 +56,7 @@ So:
 
 - Danger lurks if you ask it to follow a process, or algorithm, or chain of logic on its own that requires more than a couple of steps. If it's a task that would benefit from writing a program, use the [code interpreter](https://www.zdnet.com/article/how-to-use-chatgpt-to-write-code/) or [advanced data analysis](https://www.zdnet.com/article/how-to-use-chatgpt-to-make-charts-and-tables-with-advanced-data-analysis/) functionality.
 
-- Improve ChatGPT's reasoning and reduce hallucinations by using [advanced prompting patterns](https://druce.ai/2024/01/prompting) like reflection (prompt ChatGPT to explain or criticize its own thought process and improve it) and chain-of-thought (give it a thought process to follow). Use prompt helpers from the [GPT Store](https://gptstore.ai/gpts?q=prompt) to create and improve prompts. However, better prompts only go so far. Test your prompts systematically. If small variations change results dramatically during validation, beware. It will only get worse on unseen inputs in production.
+- Improve ChatGPT's reasoning and reduce hallucinations by using [advanced prompting patterns](https://druce.ai/2024/01/prompting) like reflection (prompt ChatGPT to explain or criticize its own thought process and improve it) and chain-of-thought (give it a thought process to follow). Chain-of-thought prompting helps ChatGPT [get the 'cranberry' question correct](/assets/2024/cranberry2.png). Use prompt helpers from the [GPT Store](https://gptstore.ai/gpts?q=prompt) to create and improve prompts. However, better prompts only go so far. Test your prompts systematically. If small variations change results dramatically during validation, beware. It will only get worse on unseen inputs in production.
 
 - Read [Ethan Mollick](https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged). There is a 'jagged frontier' where ChatGPT performs superbly at some tasks but shockingly poorly at seemingly similar tasks that slightly exceed its grasp.  Lose track of where you stand on the 'jagged frontier' at your peril. 
 
