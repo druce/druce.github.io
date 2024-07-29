@@ -43,17 +43,17 @@ Soon, you ask ChatGPT for something a bit more complex, and it doesn't work very
 - Explore [other people's prompts](https://github.com/f/awesome-chatgpt-prompts) on the Web.
 - Make your own prompt repository on your PC, or use an app like [AIPRM](https://www.aiprm.com/).
 - Use [ChatGPT custom instructions](https://openai.com/index/custom-instructions-for-chatgpt/).
-- Use a [custom GPT](https://gptstore.ai/gpts?lang=&q=prompt) to write or improve your prompting.
+- Ask a [custom GPT](https://gptstore.ai/gpts?lang=&q=prompt) to write your prompts or improve them.
 - Start using integrations like Copilot; I use the [Obsidian](https://github.com/logancyang/obsidian-copilot) integration.
 
 These integrations let you make templates, so you can create a keyboard shortcut to trigger a function like, "copy-edit this blog post". Now you are moving on to Level 3!
 
 ## Level 3 - Templates and Single-Prompt Apps
 
-- Develop your own [Custom GPT](https://help.openai.com/en/articles/8554397-creating-a-gpt), with a single prompt and some data. Upload a document or knowledge base and set up your own retrieval-augmented generation to make a question-answering chatbot and talk to your knowledge base.
+- Develop your own [custom GPT](https://help.openai.com/en/articles/8554397-creating-a-gpt), with a single prompt and some data. Upload a document or knowledge base and set up your own retrieval-augmented generation to make a question-answering chatbot and talk to your knowledge base.
 - Develop an app that applies a prompt using a template using Jupyter or a Python script. For instance, here I ask ChatGPT to [copy-edit a blog post](https://github.com/druce/AInewsbot/blob/main/CopyEdit.ipynb) and show markup of the before and after. 
 - Use [LangChain](https://python.langchain.com/v0.1/docs/use_cases/) for different workflows. Try different LLM models like Google Gemini and Claude Sonnet through the API.
-- Create a one-turn agent: [use tools](https://python.langchain.com/v0.1/docs/use_cases/tool_use/) or have an agent write some SQL or code and run it (use caution). 
+- Create a one-turn agent that [uses tools](https://python.langchain.com/v0.1/docs/use_cases/tool_use/), picks the right tool and applies it, or have an agent write some SQL or Python code and run it (use caution). 
 - If you've been using an app for a while to perform sentiment analysis or other classification, and you have some good data, you can [fine-tune a model](https://platform.openai.com/docs/guides/fine-tuning) on that data for better performance.
 - Try local models with tools like [Ollama](https://ollama.com/) or [LM Studio](https://lmstudio.ai/), if you have a recent Nvidia GPU, Apple Silicon, and plenty of VRAM.
 
