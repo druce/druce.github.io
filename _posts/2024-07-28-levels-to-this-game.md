@@ -12,7 +12,7 @@ tags: datascience
 ---
 <figure>
   <img
-  src="/assets/2024/5levels-of-ai.jpg"
+  src="/assets/2024/5levels-of-ai-small.jpg"
   alt="Expanding Brain Meme of the 5 Levels of AI Adoption.">
   <figcaption style="text-align: center;">
   Expanding Brain Meme of the 5 Levels of AI Adoption.
