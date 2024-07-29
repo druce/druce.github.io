@@ -86,7 +86,7 @@ OK, level 5 is nascent. You can perform interesting experiments but complex agen
 
 But low-code tools to create Level 4 agentic workflows using a combination of text-to-app AI, low-code configuration, and AI-assisted coding are well within reach. Once we have low-code tools, we're only a short step away from having AI use that tool to create and improve workflows autonomously under loose human supervision.
 
-Interesting times for sure! [Inspired by this post by Allie K. Miller,](https://www.linkedin.com/posts/alliekmiller_ai-cant-do-anything-it-just-writes-emails-activity-7222229312073027584-49wo?utm_source=share&utm_medium=member_desktop) follow her for a ton of insight. ([Ethan Mollick](https://www.linkedin.com/in/emollick/) is good too.)
+[Inspired by this post by Allie K. Miller,](https://www.linkedin.com/posts/alliekmiller_ai-cant-do-anything-it-just-writes-emails-activity-7222229312073027584-49wo?utm_source=share&utm_medium=member_desktop) follow her for a ton of insight! ([Ethan Mollick](https://www.linkedin.com/in/emollick/) is good too.)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/k5wZ0ygGGm4?si=STrgBR_xyoPg8b0k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
