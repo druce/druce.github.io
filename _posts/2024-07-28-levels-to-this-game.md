@@ -53,7 +53,7 @@ These integrations let you make templates, so you can create a keyboard shortcut
 - Develop your own [custom GPT](https://help.openai.com/en/articles/8554397-creating-a-gpt), with a single prompt and some data. Upload a document or knowledge base and set up your own retrieval-augmented generation to make a question-answering chatbot and talk to your knowledge base.
 - Develop an app that applies a prompt using a template using Jupyter or a Python script. For instance, here I ask ChatGPT to [copy-edit a blog post](https://github.com/druce/AInewsbot/blob/main/CopyEdit.ipynb) and show markup of the before and after. 
 - Use [LangChain](https://python.langchain.com/v0.1/docs/use_cases/) for different workflows. Try different LLM models like Google Gemini and Claude Sonnet through the API.
-- Create a one-turn agent that [uses tools](https://python.langchain.com/v0.1/docs/use_cases/tool_use/), picks the right tool and applies it, or have an agent write some SQL or Python code and run it (use caution). 
+- Create a one-turn agent that [uses tools](https://python.langchain.com/v0.1/docs/use_cases/tool_use/), picks the right tool and applies it, or have an agent write some SQL or Python code and run it, cautiously.
 - If you've been using an app for a while to perform sentiment analysis or other classification, and you have some good data, you can [fine-tune a model](https://platform.openai.com/docs/guides/fine-tuning) on that data for better performance.
 - Try local models with tools like [Ollama](https://ollama.com/) or [LM Studio](https://lmstudio.ai/), if you have a recent Nvidia GPU, Apple Silicon, and plenty of VRAM.
 
@@ -62,7 +62,7 @@ These integrations let you make templates, so you can create a keyboard shortcut
 	- Ask ChatGPT to write a poem about a current news event
 	- Ask Udio to take that poem and make a sad girl piano song
 	- Ask RunwayML to make some video clips from pictures of that news event
-	- Combine them all to make a music video.
+	- Combine them all to make a music video, like the one at the bottom of this page.
     - If you have multiple APIs that integrate with e.g. [Zapier](https://zapier.com/) or [Workato](https://www.workato.com/), or if you can code with Python or ask Github Copilot to do it for you, you can write a program which takes the initial input description of the current event, and runs the entire pipeline end-to-end.
 - Or [here is a workflow](https://github.com/druce/AInewsbot/blob/main/AInewsbot_langgraph.ipynb) that will:
 	- Retrieve front pages of tech news.
@@ -87,3 +87,6 @@ OK, level 5 is nascent. You can perform interesting experiments but complex agen
 But low-code tools to create Level 4 agentic workflows using a combination of AI, low-code configuration, and coding are well within reach. Once you have such low-code tools, we're only a short step away from having AI use that tool to create and improve workflows autonomously under loose human supervision.
 
 Interesting times for sure...[Inspired by this post by Allie K. Miller!](https://www.linkedin.com/posts/alliekmiller_ai-cant-do-anything-it-just-writes-emails-activity-7222229312073027584-49wo?utm_source=share&utm_medium=member_desktop)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/k5wZ0ygGGm4?si=STrgBR_xyoPg8b0k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
