@@ -57,7 +57,7 @@ These integrations let you make templates, so you can create a keyboard shortcut
 - If you've been using an app for a while to perform sentiment analysis or other classification, and you have some good data, you can [fine-tune a model](https://platform.openai.com/docs/guides/fine-tuning) on that data for better performance.
 - Try local models with tools like [Ollama](https://ollama.com/) or [LM Studio](https://lmstudio.ai/), if you have a recent Nvidia GPU, Apple Silicon, and plenty of VRAM.
 
-## Level 4 - Multi-turn Pipelines, Tools,  APIs, and Simple Agents
+## Level 4 - Multi-turn Agents, Pipelines, Chaining Prompts and APIs
 - An example pipeline chaining multiple tools:
 	- Ask ChatGPT to write a poem about a current news event
 	- Ask Udio to take that poem and make a sad girl piano song
