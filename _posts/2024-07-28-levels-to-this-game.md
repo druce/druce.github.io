@@ -29,6 +29,7 @@ Here is how we climb up the ladder of success in using generative AI:
 - Create an image for a slideshow or marketing copy.
 - Write code, a web page, a Python function, a SQL statement, or CloudFormation YAML.
 - Use [Perplexity](https://www.perplexity.ai/), [Consensus](https://consensus.app/), one of the top [custom GPTs](https://gptstore.ai/) for simple tasks like retrieval-augmented generation.
+- Find and use [AI SaaS tools](https://hackernoon.com/the-10-best-directories-for-ai-tools)
 
 Soon, you ask ChatGPT for something a bit more complex, and it doesn't work very well. Now you are ready for…
 
