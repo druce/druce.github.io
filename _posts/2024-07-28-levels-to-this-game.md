@@ -36,7 +36,7 @@ Soon, you ask ChatGPT for something a bit more complex, and it doesn't work very
 - I wrote a [blog post](https://druce.ai/2024/01/prompting) here. C-L-E-A-R is a good mnemonic acronym:
 	- *Contextualize* - Specify a role or persona: *"You are a copy editor with years of experience polishing articles and blog posts for web publication."*
 	- *Limits* - Length; format like three bullet points; tone or style like concisely, or like a tech journalist, or only use facts from this text.
-	- *Elaborate and give Examples* - Explicate and provide as much detail and specifics as possible. Use [chain of thought](https://www.promptingguide.ai/techniques/cot) and [other advanced prompting methods](https://arxiv.org/abs/2407.12994).
+	- *Elaborate and give Examples* - Explain and provide as much detail and specifics as possible. Use [chain of thought](https://www.promptingguide.ai/techniques/cot) and [other advanced prompting methods](https://arxiv.org/abs/2407.12994).
 	- *Audience* - Identify the audience the response is addressed to, such as 'explain like I'm 5'.
 	- *Reflect or Review* - Ask ChatGPT to ask clarifying questions before answering, give itself space, such as "think step by step", "make sure of x before answering".
 - Take a course on [prompt engineering](https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/).
@@ -62,7 +62,7 @@ These integrations let you make templates, so you can create a keyboard shortcut
 	- Ask ChatGPT to write a poem about a current news event
 	- Ask Udio to take that poem and make a sad girl piano song
 	- Ask RunwayML to make some video clips from pictures of that news event
-	- Combine them all to get a video.
+	- Combine them all to make a music video.
     - If you have multiple APIs that integrate with e.g. [Zapier](https://zapier.com/) or [Workato](https://www.workato.com/), or if you can code with Python or ask Github Copilot to do it for you, you can write a program which takes the initial input description of the current event, and runs the entire pipeline end-to-end.
 - Or [here is a workflow](https://github.com/druce/AInewsbot/blob/main/AInewsbot_langgraph.ipynb) that will:
 	- Retrieve front pages of tech news.
@@ -82,7 +82,7 @@ You can of course, use coding tools like GitHub Copilot to build level 4 tools. 
 - Make an AI that creates a level 4 agent, writes code, and improves itself
 - Make your own [Devin](https://github.com/OpenDevin/OpenDevin), or [Samantha](https://www.youtube.com/watch?v=vgYi3Wr7v_g), or [Astra](https://deepmind.google/technologies/gemini/project-astra/) pie-in-the-sky AI
 
-OK, level 5 is nascent. You can perform interesting experiments but it doesn't work consistently at the level you would need in the enterprise. And there are years worth of Level 4 tasks enterprises can automate with 'sober' as opposed to 'pie-in-the-sky' AI.
+OK, level 5 is nascent. You can perform interesting experiments but complex agents doen't currently always work consistently at the level you would need in the enterprise. And there are years worth of Level 4 tasks enterprises can automate with 'sober' as opposed to 'pie-in-the-sky' AI.
 
 But low-code tools to create Level 4 agentic workflows using a combination of AI, low-code configuration, and coding are well within reach. Once you have such low-code tools, we're only a short step away from having AI use that tool to create and improve workflows autonomously under loose human supervision.
 
