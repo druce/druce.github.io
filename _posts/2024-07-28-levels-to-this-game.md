@@ -76,16 +76,14 @@ These integrations let you make templates, so you can create a keyboard shortcut
 You can of course, use coding tools like GitHub Copilot to build level 4 tools. Now we are inching toward level 5
 
 ## Level 5 - Complex Agents
-- Try [AutoGPT](https://news.agpt.co/), a more complex ReAct workflow
-- Try [multi-agent workflows](https://www.microsoft.com/en-us/research/publication/autogen-enabling-next-gen-llm-applications-via-multi-agent-conversation-framework/)
-- Create more complex ReAct agents that write and execute code
-- Make an AI that creates a level 4 agent, writes code, and improves itself
-- Make your own [Devin](https://github.com/OpenDevin/OpenDevin), or [Samantha](https://www.youtube.com/watch?v=vgYi3Wr7v_g), or [Astra](https://deepmind.google/technologies/gemini/project-astra/) pie-in-the-sky AI
+- Try [AutoGPT](https://news.agpt.co/), a more complex ReAct workflow.
+- Try [multi-agent workflows](https://www.microsoft.com/en-us/research/publication/autogen-enabling-next-gen-llm-applications-via-multi-agent-conversation-framework/).
+- Create more complex ReAct agents that write and execute code.
+- Make an AI that creates a level 4 agent, writes code, and improves itself.
+- Make your own [Devin](https://github.com/OpenDevin/OpenDevin), or [Samantha](https://www.youtube.com/watch?v=vgYi3Wr7v_g), or [Astra](https://deepmind.google/technologies/gemini/project-astra/) pie-in-the-sky AI.
 
-OK, level 5 is nascent. You can perform interesting experiments but complex agents doen't currently always work consistently at the level you would need in the enterprise. And there are years worth of Level 4 tasks enterprises can automate with 'sober' as opposed to 'pie-in-the-sky' AI.
+OK, level 5 is nascent. You can perform interesting experiments but complex agents don't currently always work consistently at the level you would need in the enterprise. And there are years worth of Level 4 tasks enterprises can automate with 'sober' as opposed to 'pie-in-the-sky' AI.
 
 But low-code tools to create Level 4 agentic workflows using a combination of AI, low-code configuration, and coding are well within reach. Once you have such low-code tools, we're only a short step away from having AI use that tool to create and improve workflows autonomously under loose human supervision.
 
-Interesting times for sure!
-
-[Inspired by this post by Allie K. Miller!](https://www.linkedin.com/posts/alliekmiller_ai-cant-do-anything-it-just-writes-emails-activity-7222229312073027584-49wo?utm_source=share&utm_medium=member_desktop)
+Interesting times for sure...[Inspired by this post by Allie K. Miller!](https://www.linkedin.com/posts/alliekmiller_ai-cant-do-anything-it-just-writes-emails-activity-7222229312073027584-49wo?utm_source=share&utm_medium=member_desktop)
