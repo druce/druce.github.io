@@ -56,12 +56,12 @@ These integrations let you make templates, so you can create a keyboard shortcut
 - Use [LangChain](https://python.langchain.com/v0.1/docs/use_cases/) for different workflows. Try different LLM models like Google Gemini and Claude Sonnet through the API.
 - Create a one-turn agent that [uses tools](https://python.langchain.com/v0.1/docs/use_cases/tool_use/), picks the right tool and applies it, or have an agent write some SQL or Python code and run it, cautiously.
 - If you've been using an app for a while to perform sentiment analysis or other classification, and you have some good data, you can [fine-tune a model](https://platform.openai.com/docs/guides/fine-tuning) on that data for better performance.
-- Try local models with tools like [Ollama](https://ollama.com/) or [LM Studio](https://lmstudio.ai/), if you have a recent Nvidia GPU, Apple Silicon, and plenty of VRAM.
+- Try local models with [Ollama](https://ollama.com/) or [LM Studio](https://lmstudio.ai/), if you have a recent Nvidia GPU or Apple Silicon, and plenty of VRAM.
 
 ## Level 4 - Multi-turn Agents, Pipelines, Chaining Prompts and APIs
 - An example pipeline chaining multiple tools:
 	- Ask ChatGPT to write a poem about a current news event.
-	- Ask Udio to take that poem and make a sad girl piano song.
+	- Ask Suno to take that poem and make a sad girl piano song.
 	- Ask RunwayML to make some video clips from pictures of that news event.
 	- Combine them all to make a music video, like the one at the bottom of this page.
     - If you have multiple APIs that integrate with e.g. [Zapier](https://zapier.com/) or [Workato](https://www.workato.com/), or if you can code with Python or ask Github Copilot to do it for you, you can write a program which takes the initial input description of the current event, and runs the entire pipeline end-to-end.
