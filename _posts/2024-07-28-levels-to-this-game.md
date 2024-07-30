@@ -61,8 +61,8 @@ These integrations let you make templates, so you can create a keyboard shortcut
 ## Level 4 - Multi-turn Agents, Pipelines, Chaining Prompts and APIs
 - An example pipeline chaining multiple tools:
 	- Ask ChatGPT to write a poem about a current news event.
-	- Ask Suno to take that poem and make a sad girl piano song.
-	- Ask RunwayML to make some video clips from pictures of that news event.
+	- Ask [Suno](https://suno.com/) to take that poem and make a sad girl piano song.
+	- Ask [RunwayML](https://runwayml.com/) to make some video clips from pictures of that news event.
 	- Combine them all to make a music video, like the one at the bottom of this page.
     - If you have multiple APIs that integrate with e.g. [Zapier](https://zapier.com/) or [Workato](https://www.workato.com/), or if you can code with Python or ask Github Copilot to do it for you, you can write a program which takes the initial input description of the current event, and runs the entire pipeline end-to-end.
 - Or [here is a workflow](https://github.com/druce/AInewsbot/blob/main/AInewsbot_langgraph.ipynb) that will:
