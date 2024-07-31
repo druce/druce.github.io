@@ -89,7 +89,7 @@ But low-code tools to create Level 4 agentic workflows using a combination of te
 
 [Inspired by this post by Allie K. Miller,](https://www.linkedin.com/posts/alliekmiller_ai-cant-do-anything-it-just-writes-emails-activity-7222229312073027584-49wo?utm_source=share&utm_medium=member_desktop) follow her for a ton of insight! ([Ethan Mollick](https://www.linkedin.com/in/emollick/) is good too.)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2l3Xo0pQ6To?si=9-i8NCd2ylYjELNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oq48gpKhl8g?si=d0kSGngV0Bjzp1mq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 
