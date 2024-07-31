@@ -65,7 +65,7 @@ These integrations let you make templates, so you can create a keyboard shortcut
 	- Ask [RunwayML](https://runwayml.com/) to make some video clips from pictures of that news event.
 	- Combine them all to make a music video, like the one at the bottom of this page.
     - If you have multiple APIs that integrate with e.g. [Zapier](https://zapier.com/) or [Workato](https://www.workato.com/), or if you can code with Python or ask Github Copilot to do it for you, you can write a program which takes the initial input description of the current event, and runs the entire pipeline end-to-end.
-- Or [here is a workflow](https://github.com/druce/AInewsbot/blob/main/AInewsbot_langgraph.ipynb) that will:
+- Or [here is a notebook](https://github.com/druce/AInewsbot/blob/main/AInewsbot_langgraph.ipynb) ([video walk-through](https://www.youtube.com/watch?v=9Y_uLVaugWM)) that will:
 	- Retrieve front pages of tech news.
 	- Use ChatGPT to categorize headlines as about AI or not.
 	- Use ChatGPT to extract topics from the headlines.
@@ -90,5 +90,6 @@ But low-code tools to create Level 4 agentic workflows using a combination of te
 [Inspired by this post by Allie K. Miller,](https://www.linkedin.com/posts/alliekmiller_ai-cant-do-anything-it-just-writes-emails-activity-7222229312073027584-49wo?utm_source=share&utm_medium=member_desktop) follow her for a ton of insight! ([Ethan Mollick](https://www.linkedin.com/in/emollick/) is good too.)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2l3Xo0pQ6To?si=9-i8NCd2ylYjELNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 
