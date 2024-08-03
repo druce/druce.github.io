@@ -74,7 +74,9 @@ These integrations let you make templates, so you can create a keyboard shortcut
 	- Use ChatGPT to take the summaries and write a newsletter about today's news in AI.
 - More complex multi-turn agents: Make a financial [market question answering](https://www.youtube.com/watch?v=zOOP7DBiwzs) chatbot with a larger set of tools or a [ReAct](https://til.simonwillison.net/llms/python-react-pattern) workflow.
 
-You can of course, use coding tools like GitHub Copilot to build level 4 tools. Now we are inching toward level 5.
+These agentic workflows are like an aircraft autopilot that follows a set course, or a driverless train that follows a route along a track. AI performs a series of tasks, and possibly measures its progress and uses a feedback loop to stay on course toward a longer-term objective. But the decision process is mostly pre-determined and the degrees of freedom fall short of full autonomy.
+
+We can of course, use coding tools like GitHub Copilot to build level 4 tools. Now we are approaching level 5.
 
 ## Level 5 - Complex Agents
 - Try [AutoGPT](https://news.agpt.co/), a more complex ReAct workflow.
