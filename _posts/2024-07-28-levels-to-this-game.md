@@ -32,14 +32,37 @@ Here is how we climb up the ladder of success in using generative AI:
 - Find and use [AI SaaS tools](https://hackernoon.com/the-10-best-directories-for-ai-tools)
 
 Soon, you ask ChatGPT for something a bit more complex, and it doesn't work very well. Now you are ready for…
+Propose
+Create a rubric for this student task: Create a presentation on the 2008 Sichuan earthquake that you will deliver to the class.
 
+Role
+Act as a knowledgeable 8th grade Geography teacher, who is an expert at pedagogy and specialises in earthquakes.
+
+Explicit Instructions
+The task is for an 8th grade Geography class. The rubric should focus on demonstrating knowledge through SOLO taxonomy and include separate levels for the quality of presentation. Include examples of content in the rubric.
+
+Presentation
+The rubric should be presented in a table and be written at a reading level of 11 years old.
+
+Ask
+After you have provided me with a draft rubric, ask me some follow up questions, in bullet points so that you can provide a more thorough and quality response.
+
+Rate
+Provide a rating between one and ten for the quality of your rubric. Additionally, present the criteria you have used in a table to help me understand your thought process.
+
+Emotions
+This task is vital to my career and will help my students develop their understanding.
+
+Diversity
+Are there underrepresented voices in this topic that I can include ?
 ## Level 2 - Advanced Prompting
-- I wrote a [blog post](https://druce.ai/2024/01/prompting) here. C-L-E-A-R is a good mnemonic acronym:
+- I wrote a [blog post](https://druce.ai/2024/01/prompting) here. [C-L-E-A-R](https://thecareercatalyst.co.uk/chat-gpt-how-to-ask-clear-prompts-to-get-what-you-need/) is a good mnemonic acronym:
 	- *Contextualize* - Specify a role or persona: *"You are a copy editor with years of experience polishing articles and blog posts for web publication."*
 	- *Limits* - Length; format like three bullet points; tone or style like concisely, or like a tech journalist, or only use facts from this text.
 	- *Elaborate and give Examples* - Explain and provide as much detail and specifics as possible. Use [chain of thought](https://www.promptingguide.ai/techniques/cot) and [other advanced prompting methods](https://arxiv.org/abs/2407.12994).
 	- *Audience* - Identify the audience the response is addressed to, such as 'explain like I'm 5'.
 	- *Reflect or Review* - Ask ChatGPT to ask clarifying questions before answering, give itself space, such as "think step by step", "make sure of x before answering".
+    - [P-R-E-P-A-R-E-D](https://www.forbes.com/sites/danfitzpatrick/2024/08/10/the-perfect-chatgpt-prompt-doesnt-exi-/) is another. Or [TCEPFT](https://medium.com/@BK.HAN/6-essential-elements-of-ai-prompt-engineering-tcepft-as-bk-hans-mnemonic-43e689f22ad8). Use what resonates with you.
 - Take a course on [prompt engineering](https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/).
 - Explore [other people's prompts](https://github.com/f/awesome-chatgpt-prompts) on the Web.
 - Make your own prompt repository on your PC, or use an app like [AIPRM](https://www.aiprm.com/).
@@ -85,7 +108,7 @@ We can of course, use coding tools like GitHub Copilot to build level 4 tools. N
 - Make an AI that creates a level 4 agent, writes code, and improves itself.
 - Make your own [Devin](https://github.com/OpenDevin/OpenDevin), or [Samantha](https://www.youtube.com/watch?v=vgYi3Wr7v_g), or [Astra](https://deepmind.google/technologies/gemini/project-astra/) pie-in-the-sky AI.
 
-OK, level 5 is nascent. You can perform interesting experiments but complex agents don't currently always work consistently at the level you would need in the enterprise. And there are years worth of Level 4 tasks enterprises can automate with 'sober', as opposed to 'pie-in-the-sky' AI.
+Level 5 agents, that autonomously create solutions based on a general instructions about intent, are in their infancy. You can get advanced agents to do interesting things but they don't currently always work consistently at a level you need in the enterprise. And there are years worth of Level 4 tasks that enterprises can automate with 'sober', as opposed to 'pie-in-the-sky' AI.
 
 But low-code tools to create Level 4 agentic workflows using a combination of text-to-app AI, low-code configuration, and AI-assisted coding are well within reach. Once we have low-code tools, we're only a short step away from having AI use that tool to create and improve workflows autonomously under loose human supervision.
 
