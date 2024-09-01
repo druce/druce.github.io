@@ -279,7 +279,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
-  jekyll-feed (~> 0.6)
+  jekyll-feed (~> 0.17)
   tzinfo-data
   webrick (~> 1.8)
 
