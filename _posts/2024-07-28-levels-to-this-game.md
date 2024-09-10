@@ -31,23 +31,7 @@ Here is how we climb up the ladder of success in using generative AI:
 - Use [Perplexity](https://www.perplexity.ai/), [Consensus](https://consensus.app/), one of the top [custom GPTs](https://gptstore.ai/) for simple tasks like retrieval-augmented generation.
 - Find and use [AI SaaS tools](https://hackernoon.com/the-10-best-directories-for-ai-tools)
 
-Soon, you ask ChatGPT for something a bit more complex, and it doesn't work very well. Now you are ready to be PREPARED…
-
-*Propose* - Create a rubric for this student task: Create a presentation on the 2008 Sichuan earthquake that you will deliver to the class.
-
-*Role* - Act as a knowledgeable 8th grade Geography teacher, who is an expert at pedagogy and specialises in earthquakes.
-
-*Explain, Elaborate, Explicitly* - The task is for an 8th grade Geography class. The rubric should focus on demonstrating knowledge through SOLO taxonomy and include separate levels for the quality of presentation. Include examples of content in the rubric.
-
-*Presentation* - The rubric should be presented in a table and be written at a reading level of 11 years old.
-
-*Ask* - After you have provided me with a draft rubric, ask me some follow up questions, in bullet points so that you can provide a more thorough and quality response.
-
-*Rate* - Provide a rating between one and ten for the quality of your rubric. Additionally, present the criteria you have used in a table to help me understand your thought process.
-
-*Emotions* - This task is vital to my career and will help my students develop their understanding.
-
-*Diversity* - Are there underrepresented voices, ideas or topics that I can include ?
+Soon, you ask ChatGPT for something a bit more complex, and it doesn't work very well. Now you are ready for…
 
 ## Level 2 - Advanced Prompting
 - I wrote a [blog post](https://druce.ai/2024/01/prompting) here. [C-L-E-A-R](https://thecareercatalyst.co.uk/chat-gpt-how-to-ask-clear-prompts-to-get-what-you-need/) is a good mnemonic acronym:
