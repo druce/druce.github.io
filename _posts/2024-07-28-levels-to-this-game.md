@@ -58,6 +58,7 @@ These integrations let you make templates, so you can create a keyboard shortcut
 - Create a one-turn agent that [uses tools](https://python.langchain.com/v0.1/docs/use_cases/tool_use/), picks the right tool and applies it, or have an agent write some SQL or Python code and run it, cautiously.
 - If you've been using an app for a while to perform sentiment analysis or other classification, and you have some good data, you can [fine-tune a model](https://platform.openai.com/docs/guides/fine-tuning) on that data for better performance.
 - Try local models with [Ollama](https://ollama.com/) or [LM Studio](https://lmstudio.ai/), if you have a recent Nvidia GPU or Apple Silicon, and plenty of VRAM.
+- With custom GPTs and single-prompt agents that use tools like web search, file search, even custom tools, are the simplest form of agent. But you do run into limitations beyond a certain complexity. The RAG in custom GPTs is great but you can't customize it with metadata, complex chunking and reranking. If you want your agent to do a couple of things in a row or based on user input, you can do that but beyond a few operations it quickly gets unreliable. Some simple tasks like, make sure to include this but not that, you need an editor agent in your pipeline. Then you move up to...
 
 ## Level 4 - Multi-turn Agents, Pipelines, Chaining Prompts and APIs
 - An example pipeline chaining multiple tools:
@@ -93,6 +94,3 @@ But low-code tools to create Level 4 agentic workflows using a combination of te
 [Inspired by this post by Allie K. Miller,](https://www.linkedin.com/posts/alliekmiller_ai-cant-do-anything-it-just-writes-emails-activity-7222229312073027584-49wo?utm_source=share&utm_medium=member_desktop) follow her for a ton of insight! ([Ethan Mollick](https://www.linkedin.com/in/emollick/) is good too.)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/oq48gpKhl8g?si=d0kSGngV0Bjzp1mq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-
-
