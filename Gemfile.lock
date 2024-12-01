@@ -268,7 +268,7 @@ GEM
       concurrent-ruby (~> 1.0)
     unicode-display_width (1.8.0)
     uri (0.13.1)
-    webrick (1.8.2)
+    webrick (1.9.0)
 
 PLATFORMS
   arm64-darwin-23
@@ -279,7 +279,7 @@ DEPENDENCIES
   github-pages
   jekyll-feed (~> 0.17)
   tzinfo-data
-  webrick (~> 1.8)
+  webrick (~> 1.9)
 
 RUBY VERSION
    ruby 3.1.3p185
