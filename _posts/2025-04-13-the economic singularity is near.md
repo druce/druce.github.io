@@ -14,6 +14,7 @@ tags: AI
 > I want to discuss the impact of AI on our economy, and why it's different from past revolutions using some intermediate economics.
 
 <!--more-->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 (work in progress)
 
@@ -21,35 +22,203 @@ tags: AI
 
 Economists use the Cobb-Douglas production function as a simple paradigm for how capital and labor interact.
 
-<figure>
-  <img
-  src="/assets/2025/cobbdouglas.png"
-  alt="Cobb-Douglas production function isocurves.">
-</figure>
+<!-- 2D Isoquant Chart -->
+<div class="slider-container-2d">
+  <label for="alpha-slider-2d">α: </label>
+  <input
+    type="range"
+    id="alpha-slider-2d"
+    min="0.01"
+    max="0.99"
+    step="0.01"
+    value="0.50"
+  />
+  <span id="alpha-value-2d">0.50</span>
+</div>
 
-The curves are isoquants showing combinations of capital and labor producing the same output level. 
+<div id="isoquant-plot-2d"></div>
 
-Isoquant slopes diminish as you move along them from left to right. This convexity with respect to the origin reflects the complementarity of capital and labor.Adding more of one input alone becomes increasingly less effective.  Convexity reflects these diminishing returns. 
+<script>
+  // 2D variables
+  const Y_levels2d    = [1,2,3,4,5,6,7];
+  const BUDGET2d      = 8;     // K + L = 8
+  const N2d           = 500;
+  const XMAX2d        = 10;
+  const Lgrid2d       = Array.from({length: N2d}, (_, i) => XMAX2d * (i+1)/N2d);
 
-If we visualize this as a topographical map, the Cobb-Douglas function describes a rolling hill rising up the red line, and falling off toward the edges.
+  function makeTraces2d(alpha2d) {
+    const beta2d = 1 - alpha2d;
 
-<figure>
-  <img
-  src="/assets/2025/cobbdouglas3d.png"
-  alt="Cobb-Douglas production function isocurves in 3D.">
-</figure>
+    // 1) Isoquants for Y=1…7
+    const isoTraces2d = Y_levels2d.map(Y => ({
+      x: Lgrid2d,
+      y: Lgrid2d.map(l => Math.pow(Y / Math.pow(l, beta2d), 1/alpha2d)),
+      mode: 'lines',
+      name: `Y = ${Y}`
+    }));
 
-If we assume complementarity between capital and labor, and also constant returns to scale so that doubling both capital and labor doubles output (a constant slope up the red line on the z-axis), then these assumptions lead to a production function of the Cobb-Douglas form.
+    // 2) Compute max Y* under K+L = BUDGET2d:
+    const Yopt2d = BUDGET2d * Math.pow(alpha2d, alpha2d) * Math.pow(beta2d, beta2d);
 
-$$Y = A \cdot L^{\alpha} \cdot K^{\beta}$$
+    // 3) Isoquant at Y*
+    const optTrace2d = {
+      x: Lgrid2d,
+      y: Lgrid2d.map(l => Math.pow(Yopt2d / Math.pow(l, beta2d), 1/alpha2d)),
+      mode: 'lines',
+      name: `Optimal Y* = ${Yopt2d.toFixed(2)}`,
+      line: { width: 3 }
+    };
+
+    // 4) Budget line K+L = BUDGET2d
+    const budgetTrace2d = {
+      x: [0, BUDGET2d],
+      y: [BUDGET2d, 0],
+      mode: 'lines',
+      name: `Budget (K+L = ${BUDGET2d})`,
+      line: { dash: 'dash', width: 2, color: 'lightgrey' },
+      hoverinfo: 'none'
+    };
+
+    return [...isoTraces2d, optTrace2d, budgetTrace2d];
+  }
+
+  const layout2d = {
+    width: 600,
+    height: 600,
+    xaxis: { title: 'Labor (L)', range: [0, XMAX2d] },
+    yaxis: {
+      title: 'Capital (K)',
+      range: [0, XMAX2d],
+      scaleanchor: 'x',
+      scaleratio: 1
+    },
+    margin: { t: 50, l: 50, r: 20, b: 50 }
+  };
+
+  const slider2d = document.getElementById('alpha-slider-2d');
+  const alphaValueSpan2d = document.getElementById('alpha-value-2d');
+  let alpha2d = parseFloat(slider2d.value);
+
+  function updateTitle2d(a) {
+    const b    = 1 - a;
+    const Yopt = BUDGET2d * Math.pow(a, a) * Math.pow(b, b);
+    return `Isoquants (Y=1…7), Optimal Y*=${Yopt.toFixed(2)} at budget K+L=${BUDGET2d} (α=${a.toFixed(2)}, β=${b.toFixed(2)})`;
+  }
+
+  // Initial draw
+  layout2d.title = updateTitle2d(alpha2d);
+  Plotly.newPlot('isoquant-plot-2d', makeTraces2d(alpha2d), layout2d, {responsive: true});
+
+  // On slider move
+  slider2d.addEventListener('input', () => {
+    alpha2d = parseFloat(slider2d.value);
+    alphaValueSpan2d.textContent = alpha2d.toFixed(2);
+
+    const newLayout = { title: updateTitle2d(alpha2d) };
+    Plotly.react(
+      'isoquant-plot-2d',
+      makeTraces2d(alpha2d),
+      Object.assign({}, layout2d, newLayout)
+    );
+  });
+</script>
+
+The curves are isoquants showing combinations of capital and labor producing the same output level Y. 
+
+Isoquant slopes diminish as you move along them from left to right. This convexity with respect to the origin reflects the complementarity of capital and labor. Adding more of one input alone becomes increasingly less effective.  Convexity reflects these diminishing returns. 
+
+If we believe in complementarity between capital and labor, and also constant returns to scale so that doubling both capital and labor doubles output (a constant slope up the red line on the z-axis), then these assumptions lead to a production function of the Cobb-Douglas form:
+
+$$Y = A \cdot L^{\alpha} \cdot K^{1-\alpha}$$
+
+The function exhibits constant returns to scale: doubling K and L doubles Y.
+
+If we visualize this 2d topographical map in 3d, the Cobb-Douglas function describes a rolling hill rising up the red line, and falling off toward the edges.
+
+<!-- 3D Cobb–Douglas Surface -->
+<div class="slider-container-3d">
+  <label for="alpha-slider-3d">α: </label>
+  <input
+    type="range"
+    id="alpha-slider-3d"
+    min="0.01"
+    max="0.99"
+    step="0.01"
+    value="0.50"
+  />
+  <span id="alpha-value-3d">0.50</span>
+</div>
+
+<div id="isoquant-plot-3d"></div>
+
+<script>
+  // 3D variables
+  const N3d     = 50;
+  const XMAX3d  = 10;
+  const Lgrid3d = Array.from({ length: N3d }, (_, i) => XMAX3d * (i + 1) / N3d);
+  const Kgrid3d = Array.from({ length: N3d }, (_, i) => XMAX3d * (i + 1) / N3d);
+
+  function makeSurface3d(alpha3d) {
+    const beta3d = 1 - alpha3d;
+    const z = Kgrid3d.map(k =>
+      Lgrid3d.map(l => Math.pow(l, beta3d) * Math.pow(k, alpha3d))
+    );
+    return [{
+      type: 'surface',
+      x: Lgrid3d,
+      y: Kgrid3d,
+      z: z,
+      contours: {
+        z: {
+          show: true,
+          usecolormap: true,
+          highlightcolor: "#42f462",
+          project: { z: true }
+        }
+      }
+    }];
+  }
+
+  const layout3d = {
+    title: 'Cobb–Douglas Surface (α=0.50, β=0.50)',
+    scene: {
+      xaxis: { title: 'Labor (L)', range: [0, XMAX3d] },
+      yaxis: { title: 'Capital (K)', range: [0, XMAX3d] },
+      zaxis: { title: 'Output Y', rangemode: 'tozero' },
+      camera: {
+        eye: { x: -1.5, y: -1.5, z: 1.2 }
+      }
+    },
+    margin: { l: 0, r: 0, b: 0, t: 50 }
+  };
+
+  const slider3d = document.getElementById('alpha-slider-3d');
+  const alphaValueSpan3d = document.getElementById('alpha-value-3d');
+  let alpha3d = parseFloat(slider3d.value);
+
+  Plotly.newPlot('isoquant-plot-3d', makeSurface3d(alpha3d), layout3d, { responsive: true });
+
+  slider3d.addEventListener('input', () => {
+    alpha3d = parseFloat(slider3d.value);
+    alphaValueSpan3d.textContent = alpha3d.toFixed(2);
+    const beta3d = 1 - alpha3d;
+    const newTitle = `Cobb–Douglas Surface (α=${alpha3d.toFixed(2)}, β=${beta3d.toFixed(2)})`;
+
+    Plotly.react(
+      'isoquant-plot-3d',
+      makeSurface3d(alpha3d),
+      Object.assign({}, layout3d, { title: newTitle })
+    );
+  });
+</script>
 
 Broadly, these assumptions make sense. Macro output is a function of how much capital, labor and tech you have, and diminishing returns to capital and labor individually make sense, and constant returns to scale make sense.
 
 Consider building houses:
 
-- Without power tools (capital), using tons of labor with manual tools is inefficient. At least in the US, where capital is fairly abundant and cheap (low real interest rates). But capital intensity is lower in developing countries with abundant low-cost labor and also scarcer capital.
+- Without power tools (capital), using tons of labor with manual tools is inefficient in the US, where capital is fairly abundant and cheap, with low real interest rates. But capital intensity is lower in developing countries with abundant low-cost labor and also scarcer capital.
   
-- A giant automated 3D printing machine to make a house would probably also be inefficient.
+- A giant automated 3D printing machine or robot to make a house would probably also be inefficient.
   
 - An optimal mix of workers equipped with power tools results in the most house for the money.
 
