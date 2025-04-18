@@ -75,7 +75,7 @@ Economists use the Cobb-Douglas production function as a simple paradigm for how
       y: [BUDGET2d, 0],
       mode: 'lines',
       name: `Budget (K+L = ${BUDGET2d})`,
-      line: { dash: 'dash', width: 2, color: 'lightgrey' },
+      line: { dash: 'dash', width: 2, color: 'grey' },
       hoverinfo: 'none'
     };
 
@@ -133,7 +133,7 @@ $$Y = A \cdot L^{\alpha} \cdot K^{1-\alpha}$$
 
 The function exhibits constant returns to scale: doubling K and L doubles Y.
 
-If we visualize this 2d topographical map in 3d, the Cobb-Douglas function describes a rolling hill rising up the red line, and falling off toward the edges.
+If we visualize this 2d topographical map in 3d, the Cobb-Douglas function describes a rolling hill.
 
 <!-- 3D Cobb–Douglas Surface -->
 <div class="slider-container-3d">
@@ -212,17 +212,18 @@ If we visualize this 2d topographical map in 3d, the Cobb-Douglas function descr
   });
 </script>
 
-Broadly, these assumptions make sense. Macro output is a function of how much capital, labor and tech you have, and diminishing returns to capital and labor individually make sense, and constant returns to scale make sense.
-
 Consider building houses:
 
 - Without power tools (capital), using tons of labor with manual tools is inefficient in the US, where capital is fairly abundant and cheap, with low real interest rates. But capital intensity is lower in developing countries with abundant low-cost labor and also scarcer capital.
   
 - A giant automated 3D printing machine or robot to make a house would probably also be inefficient.
   
-- An optimal mix of workers equipped with power tools results in the most house for the money.
+- An optimal mix of capital and labor, like workers equipped with power tools, results in the most house for the money.
 
 There are critiques of the Cobb-Douglas function. At the level of an individual firm, there are myriad decisions that go into optimizing output, unit costs of capital depends on capacity utilization, there are learning curves, individuals are not lumps of labor, neither are capital investments like an ASML machine vs. Intel's in-house lithography, which might lead to breakpoints and variability in the isoquants over time. 
+
+But broadly, these assumptions make sense. Macro output is a function of how much capital, labor and tech you have, and diminishing returns to capital and labor individually make sense, and constant returns to scale make sense.
+
 
 The degree of convexity is in an important sense fixed in the Cobb-Douglas function. The elasticity of substitution between capital and labor is always 1. To tune the degree of convexity, we need a more general function like the [CES function](https://en.wikipedia.org/wiki/Constant_elasticity_of_substitution), which I am not going to go into in detail but looks like this:
 
@@ -274,9 +275,19 @@ But AI improves, and next year the 90th percentile becomes the 95th, and the ave
 
 Every year AI becomes better than a larger percentage of humans, at a larger  percentage of tasks.
 
-We can imagine a factory where the robots can maintain and repair each other. You still need humans to design factories and robots, update software, etc., for now anyway.
+Now, radiology is a high-stakes, high skill use case. Typically in these use cases in 2025, AI < human < human + AI. If a radiologist takes 5 minutes to review a scan, they might continue to do that with an AI assistant as part of a structured workflow. First the radiologist reviews and highlights areas of concern, then the AI gives a probability of diagnosis on those areas and highlights other areas. AI can even bring up relevant literature and the doctor can ask for detailed comparisons with the scan. AI writes first draft of report based on doctor's instruction, and doctor edits. 
 
-But the level of ability and investment in education that a human needs, in order to be able to do something better than AI, can increase beyond what the vast majority of humans can do, in the vast majority of the daily tasks needed to maintain civilization.
+In this way the human input remains similar but the output should be significantly higher quality with the help of AI. 
+
+Something like medical care is a superior good, you consume more as your income goes up. It might be an income-proportional-good, you might not demand significantly less in nominal terms if the price goes down. AI automates the work but there is a lot of demand for better work. 
+
+But in many occupations, we are not going to raise the quality bar. If you can have a long-distance truck convoy of 10 trucks supervised by 1 or 2 humans, or 10 robot hotel housekeepers supervised by one human, you get rid of the extra humans. 
+
+We can imagine a factory where the robots can maintain and repair each other. You still need humans to design factories and robots, update software. For now anyway.
+
+But the level of skill that a human needs, in order to be able to do something better than AI, can increase beyond what the vast majority of humans can do, for the vast majority of the daily tasks needed to maintain civilization.
+
+Maybe there is a modest demand response, society gets richer, there is more demand for hotels and goods transport. But you don't 10X demand, and it's hard for the housekeepers to retrain into jobs AI can't do.
 
 If you make heroic assumptions about the form of the production function, perfect competition in markets, leading to workers being paid their marginal product, then wages will rise as technology improves productivity. This has generally been the case in the past, contra thinkers like Marx. But possibly only with the help of unions and policy choices to help thwart the threat of communism. Math alone doesn't force it to happen. You need to parameterize the equations so that it happens.  I would argue that there is a good chance that AI changes the parameters, if you combine it with globalization, neoliberalism, loss of labor power etc., it upends a lot of the economic assumptions that underlie past progress. Maybe we aren't quite there yet. Maybe everybody will just get better at their jobs, and even less educated people can do software dev and analytical jobs with AI and we can shorten workweeks etc. But what would be the incentive to shorten workweeks in the absence of regulations?
 
@@ -293,3 +304,4 @@ These might be along similar lines:
 [https://a.co/d/8EaMGeu](https://a.co/d/8EaMGeu)
 
 [https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf](https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf)
+
