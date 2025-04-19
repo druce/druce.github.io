@@ -33,7 +33,7 @@ AI changes the relationship between capital and labor. Let's look at the shape o
 
 Economists use the Cobb-Douglas production function as a simple model of how capital and labor interact to produce GDP and national income.
 
-If we assume complementarity between capital and labor, and also constant returns to scale so that doubling both capital and labor doubles output improves), then we can end up with a production function of the form:
+If we assume complementarity between capital and labor, and also constant returns to scale so that doubling both capital and labor doubles output), then we can end up with a production function of the form:
 
 $$Y = A \cdot L^{\alpha} \cdot K^{1-\alpha}$$
 
