@@ -123,17 +123,20 @@ Economists use the Cobb-Douglas production function as a simple paradigm for how
   });
 </script>
 
+<br />
+&nbsp;
+<br />
+
+The curves are isoquants showing combinations of capital and labor producing the same output level Y. 
+
 If we believe in complementarity between capital and labor, and also constant returns to scale so that doubling both capital and labor doubles output (a constant slope up the red line on the z-axis as technology improves), then these assumptions lead to a production function of the Cobb-Douglas form:
 
 $$Y = A \cdot L^{\alpha} \cdot K^{1-\alpha}$$
 
-The curves are isoquants showing combinations of capital and labor producing the same output level Y. 
 
-Isoquant slopes diminish as you move along them from left to right. This convexity with respect to the origin reflects the complementarity of capital and labor. Adding more of one input alone becomes increasingly less effective.  Convexity reflects these diminishing returns. 
+Isoquant slopes diminish as you move along them from left to right. This convexity with respect to the origin reflects the complementarity of capital and labor, diminishing returns as adding an additional unit of one input alone becomes increasingly less effective. 
 
-The function exhibits constant returns to scale: doubling K and L doubles Y.
-
-Over time, we accumulate capital, factories, equipment, trucks and aircraft, moving up the Y-axis to better isoquants; and the labor force grows, moving right along the X-axis to better isoquants; and technology improves, moving isoquants up and to the right for the same amount of capital and labor. 
+Over time, we accumulate capital, factories, equipment, trucks and aircraft, moving up the Y-axis to better isoquants. And the labor force grows, moving right along the X-axis to better isoquants. And technology improves, moving isoquants up and to the right for the same amount of capital and labor. 
 
 If we visualize this 2d topographical map in 3D, the Cobb-Douglas function describes a rolling hill.
 
@@ -224,11 +227,11 @@ Consider building houses:
 
 There are critiques of the Cobb-Douglas function. At the level of an individual firm, there are myriad decisions that go into optimizing output, the unit cost of capital depends on capacity utilization, there are learning curves, individuals are not lumps of labor, neither are capital investments like an ASML machine vs. Intel's in-house lithography, which might lead to breakpoints and variability in the isoquants over time. 
 
-But broadly, these assumptions make sense. Macro output is a function of how much capital, labor and tech you have, and diminishing returns to capital and labor individually make sense, and constant returns to scale make sense.
+But directionally, these assumptions are reasonable simplifications. Macro output is a function of how much capital, labor and tech you have, and diminishing returns to capital and labor individually make sense, and constant returns to scale make sense.
 
 ## The CES Production Function
 
-The degree of convexity is in an important sense fixed in the Cobb-Douglas function. The elasticity of substitution between capital and labor is always 1. This means that the slopes of the isoquants are equal to the ratios of capital and labor.
+The degree of convexity is fixed in the Cobb-Douglas function. The elasticity of substitution between capital and labor is always 1. This means that the slopes of the isoquants are equal to the ratios of capital and labor.
 
 To tune the degree of convexity, we need a more general function like the [Constant Elasticity of Substitution (CES) function](https://en.wikipedia.org/wiki/Constant_elasticity_of_substitution).
 
@@ -343,14 +346,16 @@ $$Y = A \cdot \left[ \alpha K^{\rho} + (1 - \alpha) L^{\rho} \right]^{\frac{1}{\
 
 Importantly:
 
-- When $$\rho$$ is 0, we get the Cobb-Douglas function. 
-- When $$\rho$$ is negative, the curves are more convex than Cobb-Douglas.
+- When $$\rho$$ = 0, we get the Cobb-Douglas function. 
+- When $$\rho$$ < 0, the curves are more convex than Cobb-Douglas.
 - When $$\rho$$ is between 0 and 1, the curves are less convex (flatter) than Cobb-Douglas.
-- When $$\rho$$ is 1, the isoquants are linear.
+- When $$\rho$$ = 1, the isoquants are linear.
+- When $$\rho$$ < 1, we have convexity and diminishing returns as we add one unit of labor or capital.
+- We have constant returns to scale, doubling labor and capital doubles production.
 
 ## A little Economic History
 
-Personal history: in my first job out of college, I worked in the economics research department of a bank. I wrote for the economics research reports, was occasionally quoted in the New York Times as 'economist Druce Vertes' if they spelled my name right, which they usually did not. 
+A little personal history: in my first job out of college, I worked in the economics research department of a bank. I wrote for the economics research reports, was occasionally quoted in the New York Times as 'economist Druce Vertes' if they spelled my name right, which they usually did not. 
 
 I also applied for economics PhD and was told to go back and get As in differential equations and linear algebra and summarily rejected. All this to say, I've studied this stuff but I'm also kind of a midwit. So I think this is directionally right but I might not get it exactly right.
 
@@ -370,11 +375,9 @@ When we went to factories on assembly lines with power tools, we needed electric
 
 Every buggy driver could probably get retrained as a truck driver and certainly a lot of them could get trained as mechanics and even engineers.
 
-## The Death of the Cobb-Douglas Production Function
+## The Singularity
 
-OK maybe it was an approximation to begin with. 
-
-But if you have robots that are perfect substitutes for humans, then the form of the production function is:
+If you have capital (robots) that is a perfect substitute for humans, then the form of the production function is:
 
 $$Y=A \cdot (\alpha L + \beta K)$$
 
@@ -393,6 +396,8 @@ I would argue that technology that is labor-assisting sharpens the curves of the
 A technology that is labor-replacing flattens the curves of the isoquants. Tap-to-pay completely eliminates the jobs of subway token clerks. It perfectly substitutes for them.
 
 More than most technologies in the past, AI is labor-replacing across a wide range of occupations.
+
+## A robot boot, stamping on a human face, forever?
 
 With AI, there are tasks like radiology where a good AI today is better than the average human doctor at reading an image in say 30 seconds. A 90th-percentile radiologist is better than AI if you give them 30 seconds, and maybe the average doctor is better if you give them 2 minutes. 
 
@@ -418,11 +423,15 @@ But the level of skill that a human needs, in order to be able to do something b
 
 Maybe there is a modest demand response, society gets richer, there is more demand for hotels and goods transport. But you don't 10X demand, and it's hard for the housekeepers to retrain into jobs AI can't do. 
 
-It is not at all a given that when technology destroys some jobs, it creates other, higher-paying jobs. You need to parameterize the equations so that it happens. I would argue that there is a good chance that AI changes the parameters, if you combine it with globalization, neoliberalism, loss of labor power etc., it upends a lot of the economic assumptions that underlie past wage growth. Maybe we aren’t quite there yet. Maybe everybody will just get better at their jobs, and even midwits and less educated people can do software dev and analytical jobs with AI and we can shorten workweeks etc. But what would be the incentive to shorten workweeks in the absence of regulations?
+It is not at all a given that when technology destroys some jobs, it creates other, higher-paying jobs. You need to parameterize the equations so to make that happen. I would argue that there is a good chance that AI changes the parameters. If you combine it with globalization, neoliberalism, loss of labor power etc., it upends a the economic assumptions that underlie past wage growth. Maybe we aren’t quite there yet. Maybe everybody will just get better at their jobs, and even midwits and less educated people can do software dev and analytical jobs with AI and we can shorten workweeks etc. But what would be the incentive to shorten workweeks in the absence of labor laws requiring it?
 
-Potentially we can end up with robots building more robots, and an economic singularity where capital grows exponentially and wealth concentrates completely, while humans are immiserated. As a thought experiment, what is the difference between the state owning all the capital and being run by a junta, and a tiny number of individuals owning it? To the extent capitalism works for everyone, it requires competitive markets and not serfdom and extraction of the middle class by powerful interests.
+Potentially we can end up with robots building more robots, and an economic singularity where capital grows exponentially and wealth concentrates completely, while humans are immiserated. 
 
-That is what the robot singularity looks like in economic terms. That is the economic challenge we will eventually face as a civilization, along with questions of universal income, which citizens reap the benefits of AI, what happens to people outside that circle, in the global South, what happens to economic growth, freedom, fariness human values and human purpose. We are ill-equipped to confront these questions. Even the places people think about them, the press, the universities, are under siege.
+As a thought experiment, what is the difference between the state owning all the capital and being run by a junta, and a tiny number of individuals owning it, and writing all the rules of an economy and culture and marketplace of political ideas fully mediated by Big Tech? To the extent capitalism works for most people, it requires competitive markets and not unlimited concentration of capital owned by a few, and serfdom and extraction for the rest.
+
+That is what the robot singularity looks like in economic terms. That is the economic challenge we will eventually face as a civilization, along with questions of universal income, which citizens reap the benefits of AI, what happens to people outside that circle, in the global South, what happens to economic growth, freedom, fairness, civil liberties, human values and human purpose. 
+
+We are ill-equipped to confront these questions. Even the places people think about them, the press, the universities, are under siege.
 
 There is a risk of the fall of Rome, technofeudalism, barbarism.
 
