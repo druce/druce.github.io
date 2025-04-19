@@ -10,8 +10,10 @@ categories: AI
 tags: AI
 
 ---
+> Economics is the painful elaboration of the obvious.
+>
+> There is no guarantee in theory or in history for the belief that AI is going to make everyone more productive and broadly raise everyone's standard of living. It seems at least equally plausible that we will get increasing income inequality, more concentration of wealth, and more people locked out of decent middle class and working class jobs.
 
-> Considering the impact of AI on our economy, and why the AI revolution might be different from past revolutions, using some intermediate economics.
 <figure>
   <img
   src="/assets/2025/ces-flat-small.png"
@@ -23,7 +25,7 @@ tags: AI
 <!--more-->
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-A little personal history: in my first job out of college, I worked in the economics research department of a big investment bank. I wrote for the economics research reports, was occasionally quoted in the New York Times as 'economist Druce Vertes' if they spelled my name right, which they usually did not. 
+A little personal history: in my first job out of college, I worked in the economics research department of a big investment bank. I wrote for the economics research reports, was occasionally quoted in the New York Times as 'economist Druce Vertes' if they spelled my name right, which they never did. 
 
 I also applied for economics PhD programs and was told to go back and get As in differential equations and linear algebra, and summarily rejected. All this to say, I've studied this stuff but I'm also kind of a midwit and it's been a while. 
 
@@ -473,7 +475,7 @@ But in many occupations, we are not going to raise the quality bar. If you can h
 
 We can imagine a factory where the robots can maintain and repair each other. You still need humans to design factories and robots, write and debug and improve software. For now anyway.
 
-But the level of skill that a human needs, in order to be able to do something better than AI, can increase beyond what the vast majority of humans can do, for the vast majority of the daily tasks needed to maintain civilization. You are only going to hire the human for a task and at a wage where they are cheaper and less trouble than a robot, which might not leave many jobs or much wages at all.
+But the level of skill that a human needs, in order to be able to do something better than AI, can increase beyond what the vast majority of humans can do, for the vast majority of the daily tasks needed to maintain civilization. You are only going to hire the human for a task and at a wage where they are cheaper and less trouble than a robot, which might not leave many jobs or much wages at all. There is always going to be some job, but it might be the equivalent of livestreaming yourself as a freak doing a gross-out act on ['Dum Dummies' from Black Mirror](https://en.wikipedia.org/wiki/Common_People_(Black_Mirror)) and it might not pay much. 
 
 Maybe there is a modest demand response, society gets richer, there is more demand for hotels and goods transport. But you don't automatically 10X demand when you 10X productivity, and it's hard for the housekeepers to retrain into jobs AI can't do. 
 
