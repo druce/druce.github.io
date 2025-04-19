@@ -18,7 +18,7 @@ tags: AI
 
 A little personal history: in my first job out of college, I worked in the economics research department of a big investment bank. I wrote for the economics research reports, was occasionally quoted in the New York Times as 'economist Druce Vertes' if they spelled my name right, which they usually did not. 
 
-I also applied for economics PhD and was told to go back and get As in differential equations and linear algebra, and summarily rejected. All this to say, I've studied this stuff but I'm also kind of a midwit and it's been a while. 
+I also applied for economics PhD programs and was told to go back and get As in differential equations and linear algebra, and summarily rejected. All this to say, I've studied this stuff but I'm also kind of a midwit and it's been a while. 
 
 AI changes the relationship between capital and labor. Let's look at the shape of the basic models economists use to think about how capital and labor interact, and then think about how AI changes those relationships and what it means.
 
