@@ -16,9 +16,22 @@ tags: AI
 <!--more-->
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
+A little personal history: in my first job out of college, I worked in the economics research department of a big investment bank. I wrote for the economics research reports, was occasionally quoted in the New York Times as 'economist Druce Vertes' if they spelled my name right, which they usually did not. 
+
+I also applied for economics PhD and was told to go back and get As in differential equations and linear algebra and summarily rejected. All this to say, I've studied this stuff but I'm also kind of a midwit and it's been a while. 
+
+AI changes the relationship between capital and labor. Let's look at the shape of the basic models economists use to think about how they interact, and then think about what AI does and what it means.
+
 ## The Cobb-Douglas Production Function
 
 Economists use the Cobb-Douglas production function as a simple paradigm for how capital and labor interact.
+
+If assume complementarity between capital and labor, and also constant returns to scale so that doubling both capital and labor doubles output improves), then we can end up with a production function of the form:
+
+$$Y = A \cdot L^{\alpha} \cdot K^{1-\alpha}$$
+
+which is called the [Cobb-Douglas production function](https://en.wikipedia.org/wiki/Cobb%E2%80%93Douglas_production_function) (with constant returns to scale)
+
 
 <!-- 2D Isoquant Chart -->
 <div class="slider-container-2d">
@@ -125,16 +138,19 @@ Economists use the Cobb-Douglas production function as a simple paradigm for how
 &nbsp;
 <br />
 
+*L* is the quantity of labor services—e.g., total hours worked, ideally human capital‑adjusted in the sense that someone with more training outputs more labor per hour worked.
+
+*K* is the quantity of capital services that flow from factories, equipment, trucks, aircraft etc. 
+
+*Y* is real output (GDP). This are all flows per unit of time, like per year.
+
+We express everything in constant prices. We model the technological relationship between factor quantities and output, not payments. But converting them to constant dollars expresses them in the same units. We must use constant prices to remove the influence of general or relative price‑level changes.
+
 The curves are isoquants showing combinations of capital and labor producing the same output level Y. 
 
-If we believe in complementarity between capital and labor, and also constant returns to scale so that doubling both capital and labor doubles output (a constant slope up the red line on the z-axis as technology improves), then these assumptions lead to a production function of the Cobb-Douglas form:
+Isoquant slopes diminish as you move along them from left to right. This downward convexity, or convexity with respect to the origin reflects the complementarity of capital and labor. Convexity expresses diminishing returns. Adding an additional unit of one input alone becomes increasingly less effective. 
 
-$$Y = A \cdot L^{\alpha} \cdot K^{1-\alpha}$$
-
-
-Isoquant slopes diminish as you move along them from left to right. This convexity with respect to the origin reflects the complementarity of capital and labor, diminishing returns as adding an additional unit of one input alone becomes increasingly less effective. 
-
-Over time, we accumulate capital, factories, equipment, trucks and aircraft, moving up the Y-axis to better isoquants. And the labor force grows, moving right along the X-axis to better isoquants. And technology improves, moving isoquants up and to the right for the same amount of capital and labor. 
+Over time, we invest and accumulate capital, moving up the Y-axis to better isoquants. The labor force grows, moving right along the X-axis to better isoquants. And technology improves, moving isoquants up and to the right for the same amount of capital and labor. 
 
 If we visualize this 2d topographical map in 3D, the Cobb-Douglas function describes a rolling hill.
 
@@ -214,26 +230,32 @@ If we visualize this 2d topographical map in 3D, the Cobb-Douglas function descr
     );
   });
 </script>
+<br />
+&nbsp;
+<br />
 
 Consider building houses:
 
 - Without power tools (capital), using tons of labor with manual tools is inefficient in the US, where capital is fairly abundant and cheap, with low real interest rates. But capital intensity is lower in developing countries with abundant low-cost labor and also scarcer capital.
   
-- A giant automated 3D printing machine or robot to make a house would probably also be inefficient.
+- Some kind of giant automated 3D printing machine or gundam robot to make a house would probably also be inefficient.
   
 - An optimal mix of capital and labor, like workers equipped with power tools, results in the most house for the money.
 
-There are critiques of the Cobb-Douglas function. At the level of an individual firm, there are myriad decisions that go into optimizing output, the unit cost of capital depends on capacity utilization, there are learning curves, individuals are not lumps of labor, neither are capital investments like an ASML machine vs. Intel's in-house lithography, which might lead to breakpoints and variability in the isoquants over time. 
+There are critiques of the Cobb-Douglas function. At the level of an individual firm, there are myriad decisions that go into optimizing output. The unit cost of capital depends on capacity utilization. There are learning curves. Individuals are not lumps of labor. Neither are capital investments like an ASML machine vs. Intel's in-house lithography. We may have breakpoints and variability in the isoquants over time. 
 
-But directionally, these assumptions are reasonable simplifications. Macro output is a function of how much capital, labor and tech you have, and diminishing returns to capital and labor individually make sense, and constant returns to scale make sense.
+But at the level of the macro economy, these assumptions are reasonable simplifications. Macro output is a function of how much capital, labor and tech you have, and diminishing returns to capital and labor individually make sense, and constant returns to scale make sense.
 
 ## The CES Production Function
 
 The degree of convexity is fixed in the Cobb-Douglas function. The elasticity of substitution between capital and labor is always 1. This means that the slopes of the isoquants are equal to the ratios of capital and labor.
 
-To tune the degree of convexity, we need a more general function like the [Constant Elasticity of Substitution (CES) function](https://en.wikipedia.org/wiki/Constant_elasticity_of_substitution).
+To tune the degree of convexity, we can use a more general function like the [Constant Elasticity of Substitution (CES) function](https://en.wikipedia.org/wiki/Constant_elasticity_of_substitution).
 
 $$Y = A \cdot \left[ \alpha K^{\rho} + (1 - \alpha) L^{\rho} \right]^{\frac{1}{\rho}}$$
+
+Now we have $$\alpha$$ to tune the optimal ratio of labor and capital, and also $$\rho$$ to tune the degree of convexity or complementarity between labor and capital.
+
 
 <!-- CES Isoquant Plot -->
 <div style="margin-bottom:1em;">
@@ -353,11 +375,7 @@ Importantly:
 
 ## A little Economic History
 
-A little personal history: in my first job out of college, I worked in the economics research department of a bank. I wrote for the economics research reports, was occasionally quoted in the New York Times as 'economist Druce Vertes' if they spelled my name right, which they usually did not. 
-
-I also applied for economics PhD and was told to go back and get As in differential equations and linear algebra and summarily rejected. All this to say, I've studied this stuff but I'm also kind of a midwit. So I think this is directionally right but I might not get it exactly right.
-
-We've been through a few industrial revolutions: 
+We've passed through a few industrial revolutions: 
 
 - The first industrial revolution of steam and rail and telegraphs starting in the late 1700s.
 
@@ -367,7 +385,7 @@ We've been through a few industrial revolutions: 
 
 - Now maybe we can consider AI the fourth.
 
-When we transitioned from horses and buggies to automobiles, we no longer needed buggy drivers and stable hands, but we needed (much more productive) truck drivers and auto mechanics. 
+When we transitioned from horses and buggies to automobiles, we no longer needed buggy drivers and whip makers and stable hands, but we needed (much more productive) truck drivers and auto mechanics. 
 
 When we went to factories on assembly lines with power tools, we needed electricians and workers who could handle power tools.
 
@@ -377,29 +395,45 @@ Every buggy driver could probably get retrained as a truck driver and certainly 
 
 If you have capital (robots) that is a perfect substitute for labor, then the form of the production function is:
 
-$$Y=A \cdot (\alpha L + (1 - \alpha) K)$$
+$$Y=A \cdot [\alpha L + (1 - \alpha) K]$$
 
 Try it, set $$\rho$$ to 1 in the CES function. Isoquants are flat.
 
+<figure>
+  <img
+  src="/assets/2025/ces-flat.png"
+  alt="CES production function with flat isocurves, rho=1">
+	<figcaption>CES production function with flat isocurves, rho=1</figcaption>
+</figure>
+
+
 Think of this as the edge case where we can build a humanoid robot that anywhere and everywhere could work exactly like a human.
 
-If the isoquants are flat, then in practice you really only have one factor of production since labor and capital are perfect substitutes. Labor can only demand a wage equal to the cost of renting the robot which is a perfect substitute. 
+If the isoquants are flat, then in practice you really only have one factor of production since labor and capital are perfect substitutes. Labor can only demand a wage equal to the cost of renting the robot, which is a perfect substitute for it. 
 
 If you have a Cobb-Douglas production function, and perfect competition in labor markets, leading to workers being paid their marginal product, then the labor share of national income will equal the capital share. In the idealized classical economics world, firms will keep hiring until the next worker they add does not increase production enough to offset their wages. And the slope of the isoquants defines how much additional labor is worth relative to capital, it determines the wage rate. And unit elasticity of substitution between labor and capital under Cobb-Douglas means that as wages go up and the labor demanded goes down, the wage increase offsets lower employment exactly, so labor income remains the same.
 
-Under Cobb-Douglas, wages will always rise as technology improves productivity and the labor share of national income will stay constant. This has very roughly been the case in the past, contra thinkers like Marx. But possibly only with the help of unions and policy choices to help counter the threat of Communism. Math alone doesn’t force it to happen. There is no theoretical reason $$\rho$$ must be equal to 0. And in fact the labor share has been [declining since around 1970](https://fred.stlouisfed.org/graph/?id=LABSHPUSA156NRUG), although it's still above 50%. 
+Under Cobb-Douglas, wages will always rise as technology improves productivity and the labor share of national income will stay constant. This has very roughly been the case in the past, *contra* thinkers like Marx. But possibly only with the help of unions and policy choices to help counter the threat of Communism. 
 
-I would argue that technology that is labor-assisting sharpens the curves of the isoquants. A power tool increases the productivity of the individual who wields it. It is capital that is highly complementary to labor. Or an AI assistant may increase the productivity of a radiologist analyzing images. 
+The important thing to note is that the Cobb-Douglas function forces equality between labor and capital factor incomes. If you move to the CES function, math alone doesn’t force it to happen, you need to parameterize it with $$\rho=0$$. 
+
+There is no theoretical reason $$\rho$$ must be equal to 0. And in fact the labor share has been [declining since around 1970](https://fred.stlouisfed.org/graph/?id=LABSHPUSA156NRUG), although it's still above 50%. 
+
+As you move $$\rho$$ toward 1, the labor share decreases.
+
+Technology that is labor-assisting and highly complementary to labor sharpens the curves of the isoquants. A power tool increases the productivity of the individual who wields it. Or an AI assistant may increase the productivity of a radiologist analyzing images. 
 
 A technology that is labor-replacing flattens the curves of the isoquants. Tap-to-pay completely eliminates the jobs of subway token clerks. It perfectly substitutes for them.
 
-More than most technologies in the past, AI is labor-replacing across a wide range of occupations.
+More than most technologies in the past, AI is labor-replacing across a wide range of occupations. 
+
+It potentially collapses the tradeoff between labor and capital.
 
 ## A robot boot, stamping on a human face, forever?
 
 There are tasks where a good AI today is better than the average human under some time budget. Maybe a 90th-percentile radiologist is better than AI if you give them 30 seconds, and maybe the average doctor is better if you give them 2 minutes. 
 
-But AI improves, and next year the 90th percentile becomes the 95th, and the average doctor needs 15 minutes to match the AI or can't beat the AI no matter how long you give them.
+But AI improves. Next year, the 90th percentile becomes the 95th, and the average doctor needs 15 minutes to match the AI or can't beat the AI no matter how long you give them.
 
 Every year AI becomes better than a larger percentage of humans, at a larger  percentage of tasks.
 
@@ -429,7 +463,7 @@ Potentially we can end up with robots building more robots, and an economic sing
 
 As a thought experiment, what is the difference between the state owning all the capital and being run by a junta, and a tiny number of individuals owning it, and writing all the rules of an economy and culture and marketplace of political ideas fully mediated by Big Tech? To the extent capitalism works for most people, it requires competitive markets and not unlimited concentration of capital owned by a few, and serfdom and extraction for the rest.
 
-That is what the robot singularity looks like in economic terms. That is the economic challenge we will eventually face as a civilization, along with questions of universal income, which citizens reap the benefits of AI, what happens to people and countries outside that circle, what happens to economic growth, freedom, fairness, civil liberties, human values and human purpose. 
+That is what the robot singularity looks like in economic terms. That is the economic challenge we will eventually face as a civilization, along with questions of universal income, robot taxes, which citizens reap the benefits of AI, what happens to people and countries outside that circle, what happens to economic growth, freedom, fairness, civil liberties, human values and human purpose. 
 
 We are ill-equipped to confront these questions. Even the places people think about them, the press, the universities, are under siege.
 
