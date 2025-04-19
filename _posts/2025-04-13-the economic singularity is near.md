@@ -374,8 +374,8 @@ Now we have $$\alpha$$ to tune the optimal ratio of labor and capital, and also 
 Importantly:
 
 - When $$\rho$$ = 0, we get the Cobb-Douglas function. 
-- When $$\rho$$ is between 0 and 1, the curves are less convex (flatter) than Cobb-Douglas.
-- When $$\rho$$ < 0, the curves are more convex than Cobb-Douglas.
+- When $$\rho$$ is between 0 and 1, the isoquants are less convex (flatter) than Cobb-Douglas.
+- When $$\rho$$ < 0, the isoquants are more convex than Cobb-Douglas.
 - When $$\rho$$ = 1, the isoquants are linear.
 - When $$\rho$$ < 1, we have convexity and diminishing returns as we add one unit of labor or capital.
 - We always have constant returns to scale, doubling labor and capital doubles production.
