@@ -16,8 +16,6 @@ tags: AI
 <!--more-->
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-(work in progress)
-
 ## The Cobb-Douglas Production Function
 
 Economists use the Cobb-Douglas production function as a simple paradigm for how capital and labor interact.
@@ -437,9 +435,9 @@ There is a risk of the fall of Rome, technofeudalism, barbarism.
 
 These might be along similar lines:
 
-[https://a.co/d/65Ql7CO](https://a.co/d/65Ql7CO)
+[Rise of the Robots: Technology and the Threat of a Jobless Future, by Martin Ford](https://a.co/d/65Ql7CO)
 
-[https://a.co/d/8EaMGeu](https://a.co/d/8EaMGeu)
+[The Economic Singularity: Artificial intelligence and the death of capitalism Paperback, by Calum Chace](https://a.co/d/8EaMGeu)
 
-[https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf](https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf)
+[Displacement or Complementarity? The Labor Market Impact of Generative AI, by Wilbur Xinyuan Chen, Suraj Srinivasan, Saleh Zakerinia](https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf)
 
