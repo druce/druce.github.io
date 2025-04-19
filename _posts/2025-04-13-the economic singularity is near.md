@@ -147,7 +147,7 @@ which is called the [Cobb-Douglas production function](https://en.wikipedia.org/
 
 $$Y$$ is real output (GDP). These are all flows per unit of time, like GDP per year.
 
-$$L$$ is the quantity of labor services—e.g., total hours worked, ideally human capital‑adjusted so that someone with more training outputs more labor services per hour worked.
+$$L$$ is the quantity of labor services—e.g., total hours worked, ideally human capital‑adjusted so that someone with more training delivers more labor services per hour worked.
 
 $$K$$ is the quantity of capital services that flow from factories, equipment, trucks, aircraft etc. 
 
@@ -162,7 +162,7 @@ Isoquant slopes diminish as you move along them from left to right. This downwar
 
 Over time, 
 
-- We invest and accumulate capital, moving up the Y-axis to better isoquants. 
+- Firms invest and accumulate capital, moving up the Y-axis to better isoquants. 
 - The labor force grows, moving right along the X-axis to better isoquants. 
 - And technology improves, moving isoquants up and to the right for the same amount of capital and labor. 
 
@@ -394,7 +394,7 @@ If you have capital (robots) that is a perfect substitute for labor, then the fo
 
 $$Y=A \cdot [\alpha L + (1 - \alpha) K]$$
 
-Try it, set $$\rho$$ to 1 in the CES function. Isoquants are flat.
+Try it, set $$\rho$$ to 1 in the CES function. Isoquants are straight lines.
 
 <figure>
   <img
@@ -406,13 +406,13 @@ Try it, set $$\rho$$ to 1 in the CES function. Isoquants are flat.
 
 Think of this as the edge case where we can build a humanoid robot that anywhere and everywhere could work exactly like a human.
 
-If the isoquants are flat, then in practice you really only have one factor of production since labor and capital are perfect substitutes. Labor can only demand a wage equal to the cost of renting the robot, which is a perfect substitute for it. 
+If the isoquants are flat, then in practice you really only have one factor of production since labor and capital are perfect substitutes. Labor can only demand a wage equal to the cost of renting the functionally identical robot.
 
 If you have a Cobb-Douglas production function, and perfect competition in labor markets, leading to workers being paid their marginal product, then the labor share of national income will equal the capital share. In the idealized classical economics world, firms will keep hiring until the next worker they add does not increase production enough to offset their wages. And the slope of the isoquants defines how much additional labor is worth relative to capital, it determines the wage rate. And unit elasticity of substitution between labor and capital under Cobb-Douglas means that as wages go up and the labor demanded goes down, the wage increase offsets lower employment exactly, so labor income remains the same.
 
 Under Cobb-Douglas, wages will always rise as technology improves productivity and the labor share of national income will stay constant. This has very roughly been the case in the past, *contra* thinkers like Marx. But possibly only with the help of unions and policy choices to help counter the threat of Communism. 
 
-The important thing to note is that the Cobb-Douglas function forces income share equality between labor and capital factor incomes. If you move to the CES function, math alone doesn’t force it to happen, you need to parameterize it with $$\rho=0$$ to achieve that result. More convexity and complementarity means a higher labor share, less convexity means a lower labor share.
+The important thing to note is that the Cobb-Douglas function forces income share equality between labor and capital factor incomes. If you move to the CES function, math alone doesn’t force it to happen, you need to parameterize it with $$\alpha=0.5, \rho=0$$ (or match $$\rho$$ to a different $$\alpha <> 0.5$$) to achieve unit elasticity. More convexity and complementarity means a higher labor share, less convexity means a lower labor share.
 
 There is no theoretical reason $$\rho$$ must be equal to 0. And in fact the labor share has been [declining since around 1970](https://fred.stlouisfed.org/graph/?id=LABSHPUSA156NRUG), although it's still above 50%. 
 
@@ -440,7 +440,7 @@ We've passed through a few industrial revolutions: 
 
 When we transitioned from horses and buggies to automobiles, we no longer needed buggy drivers and whip makers and stable hands, but we needed (much more productive) truck drivers and auto mechanics. 
 
-When we went to factories on assembly lines with power tools, we needed electricians and workers who could handle power tools.
+When we went to factories on assembly lines with power tools, we needed electricians and workers who could handle them.
 
 Every buggy driver could probably get retrained as a truck driver and certainly a lot of them could get trained as mechanics and even engineers.
 
