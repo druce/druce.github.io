@@ -412,7 +412,7 @@ If you have a Cobb-Douglas production function, and perfect competition in labor
 
 Under Cobb-Douglas, wages will always rise as technology improves productivity and the labor share of national income will stay constant. This has very roughly been the case in the past, *contra* thinkers like Marx. But possibly only with the help of unions and policy choices to help counter the threat of Communism. 
 
-The important thing to note is that the Cobb-Douglas function forces income share equality between labor and capital factor incomes. If you move to the CES function, math alone doesn’t force it to happen, you need to parameterize it with $$\alpha=0.5, \rho=0$$ (or match $$\rho$$ to a different $$\alpha <> 0.5$$) to achieve unit elasticity. More convexity and complementarity means a higher labor share, less convexity means a lower labor share.
+The important thing to note is that the Cobb-Douglas function forces income share equality between labor and capital factor incomes. If you move to the CES function, math alone doesn’t force it to happen, you need to parameterize it with $$\alpha=0.5, \rho=0$$  to achieve unit elasticity of substitution (or match $$\rho$$ to a different $$\alpha \neq 0.5$$). More convexity and complementarity means a higher labor share, less convexity means a lower labor share.
 
 There is no theoretical reason $$\rho$$ must be equal to 0. And in fact the labor share has been [declining since around 1970](https://fred.stlouisfed.org/graph/?id=LABSHPUSA156NRUG), although it's still above 50%. 
 
