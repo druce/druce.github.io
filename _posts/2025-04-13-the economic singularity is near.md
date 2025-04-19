@@ -12,6 +12,13 @@ tags: AI
 ---
 
 > Considering the impact of AI on our economy, and why the AI revolution might be different from past revolutions, using some intermediate economics.
+<figure>
+  <img
+  src="/assets/2025/ces-flat-small.png"
+  alt="CES production function with linear isocurves, ρ=1">
+	<figcaption>CES production function with linear isocurves, ρ=1</figcaption>
+</figure>
+
 
 <!--more-->
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -391,9 +398,9 @@ Try it, set $$\rho$$ to 1 in the CES function. Isoquants are flat.
 
 <figure>
   <img
-  src="/assets/2025/ces-flat.png"
-  alt="CES production function with flat isocurves, rho=1">
-	<figcaption>CES production function with flat isocurves, $$\rho$$=1</figcaption>
+  src="/assets/2025/ces-flat-small.png"
+  alt="CES production function with linear isocurves, ρ=1">
+	<figcaption>CES production function with linear isocurves, ρ=1</figcaption>
 </figure>
 
 
