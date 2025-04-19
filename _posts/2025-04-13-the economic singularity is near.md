@@ -123,17 +123,19 @@ Economists use the Cobb-Douglas production function as a simple paradigm for how
   });
 </script>
 
+If we believe in complementarity between capital and labor, and also constant returns to scale so that doubling both capital and labor doubles output (a constant slope up the red line on the z-axis as technology improves), then these assumptions lead to a production function of the Cobb-Douglas form:
+
+$$Y = A \cdot L^{\alpha} \cdot K^{1-\alpha}$$
+
 The curves are isoquants showing combinations of capital and labor producing the same output level Y. 
 
 Isoquant slopes diminish as you move along them from left to right. This convexity with respect to the origin reflects the complementarity of capital and labor. Adding more of one input alone becomes increasingly less effective.  Convexity reflects these diminishing returns. 
 
-If we believe in complementarity between capital and labor, and also constant returns to scale so that doubling both capital and labor doubles output (a constant slope up the red line on the z-axis), then these assumptions lead to a production function of the Cobb-Douglas form:
-
-$$Y = A \cdot L^{\alpha} \cdot K^{1-\alpha}$$
-
 The function exhibits constant returns to scale: doubling K and L doubles Y.
 
-If we visualize this 2d topographical map in 3d, the Cobb-Douglas function describes a rolling hill.
+Over time, we accumulate capital, factories, equipment, trucks and aircraft, moving up the Y-axis to better isoquants; and the labor force grows, moving right along the X-axis to better isoquants; and technology improves, moving isoquants up and to the right for the same amount of capital and labor. 
+
+If we visualize this 2d topographical map in 3D, the Cobb-Douglas function describes a rolling hill.
 
 <!-- 3D Cobb–Douglas Surface -->
 <div class="slider-container-3d">
@@ -220,16 +222,137 @@ Consider building houses:
   
 - An optimal mix of capital and labor, like workers equipped with power tools, results in the most house for the money.
 
-There are critiques of the Cobb-Douglas function. At the level of an individual firm, there are myriad decisions that go into optimizing output, unit costs of capital depends on capacity utilization, there are learning curves, individuals are not lumps of labor, neither are capital investments like an ASML machine vs. Intel's in-house lithography, which might lead to breakpoints and variability in the isoquants over time. 
+There are critiques of the Cobb-Douglas function. At the level of an individual firm, there are myriad decisions that go into optimizing output, the unit cost of capital depends on capacity utilization, there are learning curves, individuals are not lumps of labor, neither are capital investments like an ASML machine vs. Intel's in-house lithography, which might lead to breakpoints and variability in the isoquants over time. 
 
 But broadly, these assumptions make sense. Macro output is a function of how much capital, labor and tech you have, and diminishing returns to capital and labor individually make sense, and constant returns to scale make sense.
 
+## The CES Production Function
 
-The degree of convexity is in an important sense fixed in the Cobb-Douglas function. The elasticity of substitution between capital and labor is always 1. To tune the degree of convexity, we need a more general function like the [CES function](https://en.wikipedia.org/wiki/Constant_elasticity_of_substitution), which I am not going to go into in detail but looks like this:
+The degree of convexity is in an important sense fixed in the Cobb-Douglas function. The elasticity of substitution between capital and labor is always 1. This means that the slopes of the isoquants are equal to the ratios of capital and labor.
+
+To tune the degree of convexity, we need a more general function like the [Constant Elasticity of Substitution (CES) function](https://en.wikipedia.org/wiki/Constant_elasticity_of_substitution).
 
 $$Y = A \cdot \left[ \alpha K^{\rho} + (1 - \alpha) L^{\rho} \right]^{\frac{1}{\rho}}$$
 
-## Some Economic History
+<!-- CES Isoquant Plot -->
+<div style="margin-bottom:1em;">
+  <label for="alpha-slider-ces">α: <span id="alpha-value-ces">0.50</span></label>
+  <input
+    id="alpha-slider-ces"
+    type="range"
+    min="0.01"
+    max="0.99"
+    step="0.01"
+    value="0.5"
+  >
+</div>
+<div style="margin-bottom:1em;">
+  <label for="rho-slider-ces">ρ: <span id="rho-value-ces">0.00</span></label>
+  <input
+    id="rho-slider-ces"
+    type="range"
+    min="-1.00"
+    max="1.00"
+    step="0.01"
+    value="0"
+  >
+</div>
+<div id="isoquant-plot-ces" style="width:600px;height:600px;"></div>
+
+<script>
+  // === Parameters & Grids ===
+  const CES_Y_LEVELS    = [1,2,3,4,5,6,7];
+  const CES_N           = 500;
+  const CES_XMAX        = 10;
+  const CES_LGRID       = Array.from({length: CES_N}, (_, i) => CES_XMAX * (i+1)/CES_N);
+  const CES_PLOT_ID     = 'isoquant-plot-ces';
+
+  // === Build Isoquant Traces for CES, with ρ→0 fallback ===
+  function makeCesTraces(alpha, rho) {
+    const beta = 1 - alpha;
+    return CES_Y_LEVELS.map(Y => {
+      return {
+        x: CES_LGRID,
+        y: CES_LGRID.map(L => {
+          if (Math.abs(rho) < 1e-6) {
+            // ρ≈0 → Cobb‑Douglas: Y = L^β * K^α  ⇒  K = (Y / L^β)^(1/α)
+            return Math.pow(Y / Math.pow(L, beta), 1/alpha);
+          } else {
+            // CES: Y^ρ = α K^ρ + β L^ρ  ⇒  K = [(Y^ρ - β L^ρ)/α]^(1/ρ)
+            const inner = Math.pow(Y, rho) - beta * Math.pow(L, rho);
+            return inner <= 0
+              ? NaN
+              : Math.pow(inner / alpha, 1 / rho);
+          }
+        }),
+        mode: 'lines',
+        name: `Y = ${Y}`
+      };
+    });
+  }
+
+  // === Layout ===
+  const layoutCes = {
+    width: 600,
+    height: 600,
+    title: `CES Isoquants (Y=1…7) (α=0.50, ρ=0.00)`,
+    xaxis: { title: 'Labor (L)', range: [0, CES_XMAX] },
+    yaxis: {
+      title: 'Capital (K)',
+      range: [0, CES_XMAX],
+      scaleanchor: 'x',
+      scaleratio: 1
+    },
+    margin: { t: 50, l: 50, r: 20, b: 50 }
+  };
+
+  // === Initial Draw ===
+  let alphaCes = parseFloat(document.getElementById('alpha-slider-ces').value);
+  let rhoCes   = parseFloat(document.getElementById('rho-slider-ces').value);
+
+  Plotly.newPlot(
+    CES_PLOT_ID,
+    makeCesTraces(alphaCes, rhoCes),
+    layoutCes,
+    { responsive: true }
+  );
+
+  // === Update Function ===
+  function updateCesPlot() {
+    alphaCes = parseFloat(document.getElementById('alpha-slider-ces').value);
+    rhoCes   = parseFloat(document.getElementById('rho-slider-ces').value);
+
+    document.getElementById('alpha-value-ces').textContent = alphaCes.toFixed(2);
+    document.getElementById('rho-value-ces').textContent   = rhoCes.toFixed(2);
+
+    const newTitle = `CES Isoquants (Y=1…7) (α=${alphaCes.toFixed(2)}, ρ=${rhoCes.toFixed(2)})`;
+
+    Plotly.react(
+      CES_PLOT_ID,
+      makeCesTraces(alphaCes, rhoCes),
+      Object.assign({}, layoutCes, { title: newTitle })
+    );
+  }
+
+  // === Wire Up Sliders ===
+  document.getElementById('alpha-slider-ces')
+          .addEventListener('input', updateCesPlot);
+  document.getElementById('rho-slider-ces')
+          .addEventListener('input', updateCesPlot);
+</script>
+
+Importantly:
+
+- When $$\rho$$ is 0, we get the Cobb-Douglas function. 
+- When $$\rho$$ is negative, the curves are more convex than Cobb-Douglas.
+- When $$\rho$$ is between 0 and 1, the curves are less convex (flatter) than Cobb-Douglas.
+- When $$\rho$$ is 1, the isoquants are linear.
+
+## A little Economic History
+
+Personal history: in my first job out of college, I worked in the economics research department of a bank. I wrote for the economics research reports, was occasionally quoted in the New York Times as 'economist Druce Vertes' if they spelled my name right, which they usually did not. 
+
+I also applied for economics PhD and was told to go back and get As in differential equations and linear algebra and summarily rejected. All this to say, I've studied this stuff but I'm also kind of a midwit. So I think this is directionally right but I might not get it exactly right.
 
 We've been through a few industrial revolutions: 
 
@@ -251,21 +374,23 @@ Every buggy driver could probably get retrained as a truck driver and certainly 
 
 OK maybe it was an approximation to begin with. 
 
-But if you have robots that are perfect substitutes for humans, then the form of the production function is (set $$\rho$$ to 1 in the CES function): 
+But if you have robots that are perfect substitutes for humans, then the form of the production function is:
 
 $$Y=A \cdot (\alpha L + \beta K)$$
 
-Isoquants are flat:
+Try it, set $$\rho$$ to 1 in the CES function. Isoquants are flat.
 
-[chart tk]
+Think of this as the edge case where we can build a humanoid robot that anywhere and everywhere could work exactly like a human.
 
-Think of this as the case if we could build a humanoid robot that anywhere and everywhere could work exactly like a human.
+If the isoquants are flat, then in practice you really only have one factor of production since labor and capital are perfect substitutes. Labor can only demand a wage equal to the cost of renting the robot which is a perfect substitute. 
 
-If the isoquants are flat, then in practice you really only have one factor of production. Labor can only demand a wage equal to the cost of renting the robot which is a perfect substitute. 
+If you have a Cobb-Douglas production function, and perfect competition in labor markets, leading to workers being paid their marginal product, then the labor share of national income will equal the capital share. In the idealized classical economics world, firms will keep hiring until the next worker they add does not increase production enough to offset their wages. And the slope of the isoquants defines how much additional labor is worth relative to capital, it determines the wage rate. And unit elasticity of substitution between labor and capital under Cobb-Douglas means that as wages go up and the labor demanded goes down, the wage increase offsets lower employment exactly, so labor income remains the same.
 
-I would argue that technology that is labor-enhancing sharpens the curves of the isoquants. A power tool increases the productivity of the individual who wields it. Or an AI assistant may increase the productivity of a radiologist analyzing images.
+Under Cobb-Douglas, wages will always rise as technology improves productivity and the labor share of national income will stay constant. This has very roughly been the case in the past, contra thinkers like Marx. But possibly only with the help of unions and policy choices to help counter the threat of Communism. Math alone doesn’t force it to happen. There is no theoretical reason $$\rho$$ must be equal to 0. And in fact the labor share has been [declining pretty steadily since around 1970](https://fred.stlouisfed.org/graph/?id=LABSHPUSA156NRUG), although it's still above 50%. 
 
-A technology that is labor-replacing flattens the curves of the isoquants. Tap-to-pay completely eliminates the jobs of subway token clerks.
+I would argue that technology that is labor-assisting sharpens the curves of the isoquants. A power tool increases the productivity of the individual who wields it. It is capital that is highly complementary to labor. Or an AI assistant may increase the productivity of a radiologist analyzing images. 
+
+A technology that is labor-replacing flattens the curves of the isoquants. Tap-to-pay completely eliminates the jobs of subway token clerks. It perfectly substitutes for them.
 
 More than most technologies in the past, AI is labor-replacing across a wide range of occupations.
 
@@ -275,23 +400,27 @@ But AI improves, and next year the 90th percentile becomes the 95th, and the ave
 
 Every year AI becomes better than a larger percentage of humans, at a larger  percentage of tasks.
 
-Now, radiology is a high-stakes, high skill use case. Typically in these use cases in 2025, AI < human < human + AI. If a radiologist takes 5 minutes to review a scan, they might continue to do that with an AI assistant as part of a structured workflow. First the radiologist reviews and highlights areas of concern, then the AI gives a probability of diagnosis on those areas and highlights other areas. AI can even bring up relevant literature and the doctor can ask for detailed comparisons with the scan. AI writes first draft of report based on doctor's instruction, and doctor edits. 
+Now, radiology is a high-stakes, high skill use case. Typically in these use cases in 2025:
+
+$$AI < human < human + AI. $$
+
+If a radiologist takes 5 minutes to review a scan, they might continue to do that with an AI assistant as part of a structured workflow. First the radiologist reviews and highlights areas of concern, then the AI gives a probability of diagnosis on those areas and highlights other areas. AI can even bring up relevant literature and the doctor can ask for detailed comparisons with reference scans. AI writes first draft of report based on doctor's instruction, and doctor edits. 
 
 In this way the human input remains similar but the output should be significantly higher quality with the help of AI. 
 
-Something like medical care is a superior good, you consume more as your income goes up. It might be an income-proportional-good, you might not demand significantly less in nominal terms if the price goes down. AI automates the work but there is a lot of demand for better work. 
+Something like medical care is a superior good, you consume more as your income goes up. It might be an income-proportional-good, you might demand the same amount in nominal terms if the price goes down. AI automates the work but there is a lot of demand for better work. 
 
 But in many occupations, we are not going to raise the quality bar. If you can have a long-distance truck convoy of 10 trucks supervised by 1 or 2 humans, or 10 robot hotel housekeepers supervised by one human, you get rid of the extra humans. 
 
 We can imagine a factory where the robots can maintain and repair each other. You still need humans to design factories and robots, update software. For now anyway.
 
-But the level of skill that a human needs, in order to be able to do something better than AI, can increase beyond what the vast majority of humans can do, for the vast majority of the daily tasks needed to maintain civilization.
+But the level of skill that a human needs, in order to be able to do something better than AI, can increase beyond what the vast majority of humans can do, for the vast majority of the daily tasks needed to maintain civilization. You are only going to hire the human for a task and at a wage where they are cheaper and less trouble than a robot, which might not leave much at all.
 
-Maybe there is a modest demand response, society gets richer, there is more demand for hotels and goods transport. But you don't 10X demand, and it's hard for the housekeepers to retrain into jobs AI can't do.
+Maybe there is a modest demand response, society gets richer, there is more demand for hotels and goods transport. But you don't 10X demand, and it's hard for the housekeepers to retrain into jobs AI can't do. 
 
-If you make heroic assumptions about the form of the production function, perfect competition in markets, leading to workers being paid their marginal product, then wages will rise as technology improves productivity. This has generally been the case in the past, contra thinkers like Marx. But possibly only with the help of unions and policy choices to help thwart the threat of communism. Math alone doesn't force it to happen. You need to parameterize the equations so that it happens.  I would argue that there is a good chance that AI changes the parameters, if you combine it with globalization, neoliberalism, loss of labor power etc., it upends a lot of the economic assumptions that underlie past progress. Maybe we aren't quite there yet. Maybe everybody will just get better at their jobs, and even less educated people can do software dev and analytical jobs with AI and we can shorten workweeks etc. But what would be the incentive to shorten workweeks in the absence of regulations?
+It is not at all a given that when technology destroys some jobs, it creates other, higher-paying jobs. You need to parameterize the equations so that it happens. I would argue that there is a good chance that AI changes the parameters, if you combine it with globalization, neoliberalism, loss of labor power etc., it upends a lot of the economic assumptions that underlie past wage growth. Maybe we aren’t quite there yet. Maybe everybody will just get better at their jobs, and even midwits and less educated people can do software dev and analytical jobs with AI and we can shorten workweeks etc. But what would be the incentive to shorten workweeks in the absence of regulations?
 
-Potentially we can end up with robots building more robots, and an economic singularity where capital grows exponentially and wealth concentrates completely, while humans are immiserated. As a thought experiment, what is the difference between the state owning all the capital and being run by a junta, and a tiny number of individuals owning it? To the extent capitalism works, it requires competitive markets.
+Potentially we can end up with robots building more robots, and an economic singularity where capital grows exponentially and wealth concentrates completely, while humans are immiserated. As a thought experiment, what is the difference between the state owning all the capital and being run by a junta, and a tiny number of individuals owning it? To the extent capitalism works for everyone, it requires competitive markets and not serfdom and extraction of the middle class by powerful interests.
 
 That is what the robot singularity looks like in economic terms. That is the economic challenge we will eventually face as a civilization, along with questions of universal income, which citizens reap the benefits of AI, what happens to people outside that circle, in the global South, what happens to economic growth, freedom, fariness human values and human purpose. We are ill-equipped to confront these questions. Even the places people think about them, the press, the universities, are under siege.
 
