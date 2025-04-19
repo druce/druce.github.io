@@ -24,7 +24,7 @@ AI changes the relationship between capital and labor. Let's look at the shape o
 
 ## The Cobb-Douglas Production Function
 
-Economists use the Cobb-Douglas production function as a simple paradigm for how capital and labor interact.
+Economists use the Cobb-Douglas production function as a simple model of how capital and labor interact to produce GDP and national income.
 
 If we assume complementarity between capital and labor, and also constant returns to scale so that doubling both capital and labor doubles output improves), then we can end up with a production function of the form:
 
@@ -138,13 +138,13 @@ which is called the [Cobb-Douglas production function](https://en.wikipedia.org/
 &nbsp;
 <br />
 
-$$Y$$ is real output (GDP). This are all flows per unit of time, like per year.
+$$Y$$ is real output (GDP). These are all flows per unit of time, like GDP per year.
 
 $$L$$ is the quantity of labor services—e.g., total hours worked, ideally human capital‑adjusted so that someone with more training outputs more labor services per hour worked.
 
 $$K$$ is the quantity of capital services that flow from factories, equipment, trucks, aircraft etc. 
 
-$$A$$ scales the output. Higher $$A$$ corresponds to better technology, same capital and labor produce more real output.
+$$A$$ scales the output. Higher $$A$$ corresponds to better technology. You increase $$A$$, then the same capital and labor produce more real output.
 
 
 We express everything in constant prices. We model the technological relationship between real factor quantities and output, not payments. But converting them to constant dollars expresses them in the same units. We must use constant prices to remove the influence of general or relative price‑level changes.
@@ -243,9 +243,9 @@ If we visualize this 2d topographical map in 3D, the Cobb-Douglas function descr
 
 Consider building houses:
 
-- Without power tools (capital), using tons of labor with manual tools is inefficient in the US, where capital is fairly abundant and cheap, with low real interest rates. But capital intensity is lower in developing countries with abundant low-cost labor and also scarcer capital.
+- Without power tools (capital), using tons of workers with manual tools is labor-inefficient in the US, where capital is fairly abundant and cheap, with low real interest rates. But capital intensity is lower in developing countries with abundant low-cost labor and also scarcer capital.
   
-- Some kind of giant automated 3D printing machine or gundam robot to make a house would probably also be inefficient.
+- Some kind of giant automated 3D printing machine or gundam robot to make a house would probably be capital-inefficient.
   
 - An optimal mix of capital and labor, like workers equipped with power tools, results in the most house for the money.
 
@@ -393,7 +393,7 @@ Try it, set $$\rho$$ to 1 in the CES function. Isoquants are flat.
   <img
   src="/assets/2025/ces-flat.png"
   alt="CES production function with flat isocurves, rho=1">
-	<figcaption>CES production function with flat isocurves, rho=1</figcaption>
+	<figcaption>CES production function with flat isocurves, $$\rho$$=1</figcaption>
 </figure>
 
 
@@ -470,19 +470,23 @@ But the level of skill that a human needs, in order to be able to do something b
 
 Maybe there is a modest demand response, society gets richer, there is more demand for hotels and goods transport. But you don't automatically 10X demand when you 10X productivity, and it's hard for the housekeepers to retrain into jobs AI can't do. 
 
-It is not at all a given that when technology destroys some jobs, it creates other, higher-paying jobs. You need to parameterize the equations to make that happen. I would argue that there is a good chance that AI changes the parameters. If you combine AI with globalization, neoliberalism, loss of organized labor power etc., it upends the economic assumptions that underlie past wage growth. 
-
-Maybe we aren’t quite there yet. Maybe everybody will just get better at their jobs, and even midwits and less educated people can do software dev and analytical jobs with AI and we can shorten workweeks etc. But what would be the incentive to shorten workweeks in the absence of labor laws requiring it?
+It is not at all a given that when technology destroys some jobs, it creates other, higher-paying jobs. You need to parameterize the equations to make that happen. I would argue that there is a good chance that AI changes the parameters. 
 
 Potentially we can end up with robots building more robots, and an economic singularity where capital grows exponentially and wealth concentrates completely, while humans are immiserated. 
 
+If you combine AI with globalization, neoliberalism, loss of organized labor power etc., it upends the economic assumptions that underlie past wage growth. 
+
+Maybe we aren’t quite there yet. Maybe everybody will just get better at their jobs, and even midwits and less educated people can do software dev and analytical jobs with AI and we can shorten workweeks etc. But what would be the incentive to shorten workweeks in the absence of labor laws requiring it?
+
 As a thought experiment, what is the difference between the state owning all the capital and being run by a junta, and a tiny number of individuals owning it, and writing all the rules of an economy and culture and marketplace of political ideas fully mediated by Big Tech? To the extent capitalism works for most people, it requires competitive markets and not unlimited concentration of capital owned by a few, and serfdom and extraction for the rest.
 
-That is what the robot singularity looks like in economic terms. That is the economic challenge we will eventually face as a civilization, along with questions of universal income, robot taxes, which citizens reap the benefits of AI, what happens to people and countries outside that circle, what happens to economic growth, freedom, fairness, civil liberties, human values and human purpose. 
+That is what the robot singularity looks like in economic terms. That is the economic challenge we will eventually face as a civilization, along with questions of universal income, robot taxes, which citizens reap the benefits of AI, what happens to people and countries outside that circle, what happens to economic growth, freedom, fairness, civil liberties, democratic governance, human values and human purpose. 
 
 We are ill-equipped to confront these questions. Even the places people think about them, the press, the universities, are under siege.
 
 There is a risk of the fall of Rome, technofeudalism, barbarism.
+
+
 
 ### Further reading:
 
