@@ -18,15 +18,15 @@ tags: AI
 
 A little personal history: in my first job out of college, I worked in the economics research department of a big investment bank. I wrote for the economics research reports, was occasionally quoted in the New York Times as 'economist Druce Vertes' if they spelled my name right, which they usually did not. 
 
-I also applied for economics PhD and was told to go back and get As in differential equations and linear algebra and summarily rejected. All this to say, I've studied this stuff but I'm also kind of a midwit and it's been a while. 
+I also applied for economics PhD and was told to go back and get As in differential equations and linear algebra, and summarily rejected. All this to say, I've studied this stuff but I'm also kind of a midwit and it's been a while. 
 
-AI changes the relationship between capital and labor. Let's look at the shape of the basic models economists use to think about how they interact, and then think about what AI does and what it means.
+AI changes the relationship between capital and labor. Let's look at the shape of the basic models economists use to think about how capital and labor interact, and then think about how AI changes those relationships and what it means.
 
 ## The Cobb-Douglas Production Function
 
 Economists use the Cobb-Douglas production function as a simple paradigm for how capital and labor interact.
 
-If assume complementarity between capital and labor, and also constant returns to scale so that doubling both capital and labor doubles output improves), then we can end up with a production function of the form:
+If we assume complementarity between capital and labor, and also constant returns to scale so that doubling both capital and labor doubles output improves), then we can end up with a production function of the form:
 
 $$Y = A \cdot L^{\alpha} \cdot K^{1-\alpha}$$
 
@@ -138,19 +138,26 @@ which is called the [Cobb-Douglas production function](https://en.wikipedia.org/
 &nbsp;
 <br />
 
-*L* is the quantity of labor services—e.g., total hours worked, ideally human capital‑adjusted in the sense that someone with more training outputs more labor per hour worked.
+$$Y$$ is real output (GDP). This are all flows per unit of time, like per year.
 
-*K* is the quantity of capital services that flow from factories, equipment, trucks, aircraft etc. 
+$$L$$ is the quantity of labor services—e.g., total hours worked, ideally human capital‑adjusted so that someone with more training outputs more labor services per hour worked.
 
-*Y* is real output (GDP). This are all flows per unit of time, like per year.
+$$K$$ is the quantity of capital services that flow from factories, equipment, trucks, aircraft etc. 
 
-We express everything in constant prices. We model the technological relationship between factor quantities and output, not payments. But converting them to constant dollars expresses them in the same units. We must use constant prices to remove the influence of general or relative price‑level changes.
+$$A$$ scales the output. Higher $$A$$ corresponds to better technology, same capital and labor produce more real output.
 
-The curves are isoquants showing combinations of capital and labor producing the same output level Y. 
 
-Isoquant slopes diminish as you move along them from left to right. This downward convexity, or convexity with respect to the origin reflects the complementarity of capital and labor. Convexity expresses diminishing returns. Adding an additional unit of one input alone becomes increasingly less effective. 
+We express everything in constant prices. We model the technological relationship between real factor quantities and output, not payments. But converting them to constant dollars expresses them in the same units. We must use constant prices to remove the influence of general or relative price‑level changes.
 
-Over time, we invest and accumulate capital, moving up the Y-axis to better isoquants. The labor force grows, moving right along the X-axis to better isoquants. And technology improves, moving isoquants up and to the right for the same amount of capital and labor. 
+The curves are isoquants showing combinations of capital and labor producing the same output level $$Y$$. 
+
+Isoquant slopes diminish as you move along them from left to right. This downward convexity, or convexity with respect to the origin, reflects the complementarity of capital and labor. Convexity expresses diminishing returns. Adding an additional unit of one input alone becomes increasingly less effective. 
+
+Over time, 
+
+- We invest and accumulate capital, moving up the Y-axis to better isoquants. 
+- The labor force grows, moving right along the X-axis to better isoquants. 
+- And technology improves, moving isoquants up and to the right for the same amount of capital and labor. 
 
 If we visualize this 2d topographical map in 3D, the Cobb-Douglas function describes a rolling hill.
 
@@ -373,23 +380,6 @@ Importantly:
 - When $$\rho$$ < 1, we have convexity and diminishing returns as we add one unit of labor or capital.
 - We always have constant returns to scale, doubling labor and capital doubles production.
 
-## A little Economic History
-
-We've passed through a few industrial revolutions: 
-
-- The first industrial revolution of steam and rail and telegraphs starting in the late 1700s.
-
-- The second industrial revolution of oil, cars, electric power, starting in the late 1800s.
-
-- A third industrial revolution of analog electronics, TV and radio, and then digital electronics, computers, the web, mobile/cloud, starting in the 1950s.
-
-- Now maybe we can consider AI the fourth.
-
-When we transitioned from horses and buggies to automobiles, we no longer needed buggy drivers and whip makers and stable hands, but we needed (much more productive) truck drivers and auto mechanics. 
-
-When we went to factories on assembly lines with power tools, we needed electricians and workers who could handle power tools.
-
-Every buggy driver could probably get retrained as a truck driver and certainly a lot of them could get trained as mechanics and even engineers.
 
 ## The Singularity
 
@@ -415,7 +405,7 @@ If you have a Cobb-Douglas production function, and perfect competition in labor
 
 Under Cobb-Douglas, wages will always rise as technology improves productivity and the labor share of national income will stay constant. This has very roughly been the case in the past, *contra* thinkers like Marx. But possibly only with the help of unions and policy choices to help counter the threat of Communism. 
 
-The important thing to note is that the Cobb-Douglas function forces equality between labor and capital factor incomes. If you move to the CES function, math alone doesn’t force it to happen, you need to parameterize it with $$\rho=0$$. 
+The important thing to note is that the Cobb-Douglas function forces income share equality between labor and capital factor incomes. If you move to the CES function, math alone doesn’t force it to happen, you need to parameterize it with $$\rho=0$$. 
 
 There is no theoretical reason $$\rho$$ must be equal to 0. And in fact the labor share has been [declining since around 1970](https://fred.stlouisfed.org/graph/?id=LABSHPUSA156NRUG), although it's still above 50%. 
 
@@ -429,9 +419,34 @@ More than most technologies in the past, AI is labor-replacing across a wide ran
 
 It potentially collapses the tradeoff between labor and capital.
 
+## A little Economic History
+
+We've passed through a few industrial revolutions: 
+
+- The first industrial revolution of steam and rail and telegraphs starting in the late 1700s.
+
+- The second industrial revolution of oil, cars, electric power, starting in the late 1800s.
+
+- A third industrial revolution of analog electronics, TV and radio, and then digital electronics, computers, the web, mobile/cloud, starting in the 1950s.
+
+- Now maybe we can consider AI the fourth.
+
+When we transitioned from horses and buggies to automobiles, we no longer needed buggy drivers and whip makers and stable hands, but we needed (much more productive) truck drivers and auto mechanics. 
+
+When we went to factories on assembly lines with power tools, we needed electricians and workers who could handle power tools.
+
+Every buggy driver could probably get retrained as a truck driver and certainly a lot of them could get trained as mechanics and even engineers.
+
+That being said, labor adjustment takes a long time, there are winners and losers, and some people's livelihoods don't recover. And that's assuming the best case that there is an eventual adjustment.
+
+I'm here to tell you that the pop economics that technology always eventually leads to universal standard of living progress, always raises productivity and therefore wages, is kind of bunk. Theory deoesn't say that.
+
+In perfect markets, the optimistic view depends on a degree of complementarity between labor and capital that may no longer exist in a world full of AI. And in the imperfect real world, the balance of market and political power between labor and capital has a significant impact.
+
+
 ## A robot boot, stamping on a human face, forever?
 
-There are tasks where a good AI today is better than the average human under some time budget. Maybe a 90th-percentile radiologist is better than AI if you give them 30 seconds, and maybe the average doctor is better if you give them 2 minutes. 
+There are tasks where a good AI today is better than the average human under some time budget. [Take radiology](https://www.medpagetoday.com/radiology/diagnosticradiology/110112). Maybe a 90th-percentile radiologist is better than AI if you give them 30 seconds, and maybe the average doctor is better if you give them 2 minutes. 
 
 But AI improves. Next year, the 90th percentile becomes the 95th, and the average doctor needs 15 minutes to match the AI or can't beat the AI no matter how long you give them.
 
@@ -453,7 +468,7 @@ We can imagine a factory where the robots can maintain and repair each other. Yo
 
 But the level of skill that a human needs, in order to be able to do something better than AI, can increase beyond what the vast majority of humans can do, for the vast majority of the daily tasks needed to maintain civilization. You are only going to hire the human for a task and at a wage where they are cheaper and less trouble than a robot, which might not leave many jobs or much wages at all.
 
-Maybe there is a modest demand response, society gets richer, there is more demand for hotels and goods transport. But you don't 10X demand when you 10X productivity, and it's hard for the housekeepers to retrain into jobs AI can't do. 
+Maybe there is a modest demand response, society gets richer, there is more demand for hotels and goods transport. But you don't automatically 10X demand when you 10X productivity, and it's hard for the housekeepers to retrain into jobs AI can't do. 
 
 It is not at all a given that when technology destroys some jobs, it creates other, higher-paying jobs. You need to parameterize the equations to make that happen. I would argue that there is a good chance that AI changes the parameters. If you combine AI with globalization, neoliberalism, loss of organized labor power etc., it upends the economic assumptions that underlie past wage growth. 
 
@@ -469,7 +484,7 @@ We are ill-equipped to confront these questions. Even the places people think ab
 
 There is a risk of the fall of Rome, technofeudalism, barbarism.
 
-Further reading:
+### Further reading:
 
 [Rise of the Robots: Technology and the Threat of a Jobless Future, by Martin Ford](https://a.co/d/65Ql7CO)
 
@@ -477,3 +492,6 @@ Further reading:
 
 [Displacement or Complementarity? The Labor Market Impact of Generative AI, by Wilbur Xinyuan Chen, Suraj Srinivasan, Saleh Zakerinia](https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf)
 
+[The Simple Macroeconomics of AI, by David Autor](https://economics.mit.edu/sites/default/files/2024-05/The%20Simple%20Macroeconomics%20of%20AI.pdf)
+
+[Automation and New Tasks: How Technology Displaces and Reinstates Labor, by Daron Acemoglu and Pascual Restrepo](https://economics.mit.edu/sites/default/files/publications/Automation%20and%20New%20Tasks%20-%20How%20Technology%20Displace.pdf)
