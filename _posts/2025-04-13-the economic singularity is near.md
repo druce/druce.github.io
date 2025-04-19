@@ -405,7 +405,7 @@ If you have a Cobb-Douglas production function, and perfect competition in labor
 
 Under Cobb-Douglas, wages will always rise as technology improves productivity and the labor share of national income will stay constant. This has very roughly been the case in the past, *contra* thinkers like Marx. But possibly only with the help of unions and policy choices to help counter the threat of Communism. 
 
-The important thing to note is that the Cobb-Douglas function forces income share equality between labor and capital factor incomes. If you move to the CES function, math alone doesn’t force it to happen, you need to parameterize it with $$\rho=0$$. 
+The important thing to note is that the Cobb-Douglas function forces income share equality between labor and capital factor incomes. If you move to the CES function, math alone doesn’t force it to happen, you need to parameterize it with $$\rho=0$$ to achieve that result. More convexity and complementarity means a higher labor share, less convexity means a lower labor share.
 
 There is no theoretical reason $$\rho$$ must be equal to 0. And in fact the labor share has been [declining since around 1970](https://fred.stlouisfed.org/graph/?id=LABSHPUSA156NRUG), although it's still above 50%. 
 
@@ -437,7 +437,7 @@ When we went to factories on assembly lines with power tools, we needed electric
 
 Every buggy driver could probably get retrained as a truck driver and certainly a lot of them could get trained as mechanics and even engineers.
 
-That being said, labor adjustment takes a long time, there are winners and losers, and some people's livelihoods don't recover. And that's assuming the best case that there is an eventual adjustment.
+That being said, labor adjustment takes a long time, there are winners and losers, and some people's livelihoods don't recover. And that's assuming the best case that there is an eventual adjustment. Potentially the new jobs might totally different and out of reach for retraining.
 
 I'm here to tell you that the pop economics that technology always eventually leads to universal standard of living progress, always raises productivity and therefore wages, is kind of bunk. Theory deoesn't say that.
 
