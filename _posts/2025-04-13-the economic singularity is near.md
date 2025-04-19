@@ -11,7 +11,7 @@ tags: AI
 
 ---
 
-> I want to discuss the impact of AI on our economy, and why it's different from past revolutions using some intermediate economics.
+> Considering the impact of AI on our economy, and why the AI revolution might be different from past revolutions, using some intermediate economics.
 
 <!--more-->
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -345,11 +345,11 @@ $$Y = A \cdot \left[ \alpha K^{\rho} + (1 - \alpha) L^{\rho} \right]^{\frac{1}{\
 Importantly:
 
 - When $$\rho$$ = 0, we get the Cobb-Douglas function. 
-- When $$\rho$$ < 0, the curves are more convex than Cobb-Douglas.
 - When $$\rho$$ is between 0 and 1, the curves are less convex (flatter) than Cobb-Douglas.
+- When $$\rho$$ < 0, the curves are more convex than Cobb-Douglas.
 - When $$\rho$$ = 1, the isoquants are linear.
 - When $$\rho$$ < 1, we have convexity and diminishing returns as we add one unit of labor or capital.
-- We have constant returns to scale, doubling labor and capital doubles production.
+- We always have constant returns to scale, doubling labor and capital doubles production.
 
 ## A little Economic History
 
@@ -375,9 +375,9 @@ Every buggy driver could probably get retrained as a truck driver and certainly 
 
 ## The Singularity
 
-If you have capital (robots) that is a perfect substitute for humans, then the form of the production function is:
+If you have capital (robots) that is a perfect substitute for labor, then the form of the production function is:
 
-$$Y=A \cdot (\alpha L + \beta K)$$
+$$Y=A \cdot (\alpha L + (1 - \alpha) K)$$
 
 Try it, set $$\rho$$ to 1 in the CES function. Isoquants are flat.
 
@@ -387,7 +387,7 @@ If the isoquants are flat, then in practice you really only have one factor of p
 
 If you have a Cobb-Douglas production function, and perfect competition in labor markets, leading to workers being paid their marginal product, then the labor share of national income will equal the capital share. In the idealized classical economics world, firms will keep hiring until the next worker they add does not increase production enough to offset their wages. And the slope of the isoquants defines how much additional labor is worth relative to capital, it determines the wage rate. And unit elasticity of substitution between labor and capital under Cobb-Douglas means that as wages go up and the labor demanded goes down, the wage increase offsets lower employment exactly, so labor income remains the same.
 
-Under Cobb-Douglas, wages will always rise as technology improves productivity and the labor share of national income will stay constant. This has very roughly been the case in the past, contra thinkers like Marx. But possibly only with the help of unions and policy choices to help counter the threat of Communism. Math alone doesn’t force it to happen. There is no theoretical reason $$\rho$$ must be equal to 0. And in fact the labor share has been [declining pretty steadily since around 1970](https://fred.stlouisfed.org/graph/?id=LABSHPUSA156NRUG), although it's still above 50%. 
+Under Cobb-Douglas, wages will always rise as technology improves productivity and the labor share of national income will stay constant. This has very roughly been the case in the past, contra thinkers like Marx. But possibly only with the help of unions and policy choices to help counter the threat of Communism. Math alone doesn’t force it to happen. There is no theoretical reason $$\rho$$ must be equal to 0. And in fact the labor share has been [declining since around 1970](https://fred.stlouisfed.org/graph/?id=LABSHPUSA156NRUG), although it's still above 50%. 
 
 I would argue that technology that is labor-assisting sharpens the curves of the isoquants. A power tool increases the productivity of the individual who wields it. It is capital that is highly complementary to labor. Or an AI assistant may increase the productivity of a radiologist analyzing images. 
 
@@ -409,19 +409,19 @@ $$AI < human < human + AI $$
 
 If a radiologist takes 10 minutes to review a case, they might continue to do that with an AI assistant as part of a structured workflow. First the radiologist reviews and highlights areas of concern, then the AI gives a probability of diagnosis on those areas and highlights other areas. AI can even bring up relevant literature and the doctor can ask for detailed comparisons with reference scans. AI writes the first draft of report based on doctor's instructions, and the doctor edits. 
 
-In this way the human input remains similar but the output could be significantly higher quality with the help of AI. 
+In this way the human input remains similar but the output could be significantly higher quality with the help of AI. Assuming the market and insurance companies don't demand more automation and less human input.
 
-Something like medical care is a superior good, you consume more as your income goes up. It might be an income-proportional-good, you might demand the same amount in nominal terms if the price goes down. AI automates the work but there is a lot of demand for better work. 
+Something like medical care is a superior good, people consume more as their income goes up. It might be an income-proportional-good, you might even demand the same amount in nominal terms if the price goes down. AI automates the work but there is a lot of demand for better work. 
 
 But in many occupations, we are not going to raise the quality bar. If you can have a long-distance truck convoy of 10 trucks supervised by 1 or 2 humans, or 10 robot hotel housekeepers supervised by one human, you get rid of the extra humans. 
 
-We can imagine a factory where the robots can maintain and repair each other. You still need humans to design factories and robots, update software. For now anyway.
+We can imagine a factory where the robots can maintain and repair each other. You still need humans to design factories and robots, write and debug and improve software. For now anyway.
 
 But the level of skill that a human needs, in order to be able to do something better than AI, can increase beyond what the vast majority of humans can do, for the vast majority of the daily tasks needed to maintain civilization. You are only going to hire the human for a task and at a wage where they are cheaper and less trouble than a robot, which might not leave many jobs or much wages at all.
 
 Maybe there is a modest demand response, society gets richer, there is more demand for hotels and goods transport. But you don't 10X demand when you 10X productivity, and it's hard for the housekeepers to retrain into jobs AI can't do. 
 
-It is not at all a given that when technology destroys some jobs, it creates other, higher-paying jobs. You need to parameterize the equations so to make that happen. I would argue that there is a good chance that AI changes the parameters. If you combine it with globalization, neoliberalism, loss of labor power etc., it upends the economic assumptions that underlie past wage growth. 
+It is not at all a given that when technology destroys some jobs, it creates other, higher-paying jobs. You need to parameterize the equations to make that happen. I would argue that there is a good chance that AI changes the parameters. If you combine AI with globalization, neoliberalism, loss of organized labor power etc., it upends the economic assumptions that underlie past wage growth. 
 
 Maybe we aren’t quite there yet. Maybe everybody will just get better at their jobs, and even midwits and less educated people can do software dev and analytical jobs with AI and we can shorten workweeks etc. But what would be the incentive to shorten workweeks in the absence of labor laws requiring it?
 
