@@ -392,8 +392,9 @@ Explaining the function of $$\rho$$:
 - When $$\rho$$ = 0, we get the Cobb-Douglas function. 
 - When $$\rho$$ is between 0 and 1, the isoquants are less convex (flatter) than Cobb-Douglas.
 - When $$\rho$$ < 0, the isoquants are more convex than Cobb-Douglas.
-- When $$\rho$$ = 1, the isoquants are linear.
+- When $$\rho$$ = 1, the isoquants are linear, and labor and capital are perfect substitutes.
 - When $$\rho$$ < 1, we have convexity and diminishing returns as we add one unit of labor or capital.
+- When $$\rho \rightarrow -\infty$$, the isoquants are right angles, the ratio of capital and labor is fixed, additional capital or labor is useless. (But we run into numerical precision problems when we make the slider range bigger)
 - We always have constant returns to scale, doubling labor and capital doubles production.
 
 
@@ -417,7 +418,7 @@ Think of this as the edge case where we can build a humanoid robot that anywhere
 
 If the isoquants are flat, then in practice you really only have one factor of production since labor and capital are perfect substitutes. Labor can only demand a wage equal to the cost of renting the functionally identical robot.
 
-If you have a Cobb-Douglas production function, and perfect competition in labor markets, leading to workers being paid their marginal product, then the labor share of national income will equal the capital share. In the idealized classical economics world, firms will keep hiring until the next worker they add does not increase production enough to offset their wages. And the slope of the isoquants defines how much additional labor is worth relative to capital, it determines the wage rate. And unit elasticity of substitution between labor and capital under Cobb-Douglas means that as wages go up and the labor demanded goes down, the wage increase offsets lower employment exactly, so labor income remains the same.
+If you have the convex unit-elastic Cobb-Douglas production function, and perfect competition in labor markets, leading to workers being paid their marginal product, then the labor share of national income will equal the capital share. In the idealized classical economics world, firms will keep hiring until the next worker they add does not increase production enough to offset their wages. And the slope of the isoquants defines how much additional labor is worth relative to capital, it determines the wage rate. And unit elasticity of substitution between labor and capital under Cobb-Douglas means that as wages go up and the labor demanded goes down, the wage increase offsets lower employment exactly, so labor income remains the same.
 
 Under Cobb-Douglas, wages will always rise as technology improves productivity and the labor share of national income will stay constant. This has very roughly been the case in the past, *contra* thinkers like Marx. But possibly only with the help of unions and policy choices to help counter the threat of Communism. 
 
@@ -457,7 +458,7 @@ That being said, labor adjustment takes a long time, there are winners and loser
 
 I'm here to tell you that the pop economics that technology always eventually leads to universal standard of living progress, always raises productivity and therefore wages, is kind of bunk. Theory deoesn't say that.
 
-Consider the horse. The horse was a very versatile source of transportation and power. It ran on hay and water and could navigate hostile roads and environment. Steam and then internal combustion engines came along, with railroads and better roads everwhere, and ultimately replaced horses by being better and cheaper. This time around, we might be the horse.
+Consider the horse. The horse was a very versatile source of transportation and power. It ran on hay and water and could navigate bad roads and hostile off-road environments. Steam and then internal combustion engines came along, with railroads and better roads everwhere, and ultimately replaced horses by being better and cheaper. This time around, we might be the horse.
 
 Even in ideal competitive markets, the optimistic view depends on a degree of complementarity between labor and capital that may no longer exist in a world full of AI. And in the imperfect real world, the balance of market and political power between labor and capital has a significant impact.
 
@@ -470,7 +471,7 @@ There are tasks where a good AI today is better than the average human under som
 
 But AI improves. Next year, the 90th percentile becomes the 95th, and the average doctor needs 15 minutes to match the AI or can't beat the AI no matter how long you give them.
 
-Every year AI becomes better than a larger percentage of humans, at a larger  percentage of tasks. AI scientists have learned the [bitter lesson](https://www.cs.utexas.edu/~eunsol/courses/data/bitter_lesson.pdf), which is that general methods and lots of data and compute is all it takes to beat humans at most tasks. GPU go brrr. Clever algorithms designed to mimic how humans solve problems generally just make things worse. Humans currently have an edge in adaptability, in fast learning without as much data and compute, in critical thinking. But we may not be special snowflakes who will always be a step or two ahead of the machines. In 20 years, who knows.
+Every year AI becomes better than a larger percentage of humans, at a larger  percentage of tasks. AI scientists have learned the [bitter lesson](https://www.cs.utexas.edu/~eunsol/courses/data/bitter_lesson.pdf), which is that general methods and lots of data and compute are all it takes to beat humans at most tasks. GPU go brrr. Clever algorithms designed to mimic how humans solve problems generally just make things worse. Humans currently have an edge in adaptability, in fast learning without as much data and compute, in critical thinking. But we may not be special snowflakes who will always be a step or two ahead of the machines. In 20 years, who knows.
 
 Now, radiology is a high-stakes, high skill use case. Typically in these use cases in 2025:
 
@@ -484,19 +485,19 @@ Something like medical care is a superior good, people consume more as their inc
 
 But in many occupations, we are not going to raise the quality bar. If you can have a long-distance truck convoy of 10 trucks supervised by 1 or 2 humans, or 10 robot hotel housekeepers supervised by one human, you get rid of the extra humans. 
 
-We can imagine a factory where the robots can maintain and repair each other. You still need humans to design factories and robots, write and debug and improve software. For now anyway.
+We can imagine a factory where the robots can maintain and repair each other. You still need humans to design factories and robots, write and debug and improve software. For now, anyway.
 
 But the level of skill that a human needs, in order to be able to do something better than AI, can increase beyond what the vast majority of humans can do, for the vast majority of the daily tasks needed to maintain civilization. You are only going to hire the human for a task and at a wage where they are cheaper and less trouble than a robot, which might not leave many jobs or much wages at all. There is always going to be some job, but it might be the equivalent of livestreaming yourself as a freak doing a gross-out act on ['Dum Dummies' from Black Mirror](https://en.wikipedia.org/wiki/Common_People_(Black_Mirror)) and it might not pay much. 
 
 Maybe there is a modest demand response, society gets richer, there is more demand for hotels and goods transport. But you don't automatically 10X demand when you 10X productivity, and it's hard for the housekeepers to retrain into jobs AI can't do. 
 
-It is not at all a given that when technology destroys some jobs, it creates other, higher-paying jobs. You need to parameterize the equations to make that happen. I would argue that there is a good chance that AI changes the parameters. 
+It is not at all a given that when technology destroys some jobs, it creates other, higher-paying jobs. You need to parameterize the equations to make that happen. I would argue that there is a good chance that AI changes the parameters dramatically. 
 
 Potentially we can end up with robots building more robots, and an economic singularity where capital grows exponentially and wealth concentrates completely, while humans are immiserated. 
 
 If you combine AI with globalization, neoliberalism, loss of organized labor power etc., it upends the economic assumptions that underlie past wage growth. 
 
-Maybe we aren’t quite there yet. Maybe everybody will just get better at their jobs, and even midwits and less educated people can do software dev and analytical jobs with AI and we can shorten workweeks etc. But what would be the incentive to shorten workweeks in the absence of labor laws requiring it?
+Maybe we aren’t quite there yet. Maybe everybody will just get better at their jobs, and even midwits and less educated people can do software development and analytical jobs with AI. And we can shorten workweeks. But what would be the incentive to shorten workweeks in the absence of labor laws requiring it?
 
 As a thought experiment, what is the difference between the state owning all the capital and being run by a junta, and a tiny number of individuals owning it, and writing all the rules of an economy and culture and marketplace of political ideas fully mediated by Big Tech? To the extent capitalism works for most people, it requires competitive markets and not unlimited concentration of capital owned by a few, and serfdom and extraction for the rest.
 
