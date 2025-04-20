@@ -29,6 +29,8 @@ A little personal history: in my first job out of college, I worked in the econo
 
 I also applied for economics PhD programs and was told to go back and get As in differential equations and linear algebra, and summarily rejected. All this to say, I've studied this stuff but I'm also kind of a midwit and it's been a while. 
 
+AI might be as disruptive as previous industrial revolutions: steam, electricity, the internal combustion engine. Current AI impacts maybe 50% of jobs right now. When we get really good robots mass-produced at scale in maybe 10 years or so, it will impact close to 100%. Weirdly compared to previous revolutions, LLMs impact high-skill, high-education creative and analytical jobs like coders, writers, analysts, graphical artists more than low-skill, low-education jobs. And the AI community expects fast progress to continue: incremental improvements, bigger scale, maybe new breakthroughs in rapid training, knowledge representation, bridging the gap between Kahneman Type 1 perception and language and Type 2 algorithmic thinking.
+
 AI changes the relationship between capital and labor. Let's look at the shape of the basic models economists use to think about how capital and labor interact, and then think about how AI changes those relationships and what it means.
 
 ## The Cobb-Douglas Production Function
