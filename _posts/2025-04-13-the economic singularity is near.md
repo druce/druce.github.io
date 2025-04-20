@@ -465,7 +465,7 @@ There are tasks where a good AI today is better than the average human under som
 
 But AI improves. Next year, the 90th percentile becomes the 95th, and the average doctor needs 15 minutes to match the AI or can't beat the AI no matter how long you give them.
 
-Every year AI becomes better than a larger percentage of humans, at a larger  percentage of tasks. AI scientists have learned the [bitter lesson](https://www.cs.utexas.edu/~eunsol/courses/data/bitter_lesson.pdf), which is that general methods and lots of data and compute is all it takes to beat humans at most tasks. GPU go brrr. Clever algorithms designed to mimic how humans solve problems generally just make things worse. Humans currently have an edge in adaptability, in fast learning without as much data and compute, in critical thinking. In 20 years, who knows.
+Every year AI becomes better than a larger percentage of humans, at a larger  percentage of tasks. AI scientists have learned the [bitter lesson](https://www.cs.utexas.edu/~eunsol/courses/data/bitter_lesson.pdf), which is that general methods and lots of data and compute is all it takes to beat humans at most tasks. GPU go brrr. Clever algorithms designed to mimic how humans solve problems generally just make things worse. Humans currently have an edge in adaptability, in fast learning without as much data and compute, in critical thinking. But we may not be special snowflakes who will always be a step or two ahead of the machines. In 20 years, who knows.
 
 Now, radiology is a high-stakes, high skill use case. Typically in these use cases in 2025:
 
