@@ -12,11 +12,11 @@ tags: AI
 ---
 > Economics is the painful elaboration of the obvious.
 >
-> There is little support in theory or in history for a strong belief that AI is going to make everyone more productive and broadly raise everyone’s standard of living. That's just motivated thinking, pop economics.
+> There is little support in economic theory or in economic history for a strong belief that AI is going to make everyone more productive and broadly raise everyone’s standard of living. That's just motivated thinking, pop economics.
 >
 >It seems just as likely that we will get increasing income inequality, more concentration of wealth, and more people locked out of decent middle class and working class jobs, if not an economic singularity of robots making more robots while masses are immiserated.
 >
->Let's break it down (painfully).
+>Let's break it down (painful as it may be).
 <figure>
   <img
   src="/assets/2025/ces-flat-small.png"
@@ -455,7 +455,7 @@ That being said, labor adjustment takes a long time, there are winners and loser
 
 I'm here to tell you that the pop economics that technology always eventually leads to universal standard of living progress, always raises productivity and therefore wages, is kind of bunk. Theory deoesn't say that.
 
-Consider the horse. The horse was a very versatile source of transportation and power. It ran on hay and water and could navigate hostile roads and environment. Steam and then internal combustion engines came along, with railroads and better roads everwhere, and ultimately replaced horses by being better and cheaper. 
+Consider the horse. The horse was a very versatile source of transportation and power. It ran on hay and water and could navigate hostile roads and environment. Steam and then internal combustion engines came along, with railroads and better roads everwhere, and ultimately replaced horses by being better and cheaper. This time around, we might be the horse.
 
 Even in ideal competitive markets, the optimistic view depends on a degree of complementarity between labor and capital that may no longer exist in a world full of AI. And in the imperfect real world, the balance of market and political power between labor and capital has a significant impact.
 
