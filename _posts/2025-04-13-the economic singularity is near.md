@@ -432,9 +432,11 @@ Technology that is labor-assisting and highly complementary to labor sharpens th
 
 A technology that is labor-replacing flattens the curves of the isoquants. Tap-to-pay completely eliminates the jobs of subway token clerks. It perfectly substitutes for them.
 
-More than most technologies in the past, AI is more human-like and probably more labor-replacing across a wider range of occupations. 
+More than most technologies in the past, AI is more human-like and probably more labor-replacing across a wider range of occupations.
 
-It potentially collapses the tradeoff between labor and capital.
+All that is really required for AI to favor capital over labor is for AI to flatten the isoquants, to increase the elasticity of substitution, to be less complementary to human labor than existing technologies.
+
+But it could collapse the tradeoff between labor and capital.
 
 ## A little Economic History
 
