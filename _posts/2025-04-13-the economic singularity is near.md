@@ -37,7 +37,7 @@ AI changes the relationship between capital and labor. Let's look at the shape o
 
 Economists use the Cobb-Douglas production function as a simple model of how capital and labor interact to produce GDP and national income.
 
-If we assume complementarity between capital and labor, and also constant returns to scale so that doubling both capital and labor doubles output), then we can end up with a production function of the form:
+If we assume complementarity between capital and labor, and also constant returns to scale so that doubling both capital and labor doubles output), then we can express the relationship with a production function of the form:
 
 $$Y = A \cdot L^{\alpha} \cdot K^{1-\alpha}$$
 
@@ -382,7 +382,7 @@ Now we have $$\alpha$$ to tune the optimal ratio of labor and capital, and also 
           .addEventListener('input', updateCesPlot);
 </script>
 
-Importantly:
+Explaining the function of $$\rho$$:
 
 - When $$\rho$$ = 0, we get the Cobb-Douglas function. 
 - When $$\rho$$ is between 0 and 1, the isoquants are less convex (flatter) than Cobb-Douglas.
@@ -394,7 +394,7 @@ Importantly:
 
 ## The Singularity
 
-If you have capital (robots) that is a perfect substitute for labor, then the form of the production function is:
+If you have capital like a robot that is a perfect substitute for labor, then the form of the production function is:
 
 $$Y=A \cdot [\alpha L + (1 - \alpha) K]$$
 
@@ -452,7 +452,11 @@ That being said, labor adjustment takes a long time, there are winners and loser
 
 I'm here to tell you that the pop economics that technology always eventually leads to universal standard of living progress, always raises productivity and therefore wages, is kind of bunk. Theory deoesn't say that.
 
-In perfect markets, the optimistic view depends on a degree of complementarity between labor and capital that may no longer exist in a world full of AI. And in the imperfect real world, the balance of market and political power between labor and capital has a significant impact.
+Consider the horse. The horse was a very versatile source of transportation and power. It ran on hay and water and could navigate hostile roads and environment. Steam and then internal combustion engines came along, with railroads and better roads everwhere, and ultimately replaced horses by being better and cheaper. 
+
+Even in ideal competitive markets, the optimistic view depends on a degree of complementarity between labor and capital that may no longer exist in a world full of AI. And in the imperfect real world, the balance of market and political power between labor and capital has a significant impact.
+
+Most jobs don't require that much creativity and knowledge. Your brain is just a slow, biased pattern-matcher trained on questionable data. Just like AI, but worse. In many but not all respects currently, but in 20 years, who knows?
 
 
 ## A robot boot, stamping on a human face, forever?
@@ -461,7 +465,7 @@ There are tasks where a good AI today is better than the average human under som
 
 But AI improves. Next year, the 90th percentile becomes the 95th, and the average doctor needs 15 minutes to match the AI or can't beat the AI no matter how long you give them.
 
-Every year AI becomes better than a larger percentage of humans, at a larger  percentage of tasks.
+Every year AI becomes better than a larger percentage of humans, at a larger  percentage of tasks. AI scientists have learned the [bitter lesson](https://www.cs.utexas.edu/~eunsol/courses/data/bitter_lesson.pdf), which is that general methods and lots of data and compute is all it takes to beat humans at most tasks. GPU go brrr. Clever algorithms designed to mimic how humans solve problems generally just make things worse. Humans currently have an edge in adaptability, in fast learning without as much data and compute, in critical thinking. In 20 years, who knows.
 
 Now, radiology is a high-stakes, high skill use case. Typically in these use cases in 2025:
 
