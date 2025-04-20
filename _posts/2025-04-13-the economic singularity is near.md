@@ -399,7 +399,7 @@ Explaining the function of $$\rho$$:
 
 ## The Singularity
 
-If you have capital like a robot that is a perfect substitute for labor, then the form of the production function is:
+If you have capital that is a perfect substitute for labor (like a robot), then the form of the production function is:
 
 $$Y=A \cdot [\alpha L + (1 - \alpha) K]$$
 
@@ -431,7 +431,7 @@ Technology that is labor-assisting and highly complementary to labor sharpens th
 
 A technology that is labor-replacing flattens the curves of the isoquants. Tap-to-pay completely eliminates the jobs of subway token clerks. It perfectly substitutes for them.
 
-More than most technologies in the past, AI is labor-replacing across a wide range of occupations. 
+More than most technologies in the past, AI is more human-like and probably more labor-replacing across a wider range of occupations. 
 
 It potentially collapses the tradeoff between labor and capital.
 
