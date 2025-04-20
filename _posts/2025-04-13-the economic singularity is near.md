@@ -12,7 +12,7 @@ tags: AI
 ---
 > Economics is the painful elaboration of the obvious.
 >
-> There is no guarantee in theory or in history for the belief that AI is going to make everyone more productive and broadly raise everyone's standard of living. It seems at least equally plausible that we will get increasing income inequality, more concentration of wealth, and more people locked out of decent middle class and working class jobs.
+> There is little support in theory or in history for a strong belief that AI is going to make everyone more productive and broadly raise everyone’s standard of living. It seems more likely that we will get increasing income inequality, more concentration of wealth, and more people locked out of decent middle class and working class jobs, if not an economic singularity of robots making more robots while masses are immiserated.
 
 <figure>
   <img
