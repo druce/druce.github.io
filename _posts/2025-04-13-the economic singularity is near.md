@@ -14,7 +14,7 @@ tags: AI
 >
 > There is little support in economic theory or in economic history for a strong belief that AI is going to make everyone more productive and broadly raise everyone’s standard of living. That's just motivated thinking, pop economics.
 >
->It seems just as likely that we will get increasing income inequality, more concentration of wealth, and more people locked out of decent middle class and working class jobs, if not an economic singularity of robots making more robots while masses are immiserated.
+>It seems just as likely that we will get growth but also increasing income inequality, more concentration of wealth, and more people locked out of decent middle class and working class jobs, if not an economic singularity of robots making more robots while masses are immiserated.
 >
 >Let's break it down (painful as it may be).
 <figure>
@@ -456,20 +456,20 @@ When we went to factories on assembly lines with power tools, we needed electric
 
 Every buggy driver could probably get retrained as a truck driver and certainly a lot of them could get trained as mechanics and even engineers.
 
-That being said, labor adjustment takes a long time, there are winners and losers, and some people's livelihoods don't recover. And that's assuming the best case that there is an eventual adjustment. Potentially the new jobs might totally different and out of reach for retraining.
+That being said, labor adjustment takes a long time, there are winners and losers, and some people's livelihoods don't recover in their lifetimes. And that's assuming the best case that there is an eventual adjustment. Potentially the new jobs might totally different and out of reach for retraining.
 
-I'm here to tell you that the pop economics that technology always eventually leads to universal standard of living progress, always raises productivity and therefore wages, is kind of bunk. Theory deoesn't say that.
+I'm here to tell you that the pop economics that technology always eventually leads to universal standard of living progress, always raises productivity and therefore wages in tandem, is bunk. Theory deoesn't say that. History kind of said that, but it's been a lot less true the last 50 years or so in the US, as the capital share has risen.
 
 Consider the horse. The horse was a very versatile source of transportation and power. It ran on hay and water and could navigate bad roads and hostile off-road environments. Steam and then internal combustion engines came along, with railroads and better roads everwhere, and ultimately replaced horses by being better and cheaper. This time around, we might be the horse.
 
 Even in ideal competitive markets, the optimistic view depends on a degree of complementarity between labor and capital that may no longer exist in a world full of AI. And in the imperfect real world, the balance of market and political power between labor and capital has a significant impact.
 
-Most jobs don't require that much creativity and knowledge. Your brain is just a slow, biased pattern-matcher trained on questionable data. Just like AI, but worse. In many but not all respects currently, but in 20 years, who knows?
+Most jobs don't require all of humans' creativity and knowledge. And your brain is just a slow, biased pattern-matcher trained on questionable data. Just like AI, but worse. In many but not all respects currently, but in 20 years, who knows?
 
 
 ## A robot boot, stamping on a human face, forever?
 
-There are tasks where a good AI today is better than the average human under some time budget. [Take radiology](https://www.medpagetoday.com/radiology/diagnosticradiology/110112). Maybe a 90th-percentile radiologist is better than AI if you give them 30 seconds, and maybe the average doctor is better if you give them 2 minutes. 
+There are tasks where a good AI today is better than the average human under some time budget. [Take radiology](https://www.medpagetoday.com/radiology/diagnosticradiology/110112). Maybe a 90th-percentile radiologist is better than AI if you give them 30 seconds, and maybe the average doctor is better if you give them 2 minutes. (Made-up numbers, although there is literature on this).
 
 But AI improves. Next year, the 90th percentile becomes the 95th, and the average doctor needs 15 minutes to match the AI or can't beat the AI no matter how long you give them.
 
@@ -481,7 +481,7 @@ $$AI < human < human + AI $$
 
 If a radiologist takes 10 minutes to review a case, they might continue to do that with an AI assistant as part of a structured workflow. First the radiologist reviews and highlights areas of concern, then the AI gives a probability of diagnosis on those areas and highlights other areas. AI can even bring up relevant literature and the doctor can ask for detailed comparisons with reference scans. AI writes the first draft of report based on doctor's instructions, and the doctor edits. 
 
-In this way the human input remains similar but the output could be significantly higher quality with the help of AI. Assuming the market and insurance companies don't demand more automation and less human input.
+In this way the human input remains similar but the output could be significantly higher quality with the help of AI. (Assuming the market and insurance companies don't demand more automation and less human input.)
 
 Something like medical care is a superior good, people consume more as their income goes up. It might be an income-proportional-good, you might even demand the same amount in nominal terms if the price goes down. AI automates the work but there is a lot of demand for better work. 
 
@@ -489,11 +489,11 @@ But in many occupations, we are not going to raise the quality bar. If you can h
 
 We can imagine a factory where the robots can maintain and repair each other. You still need humans to design factories and robots, write and debug and improve software. For now, anyway.
 
-But the level of skill that a human needs, in order to be able to do something better than AI, can increase beyond what the vast majority of humans can do, for the vast majority of the daily tasks needed to maintain civilization. You are only going to hire the human for a task and at a wage where they are cheaper and less trouble than a robot, which might not leave many jobs or much wages at all. There is always going to be some job, but it might be the equivalent of livestreaming yourself as a freak doing a gross-out act on ['Dum Dummies' from Black Mirror](https://en.wikipedia.org/wiki/Common_People_(Black_Mirror)) and it might not pay much. 
+The level of skill that a human needs, in order to be able to do something better than AI, can increase beyond what the vast majority of humans can do, for the vast majority of the daily tasks needed to maintain civilization. You are only going to hire the human for a task and at a wage where they are cheaper and less trouble than a robot, which might not leave many jobs or much wages at all. There is always going to be some job, but it might be as an influencer (digital tout), or livestreaming yourself as a freak doing a gross-out act on ['Dum Dummies' from Black Mirror](https://en.wikipedia.org/wiki/Common_People_(Black_Mirror)) and it might not pay much. 
 
 Maybe there is a modest demand response, society gets richer, there is more demand for hotels and goods transport. But you don't automatically 10X demand when you 10X productivity, and it's hard for the housekeepers to retrain into jobs AI can't do. 
 
-It is not at all a given that when technology destroys some jobs, it creates other, higher-paying jobs. You need to parameterize the equations to make that happen. I would argue that there is a good chance that AI changes the parameters dramatically. 
+It is not at all a given that when technology destroys some jobs, it creates other, higher-paying jobs. You need to parameterize the equations to make that happen. I would argue that there is a good chance that AI changes the parameters dramatically in the other direction. 
 
 Potentially we can end up with robots building more robots, and an economic singularity where capital grows exponentially and wealth concentrates completely, while humans are immiserated. 
 
@@ -501,13 +501,15 @@ If you combine AI with globalization, neoliberalism, loss of organized labor pow
 
 Maybe we aren’t quite there yet. Maybe everybody will just get better at their jobs, and even midwits and less educated people can do software development and analytical jobs with AI. And we can shorten workweeks. But what would be the incentive to shorten workweeks in the absence of labor laws requiring it?
 
-As a thought experiment, what is the difference between the state owning all the capital and being run by a junta, and a tiny number of individuals owning it, and writing all the rules of an economy and culture and marketplace of political ideas fully mediated by Big Tech? To the extent capitalism works for most people, it requires competitive markets and not unlimited concentration of capital owned by a few, and serfdom and extraction for the rest.
+As a thought experiment, what is the difference between the state owning all the capital and being run by a politburo or junta, and a tiny number of individuals owning it, and writing all the rules of an economy and culture and marketplace of political ideas fully mediated by technology? To the extent capitalism works for most people, it requires competitive markets and not unlimited concentration of capital owned by a few, and serfdom and extraction for the rest.
 
 That is what the robot singularity looks like in economic terms. That is the economic challenge we will eventually face as a civilization, along with questions of universal income, robot taxes, which citizens reap the benefits of AI, what happens to people and countries outside that circle, what happens to economic growth, freedom, fairness, civil liberties, democratic governance, human values and human purpose. 
 
 We are ill-equipped to confront these questions. Even the places people think about them, the press, the universities, are under siege.
 
-There is a risk of the fall of Rome, technofeudalism, barbarism.
+There is a risk of the fall of Rome, technofeudalism, barbarism. Maybe not next year, maybe not in 10 years, but it might be where we are headed. 
+
+At least, not knowing exactly how the tech and the equations evolve, we need to be mindful of that possibility.
 
 
 
@@ -515,7 +517,7 @@ There is a risk of the fall of Rome, technofeudalism, barbarism.
 
 [Rise of the Robots: Technology and the Threat of a Jobless Future, by Martin Ford](https://a.co/d/65Ql7CO)
 
-[The Economic Singularity: Artificial intelligence and the death of capitalism Paperback, by Calum Chace](https://a.co/d/8EaMGeu)
+[The Economic Singularity: Artificial intelligence and the death of capitalism, by Calum Chace](https://a.co/d/8EaMGeu)
 
 [Displacement or Complementarity? The Labor Market Impact of Generative AI, by Wilbur Xinyuan Chen, Suraj Srinivasan, Saleh Zakerinia](https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf)
 
