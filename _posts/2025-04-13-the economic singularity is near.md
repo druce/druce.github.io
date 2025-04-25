@@ -162,6 +162,7 @@ $$K$$ is the quantity of capital services that flow from factories, equipment, t
 
 $$A$$ scales the output. Higher $$A$$ corresponds to better technology. You increase $$A$$, then the same capital and labor produce more real output.
 
+$$/alpha$$ can be viewed as letting us tune the optimal ratio of capital and labor. Given a K+L budget, there is a maximum Y isoquant that can be achieved whose slope matches the slope of the budget line which is the relative price. The optimal ratio is a function of technology (ie shape of the isoquants) and the relative price of capital and labor.
 
 We express everything in constant prices. We model the technological relationship between real factor quantities and output, not payments. But converting them to constant dollars expresses them in the same units. We must use constant prices to remove the influence of general or relative price‑level changes.
 
