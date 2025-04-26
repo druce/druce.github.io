@@ -192,7 +192,7 @@ If we visualize this 2d topographical map in 3D, the Cobb-Douglas function descr
   <span id="alpha-value-3d">0.50</span>
 </div>
 
-<div id="isoquant-plot-3d"></div>
+<div id="isoquant-plot-3d" style="height:300px;"></div>
 
 <script>
   // 3D variables
@@ -204,7 +204,7 @@ If we visualize this 2d topographical map in 3D, the Cobb-Douglas function descr
   function makeSurface3d(alpha3d) {
     const beta3d = 1 - alpha3d;
     const z = Kgrid3d.map(k =>
-      Lgrid3d.map(l => Math.pow(l, beta3d) * Math.pow(k, alpha3d))
+      Lgrid3d.map(l => 2 * Math.pow(l, beta3d) * Math.pow(k, alpha3d))
     );
     return [{
       type: 'surface',
@@ -388,6 +388,7 @@ Now we have $$\alpha$$ to tune the optimal ratio of labor and capital, and also 
           .addEventListener('input', updateCesPlot);
 </script>
 
+
 Explaining the function of $$\rho$$:
 
 - When $$\rho$$ = 0, we get the Cobb-Douglas function. 
@@ -395,7 +396,7 @@ Explaining the function of $$\rho$$:
 - When $$\rho$$ < 0, the isoquants are more convex than Cobb-Douglas.
 - When $$\rho$$ = 1, the isoquants are linear, and labor and capital are perfect substitutes.
 - When $$\rho$$ < 1, we have convexity and diminishing returns as we add one unit of labor or capital.
-- When $$\rho \rightarrow -\infty$$, the isoquants are right angles, the ratio of capital and labor is fixed, additional capital or labor is useless. (But we run into numerical precision problems when we make the slider range bigger)
+- When $$\rho \rightarrow -\infty$$, the isoquants are right angles, the ratio of capital and labor is fixed, capital and labor are perfect complements, additional capital or labor has 0 marginal product. (But we run into numerical precision problems when we make the slider range bigger)
 - We always have constant returns to scale, doubling labor and capital doubles production.
 
 
@@ -463,7 +464,7 @@ I'm here to tell you that the pop economics that technology always eventually le
 
 Consider the horse. The horse was a very versatile source of transportation and power. It ran on hay and water and could navigate bad roads and hostile off-road environments. Steam and then internal combustion engines came along, with railroads and better roads everwhere, and ultimately replaced horses by being better and cheaper. This time around, we might be the horse.
 
-Even in ideal competitive markets, the optimistic view depends on a degree of complementarity between labor and capital that may no longer exist in a world full of AI. And in the imperfect real world, the balance of market and political power between labor and capital has a significant impact.
+Even in ideal competitive markets, the optimistic view depends on a degree of complementarity between labor and capital that may no longer exist in a world full of AI. And in the imperfect real world, the balance of market and political power between labor and capital has a significant impact. If labor and capital were perfect complements, square isoquants, fixed ratio of labor and capital, then whoever was in a stronger bargaining position , scarcer, better organized, more political power, would get the lion's share of national income)
 
 Most jobs don't require all of humans' creativity and knowledge. And your brain is just a slow, biased pattern-matcher trained on questionable data. Just like AI, but worse. In many but not all respects currently, but in 20 years, who knows?
 
