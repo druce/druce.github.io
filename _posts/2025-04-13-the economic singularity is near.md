@@ -262,7 +262,7 @@ Consider building houses:
 
 - Without power tools (capital), using tons of workers with manual tools is labor-inefficient in the US, where capital is fairly abundant and cheap, with low real interest rates. But capital intensity is lower in developing countries with abundant low-cost labor and also scarcer capital.
   
-- Some kind of giant automated 3D printing machine or gundam robot to make a house would probably be capital-inefficient.
+- Some kind of giant automated [3D printing machine](https://www.youtube.com/watch?v=vL2KoMNzGTo) or [gundam robot](AI-powered robots coming for construction workers' jobs) to make a house might be capital-inefficient.
   
 - An optimal mix of capital and labor, like workers equipped with power tools, results in the most house for the money.
 
