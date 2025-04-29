@@ -14,7 +14,7 @@ tags: AI
 >
 > Politicians sometimes say things like “AI is going to make our workers more productive, and they will reap the rewards with higher wages."
 >
-> It's mostly worked out the way in the past. But you have to drill down to understand why it might or might not work out that way in the future. There is little support in economics for the notion that technological progress always raises everyone’s wages and standard of living. It's a Panglossian belief based on motivated thinking.
+> It's mostly worked out the way in the past. But you have to drill down to understand why it might or might not work out that way in the future. There is little support in economics for the notion that technological progress always raises everyone’s wages and standard of living. It's a Panglossian belief based on motivated thinking. How much labor benefits, and how much capital benefits, depends on how technology complements labor versus substituting for it.
 >
 >It seems equally likely that we will get growth but also disruption, more income inequality, more concentration of wealth, and more people locked out of decent middle class and working class jobs, if not an economic singularity of robots making more robots while masses are immiserated.
 >
