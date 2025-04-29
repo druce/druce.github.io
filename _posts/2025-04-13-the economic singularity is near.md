@@ -12,9 +12,11 @@ tags: AI
 ---
 > Economics is the painful elaboration of the obvious.
 >
-> There is little support in economic theory or in economic history for a strong belief that AI is going to make everyone more productive and broadly raise everyone’s standard of living. That's just motivated thinking, pop economics.
+> Politicians say things like “AI is going to make our workers more productive, and they will reap the rewards with higher wages."
 >
->It seems just as likely that we will get growth but also increasing income inequality, more concentration of wealth, and more people locked out of decent middle class and working class jobs, if not an economic singularity of robots making more robots while masses are immiserated.
+> It's mostly worked out the way in the past. But you have to drill down to understand why it might or might not work out that way in the future. There is little support in economics for the notion that technological progress always raises everyone’s wages and standard of living. That belief is Panglossian motivated thinking couched in pop economics.
+>
+>It seems equally likely that we will get growth but also disruption, more income inequality, more concentration of wealth, and more people locked out of decent middle class and working class jobs, if not an economic singularity of robots making more robots while masses are immiserated.
 >
 >Let's break it down (painful as it may be).
 <figure>
