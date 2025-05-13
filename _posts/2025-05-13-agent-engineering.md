@@ -64,7 +64,11 @@ With these 3 components you can build highly capable single-turn OpenAI [Assista
     
 - **Plan‑and‑Execute (Hierarchical Planning)** – First draft a high‑level plan, then execute each sub‑task in order. [LangChain: Plan-and-Execute Agents](https://blog.langchain.dev/planning-agents/); [Paper: Wang et al.](https://arxiv.org/abs/2305.04091?utm_source=chatgpt.com)
   
-- **Parallelization of Sub‑tasks** – Fan out independent LLM calls asynchronously (map‑reduce, parallel tools) and aggregate results for speed or consensus.  [LangChain: How to invoke runnables in parallel](https://python.langchain.com/docs/how_to/parallel/)
+- **Parallelization of Sub‑tasks** – In contrast to sequential tasks, we can fan out independent LLM calls asynchronously (map‑reduce, parallel tools) and aggregate results for speed or consensus. We can perform similar tasks in different ways and pick the best one, or take all the outputs and synthesize a response from them.  [LangChain: How to invoke runnables in parallel](https://python.langchain.com/docs/how_to/parallel/)
+
+- [Tree of Thoughts (ToT)](https://arxiv.org/abs/2305.10601) / [Graph of Thought (GoT)](https://arxiv.org/abs/2308.09687)
+
+- [Guardrails.](https://www.guardrailsai.com/) . a form of reflection, some frameworks have reusable guardrail assertions and processes.
 
 - **Orchestrator‑Worker Architecture** – A central orchestrator maintains state, assigns work to specialized worker agents, and merges their outputs—a pragmatic bridge to full multi‑agent systems.  [The LangGraph state graph framework is one pattern.](https://academy.langchain.com/courses/intro-to-langgraph]) Another pattern would be to use [OpenAI Agents toolkit](https://openai.github.io/openai-agents-python/), make each node a tool (including tools that call LLMs), and have a top-level reasoning prompt describing a workflow and telling the LLM to run the workflow using the available tools.
 
@@ -80,7 +84,13 @@ With these 3 components you can build highly capable single-turn OpenAI [Assista
 
 - https://www.researchgate.net/publication/387577302_A_Survey_of_Agentic_AI_Multi-Agent_Systems_and_Multimodal_Frameworks_Architectures_Applications_and_Future_Directions
 
-
+- **frameworks**
+langchain
+llamaindex
+autogen
+crew.ai
+babyagi , autollm, superagi
+agentbench and other benchmarks on different tasks
 
 
 
