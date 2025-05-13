@@ -5,7 +5,7 @@ date: 2025-04-12T01:01:01+00:00
 author: Druce Vertes
 layout: post
 guid: /?p=7140
-permalink: /2024/11/economic_singularity
+permalink: /2025/04/economic_singularity
 categories: AI
 tags: AI
 
