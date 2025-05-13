@@ -30,12 +30,13 @@ tags: AI
 	- Or [T-C-E-P-F-T](https://medium.com/@BK.HAN/6-essential-elements-of-ai-prompt-engineering-tcepft-as-bk-hans-mnemonic-43e689f22ad8). Use what resonates with you. <br />
     - These days, you don't need to spend a lot of hours learning prompt engineering, think about your intention, take a first crack using one of the above frameworks, and then ask your favorite LLM to improve it.
     - Side quest - [proper evals](https://www.promptfoo.dev/docs/intro/), and prompt optimization with tools like [DSPy](https://dspy.ai/).
-    - Good prompting and evals are a foundational skill. If you have good evals, you will eventually have good prompts and outputs through iteration. If you don't have good evals, changes in underlying LLMs and assumptions will break your prompts and agents.
+    - Good prompting and evals are a foundational skill. If you have good evals, you will eventually have good prompts and outputs through iteration. If you don't have good evals, changes in underlying LLMs and assumptions will break your prompts and agents.<br />
 <br />
-- **Basic RAG** – Give the agent some documents and a tool (such as a vector database) to find relevant parts of the documents and respond using them via in-context learning (stuffing the prompt with data to ground the answer, examples etc.).
-
 
 - **Tool Use** – Expose a catalog of external APIs and let the LLM decide which expert tool to call at each step (search, calculator, SQL, control a browser or a python interpeter through computer use, etc.).  [Microsoft: Tool Use Design Pattern](https://microsoft.github.io/ai-agents-for-beginners/04-tool-use/)
+
+- **Basic RAG** – Give the agent documents and a tool (such as a vector database) to find relevant parts of the documents and respond using them via in-context learning (stuffing the prompt with data to ground the answer, examples etc.).
+
 
 With these 3 components you can build a highly capable single-turn OpenAI [Assistants](https://platform.openai.com/docs/api-reference/assistants) or [Custom GPTs](https://help.openai.com/en/articles/8554397-creating-a-gpt) However, these frameworks (and equivalents on other platforms) have limitations in terms of multi-turn workflows, tools, sometimes which models you can use. To get to true agents, we want highly customizable multi-turn workflows that may use many different models, tools and sub-agents.
 
