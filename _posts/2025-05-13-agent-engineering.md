@@ -19,7 +19,7 @@ tags: AI
 <!--more-->
 
 
-- **Role / Instruction Prompting** – Craft concise system‑, role‑ and user‑level instructions so the LLM adopts the right persona and format from the very first turn. This is the entry‑level skill that underpins every other pattern.  [Practical ChatGPT Prompting: 15 Patterns to Improve Your Prompts](https://druce.ai/2024/01/prompting)
+- **Role / Instruction Prompting** – Craft concise system‑, role‑ and user‑level instructions so the LLM answers properly and in the right format. This is the entry‑level skill that underpins every other pattern.  [Practical ChatGPT Prompting: 15 Patterns to Improve Your Prompts](https://druce.ai/2024/01/prompting)
 	- C-L-E-A-R
 		- _Contextualize_ - Specify a role or persona: _“You are a copy editor with years of experience polishing articles and blog posts for web publication.”_
 		- _Limits_ - Length; format like three bullet points; tone or style like concisely, or like a tech journalist, or only use facts from this text.
@@ -28,6 +28,9 @@ tags: AI
 		- _Reflect or Review_ - Ask ChatGPT to ask clarifying questions before answering, give itself space, such as “think step by step”, “make sure of x before answering”.
 	- [P-R-E-P-A-R-E-D](https://www.forbes.com/sites/danfitzpatrick/2024/08/10/the-perfect-chatgpt-prompt-doesnt-exi-/) is another. 
 	- Or [T-C-E-P-F-T](https://medium.com/@BK.HAN/6-essential-elements-of-ai-prompt-engineering-tcepft-as-bk-hans-mnemonic-43e689f22ad8). Use what resonates with you. <br />
+    - These days, you don't need to spend a lot of hours learning prompt engineering, think about your intention, take a first crack using one of the above frameworks, and then ask your favorite LLM to improve it.
+    - Side quest - [proper evals](https://www.promptfoo.dev/docs/intro/), and prompt optimization with tools like [DSPy](https://dspy.ai/).
+    - Good prompting and evals are a foundational skill. If you have good evals, you will eventually have good prompts and outputs through iteration. If you don't have good evals, changes in underlying LLMs and assumptions will break your prompts and agents.
 <br />
 - **Basic RAG** – Give the agent some documents and a tool (such as a vector database) to find relevant parts of the documents and respond using them via in-context learning (stuffing the prompt with data to ground the answer, examples etc.).
 
