@@ -90,7 +90,7 @@ With these components you can build highly capable single-turn OpenAI [Assistant
 
 - **Model Context Protocol and other communications protocols** – When you create a tool, in addition to implementing its functionality there's a semantic layer you have to provide to an LLM so it knows how to use it: the input schema, the output schema, when and why to use it. [MCP](https://diamantai.substack.com/p/model-context-protocol-mcp-explained) is a standard for doing this. There are [other ways for agents to communicate with the outside world and each other](https://arxiv.org/abs/2504.16736). Another evolving standard is [A2A](https://diamantai.substack.com/p/googles-agent2agent-a2a-explained). If one agent calls another agent, it may be a long-running process and a multi-turn chat conversation, unlike the REST call typically described by MCP. So there may be a need for a different standard to monitor long-running processes that come back to ask for more information, or that you want to send a sequence of interactive requests to.
 
-When you see an agent doing something that looks magical, like OpenAI's deep research, it's probably doing something that is a composition of patterns like these, and the right prompt applied to the right context.
+When you see an agent doing something simple, like my daily [AI news bot](https://github.com/druce/AInewsbot), or magical, like OpenAI's [deep research](https://openai.com/index/introducing-deep-research/), it's probably doing something that is a composition of patterns like these, and the right prompt applied to the right context.
     
 ## Further Reading:
 
