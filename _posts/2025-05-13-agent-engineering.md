@@ -31,7 +31,7 @@ tags: AI
 
 ## Components of agents:
 
-- **Role / Instruction Prompting** – Concise system‑, role‑ and user‑level instructions so the LLM answers properly and in the right format. This is the entry‑level skill that underpins every other pattern.
+- **Prompting** – 'Prompt engineering' may be overstating it, but you need to be able to author concise system‑, role‑ and user‑level instructions so the LLM answers properly and in the right format. This is the entry‑level skill that underpins every other pattern.
 	- C-L-E-A-R
 		- _Contextualize_ - Specify a role or persona: _“You are a copy editor with years of experience polishing articles and blog posts for web publication.”_
 		- _Limits_ - Length; format like three bullet points; tone or style like concisely, or like a tech journalist, or only use facts from this text.
