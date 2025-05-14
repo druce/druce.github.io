@@ -11,7 +11,7 @@ tags: AI
 
 ---
 
-> What are AI agents? [Simon Willison](https://x.com/simonw/status/1843290729260703801) crowdsourced a lot of definitions that focus on 
+> What are AI agents? [Simon Willison](https://x.com/simonw/status/1843290729260703801) crowdsourced a lot of definitions that focus on:
 > 
 > 1) Taking action on the user's behalf in the real world (ie what the agent does) <br />
 > 2) Using the LLM in a loop, or some complex control flow (ie how it does it).
@@ -20,7 +20,7 @@ tags: AI
 >
 >In essence we turn the LLM into the CPU of a Turing machine that can manage state, short- and long-term memory, I/O, and control flow. Connected to your computer and the Internet, the agent can access APIs and computer tools to search for info and perform actions.
 >
-> Here is a roadmap of agent concepts and patterns to learn, and resources to learn them (work in progress)
+> This is a roadmap of agent concepts and patterns to learn, and resources to learn them.
 <br />
 &nbsp;
 <br />
@@ -43,8 +43,8 @@ tags: AI
     - These days, you don't need to spend hundreds of hours learning prompt engineering. Think about your intention, take a first crack using one of the above frameworks, and then ask your favorite LLM to improve it, iterating as necessary.
     - Side quest - [proper evals](https://www.promptfoo.dev/docs/intro/), and prompt optimization with tools like [DSPy](https://dspy.ai/).
     - Good prompting and evals are a foundational skill. If you have good evals, you will eventually have good prompts and outputs through iteration. If you don't have good evals, changes in underlying LLMs and assumptions will break your prompts and agents.<br />
-    - See previous post: [Practical ChatGPT Prompting: 15 Patterns to Improve Your Prompts](https://druce.ai/2024/01/prompting)<br /> &nbsp; <br />
-    - [GPT 4.1 prompting guide](https://cookbook.openai.com/examples/gpt4-1_prompting_guide). These models are designed for agentic workflows, they do many things automatically that required a lot of prompting in previous models.
+    - See previous post: [Practical ChatGPT Prompting: 15 Patterns to Improve Your Prompts](https://druce.ai/2024/01/prompting)
+    - [GPT 4.1 prompting guide](https://cookbook.openai.com/examples/gpt4-1_prompting_guide). These new OpenAI models are trained for agentic workflows, they do many things automatically that required a lot of prompting in previous models.<br /> &nbsp; <br />
 
 - **Tool Use** – Expose a catalog of external APIs to the agent and let the LLM decide which tool to call at each turn (search, SQL, REST, control a browser or a Python interpeter through computer use, etc.). See [Microsoft: Tool Use Design Pattern](https://microsoft.github.io/ai-agents-for-beginners/04-tool-use/)
 
