@@ -126,8 +126,9 @@ When you see an agent doing something simple, like my daily [AI news bot](https:
   - [Andriy Burkov](https://aiweekly.substack.com/)
 
 - **Books**
-  - Jay Alammar
-  - Sebastian Raschka
-  - Chip Huen - AI Engineering
-  - Maxime Labonne LLM Engineer
-  - Andriy Burkov
+- [Jay Alammar - Hands-On Large Language Models: Language Understanding and Generation](https://www.amazon.com/Hands-Large-Language-Models-Understanding-ebook/dp/B0DGZ46G88)
+- [Sebastian Raschka - Build a Large Language Model (From Scratch)](https://www.amazon.com/Build-Large-Language-Model-Scratch/dp/1633437167/)
+- [Chip Huyen - AI Engineering](https://www.amazon.com/AI-Engineering-Building-Applications-Foundation-ebook/dp/B0DPLNK9GN?ref_=ast_author_cabib_dp)
+- [Maxime Labonne - LLM Engineer's handbook](https://www.amazon.com/LLM-Engineers-Handbook-engineering-production-ebook/dp/B0D1WR77BZ?ref_=ast_author_cabib_dp)
+- [Andriy Burkov - Machine Learning Engineering](https://www.amazon.com/Machine-Learning-Engineering-Andriy-Burkov-ebook/dp/B09Q18725P?ref_=ast_author_cabib_dp_rw&dib=eyJ2IjoiMSJ9.anpJ4PuV9UYa3YK8oW0Od5D-FsuIPTtKkHB2XOWz4PRystFWAHGn1kkoZvVEck-fM0HsTc-BcCYQKJTklJma2f3lO9AEl3gYsOf7_WuUSEbDY1M4lx3i-aYBwikD2aIVoj0g098BAo3M44Cwiws8keShqgdl6emSa8eglfSOWig.NsDE21bOFGxJSZsNsX0eFSdPs4H6y3ym0KBDDaWkZUk&dib_tag=AUTHOR)
+
