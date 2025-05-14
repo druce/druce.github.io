@@ -49,7 +49,7 @@ tags: AI
 
 - **Basic RAG** – Give the agent documents and a tool (such as a vector database) to find relevant parts of the documents and respond using them via in-context learning: stuffing the prompt with data to ground the answer, examples etc.
 
-- **Chain‑of‑Thought Prompting** – Elicit step‑by‑step reasoning traces that make the model’s logic explicit and usually boost accuracy on math, logic and multi‑hop tasks. Kind of like 'rubber duck debugging', link telling the model to show its work, explain what it's doing as it does it, forcing it to think and improve performance. This is important for agents, to remember what tye did  and why they did it. [Paper: Wei et al.](https://arxiv.org/abs/2201.11903)
+- **Chain‑of‑Thought Prompting** – Elicit step‑by‑step reasoning traces that make the model’s logic explicit and usually boost accuracy on math, logic and multi‑hop tasks. Kind of like ['rubber duck debugging'](https://rubberduckdebugging.com/), telling the model to show its work, explain what it's doing as it does it, forcing it to think and improve performance. This is important for agents, to remember what tye did  and why they did it. [Paper: Wei et al.](https://arxiv.org/abs/2201.11903)
     
 
 With these components you can build highly capable single-turn OpenAI [Assistants](https://platform.openai.com/docs/api-reference/assistants) or [Custom GPTs](https://help.openai.com/en/articles/8554397-creating-a-gpt). However, these frameworks (and equivalents on other platforms) have limitations in terms of multi-turn workflows, tools, sometimes which models are available. To level up to true agents, we want more customizable multi-turn workflows that may use many different models, tools and sub-agents.
