@@ -11,25 +11,22 @@ tags: AI
 
 ---
 
+<img src="/assets/2025/glitch_small.png">
 > What are AI agents? [Simon Willison](https://x.com/simonw/status/1843290729260703801) crowdsourced a lot of definitions that focus on:
 > 
-> 1) Taking action on the user's behalf in the real world (ie what the agent does) <br />
-> 2) Using the LLM to run a loop, or some complex control flow (ie how it does it).
+> 1) Taking action on the user's behalf in the real world (i.e. what the agent does) <br />
+> 2) Using the LLM to run a loop or complex control flow (i.e. how it does it).
 >
 >We could say that an AI agent takes actions based on an AI-determined control flow.
 >
->In essence use prompting sorcery to program the LLM to be the CPU of a Turing machine that can manage state, short- and long-term memory, I/O, and control flow. Connected to your computer and the Internet, the agent can access tools to perform compute, search for info, and act via APIs.
+>In essence, agents use prompting sorcery as the CPU of a Turing machine that can manage state, short- and long-term memory, I/O, and control flow. The agent can access the Internet and tools to perform compute tasks, retrieve info, take actions via APIs, and use the outputs to determine next steps in a loop or complex control flow. Maybe even control your browser and computer.
 >
 > In this post, we'll try to develop a roadmap of agent concepts and patterns to learn, and resources to learn them.
-<br />
-&nbsp;
-<br />
-  <img src="/assets/2025/agents.jpg">
 
 
 <!--more-->
 
-## Agent Foundations
+## Prereqs: Agent Foundations
 
 - **Prompting** – 'Prompt engineering' is a bit of puffery, but we need to be able to author clear, specific, instructions so the LLM answers properly and in the right format. It's an entry‑level skill that underpins every other pattern.
 	- C-L-E-A-R
@@ -59,7 +56,7 @@ You can have a high level system prompt that describes a high-level workflow to 
 
 However, the custom GPTs and Assistants (and their equivalents on other platforms) have limitations in terms of multi-turn structured workflows, tools, sometimes which models are available. To level up to true agents, we want more customizable workflows that may use many different models, custom tools, sub-agents, and complex flows.
 
-## Patterns
+## Agent Patterns
 
 - **ReAct (Reason + Act) Loops** – Interleave “Thought → Action → Observation” so the agent both reasons and calls tools (search, code, DB) in the same dialog, allowing complex chains of thoughts and actions. This was the breakthrough behind [AutoGPT](https://agpt.co/), which you can run online [here](https://agentgpt.reworkd.ai/). Ask a question like 'Find the best coffee grinder for espresso under $300', and it will loop through a process of thinking, what are the tasks I need to do based on what I've done so far, what is the highest priority task, do it, observe the output, iterate until the goal is reached.  [Paper: Yao et al.](https://arxiv.org/abs/2210.03629) ; Blog posts: [Matt Webb](https://interconnected.org/home/2023/03/16/singularity); [Simon Willison](https://til.simonwillison.net/llms/python-react-pattern) <br /> &nbsp; <br />. ReAct is fascinating and powerful, but the autonomy can make it unpredictable and hard to reason about, which is a general tradeoff when building agents. The more autonomy you give it, the more room for emergent behavior, but the more risk it goes off the rails. 
   
@@ -136,15 +133,16 @@ When you see an agent doing something simple, like my daily [AI news bot](https:
   
 - **AI Engineering stuff (might break out into a separate post)**
     - [Matt Turck's mega-landscape dataviz](https://mad.firstmark.com/)
+    - &nbsp;
 <img src="/assets/2025/AIengineering.png">
 <img src="/assets/2025/AIengineering2.png">
 <img src="/assets/2025/AIlifecycle.png">
 <img src="/assets/2025/LLMstack.png">
 - **People to Follow**
-  - [Hamel Husein](https://hamel.dev/)
   - [Simon Willison](https://simonwillison.net/)
-  - [Nir Diamant](https://diamantai.substack.com/)
+  - [Hamel Husein](https://hamel.dev/)
   - [Shawn 'swyx'  Wang](https://www.latent.space/)
+  - [Nir Diamant](https://diamantai.substack.com/)
   - [Ethan Mollick](https://www.oneusefulthing.org/)
   - [Harrison Chase](https://blog.langchain.dev/author/harrison/)
   - [Jerry Liu](https://www.llamaindex.ai/blog/author/jerry-liu)

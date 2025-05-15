@@ -1,6 +1,6 @@
 ---
 id: 7140
-title: 'The Economic Singularity is Near'
+title: 'The AI Economic Singularity is Near'
 date: 2025-04-12T01:01:01+00:00
 author: Druce Vertes
 layout: post
@@ -528,3 +528,5 @@ At least, not knowing exactly how the tech and the equations evolve, we need to 
 [The Simple Macroeconomics of AI, by David Autor](https://economics.mit.edu/sites/default/files/2024-05/The%20Simple%20Macroeconomics%20of%20AI.pdf)
 
 [Automation and New Tasks: How Technology Displaces and Reinstates Labor, by Daron Acemoglu and Pascual Restrepo](https://economics.mit.edu/sites/default/files/publications/Automation%20and%20New%20Tasks%20-%20How%20Technology%20Displace.pdf)
+
+[Fed Governor Michael Barr: Artificial Intelligence and the Labor Market: A Scenario-Based Approach](https://www.federalreserve.gov/newsevents/speech/barr20250509a.htm?utm_source=substack&utm_medium=email)
