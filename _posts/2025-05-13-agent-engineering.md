@@ -64,10 +64,10 @@ However, the custom GPTs and Assistants (and their equivalents on other platform
   
 - **Structured Output** – Since errors tend to compound as you go down the agent's trajectory, structured outputs and validation are critical. Ask the model to return JSON, then validate it, letting downstream code parse or act on the response safely. The GPT-4.1 models are exceptionally good at returning valid JSON, which you can also use [Pydantic](https://docs.pydantic.dev/latest/) to specify and validate. Study the [prompting guide](https://cookbook.openai.com/examples/gpt4-1_prompting_guide) thoroughly. 
 
-- **Human-in-the-loop**  – At the current maturity of AI development, fully autonomous agents are typically very challenging to achieve in complex, high-stakes environments (where they add the most value). It's much more realistic to try to make agentic assistants and copilots that take humans through a structured process than to try to be fully autonomous. The AI can speed things up dramatically, but it can also be hit-or-miss, so human supervision is critical. At key steps the human should evaluate and course-correct as necessary. _Time travel_ to go back to a previous step, adjust, and try again can also be useful. <br /> &nbsp; <br /> If you remember nothing else from this post:
+- **Human-in-the-loop**  – At the current maturity of AI development, fully autonomous agents are typically very challenging to achieve in complex, high-stakes environments (where they add the most value). It's much more realistic to try to make agentic assistants and copilots that take humans through a structured process than to try to be fully autonomous. The AI can speed things up dramatically, but it can also be hit-or-miss, so human supervision is critical. At key steps the human should evaluate and course-correct as necessary. _Time travel_ to go back to a previous step, adjust, and try again can also be useful. <br /> &nbsp; <br /> If you remember nothing else from this post: <br /> &nbsp; </br>
    - _Use AI for what it's good at: parsing lots of information quickly and generating a first draft at a near-human level;_
-   - _Use tools for what they are good at, faithfully executing algorithmic workflows; 
-   - _Use the humans in the loop for what they are good at which is critical thinking and creativity._ <br /> &nbsp; <br /> See e.g. [LangGraph](https://langchain-ai.github.io/langgraph/concepts/time-travel/).
+   - _Use tools for what they are good at, faithfully executing algorithmic workflows; _
+   - _Use the humans in the loop for what they are good at which is critical thinking and creativity._ <br /> &nbsp; <br /> 
     
 - **Reflection** – After an initial answer, the agent critiques its own work and revises.  For instance, a check for factuality may reduce hallucinations, like, is this summary consistent with the text it summarizes. The agent can iterate multiple times until satisfied, and/or perform multiple separate checks, like for factuality and also a Flesch-Kincaid readability benchmark. See [DeepLearning.ai “Reflection” pattern](https://www.deeplearning.ai/the-batch/agentic-design-patterns-part-2-reflection/). [Paper: Shinn et al.](https://arxiv.org/abs/2303.11366)
   
@@ -157,9 +157,9 @@ When you see an agent doing something simple, like my daily [AI news bot](https:
 
 
 - **Books**
-- [Jay Alammar - Hands-On Large Language Models: Language Understanding and Generation](https://www.amazon.com/Hands-Large-Language-Models-Understanding-ebook/dp/B0DGZ46G88)
-- [Sebastian Raschka - Build a Large Language Model (From Scratch)](https://www.amazon.com/Build-Large-Language-Model-Scratch/dp/1633437167/)
-- [Chip Huyen - AI Engineering](https://www.amazon.com/AI-Engineering-Building-Applications-Foundation-ebook/dp/B0DPLNK9GN?ref_=ast_author_cabib_dp)
-- [Maxime Labonne - LLM Engineer's handbook](https://www.amazon.com/LLM-Engineers-Handbook-engineering-production-ebook/dp/B0D1WR77BZ?ref_=ast_author_cabib_dp)
-- [Andriy Burkov - Machine Learning Engineering](https://www.amazon.com/Machine-Learning-Engineering-Andriy-Burkov-ebook/dp/B09Q18725P?ref_=ast_author_cabib_dp_rw&dib=eyJ2IjoiMSJ9.anpJ4PuV9UYa3YK8oW0Od5D-FsuIPTtKkHB2XOWz4PRystFWAHGn1kkoZvVEck-fM0HsTc-BcCYQKJTklJma2f3lO9AEl3gYsOf7_WuUSEbDY1M4lx3i-aYBwikD2aIVoj0g098BAo3M44Cwiws8keShqgdl6emSa8eglfSOWig.NsDE21bOFGxJSZsNsX0eFSdPs4H6y3ym0KBDDaWkZUk&dib_tag=AUTHOR)
+ - [Jay Alammar - Hands-On Large Language Models: Language Understanding and Generation](https://www.amazon.com/Hands-Large-Language-Models-Understanding-ebook/dp/B0DGZ46G88)
+ - [Sebastian Raschka - Build a Large Language Model (From Scratch)](https://www.amazon.com/Build-Large-Language-Model-Scratch/dp/1633437167/)
+ - [Chip Huyen - AI Engineering](https://www.amazon.com/AI-Engineering-Building-Applications-Foundation-ebook/dp/B0DPLNK9GN?ref_=ast_author_cabib_dp)
+ - [Maxime Labonne - LLM Engineer's handbook](https://www.amazon.com/LLM-Engineers-Handbook-engineering-production-ebook/dp/B0D1WR77BZ?ref_=ast_author_cabib_dp)
+ - [Andriy Burkov - Machine Learning Engineering](https://www.amazon.com/Machine-Learning-Engineering-Andriy-Burkov-ebook/dp/B09Q18725P?ref_=ast_author_cabib_dp_rw&dib=eyJ2IjoiMSJ9.anpJ4PuV9UYa3YK8oW0Od5D-FsuIPTtKkHB2XOWz4PRystFWAHGn1kkoZvVEck-fM0HsTc-BcCYQKJTklJma2f3lO9AEl3gYsOf7_WuUSEbDY1M4lx3i-aYBwikD2aIVoj0g098BAo3M44Cwiws8keShqgdl6emSa8eglfSOWig.NsDE21bOFGxJSZsNsX0eFSdPs4H6y3ym0KBDDaWkZUk&dib_tag=AUTHOR)
 
