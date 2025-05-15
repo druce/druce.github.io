@@ -18,7 +18,7 @@ tags: AI
 >
 >We could say that an AI agent takes actions based on an AI-determined control flow.
 >
->In essence we turn the LLM into the CPU of a Turing machine that can manage state, short- and long-term memory, I/O, and control flow. Connected to your computer and the Internet, the agent can access tools to perform compute, search for info, and act via APIs.
+>In essence use prompting sorcery to program the LLM to be the CPU of a Turing machine that can manage state, short- and long-term memory, I/O, and control flow. Connected to your computer and the Internet, the agent can access tools to perform compute, search for info, and act via APIs.
 >
 > In this post, we'll try to develop a roadmap of agent concepts and patterns to learn, and resources to learn them.
 <br />
@@ -29,9 +29,9 @@ tags: AI
 
 <!--more-->
 
-## Components of agents:
+## Agent Foundations
 
-- **Prompting** – 'Prompt engineering' may reflect some puffery, but you need to be able to author clear, specific, instructions so the LLM answers properly and in the right format. This is the entry‑level skill that underpins every other pattern.
+- **Prompting** – 'Prompt engineering' is a bit of puffery, but we need to be able to author clear, specific, instructions so the LLM answers properly and in the right format. It's an entry‑level skill that underpins every other pattern.
 	- C-L-E-A-R
 		- _Contextualize_ - Specify a role or persona: _“You are a copy editor with years of experience polishing articles and blog posts for web publication.”_
 		- _Limits_ - Length; format like three bullet points; tone or style like concisely, or like a tech journalist, or only use facts from this text.
@@ -59,13 +59,15 @@ You can have a high level system prompt that describes a high-level workflow to 
 
 However, the custom GPTs and Assistants (and their equivalents on other platforms) have limitations in terms of multi-turn structured workflows, tools, sometimes which models are available. To level up to true agents, we want more customizable workflows that may use many different models, custom tools, sub-agents, and complex flows.
 
+## Patterns
+
 - **ReAct (Reason + Act) Loops** – Interleave “Thought → Action → Observation” so the agent both reasons and calls tools (search, code, DB) in the same dialog, allowing complex chains of thoughts and actions. This was the breakthrough behind [AutoGPT](https://agpt.co/), which you can run online [here](https://agentgpt.reworkd.ai/). Ask a question like 'Find the best coffee grinder for espresso under $300', and it will loop through a process of thinking, what are the tasks I need to do based on what I've done so far, what is the highest priority task, do it, observe the output, iterate until the goal is reached.  [Paper: Yao et al.](https://arxiv.org/abs/2210.03629) ; Blog posts: [Matt Webb](https://interconnected.org/home/2023/03/16/singularity); [Simon Willison](https://til.simonwillison.net/llms/python-react-pattern) <br /> &nbsp; <br />. ReAct is fascinating and powerful, but the autonomy can make it unpredictable and hard to reason about, which is a general tradeoff when building agents. The more autonomy you give it, the more room for emergent behavior, but the more risk it goes off the rails. 
   
 - **Prompt Chaining & Sequential Workflows** – Break a complex task into ordered sub‑prompts with intermediate validation (“gate checks”) before moving to the next stage.  [LangChain: Build an Agent](https://python.langchain.com/docs/tutorials/agents/). Example: [a news gathering workflow](https://github.com/druce/AInewsbot/blob/main/README.md).
   
 - **Structured Output** – Since errors tend to compound as you go down the agent's trajectory, structured outputs and validation are critical. Ask the model to return JSON, then validate it, letting downstream code parse or act on the response safely. The GPT-4.1 models are exceptionally good at returning valid JSON, which you can also use [Pydantic](https://docs.pydantic.dev/latest/) to specify and validate. Study the [prompting guide](https://cookbook.openai.com/examples/gpt4-1_prompting_guide) thoroughly. 
 
-- **Human-in-the-loop**  – At the current maturity of AI development, fully autonomous agents are typically very challenging to achieve in complex, high-stakes environments (where they add the most value). It's much more realistic to try to make agentic assistants and copilots that take humans through a structured process than to try to be fully autonomous. The AI can speed things up dramatically, but it can also be hit-or-miss, so human supervision is critical. At key steps the human should evaluate and course-correct as necessary. _Time travel_ to go back to a previous step, adjust, and try again can also be useful. <br /> &nbsp; <br /> _Use AI for what it's good at: parsing lots of information quickly and generating a first draft at a near-human level; <br /> &nbsp; <br /> Use tools for what they are good at, for executing simple repeatable processes; <br /> &nbsp; <br /> Use the humans for what they are good at which is critical thinking._ <br /> &nbsp; <br /> See e.g. [LangGraph](https://langchain-ai.github.io/langgraph/concepts/time-travel/).
+- **Human-in-the-loop**  – At the current maturity of AI development, fully autonomous agents are typically very challenging to achieve in complex, high-stakes environments (where they add the most value). It's much more realistic to try to make agentic assistants and copilots that take humans through a structured process than to try to be fully autonomous. The AI can speed things up dramatically, but it can also be hit-or-miss, so human supervision is critical. At key steps the human should evaluate and course-correct as necessary. _Time travel_ to go back to a previous step, adjust, and try again can also be useful. <br /> &nbsp; <br /> _Use AI for what it's good at: parsing lots of information quickly and generating a first draft at a near-human level; <br /> &nbsp; <br /> Use tools for what they are good at, faithfully executing algorithmic workflows; <br /> &nbsp; <br /> Use the humans for what they are good at which is critical thinking and creativity._ <br /> &nbsp; <br /> See e.g. [LangGraph](https://langchain-ai.github.io/langgraph/concepts/time-travel/).
     
 - **Reflection** – After an initial answer, the agent critiques its own work and revises.  For instance, a check for factuality may reduce hallucinations, like, is this summary consistent with the text it summarizes. The agent can iterate multiple times until satisfied, and/or perform multiple separate checks, like for factuality and also a Flesch-Kincaid readability benchmark. See [DeepLearning.ai “Reflection” pattern](https://www.deeplearning.ai/the-batch/agentic-design-patterns-part-2-reflection/). [Paper: Shinn et al.](https://arxiv.org/abs/2303.11366)
   
@@ -79,7 +81,7 @@ However, the custom GPTs and Assistants (and their equivalents on other platform
 
 - **Short‑Term Memory** – Keep just enough context (conversation buffer, sliding window, or summary) inside the model’s token limit for coherent multi‑turn chats. [Context Windows: The Short‑Term Memory of LLMs](https://medium.com/@crskilpatrick807/context-windows-the-short-term-memory-of-large-language-models-ab878fc6f9b5)
     
-- **Long‑Term Memory** – Persist facts or conversation summaries in a vector database or in-memory structure and retrieve them on demand so the agent “remembers” over the course of a long session working with lots of information, and across sessions. [Pinecone guide to conversational memory with LangChain](https://www.pinecone.io/learn/series/langchain/langchain-conversational-memory/) 
+- **Long‑Term Memory** – Persist facts or conversation summaries in a vector database, SQL or in-memory structure and retrieve them on demand so the agent “remembers” over the course of a long session working with lots of information, and across sessions. (A vector database has one job, fast nearest neighbors so you can look up text by semantic similarity.) [Pinecone guide to conversational memory with LangChain](https://www.pinecone.io/learn/series/langchain/langchain-conversational-memory/) 
     
 - **Plan‑and‑Execute (Hierarchical Planning)** – First draft a high‑level plan, then execute each sub‑task in order. [LangChain: Plan-and-Execute Agents](https://blog.langchain.dev/planning-agents/); [Paper: Wang et al.](https://arxiv.org/abs/2305.04091?utm_source=chatgpt.com)
   
@@ -95,6 +97,18 @@ However, the custom GPTs and Assistants (and their equivalents on other platform
 
 - **Model Context Protocol and other communications protocols** – When you create a tool, in addition to implementing its functionality there's a semantic layer you have to provide to an LLM so it knows how to use it: the input schema, the output schema, when and why to use it. [MCP](https://diamantai.substack.com/p/model-context-protocol-mcp-explained) is a standard for doing this. There are [other ways for agents to communicate with the outside world and each other](https://arxiv.org/abs/2504.16736). <br /> &nbsp; <br />Another important evolving standard is [A2A](https://diamantai.substack.com/p/googles-agent2agent-a2a-explained). If one agent calls another agent, it may be a long-running process and a multi-turn chat conversation, unlike the REST call typically described by MCP. So there may be a need for a different standard to monitor long-running processes that come back to ask for more information, or that you want to send a sequence of interactive requests to.
 
+## Where to start
+
+If you want to start building an agent to automate your pain points, here are some ways to start:
+
+- Connect [Zapier](https://zapier.com/apps) to your SaaS services and LLM, like write a mail autoresponder that applies a prompt to extract stuff from an email and updates the CRM.
+- If you are enterprise as opposed to SMB and putting credentials to all your SaaS in Zapier gives your the heebie-jeebies, use [n8n](https://docs.n8n.io/) on-prem instead.
+- Write or grab some MCP wrappers (here is [a list](https://github.com/modelcontextprotocol/servers), or check out [Jeff Emanuel's ultimate MCP server](https://github.com/Dicklesworthstone/ultimate_mcp_server) with connections to tons of services), [connect them in the Claude desktop client](https://www.reddit.com/r/ClaudeAI/comments/1haxkrq/add_image_generation_audio_transcription_and_much/m1c5f33/), and ask Claude to do stuff in your favorite services. 
+- For advanced workflows, [LangChain](https://python.langchain.com/docs/concepts/) and [LangGraph](https://langchain-ai.github.io/langgraph) are great to get a POC up and running. If I want to figure out how to build an LLM workflow, typically I'll look up how LangChain does it and try their variations, different LLMs and prompts, and take it from there. LangChain can be a bit complex and beta, sometimes you realize all the magic is in the prompt and you can just write directly to e.g. OpenAI. They try to do all things for all people and have the most comprehensive ecosystem. But they can be architecture astronauts and try to do too much, make a lot of breaking changes, docs are not always great. 
+- Don't be afraid to do things that need a lot of sequential prompts or to send a lot of prompts in parallel asynchronously. It's hard to do things well with one prompt, our job is to make a reliable agent from unreliable LLM calls.
+
+## Final thoughts
+
 The era of agents is here. If you can explain a process in plain English, you can probably build MCP servers around the tools it uses, and build an agent to take a crack at it. If it's a simple process, you might be able to fully automate it most of the time; if it's a more complex process, you might be able to build a structured human-in-the-loop process around it that will level up productivity.
 
 When you see an agent doing something simple, like my daily [AI news bot](https://github.com/druce/AInewsbot), or something magical, like OpenAI's [Deep Research](https://openai.com/index/introducing-deep-research/), it's probably doing something that is a composition of patterns like these, and the right prompts applied to the right contexts. If you've read this far, you have an initial grasp of the basic concepts of agent engineering, and a place to start your learning journey!
@@ -102,6 +116,7 @@ When you see an agent doing something simple, like my daily [AI news bot](https:
 ## Further Reading:
 
 - [Anthropic: Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)
+- [Chip Huyen on Agents](https://huyenchip.com/2025/01/07/agents.html)
 - [DeepLearning.ai](https://www.deeplearning.ai/courses/?courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B0%5D=Agents&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B1%5D=Vector%20Databases&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B2%5D=Task%20Automation&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B3%5D=Search%20and%20Retrieval&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B4%5D=RAG&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B5%5D=Prompt%20Engineering&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B6%5D=GenAI%20Applications&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B7%5D=Evaluation%20and%20Monitoring)
 - [Mastering AI Agents: The 10 Best Free Courses, Tutorials & Learning Tools](https://medium.com/@maximilian.vogel/mastering-ai-agents-the-10-best-free-courses-tutorials-learning-tools-46bc380a19d1)
 - [A Survey of Agentic AI, Multi-Agent Systems, and Multimodal Frameworks Architectures, Applications, and Future Directions](https://www.researchgate.net/publication/387577302_A_Survey_of_Agentic_AI_Multi-Agent_Systems_and_Multimodal_Frameworks_Architectures_Applications_and_Future_Directions)
@@ -113,6 +128,18 @@ When you see an agent doing something simple, like my daily [AI news bot](https:
   - [AutoGen](https://microsoft.github.io/autogen/stable/) / [AG2](https://github.com/ag2ai/ag2) (confusing fork under way)
   - [crew.ai](https://www.crewai.com/)
 
+- **Druce's related stuff**
+  - [A slide presentation](https://docs.google.com/presentation/d/1vPF2TNj1GoXtMIPXnVoAwkziug-956GwF2uK6UKNWqs/edit#slide=id.p)
+  - [I save articles here](https://drive.google.com/drive/folders/1DgX9XaLe6ZhH0IxEyszf930dc7mbgjj8)
+  - [Skynet and Chill daily AI reading](skynet and chill.com)
+  - [AInewsbot agent to write an automated daily news letter](https://github.com/druce/AInewsbot/tree/main)
+  
+- **AI Engineering stuff (might break out into a separate post)**
+    - [Matt Turck's mega-landscape dataviz](https://mad.firstmark.com/)
+<img src="/assets/2025/AIengineering.png">
+<img src="/assets/2025/AIengineering2.png">
+<img src="/assets/2025/AIlifecycle.png">
+<img src="/assets/2025/LLMstack.png">
 - **People to Follow**
   - [Hamel Husein](https://hamel.dev/)
   - [Simon Willison](https://simonwillison.net/)
