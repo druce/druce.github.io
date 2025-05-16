@@ -26,7 +26,7 @@ tags: AI
 
 <!--more-->
 
-## Prereqs: Agent Foundations
+## Spinning up: From Prompting to Single-Turn Agents
 
 - **Prompting** – 'Prompt engineering' is a bit of puffery, but we need to be able to author clear, specific, instructions so the LLM answers properly and in the right format. It's an entry‑level skill that underpins every other pattern.
 	- C-L-E-A-R
@@ -56,7 +56,7 @@ You can have a high level system prompt that describes a high-level workflow to 
 
 However, the custom GPTs and Assistants (and their equivalents on other platforms) have limitations in terms of multi-turn structured workflows, tools, sometimes which models are available. To level up to true agents, we want more customizable workflows that may use many different models, custom tools, sub-agents, and complex flows.
 
-## Agent Patterns
+## Multi-turn Agent Patterns
 
 - **ReAct (Reason + Act) Loops** – Interleave “Thought → Action → Observation” so the agent both reasons and calls tools (search, code, DB) in the same dialog, allowing complex chains of thoughts and actions. This was the breakthrough behind [AutoGPT](https://agpt.co/), which you can run online [here](https://agentgpt.reworkd.ai/). Ask a question like 'Find the best coffee grinder for espresso under $300', and it will loop through a process of thinking, what are the tasks I need to do based on what I've done so far, what is the highest priority task, do it, observe the output, iterate until the goal is reached.  [Paper: Yao et al.](https://arxiv.org/abs/2210.03629) ; Blog posts: [Matt Webb](https://interconnected.org/home/2023/03/16/singularity); [Simon Willison](https://til.simonwillison.net/llms/python-react-pattern) <br /> &nbsp; <br />ReAct is fascinating and powerful, but the autonomy can make it unpredictable and hard to reason about, which is a general tradeoff when building agents. The more autonomy you give it, the more room for emergent behavior, but the more risk it goes off the rails. 
   
