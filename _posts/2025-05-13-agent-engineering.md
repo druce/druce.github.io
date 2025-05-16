@@ -19,7 +19,7 @@ tags: AI
 >
 >We could say that an AI agent takes actions based on an AI-determined control flow.
 >
->In essence, agents use prompting sorcery as the CPU of a Turing machine that can manage state, short- and long-term memory, I/O, and control flow. The agent can access the Internet and tools to perform compute tasks, retrieve info, take actions via APIs, and use the outputs to determine next steps in a loop or complex control flow. Maybe even control your browser and computer.
+>Agents use prompts as the CPU of a Turing machine that can manage state, short- and long-term memory, I/O, and control flow. The agent can access the Internet and tools to perform compute tasks, retrieve info, take actions via APIs, and use the outputs to determine next steps in a loop or complex control flow. Maybe even control your browser and computer.
 >
 > In this post, we'll try to develop a roadmap of agent concepts and patterns to learn, and resources to learn them.
 
@@ -28,7 +28,7 @@ tags: AI
 
 ## Spinning up: From Prompting to Single-Turn Agents
 
-- **Prompting** – 'Prompt engineering' is a bit of puffery, but we need to be able to author clear, specific, instructions so the LLM answers properly and in the right format. It's an entry‑level skill that underpins every other pattern.
+- **Prompting** – 'Prompt engineering' contains an element of puffery, but we need to be able to author clear, specific, instructions so the LLM answers properly and in the right format. It's an entry‑level skill that underpins every other pattern.
 	- C-L-E-A-R
 		- _Contextualize_ - Specify a role or persona: _“You are a copy editor with years of experience polishing articles and blog posts for web publication.”_
 		- _Limits_ - Length; format like three bullet points; tone or style like concisely, or like a tech journalist, or only use facts from this text.
@@ -52,22 +52,22 @@ tags: AI
 
 With just these components you can build highly capable single-turn OpenAI [Assistants](https://platform.openai.com/docs/api-reference/assistants) or [Custom GPTs](https://help.openai.com/en/articles/8554397-creating-a-gpt). 
 
-You can have a high level system prompt that describes a high-level workflow to follow in response to user input, docs with detailed processes and reference information, and external tools to use. See for instance this [Tuck AI Matrix custom GPT](https://chatgpt.com/g/g-4tqcPryPK-the-m-a-matrix-by-tuck-advisorstm), which follows a proprietary methodology to do basic evaluations of M&A deals.
+You can write a system prompt that describes a high-level workflow to follow in response to user input, docs with detailed processes and reference information, and external tools to use. See for instance this [Tuck AI Matrix custom GPT](https://chatgpt.com/g/g-4tqcPryPK-the-m-a-matrix-by-tuck-advisorstm), which follows a proprietary methodology to do basic evaluations of M&A deals.
 
-However, the custom GPTs and Assistants (and their equivalents on other platforms) have limitations in terms of multi-turn structured workflows, tools, sometimes which models are available. To level up to true agents, we want more customizable workflows that may use many different models, custom tools, sub-agents, and complex flows.
+However, the custom GPTs and Assistants (and their equivalents on other platforms) have limitations in terms of multi-turn structured workflows, tools, sometimes which models are available. To level up to true agents, we want more customizable multi-turn workflows that may use many different models, custom tools, sub-agents, and complex control flows.
 
 ## Multi-turn Agent Patterns
 
 - **ReAct (Reason + Act) Loops** – Interleave “Thought → Action → Observation” so the agent both reasons and calls tools (search, code, DB) in the same dialog, allowing complex chains of thoughts and actions. This was the breakthrough behind [AutoGPT](https://agpt.co/), which you can run online [here](https://agentgpt.reworkd.ai/). Ask a question like 'Find the best coffee grinder for espresso under $300', and it will loop through a process of thinking, what are the tasks I need to do based on what I've done so far, what is the highest priority task, do it, observe the output, iterate until the goal is reached.  [Paper: Yao et al.](https://arxiv.org/abs/2210.03629) ; Blog posts: [Matt Webb](https://interconnected.org/home/2023/03/16/singularity); [Simon Willison](https://til.simonwillison.net/llms/python-react-pattern) <br /> &nbsp; <br />ReAct is fascinating and powerful, but the autonomy can make it unpredictable and hard to reason about, which is a general tradeoff when building agents. The more autonomy you give it, the more room for emergent behavior, but the more risk it goes off the rails. 
   
-- **Prompt Chaining & Sequential Workflows** – Break a complex task into ordered sub‑prompts with intermediate validation (“gate checks”) before moving to the next stage.  [LangChain: Build an Agent](https://python.langchain.com/docs/tutorials/agents/). Example: [a news gathering workflow](https://github.com/druce/AInewsbot/blob/main/README.md).
+- **Prompt Chaining & Sequential Workflows** – Break a complex task into ordered sub‑prompts with intermediate validation (“gate checks”) before moving to the next stage.  [LangChain: Build an Agent](https://python.langchain.com/docs/tutorials/agents/). Example: [a news gathering workflow](https://github.com/druce/AInewsbot/blob/main/README.md). Small prompts that can be tested and optimized independently are more predictable and easier to maintain than long 'God' prompts that try to do everything.
   
 - **Structured Output** – Since errors tend to compound as you go down the agent's trajectory, structured outputs and validation are critical. Ask the model to return JSON, then validate it, letting downstream code parse or act on the response safely. The GPT-4.1 models are exceptionally good at returning valid JSON, which you can also use [Pydantic](https://docs.pydantic.dev/latest/) to specify and validate. Study the [prompting guide](https://cookbook.openai.com/examples/gpt4-1_prompting_guide) thoroughly. 
 
 - **Human-in-the-loop**  – At the current maturity of AI development, fully autonomous agents are typically very challenging to achieve in complex, high-stakes environments (where they add the most value). It's much more realistic to try to make agentic assistants and copilots that take humans through a structured process than to try to be fully autonomous. The AI can speed things up dramatically, but it can also be hit-or-miss, so human supervision is critical. At key steps the human should evaluate and course-correct as necessary. _Time travel_ to go back to a previous step, adjust, and try again can also be useful. <br /> &nbsp; <br /> If you remember nothing else from this post: <br /> &nbsp; <br />
    - _Use AI for what it's good at: parsing lots of information quickly and generating a first draft at a near-human level;_
    - _Use tools for what they are good at, faithfully executing algorithmic workflows;_
-   - _Use the humans in the loop for what they are good at which is critical thinking and creativity._ <br /> &nbsp; <br /> 
+   - _Use the humans in the loop for what they are good at, which is critical thinking and creativity._ <br /> &nbsp; <br /> 
     
 - **Reflection** – After an initial answer, the agent critiques its own work and revises.  For instance, a check for factuality may reduce hallucinations, like, is this summary consistent with the text it summarizes. The agent can iterate multiple times until satisfied, and/or perform multiple separate checks, like for factuality and also a Flesch-Kincaid readability benchmark. See [DeepLearning.ai “Reflection” pattern](https://www.deeplearning.ai/the-batch/agentic-design-patterns-part-2-reflection/). [Paper: Shinn et al.](https://arxiv.org/abs/2303.11366)
   
