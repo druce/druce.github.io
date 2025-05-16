@@ -104,7 +104,7 @@ If you want to start building an agent to automate your pain points, here are so
 - Connect [Zapier](https://zapier.com/apps) to your SaaS services and LLM, like write a mail autoresponder that applies a prompt to extract stuff from an email and updates the CRM.
 - If you are enterprise as opposed to SMB, and putting credentials to all your SaaS in Zapier gives your the heebie-jeebies, use [n8n](https://docs.n8n.io/) on-prem instead. (Or standardize on an on-prem or cloud no-code framework, of which there are many.)
 - Write or grab some MCP wrappers (here is [a list](https://github.com/modelcontextprotocol/servers), or check out [Jeff Emanuel's ultimate MCP server](https://github.com/Dicklesworthstone/ultimate_mcp_server) with connections to tons of services), [connect them in the Claude desktop client](https://www.reddit.com/r/ClaudeAI/comments/1haxkrq/add_image_generation_audio_transcription_and_much/m1c5f33/), and ask Claude to do stuff in your favorite services. 
-- For the most advanced custom agent workflows, [LangChain](https://python.langchain.com/docs/concepts/) and [LangGraph](https://langchain-ai.github.io/langgraph) are great to get a POC up and running. If I want to figure out how to build an LLM workflow, typically I'll look up how LangChain does it and try their variations, different LLMs and prompts, and take it from there. LangChain can be a bit complex and beta, sometimes you realize all the magic is in the prompt and you can just write directly to e.g. OpenAI. They try to do all things for all people and have the most comprehensive ecosystem. But they can be architecture astronauts and try to do too much, make a lot of breaking changes, docs are not always great. The OpenAI Agents SDK, CrewAI, AutoGen, LlamaAgents, SmolAgents are other alternatives.
+- For the most advanced custom agent workflows, [LangChain](https://python.langchain.com/docs/concepts/) and [LangGraph](https://langchain-ai.github.io/langgraph) are great to get a POC up and running. If I want to figure out how to build an LLM workflow, typically I'll look up how LangChain does it and try their variations, different LLMs and prompts, and take it from there. LangChain can be a bit complex and beta, sometimes you realize all the magic is in the prompt and you can just write directly to e.g. OpenAI. They try to do all things for all people and have the most comprehensive ecosystem. But they can be architecture astronauts and try to do too much, make a lot of breaking changes, docs are not always great. [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/), [CrewAI](https://www.crewai.com/), [AutoGen](https://microsoft.github.io/autogen/stable/index.html), [LlamaIndex](https://www.llamaindex.ai/blog/introducing-llama-agents-a-powerful-framework-for-building-production-multi-agent-ai-systems), [SmolAgents](https://huggingface.co/docs/smolagents/en/index) are other alternatives.
 - Don't be afraid to do things that need a lot of sequential prompts or to send a lot of prompts in parallel asynchronously. It's hard to do things well with one prompt, our job is to make a reliable agent from unreliable LLM calls.
 
 ## Final thoughts
@@ -124,9 +124,10 @@ When you see an agent doing something simple, like my daily [AI news bot](https:
 
 - **Agent Frameworks**
   - [LangGraph](https://www.langchain.com/langgraph)
+  - [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/)
   - [LlamaIndex](https://docs.llamaindex.ai/en/stable/use_cases/agents/)
   - [AutoGen](https://microsoft.github.io/autogen/stable/) / [AG2](https://github.com/ag2ai/ag2) (confusing fork under way)
-  - [crew.ai](https://www.crewai.com/)
+  - [CrewAI](https://www.crewai.com/)
 
 - **Druce's related stuff**
   - [A slide presentation](https://docs.google.com/presentation/d/1vPF2TNj1GoXtMIPXnVoAwkziug-956GwF2uK6UKNWqs/edit#slide=id.p)
