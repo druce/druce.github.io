@@ -128,7 +128,8 @@ When you see an agent doing something simple, like my daily [AI news bot](https:
   - [LlamaIndex](https://docs.llamaindex.ai/en/stable/use_cases/agents/)
   - [AutoGen](https://microsoft.github.io/autogen/stable/) / [AG2](https://github.com/ag2ai/ag2) (confusing fork under way)
   - [CrewAI](https://www.crewai.com/)
-
+  - [SmolAgents](https://huggingface.co/docs/smolagents/en/index) are other alternatives.
+  
 - **Druce's related stuff**
   - [A slide presentation](https://docs.google.com/presentation/d/1vPF2TNj1GoXtMIPXnVoAwkziug-956GwF2uK6UKNWqs/edit#slide=id.p)
   - [I save articles here](https://drive.google.com/drive/folders/1DgX9XaLe6ZhH0IxEyszf930dc7mbgjj8)
