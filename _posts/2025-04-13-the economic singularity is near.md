@@ -515,6 +515,7 @@ There is a risk of the fall of Rome, technofeudalism, barbarism. Maybe not next 
 
 At least, not knowing exactly how the tech and the equations evolve, we need to be mindful of that possibility.
 
+In the final analysis, everything is endogenous, at least to the extent humans can understand it. AI changes human sytems a lot, and it seems impossible to say how. It would behoove us to be a little humble, and cautious, and not rely purely on historical parallels where maybe there aren't any.
 
 
 ### Further reading:
