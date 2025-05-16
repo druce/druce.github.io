@@ -132,8 +132,9 @@ When you see an agent doing something simple, like my daily [AI news bot](https:
   - [A slide presentation](https://docs.google.com/presentation/d/1vPF2TNj1GoXtMIPXnVoAwkziug-956GwF2uK6UKNWqs/edit#slide=id.p)
   - [I save articles here](https://drive.google.com/drive/folders/1DgX9XaLe6ZhH0IxEyszf930dc7mbgjj8)
   - [Skynet and Chill daily AI reading](skynet and chill.com)
-  - [AInewsbot agent to write an automated daily news letter](https://github.com/druce/AInewsbot/tree/main)
-  
+  - [AInewsbot agent to write an automated daily news letter](https://github.com/druce/AInewsbot/tree/main). Agent 'used' loosely, it's a long chain of prompts, the AI chooses stories and summarizes them and writes clever titles but not a complex AI-driven control flow.
+<img src="/assets/2025/news.png">
+
 - **AI Engineering stuff (might break out into a separate post)**
     - [Matt Turck's mega-landscape dataviz](https://mad.firstmark.com/)
     - &nbsp;
