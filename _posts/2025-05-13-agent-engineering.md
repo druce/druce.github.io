@@ -1,6 +1,6 @@
 ---
 id: 7141
-title: 'An Agent Engineering Primer and Roadmap'
+title: '16 Agent Patterns: An Agent Engineering Primer
 date: 2025-05-12T01:01:01+00:00
 author: Druce Vertes
 layout: post
@@ -79,9 +79,9 @@ However, the OpenAI custom GPTs and Assistants (and their equivalents on other p
     
 - **Memory** – In the basic ReAct workflow, the previous chain of the conversations serves as the record of everything learned so far. But you might want to structure the memory in the agent in a more efficient manner, and inject knowledge into the context in the manner the LLM can use it most effectively. See e.g. [IBM: What is AI agent memory?](https://www.ibm.com/think/topics/ai-agent-memory) ; [Mem0](https://mem0.ai/)
 
-- **Short‑Term Memory** – Keep just enough context (conversation buffer, sliding window, or summary) inside the model’s token limit for coherent multi‑turn chats. [Context Windows: The Short‑Term Memory of LLMs](https://medium.com/@crskilpatrick807/context-windows-the-short-term-memory-of-large-language-models-ab878fc6f9b5)
+    - **Short‑Term Memory** – Keep just enough context (conversation buffer, sliding window, or summary) inside the model’s token limit for coherent multi‑turn chats. [Context Windows: The Short‑Term Memory of LLMs](https://medium.com/@crskilpatrick807/context-windows-the-short-term-memory-of-large-language-models-ab878fc6f9b5)
     
-- **Long‑Term Memory** – Persist facts or conversation summaries in a vector database, SQL or in-memory structure and retrieve them on demand so the agent “remembers” over the course of a long session working with lots of information, and across sessions. (A vector database has one job, fast nearest neighbors so you can look up text by semantic similarity.) [Pinecone guide to conversational memory with LangChain](https://www.pinecone.io/learn/series/langchain/langchain-conversational-memory/) 
+    - **Long‑Term Memory** – Persist facts or conversation summaries in a vector database, SQL or in-memory structure and retrieve them on demand so the agent “remembers” over the course of a long session working with lots of information, and across sessions. (A vector database has one job, fast nearest neighbors so you can look up text by semantic similarity.) [Pinecone guide to conversational memory with LangChain](https://www.pinecone.io/learn/series/langchain/langchain-conversational-memory/) 
     
 - **Plan‑and‑Execute (Hierarchical Planning)** – First draft a high‑level plan, then execute each sub‑task in order. [LangChain: Plan-and-Execute Agents](https://blog.langchain.dev/planning-agents/); [Paper: Wang et al.](https://arxiv.org/abs/2305.04091?utm_source=chatgpt.com)
   
