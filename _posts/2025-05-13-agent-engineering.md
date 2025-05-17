@@ -19,7 +19,7 @@ tags: AI
 > 1) Using AI to take action on the user's behalf in the real world (i.e. _what_ the agent does) <br />
 > 2) Using AI to control a loop or complex flow (i.e. _how_ the agent does it).
 >
->We could say that an AI agent takes actions based on an AI-determined control flow.
+> An AI agent takes a sequence **actions** based on an AI-determined **control flow.**
 >
 >Agents use prompts as the CPU of a Turing machine that can manage state, memory, I/O, and control flow. The agent can access the Internet and tools to perform compute tasks, retrieve info, take actions via APIs, and use the outputs to determine next steps in a loop or complex control flow. Maybe even control a browser or computer.
 >
@@ -58,7 +58,7 @@ With these 4 elements you can build highly capable single-turn OpenAI [Assistant
 
 You can write a system prompt that describes a high-level workflow to follow in response to user input, give it docs with detailed processes and reference information, and external tools to use. See for instance this [Tuck AI Matrix custom GPT](https://chatgpt.com/g/g-4tqcPryPK-the-m-a-matrix-by-tuck-advisorstm), which follows a proprietary methodology to do basic evaluations of M&A deals.
 
-However, the OpenAI custom GPTs and Assistants (and their equivalents on other platforms) have limitations in terms of multi-turn structured workflows, tools, sometimes which models are available. To level up to full-blown agentic workflows, we want more customizable multi-turn workflows that may use many different models, custom tools, sub-agents, and complex control flows.
+However, the OpenAI custom GPTs and Assistants (and their equivalents on other platforms) have a single prompt, so they aren't true multi-turn workflows. (They can call multiple tools though.) To level up to full-blown agentic workflows, we want more customizable multi-turn workflows that may use many different models, custom tools, sub-agents, and complex control flows.
 
 ## 16 Multi-turn Agent Patterns
 
