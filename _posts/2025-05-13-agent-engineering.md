@@ -14,8 +14,8 @@ tags: AI
 <img src="/assets/2025/glitch_small.png">
 > What are AI agents? [Simon Willison](https://x.com/simonw/status/1843290729260703801) crowdsourced a lot of definitions that focus on:
 > 
-> 1) Taking action on the user's behalf in the real world (i.e. _what_ the agent does) <br />
-> 2) Using an LLM to control a loop or complex flow (i.e. _how_ the agent does it).
+> 1) Using AI to take action on the user's behalf in the real world (i.e. _what_ the agent does) <br />
+> 2) Using AI to control a loop or complex flow (i.e. _how_ the agent does it).
 >
 >We could say that an AI agent takes actions based on an AI-determined control flow.
 >
@@ -26,9 +26,9 @@ tags: AI
 
 <!--more-->
 
-## Spinning up: From Prompting to Single-Turn Agents
+## Spinning Up: From Prompting to Single-Turn Agents
 
-- **Prompting** – 'Prompt engineering' contains an element of puffery, but we need to be able to author clear, specific, instructions, so the LLM answers properly and in the right format. It's an entry‑level skill that underpins every other pattern.
+- **Prompting** – The term 'Prompt engineering' contains an element of puffery, but we need to be able to author clear, specific, instructions, so the LLM answers properly and in the right format. It's an entry‑level skill that underpins every other pattern.
 	- C-L-E-A-R
 		- _Contextualize_ - Specify a role or persona: _“You are a copy editor with years of experience polishing articles and blog posts for web publication.”_
 		- _Limits_ - Length; format i.e. 'three bullet points'; tone or style i.e. 'concisely', or 'like a tech journalist', or 'only use facts from this text'.
@@ -43,11 +43,11 @@ tags: AI
     - See previous post: [Practical ChatGPT Prompting: 15 Patterns to Improve Your Prompts](https://druce.ai/2024/01/prompting)
     - Also [GPT 4.1 prompting guide](https://cookbook.openai.com/examples/gpt4-1_prompting_guide). These new 4.1 OpenAI models are trained for agentic workflows, they do many things automatically that required complex prompting in previous models.<br /> &nbsp; <br />
 
-- **Tool Use** – Expose a catalog of external APIs to the agent, like a Python function, search, SQL, REST, a browser or a full Python interpeter REPL or a shell terminal, etc. Let the LLM decide whether to call a tool and which tool to call at each turn. (Turn = 1 round of prompting it to provide a new response based on the conversation so far). See [Microsoft: Tool Use Design Pattern](https://microsoft.github.io/ai-agents-for-beginners/04-tool-use/)
+- **Tool Use** – Expose a catalog of external APIs to the agent, like a Python function, search, SQL, REST, a browser or a full Python interpreter REPL or a shell terminal, etc. Let the LLM decide whether to call a tool and which tool to call at each turn. (Turn = 1 round of prompting it to provide a new response based on the conversation so far). See [Microsoft: Tool Use Design Pattern](https://microsoft.github.io/ai-agents-for-beginners/04-tool-use/)
 
 - **Basic RAG** – Give the agent documents and a tool (such as a vector database) to find relevant parts of the documents and respond using them via in-context learning, i.e. stuffing the prompt with data to ground the answer, examples etc.
 
-- **Chain‑of‑Thought Prompting** – Ask for step‑by‑step reasoning traces that make the model’s logic explicit and usually boost accuracy on math, logic and multi‑hop tasks. Kind of like ['rubber duck debugging'](https://rubberduckdebugging.com/), telling the model to show its work, explain what it's doing as it does it, forcing it to think and improve performance. Thought traces are important for agents, to remember what they did and why they did it. [Paper: Wei et al.](https://arxiv.org/abs/2201.11903)
+- **Chain‑of‑Thought Prompting** – Ask for step‑by‑step reasoning traces that make the model’s logic explicit and usually boost accuracy on math, logic and multi‑step tasks. Kind of like ['rubber duck debugging'](https://rubberduckdebugging.com/), telling the model to show its work, explain what it's doing as it does it, forcing it to think and improve performance. Thought traces are important for agents, to remember what they did and why they did it. [Paper: Wei et al.](https://arxiv.org/abs/2201.11903)
     
 
 With just these elements you can build highly capable single-turn OpenAI [Assistants](https://platform.openai.com/docs/api-reference/assistants) or [Custom GPTs](https://help.openai.com/en/articles/8554397-creating-a-gpt). 
@@ -95,19 +95,19 @@ However, the OpenAI custom GPTs and Assistants (and their equivalents on other p
 
 - **Multi‑Agent Collaboration** – An orchestration pattern that uses distinct role‑based agents (e.g., Planner, Coder, Tester) that converse to solve problems that exceed a single model’s capacity, in a peer or hierarchical organizational structure. Multi-agent systems can be a bit like using Docker/Kubernetes microservices vs. monolithic architectures. They can provide a helpful decomposition, or make the system more complex and harder to reason about. For my money, you can get a lot of mileage with AI in a structured workflow running in LangGraph, n8n, Zapier, etc. In general I would recommend starting with simple chained pipelines, over complex  multi-agent solutions. [AutoGen is a leading multi-agent framework.](https://www.microsoft.com/en-us/research/publication/autogen-enabling-next-gen-llm-applications-via-multi-agent-conversation-framework/?utm_source=chatgpt.com) [Wired article](https://www.wired.com/story/chatbot-teamwork-makes-the-ai-dream-work/?utm_source=chatgpt.com).
 
-- **Model Context Protocol and other communications protocols** – When you create a tool, after implementing its functionality, you have to tell the LLM how to use it: the input schema, the output schema, when and why to use it. [MCP](https://diamantai.substack.com/p/model-context-protocol-mcp-explained) is a standard for doing this. <br /> &nbsp; <br />Another important evolving standard is [A2A](https://diamantai.substack.com/p/googles-agent2agent-a2a-explained). If one agent calls another agent, it may be a long-running process and a multi-turn chat conversation, unlike the REST call typically described by MCP. So there may be a need for a different standard to monitor long-running processes that come back to ask for more information, or that you want to send a sequence of interactive requests to. See the paper: [A Survey of AI Agent Protocols](https://arxiv.org/abs/2504.16736)
+- **Model Context Protocol and other communications protocols** – When you create a tool, after implementing its functionality, you have to tell the LLM how to use it: the input schema, the output schema, when and why to use it. [Model Context Protocol (MCP)](https://diamantai.substack.com/p/model-context-protocol-mcp-explained) is a standard for doing this. <br /> &nbsp; <br />Another important evolving standard is [Agent2Agent protocol (A2A)](https://diamantai.substack.com/p/googles-agent2agent-a2a-explained). If one agent calls another agent, it may be a long-running process and a multi-turn chat conversation, unlike the REST call typically described by MCP. So there may be a need for a different standard to monitor long-running processes that come back to ask for more information, or that you want to send a sequence of interactive requests to. See the paper: [A Survey of AI Agent Protocols](https://arxiv.org/abs/2504.16736)
 
-## Where to start
+## Where To Start
 
 If you want to start building an agent to automate your pain points, here are some ways to start:
 
 - Connect [Zapier](https://zapier.com/apps) to your SaaS services and LLM, like write a mail autoresponder that applies a prompt to extract stuff from an email and updates the CRM.
 - If you are enterprise as opposed to SMB, and putting credentials to all your SaaS in Zapier gives your the heebie-jeebies, use [n8n](https://docs.n8n.io/) on-prem instead. (Or standardize on an on-prem or cloud no-code framework, of which there are many.)
 - Write or grab some MCP wrappers (here is [a list](https://github.com/modelcontextprotocol/servers), or check out [Jeff Emanuel's ultimate MCP server](https://github.com/Dicklesworthstone/ultimate_mcp_server) with connections to tons of services), [connect them in the Claude desktop client](https://www.reddit.com/r/ClaudeAI/comments/1haxkrq/add_image_generation_audio_transcription_and_much/m1c5f33/), and ask Claude to do stuff in your favorite services. 
-- For the most advanced custom agent workflows, [LangChain](https://python.langchain.com/docs/concepts/) and [LangGraph](https://langchain-ai.github.io/langgraph) are great to get a POC up and running. If I want to figure out how to build an LLM workflow, typically I'll look up how LangChain does it and try their variations, different LLMs and prompts, and take it from there. LangChain can be a bit complex and beta, sometimes you realize all the magic is in the prompt and you can just write directly to e.g. OpenAI. They try to do all things for all people and have the most comprehensive ecosystem. But they can be architecture astronauts and try to do too much, make a lot of breaking changes, docs are not always great. [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/), [CrewAI](https://www.crewai.com/), [AutoGen](https://microsoft.github.io/autogen/stable/index.html), [LlamaIndex](https://www.llamaindex.ai/blog/introducing-llama-agents-a-powerful-framework-for-building-production-multi-agent-ai-systems), [SmolAgents](https://huggingface.co/docs/smolagents/en/index) are other alternatives.
+- For the most advanced custom agent workflows, [LangChain](https://python.langchain.com/docs/concepts/) and [LangGraph](https://langchain-ai.github.io/langgraph) are great to get a POC up and running. If I want to figure out how to build an LLM workflow, typically I'll look up how LangChain does it and try their variations, different LLMs and prompts, and take it from there. LangChain can be frustratingly complex and beta. Sometimes you realize all the magic is in the prompt and you can just write directly to e.g. OpenAI. They try to do all things for all people and have the most comprehensive ecosystem. But they can be architecture astronauts and try to do too much, make a lot of breaking changes, docs are not always great. [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/), [CrewAI](https://www.crewai.com/), [AutoGen](https://microsoft.github.io/autogen/stable/index.html), [LlamaIndex](https://www.llamaindex.ai/blog/introducing-llama-agents-a-powerful-framework-for-building-production-multi-agent-ai-systems), [SmolAgents](https://huggingface.co/docs/smolagents/en/index) are other alternatives.
 - Don't be afraid to do things that need a lot of sequential prompts or to send a lot of prompts in parallel asynchronously. It's hard to do things well with one prompt, our job is to make a reliable agent from unreliable LLM calls.
 
-## Final thoughts
+## Final Thoughts
 
 The era of agents is here. If you can explain a process in plain English, you can probably find or build MCP servers around the tools it uses, and build an agent to take a crack at it. If it's a simple process, you might be able to fully automate it most of the time; if it's a more complex process, you might be able to build a structured human-in-the-loop process around it that will level up productivity.
 
