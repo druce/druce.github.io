@@ -12,6 +12,8 @@ tags: AI
 ---
 
 <img src="/assets/2025/glitch_small.png">
+> *Any sufficiently advanced technology is indistinguishable from magic. - Arthur C. Clarke*
+>
 > What are AI agents? [Simon Willison](https://x.com/simonw/status/1843290729260703801) crowdsourced a lot of definitions that focus on:
 > 
 > 1) Using AI to take action on the user's behalf in the real world (i.e. _what_ the agent does) <br />
@@ -58,7 +60,7 @@ You can write a system prompt that describes a high-level workflow to follow in 
 
 However, the OpenAI custom GPTs and Assistants (and their equivalents on other platforms) have limitations in terms of multi-turn structured workflows, tools, sometimes which models are available. To level up to full-blown agentic workflows, we want more customizable multi-turn workflows that may use many different models, custom tools, sub-agents, and complex control flows.
 
-## Multi-turn Agent Patterns
+## 16 Multi-turn Agent Patterns
 
 1. **ReAct (Reason + Act) Loops** – Interleave “Thought → Action → Observation” so the agent both reasons and calls tools (search, code, DB) in the same dialog, allowing complex chains of thoughts and actions. This was the breakthrough behind [AutoGPT](https://agpt.co/), which you can run online [here](https://agentgpt.reworkd.ai/). Ask a question like 'Find the best coffee grinder for espresso under $300', and it will loop through a process of thinking, what are the tasks I need to do based on what I've done so far, what is the highest priority task, do it, observe the output, iterate until the goal is reached.  [Paper: Yao et al.](https://arxiv.org/abs/2210.03629) ; Blog posts: [Matt Webb](https://interconnected.org/home/2023/03/16/singularity); [Simon Willison](https://til.simonwillison.net/llms/python-react-pattern) <br /> &nbsp; <br />The ReAct pattern is fascinating and powerful, but the autonomy can make it unpredictable and hard to reason about, which is a general tradeoff when building agents. The more autonomy you give it, the more room for emergent behavior, but the more risk it goes off the rails. 
   
@@ -113,7 +115,7 @@ If you want to start building an agent to automate your pain points, here are so
 
 The era of agents is here. If you can explain a process in plain English, you can probably find or build MCP servers around the tools it uses, and build an agent to take a crack at it. If it's a simple process, you might be able to fully automate it most of the time; if it's a more complex process, you might be able to build a structured human-in-the-loop process around it that will level up productivity.
 
-When you see an agent doing something simple, like my daily [AI news bot](https://github.com/druce/AInewsbot), or something magical, like OpenAI's [Deep Research](https://openai.com/index/introducing-deep-research/), it's probably doing something that is a composition of patterns like these, and the right prompts applied to the right contexts. If you've read this far, you have an initial grasp of the basic concepts of agent engineering, and a place to start your learning journey!
+When you see an agent doing something simple, like my daily [AI news bot](https://github.com/druce/AInewsbot), or something magical, like OpenAI's [Deep Research](https://openai.com/index/introducing-deep-research/), it's probably doing something that is a composition of patterns like these, and the right prompts applied to the right contexts. If you've read this far, you have an initial grasp of the basic concepts of agent engineering, and a few places to continue your learning journey!
     
 ## Further Reading:
 
