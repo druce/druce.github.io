@@ -19,7 +19,7 @@ tags: AI
 > 1) Using AI to take action on the user's behalf in the real world (i.e. _what_ the agent does) <br />
 > 2) Using AI to control a loop or complex flow (i.e. _how_ the agent does it).
 >
-> An AI agent takes a sequence **actions** based on an AI-determined **control flow.**
+> An AI agent takes a sequence of **actions** based on an AI-determined **control flow.**
 >
 >Agents use prompts as the CPU of a Turing machine that can manage state, memory, I/O, and control flow. The agent can access the Internet and tools to perform compute tasks, retrieve info, take actions via APIs, and use the outputs to determine next steps in a loop or complex control flow. Maybe even control a browser or computer.
 >
@@ -39,20 +39,19 @@ Before diving into agent patterns, let's review 4 LLM foundational skills:
 		- _Elaborate and give Examples_ - Explain and provide as much detail and specifics as possible. Use [chain of thought](https://www.promptingguide.ai/techniques/cot) and [other advanced prompting methods](https://arxiv.org/abs/2407.12994).
 		- _Audience_ - Identify the audience the response is addressed to, such as ‘explain like I’m 5’.
 		- _Reflect or Review_ - Ask ChatGPT to ask clarifying questions before answering, give itself space, such as “think step by step”, “make sure of x before answering”.
-	- [P-R-E-P-A-R-E-D](https://www.forbes.com/sites/danfitzpatrick/2024/08/10/the-perfect-chatgpt-prompt-doesnt-exi-/) is another. 
-	- Or [T-C-E-P-F-T](https://medium.com/@BK.HAN/6-essential-elements-of-ai-prompt-engineering-tcepft-as-bk-hans-mnemonic-43e689f22ad8). Use what resonates with you. <br />
+	- Or [T-C-E-P-F-T](https://medium.com/@BK.HAN/6-essential-elements-of-ai-prompt-engineering-tcepft-as-bk-hans-mnemonic-43e689f22ad8). Use what resonates with you (Task, Context, Example, Persona, Format, Tone).
+	- [P-R-E-P-A-R-E-D](https://www.forbes.com/sites/danfitzpatrick/2024/08/10/the-perfect-chatgpt-prompt-doesnt-exi-/) is another (Propose, Role, Explain/Explicit, Presentation, Ask, Rate/Reflect, Emotions, Diversity).
     - These days, you don't need to spend hundreds of hours learning prompt engineering. Think about your intention, take a first crack using one of the above frameworks, and then ask your favorite LLM to improve it, iterating as necessary.
     - Side quest - [proper evals](https://www.promptfoo.dev/docs/intro/), and prompt optimization with tools like [DSPy](https://dspy.ai/). If you have good evals, you will eventually have good prompts and outputs through iteration. If you don't have good evals, changes in underlying LLMs and assumptions will break your prompts and workflows.
     - Good prompting and evals are a foundational skill. You need to know how to talk to the AI and measure the results. <br />
     - See previous post: [Practical ChatGPT Prompting: 15 Patterns to Improve Your Prompts](https://druce.ai/2024/01/prompting)
     - Also [GPT 4.1 prompting guide](https://cookbook.openai.com/examples/gpt4-1_prompting_guide). These new 4.1 OpenAI models are trained for agentic workflows, they do many things automatically that required complex prompting in previous models.<br /> &nbsp; <br />
 
-2. **Tool Use** – Expose a catalog of external APIs to the agent, like a Python function, search, SQL, REST, a browser or a full Python interpreter REPL or a shell terminal, etc. Let the LLM decide whether to call a tool and which tool to call at each turn. (Turn = 1 round of prompting it to provide a new response based on the conversation so far). See [Microsoft: Tool Use Design Pattern](https://microsoft.github.io/ai-agents-for-beginners/04-tool-use/)
+2. **Tool Use** – Expose a catalog of external APIs to the agent, like a Python function, search, SQL, REST, a browser or a full Python interpreter REPL or a shell terminal, etc. Let the LLM decide whether to call a tool and which tool to call at each turn. (Turn = 1 round of prompting it to provide a new response based on the conversation so far. LLM can respond with a request to call a tool using a provided calling signature. User/client calls the tool and responds with the output, LLM uses it to determine next response, like final answer or additional tool call). See [Microsoft: Tool Use Design Pattern](https://microsoft.github.io/ai-agents-for-beginners/04-tool-use/)
 
 3. **Basic RAG** – Retrieval-Augmented Generation: Give the agent documents and a tool (such as a vector database) to find relevant parts of the documents and respond using them via in-context learning, i.e. stuffing the prompt with data to ground the answer, examples. "Please answer this question using the following text".
 
-4. **Chain‑of‑Thought Prompting** – Ask for step‑by‑step reasoning traces that make the model’s logic explicit and usually boost accuracy on math, logic and multi‑step tasks. Kind of like ['rubber duck debugging'](https://rubberduckdebugging.com/), telling the model to show its work, explain what it's doing as it does it, forcing it to think and improve performance. Thought traces are important for agents, to remember what they did and why they did it. [Paper: Wei et al.](https://arxiv.org/abs/2201.11903)
-    
+4. **Chain‑of‑Thought Prompting** – Ask for step‑by‑step reasoning traces that make the model’s logic explicit and usually boost accuracy on math, logic and multi‑step tasks. "Before providing a final answer, please think step by step, walk through your complete research and thought process, and show your reasoning." Kind of like ['explaining your code to your rubber duck'](https://rubberduckdebugging.com/), telling the model to show its work, explain what it's doing as it does it, forces it to think longer, and improving performance. Thought traces are also important for agents to remember what they did previously and why they did it. [Paper: Wei et al.](https://arxiv.org/abs/2201.11903)
 
 With these 4 elements you can build highly capable single-turn OpenAI [Assistants](https://platform.openai.com/docs/api-reference/assistants) or [Custom GPTs](https://help.openai.com/en/articles/8554397-creating-a-gpt). 
 
@@ -69,9 +68,12 @@ However, the OpenAI custom GPTs and Assistants (and their equivalents on other p
 1.  **Structured Output** – Since errors tend to compound as you go down the agent's trajectory, structured outputs and validation are critical. Ask the model to return JSON, then validate it, letting downstream code parse or act on the response safely. If output doesn't validate, attempt to fix the output, or fix the input and retry. The GPT-4.1 models are exceptionally good at returning valid JSON, which you can also use [Pydantic](https://docs.pydantic.dev/latest/) to specify and validate. Study the [prompting guide](https://cookbook.openai.com/examples/gpt4-1_prompting_guide) thoroughly. 
 
 1.  **Human-in-the-loop**  – At the current maturity of AI development, fully autonomous agents are typically very challenging to achieve in complex, high-stakes environments (where they add the most value). It's much more realistic to try to make agentic assistants and copilots that take humans through a structured process, than to aim for full autonomy. The AI can speed things up dramatically, but performance can also be hit-or-miss, so human supervision is critical. At key steps the human should evaluate and course-correct as necessary. _Time travel_ allowing the human to go back to a previous step, adjust, and try again can also be useful. <br /> &nbsp; <br /> If you remember nothing else from this post: <br /> &nbsp; <br />
-   - _Use AI for what it's good at: parsing lots of information quickly and generating a first draft at a near-human level;_
-   - _Use tools for what they are good at, faithfully executing algorithmic workflows;_
-   - _Use the humans in the loop for what they are good at, which is critical thinking and creativity._ <br /> &nbsp; <br /> 
+ 
+🤖 _Use AI for what AI is good at: parsing lots of information quickly and generating a first draft at a near-human level;_
+ 
+🔧 - _Use tools for what they are good at, faithfully executing algorithmic workflows;_
+ 
+👩‍⚕️ - _Use the humans in the loop for what they are good at, which is critical thinking and creativity._ <br /> &nbsp; <br /> 
     
 1.  **Reflection** – After an initial answer, the agent critiques its own work and revises.  For instance, a check for factuality may reduce hallucinations. Is this summary consistent with the text it summarizes? The agent can reflect and improve multiple times until satisfied, and/or perform multiple separate checks, like for factuality and also a Flesch-Kincaid readability benchmark. See [DeepLearning.ai “Reflection” pattern](https://www.deeplearning.ai/the-batch/agentic-design-patterns-part-2-reflection/). [Paper: Shinn et al.](https://arxiv.org/abs/2303.11366)
   
