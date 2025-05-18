@@ -12,7 +12,7 @@ tags: AI
 ---
 
 <img src="/assets/2025/glitch_small.png">
-> *Any sufficiently advanced technology is indistinguishable from magic. - Arthur C. Clarke*
+> *Any sufficiently advanced technology is indistinguishable from magic. — Arthur C. Clarke*
 >
 > What are AI agents? [Simon Willison](https://x.com/simonw/status/1843290729260703801) crowdsourced a lot of definitions that focus on:
 > 
@@ -33,9 +33,9 @@ tags: AI
 Before diving into agent patterns, let's review 4 LLM foundational skills:
 
 1. **Prompting** – The term 'Prompt engineering' contains an element of puffery, but we need to be able to author clear, specific, instructions, so the LLM answers properly and in the right format. It's an entry‑level skill that underpins every other pattern.
-	- C-L-E-A-R
+	- C-L-E-A-R Framework:
 		- _Contextualize_ - Specify a role or persona: _“You are a copy editor with years of experience polishing articles and blog posts for web publication.”_
-		- _Limits_ - Length; format i.e. 'three bullet points'; tone or style i.e. 'concisely', or 'like a tech journalist', or 'only use facts from this text'.
+		- _Limits_ - Length; format e.g. 'three bullet points'; tone or style e.g.. 'concisely', or 'like a tech journalist', or 'only use facts from this text'.
 		- _Elaborate and give Examples_ - Explain and provide as much detail and specifics as possible. Use [chain of thought](https://www.promptingguide.ai/techniques/cot) and [other advanced prompting methods](https://arxiv.org/abs/2407.12994).
 		- _Audience_ - Identify the audience the response is addressed to, such as ‘explain like I’m 5’.
 		- _Reflect or Review_ - Ask ChatGPT to ask clarifying questions before answering, give itself space, such as “think step by step”, “make sure of x before answering”.
