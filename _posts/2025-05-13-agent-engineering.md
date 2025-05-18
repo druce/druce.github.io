@@ -117,6 +117,7 @@ When you see an agent doing something simple, like my daily [AI news bot](https:
 
 - [Anthropic: Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)
 - [Chip Huyen on Agents](https://huyenchip.com/2025/01/07/agents.html)
+- [Andrew Ng: The Batch](https://www.deeplearning.ai/the-batch/how-agents-can-improve-llm-performance/)
 - [DeepLearning.ai](https://www.deeplearning.ai/courses/?courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B0%5D=Agents&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B1%5D=Vector%20Databases&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B2%5D=Task%20Automation&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B3%5D=Search%20and%20Retrieval&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B4%5D=RAG&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B5%5D=Prompt%20Engineering&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B6%5D=GenAI%20Applications&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B7%5D=Evaluation%20and%20Monitoring)
 - [Mastering AI Agents: The 10 Best Free Courses, Tutorials & Learning Tools](https://medium.com/@maximilian.vogel/mastering-ai-agents-the-10-best-free-courses-tutorials-learning-tools-46bc380a19d1)
 - [A Survey of Agentic AI, Multi-Agent Systems, and Multimodal Frameworks Architectures, Applications, and Future Directions](https://www.researchgate.net/publication/387577302_A_Survey_of_Agentic_AI_Multi-Agent_Systems_and_Multimodal_Frameworks_Architectures_Applications_and_Future_Directions)
@@ -150,6 +151,7 @@ When you see an agent doing something simple, like my daily [AI news bot](https:
   - [Shawn 'swyx'  Wang](https://www.latent.space/)
   - [Nir Diamant](https://diamantai.substack.com/)
   - [Ethan Mollick](https://www.oneusefulthing.org/)
+  - [Andrew Ng](https://www.andrewng.org/)
   - [Harrison Chase](https://blog.langchain.dev/author/harrison/)
   - [Jerry Liu](https://www.llamaindex.ai/blog/author/jerry-liu)
   - [Logan Kilpatrick](https://logank.ai/)
