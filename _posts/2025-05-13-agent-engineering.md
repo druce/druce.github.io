@@ -35,7 +35,7 @@ Before diving into agent patterns, let's review 4 LLM foundational skills:
 1. **Prompting** – The term 'Prompt engineering' contains an element of puffery, but we need to give clear, specific, instructions, so the LLM answers properly and in the right format. It's an entry‑level skill that underpins every other pattern.
 	- C-L-E-A-R Framework:
 		- _Contextualize_ - Specify a role or persona and intent: _“You are a copy editor with years of experience polishing articles and blog posts for web publication. You will read the content carefully and suggest changes for clarity, style, and standard usage.”_
-		- _Limits_ - Length; format e.g. _'three bullet points'_; tone or style e.g.. _'concisely'_, or _'like a tech journalist'_, or _'only use facts from this text'_.
+		- _Limits_ - Length; format e.g. _'three bullet points'_; tone or style e.g. _'concisely'_, or _'like a tech journalist'_, or _'only use facts from this text'_.
 		- _Elaborate and give Examples_ - Explain and provide as many details and specifics as possible. Use [chain of thought](https://www.promptingguide.ai/techniques/cot) and [other advanced prompting methods](https://arxiv.org/abs/2407.12994).
 		- _Audience_ - Identify the audience the response is addressed to, such as ‘explain like I’m 5’.
 		- _Reflect or Review_ - Prompt ChatGPT to ask clarifying questions before answering, give itself space, such as _“think step by step”_, _“make sure of x before answering”_.
@@ -57,7 +57,7 @@ With these 4 elements you can build highly capable single-turn OpenAI [Assistant
 
 You can write a system prompt that describes a workflow to follow in response to user input, give it docs with detailed processes and reference information, and external tools to use. See for instance this [Tuck AI Matrix custom GPT](https://chatgpt.com/g/g-4tqcPryPK-the-m-a-matrix-by-tuck-advisorstm), which follows a proprietary methodology to do basic evaluations of M&A deals.
 
-However, the OpenAI custom GPTs and Assistants (and their equivalents on other platforms) have a single prompt, so they aren't true multi-turn workflows. (They can call multiple tools though.) To level up to full-blown agentic workflows, we want more customizable multi-turn workflows that may use many different models, custom tools, sub-agents, and complex control flows.
+However, the OpenAI custom GPTs and Assistants (and their equivalents on other platforms) have a single prompt, so they aren't true multi-turn agentic workflows. (They can call multiple tools though.) To level up to full-blown agentic workflows, we want more customizable multi-turn workflows that may use many different models, custom tools, sub-agents, and complex control flows.
 
 ## 16 Multi-turn Agent Patterns
 
