@@ -67,7 +67,7 @@ If you are Goldman Sachs, and Google knows everything you search for, Bloomberg 
 
 _Level 1:_ Understand terms of service and only use trusted SaaS endpoints, and exercise opt-outs, and implement internal policies and controls about what can be pasted into approved AI. 
 
-That seems like the bare minimum. Then, as long as you trust that ChatGPT follows the opt out and the terms of service, and they don't suffer a breach, you should be okay.
+That seems like the bare minimum. Then, as long as you trust that ChatGPT complies properly with the-opt out and the terms of service, and they don't suffer a breach, you should be okay.
 
 Should you trust OpenAI? They are a startup. Things are a little bit chaotic. Nation-states spy on them. And they have had [breaches where your conversations were shown to other users](https://www.cnbc.com/2023/03/23/openai-ceo-says-a-bug-allowed-some-chatgpt-to-see-others-chat-titles.html) and where [info was stolen](https://www.theregister.com/2024/07/08/infosec_in_brief/).
 
@@ -79,11 +79,11 @@ _Level 2: Trusted public cloud_. If you are a Fortune 500 company or a regulated
 
 If you use Microsoft Teams and hosted Microsoft Office 365, then you have chosen to trust Microsoft with your internal communications. There is no reason not to trust them for LLMs.
 
-For most companies, major cloud providers are the best they can reasonably do. But if you are the CIA, or a really secretive investment firm like [Renaissance](https://www.youtube.com/watch?v=hWX8V9KSZM8), you are not even OK with public cloud.
+For most companies, major cloud providers are the best they can do. But if you are the CIA, or a really secretive investment firm like [Renaissance](https://www.youtube.com/watch?v=hWX8V9KSZM8), you are not even OK with public cloud.
 
 _Level 3: On-prem servers and trusted private clouds._ You host your own email, and chat, and video-conferencing, and your own LLMs. No Teams, no Zoom, no Gmail. You implement things like biometric access, compartmentalization.
 
-But if you build everything in house, it's expensive. You still have to trust someone: your employees, and the vendors who help you build it. And constantly monitor it and update it. And you have to trust that you're able to do it more securely than Microsoft and AWS and Google, and it's not their first rodeo. If you're not extremely capable, you're just gonna spend a lot more money and create a lot of hassle and end up less secure.
+But if you build everything in-house, it's expensive. You still have to trust someone: your employees, and the vendors who help you build it. And constantly monitor it and update it. And you have to trust that you're able to do it more securely than Microsoft and AWS and Google, and it's not their first rodeo. If you're not extremely capable, you're just gonna spend a lot more money and create a lot of hassle and end up less secure.
 
 If government-sponsored hackers want to breach you, they still have a good shot, by compromising workers, having their spies work for you, intercepting equipment and tampering with it. With enough effort, they can probably get into anything. If Microsoft [fails to stop them](https://www.axios.com/2024/04/03/microsoft-security-practices-government-review), [again and again](https://www.axios.com/2024/03/08/microsoft-executive-emails-russia-hack), what chance have you got? 
 
@@ -93,7 +93,7 @@ So choose your own adventure. Pick your poison. How dead are you if you have a b
 
 All this to say, there are valid reasons why you might not want to use OpenAI, but them spying on and publishing your board deliberations is not one of them. (Unless you somehow leak them onto the Web and into the training corpus).
 
-And you should have people who know what they are doing, not making decision on the basis of tweets or panel discussions at your typical industry conference.
+And you should have people who know what they are doing, not making decisions on the basis of tweets or panel discussions at your typical industry conference.
 
 So what's my point? Mostly I just wanted to get this off my chest, and the next time it comes up, point to it. 
 
