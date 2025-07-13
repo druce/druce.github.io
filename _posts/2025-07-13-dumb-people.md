@@ -51,13 +51,13 @@ A lot of work goes into making a clean data corpus for pre-training. If you do a
 
 It's beyond unlikely that OpenAI is intentionally, systematically, taking your board conversations and training with them. I think if you have any picture of how the LLM sausage is made, the scenario does not seem remotely plausible. _Of course it's hallucinating that it read the board minutes._
 
-Nevertheless, I've repeatedly had this conversation with, you know, smart IT people who are supposed to be familiar with the technology and ToS. And sometimes people have got a little bit testy with me for telling me their concerns are over the top. I heard it from X! Trust me, bro.
+Nevertheless, I've repeatedly had this conversation with, you know, smart IT people who are supposed to be familiar with the technology and ToS. And sometimes people have got a little bit testy with me for telling me their concerns are over the top. "I heard it from X! Trust me, bro."
 
 I'm not saying there might not be reasons to avoid ChatGPT. How should AI engineers and CTOs and CEOs think about the risks of putting private data, proprietary data into LLMs?
 
 There are levels to this game.
 
-Level 0: What, me worry? Let anybody put anything they want into any SaaS products, install any mobile apps, Chrome extensions that can read and change your Web pages. 
+_Level 0: What, me worry?_ Let anybody put anything they want into any SaaS products, install any mobile apps, Chrome extensions that can read and change your Web pages. 
 
 This is clearly a very bad idea. [Look at 23andMe](https://www.zdnet.com/article/how-to-delete-your-23andme-data-asap-and-why-you-should/). They had a severe breach, they went broke, they could have been bought by anybody who would then have had all your DNA information, and not been subject to the contracts that were previously signed. 
 
@@ -65,7 +65,7 @@ And frankly this seems like a blind spot in our existing privacy and security la
 
 If you are Goldman Sachs, and Google knows everything you search for, Bloomberg has all your chats with your clients, they will know what you are up to. Other providers who know more than you might be comfortable with: NetJets, your ISP, your mobile provider, whoever runs all the networks of video cameras, personal assistants, butlers and system admins, and so on. Goldman basically [started a company](https://symphony.com/) that is Signal with compliance because of discomfort with Bloomberg. And a [huge hedge fund](https://www.twosigma.com/) is basically, what if Google used every bit of online data exhaust for investing. It's the Wild West out there. You have to do better than 'nothing'.
 
-Level 1: understand terms of service and only use trusted SaaS endpoints, and exercise opt-outs, and implement internal policies and controls about what can be pasted into approved AI. 
+_Level 1:_ Understand terms of service and only use trusted SaaS endpoints, and exercise opt-outs, and implement internal policies and controls about what can be pasted into approved AI. 
 
 That seems like the bare minimum. Then, as long as you trust that ChatGPT follows the opt out and the terms of service, and they doen't suffer a breach, you should be okay.
 
@@ -75,13 +75,13 @@ Also they are currently under a [court order to retain logs indefinitely and let
 
 So you need to exercise your own judgment about which SaaS services you can trust and what the upsides and the downsides are.
 
-Level 2: If you are a Fortune 500 company or a regulated investment company, or you handle medical or other data that's subject to HIPAA and other regs, you need stronger representations about the privacy of the data. You might avoid public API endpoints. You might use a cloud provider like Microsoft's Azure, which is [certified ISO 27001 compliant and SOC-3 and HIPAA compliant and audited](https://learn.microsoft.com/en-us/compliance/regulatory/offering-home). And then you access hosted LLMs via that trusted public cloud.
+_Level 2: Trusted public cloud_. If you are a Fortune 500 company or a regulated investment company, or you handle medical or other data that's subject to HIPAA and other regs, you need stronger representations about the privacy of the data. You might avoid public API endpoints. You might use a cloud provider like Microsoft's Azure, which is [certified ISO 27001 compliant and SOC-3 and HIPAA compliant and audited](https://learn.microsoft.com/en-us/compliance/regulatory/offering-home). And then you access hosted LLMs via that trusted public cloud.
 
 If you use Microsoft Teams and hosted Microsoft Office 365, then you have chosen to trust Microsoft with your internal communications. There is no reason not to trust them for LLMs.
 
 For most companies, major cloud providers are the best they can reasonably do. But if you are the CIA, or a really secretive investment firm like [Renaissance](https://www.youtube.com/watch?v=hWX8V9KSZM8), you are not even OK with public cloud.
 
-Level 3: on-prem servers and trusted private clouds. You host your own email, and chat, and video-conferencing, and your own LLMs. No Teams, no Zoom, no Gmail. You implement things like biometric access, compartmentalization.
+_Level 3: On-prem servers and trusted private clouds._ You host your own email, and chat, and video-conferencing, and your own LLMs. No Teams, no Zoom, no Gmail. You implement things like biometric access, compartmentalization.
 
 But if you build everything in house, it's expensive. You still have to trust someone: your employees, and the vendors who help you build it. And constantly monitor it and update it. And you have to trust that you're able to do it more securely than Microsoft and AWS and Google, and it's not their first rodeo. If you're not extremely capable, you're just gonna spend a lot more money if you try to beat that and create a lot of hassle and be less secure.
 
