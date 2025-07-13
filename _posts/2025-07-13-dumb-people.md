@@ -24,9 +24,9 @@ I've seen Mark Zuckerberg talk over the years and say things like,[ "They trust 
 
 All too plausible that he would try things like that.
 
-But I also know how machine learning works. And the algorithm knows I sometimes shop at LL Bean, and certainly that I looked at the red baseball cap.
+But I also know how machine learning works. And the algorithm knows I sometimes shop at L.L. Bean, and certainly that I looked at the red baseball cap if not actually bought it.
 
-And it knows my location. It's also plausible that machine learning would learn that after a day doing outdoor activities, people sometimes buy baseball caps or outdoor wear, and that it would show me something that I had been interested in.
+And it knows my location. It's at least equally plausible that machine learning would learn that after a day doing outdoor activities, people sometimes buy baseball caps or outdoor wear, and that it would show me something that I had been interested in.
 
 For sure there are some shenanigans that we don't know about. But the known ways they monitor and manipulate us are as bad as the conspiracy theories. Who needs to spy on you when you let them know where you are, who with, and every online interaction?
 
