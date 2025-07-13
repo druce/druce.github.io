@@ -107,7 +107,9 @@ AI figured out language. Which is a huge step forward. But it has a long way to 
 
 No one is coming to save you. Our leaders don't know what the hell they're doing. There is no Real Room, where real experts in charge with perfect information and real authority work.  It's just us. [We are The Room](https://bsky.app/profile/swiftonsecurity.com/post/3ltpc5ergjs2a). There's no replacement for serious thinking grounded in reality, and it's in short supply.
 
-So prep for artificial intelligence, and also inconceivable amounts of human stupidity. Be careful out there.
+So prep for artificial intelligence, and also inconceivable amounts of human stupidity. Be careful out there. 
+
+(Obligatory disclosure, on some days, and some matters I am without doubt one of the Dumb People. Having made this clickbait title, there will without a doubt be a stupid typo in here.)
 
 <img src="/assets/2025/careful.png">
 
