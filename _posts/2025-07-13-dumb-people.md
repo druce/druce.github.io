@@ -49,7 +49,7 @@ A lot of work goes into making a clean data corpus for pre-training. If you do a
 
 [LLMs struggle to acquire new knowledge through post-training and fine-tuning.](https://arxiv.org/abs/2405.05904) Reinforcement Learning With Human Feedback, Direct Policy Optimization, Supervised Fine-Tuning are mostly about structuring better responses on the existing knowledge base.
 
-It's beyond unlikely that OpenAI is intentionally, systematically, taking your board conversations and training with them. I think if you have any picture of how the LLM sausage is made, the scenario does not seem remotely plausible.
+It's beyond unlikely that OpenAI is intentionally, systematically, taking your board conversations and training with them. I think if you have any picture of how the LLM sausage is made, the scenario does not seem remotely plausible. _Of course it's hallucinating that it read the board minutes._
 
 Nevertheless, I've repeatedly had this conversation with, you know, smart IT people who are supposed to be familiar with the technology and ToS. And sometimes people have got a little bit testy with me for telling me their concerns are over the top. I heard it from X! Trust me, bro.
 
