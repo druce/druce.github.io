@@ -16,7 +16,7 @@ tags: infosec
 
 <!--more-->
 
-I was out sailing in NY harbor. A gust picked up my red L.L. Bean baseball cap and blew it into the water.  I went home, and I was scrolling Facebook, and the first thing I saw was an ad for a red L.L. Bean baseball cap.
+A couple of years ago, I was out sailing in NY harbor. A gust picked up my red L.L. Bean baseball cap and blew it into the water.  I went home, and I was scrolling Facebook, and the first thing I saw was an ad for a red L.L. Bean baseball cap.
 
 So what are the odds that Facebook really does listen to all your activities and show you ads according to them?
 
