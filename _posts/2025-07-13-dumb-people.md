@@ -83,7 +83,7 @@ For most companies, major cloud providers are the best they can reasonably do. B
 
 _Level 3: On-prem servers and trusted private clouds._ You host your own email, and chat, and video-conferencing, and your own LLMs. No Teams, no Zoom, no Gmail. You implement things like biometric access, compartmentalization.
 
-But if you build everything in house, it's expensive. You still have to trust someone: your employees, and the vendors who help you build it. And constantly monitor it and update it. And you have to trust that you're able to do it more securely than Microsoft and AWS and Google, and it's not their first rodeo. If you're not extremely capable, you're just gonna spend a lot more money if you try to beat that and create a lot of hassle and be less secure.
+But if you build everything in house, it's expensive. You still have to trust someone: your employees, and the vendors who help you build it. And constantly monitor it and update it. And you have to trust that you're able to do it more securely than Microsoft and AWS and Google, and it's not their first rodeo. If you're not extremely capable, you're just gonna spend a lot more money and create a lot of hassle and end up less secure.
 
 If government-sponsored hackers want to breach you, they still have a good shot, by compromising workers, having their spies work for you, intercepting equipment and tampering with it. With enough effort, they can probably get into anything. If Microsoft [fails to stop them](https://www.axios.com/2024/04/03/microsoft-security-practices-government-review), [again and again](https://www.axios.com/2024/03/08/microsoft-executive-emails-russia-hack), what chance have you got? 
 
@@ -91,7 +91,7 @@ As an IT manager or CTO or CEO, you have to pick a posture based on your own com
 
 So choose your own adventure. Pick your poison. How dead are you if you have a breach, and what can you afford to prevent it? Understand your threat models and what will kill you, like ransomware and spearphishers wiring firm or customer funds to a Manila casino. Make sure you are implementing best practices, spending appropriate resources combating appropriate realistic well-grounded threats, and not chasing your tail and making operations more complicated for no reason.
 
-All this to say, there are valid reasons why you might not want to use OpenAI, but them spying on and publishing your board deliberations is not one of them. (unless you somehow leak them onto the web and into the training corpus).
+All this to say, there are valid reasons why you might not want to use OpenAI, but them spying on and publishing your board deliberations is not one of them. (Unless you somehow leak them onto the Web and into the training corpus).
 
 And you should have people who know what they are doing, not making decision on the basis of tweets or panel discussions at your typical industry conference.
 
@@ -99,13 +99,13 @@ So what's my point? Mostly I just wanted to get this off my chest, and the next 
 
 But also, there's a lot of nonsense out there. There's bad medical information out there, bad AI information, bad cybersecurity information. It's a free country, anybody can be a viral influencer on social media. 
 
-There are a lot of, like, AI haters, like Gary Marcus and Ed Zitron, for whom AI can do no right. Even the so-called experts, what they say does not always do a service to the community.
+There are a lot of professional AI-haters, like Gary Marcus and Ed Zitron, for whom AI can do no right. Even the so-called experts, what they say does not always do a service to the community.
 
 And of course, there's an insane amount of hype about AI and people who sell it act like it's better than it is, and will be AGI if you just give them [seven trillion dollars, man](https://thenewstack.io/making-sense-of-sam-altmans-7-trillion-ai-chips-gambit/).
 
 AI figured out language. Which is a huge step forward. But it has a long way to go to be anything like AGI. It has to be able to learn on the fly, it has to combine the left brain and right brain, type one and type two thinking. But just with deep understanding of language, we can automate a lot of things, and it will disrupt a lot of professions and industries.
 
-No one is coming to save you. Our leaders don't know what the hell they're doing. There is no other room, where real people in charge with real information real authority work.  It's just us. We are The Room. There's no replacement for serious thinking grounded in reality, and it's in short supply.
+No one is coming to save you. Our leaders don't know what the hell they're doing. There is no Real Room, where real experts in charge with perfect information and real authority work.  It's just us. [We are The Room](https://bsky.app/profile/swiftonsecurity.com/post/3ltpc5ergjs2a). There's no replacement for serious thinking grounded in reality, and it's in short supply.
 
 So prep for artificial intelligence, and also inconceivable amounts of human stupidity. Be careful out there.
 
