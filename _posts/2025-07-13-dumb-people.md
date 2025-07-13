@@ -49,7 +49,7 @@ A lot of work goes into making a clean data corpus for pre-training. If you do a
 
 [LLMs struggle to acquire new knowledge through post-training and fine-tuning.](https://arxiv.org/abs/2405.05904) Reinforcement Learning With Human Feedback, Direct Policy Optimization, Supervised Fine-Tuning are mostly about structuring better responses on the existing knowledge base.
 
-It's beyond unlikely that OpenAI is intentionally, systematically, taking your board conversations and training with them. I think if you have any picture of how the LLM sausage is made, the scenario does not seem remotely plausible. _Of course it's hallucinating that it read the board minutes._
+It's beyond unlikely that OpenAI is intentionally, systematically, taking your private conversations and training with them. I think if you have any picture of how the LLM sausage is made, the scenario does not seem remotely plausible. _Of course it's hallucinating that it read the board minutes._
 
 Nevertheless, I've repeatedly had this conversation with, you know, smart IT people who are supposed to be familiar with the technology and ToS. And sometimes people have got a little bit testy with me for telling me their concerns are over the top. "I heard it from X! Trust me, bro."
 
@@ -91,7 +91,7 @@ As an IT manager or CTO or CEO, you have to pick a posture based on your own com
 
 So choose your own adventure. Pick your poison. How dead are you if you have a breach, and what can you afford to prevent it? Understand your threat models and what will kill you, like ransomware and spearphishers wiring firm or customer funds to a Manila casino. Make sure you are implementing best practices, spending appropriate resources combating appropriate realistic well-grounded threats, and not chasing your tail and making operations more complicated for no reason.
 
-All this to say, there are valid reasons why you might not want to use OpenAI, but them spying on and publishing your board deliberations is not one of them. (Unless you somehow leak them onto the Web and into the training corpus).
+All this to say, there are valid reasons why you might not want to use OpenAI, but them spying on and publishing your private conversations is not one of them. (Unless you somehow leak them onto the Web and into the training corpus).
 
 And you should have people who know what they are doing, not making decisions on the basis of tweets or panel discussions at your typical industry conference.
 
