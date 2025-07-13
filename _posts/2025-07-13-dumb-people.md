@@ -60,17 +60,15 @@ Level 0: What, me worry? Let anybody put anything they want into any SaaS produc
 
 This is clearly a very bad idea. [Look at 23andMe](https://www.zdnet.com/article/how-to-delete-your-23andme-data-asap-and-why-you-should/). They had a severe breach, they went broke, they could have been bought by anybody who would then have had all your DNA information, and not been subject to the contracts that were previously signed. 
 
-So Level 0 clearly a bad idea for most companies.
+And frankly this seems like a blind spot in our existing privacy and security landscape. Some rights you shouldn't be able to sign away, or lose in bankruptcy court.
 
-And frankly this seems like a blind spot in our existing privacy landscape. 
+If you are Goldman Sachs, and Google knows everything you search for, Bloomberg has all your chats with your clients, they will know what you are up to. Other providers who know more than you might be comfortable with: NetJets, your ISP, your mobile provider, whoever runs all the networks of video cameras, personal assistants, butlers and system admins, and so on. Goldman basically [started a company](https://symphony.com/) that is Signal with compliance because of discomfort with Bloomberg. And a [huge hedge fund](https://www.twosigma.com/) is basically, what if Google used every bit of online data exhaust for investing. It's the Wild West out there. You have to do better than 'nothing'.
 
-If you are Goldman Sachs, and Google knows everything you search for, Bloomberg has all your chats with your clients, they will know what you are up to. Other people who might know more than you might be comfortable with include NetJets, your ISP, your telecomms, maybe whoever runs all the networks of video cameras, personal assistants butlers and system admins, and so on. Goldman basically [started a company](https://symphony.com/) that is Signal with compliance because of discomfort with Bloomberg. And a [huge hedge fund](https://www.twosigma.com/) is basically, what if Google used every bit of online data exhaust for investing. It's the Wild West out there. You have to do better than 'nothing'.
-
-Level 1: understand terms of service and only use trusted SaaS endpoints, and exercise opt-outs, and implement internal policies and controls about what can be pasted into corporate AI. 
+Level 1: understand terms of service and only use trusted SaaS endpoints, and exercise opt-outs, and implement internal policies and controls about what can be pasted into approved AI. 
 
 That seems like the bare minimum. Then, as long as you trust that ChatGPT follows the opt out and the terms of service, and they doen't suffer a breach, you should be okay.
 
-Should you trust OpenAI? They are a startup. Things are a little bit chaotic. And they have had [breaches where your conversations were shown to other users](https://www.cnbc.com/2023/03/23/openai-ceo-says-a-bug-allowed-some-chatgpt-to-see-others-chat-titles.html) and where [info was stolen](https://www.theregister.com/2024/07/08/infosec_in_brief/).
+Should you trust OpenAI? They are a startup. Things are a little bit chaotic. Nation-states spy on them. And they have had [breaches where your conversations were shown to other users](https://www.cnbc.com/2023/03/23/openai-ceo-says-a-bug-allowed-some-chatgpt-to-see-others-chat-titles.html) and where [info was stolen](https://www.theregister.com/2024/07/08/infosec_in_brief/).
 
 Also they are currently under a [court order to retain logs indefinitely and let plaintiffs search them](https://arstechnica.com/tech-policy/2025/06/openai-confronts-user-panic-over-court-ordered-retention-of-chatgpt-logs/). Presumably a separate pipeline that doesn't impact e.g. other training and operational pipelines. But again, [breaches happen](https://www.bloomberg.com/news/articles/2025-07-01/columbia-university-applicants-personal-data-stolen-by-hacker).
 
@@ -84,7 +82,7 @@ For most companies, major cloud providers are the best they can reasonably do. B
 
 Level 3: on-prem servers and trusted private clouds. You host your own email, and chat, and video-conferencing, and your own LLMs. No Teams, no Zoom, no Gmail. You implement things like biometric access, compartmentalization.
 
-But if you build everything in house, it's expensive. You still have to trust someone: your employees, and the vendors who help you build it. And constantly monitor it and update it. And you have to trust that you're able to do it more securely than Microsoft and AWS and Google, and it's not their first rodeo. You're just gonna spend a lot more money if you try to beat that and create a lot of inconvenience and potentially not be more secure.
+But if you build everything in house, it's expensive. You still have to trust someone: your employees, and the vendors who help you build it. And constantly monitor it and update it. And you have to trust that you're able to do it more securely than Microsoft and AWS and Google, and it's not their first rodeo. If you're not extremely capable, you're just gonna spend a lot more money if you try to beat that and create a lot of hassle and be less secure.
 
 If government-sponsored hackers want to breach you, they still have a good shot, by compromising workers, having their spies work for you, intercepting equipment and tampering with it. With enough effort, they can probably get into anything. If Microsoft [fails to stop them](https://www.axios.com/2024/04/03/microsoft-security-practices-government-review), [again and again](https://www.axios.com/2024/03/08/microsoft-executive-emails-russia-hack), what chance have you got? 
 
@@ -92,9 +90,9 @@ As an IT manager or CTO or CEO, you have to pick a posture based on your own com
 
 So choose your own adventure. Pick your poison. How dead are you if you have a breach, and what can you afford to prevent it? Understand your threat models and what will kill you, like ransomware and spearphishers wiring firm or customer funds to a Manila casino. Make sure you are implementing best practices, spending appropriate resources combating appropriate realistic well-grounded threats, and not chasing your tail and making operations more complicated for no reason.
 
-All this to say, individual firms need to make their own cybersecurity choices, and there are valid reasons why you might not want to use OpenAI APIs, and go the cloud route or the on-premises route.
+All this to say, there are valid reasons why you might not want to use OpenAI, but them spying on and publishing your board deliberations is not one of them. (unless you somehow leak them onto the web and into the training corpus).
 
-But I kind of feel the people who are making these decisions should not be making them on the basis of tweets or panel discussions at your typical industry conference.
+And you should have people who know what they are doing, not making decision on the basis of tweets or panel discussions at your typical industry conference.
 
 So what's my point? Mostly I just wanted to get this off my chest, and the next time it comes up, point to it. 
 
@@ -106,7 +104,7 @@ And of course, there's an insane amount of hype about AI and people who sell it 
 
 AI figured out language. Which is a huge step forward. But it has a long way to go to be anything like AGI. It has to be able to learn on the fly, it has to combine the left brain and right brain, type one and type two thinking. But just with deep understanding of language, we can automate a lot of things, and it will disrupt a lot of professions and industries.
 
-No one is coming to save you.Our leaders don't know what the hell they're doing. There is no other room, where real people in charge with real information real authority work.  It's just us. We are The Room. There's no replacement for serious thinking grounded in reality, and it's in short supply.
+No one is coming to save you. Our leaders don't know what the hell they're doing. There is no other room, where real people in charge with real information real authority work.  It's just us. We are The Room. There's no replacement for serious thinking grounded in reality, and it's in short supply.
 
 So prep for artificial intelligence, and also inconceivable amounts of human stupidity. Be careful out there.
 
