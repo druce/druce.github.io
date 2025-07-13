@@ -16,13 +16,13 @@ tags: infosec
 
 <!--more-->
 
-Probably 10 years ago I was out sailing. A gust picked up my red L.L Bean baseball cap and blew it into the harbor.  I went home, and I was scrolling Facebook, and the first thing I see is an ad for a red L.L. Bean baseball cap.
+I was out sailing in NY harbor. A gust picked up my red L.L. Bean baseball cap and blew it into the water.  I went home, and I was scrolling Facebook, and the first thing I saw was an ad for a red L.L. Bean baseball cap.
 
 So what are the odds that Facebook really does listen to all your activities and show you ads according to them?
 
-I've seen Mark Zuckerberg talk over the years and say things like,[ "they trust me. dumb fucks."](https://www.theguardian.com/technology/2018/apr/17/facebook-people-first-ever-mark-zuckerberg-harvard)
+I've seen Mark Zuckerberg talk over the years and say things like,[ "They trust me. Dumb fucks."](https://www.theguardian.com/technology/2018/apr/17/facebook-people-first-ever-mark-zuckerberg-harvard)
 
-All too plausible that he would try stuff like that.
+All too plausible that he would try things like that.
 
 But I also know how machine learning works. And the algorithm knows I sometimes shop at LL Bean, and certainly that I looked at the red baseball cap.
 
@@ -31,9 +31,9 @@ And it knows my location. It's also plausible that machine learning would learn 
 For sure there are some shenanigans that we don't know about. But the known ways they monitor and manipulate us are as bad as the conspiracy theories. Who needs to spy on you when you let them know where you are, who with, and every online interaction?
 
 Eventually I quit Facebook:
-- I had a possibly ADD-related unhealthy relationship with it, would spend too much time there, even though must of the time was not that positive. There was a lot of addictive clickbait-y junk and stupid stuff, and people getting in my business. And politics.
+- I had a possibly ADD-related unhealthy relationship with it. I would spend too much time there...even though most of the time was not that positive. There was a lot of addictive clickbait-y junk and stupid stuff, and people getting in my business. And politics.
 - I felt there was [more upside to leaving in terms of overall mental well-being](https://phys.org/news/2023-12-social-media-happier-efficient.html).
-- Overall not trusting the company. Google and Apple know everything about me, I don't need every company to know everything, including ones who have repeatedly showed themselves to be manipulative and untrustworthy.
+- Overall not trusting the company. Google and Apple know everything about me. I don't need every company to know everything, especially ones who have repeatedly showed themselves to be manipulative and untrustworthy.
 
 Now I want to share this tweet.
 
@@ -45,7 +45,7 @@ ChatGPT explicitly provides an opt out to training on your data. Language in con
 
 <img src="/assets/2025/chatgpt_tos.png">
 
-A lot of work goes into making a clean data corpus for pre-training. If you do a multimillion dollar training run, and then realize the data set was contaminated with really bad stuff, there's no way to correct it. You have to start over from scratch, or [blacklist some questions because responses expose you to liability](https://www.techdirt.com/2024/12/03/the-curious-case-of-chatgpts-banned-names-hard-coding-blocks-to-avoid-nuisance-threats/). It's just a [disaster and PR nightmare](https://www.washingtonpost.com/technology/2025/07/11/grok-ai-elon-musk-antisemitism/). 
+A lot of work goes into making a clean data corpus for pre-training. If you do a multi-million-dollar training run, and then realize the data set was contaminated with really bad stuff, there's no way to fix it. You have to start over from scratch, or [blacklist some questions because responses expose you to liability](https://www.techdirt.com/2024/12/03/the-curious-case-of-chatgpts-banned-names-hard-coding-blocks-to-avoid-nuisance-threats/). It's just a [disaster and a PR nightmare](https://www.washingtonpost.com/technology/2025/07/11/grok-ai-elon-musk-antisemitism/). 
 
 [LLMs struggle to acquire new knowledge through post-training and fine-tuning.](https://arxiv.org/abs/2405.05904) Reinforcement Learning With Human Feedback, Direct Policy Optimization, Supervised Fine-Tuning are mostly about structuring better responses on the existing knowledge base.
 
@@ -67,7 +67,7 @@ If you are Goldman Sachs, and Google knows everything you search for, Bloomberg 
 
 _Level 1:_ Understand terms of service and only use trusted SaaS endpoints, and exercise opt-outs, and implement internal policies and controls about what can be pasted into approved AI. 
 
-That seems like the bare minimum. Then, as long as you trust that ChatGPT follows the opt out and the terms of service, and they doen't suffer a breach, you should be okay.
+That seems like the bare minimum. Then, as long as you trust that ChatGPT follows the opt out and the terms of service, and they don't suffer a breach, you should be okay.
 
 Should you trust OpenAI? They are a startup. Things are a little bit chaotic. Nation-states spy on them. And they have had [breaches where your conversations were shown to other users](https://www.cnbc.com/2023/03/23/openai-ceo-says-a-bug-allowed-some-chatgpt-to-see-others-chat-titles.html) and where [info was stolen](https://www.theregister.com/2024/07/08/infosec_in_brief/).
 
@@ -103,9 +103,9 @@ There are a lot of professional AI-haters, like Gary Marcus and Ed Zitron, for w
 
 And of course, there's an insane amount of hype about AI and people who sell it act like it's better than it is, and will be AGI if you just give them [seven trillion dollars, man](https://thenewstack.io/making-sense-of-sam-altmans-7-trillion-ai-chips-gambit/).
 
-AI figured out language. Which is a huge step forward. But it has a long way to go to be anything like AGI. It has to be able to learn on the fly, it has to combine the left brain and right brain, type one and type two thinking. But just with deep understanding of language, we can automate a lot of things, and it will disrupt a lot of professions and industries.
+AI figured out language. Which is a huge step forward. But it has a long way to go to be anything like AGI. It has to be able to learn on the fly. It has to integrate the left brain and right brain, Type 1 and Type 2 cognition. But just with deep understanding of language, we can automate a lot of things, and it will disrupt a lot of professions and industries.
 
-No one is coming to save you. Our leaders don't know what the hell they're doing. There is no Real Room, where real experts in charge with perfect information and real authority work.  It's just us. [We are The Room](https://bsky.app/profile/swiftonsecurity.com/post/3ltpc5ergjs2a). There's no replacement for serious thinking grounded in reality, and it's in short supply.
+No one is coming to save you. Our leaders don't know what they're doing. There is no Real Room, where real experts in charge with perfect information and real authority work.  It's just us. [We are The Room](https://bsky.app/profile/swiftonsecurity.com/post/3ltpc5ergjs2a). There's no replacement for serious thinking grounded in reality, and it's in short supply.
 
 So prep for artificial intelligence, and also inconceivable amounts of human stupidity. Be careful out there. 
 
