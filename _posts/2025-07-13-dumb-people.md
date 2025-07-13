@@ -11,6 +11,7 @@ tags: infosec
 
 ---
 ><img src="/assets/2025/dumb_people.png">
+>
 >This is a rant about cybersecurity and the information space around AI.
 
 <!--more-->
