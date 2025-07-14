@@ -99,6 +99,8 @@ So what's my point? Mostly I just wanted to get this off my chest, and the next 
 
 But also, there's a lot of nonsense out there. There's bad medical information out there, bad AI information, bad cybersecurity information. It's a free country, anybody can be a viral influencer on social media. 
 
+If you're a doctor or an IT guy, people already don't listen, you give simple detailed instructions, they hear what they want to hear and  do whatever they want to do. AI just makes it worse, they'll find someone to tell them authoritatively whatever they want.
+
 There are a lot of professional AI-haters, like Gary Marcus and Ed Zitron, for whom AI can do no right. Even the so-called experts, what they say does not always do a service to the community.
 
 And of course, there's an insane amount of hype about AI and people who sell it act like it's better than it is, and will be AGI if you just give them [seven trillion dollars, man](https://thenewstack.io/making-sense-of-sam-altmans-7-trillion-ai-chips-gambit/).
