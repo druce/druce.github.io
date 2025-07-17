@@ -69,7 +69,7 @@ _Level 1:_ Understand terms of service and only use trusted SaaS endpoints, and 
 
 That seems like the bare minimum. Then, as long as you trust that ChatGPT complies properly with the-opt out and the terms of service, and they don't suffer a breach, you should be okay.
 
-Should you trust OpenAI? They are a startup. Things are a little bit chaotic. Nation-states spy on them. And they have had [breaches where your conversations were shown to other users](https://www.cnbc.com/2023/03/23/openai-ceo-says-a-bug-allowed-some-chatgpt-to-see-others-chat-titles.html) and where [info was stolen](https://www.theregister.com/2024/07/08/infosec_in_brief/).
+Should you trust OpenAI? They are a startup. Things are [a little bit chaotic](https://calv.info/openai-reflections). Nation-states spy on them. And they have had [breaches where your conversations were shown to other users](https://www.cnbc.com/2023/03/23/openai-ceo-says-a-bug-allowed-some-chatgpt-to-see-others-chat-titles.html) and where [info was stolen](https://www.theregister.com/2024/07/08/infosec_in_brief/).
 
 Also they are currently under a [court order to retain logs indefinitely and let plaintiffs search them](https://arstechnica.com/tech-policy/2025/06/openai-confronts-user-panic-over-court-ordered-retention-of-chatgpt-logs/). Presumably a separate pipeline that doesn't impact e.g. other training and operational pipelines. But again, [breaches happen](https://www.bloomberg.com/news/articles/2025-07-01/columbia-university-applicants-personal-data-stolen-by-hacker).
 
