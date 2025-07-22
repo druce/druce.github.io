@@ -10,6 +10,11 @@ categories: AI
 tags: AI
 
 ---
+<figure>
+  <img
+  src="/assets/2025/robot_barista.png"
+  alt="Robot barista declines job application from human">
+</figure>
 > Economics is the painful elaboration of the obvious.
 >
 > Politicians sometimes say things like “AI is going to make our workers more productive, and they will reap the rewards with higher wages."
@@ -19,17 +24,12 @@ tags: AI
 >AI is the most human-like technology ever invented, so it seems likely to be an effective substitute for human labor. It seems likely that we will get growth but also disruption, more income inequality, more concentration of wealth, and more people locked out of decent middle class and working class jobs. The worst case would be an 'economic singularity' of robots making more robots while masses are immiserated. We should think about how to detect the singularity and use policy to head it off.
 >
 >Let's break it down (painful as it may be).
-<figure>
-  <img
-  src="/assets/2025/robot_barista.png"
-  alt="Robot barista declines job application from human">
-</figure>
 
 
 <!--more-->
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-A little personal history: in my first job out of college, I worked in the economics research department of a big investment bank. I wrote for the economics research reports, was occasionally quoted in the New York Times as 'economist Druce Vertes' if they spelled my name right, which they never did. 
+In my first job out of college, I worked in the economics research department of a big investment bank. I wrote for the economics research reports, was occasionally quoted in the New York Times as 'economist Druce Vertes' if they spelled my name right, which they never did. 
 
 I also applied for economics PhD programs and was told to go back and get As in differential equations and linear algebra, and summarily rejected. All this to say, I've studied this stuff but I'm also kind of a midwit and it's been a while. 
 
