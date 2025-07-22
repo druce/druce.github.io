@@ -21,9 +21,8 @@ tags: AI
 >Let's break it down (painful as it may be).
 <figure>
   <img
-  src="/assets/2025/ces-flat-small.png"
-  alt="CES production function with linear isocurves, ρ=1">
-	<figcaption>CES production function with linear isocurves, ρ=1</figcaption>
+  src="/assets/2025/robot_barista.png"
+  alt="Robot barista declines job application from human">
 </figure>
 
 
@@ -443,6 +442,12 @@ All that is really required for AI to favor capital over labor is for AI to flat
 But it could collapse the tradeoff between labor and capital.
 
 ## A little Economic History
+
+<figure>
+  <img
+  src="/assets/2025/ai111.png"
+  alt="Robots v. horses">
+</figure>
 
 We've passed through a few industrial revolutions: 
 
