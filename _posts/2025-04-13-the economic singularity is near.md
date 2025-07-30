@@ -267,7 +267,11 @@ Consider building houses:
   
 - An optimal mix of capital and labor, like workers equipped with power tools, results in the most house for the money.
 
-There are critiques of the Cobb-Douglas function. At the level of an individual firm, there are myriad decisions that go into optimizing output. The unit cost of capital depends on capacity utilization. There are learning curves. Individuals are not lumps of labor. Neither are capital investments like an ASML machine vs. Intel's in-house lithography. We may have breakpoints and variability in the isoquants over time. 
+- There is a natural area of optimal total factor productivity, as you stray from it, total factor productivity diminishes.
+
+Or consider truck drivers. You can have bigger or smaller trucks within reason, you could have teams of 2 drivers in 12-hour daily shifts, but you have one driver at a time. You couldn't have one driver and a single giant truck driving all the day's shipments between two major cities. There's a natural, reasonable ratio between capital and labor.
+
+There are critiques of the Cobb-Douglas function. At the level of an individual firm, there are myriad decisions that go into optimizing output. The unit cost of capital depends on capacity utilization. There are learning curves. Individuals are not lumps of labor. Neither are capital investments like an ASML machine vs. We may have breakpoints and variability in the isoquants over time. 
 
 But at the level of the macro economy, these assumptions are reasonable simplifications. Macro output is a function of how much capital, labor and tech you have, and diminishing returns to capital and labor individually make sense, and constant returns to scale make sense.
 
@@ -425,7 +429,7 @@ If you have the convex unit-elastic Cobb-Douglas production function, and perfec
 
 Under Cobb-Douglas, wages will always rise as technology improves productivity and the labor share of national income will stay constant. This has very roughly been the case in the past, *contra* thinkers like Marx. But possibly only with the help of unions and policy choices to help counter the threat of Communism. 
 
-The important thing to note is that the Cobb-Douglas function forces income share equality between labor and capital factor incomes. If you move to the CES function, math alone doesn’t force it to happen, you need to parameterize it with $$\alpha=0.5, \rho=0$$  to achieve unit elasticity of substitution (or match $$\rho$$ to a different $$\alpha \neq 0.5$$). More convexity and complementarity means a higher labor share, less convexity means a lower labor share.
+The important thing to note is that the Cobb-Douglas function forces income share equality between labor and capital factor incomes. If you move to the CES function, math alone doesn’t force it to happen, you need to parameterize it with $$\alpha=0.5, \rho=0$$  to achieve unit elasticity of substitution (or match $$\rho$$ to a different $$\alpha \neq 0.5$$). More convexity and complementarity means a higher labor share, less convexity means a lower labor share, all else being equal.
 
 There is no theoretical reason $$\rho$$ must be equal to 0. And in fact the labor share has been [declining since around 1970](https://fred.stlouisfed.org/graph/?id=LABSHPUSA156NRUG), although it's still above 50%. 
 
@@ -471,7 +475,7 @@ I'm here to tell you that the pop economics that technology always eventually le
 
 Consider the horse. The horse was a very versatile source of transportation and power. It ran on hay and water and could navigate bad roads and hostile off-road environments. Steam and then internal combustion engines came along, with railroads and better roads everwhere, and ultimately replaced horses by being better and cheaper. This time around, we might be the horse.
 
-Even in ideal competitive markets, the optimistic view depends on a degree of complementarity between labor and capital that may no longer exist in a world full of AI. And in the imperfect real world, the balance of market and political power between labor and capital has a significant impact. If labor and capital were perfect complements, square isoquants, fixed ratio of labor and capital, then whoever was in a stronger bargaining position , scarcer, better organized, more political power, would get the lion's share of national income)
+Even in ideal competitive markets, the optimistic view depends on a degree of complementarity between labor and capital that may no longer exist in a world full of AI. And in the imperfect real world, the balance of market and political power between labor and capital has a significant impact. If labor and capital were perfect complements, square isoquants, fixed ratio of labor and capital, then the factor in a stronger bargaining position, scarcer, better organized, more politically powerful, would extract the lion's share of national income)
 
 Most jobs don't require all of humans' creativity and knowledge. And your brain is just a slow, biased pattern-matcher trained on questionable data. Just like AI, but worse. In many but not all respects currently, but in 20 years, who knows?
 
@@ -536,3 +540,10 @@ In the final analysis, everything is endogenous, at least to the extent humans c
 [Automation and New Tasks: How Technology Displaces and Reinstates Labor, by Daron Acemoglu and Pascual Restrepo](https://economics.mit.edu/sites/default/files/publications/Automation%20and%20New%20Tasks%20-%20How%20Technology%20Displace.pdf)
 
 [Fed Governor Michael Barr: Artificial Intelligence and the Labor Market: A Scenario-Based Approach](https://www.federalreserve.gov/newsevents/speech/barr20250509a.htm?utm_source=substack&utm_medium=email)
+
+and then once there is a template, can ask ai to suggest stuff like this 
+
+You are tasked with creating a 4-week social media campaign calendar for an event sponsored by AITEC, an organization of alternative investment IT executives. Your goal is to maximize engagement, increase attendance, and encourage resharing while maintaining a professional tone and providing value to followers.
+
+Here are the key details for the upcoming event:
+
