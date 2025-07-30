@@ -1,6 +1,6 @@
 ---
 id: 7143
-title: 'I See Dumb People'
+title: 'Urban Myths of AI'
 date: 2025-07-13T01:01:01+00:00
 author: Druce Vertes
 layout: post
@@ -103,9 +103,9 @@ If you're a doctor or an IT guy, people already don't listen, you give simple de
 
 There are a lot of professional AI-haters, like Gary Marcus and Ed Zitron, for whom AI can do no right. Even the so-called experts, what they say does not always do a service to the community.
 
-And of course, there's an insane amount of hype about AI and people who sell it act like it's better than it is, and will be AGI if you just give them [seven trillion dollars, man](https://thenewstack.io/making-sense-of-sam-altmans-7-trillion-ai-chips-gambit/).
+And of course, there's an insane amount of hype about AI and people who sell it act like it's better than it is, and will be AGI if you just give them [seven trillion dollars, man](https://thenewstack.io/making-sense-of-sam-altmans-7-trillion-ai-chips-gambit/). Some managers swallow it, and think that you can just say AI, do this complex task and it will spontaneously automate it flawlessly, or at least perform it as well as humans with no errors or hallucinations, and then you can cut staff.
 
-AI figured out language. Which is a huge step forward. But it has a long way to go to be anything like AGI. It has to be able to learn on the fly. It has to integrate the left brain and right brain, Type 1 and Type 2 cognition. But just with deep understanding of language, we can automate a lot of things, and it will disrupt a lot of professions and industries.
+AI figured out language. Which is a huge step forward. But it has a long way to go to be anything like AGI. It has to be able to learn on the fly. It has to integrate the left brain and right brain, Type 1 and Type 2 cognition. But just with a deep understanding of language, we can automate a lot of things, and it will disrupt a lot of professions and industries. And a lot of non-AI savvy companies are going to be disrupted by hungry, smart, AI-first companies.
 
 No one is coming to save you. Our leaders don't know what they're doing. There is no Real Room, where real experts in charge with perfect information and real authority work.  It's just us. [We are The Room](https://bsky.app/profile/swiftonsecurity.com/post/3ltpc5ergjs2a). There's no replacement for serious thinking grounded in reality, and it's in short supply.
 
