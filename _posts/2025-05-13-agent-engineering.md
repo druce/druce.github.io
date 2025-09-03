@@ -159,10 +159,11 @@ When you see an agent doing something simple, like my daily [AI news bot](https:
   - [Jerry Liu](https://www.llamaindex.ai/blog/author/jerry-liu)
   - [Logan Kilpatrick](https://logank.ai/)
   - [Chip Huyen](https://huyenchip.com/)
+  - [Cameron Wolfe](https://cameronrwolfe.substack.com/p/automatic-prompt-optimization)
   - [Lilian Weng](https://lilianweng.github.io/) (whose blog template I appropriated a few years ago, many thanks!)
   - [Heiko Hotz](https://heiko-hotz.medium.com/about)
   - [Andriy Burkov](https://aiweekly.substack.com/)
-
+  - [Latent Space Team](https://www.latent.space/)
 
 - **Books**
   - [Jay Alammar - Hands-On Large Language Models: Language Understanding and Generation](https://www.amazon.com/Hands-Large-Language-Models-Understanding-ebook/dp/B0DGZ46G88)
