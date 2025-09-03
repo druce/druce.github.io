@@ -116,6 +116,9 @@ When you see an agent doing something simple, like my daily [AI news bot](https:
 ## Further Reading:
 
 - [Anthropic: Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)
+- [Anthropic: How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system)
+- [LangChain: Workflows and Agents](https://langchain-ai.github.io/langgraph/tutorials/workflows/)
+- [Anthropic: Our framework for developing safe and trustworthy agents](https://www.anthropic.com/news/our-framework-for-developing-safe-and-trustworthy-agents)
 - [Chip Huyen on Agents](https://huyenchip.com/2025/01/07/agents.html)
 - [Andrew Ng: The Batch](https://www.deeplearning.ai/the-batch/how-agents-can-improve-llm-performance/)
 - [DeepLearning.ai](https://www.deeplearning.ai/courses/?courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B0%5D=Agents&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B1%5D=Vector%20Databases&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B2%5D=Task%20Automation&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B3%5D=Search%20and%20Retrieval&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B4%5D=RAG&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B5%5D=Prompt%20Engineering&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B6%5D=GenAI%20Applications&courses_date_desc%5BrefinementList%5D%5Btopic%5D%5B7%5D=Evaluation%20and%20Monitoring)
@@ -134,8 +137,8 @@ When you see an agent doing something simple, like my daily [AI news bot](https:
 - **Druce's related stuff**
   - [A slide presentation](https://docs.google.com/presentation/d/1vPF2TNj1GoXtMIPXnVoAwkziug-956GwF2uK6UKNWqs/edit#slide=id.p)
   - [I save articles here](https://drive.google.com/drive/folders/1DgX9XaLe6ZhH0IxEyszf930dc7mbgjj8)
-  - [Skynet and Chill daily AI reading](skynet and chill.com)
-  - [AInewsbot agent to write an automated daily news letter](https://github.com/druce/AInewsbot/tree/main). Agent 'used' loosely, it's a long chain of prompts, the AI chooses stories and summarizes them and writes clever titles but not a complex AI-driven control flow.
+  - [Skynet and Chill daily AI reading (agent-generated with HITL)](skynet and chill.com)
+  - [AInewsbot agent to write an automated daily news letter](https://github.com/druce/AInewsbot/tree/main). Barely agentic, it's a long chain of prompts, the AI chooses stories and summarizes them and writes clever titles but not a complex AI-driven control flow.
 <img src="/assets/2025/news.png">
 
 - **AI Engineering stuff (might break out into a separate post)**
