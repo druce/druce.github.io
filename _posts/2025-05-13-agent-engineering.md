@@ -129,6 +129,7 @@ When you see an agent doing something simple, like my daily [AI news bot](https:
 - **Agent Frameworks**
   - [LangGraph](https://www.langchain.com/langgraph)
   - [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/)
+  - [Google ADK](https://google.github.io/adk-docs/)
   - [LlamaIndex](https://docs.llamaindex.ai/en/stable/use_cases/agents/)
   - [AutoGen](https://microsoft.github.io/autogen/stable/) / [AG2](https://github.com/ag2ai/ag2) (confusing fork under way)
   - [CrewAI](https://www.crewai.com/)
@@ -160,6 +161,7 @@ When you see an agent doing something simple, like my daily [AI news bot](https:
   - [Logan Kilpatrick](https://logank.ai/)
   - [Chip Huyen](https://huyenchip.com/)
   - [Cameron Wolfe](https://cameronrwolfe.substack.com/p/automatic-prompt-optimization)
+  - [Andrej Karpathy](https://www.youtube.com/andrejkarpathy)
   - [Lilian Weng](https://lilianweng.github.io/) (whose blog template I appropriated a few years ago, many thanks!)
   - [Heiko Hotz](https://heiko-hotz.medium.com/about)
   - [Andriy Burkov](https://aiweekly.substack.com/)
