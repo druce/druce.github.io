@@ -23,7 +23,7 @@ tags: AI
 
 AI coding assistants and vibecoding are a sea change in the world of software engineering. They make midwit [code monkeys](https://www.youtube.com/watch?v=qYodWEKCuGg) like me something like 20% faster at creating a given functionality, but they also let me tackle things I never would have tackled, and the output is more robust in the long run, in terms of docs, tests, readability.
 
-Suppose I want to do a traveling-salesman traversal of a bunch of news headlines in topic order. With Cursor or Claude Code, I can ask it to find all the python modules that do traveling salesman and perform my task. And I can look at the code, run them, pick the one that is performant and makes sense. I can try different embeddings and choose the smallest one that works (or do dimensionality reduction).
+Suppose I want to do a traveling-salesman traversal of a bunch of news headlines in topic order. With Cursor or Claude Code, I can ask it to find all the Python modules that do traveling salesman and perform my task. And I can look at the code, run them, pick the one that is performant and makes sense. I can try different embeddings and choose the smallest one that works (or do dimensionality reduction).
 
 I've known 10x devs who can just emit complex working C code fluently and it works on the first try, and I can't do that. But using a coding assistant, I feel like one of them. It feels like I've been given superpowers.
 
@@ -33,7 +33,7 @@ I could even sketch a UI and say, make this using React and bootstrap, and it wi
 
 If you are a late adopter, update your toolchains! Take the mini courses on [Claude Code](https://learn.deeplearning.ai/courses/claude-code-a-highly-agentic-coding-assistant/lesson/66b35/introduction) and [Cursor](https://cursor.com/en-US/learn) and start to use them effectively.
 
-Now let's talk about [Claude Skills](https://www.anthropic.com/news/skills). Because I think they might also be a bit of a sea change, and let normies build agentic workflows, without using a python agentic framework like LangGraph or OpenAI Agents SDK, or even a lightweight agent builder like Zapier or Copilot Studio.
+Now let's talk about [Claude Skills](https://www.anthropic.com/news/skills). Because I think they might also be a bit of a sea change, and let normies build agentic workflows, without using a Python agentic framework like LangGraph or OpenAI Agents SDK, or even a lightweight agent builder like Zapier or Copilot Studio.
 
 "A skill is a Markdown file telling the model how to do something, optionally accompanied by extra documents and pre-written scripts that the model can run to help it accomplish the tasks described by the skill." (direct quote from Simon Willison)
 
@@ -51,9 +51,9 @@ Then when you say, book me a ticket, the first thing the LLM does is bring the f
 
 That may not sound like much, but this happens at runtime and you can also say, try booking.com, but if it times out retry 3 times. And then do Expedia and then Travelocity. So you can do a loop and control flow.
 
-And then you could say, if I book a flight to Asia, give me an overnight in London so I can visit my gran, first book NY to London and then London to Singapore or whatever using the same airline ticket skill. So that's recursion.
+And then you could say, if I book a flight to Asia, give me an overnight in London so I can visit my gran, first book NY to London and then London to Singapore or wherever using the same airline ticket skill. So that's recursion.
 
-And then, one required tool in this context is computer use, running in a sandbox. You can give your skill bash scripts and python scripts. So they can run more complex behaviors, without writing full MCP tools.
+And then, one required tool in this context is computer use, running in a sandbox. You can give your skill bash scripts and Python scripts. So they can run more complex behaviors, without writing full MCP tools.
 
 In the Claude Desktop sandbox, the computer use tool can't access enterprise files, just what you upload to the sandbox. Still, easy way to implement small tools like, extract something from a PDF.
 
