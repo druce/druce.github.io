@@ -55,7 +55,7 @@ And then you could say, if I book a flight to Asia, give me an overnight in Lond
 
 And then, one required tool in this context is computer use, running in a sandbox. You can give your skill bash scripts and Python scripts. So they can run more complex behaviors, without writing full MCP tools.
 
-You should be able to write [complex agent patterns](https://druce.ai/2025/05/agent_engineering) by writing small skills and an orchestrator skill.
+You should be able to write [complex agent patterns](https://druce.ai/2025/05/agent_engineering) by writing small skills combining some scripts and plain English descriptions, and an orchestrator skill in plain English.
 
 In the Claude Desktop sandbox, the computer use tool can't access enterprise files, just what you upload to the sandbox. Still, easy way to implement small tools like, extract something from a PDF.
 
