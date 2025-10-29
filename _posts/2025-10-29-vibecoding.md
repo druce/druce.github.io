@@ -72,4 +72,6 @@ I think Claude Code works because it has
    
 Seems like a lot of agentic bang for minimal framework complexity bucks.
 
+The 'agentic browsers' are a bit disappointing to me, I can't really tell it, read this folder full of PDFs and extract relevant parts for this presentation I am doing into 'index cards' I can put into Obsidian or Notion. And I still have some security concerns about prompt injection. But I can do this research task with Claude Code. And over time all browsers will be agentic browsers with skills, probably.
+
 If you haven't already done it, try Claude Code, hook up some [MCP servers](https://mcpmarket.com/categories/developer-tools) and try some [skills](https://github.com/anthropics/skills). I have barely scratched the surface and am excited to do more.
