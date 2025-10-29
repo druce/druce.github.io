@@ -16,6 +16,7 @@ tags: AI
 <figure>
   <img src="/assets/2025/karpathy.jpeg"
   alt="Vibecoding, by Andrej Karpathy.">
+  <figcaption>Image credit: <a href="https://twitter.com/karpathy">Andrej Karpathy</a></figcaption>
 </figure>
 
 <!--more-->
