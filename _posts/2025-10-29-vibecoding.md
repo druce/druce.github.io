@@ -21,7 +21,7 @@ tags: AI
 
 <!--more-->
 
-AI coding assistants and vibecoding are a sea change in the world of software engineering. They make midwit [code monkeys](https://www.youtube.com/watch?v=qYodWEKCuGg) like me something like 20% faster at creating a given functionality, but they also let me tackle things I never would have tackled, and the output is more robust in the long run, in terms of docs, tests, readability.
+AI coding assistants and vibecoding are a sea change in the world of software engineering. They make midwit [code monkeys](https://www.youtube.com/watch?v=qYodWEKCuGg) like me something like 20% faster (depends on task, others say different, parts [one](https://arxiv.org/abs/2302.06590), [two](https://economics.mit.edu/sites/default/files/inline-files/draft_copilot_experiments.pdf), [three](https://arxiv.org/abs/2507.09089))at creating a given functionality, but they also let me tackle things I never would have tackled, and the output is more robust in the long run, in terms of docs, tests, readability.
 
 Suppose I want to do a traveling-salesman traversal of a bunch of news headlines in topic order. With Cursor or Claude Code, I can ask it to find all the Python modules that do traveling salesman and perform my task. And I can look at the code, run them, pick the one that is performant and makes sense. I can try different embeddings and choose the smallest one that works (or do dimensionality reduction).
 
@@ -29,11 +29,11 @@ I've known 10x devs who can just emit complex working C code fluently and it wor
 
 And then with Claude Code I can say, add this field to the database schema, update the CRUD code to reflect it, write tests, and update the docstrings. And it will one-shot it.
 
-I could even sketch a UI and say, make this using React and bootstrap, and it will do a passable job. I can integrate it with GitHub, assign it PRs and it will take a crack at them. I can spawn multiple sessions and have multiple agents working on multiple Git branches. I can give it my style hints on how I write code, write my own slash commands, lots of [awesome stuff](https://github.com/hesreallyhim/awesome-claude-code).  [AI-first dev is just different](https://creatoreconomy.so/p/inside-claude-code-how-an-ai-native-actually-works-cat-wu).
+I could even sketch a UI and say, make this using React and Bootstrap, and it will do a passable job. I can integrate it with GitHub, assign it PRs and it will take a crack at them. I can spawn multiple sessions and have multiple agents working on multiple Git branches. I can give it my style hints on how I write code, write my own slash commands, lots of [awesome stuff](https://github.com/hesreallyhim/awesome-claude-code).  [AI-first dev is just different](https://creatoreconomy.so/p/inside-claude-code-how-an-ai-native-actually-works-cat-wu).
 
 If you are a late adopter, update your toolchains! Take the mini courses on [Claude Code](https://learn.deeplearning.ai/courses/claude-code-a-highly-agentic-coding-assistant/lesson/66b35/introduction) and [Cursor](https://cursor.com/en-US/learn) and start to use them effectively.
 
-Now let's talk about [Claude Skills](https://www.anthropic.com/news/skills). Because I think they might also be a bit of a sea change, and let normies build agent workflows, without using a Python agent framework like LangGraph or OpenAI Agents SDK, or even a lightweight agent builder like Zapier or Copilot Studio.
+Now let's talk about [Claude Skills](https://www.anthropic.com/news/skills). Because they might also be a bit of a sea change, and let normies build agent workflows, without using a Python agent framework like LangGraph or OpenAI Agents SDK, or even a lightweight agent builder like Zapier or Copilot Studio.
 
 "A skill is a Markdown file telling the model how to do something, optionally accompanied by extra documents and pre-written scripts that the model can run to help it accomplish the tasks described by the skill." (direct quote from Simon Willison)
 
@@ -67,7 +67,7 @@ Or even 3 skills like plan a to-do list, code, test, and then a high level skill
 
 OpenAI and Microsoft have ~9 agent frameworks between them. Anthropic has 0. And yet, Anthropic has the most successful agentic tool for the biggest enterprise use case which is coding. Because Claude Code is really a universal agent. With tools + skills + computer use you can tell it to do anything.
 
-I think Claude Code works because it has
+Claude Code works because it has
    1) a great to-do list workflow so it doesn't go off task.
    2) great context engineering using skills, putting the right part of the code base in the context
    3) a great LLM well-tuned for this process.
