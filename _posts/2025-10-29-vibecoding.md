@@ -11,7 +11,7 @@ tags: AI
 
 ---
 
-> Another [Simon Willison post](https://simonwillison.net/2025/Oct/16/claude-skills/ )) has motivated me to go down a rabbit hole.
+> Another [Simon Willison post](https://simonwillison.net/2025/Oct/16/claude-skills/) has motivated me to go down a rabbit hole.
 
 <figure>
   <img src="/assets/2025/karpathy.jpeg"
@@ -50,7 +50,7 @@ Then when you say, book me a ticket, the first thing the LLM does is bring the f
 
 That may not sound like much, but this happens at runtime and you can also say, try booking.com, but if it times out retry 3 times. And then do Expedia and then Travelocity. So you can do a loop and control flow.
 
-And then you could say, if I book a flight to Asia give me an overnight in London so I can visit my gram, first book NY to London and then London to Singapore or whatever using the same airline ticket skill. So that's recursion.
+And then you could say, if I book a flight to Asia, give me an overnight in London so I can visit my gran, first book NY to London and then London to Singapore or whatever using the same airline ticket skill. So that's recursion.
 
 And then, one required tool in this context is computer use, running in a sandbox. You can give your skill bash scripts and python scripts. So they can run more complex behaviors, without writing full MCP tools.
 
