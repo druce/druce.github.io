@@ -33,7 +33,7 @@ I could even sketch a UI and say, make this using React and bootstrap, and it wi
 
 If you are a late adopter, update your toolchains! Take the mini courses on [Claude Code](https://learn.deeplearning.ai/courses/claude-code-a-highly-agentic-coding-assistant/lesson/66b35/introduction) and [Cursor](https://cursor.com/en-US/learn) and start to use them effectively.
 
-Now let's talk about [Claude Skills](https://www.anthropic.com/news/skills). Because I think they might also be a bit of a sea change, and let normies build agentic workflows, without using a Python agentic framework like LangGraph or OpenAI Agents SDK, or even a lightweight agent builder like Zapier or Copilot Studio.
+Now let's talk about [Claude Skills](https://www.anthropic.com/news/skills). Because I think they might also be a bit of a sea change, and let normies build agent workflows, without using a Python agent framework like LangGraph or OpenAI Agents SDK, or even a lightweight agent builder like Zapier or Copilot Studio.
 
 "A skill is a Markdown file telling the model how to do something, optionally accompanied by extra documents and pre-written scripts that the model can run to help it accomplish the tasks described by the skill." (direct quote from Simon Willison)
 
@@ -55,6 +55,8 @@ And then you could say, if I book a flight to Asia, give me an overnight in Lond
 
 And then, one required tool in this context is computer use, running in a sandbox. You can give your skill bash scripts and Python scripts. So they can run more complex behaviors, without writing full MCP tools.
 
+You should be able to write [complex agent patterns](https://druce.ai/2025/05/agent_engineering) by writing small skills and an orchestrator skill.
+
 In the Claude Desktop sandbox, the computer use tool can't access enterprise files, just what you upload to the sandbox. Still, easy way to implement small tools like, extract something from a PDF.
 
 In Claude Code CLI a skill script can access local resources, network and the Web (with permission), so you could write a tool that just runs locally as a script and accesses the network and enterprise files.
@@ -70,7 +72,7 @@ I think Claude Code works because it has
    2) great context engineering using skills, putting the right part of the code base in the context
    3) a great LLM well-tuned for this process.
    
-Seems like a lot of agentic bang for minimal framework complexity bucks.
+Seems like a lot of agent bang for minimal framework complexity bucks.
 
 The 'agentic browsers' are a bit disappointing to me, I can't really tell it, read this folder full of PDFs and extract relevant parts for this presentation I am doing into 'index cards' I can put into Obsidian or Notion. And I still have some security concerns about prompt injection. But I can do this research task with Claude Code. And over time all browsers will be agentic browsers with skills, probably.
 
