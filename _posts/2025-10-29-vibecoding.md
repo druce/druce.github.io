@@ -32,15 +32,15 @@ I could even sketch a UI and say, make this using React and bootstrap, and it wi
 
 If you are a late adopter, update your toolchains! Take the mini courses on [Claude Code](https://learn.deeplearning.ai/courses/claude-code-a-highly-agentic-coding-assistant/lesson/66b35/introduction) and [Cursor](https://cursor.com/en-US/learn) and start to use them effectively.
 
-Now let's talk about [Claude Skills](https://www.anthropic.com/news/skills). Because I think they might also be a bit of a sea change, and let normies build pretty strong agentic workflows, without using a python agentic framework like LangGraph or OpenAI Agents SDK, or even a lightweight agent builder like Zapier or Copilot Studio.
+Now let's talk about [Claude Skills](https://www.anthropic.com/news/skills). Because I think they might also be a bit of a sea change, and let normies build agentic workflows, without using a python agentic framework like LangGraph or OpenAI Agents SDK, or even a lightweight agent builder like Zapier or Copilot Studio.
 
 "A skill is a Markdown file telling the model how to do something, optionally accompanied by extra documents and pre-written scripts that the model can run to help it accomplish the tasks described by the skill." (direct quote from Simon Willison)
 
 It's an orchestration layer. It's the world's simplest, most effective agent framework.
 
-Suppose you want the LLM to act like your travel agent, based on some [MCP tools](https://www.anthropic.com/news/model-context-protocol) from airlines and booking.com. With MCP, You could tell the LLM, book me a ticket from New York to Paris. And it will look at the MCP tool, say OK! This lets me search for flights, book them etc.
+Suppose you want the LLM to act like your travel agent, based on some [MCP tools](https://www.anthropic.com/news/model-context-protocol) from airlines and booking.com. With MCP, you could tell the LLM, book me a ticket from New York to Paris. And the LLM will look up the right MCP tool, say OK! This lets me search for flights, book them etc.
 
-Now with skills, I can write a markdown file that says: always buy business class, no redeyes, window seat, because that's how I roll. Prefer Delta because I am Diamond Medallion.
+Now with skills, I can write a markdown file that says: "always buy business class, no redeyes, window seat, because that's how I roll. Prefer Delta because I am Diamond Medallion."
 
 On Claude Desktop you make a skill by creating a markdown file explaining that this is a skill for buying airline tickets, and here's a workflow to do that.
 
