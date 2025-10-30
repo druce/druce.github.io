@@ -68,12 +68,19 @@ Or even 3 skills like plan a to-do list, code, test, and then a high level skill
 OpenAI and Microsoft have ~9 agent frameworks between them. Anthropic has 0. And yet, Anthropic has the most successful agentic tool for the biggest enterprise use case which is coding. Because Claude Code is really a universal agent. With tools + skills + computer use you can tell it to do anything.
 
 Claude Code works because it has
-   1) a great to-do list workflow so it doesn't go off task.
-   2) great context engineering using skills, putting the right part of the code base in the context
-   3) a great LLM well-tuned for this process.
-   
-Seems like a lot of agent bang for minimal framework complexity bucks.
+   - a great to-do list workflow so it doesn't go off task.
+   - great context engineering using skills, putting the right part of the code base in the context
+   - a great LLM well-tuned for this process.
+
+Skills and MCP can bring Claude Code to a higher level.
+  - a skill + computer use can be act an MCP tool but it's simpler to implement
+  - the gradual discovery of skills means you can use more of them without confusing the LLM
+  - they operate at a higher level in the stack compared to tools and can call each other, so potentially implement more complex agent patterns.
+
+Skills add a lot of agent bang for minimal framework complexity bucks.
 
 The 'agentic browsers' are a bit disappointing to me, I can't really tell it, read this folder full of PDFs and extract relevant parts for this presentation I am doing into 'index cards' I can put into Obsidian or Notion. And I still have some security concerns about prompt injection. But I can do this research task with Claude Code. And over time all browsers will be agentic browsers with skills, probably.
+
+Claude Code and skills punch above their weight. You can use Claude Code and skills as a universal to do anything on your computer implementing complex agent patterns.
 
 If you haven't already done it, try Claude Code, hook up some [MCP servers](https://mcpmarket.com/categories/developer-tools) and try some [skills](https://github.com/anthropics/skills). I have barely scratched the surface and am excited to do more.
