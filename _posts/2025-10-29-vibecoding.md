@@ -72,15 +72,22 @@ Claude Code works because it has
    - great context engineering using skills, putting the right part of the code base in the context
    - a great LLM well-tuned for this process.
 
-Skills and MCP can bring Claude Code to a higher level.
-  - a skill + computer use can be act an MCP tool but it's simpler to implement
-  - the gradual discovery of skills means you can use more of them without confusing the LLM
-  - they operate at a higher level in the stack compared to tools and can call each other, so potentially implement more complex agent patterns.
+Maybe there is more secret sauce, but that is what I can see.
+
+Skills and MCP can bring Claude Code to a higher level. So you are cruising along using Claude Code or Claude Desktop to do a research project. You use it do download a bunch of PDF articles, normalize to text, apply prompts to extract parts relevant to your project and make a virtual index card knowledge base. You can do all this extraction with computer use, it will write code on the fly. It might be a bit of a trial and error process, so suppose you find some parts that work well and you want to keep doing it that way.
+
+  - You can write an MCP tool, which is a fairly heavy solution.
+  - You can write a skill with a script for the computer use tool which is a lot simpler. In this case the skill is like MCP-lite.
+  - The skill is easy to share as part of a git repo. (can be a per-project skill in the case of Claude Code)
+  - The progressive disclosure/gradual discovery of skill details on demand means you can use more of them without confusing the LLM
+  - They operate at a higher level in the stack compared to tools and can call each other, so you can potentially implement more complex agent patterns. Although I would probably write Python with an framework like Agents SDK once agents get complex. 
 
 Skills add a lot of agent bang for minimal framework complexity bucks.
 
-The 'agentic browsers' are a bit disappointing to me, I can't really tell it, read this folder full of PDFs and extract relevant parts for this presentation I am doing into 'index cards' I can put into Obsidian or Notion. And I still have some security concerns about prompt injection. But I can do this research task with Claude Code. And over time all browsers will be agentic browsers with skills, probably.
+The 'agentic browsers' are a bit disappointing to me, I can't really tell it, read this folder full of PDFs and extract relevant parts using prompts into notes for this presentation I am doing. And I still have some security concerns about prompt injection. But I can do this research task with Claude Code. And over time all browsers will be agentic browsers with skills, probably.
 
 Claude Code and skills punch above their weight. You can use Claude Code and skills as a universal to do anything on your computer implementing complex agent patterns.
 
 If you haven't already done it, try Claude Code, hook up some [MCP servers](https://mcpmarket.com/categories/developer-tools) and try some [skills](https://github.com/anthropics/skills). I have barely scratched the surface and am excited to do more.
+
+[A couple of small skills for this research project here.](https://github.com/druce/research-kb/tree/main)
