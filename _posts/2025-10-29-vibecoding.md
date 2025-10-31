@@ -21,19 +21,19 @@ tags: AI
 
 <!--more-->
 
-AI coding assistants and vibecoding are a sea change in the world of software engineering. They make midwit [code monkeys](https://www.youtube.com/watch?v=qYodWEKCuGg) like me something like 20% faster (depends on task, others say different, parts [one](https://arxiv.org/abs/2302.06590), [two](https://economics.mit.edu/sites/default/files/inline-files/draft_copilot_experiments.pdf), [three](https://arxiv.org/abs/2507.09089))at creating a given functionality, but they also let me tackle things I never would have tackled, and the output is more robust in the long run, in terms of docs, tests, readability.
+AI coding assistants and vibecoding are a sea change in the world of software engineering. They make midwit [code monkeys](https://www.youtube.com/watch?v=qYodWEKCuGg) like me something like 20% faster (depends on task, others say different, parts [one](https://arxiv.org/abs/2302.06590), [two](https://economics.mit.edu/sites/default/files/inline-files/draft_copilot_experiments.pdf), [three](https://arxiv.org/abs/2507.09089)) at creating a given functionality, but they also let me tackle things I never would have tackled, and the output is more robust in the long run, in terms of docs, tests, readability.
 
 Suppose I want to do a traveling-salesman traversal of a bunch of news headlines in topic order. With Cursor or Claude Code, I can ask it to find all the Python modules that do traveling salesman and perform my task. And I can look at the code, run them, pick the one that is performant and makes sense. I can try different embeddings and choose the smallest one that works (or do dimensionality reduction).
 
-I've known 10x devs who can just emit complex working C code fluently and it works on the first try, and I can't do that. But using a coding assistant, I feel like one of them. It feels like I've been given superpowers.
+I've known 10x devs who can just emit complex working C code fluently and it works on the first try, and I can't do that. But using a coding assistant, I feel like one of them. It feels like I've been given superpowers. Or at least a fairly capable pair-coding partner.
 
 And then with Claude Code I can say, add this field to the database schema, update the CRUD code to reflect it, write tests, and update the docstrings. And it will one-shot it.
 
-I could even sketch a UI and say, make this using React and Bootstrap, and it will do a passable job. I can integrate it with GitHub, assign it PRs and it will take a crack at them. I can spawn multiple sessions and have multiple agents working on multiple Git branches. I can give it my style hints on how I write code, write my own slash commands, lots of [awesome stuff](https://github.com/hesreallyhim/awesome-claude-code).  [AI-first dev is just different](https://creatoreconomy.so/p/inside-claude-code-how-an-ai-native-actually-works-cat-wu).
+I could even sketch a UI and say, make this using React and Bootstrap, and it will do a passable job. I can integrate it with GitHub, assign it PRs, and it will take a crack at them. I can spawn multiple sessions and have multiple agents working on multiple Git branches. I can give it my style hints on how I write code, write my own slash commands, lots of [awesome stuff](https://github.com/hesreallyhim/awesome-claude-code).  [AI-first dev is just different](https://creatoreconomy.so/p/inside-claude-code-how-an-ai-native-actually-works-cat-wu).
 
 If you are a late adopter, update your toolchains! Take the mini courses on [Claude Code](https://learn.deeplearning.ai/courses/claude-code-a-highly-agentic-coding-assistant/lesson/66b35/introduction) and [Cursor](https://cursor.com/en-US/learn) and start to use them effectively.
 
-Now let's talk about [Claude Skills](https://www.anthropic.com/news/skills). Because they might also be a bit of a sea change, and let normies build agent workflows, without using a Python agent framework like LangGraph or OpenAI Agents SDK, or even a lightweight agent builder like Zapier or Copilot Studio.
+Now let's talk about [Claude Skills](https://www.anthropic.com/news/skills). Because they might also be a sea change, and let normies build agent workflows, without using a Python agent framework like LangGraph or OpenAI Agents SDK, or even a lightweight agent builder like Zapier or Copilot Studio.
 
 "A skill is a Markdown file telling the model how to do something, optionally accompanied by extra documents and pre-written scripts that the model can run to help it accomplish the tasks described by the skill." (direct quote from Simon Willison)
 
@@ -53,9 +53,9 @@ That may not sound like much, but this happens at runtime and you can also say, 
 
 And then you could say, if I book a flight to Asia, give me an overnight in London so I can visit my gran, first book NY to London and then London to Singapore or wherever using the same airline ticket skill. So that's recursion.
 
-And then, one required tool in this context is computer use, running in a sandbox. You can give your skill bash scripts and Python scripts. So they can run more complex behaviors, without writing full MCP tools.
+And then, one required tool in this context is computer use, running in a sandbox. You can give your skill bash scripts and Python scripts. So they can run complex behaviors, without writing full MCP tools.
 
-You should be able to write [complex agent patterns](https://druce.ai/2025/05/agent_engineering) by writing small skills combining some scripts and plain English descriptions, and an orchestrator skill in plain English.
+You should be able to write [agent patterns](https://druce.ai/2025/05/agent_engineering) by writing small skills combining some scripts and plain English descriptions, and an orchestrator skill in plain English (or have the code assistant write a script which would be more predictable).
 
 In the Claude Desktop sandbox, the computer use tool can't access enterprise files, just what you upload to the sandbox. Still, easy way to implement small tools like, extract something from a PDF.
 
@@ -80,14 +80,16 @@ Skills and MCP can bring Claude Code to a higher level. So you are cruising alon
   - You can write a skill with a script for the computer use tool which is a lot simpler. In this case the skill is like MCP-lite.
   - The skill is easy to share as part of a git repo. (can be a per-project skill in the case of Claude Code)
   - The progressive disclosure/gradual discovery of skill details on demand means you can use more of them without confusing the LLM
-  - They operate at a higher level in the stack compared to tools and can call each other, so you can potentially implement more complex agent patterns. Although I would probably write Python with an framework like Agents SDK once agents get complex. 
+  - Skills operate at a higher level in the stack compared to tools and can call each other, so you can potentially implement more complex agent patterns. Although I would probably write Python with a framework like Agents SDK once agents get complex. But I could eventually see skills that abstract some of those patterns.
 
 Skills add a lot of agent bang for minimal framework complexity bucks.
 
+I can also see a world where Claude Code knows you are say a financial researcher, and constantly adds new skills, puts them in hierarchies to abstract tasks like, finding and understanding news and research, analytics, writing. And improves them as it watches you work. For now you have to write your own skills with Claude's help though.
+
 The 'agentic browsers' are a bit disappointing to me, I can't really tell it, read this folder full of PDFs and extract relevant parts using prompts into notes for this presentation I am doing. And I still have some security concerns about prompt injection. But I can do this research task with Claude Code. And over time all browsers will be agentic browsers with skills, probably.
 
-Claude Code and skills punch above their weight. You can use Claude Code and skills as a universal to do anything on your computer implementing complex agent patterns.
+Claude Code and skills punch above their weight. You can use Claude Code and skills and computer use as a universal agent to do anything on your computer implementing complex agent patterns.
 
-If you haven't already done it, try Claude Code, hook up some [MCP servers](https://mcpmarket.com/categories/developer-tools) and try some [skills](https://github.com/anthropics/skills). I have barely scratched the surface and am excited to do more.
+If you haven't already done it, download [Claude Code](https://www.claude.com/product/claude-code), hook up some [MCP servers](https://mcpmarket.com/categories/developer-tools) and try some [skills](https://github.com/anthropics/skills). I have barely scratched the surface and am excited to do more.
 
 [A couple of small skills for this research project here.](https://github.com/druce/research-kb/tree/main)
