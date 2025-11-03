@@ -55,7 +55,7 @@ And then you could say, if I book a flight to Asia, give me an overnight in Lond
 
 And then, one required tool in this context is computer use, running in a sandbox. You can give your skill bash scripts and Python scripts. So they can run complex behaviors, without writing full MCP tools.
 
-You should be able to write [agent patterns](https://druce.ai/2025/05/agent_engineering) by writing small skills combining some scripts and plain English descriptions, and an orchestrator skill in plain English (or have the code assistant write a script which would be more predictable).
+You should be able to write [agent patterns](https://druce.ai/2025/05/agent_engineering) by writing small skills combining some scripts and plain English descriptions, and an orchestrator skill in plain English (or have the code assistant write a script which would be more predictable: in practice explaining an agentic flow to the LLM in English is not ideal).
 
 In the Claude Desktop sandbox, the computer use tool can't access enterprise files, just what you upload to the sandbox. Still, easy way to implement small tools like, extract something from a PDF.
 
@@ -78,8 +78,8 @@ Skills and MCP can bring Claude Code to a higher level. So you are cruising alon
 
   - You can write an MCP tool, which is a fairly heavy solution.
   - You can write a skill with a script for the computer use tool which is a lot simpler. In this case the skill is like MCP-lite.
-  - The skill is easy to share as part of a git repo. (can be a per-project skill in the case of Claude Code)
-  - The progressive disclosure/gradual discovery of skill details on demand means you can use more of them without confusing the LLM
+  - The skill is easy to share as part of a git repo. (can be a per-project skill in the case of Claude Code).
+  - The progressive disclosure/gradual discovery of skill details on demand means you can use more of them without cluttering up the context or confusing the LLM.
   - Skills operate at a higher level in the stack compared to tools and can call each other, so you can potentially implement more complex agent patterns. Although I would probably write Python with a framework like Agents SDK once agents get complex. But I could eventually see skills that abstract some of those patterns.
 
 Skills add a lot of agent bang for minimal framework complexity bucks.
@@ -93,3 +93,9 @@ Claude Code and skills punch above their weight. You can use Claude Code and ski
 If you haven't already done it, download [Claude Code](https://www.claude.com/product/claude-code), hook up some [MCP servers](https://mcpmarket.com/categories/developer-tools) and try some [skills](https://github.com/anthropics/skills). I have barely scratched the surface and am excited to do more.
 
 [A couple of small skills for this research project here.](https://github.com/druce/research-kb/tree/main)
+
+### See also:
+  - [Claude Code tutorial](https://learn.deeplearning.ai/courses/claude-code-a-highly-agentic-coding-assistant/lesson/66b35/introduction        )
+  - [How I Use Every Claude Code Feature](https://blog.sshh.io/p/how-i-use-every-claude-code-feature)
+  - [Exploring Claude Code: Features](https://www.sidetool.co/post/exploring-claude-code-features?utm_source=chatgpt.com)
+  - [Awesome Claude Code](https://github.com/hesreallyhim/awesome-claude-code)
