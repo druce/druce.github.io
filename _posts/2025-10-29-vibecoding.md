@@ -29,7 +29,7 @@ I've known 10x devs who can just emit complex working C code fluently and it wor
 
 And then with Claude Code I can say, add this field to the database schema, update the CRUD code to reflect it, write tests, and update the docstrings. And it will one-shot it.
 
-I could even sketch a UI and say, make this using React and Bootstrap, and it will do a passable job. I can integrate it with GitHub, assign it PRs, and it will take a crack at them. I can spawn multiple sessions and have multiple agents working on multiple Git branches. I can give it my style hints on how I write code, write my own slash commands, lots of [awesome stuff](https://github.com/hesreallyhim/awesome-claude-code).  [AI-first dev is just different](https://creatoreconomy.so/p/inside-claude-code-how-an-ai-native-actually-works-cat-wu).
+I could even sketch a UI and say, make this using React and Bootstrap, and it will do a passable job. I can integrate it with GitHub, assign it PRs, and it will take a crack at them. I can spawn multiple sessions and have multiple agents working on multiple Git branches. I can give it my style hints on how I write code, write my own slash commands, lots of [awesome stuff](https://github.com/hesreallyhim/awesome-claude-code).  [AI-first dev is just different](https://creatoreconomy.so/p/inside-claude-code-how-an-ai-native-actually-works-cat-wu), although there is a [messiness tax](https://windowsontheory.org/2025/11/04/thoughts-by-a-non-economist-on-ai-and-economics/).
 
 If you are a late adopter, update your toolchains! Take the mini courses on [Claude Code](https://learn.deeplearning.ai/courses/claude-code-a-highly-agentic-coding-assistant/lesson/66b35/introduction) and [Cursor](https://cursor.com/en-US/learn) and start to use them effectively.
 
@@ -97,5 +97,7 @@ If you haven't already done it, download [Claude Code](https://www.claude.com/pr
 ### See also:
   - [Claude Code tutorial](https://learn.deeplearning.ai/courses/claude-code-a-highly-agentic-coding-assistant/lesson/66b35/introduction        )
   - [How I Use Every Claude Code Feature](https://blog.sshh.io/p/how-i-use-every-claude-code-feature)
+  - [How an AI native actually works](https://creatoreconomy.so/p/inside-claude-code-how-an-ai-native-actually-works-cat-wu)
   - [Exploring Claude Code: Features](https://www.sidetool.co/post/exploring-claude-code-features?utm_source=chatgpt.com)
+  - [50 ways non-technical people are using Claude Code in their work and life](https://www.lennysnewsletter.com/p/everyone-should-be-using-claude-code)
   - [Awesome Claude Code](https://github.com/hesreallyhim/awesome-claude-code)
