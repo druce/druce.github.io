@@ -97,7 +97,7 @@ If you haven't already done it, download [Claude Code](https://www.claude.com/pr
 ### See also:
   - [Claude Code tutorial](https://learn.deeplearning.ai/courses/claude-code-a-highly-agentic-coding-assistant/lesson/66b35/introduction        )
   - [How I Use Every Claude Code Feature](https://blog.sshh.io/p/how-i-use-every-claude-code-feature)
-  - [How an AI native actually works](https://creatoreconomy.so/p/inside-claude-code-how-an-ai-native-actually-works-cat-wu)
   - [Exploring Claude Code: Features](https://www.sidetool.co/post/exploring-claude-code-features?utm_source=chatgpt.com)
+  - [How an AI native actually works](https://creatoreconomy.so/p/inside-claude-code-how-an-ai-native-actually-works-cat-wu)
   - [50 ways non-technical people are using Claude Code in their work and life](https://www.lennysnewsletter.com/p/everyone-should-be-using-claude-code)
   - [Awesome Claude Code](https://github.com/hesreallyhim/awesome-claude-code)
