@@ -21,7 +21,7 @@ tags: AI
 
 <!--more-->
 
-AI coding assistants and vibecoding are a sea change in the world of software engineering. They make midwit [code monkeys](https://www.youtube.com/watch?v=qYodWEKCuGg) like me something like 20% faster (depends on task, others say different, parts [one](https://arxiv.org/abs/2302.06590), [two](https://economics.mit.edu/sites/default/files/inline-files/draft_copilot_experiments.pdf), [three](https://arxiv.org/abs/2507.09089)) at creating a given functionality, but they also let me tackle things I never would have tackled, and the output is more robust in the long run, in terms of docs, tests, readability.
+AI coding assistants and vibecoding are a sea change in the world of software engineering. They make midwit [code monkeys](https://www.youtube.com/watch?v=qYodWEKCuGg) like me something like 20% faster at creating a given functionality (depends on task, others say different, parts [one](https://arxiv.org/abs/2302.06590), [two](https://economics.mit.edu/sites/default/files/inline-files/draft_copilot_experiments.pdf), [three](https://arxiv.org/abs/2507.09089)). But they also let me tackle things I never would have tackled, and the output is more robust in the long run, in terms of docs, tests, readability.
 
 Suppose I want to do a traveling-salesman traversal of a bunch of news headlines in topic order. With Cursor or Claude Code, I can ask it to find all the Python modules that do traveling salesman and perform my task. And I can look at the code, run them, pick the one that is performant and makes sense. I can try different embeddings and choose the smallest one that works (or do dimensionality reduction).
 
@@ -67,10 +67,10 @@ Or even 3 skills like plan a to-do list, code, test, and then a high level skill
 
 OpenAI and Microsoft have ~9 agent frameworks between them. Anthropic has 0. And yet, Anthropic has the most successful agentic tool for the biggest enterprise use case which is coding. Because Claude Code is really a universal agent. With tools + skills + computer use you can tell it to do anything.
 
-Claude Code works because it has
-   - a great to-do list workflow so it doesn't go off task.
-   - great context engineering using skills, putting the right part of the code base in the context
-   - a great LLM well-tuned for this process.
+Claude Code works well because it has
+   - A great to-do list workflow so it doesn't go off task.
+   - Great context engineering using skills, putting the right part of the code base in the context
+   - A great LLM well-tuned for this process.
 
 Maybe there is more secret sauce, but that is what I can see.
 
