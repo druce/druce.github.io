@@ -15,9 +15,9 @@ tags: random
 
 She was a Unitarian.
 
-There are mysteries. Nature abhors a vacuum. The human mind abhors a mystery, like nature abhors a vacuum. And we loves a good narrative, as an entire Hollywood and novel-publishing and theater industry will tell us. We have to fill in the blanks of the mystery with a narrative.
+There are mysteries. Nature abhors a vacuum. The human mind abhors a mystery, like nature abhors a vacuum. And we love a good narrative. An entire Hollywood and novel-publishing and theater industry attests to it. We have to fill in the blanks of the mystery with a narrative.
 
-There is truth in Descartes. I directly sense that I exist. And that sensation is something inaccessible to science. 
+There is truth in Descartes. I directly sense that I exist. And that sensation is something inaccessible to science.
 
 Consider [Eddington's ichtyologist](https://www.goodreads.com/quotes/9688420-selective-subjectivism-let-us-suppose-that-an-ichthyologist-is-exploring):
 
@@ -39,6 +39,8 @@ He arrives at two generalisations :
 
 A scientist can say consciousness is just an illusion. But it sure doesn't feel like an illusion. Even the scientist doesn't act as if it is an illusion, but tells themself some story that motivates them to do science. If it's all an illusion creating more illusions, why bother? It's hard out there for a reasoning creature. The first reality you experience defies reason.
 
+_Some_ metaphysics must exist? Sometimes it's not all that clear whether it's a benevolent God or Descartes's evil demon, or a fully indifferent one.
+ 
 > Whereof we cannot speak, we must pass over in silence - Ludwig Wittgenstein
 
 We probably should just shut up, but we can't. [Demand for bullshit must be supplied](https://druce.ai/2023/09/bullshit).
