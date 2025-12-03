@@ -210,30 +210,30 @@ tags: AI
         <div class="maturity-questions">
             <div class="maturity-level-section level-1-section">
                 <h4>Level 1: Crawl</h4>
-                          <p>&bull; Are individual employees experimenting with AI tools on their own initiative?</p>
-                          <p>&bull; Has leadership acknowledged AI as a topic of interest or potential?</p>
-                          <p>&bull; Are there ad-hoc discussions about AI in leadership meetings?</p>
+<p>&bull; Are individual employees experimenting with AI tools on their own initiative?</p>
+<p>&bull; Has leadership acknowledged AI as a topic of interest or potential?</p>
+<p>&bull; Are there ad-hoc discussions about AI in leadership meetings?</p>
             </div>
             <div class="maturity-level-section level-2-section">
                 <h4>Level 2: Walk</h4>
-                          <p>Has leadership defined formal AI objectives and priorities?</p>
-                          <p>&bull; Is there a designated executive sponsor or AI steering committee?</p>
-                          <p>&bull; Has the organization allocated budget specifically for AI initiatives?</p>
-                          <p>&bull; Are AI goals included in strategic planning documents?</p>
+<p>&bull; Has leadership defined formal AI objectives and priorities?</p>
+<p>&bull; Is there a designated executive sponsor or AI steering committee?</p>
+<p>&bull; Has the organization allocated budget specifically for AI initiatives?</p>
+<p>&bull; Are AI goals included in strategic planning documents?</p>
             </div>
             <div class="maturity-level-section level-3-section">
                 <h4>Level 3: Run</h4>
-                          <p>&bull; Does leadership have a comprehensive AI strategy with clear ROI targets?</p>
-                          <p>&bull; Are AI objectives integrated into departmental and individual performance goals?</p>
-                          <p>&bull; Is there regular executive review of AI initiative progress and outcomes?</p>
-                          <p>&bull; Has leadership championed organization-wide AI adoption?</p>
+<p>&bull; Does leadership have a comprehensive AI strategy with clear ROI targets?</p>
+<p>&bull; Are AI objectives integrated into departmental and individual performance goals?</p>
+<p>&bull; Is there regular executive review of AI initiative progress and outcomes?</p>
+<p>&bull; Has leadership championed organization-wide AI adoption?</p>
             </div>
             <div class="maturity-level-section level-4-section">
                 <h4>Level 4: Fly</h4>
-                      <p>&bull; Does the board regularly review AI strategy and competitive positioning?</p>
-                      <p>&bull; Are AI capabilities central to the organization's competitive advantage?</p>
-                      <p>&bull; Is there a Chief AI Officer or equivalent C-level position?</p>
-                      <p>&bull; Does leadership actively shape industry AI standards and best practices?</p>
+<p>&bull; Does the board regularly review AI strategy and competitive positioning?</p>
+<p>&bull; Are AI capabilities central to the organization's competitive advantage?</p>
+<p>&bull; Is there a Chief AI Officer or equivalent C-level position?</p>
+<p>&bull; Does leadership actively shape industry AI standards and best practices?</p>
             </div>
         </div>
     </div>
@@ -249,31 +249,31 @@ tags: AI
         <div class="maturity-questions">
             <div class="maturity-level-section level-1-section">
                 <h4>Level 1: Crawl</h4>
-                <p> &bull; Are employees using publicly available or manually gathered data?</p>
-                <p> &bull; Is data primarily stored in siloed spreadsheets or local files?</p>
-                <p> &bull; Is data quality managed informally or ad-hoc?</p>
+<p>&bull; Are employees using publicly available or manually gathered data?</p>
+<p>&bull; Is data primarily stored in siloed spreadsheets or local files?</p>
+<p>&bull; Is data quality managed informally or ad-hoc?</p>
             </div>
             <div class="maturity-level-section level-2-section">
                 <h4>Level 2: Walk</h4>
-                <p> &bull; Is there a centralized data warehouse or lake?</p>
-                <p> &bull; Are data quality standards documented and monitored?</p>
-                <p> &bull; Is data lineage tracked for critical datasets?</p>
-                <p> &bull; Are there established data governance policies?</p>
+<p>&bull; Is there a centralized data warehouse or lake?</p>
+<p>&bull; Are data quality standards documented and monitored?</p>
+<p>&bull; Is data lineage tracked for critical datasets?</p>
+<p>&bull; Are there established data governance policies?</p>
             </div>
             <div class="maturity-level-section level-3-section">
                 <h4>Level 3: Run</h4>
-                <p> &bull; Is real-time or near-real-time data available for AI applications?</p>
-                <p> &bull; Are data pipelines automated with monitoring and alerting?</p>
-                <p> &bull; Is metadata comprehensively managed across all data assets?</p>
-                <p> &bull; Are data quality metrics consistently above 95% for critical datasets?</p>
+<p>&bull; Is real-time or near-real-time data available for AI applications?</p>
+<p>&bull; Are data pipelines automated with monitoring and alerting?</p>
+<p>&bull; Is metadata comprehensively managed across all data assets?</p>
+<p>&bull; Are data quality metrics consistently above 95% for critical datasets?</p>
             </div>
             <div class="maturity-level-section level-4-section">
                 <h4>Level 4: Fly</h4>
-                <p> &bull; Do automated systems continuously validate and improve data quality?</p>
-                <p> &bull; Is synthetic data generation used to augment training datasets?</p>
-                <p> &bull; Are data pipelines self-healing with automatic anomaly detection?</p>
-                <p> &bull; Is data provenance fully tracked with automated compliance verification?</p>
-           </div>
+<p>&bull; Do automated systems continuously validate and improve data quality?</p>
+<p>&bull; Is synthetic data generation used to augment training datasets?</p>
+<p>&bull; Are data pipelines self-healing with automatic anomaly detection?</p>
+<p>&bull; Is data provenance fully tracked with automated compliance verification?</p>
+            </div>
         </div>
     </div>
 
@@ -377,7 +377,6 @@ tags: AI
 <p>&bull; Is there a risk assessment framework for AI projects?</p>
 <p>&bull; Are there approval processes for new AI initiatives?</p>
 <p>&bull; Is regulatory compliance reviewed for AI applications?</p>
-
             </div>
             <div class="maturity-level-section level-3-section">
                 <h4>Level 3: Run</h4>
@@ -605,7 +604,6 @@ tags: AI
 <p>&bull; Are vendor relationships limited to consumer SaaS subscriptions?</p>
 <p>&bull; Is there no formal engagement with AI vendors or partners?</p>
 <p>&bull; Is external AI expertise not being leveraged?</p>
-
             </div>
             <div class="maturity-level-section level-2-section">
                 <h4>Level 2: Walk</h4>
@@ -641,11 +639,10 @@ tags: AI
         </div>
         <div class="maturity-questions">
             <div class="maturity-level-section level-1-section">
-                <h4>Level 1: Crawl</h4>                
+                <h4>Level 1: Crawl</h4>
 <p>&bull; Are AI tools used informally without process integration?</p>
 <p>&bull; Are workflows unchanged despite AI availability?</p>
 <p>&bull; Is there no documentation of how AI fits into processes?</p>
-
             </div>
             <div class="maturity-level-section level-2-section">
                 <h4>Level 2: Walk</h4>

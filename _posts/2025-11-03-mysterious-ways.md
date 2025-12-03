@@ -13,9 +13,9 @@ tags: random
 > The smartest thing anyone ever told me about their religion was "I don't actually believe any of that stuff, I just like going to church."
 <!--more-->
 
-She was a Unitarian.
+She was a Unitarian. I liked her. I like Unitarianism. It doesn't make stuff worse.
 
-There are mysteries. Nature abhors a vacuum. The human mind abhors a mystery, like nature abhors a vacuum. And we love a good narrative. An entire Hollywood and novel-publishing and theater industry attests to it. We have to fill in the blanks of the mystery with a narrative.
+There are mysteries. The human mind abhors a mystery, like nature abhors a vacuum. And we love a good narrative. An entire Hollywood and novel-publishing and theater industry attests to it. We have to fill in the blanks of the mystery with a narrative.
 
 There is truth in Descartes. I directly sense that I exist. And that sensation is something inaccessible to science.
 
@@ -43,25 +43,25 @@ _Some_ metaphysics must exist? It's just not all that clear whether it's a benev
  
 > Whereof we cannot speak, we must pass over in silence - Ludwig Wittgenstein
 
-We should probably just shut up, but we can't. We are born crying. We must be comforted. [Demand for bullshit must be supplied](https://druce.ai/2023/09/bullshit).
+We should probably just shut up, but we can't. We are born crying. And live complaining, and die disappointed. We must be comforted. [Demand for bullshit must be supplied](https://druce.ai/2023/09/bullshit).
 
-Why does it always has to be such a stupid bullshit though? Burning bushes and whatnot? Stuff that makes people hate each other?
+Why does it always has to be such stupid bullshit though? Burning bushes and whatnot? Stuff that makes people hate each other?
 
 [David Hume said, on miracles](https://www.goodreads.com/quotes/6808572-a-miracle-is-a-violation-of-the-laws-of-nature): 
 
 > No testimony is sufficient to establish a miracle unless it is of such a kind that its falsehood would be more miraculous than the fact that it tries to establish. 
 
-We can't reasonably believe in miracles just because some dude, or some ancient primitive book told us. But we are miracles. Our existence is a miracle. Nature is a miracle. Everything is a miracle.
+We can't reasonably believe in miracles just because some dude or some ancient primitive book told us. But we are miracles. Our existence is a miracle. Nature is a miracle. Everything is a miracle. Reasoning can't establish miracles, but we directly sense them.
 
 > Even if there is only one possible unified theory, it is just a set of rules and equations. What is it that breathes fire into the equations and makes a universe for them to describe? - Stephen Hawking
 
-And everything is endogenous. You create your world with your thoughts.
+And everything is endogenous. You miraculously create your world with your thoughts.
 
 > When life itself seems lunatic, who knows where madness lies? Perhaps to be too practical is madness. To surrender dreams — this may be madness. Too much sanity may be madness — and maddest of all: to see life as it is, and not as it should be! - Miguel de Cervantes
 
 [All we are is stories in the end, so why not at least try to make it a good one?](https://www.goodreads.com/quotes/902620-we-are-all-stories-in-the-end-just-make-it) I'm not going to judge you if you make up a story to get you through the night. If you have to believe in something, if it makes you a better, happier person, more power to you.
 
-But why does it always have to be as story that demands judging and othering and harming people? God gave us this strip of land and the right to kill people who think otherwise. But we are good people by definition! An avatar of Western Civilization! Not the world's greatest example of main character syndrome!
+But why does it always have to be a story that demands judging and othering and harming people? God gave us this strip of land and the right to kill people who think otherwise. But we are good people by definition! An avatar of Western Civilization! Certainly not, for instance, the world's greatest example of main character syndrome.
 
 Gandhi was asked what he thought about Western civilization, he said he thought it would be a very good idea.
 
@@ -76,6 +76,5 @@ When you are dealing with effed-up people, say Hitler for example, you just have
 <iframe width="560" height="315" src="https://www.youtube.com/embed/htg72vkhsmY?si=HZA0NlG4gHRSJ7gn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Hvz0TOm0zgI?si=7ZcyPo6CDWVE-8Gv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
 
 
