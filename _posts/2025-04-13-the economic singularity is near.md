@@ -496,7 +496,7 @@ If a radiologist takes 10 minutes to review a case, they might continue to do th
 
 In this way the human input remains similar but the output could be significantly higher quality with the help of AI. (Assuming the market and insurance companies don't demand more automation and less human input.)
 
-Something like medical care is a superior good, people consume more as their income goes up. It might be an income-proportional-good, you might even demand the same amount in nominal terms if the price goes down. AI automates the work but there is a lot of demand for better work. 
+Something like medical care is a superior good, people consume more as their income goes up. It might be an income-proportional good, you might even demand the same amount in nominal terms if the price goes down. AI automates the work but there is a lot of demand for better work. 
 
 But in many occupations, we are not going to raise the quality bar. If you can have a long-distance truck convoy of 10 trucks supervised by 1 or 2 humans, or 10 robot hotel housekeepers supervised by one human, you get rid of the extra humans. 
 
@@ -514,7 +514,7 @@ If you combine AI with globalization, neoliberalism, loss of organized labor pow
 
 Maybe we aren’t quite there yet. Maybe everybody will just get better at their jobs, and even midwits and less educated people can do software development and analytical jobs with AI. And we can shorten workweeks. But what would be the incentive to shorten workweeks in the absence of labor laws requiring it?
 
-As a thought experiment, what is the difference between the state owning all the capital and being run by a politburo or junta, and a tiny number of individuals owning it, and writing all the rules of an economy and culture and marketplace of political ideas fully mediated by technology? To the extent capitalism works for most people, it requires competitive markets and not unlimited concentration of capital owned by a few, and serfdom and extraction for the rest.
+As a thought experiment, what is the difference between the state owning all the capital and being run by a politburo or junta, and a tiny number of individuals owning it, and writing all the rules of an economy and culture and marketplace of political ideas fully mediated by technology? To the extent capitalism works for most people, it requires competitive markets and not unlimited concentration of capital owned by a few. And maybe serfdom and extraction for the rest.
 
 That is what the robot singularity looks like in economic terms. That is the economic challenge we will eventually face as a civilization, along with questions of universal income, robot taxes, which citizens reap the benefits of AI, what happens to people and countries outside that circle, what happens to economic growth, freedom, fairness, civil liberties, democratic governance, human values and human purpose. 
 
@@ -522,9 +522,9 @@ We are ill-equipped to confront these questions. Even the places people think ab
 
 There is a risk of the fall of Rome, technofeudalism, barbarism. Maybe not next year, maybe not in 10 years, but it might be where we are headed. 
 
-At least, not knowing exactly how the tech and the equations evolve, we need to be mindful of that possibility.
+At least, not knowing exactly how the tech and the equations evolve, we should probably be mindful of that possibility.
 
-In the final analysis, everything is endogenous, at least to the extent humans can understand it. AI changes human sytems a lot, and it seems impossible to say how. It would behoove us to be a little humble, and cautious, and not rely purely on historical parallels where maybe there aren't any.
+In the final analysis, everything is endogenous. AI changes human sytems a lot, and it seems impossible to say how. It would behoove us to be a little humble, and cautious, and not rely purely on historical parallels where maybe there aren't any. And try to put in some guardrails to avoid the worst possible outcomes.
 
 
 ### Further reading:
@@ -540,5 +540,4 @@ In the final analysis, everything is endogenous, at least to the extent humans c
 [Automation and New Tasks: How Technology Displaces and Reinstates Labor, by Daron Acemoglu and Pascual Restrepo](https://economics.mit.edu/sites/default/files/publications/Automation%20and%20New%20Tasks%20-%20How%20Technology%20Displace.pdf)
 
 [Fed Governor Michael Barr: Artificial Intelligence and the Labor Market: A Scenario-Based Approach](https://www.federalreserve.gov/newsevents/speech/barr20250509a.htm?utm_source=substack&utm_medium=email)
-
 
