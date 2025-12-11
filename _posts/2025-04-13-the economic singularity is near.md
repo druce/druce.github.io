@@ -475,7 +475,7 @@ I'm here to tell you that the pop economics that technology always eventually le
 
 Consider the horse. The horse was a very versatile source of transportation and power. It ran on hay and water and could navigate bad roads and hostile off-road environments. Steam and then internal combustion engines came along, with railroads and better roads everwhere, and ultimately replaced horses by being better and cheaper. This time around, we might be the horse.
 
-Even in ideal competitive markets, the optimistic view depends on a degree of complementarity between labor and capital that may no longer exist in a world full of AI. And in the imperfect real world, the balance of market and political power between labor and capital has a significant impact. If labor and capital were perfect complements, square isoquants, fixed ratio of labor and capital, then the factor in a stronger bargaining position, scarcer, better organized, more politically powerful, would extract the lion's share of national income)
+Even in ideal competitive markets, the optimistic view depends on a degree of complementarity between labor and capital that may no longer exist in a world full of AI. And in the imperfect real world, the balance of market and political power between labor and capital has a significant impact. If labor and capital were perfect complements, square isoquants, fixed ratio of labor and capital, then the factor in a stronger bargaining position, scarcer, better organized, more politically powerful, would extract the lion's share of national income.
 
 Most jobs don't require all of humans' creativity and knowledge. And your brain is just a slow, biased pattern-matcher trained on questionable data. Just like AI, but worse. In many but not all respects currently, but in 20 years, who knows?
 
@@ -541,9 +541,4 @@ In the final analysis, everything is endogenous, at least to the extent humans c
 
 [Fed Governor Michael Barr: Artificial Intelligence and the Labor Market: A Scenario-Based Approach](https://www.federalreserve.gov/newsevents/speech/barr20250509a.htm?utm_source=substack&utm_medium=email)
 
-and then once there is a template, can ask ai to suggest stuff like this 
-
-You are tasked with creating a 4-week social media campaign calendar for an event sponsored by AITEC, an organization of alternative investment IT executives. Your goal is to maximize engagement, increase attendance, and encourage resharing while maintaining a professional tone and providing value to followers.
-
-Here are the key details for the upcoming event:
 
