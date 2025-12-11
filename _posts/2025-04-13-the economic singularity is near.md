@@ -271,7 +271,7 @@ Consider building houses:
 
 Or consider truck drivers. You can have bigger or smaller trucks within reason, you could have teams of 2 drivers in 12-hour daily shifts, but you have one driver at a time. You couldn't have one driver and a single giant truck driving all the day's shipments between two major cities. There's a natural, reasonable ratio between capital and labor.
 
-There are critiques of the Cobb-Douglas function. At the level of an individual firm, there are myriad decisions that go into optimizing output. The unit cost of capital depends on capacity utilization. There are learning curves. Individuals are not lumps of labor. Neither are capital investments like an ASML machine vs. We may have breakpoints and variability in the isoquants over time. 
+There are critiques of the Cobb-Douglas function. At the level of an individual firm, there are myriad decisions that go into optimizing output. The unit cost of capital depends on capacity utilization. There are learning curves. Individuals are not lumps of labor. Neither are capital investments like a $100m ASML lithography machine. We may have breakpoints and variability in the isoquants over time. 
 
 But at the level of the macro economy, these assumptions are reasonable simplifications. Macro output is a function of how much capital, labor and tech you have, and diminishing returns to capital and labor individually make sense, and constant returns to scale make sense.
 
@@ -429,7 +429,7 @@ If you have the convex unit-elastic Cobb-Douglas production function, and perfec
 
 Under Cobb-Douglas, wages will always rise as technology improves productivity and the labor share of national income will stay constant. This has very roughly been the case in the past, *contra* thinkers like Marx. But possibly only with the help of unions and policy choices to help counter the threat of Communism. 
 
-The important thing to note is that the Cobb-Douglas function forces income share equality between labor and capital factor incomes. If you move to the CES function, math alone doesn’t force it to happen, you need to parameterize it with $$\alpha=0.5, \rho=0$$  to achieve unit elasticity of substitution (or match $$\rho$$ to a different $$\alpha \neq 0.5$$). More convexity and complementarity means a higher labor share, less convexity means a lower labor share, all else being equal.
+The important thing to note is that the Cobb-Douglas function forces income share equality between labor and capital factor incomes. If you move to the CES function, math alone doesn’t force it to happen, you need to parameterize it with e.g. $$\alpha=0.5, \rho=0$$  to achieve unit elasticity of substitution (or match $$\rho$$ to a different $$\alpha \neq 0.5$$). More convexity and complementarity means a higher labor share, less convexity means a lower labor share, all else being equal.
 
 There is no theoretical reason $$\rho$$ must be equal to 0. And in fact the labor share has been [declining since around 1970](https://fred.stlouisfed.org/graph/?id=LABSHPUSA156NRUG), although it's still above 50%. 
 
