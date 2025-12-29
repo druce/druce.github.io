@@ -1,21 +1,29 @@
 ### Jekyll ###
-_site
+_site/
+_includes/_site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
 *-cache/
 Gemfile.lock
 
-### Emacs cruft ###
+### Emacs backup files ###
 *~
-\#*
 \#*\#
-/.emacs.desktop
-/.emacs.desktop.lock
+.#*
 *.elc
+.emacs.desktop
+.emacs.desktop.lock
 auto-save-list
 tramp
-.\#*
+
+### Large test files ###
+*.tar.gz
+
+### Temporary files ###
+*.sav
+*.bak
+
 
 ### MacOS ###
 .DS_Store
