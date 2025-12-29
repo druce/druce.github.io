@@ -1,0 +1,34 @@
+# Block search engines from indexing embedded Plotly.js library paths
+# These are JavaScript module paths in TSA visualization files that
+# Google incorrectly indexes as separate pages
+
+User-agent: *
+
+# Block all Plotly.js library module paths
+Disallow: /2022/11/
+Disallow: /2022/registry
+Disallow: /2022/common
+Disallow: /2022/colorbar/
+Disallow: /2022/components/
+Disallow: /2022/constants/
+Disallow: /2022/drawing
+Disallow: /2022/drawing/
+Disallow: /2022/fx
+Disallow: /2022/fx/
+Disallow: /2022/function/
+Disallow: /2022/is-object
+Disallow: /2022/is-value
+Disallow: /2022/legend/
+Disallow: /2022/math/
+Disallow: /2022/plots/
+Disallow: /2022/src/
+Disallow: /2022/titles
+Disallow: /2015/12/the-most-popular-keywords-and-sites-of-2015/*
+
+# Allow actual blog posts from 2022
+Allow: /2022/05/
+Allow: /2022/11/woke
+Allow: /2022/11/TSA
+
+# Standard sitemap location
+Sitemap: https://druce.ai/sitemap.xml

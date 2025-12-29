@@ -1,0 +1,10 @@
+/* Google Fonts - Open Sans */
+/* Optimized: Only loads weights 400, 600, 700 */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+/*
+This loads ~200KB total (vs 2.9MB self-hosted)
+Weights included: 400 (regular), 600 (semibold), 700 (bold)
+Styles: regular and italic for each
+font-display: swap prevents invisible text during load
+*/
