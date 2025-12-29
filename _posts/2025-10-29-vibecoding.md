@@ -14,8 +14,7 @@ tags: AI
 > Another [Simon Willison post](https://simonwillison.net/2025/Oct/16/claude-skills/) has motivated me to go down a rabbit hole.
 
 <figure>
-  <img src="/assets/2025/karpathy.jpeg"
-  alt="Vibecoding, by Andrej Karpathy.">
+<img src="/assets/2025/karpathy.jpeg" alt="Vibecoding, by Andrej Karpathy." loading="lazy">
   <figcaption>Image credit: <a href="https://twitter.com/karpathy">Andrej Karpathy</a></figcaption>
 </figure>
 

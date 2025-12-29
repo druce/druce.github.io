@@ -43,7 +43,6 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll_picture_tag  
   - jekyll-archives
   - jekyll-paginate
 exclude:
