@@ -63,3 +63,40 @@ $on-laptop:        800px !default;
   "minima/base",
   "minima/layout"
 ;
+
+// Pagination styles
+.pagination {
+  text-align: center;
+  margin: $spacing-unit * 2 0;
+  padding: $spacing-unit 0;
+  border-top: 1px solid $grey-color-light;
+
+  .previous, .next {
+    color: $grey-color;
+    font-size: $small-font-size;
+    margin: 0 15px;
+  }
+
+  a.previous, a.next {
+    color: $brand-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $crimson-color-light;
+      text-decoration: underline;
+    }
+  }
+
+  .page_number {
+    color: $grey-color;
+    font-size: $small-font-size;
+    margin: 0 15px;
+  }
+
+  @include media-query($on-palm) {
+    .previous, .next, .page_number {
+      display: block;
+      margin: 10px 0;
+    }
+  }
+}

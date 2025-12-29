@@ -52,3 +52,7 @@ kramdown:
   input: GFM
   auto_ids: true
   syntax_highlighter: rouge
+
+# Pagination settings
+paginate: 20
+paginate_path: "/page/:num/"

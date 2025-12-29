@@ -3,7 +3,7 @@ layout: default
 ---
 <div class="home other-pages">
   <ul class="post-list">
-    {% for post in site.posts %}
+    {% for post in paginator.posts %}
       <li>
         {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
         <span class="post-meta">
@@ -25,4 +25,23 @@ layout: default
       </li>
     {% endfor %}
   </ul>
+
+  <!-- Pagination Navigation -->
+  {% if paginator.total_pages > 1 %}
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">&larr; Newer Posts</a>
+    {% else %}
+      <span class="previous">&larr; Newer Posts</span>
+    {% endif %}
+
+    <span class="page_number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}" class="next">Older Posts &rarr;</a>
+    {% else %}
+      <span class="next">Older Posts &rarr;</span>
+    {% endif %}
+  </div>
+  {% endif %}
  </div>
