@@ -2,7 +2,7 @@
 id: 1019
 title: Is Facebook Worth $100B?
 date: 2012-02-04T11:41:53+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=1019
 permalink: /2012/02/is-facebook-worth-100b/

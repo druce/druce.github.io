@@ -2,7 +2,7 @@
 id: 6200
 title: Quantitative Fun With Fund Names
 date: 2018-02-19T07:51:30+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=6200
 permalink: /2018/02/quantitative-fun-with-fund-names/

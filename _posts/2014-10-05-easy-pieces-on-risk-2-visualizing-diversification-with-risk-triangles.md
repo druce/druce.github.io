@@ -2,7 +2,7 @@
 id: 2745
 title: 'Risk: Visualizing Diversification With Risk Triangles'
 date: 2014-10-05T09:27:42+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=2745
 permalink: /2014/10/easy-pieces-on-risk-2-visualizing-diversification-with-risk-triangles/

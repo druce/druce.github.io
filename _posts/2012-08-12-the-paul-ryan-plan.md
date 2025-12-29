@@ -2,7 +2,7 @@
 id: 1255
 title: The Paul Ryan plan
 date: 2012-08-12T10:25:56+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=1255
 permalink: /2012/08/the-paul-ryan-plan/

@@ -2,7 +2,7 @@
 id: 1214
 title: Startup Growth v. Revenue
 date: 2012-04-29T19:03:16+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=1214
 permalink: /2012/04/startup-growth-v-revenue/

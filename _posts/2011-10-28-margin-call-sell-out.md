@@ -2,7 +2,7 @@
 id: 656
 title: 'Margin Call - A Big Sell Out'
 date: 2011-10-28T08:29:00+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=656
 permalink: /2011/10/margin-call-sell-out/

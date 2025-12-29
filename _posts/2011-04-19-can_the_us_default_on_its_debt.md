@@ -2,7 +2,7 @@
 id: 15
 title: Can the US default on its debt?
 date: 2011-04-19T14:58:54+00:00
-author: StreetEYE
+author: Druce Vertes
 layout: post
 guid: http://50.19.225.184/blog/?p=15
 permalink: /2011/04/can_the_us_default_on_its_debt/

@@ -2,7 +2,7 @@
 id: 4709
 title: 'Hillary’s damn emails'
 date: 2016-06-09T21:37:59+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=4709
 permalink: /2016/06/hillarys-emails/

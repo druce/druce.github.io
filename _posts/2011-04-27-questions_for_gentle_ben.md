@@ -2,7 +2,7 @@
 id: 16
 title: Questions for Gentle Ben
 date: 2011-04-27T12:17:13+00:00
-author: StreetEYE
+author: Druce Vertes
 layout: post
 guid: http://50.19.225.184/blog/?p=16
 permalink: /2011/04/questions_for_gentle_ben/

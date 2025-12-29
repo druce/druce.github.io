@@ -2,7 +2,7 @@
 id: 801
 title: Over-The-Top Speculations
 date: 2012-01-04T21:58:40+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=801
 permalink: /2012/01/over-the-top-speculations/

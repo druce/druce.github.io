@@ -2,7 +2,7 @@
 id: 843
 title: Portfolio Optimization and Efficient Frontiers in R
 date: 2012-01-18T19:06:39+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=843
 permalink: /2012/01/portfolio-optimization-and-efficient-frontiers-in-r/

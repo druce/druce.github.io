@@ -2,7 +2,7 @@
 id: 2075
 title: '“Cat Food” Revisited: Final Thoughts - Part 4'
 date: 2013-05-15T11:05:51+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=2075
 permalink: /2013/05/cat-food-revisited-final-thoughts-part-4/

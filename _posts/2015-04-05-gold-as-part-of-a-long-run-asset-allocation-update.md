@@ -2,7 +2,7 @@
 id: 3310
 title: Gold as Part of a Long-Run Asset Allocation (update)
 date: 2015-04-05T22:51:38+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=3310
 permalink: /2015/04/gold-as-part-of-a-long-run-asset-allocation-update/

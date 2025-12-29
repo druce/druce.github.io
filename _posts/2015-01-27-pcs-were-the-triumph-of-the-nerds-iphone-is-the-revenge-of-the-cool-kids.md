@@ -2,7 +2,7 @@
 id: 3045
 title: PCs Were the Triumph of the Nerds; iPhone is the Revenge of the Cool Kids
 date: 2015-01-27T21:13:56+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=3045
 permalink: /2015/01/pcs-were-the-triumph-of-the-nerds-iphone-is-the-revenge-of-the-cool-kids/

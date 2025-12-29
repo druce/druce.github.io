@@ -2,7 +2,7 @@
 id: 4165
 title: 'The End of the PC? On Intel’s Apple and ARM problems'
 date: 2015-11-16T09:33:11+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=4165
 permalink: /2015/11/the-end-of-the-pc-on-intels-apple-and-arm-problems/

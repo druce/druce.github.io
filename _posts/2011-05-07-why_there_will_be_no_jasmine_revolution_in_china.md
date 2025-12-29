@@ -2,7 +2,7 @@
 id: 17
 title: 6 Reasons Why There Will Be No Chinese Jasmine Revolution
 date: 2011-05-07T12:26:25+00:00
-author: StreetEYE
+author: Druce Vertes
 layout: post
 guid: http://50.19.225.184/blog/?p=17
 permalink: /2011/05/why_there_will_be_no_jasmine_revolution_in_china/

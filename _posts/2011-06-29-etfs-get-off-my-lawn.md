@@ -2,7 +2,7 @@
 id: 89
 title: 'ETFs: Get Off My Lawn!'
 date: 2011-06-29T22:47:47+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=89
 permalink: /2011/06/etfs-get-off-my-lawn/

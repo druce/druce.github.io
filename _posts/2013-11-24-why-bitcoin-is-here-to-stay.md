@@ -2,7 +2,7 @@
 id: 2468
 title: Why Bitcoin is here to stay
 date: 2013-11-24T21:38:24+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=2468
 permalink: /2013/11/why-bitcoin-is-here-to-stay/

@@ -2,7 +2,7 @@
 id: 3216
 title: '‘Net neutrality’, Netflix vs. the cable monopoly, and the Internet profits tax'
 date: 2015-02-26T11:30:23+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=3216
 permalink: /2015/02/net-neutrality-netflix-vs-the-cable-monopoly-and-the-internet-profits-tax/

@@ -2,7 +2,7 @@
 id: 4873
 title: Pokémon economics, secular stagnation, and cognitive dissonance
 date: 2016-07-31T12:29:57+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=4873
 permalink: /2016/07/pokemon-economics-and-cognitive-dissonance/

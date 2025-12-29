@@ -2,7 +2,7 @@
 id: 2174
 title: 'Risk arbitrage _ Investing and poker'
 date: 2013-08-02T16:38:07+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=2174
 permalink: /2013/08/risk-arbitrage-investing-and-poker/

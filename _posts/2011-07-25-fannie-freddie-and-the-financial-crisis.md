@@ -2,7 +2,7 @@
 id: 254
 title: Fannie, Freddie, And The Causes Of The Financial Crisis
 date: 2011-07-25T18:46:29+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=254
 permalink: /2011/07/fannie-freddie-and-the-financial-crisis/

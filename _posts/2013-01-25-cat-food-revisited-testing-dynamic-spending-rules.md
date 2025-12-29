@@ -2,7 +2,7 @@
 id: 1429
 title: '‘Cat Food’ revisited: testing dynamic spending rules - Part 1'
 date: 2013-01-25T20:08:34+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=1429
 permalink: /2013/01/cat-food-revisited-testing-dynamic-spending-rules/

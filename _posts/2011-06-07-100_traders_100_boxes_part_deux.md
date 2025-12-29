@@ -2,7 +2,7 @@
 id: 22
 title: 100 traders, 100 boxes, part deux
 date: 2011-06-07T20:46:08+00:00
-author: StreetEYE
+author: Druce Vertes
 layout: post
 guid: http://50.19.225.184/blog/?p=22
 permalink: /2011/06/100_traders_100_boxes_part_deux/

@@ -2,7 +2,7 @@
 id: 786
 title: '2012: Toilet bowl or takeoff?'
 date: 2011-12-23T10:58:12+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=786
 permalink: /2011/12/2012-toilet-bowl-or-takeoff/

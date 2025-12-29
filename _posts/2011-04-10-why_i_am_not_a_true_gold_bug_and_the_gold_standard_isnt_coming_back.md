@@ -2,7 +2,7 @@
 id: 11
 title: 'Why I am not a true gold bug, and the gold standard isn’t coming back'
 date: 2011-04-10T07:53:49+00:00
-author: StreetEYE
+author: Druce Vertes
 layout: post
 guid: http://50.19.225.184/blog/?p=11
 permalink: /2011/04/why_i_am_not_a_true_gold_bug_and_the_gold_standard_isnt_coming_back/

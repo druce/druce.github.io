@@ -2,7 +2,7 @@
 id: 1049
 title: Buffett, Stocks, Bonds, Gold
 date: 2012-02-13T12:48:02+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=1049
 permalink: /2012/02/buffett-stocks-bonds-gold/

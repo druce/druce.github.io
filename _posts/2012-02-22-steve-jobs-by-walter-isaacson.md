@@ -2,7 +2,7 @@
 id: 1079
 title: Steve Jobs, by Walter Isaacson
 date: 2012-02-22T17:28:13+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=1079
 permalink: /2012/02/steve-jobs-by-walter-isaacson/

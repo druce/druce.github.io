@@ -2,7 +2,7 @@
 id: 6391
 title: The Bitcoin crash is coming
 date: 2017-12-13T13:08:43+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=6391
 permalink: /2017/12/imagine-a-boot-stamping-on-a-bitcoin-symbol-forever/

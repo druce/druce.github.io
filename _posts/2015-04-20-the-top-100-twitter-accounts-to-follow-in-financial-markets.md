@@ -2,7 +2,7 @@
 id: 3481
 title: The Top 100 People To Follow On Twitter For Financial News
 date: 2015-04-20T01:41:03+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=3481
 permalink: /2015/04/the-top-100-twitter-accounts-to-follow-in-financial-markets/

@@ -2,7 +2,7 @@
 id: 5726
 title: "Come back Kelly Evans! We'll be good this time! I promise!"
 date: 2017-02-19T13:07:02+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=5726
 permalink: /2017/02/come-back-kelly-evans-well-be-good-i-promise/

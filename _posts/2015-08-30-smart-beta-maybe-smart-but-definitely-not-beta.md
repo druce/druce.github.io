@@ -2,7 +2,7 @@
 id: 3704
 title: 'Smart Beta: Maybe Smart, But Definitely Not Beta'
 date: 2015-08-30T23:29:09+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=3704
 permalink: /2015/08/smart-beta-maybe-smart-but-definitely-not-beta/

@@ -2,7 +2,7 @@
 id: 79
 title: The Great Bitcoin Robbery
 date: 2011-06-21T19:01:43+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=79
 permalink: /2011/06/the-great-bitcoin-robbery/

@@ -2,7 +2,7 @@
 id: 2653
 title: Retirement plans that maximize certainty-equivalent spending (conclusion)
 date: 2014-01-22T20:31:27+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=2653
 permalink: /2014/01/retirement-plans-that-maximize-certainty-equivalent-spending-part-3/

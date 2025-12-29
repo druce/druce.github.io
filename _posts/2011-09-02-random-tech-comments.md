@@ -2,7 +2,7 @@
 id: 468
 title: Random Tech Comments
 date: 2011-09-02T18:16:46+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=468
 permalink: /2011/09/random-tech-comments/

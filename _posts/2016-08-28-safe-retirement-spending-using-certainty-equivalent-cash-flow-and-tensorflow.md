@@ -2,7 +2,7 @@
 id: 4991
 title: Safe Retirement Spending Using Certainty Equivalent Values and TensorFlow
 date: 2016-08-28T14:51:35+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=4991
 permalink: /2016/08/safe-retirement-spending-using-certainty-equivalent-cash-flow-and-tensorflow/

@@ -2,7 +2,7 @@
 id: 12
 title: '‘Bretton Woods 2’'
 date: 2011-04-16T00:39:13+00:00
-author: StreetEYE
+author: Druce Vertes
 layout: post
 guid: http://50.19.225.184/blog/?p=12
 permalink: /2011/04/bretton_woods_ii/

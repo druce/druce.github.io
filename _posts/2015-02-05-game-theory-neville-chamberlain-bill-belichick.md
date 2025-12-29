@@ -2,7 +2,7 @@
 id: 3132
 title: Game theory, Bill Belichick, Neville Chamberlain
 date: 2015-02-05T13:27:49+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=3132
 permalink: /2015/02/game-theory-neville-chamberlain-bill-belichick/

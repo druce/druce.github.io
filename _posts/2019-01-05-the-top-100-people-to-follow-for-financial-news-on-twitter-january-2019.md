@@ -2,7 +2,7 @@
 id: 6745
 title: The Top 100 People To Follow For Financial News On Twitter, January 2019
 date: 2019-01-05T00:21:10+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=6745
 permalink: /2019/01/the-top-100-people-to-follow-for-financial-news-on-twitter-january-2019/

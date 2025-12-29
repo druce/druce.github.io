@@ -2,7 +2,7 @@
 id: 4
 title: Why did the Soviet Union collapse?
 date: 2011-04-03T12:21:48+00:00
-author: StreetEYE
+author: Druce Vertes
 layout: post
 guid: http://50.19.225.184/blog/?p=4
 permalink: /2011/04/why_did_the_soviet_union_collapse/

@@ -2,7 +2,7 @@
 id: 4641
 title: The Top 100 People To Follow To Discover Financial News On Twitter, May 2016
 date: 2016-05-01T10:33:19+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=4641
 permalink: /2016/05/the-top-100-people-to-follow-to-discover-financial-news-on-twitter-april-2016/

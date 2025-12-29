@@ -2,7 +2,7 @@
 id: 6839
 title: "There ain't no such thing as a free option"
 date: 2019-06-07T21:56:13+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=6839
 permalink: /2019/06/there-aint-no-such-thing-as-a-free-option/

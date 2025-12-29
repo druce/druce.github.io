@@ -2,7 +2,7 @@
 id: 2496
 title: Bitcoin is the Linux of payments. And its killer apps will be for US dollars.
 date: 2013-12-29T10:21:48+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=2496
 permalink: /2013/12/bitcoin-is-the-linux-of-payments-and-its-killer-app-is-the-us-dollar/

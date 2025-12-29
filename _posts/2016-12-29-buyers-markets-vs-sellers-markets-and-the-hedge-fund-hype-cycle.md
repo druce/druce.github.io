@@ -2,7 +2,7 @@
 id: 5538
 title: Buyer’s markets, seller’s markets and the hedge fund hype cycle
 date: 2016-12-29T19:51:29+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=5538
 permalink: /2016/12/buyers-markets-vs-sellers-markets-and-the-hedge-fund-hype-cycle/

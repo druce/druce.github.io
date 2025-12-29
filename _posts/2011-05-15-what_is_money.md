@@ -2,7 +2,7 @@
 id: 18
 title: What is money?
 date: 2011-05-15T11:06:06+00:00
-author: StreetEYE
+author: Druce Vertes
 layout: post
 guid: http://50.19.225.184/blog/?p=18
 permalink: /2011/05/what_is_money/

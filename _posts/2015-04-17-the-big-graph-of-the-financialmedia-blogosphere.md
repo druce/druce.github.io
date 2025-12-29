@@ -2,7 +2,7 @@
 id: 3445
 title: Mapping the Financial / Media Twittersphere
 date: 2015-04-17T23:58:10+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=3445
 permalink: /2015/04/the-big-graph-of-the-financialmedia-blogosphere/

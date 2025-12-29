@@ -2,7 +2,7 @@
 id: 3831
 title: The Mathematics of Bluffing
 date: 2015-08-11T00:08:01+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=3831
 permalink: /2015/08/the-mathematics-of-bluffing/

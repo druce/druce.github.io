@@ -2,7 +2,7 @@
 id: 5537
 title: "Is Silicon Valley Truly Libertarian? Is Politics Society's OS, Ripe For Disruption?"
 date: 2017-01-12T09:47:06+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=5537
 permalink: /2017/01/why-do-tech-folks-identify-as-libertarian-and-further-strange-musings/

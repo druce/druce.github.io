@@ -2,7 +2,7 @@
 id: 3103
 title: A Greece reading list (Or why the euro is doomed)
 date: 2015-02-01T11:10:24+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=3103
 permalink: /2015/02/a-greece-reading-list-or-why-the-euro-is-doomed/

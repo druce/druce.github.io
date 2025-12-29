@@ -2,7 +2,7 @@
 id: 216
 title: The debt limit and the bond market
 date: 2011-07-16T09:56:24+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=216
 permalink: /2011/07/todays-blinding-glimpse-of-the-obvious/

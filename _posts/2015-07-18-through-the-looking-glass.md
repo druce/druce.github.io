@@ -2,7 +2,7 @@
 id: 3804
 title: Through the Looking Glass
 date: 2015-07-18T14:37:53+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=3804
 permalink: /2015/07/through-the-looking-glass/

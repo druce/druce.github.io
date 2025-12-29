@@ -2,7 +2,7 @@
 id: 1478
 title: 'What’s the worst that could happen?'
 date: 2013-01-18T23:45:29+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=1478
 permalink: /2013/01/whats-the-worst-that-could-happen/

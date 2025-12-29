@@ -2,7 +2,7 @@
 id: 452
 title: Overhyped Economic Hurricane?
 date: 2011-08-28T22:05:48+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=452
 permalink: /2011/08/overhyped-economic-hurricane/

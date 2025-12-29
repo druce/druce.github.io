@@ -2,7 +2,7 @@
 id: 1163
 title: The Money Illusion
 date: 2012-03-03T10:30:18+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=1163
 permalink: /2012/03/the-money-illusion/

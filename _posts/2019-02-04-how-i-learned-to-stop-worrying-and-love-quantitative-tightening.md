@@ -2,7 +2,7 @@
 id: 6766
 title: How I learned to stop worrying and love quantitative tightening
 date: 2019-02-04T17:29:12+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=6766
 permalink: /2019/02/how-i-learned-to-stop-worrying-and-love-quantitative-tightening/

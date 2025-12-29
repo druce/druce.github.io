@@ -2,7 +2,7 @@
 id: 4431
 title: Narratives Are Powerful, But Check the Math
 date: 2016-01-24T11:39:17+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=4431
 permalink: /2016/01/stories-are-powerful-but-check-the-math/

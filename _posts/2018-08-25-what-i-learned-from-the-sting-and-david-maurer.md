@@ -2,7 +2,7 @@
 id: 6678
 title: What I Learned From Watching The Sting And Reading David Maurer
 date: 2018-08-25T08:49:59+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=6678
 permalink: /2018/08/what-i-learned-from-the-sting-and-david-maurer/

@@ -2,7 +2,7 @@
 id: 4338
 title: 'iPhone Backdoors for the FBI, a blockchain approach for transparent due process, and why it’s a bad idea'
 date: 2016-01-01T14:22:27+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=4338
 permalink: /2016/01/key-escrow-a-case-study-in-using-the-blockchain-for-transparency/

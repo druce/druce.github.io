@@ -2,7 +2,7 @@
 id: 1157
 title: How to Create the Ultimate Linkfest
 date: 2012-03-25T12:02:15+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=1157
 permalink: /2012/03/creating-the-ultimate-linkfest/

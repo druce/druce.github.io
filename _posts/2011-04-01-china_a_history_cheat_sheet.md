@@ -2,7 +2,7 @@
 id: 5
 title: 'China: A history primer'
 date: 2011-04-01T12:46:20+00:00
-author: StreetEYE
+author: Druce Vertes
 layout: post
 guid: http://50.19.225.184/blog/?p=5
 permalink: /2011/04/china_a_history_cheat_sheet/

@@ -2,7 +2,7 @@
 id: 7103
 title: 'The Biggest Bluff: She Stoops To Conquer'
 date: 2020-07-09T22:28:57+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=7103
 permalink: /2020/07/the-biggest-bluff-she-stoops-to-conquer/

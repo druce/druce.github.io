@@ -2,7 +2,7 @@
 id: 1299
 title: What I Learned
 date: 2012-12-30T17:55:50+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=1299
 permalink: /2012/12/what-i-learned/

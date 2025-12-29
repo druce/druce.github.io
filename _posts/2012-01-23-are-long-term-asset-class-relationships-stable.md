@@ -2,7 +2,7 @@
 id: 960
 title: Are long term asset class relationships stable?
 date: 2012-01-23T16:37:19+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=960
 permalink: /2012/01/are-long-term-asset-class-relationships-stable/

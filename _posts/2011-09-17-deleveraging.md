@@ -2,7 +2,7 @@
 id: 523
 title: 'Deleveraging: A Parable'
 date: 2011-09-17T23:29:18+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=523
 permalink: /2011/09/deleveraging/

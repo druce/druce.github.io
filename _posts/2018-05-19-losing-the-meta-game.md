@@ -2,7 +2,7 @@
 id: 6616
 title: Losing the meta-game
 date: 2018-05-19T12:09:50+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=6616
 permalink: /2018/05/losing-the-meta-game/

@@ -2,7 +2,7 @@
 id: 726
 title: Unstoppable Forces vs. Immovable Objects
 date: 2011-12-04T23:56:25+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=726
 permalink: /2011/12/the-unstoppable-vs-the-immovable/

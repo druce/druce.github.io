@@ -2,7 +2,7 @@
 id: 4319
 title: The most popular keywords and sites of 2015
 date: 2015-12-29T01:04:51+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=4319
 permalink: /2015/12/the-most-popular-keywords-and-sites-of-2015/

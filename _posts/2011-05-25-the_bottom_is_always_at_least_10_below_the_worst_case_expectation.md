@@ -2,7 +2,7 @@
 id: 19
 title: 'The bottom is always at least 10% below your worst case expectation'
 date: 2011-05-25T23:57:33+00:00
-author: StreetEYE
+author: Druce Vertes
 layout: post
 guid: http://50.19.225.184/blog/?p=19
 permalink: /2011/05/the_bottom_is_always_at_least_10_below_the_worst_case_expectation/

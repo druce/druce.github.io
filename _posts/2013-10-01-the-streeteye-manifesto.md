@@ -2,7 +2,7 @@
 id: 2398
 title: The StreetEYE manifesto
 date: 2013-10-01T23:26:09+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=2398
 permalink: /2013/10/the-streeteye-manifesto/

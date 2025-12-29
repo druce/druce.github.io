@@ -2,7 +2,7 @@
 id: 5430
 title: Everyone lives in a bubble, and all models are overfitted
 date: 2016-11-13T12:54:35+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=5430
 permalink: /2016/11/everyone-lives-in-a-bubble-and-all-models-are-overfitted/

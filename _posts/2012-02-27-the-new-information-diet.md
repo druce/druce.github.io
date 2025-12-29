@@ -2,7 +2,7 @@
 id: 1090
 title: 'The New Information Diet: Web and Social Media Best Practices For Investors'
 date: 2012-02-27T11:37:23+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=1090
 permalink: /2012/02/the-new-information-diet/

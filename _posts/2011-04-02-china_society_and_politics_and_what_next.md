@@ -2,7 +2,7 @@
 id: 7
 title: 'China: society and politics, and what next?'
 date: 2011-04-02T07:03:50+00:00
-author: StreetEYE
+author: Druce Vertes
 layout: post
 guid: http://50.19.225.184/blog/?p=7
 permalink: /2011/04/china_society_and_politics_and_what_next/

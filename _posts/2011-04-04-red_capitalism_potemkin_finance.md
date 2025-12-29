@@ -2,7 +2,7 @@
 id: 8
 title: 'Red Capitalism, Potemkin Finance: Behind Facade Of Modern Buildings, Institutions, State Directs Dysfunctional Markets'
 date: 2011-04-04T07:54:13+00:00
-author: StreetEYE
+author: Druce Vertes
 layout: post
 guid: http://50.19.225.184/blog/?p=8
 permalink: /2011/04/red_capitalism_potemkin_finance/

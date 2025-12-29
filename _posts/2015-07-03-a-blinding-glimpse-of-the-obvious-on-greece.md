@@ -2,7 +2,7 @@
 id: 3706
 title: 4 blinding glimpses of the obvious on Greece
 date: 2015-07-03T11:33:33+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=3706
 permalink: /2015/07/a-blinding-glimpse-of-the-obvious-on-greece/

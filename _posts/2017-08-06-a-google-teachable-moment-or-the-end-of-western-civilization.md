@@ -2,7 +2,7 @@
 id: 6112
 title: A Google teachable moment, or the end of Western civilization?
 date: 2017-08-06T10:14:45+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=6112
 permalink: /2017/08/a-google-teachable-moment-or-the-end-of-western-civilization/

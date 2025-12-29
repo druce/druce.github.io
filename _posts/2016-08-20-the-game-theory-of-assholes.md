@@ -2,7 +2,7 @@
 id: 5003
 title: The Game Theory of Assholes
 date: 2016-08-20T12:35:18+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=5003
 permalink: /2016/08/the-game-theory-of-assholes/

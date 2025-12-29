@@ -2,7 +2,7 @@
 id: 395
 title: '‘Cat Food’ In An Age of Diminished Expectations'
 date: 2011-08-22T21:18:58+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=395
 permalink: /2011/08/cat-food-in-an-age-of-diminished-expectations/

@@ -2,7 +2,7 @@
 id: 3639
 title: Why does everyone hate libertarians?
 date: 2015-05-16T10:43:46+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=3639
 permalink: /2015/05/why-i-am-not-a-libertarian/

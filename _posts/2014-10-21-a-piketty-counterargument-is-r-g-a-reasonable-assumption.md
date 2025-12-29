@@ -2,7 +2,7 @@
 id: 2841
 title: 'A Piketty counterargument: Is r > g a reasonable assumption?'
 date: 2014-10-21T21:32:58+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=2841
 permalink: /2014/10/a-piketty-counterargument-is-r-g-a-reasonable-assumption/

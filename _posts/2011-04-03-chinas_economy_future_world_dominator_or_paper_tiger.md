@@ -2,7 +2,7 @@
 id: 6
 title: 'China’s economy: future world domination, or paper tiger?'
 date: 2011-04-03T16:55:25+00:00
-author: StreetEYE
+author: Druce Vertes
 layout: post
 guid: http://50.19.225.184/blog/?p=6
 permalink: /2011/04/chinas_economy_future_world_dominator_or_paper_tiger/

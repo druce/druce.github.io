@@ -2,7 +2,7 @@
 id: 1234
 title: A Target2 Thought Experiment
 date: 2012-06-05T23:12:02+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=1234
 permalink: /2012/06/a-target2-thought-experiment/

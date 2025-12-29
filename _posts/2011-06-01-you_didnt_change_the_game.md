@@ -2,7 +2,7 @@
 id: 20
 title: We make our tools, and then our tools make us
 date: 2011-06-01T08:40:23+00:00
-author: StreetEYE
+author: Druce Vertes
 layout: post
 guid: http://50.19.225.184/blog/?p=20
 permalink: /2011/06/you_didnt_change_the_game/

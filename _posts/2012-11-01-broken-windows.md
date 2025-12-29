@@ -2,7 +2,7 @@
 id: 1263
 title: Broken Windows
 date: 2012-11-01T21:05:50+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=1263
 permalink: /2012/11/broken-windows/

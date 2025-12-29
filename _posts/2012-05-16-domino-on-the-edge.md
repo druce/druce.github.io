@@ -2,7 +2,7 @@
 id: 1222
 title: Domino on the edge
 date: 2012-05-16T10:11:11+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=1222
 permalink: /2012/05/domino-on-the-edge/

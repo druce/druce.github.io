@@ -2,7 +2,7 @@
 id: 514
 title: The Efficient Atmospheres Hypothesis
 date: 2011-09-10T19:20:03+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=514
 permalink: /2011/09/the-efficient-atmospheres-hypothesis/

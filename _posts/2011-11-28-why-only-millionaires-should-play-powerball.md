@@ -2,7 +2,7 @@
 id: 701
 title: Why only millionaires should play Powerball
 date: 2011-11-28T18:39:42+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=701
 permalink: /2011/11/why-only-millionaires-should-play-powerball/

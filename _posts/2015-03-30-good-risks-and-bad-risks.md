@@ -2,7 +2,7 @@
 id: 3240
 title: Good risks and bad risks
 date: 2015-03-30T18:54:35+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=3240
 permalink: /2015/03/good-risks-and-bad-risks/

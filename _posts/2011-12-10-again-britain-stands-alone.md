@@ -2,7 +2,7 @@
 id: 773
 title: Once Again, Britain stands alone
 date: 2011-12-10T14:38:04+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=773
 permalink: /2011/12/again-britain-stands-alone/

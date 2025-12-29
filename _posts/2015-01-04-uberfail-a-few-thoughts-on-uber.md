@@ -2,7 +2,7 @@
 id: 2960
 title: 'UberFail - a few thoughts on Uber'
 date: 2015-01-04T16:14:59+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=2960
 permalink: /2015/01/uberfail-a-few-thoughts-on-uber/

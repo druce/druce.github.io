@@ -2,7 +2,7 @@
 id: 4613
 title: A possibly ill-conceived rant on race in America
 date: 2016-03-06T10:24:05+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=4613
 permalink: /2016/03/a-possibly-ill-conceived-rant/

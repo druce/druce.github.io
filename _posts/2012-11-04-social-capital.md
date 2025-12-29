@@ -2,7 +2,7 @@
 id: 1176
 title: 'Social capital, or the lost art of not taking a dump in the community pool'
 date: 2012-11-04T20:16:56+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=1176
 permalink: /2012/11/social-capital/

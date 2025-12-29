@@ -2,7 +2,7 @@
 id: 6651
 title: The Most Shared Financial Blogs 2018
 date: 2018-07-29T20:35:02+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=6651
 permalink: /2018/07/the-most-shared-financial-blogs-2018/

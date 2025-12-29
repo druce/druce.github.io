@@ -2,7 +2,7 @@
 id: 3015
 title: The Dark Web Stack, Or How To Eff Up The Net
 date: 2015-01-23T11:14:02+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=3015
 permalink: /2015/01/the-dark-web-stack/

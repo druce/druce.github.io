@@ -2,7 +2,7 @@
 id: 3165
 title: 'Andreessen v. Summers: Can you have robots, hoverboards, and secular stagnation?'
 date: 2015-02-20T12:39:09+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=3165
 permalink: /2015/02/can-you-have-robots-hoverboards-and-secular-stagnation/

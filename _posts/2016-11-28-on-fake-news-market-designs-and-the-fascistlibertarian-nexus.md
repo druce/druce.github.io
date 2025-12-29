@@ -2,7 +2,7 @@
 id: 5490
 title: '"Fake news", market designs, and the fascist/libertarian nexus'
 date: 2016-11-28T08:16:36+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=5490
 permalink: /2016/11/on-fake-news-market-designs-and-the-fascistlibertarian-nexus/

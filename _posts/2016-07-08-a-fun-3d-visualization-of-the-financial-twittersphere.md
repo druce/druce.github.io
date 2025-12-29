@@ -2,7 +2,7 @@
 id: 4857
 title: A fun 3D visualization of the financial Twittersphere
 date: 2016-07-08T08:36:29+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=4857
 permalink: /2016/07/a-fun-3d-visualization-of-the-financial-twittersphere/

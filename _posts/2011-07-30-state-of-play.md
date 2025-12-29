@@ -2,7 +2,7 @@
 id: 332
 title: State of Play
 date: 2011-07-30T09:16:54+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=332
 permalink: /2011/07/state-of-play/

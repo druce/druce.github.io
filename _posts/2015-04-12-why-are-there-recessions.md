@@ -2,7 +2,7 @@
 id: 3375
 title: Why Are There Recessions And Business Cycles?
 date: 2015-04-12T19:21:26+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=3375
 permalink: /2015/04/why-are-there-recessions/

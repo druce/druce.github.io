@@ -2,7 +2,7 @@
 id: 4804
 title: Negative interest rates are an unnatural abomination
 date: 2016-07-02T23:07:50+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=4804
 permalink: /2016/07/negative-interest-rates-are-an-unnatural-abomination/

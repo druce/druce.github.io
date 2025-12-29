@@ -2,7 +2,7 @@
 id: 4148
 title: 'Is China’s sale of Treasurys ‘quantitative tightening’ for the US?'
 date: 2015-10-10T10:43:46+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=4148
 permalink: /2015/10/is-chinas-sale-of-treasurys-quantitative-tightening-for-the-us/

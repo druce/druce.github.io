@@ -2,7 +2,7 @@
 id: 3787
 title: The Garbage Fire That is Greece
 date: 2015-07-11T09:57:03+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=3787
 permalink: /2015/07/the-garbage-fire-that-is-greece/

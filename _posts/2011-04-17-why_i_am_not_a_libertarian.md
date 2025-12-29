@@ -2,7 +2,7 @@
 id: 13
 title: Why I am not a libertarian
 date: 2011-04-17T09:16:57+00:00
-author: StreetEYE
+author: Druce Vertes
 layout: post
 guid: http://50.19.225.184/blog/?p=13
 permalink: /2011/04/why_i_am_not_a_libertarian/

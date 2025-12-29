@@ -2,7 +2,7 @@
 id: 3596
 title: 'Don’t feed the trolls'
 date: 2015-05-09T10:48:59+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=3596
 permalink: /2015/05/dont-feed-the-trolls/

@@ -2,7 +2,7 @@
 id: 2379
 title: Obama goes all-in on Inspector Clouseau for the Fed
 date: 2013-08-13T09:19:27+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=2379
 permalink: /2013/08/obama-is-all-in-on-inspector-clouseau-for-the-fed/

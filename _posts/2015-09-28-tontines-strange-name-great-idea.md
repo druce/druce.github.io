@@ -2,7 +2,7 @@
 id: 4092
 title: 'The tontine: funny French name, brilliant idea'
 date: 2015-09-28T22:32:57+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=4092
 permalink: /2015/09/tontines-strange-name-great-idea/

@@ -8,7 +8,11 @@ guid: /?p=7150
 permalink: /2025/10/vibecoding
 categories: AI
 tags: AI
-
+image: /assets/2025/karpathy.jpeg
+description: >-
+  Explore how Claude Code and Claude Skills are revolutionizing
+  software development with agentic AI coding assistants.
+  Learn about vibecoding and the future of AI-powered programming.
 ---
 
 > Another [Simon Willison post](https://simonwillison.net/2025/Oct/16/claude-skills/) has motivated me to go down a rabbit hole.

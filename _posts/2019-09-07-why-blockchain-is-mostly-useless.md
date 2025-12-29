@@ -2,7 +2,7 @@
 id: 6893
 title: Why Blockchain Is (Mostly) Useless
 date: 2019-09-07T12:31:36+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=6893
 permalink: /2019/09/why-blockchain-is-mostly-useless/

@@ -2,7 +2,7 @@
 id: 9
 title: Tech Trends
 date: 2011-04-06T08:31:45+00:00
-author: StreetEYE
+author: Druce Vertes
 layout: post
 guid: http://50.19.225.184/blog/?p=9
 permalink: /2011/04/tech_trends/

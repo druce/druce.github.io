@@ -2,7 +2,7 @@
 id: 2727
 title: 'Risk: Why is volatility used to measure risk?'
 date: 2014-09-28T22:04:45+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=2727
 permalink: /2014/09/easy-pieces-on-risk-1-why-is-volatility-a-proxy-for-risk/

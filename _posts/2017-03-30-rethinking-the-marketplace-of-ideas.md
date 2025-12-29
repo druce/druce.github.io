@@ -2,7 +2,7 @@
 id: 5840
 title: Rethinking the marketplace of ideas
 date: 2017-03-30T22:06:24+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=5840
 permalink: /2017/03/rethinking-the-marketplace-of-ideas/

@@ -2,7 +2,7 @@
 id: 6081
 title: UBI, health care, welfare economics and asshole economics
 date: 2017-07-23T18:00:25+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=6081
 permalink: /2017/07/ubi-health-care-welfare-economics-and-asshole-economics/

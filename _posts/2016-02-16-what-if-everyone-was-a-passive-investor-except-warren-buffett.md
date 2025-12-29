@@ -2,7 +2,7 @@
 id: 4523
 title: What if everyone was a passive investor except Warren Buffett?
 date: 2016-02-16T17:37:46+00:00
-author: Druce Vertes, CFA
+author: Druce Vertes
 layout: post
 guid: /?p=4523
 permalink: /2016/02/what-if-everyone-was-a-passive-investor-except-warren-buffett/

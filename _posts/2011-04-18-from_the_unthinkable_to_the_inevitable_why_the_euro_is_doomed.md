@@ -2,7 +2,7 @@
 id: 14
 title: 'From the unthinkable to the inevitable: why the Euro is doomed'
 date: 2011-04-18T00:21:51+00:00
-author: StreetEYE
+author: Druce Vertes
 layout: post
 guid: http://50.19.225.184/blog/?p=14
 permalink: /2011/04/from_the_unthinkable_to_the_inevitable_why_the_euro_is_doomed/
