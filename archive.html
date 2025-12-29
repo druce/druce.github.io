@@ -3,11 +3,30 @@ layout: default
 ---
 <div class="home other-pages">
   <h1 class="page-heading">Archive (or <a href="{{ '/tags.html' | relative_url }}">by tag</a>)</h1>
-  <ul class="posts">
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> ({{ post.date | date: "%b %-d, %Y" }})
-    </li>
+
+  <!-- Year Navigation Links -->
+  <div class="year-navigation">
+    {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+    <p><strong>Jump to year:</strong>
+    {% for year in postsByYear %}
+      <a href="#year-{{ year.name }}" class="year-link">{{ year.name }}</a>{% unless forloop.last %} | {% endunless %}
+    {% endfor %}
+    </p>
+  </div>
+
+  <!-- Posts Grouped by Year -->
+  {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+  {% for year in postsByYear %}
+    <div class="year-section" id="year-{{ year.name }}">
+      <h2 class="year-heading">{{ year.name }} <span class="year-count">({{ year.items | size }} posts)</span></h2>
+      <ul class="posts">
+      {% for post in year.items %}
+        <li>
+          <span class="post-date">{{ post.date | date: "%b %-d" }}</span> &mdash;
+          <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </li>
+      {% endfor %}
+      </ul>
+    </div>
   {% endfor %}
-  </ul>
 </div>

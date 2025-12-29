@@ -100,3 +100,73 @@ $on-laptop:        800px !default;
     }
   }
 }
+
+// Archive page styles
+.year-navigation {
+  background-color: $crimson-color-very-light;
+  padding: $spacing-unit / 2;
+  margin: $spacing-unit 0;
+  border-radius: 4px;
+  border-left: 4px solid $brand-color;
+
+  p {
+    margin: 0;
+  }
+
+  .year-link {
+    color: $brand-color;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 2px 4px;
+
+    &:hover {
+      color: $crimson-color-light;
+      text-decoration: underline;
+    }
+  }
+}
+
+.year-section {
+  margin: $spacing-unit * 1.5 0;
+
+  .year-heading {
+    color: $brand-color;
+    border-bottom: 2px solid $grey-color-light;
+    padding-bottom: $spacing-unit / 4;
+    margin-bottom: $spacing-unit / 2;
+
+    .year-count {
+      color: $grey-color;
+      font-size: $small-font-size;
+      font-weight: normal;
+    }
+  }
+
+  .posts {
+    list-style: none;
+    margin-left: 0;
+
+    li {
+      margin-bottom: $spacing-unit / 4;
+      line-height: 1.8;
+
+      .post-date {
+        color: $grey-color;
+        font-family: monospace;
+        font-size: $small-font-size;
+        display: inline-block;
+        min-width: 60px;
+      }
+
+      a {
+        color: $navy-color;
+        text-decoration: none;
+
+        &:hover {
+          color: $brand-color;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
