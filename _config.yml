@@ -45,6 +45,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll_picture_tag  
   - jekyll-archives
+  - jekyll-paginate
 exclude:
   - Gemfile
   - Gemfile.lock

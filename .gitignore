@@ -6,6 +6,7 @@ _includes/_site/
 .jekyll-metadata
 *-cache/
 Gemfile.lock
+generated/
 
 ### Emacs backup files ###
 *~
