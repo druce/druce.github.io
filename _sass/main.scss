@@ -1,4 +1,4 @@
-@import "fonts";
+@import "fonts-google";
 @import "rouge-github";
 @import "dvtable";
 
@@ -6,7 +6,7 @@
 
 // Define defaults for each variable.
 
-$base-font-family: "Open Sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$base-font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $base-font-size:   16px !default;
 $base-font-weight: 400 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
