@@ -8,7 +8,7 @@ guid: /?p=7112
 permalink: /2020/12/portfolio-opimization
 categories: datascience
 tags: datascience markets investing
-
+mathjax: true
 ---
 ![Efficient frontier](/assets/2020/efficientfrontier1.png)
 

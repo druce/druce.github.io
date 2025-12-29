@@ -8,7 +8,7 @@ guid: /?p=7140
 permalink: /2025/04/economic_singularity
 categories: AI
 tags: AI
-
+mathjax: true
 ---
 <figure>
   <img
