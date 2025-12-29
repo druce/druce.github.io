@@ -1,21 +1,21 @@
 <div style="clear: both;"/>
-<footer class="site-footer">
-  {{ 'now' | date: "%Y" }} &copy; Druce Vertes | <a href="{{ '/tags.html' | relative_url }}">Archive</a> | <a href="{{ '/contact.html' | relative_url }}">Contact</a> 
+<footer class="site-footer" role="contentinfo">
+  {{ 'now' | date: "%Y" }} &copy; Druce Vertes | <a href="{{ '/tags.html' | relative_url }}">Archive</a> | <a href="{{ '/contact.html' | relative_url }}">Contact</a>
 
   <p>
-    <a href="{{ site.baseurl }}/feed.xml" target="_blank">
-      <i class="fas fa-rss-square" style="color: #ee802f; font-size: 20px;"></i>      
+    <a href="{{ site.baseurl }}/feed.xml" target="_blank" rel="noopener" aria-label="RSS Feed">
+      <i class="fas fa-rss-square" style="color: #ee802f; font-size: 20px;" aria-hidden="true"></i>
     </a>
-    <a href="https://twitter.com/streeteye/" target="_blank">
-      <i class="fab fa-twitter-square" style="color: #1da1f2; font-size: 20px;"></i>      
+    <a href="https://twitter.com/streeteye/" target="_blank" rel="noopener" aria-label="Twitter">
+      <i class="fab fa-twitter-square" style="color: #1da1f2; font-size: 20px;" aria-hidden="true"></i>
     </a>
-    <a href="https://github.com/druce" target="_blank">
-      <i class="fab fa-github-square" style="color: #6e5494; font-size: 20px;"></i>      
+    <a href="https://github.com/druce" target="_blank" rel="noopener" aria-label="GitHub">
+      <i class="fab fa-github-square" style="color: #6e5494; font-size: 20px;" aria-hidden="true"></i>
     </a>
-    <a href="https://www.linkedin.com/in/drucevertes" target="_blank">
-      <i class="fab fa-linkedin" style="color: #0e76a8; font-size: 20px;"></i>      
+    <a href="https://www.linkedin.com/in/drucevertes" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <i class="fab fa-linkedin" style="color: #0e76a8; font-size: 20px;" aria-hidden="true"></i>
     </a>
-    
+
   </p>
 </footer>
 <!-- Conditional MathJax loading: only load if page has mathjax: true in front matter -->

@@ -58,6 +58,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-archives
   - jekyll-paginate
+  - jekyll-redirect-from
 exclude:
   - Gemfile
   - Gemfile.lock
