@@ -19,7 +19,7 @@ description: >-
 
 <figure>
 <img src="/assets/2025/karpathy.jpeg" alt="Vibecoding, by Andrej Karpathy." loading="lazy">
-  <figcaption>Image credit: <a href="https://twitter.com/karpathy">Andrej Karpathy</a></figcaption>
+  <figcaption>Image credit: <a href="https://twitter.com/karpathy">via Andrej Karpathy</a></figcaption>
 </figure>
 
 <!--more-->
