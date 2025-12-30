@@ -11,9 +11,10 @@ tags: AI
 mathjax: true
 ---
 <figure>
-  <img
-  src="/assets/2025/robot_barista.png"
-  alt="Robot barista declines job application from human">
+  <picture>
+    <source srcset="/assets/2025/robot_barista.webp" type="image/webp">
+    <img src="/assets/2025/robot_barista.png" alt="Robot barista declines job application from human" width="982" height="655">
+  </picture>
 </figure>
 > Economics is the painful elaboration of the obvious.
 >

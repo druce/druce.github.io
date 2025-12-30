@@ -10,11 +10,9 @@ categories: infosec
 tags: infosec
 
 ---
-><img src="/assets/2025/dumb_people.png">
+>This is a rant about cybersecurity and the information space around AI.
 
 <!--more-->
-
-This is a rant about cybersecurity and the information space around AI.
 
 A couple of years ago, I was out sailing in NY harbor. A gust picked up my red L.L. Bean baseball cap and blew it into the water.  I went home, and I was scrolling Facebook, and the first thing I saw was an ad for a red L.L. Bean baseball cap.
 

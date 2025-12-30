@@ -18,7 +18,10 @@ description: >-
 > Another [Simon Willison post](https://simonwillison.net/2025/Oct/16/claude-skills/) has motivated me to go down a rabbit hole.
 
 <figure>
-<img src="/assets/2025/karpathy.jpeg" alt="Vibecoding, by Andrej Karpathy." loading="lazy">
+<picture>
+  <source srcset="/assets/2025/karpathy.webp" type="image/webp">
+  <img src="/assets/2025/karpathy.jpeg" alt="Vibecoding, by Andrej Karpathy." fetchpriority="high" width="1024" height="1024">
+</picture>
   <figcaption>Image credit: <a href="https://twitter.com/karpathy">via Andrej Karpathy</a></figcaption>
 </figure>
 

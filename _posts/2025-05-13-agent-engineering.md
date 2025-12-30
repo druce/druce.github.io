@@ -11,7 +11,10 @@ tags: AI
 
 ---
 
-<img src="/assets/2025/glitch_small.png">
+<picture>
+  <source srcset="/assets/2025/glitch_small.webp" type="image/webp">
+  <img src="/assets/2025/glitch_small.png" alt="Agent engineering illustration" width="430" height="460">
+</picture>
 > *Any sufficiently advanced technology is indistinguishable from magic. — Arthur C. Clarke*
 >
 > What are AI agents? [Simon Willison](https://x.com/simonw/status/1843290729260703801) crowdsourced a lot of definitions that focus on:
