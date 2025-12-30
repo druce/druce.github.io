@@ -10,7 +10,12 @@ categories: infosec
 tags: infosec
 
 ---
->This is a rant about cybersecurity and the information space around AI.
+<picture>
+  <source srcset="/assets/2025/dumb_people.webp" type="image/webp">
+  <img src="/assets/2025/dumb_people.png" fetchpriority="high" style="width: 100%; height: 100%;">
+</picture>
+
+> This is a rant about cybersecurity and the information space around AI.
 
 <!--more-->
 

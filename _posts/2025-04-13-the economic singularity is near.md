@@ -13,7 +13,7 @@ mathjax: true
 <figure>
   <picture>
     <source srcset="/assets/2025/robot_barista.webp" type="image/webp">
-    <img src="/assets/2025/robot_barista.png" alt="Robot barista declines job application from human" width="982" height="655">
+    <img src="/assets/2025/robot_barista.png" alt="Robot barista declines job application from human" style="width: 100%; height: auto;">
   </picture>
 </figure>
 > Economics is the painful elaboration of the obvious.

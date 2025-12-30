@@ -20,7 +20,7 @@ description: >-
 <figure>
 <picture>
   <source srcset="/assets/2025/karpathy.webp" type="image/webp">
-  <img src="/assets/2025/karpathy.jpeg" alt="Vibecoding, by Andrej Karpathy." fetchpriority="high" width="1024" height="1024">
+  <img src="/assets/2025/karpathy.jpeg" alt="Vibecoding, by Andrej Karpathy." fetchpriority="high" style="width: 100%; height: auto;">
 </picture>
   <figcaption>Image credit: <a href="https://twitter.com/karpathy">via Andrej Karpathy</a></figcaption>
 </figure>

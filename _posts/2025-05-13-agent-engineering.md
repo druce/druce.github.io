@@ -13,7 +13,7 @@ tags: AI
 
 <picture>
   <source srcset="/assets/2025/glitch_small.webp" type="image/webp">
-  <img src="/assets/2025/glitch_small.png" alt="Agent engineering illustration" width="430" height="460">
+  <img src="/assets/2025/glitch_small.png" alt="Agent engineering illustration" style="width: 100%; height: auto;">
 </picture>
 > *Any sufficiently advanced technology is indistinguishable from magic. — Arthur C. Clarke*
 >
