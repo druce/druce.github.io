@@ -64,6 +64,9 @@ $on-laptop:        800px !default;
   "minima/layout"
 ;
 
+// Import about page styles (after variables are defined)
+@import "about";
+
 // Pagination styles
 .pagination {
   text-align: center;
@@ -176,7 +179,7 @@ $on-laptop:        800px !default;
   position: absolute;
   top: -40px;
   left: 0;
-  background: $crimson-color;
+  background: $navy-color-dark;
   color: #fff;
   padding: 8px 16px;
   text-decoration: none;

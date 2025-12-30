@@ -15,7 +15,7 @@ hr {
     border: 0;
     border-top: 1px solid $crimson-color-very-light;
     margin: 2em 0;
-    padding: 0; 
+    padding: 0;
 }
 
 /**
@@ -176,16 +176,20 @@ h2 > a {
  * Links
  */
 a {
-  color: $navy-color-dark;
-  text-decoration: none;
+  color: #006;
+  text-decoration: underline;
+  text-decoration-color: #006;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
 
   &:visited {
     color: $navy-color-dark;
   }
 
   &:hover {
-    color: $navy-color;
-    text-decoration: underline;
+    color: $brand-color;
+    text-decoration-color: $brand-color;
+    text-decoration-thickness: 2px;
   }
 
   .social-media-list &:hover {
@@ -203,7 +207,7 @@ a {
  */
 blockquote {
   color: #66;
-  border-left: 4px solid #118;
+  border-left: 4px solid chocolate;
   padding: 10px;
   margin: 10px;
   padding-left: 25px;

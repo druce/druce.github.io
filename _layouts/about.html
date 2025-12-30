@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+<head>
+  {% seo %}
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Resource hints for performance -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="shortcut icon" href="{{ '/assets/favicon.ico' | relative_url }}">
+
+  <!-- Tailwind CSS from CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts - Open Sans (optimally loaded, non-blocking) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"></noscript>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" media="print" onload="this.media='all'">
+
+  <!-- Custom About page styles (includes glassmorphism) -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics_code }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics_code }}');
+  </script>
+</head>
+
+<body class="overflow-x-hidden" style="margin: 0; padding: 0; font-family: 'Open Sans', sans-serif;">
+  <!-- Skip to content link for accessibility -->
+  <a href="#bio" class="skip-link-about">Skip to main content</a>
+
+  <!-- Animated wave canvas background -->
+  <canvas id="wave-canvas"></canvas>
+
+  <!-- Main site header (matching default layout) -->
+  {% include header.html %}
+
+  <!-- Main content -->
+  <main id="main-content" role="main">
+    {{ content }}
+  </main>
+
+  <!-- Main site footer (matching default layout) -->
+  {% include footer.html %}
+
+  <!-- Wave animation script -->
+  <script src="{{ '/assets/js/wave-animation.js' | relative_url }}"></script>
+
+  <!-- Fallback for no JavaScript -->
+  <noscript>
+    <style>
+      body {
+        background: linear-gradient(135deg, #f0f4f8 0%, #dbeafe 100%);
+      }
+    </style>
+  </noscript>
+</body>
+
+</html>

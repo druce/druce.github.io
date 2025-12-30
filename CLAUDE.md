@@ -15,15 +15,19 @@ bundle install
 
 # Start local development server (with live reload)
 bundle exec jekyll serve
+# Access at http://localhost:4000
 
 # Build static site to _site/ directory
 bundle exec jekyll build
 ```
 
-Note: Server runs on port 4000 by default. Changes to `_config.yml` require server restart.
+Note: Changes to `_config.yml` require server restart.
 
 ### Deployment
 Push to master branch - GitHub Pages automatically builds and deploys.
+
+### Automated Workflows
+- **Image Optimization**: GitHub Actions automatically optimizes PNG/JPG images in `assets/` on push (excluding `assets/wp-content/`). Creates a PR with optimization results. Commit message must include `[skip-img]` to prevent optimization loops.
 
 ## Architecture & Structure
 
@@ -90,8 +94,9 @@ Push to master branch - GitHub Pages automatically builds and deploys.
 - `jekyll-feed` - RSS feed generation
 - `jekyll-sitemap` - XML sitemap
 - `jekyll-seo-tag` - SEO meta tags
-- `jekyll_picture_tag` - Responsive images
 - `jekyll-archives` - Archive page generation
+- `jekyll-paginate` - Homepage pagination (20 posts per page)
+- `jekyll-redirect-from` - URL redirection support
 
 ### Interactive Content Support
 - **Math rendering**: MathJax 3 for LaTeX
@@ -132,8 +137,19 @@ Push to master branch - GitHub Pages automatically builds and deploys.
 
 ## Important Notes
 
+### Repository & Environment
 - The repository is 4.6GB due to large binary assets - be mindful when cloning/pulling
-- Emacs backup files (`#*#`) appear in `_posts/` - these should be ignored
+- Emacs backup files (`#*#`) may appear in `_posts/` - these should be ignored
 - The site uses custom domain (druce.ai) via CNAME file
-- Post IDs and GUIDs are legacy from WordPress migration
 - Host is set to `0.0.0.0` in config for development server accessibility
+
+### Ruby Version Management
+- The site uses `github-pages` gem which manages all Jekyll dependencies
+- GitHub Pages officially supports Ruby 3.3.4+
+- Local development may use different Ruby versions - consult Gemfile for compatibility
+- Use `bundle install` after any Ruby version changes
+
+### Legacy WordPress Migration
+- Post IDs and GUIDs are preserved from WordPress for URL compatibility
+- Legacy uploads remain in `/assets/wp-content/`
+- Permalink structure maintains WordPress-era URLs

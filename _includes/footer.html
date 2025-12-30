@@ -1,6 +1,7 @@
-<div style="clear: both;"/>
+<div style="clear: both;" />
 <footer class="site-footer" role="contentinfo">
-  {{ 'now' | date: "%Y" }} &copy; Druce Vertes | <a href="{{ '/contact.html' | relative_url }}">About</a> | <a href="{{ '/tags.html' | relative_url }}">Archive</a> 
+  {{ 'now' | date: "%Y" }} &copy; Druce Vertes | <a href="{{ '/about.html' | relative_url }}">About</a> | <a
+    href="{{ '/tags.html' | relative_url }}">Archive</a>
 
   <p>
     <a href="{{ site.baseurl }}/feed.xml" target="_blank" rel="noopener" aria-label="RSS Feed">
@@ -21,6 +22,6 @@
 <!-- Conditional MathJax loading: only load if page has mathjax: true in front matter -->
 {% if page.mathjax %}
 <script type="text/javascript" id="MathJax-script" async
-	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 {% endif %}
