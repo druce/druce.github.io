@@ -24,7 +24,7 @@ linkedin_username: drucevertes
 email: streeteye@streeteye.com
 url: "https://druce.ai" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: ""
-description: Druce's Blog on Machine Learning, Tech, Markets and Economics
+description: Druce's Blog on AI, Tech, Markets, and Randeom Stuff
 profile_url: "http://druce.github.io"
 copyright: Druce Vertes
 google_analytics_code: G-E1305JTTCL
@@ -63,11 +63,15 @@ plugins:
 exclude:
   - Gemfile
   - Gemfile.lock
+
+include:
+  - .well-known
+  
 kramdown:
   input: GFM
   auto_ids: true
   syntax_highlighter: rouge
 
 # Pagination settings
-paginate: 20
+paginate: 15
 paginate_path: "/page/:num/"
