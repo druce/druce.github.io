@@ -3,7 +3,7 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 #
-# If you need help with YAML syntax, here are some quick references for you: 
+# If you need help with YAML syntax, here are some quick references for you:
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 #
@@ -24,11 +24,11 @@ linkedin_username: drucevertes
 email: streeteye@streeteye.com
 url: "https://druce.ai" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: ""
-description: A Blog on AI, Tech, Markets, and Random Stuff by Druce Vertes
+description: A Blog on AI, Tech, Markets and Random Stuff, by Druce Vertes
 profile_url: "http://druce.github.io"
 copyright: Druce Vertes
 google_analytics_code: G-E1305JTTCL
-  
+
 # Disqus Comments
 disqus:
   # Leave shortname blank to disable comments site-wide.
@@ -59,14 +59,17 @@ plugins:
   - jekyll-archives
   - jekyll-paginate
   - jekyll-redirect-from
-  
+
+# include:
+#  - .well-known
+
 exclude:
   - Gemfile
   - Gemfile.lock
 
 include:
   - .well-known
-  
+
 kramdown:
   input: GFM
   auto_ids: true
