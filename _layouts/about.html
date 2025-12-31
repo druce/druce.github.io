@@ -40,6 +40,131 @@
     gtag('js', new Date());
     gtag('config', '{{ site.google_analytics_code }}');
   </script>
+
+  <!-- Catppuccin Latte Theme Override -->
+  <style>
+    :root {
+      /* Catppuccin Latte Colors */
+      --ctp-latte-rosewater: #dc8a78;
+      --ctp-latte-flamingo: #dd7878;
+      --ctp-latte-pink: #ea76cb;
+      --ctp-latte-mauve: #8839ef;
+      --ctp-latte-red: #d20f39;
+      --ctp-latte-maroon: #e64553;
+      --ctp-latte-peach: #fe640b;
+      --ctp-latte-yellow: #df8e1d;
+      --ctp-latte-green: #40a02b;
+      --ctp-latte-teal: #179299;
+      --ctp-latte-sky: #04a5e5;
+      --ctp-latte-sapphire: #209fb5;
+      --ctp-latte-blue: #1e66f5;
+      --ctp-latte-lavender: #7287fd;
+      --ctp-latte-text: #4c4f69;
+      --ctp-latte-subtext1: #5c5f77;
+      --ctp-latte-subtext0: #6c6f85;
+      --ctp-latte-overlay2: #7c7f93;
+      --ctp-latte-overlay1: #8c8fa1;
+      --ctp-latte-overlay0: #9ca0b0;
+      --ctp-latte-surface2: #acb0be;
+      --ctp-latte-surface1: #bcc0cc;
+      --ctp-latte-surface0: #ccd0da;
+      --ctp-latte-base: #eff1f5;
+      --ctp-latte-mantle: #e6e9ef;
+      --ctp-latte-crust: #dce0e8;
+    }
+
+    body {
+      background: var(--ctp-latte-base);
+      color: var(--ctp-latte-text);
+    }
+
+    .glass-card {
+      background: rgba(23, 146, 153, 0.08) !important;
+      border: 1px solid rgba(23, 146, 153, 0.2) !important;
+      color: var(--ctp-latte-text) !important;
+    }
+
+    .glass-card h2 {
+      color: var(--ctp-latte-teal) !important;
+    }
+
+    .glass-card p,
+    .glass-card li {
+      color: var(--ctp-latte-text) !important;
+    }
+
+    .glass-card a {
+      color: var(--ctp-latte-blue) !important;
+      text-decoration-color: var(--ctp-latte-surface0) !important;
+    }
+
+    .glass-card a:hover {
+      color: var(--ctp-latte-teal) !important;
+      text-decoration-color: var(--ctp-latte-teal) !important;
+    }
+
+    .gradient-button {
+      background: rgba(220, 224, 232, 0.8) !important;
+      border: 1px solid rgba(114, 135, 253, 0.2) !important;
+      color: var(--ctp-latte-text) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 0.5rem !important;
+      padding: 0.75rem 1.25rem !important;
+      border-radius: 8px !important;
+      transition: all 0.2s ease !important;
+      text-decoration: none !important;
+      font-weight: 500 !important;
+      box-shadow: none !important;
+    }
+
+    .gradient-button:hover {
+      background: rgba(220, 224, 232, 1) !important;
+      border-color: var(--ctp-latte-teal) !important;
+      color: var(--ctp-latte-teal) !important;
+      transform: scale(1.05) !important;
+      box-shadow: none !important;
+    }
+
+    .section-nav a {
+      color: var(--ctp-latte-blue) !important;
+    }
+
+    .section-nav a:hover {
+      background: rgba(30, 102, 245, 0.1) !important;
+      color: var(--ctp-latte-teal) !important;
+    }
+
+    .social-links a {
+      background: rgba(220, 224, 232, 0.8) !important;
+      border: 1px solid rgba(114, 135, 253, 0.2) !important;
+      color: var(--ctp-latte-text) !important;
+    }
+
+    .social-links a:hover {
+      background: rgba(220, 224, 232, 1) !important;
+      border-color: var(--ctp-latte-teal) !important;
+      color: var(--ctp-latte-teal) !important;
+    }
+
+    .project-card h3 a {
+      color: var(--ctp-latte-blue) !important;
+      text-decoration-color: var(--ctp-latte-surface0) !important;
+    }
+
+    .project-card h3 a:hover {
+      color: var(--ctp-latte-teal) !important;
+      text-decoration-color: var(--ctp-latte-teal) !important;
+    }
+
+    .faq-item .question {
+      color: var(--ctp-latte-teal) !important;
+    }
+
+    .profile-section img {
+      border: 4px solid rgba(220, 224, 232, 0.5) !important;
+    }
+  </style>
 </head>
 
 <body class="overflow-x-hidden about-page" style="margin: 0; padding: 0; font-family: 'Open Sans', sans-serif;">
@@ -60,14 +185,23 @@
   <!-- Main site footer (matching default layout) -->
   {% include footer.html %}
 
-  <!-- Wave animation script -->
+  <!-- Wave animation script with Latte colors -->
+  <script>
+    // Catppuccin Latte wave colors
+    const waveColors = {
+      color1: '#7287fd', // lavender
+      color2: '#8839ef', // mauve
+      color3: '#1e66f5', // blue
+      color4: '#04a5e5'  // sky
+    };
+  </script>
   <script src="{{ '/assets/js/wave-animation.js' | relative_url }}"></script>
 
   <!-- Fallback for no JavaScript -->
   <noscript>
     <style>
       body {
-        background: linear-gradient(135deg, #f0f4f8 0%, #dbeafe 100%);
+        background: linear-gradient(135deg, #eff1f5 0%, #e6e9ef 100%);
       }
     </style>
   </noscript>
