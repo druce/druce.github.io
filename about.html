@@ -13,7 +13,7 @@ projects:
       Bill Bengen's famous 4% rule provides a simple, effective retirement strategy: invest in a 50/50 stock-bond mix, withdraw 4% of your initial portfolio per year, and increase annually for inflation. Historically you won't run out of money over 30 years. <br><br>
       This represents an infinite risk aversion solution—a hard constraint that never allows withdrawals to decrease or the portfolio to run dry.<br><br>
       But what if we relaxed that constraint? What flexible rules would emerge at different levels of risk tolerance?
-      In a March 2021 article for <a href="https://advisorperspectives.com/articles/2021/03/22/beyond-the-4-rule-flexible-withdrawal-strategies-using-certainty-equivalent-spending">Advisor Perspectives</a>, I maximized certainty-equivalent spending under constant relative risk aversion (CRRA)—essentially, actual spending discounted by its volatility based on your risk preference. Using gradient-free Python optimization frameworks on historical data, I generated rules of the form:<br><br>
+      In a March 2021 article for <a href="https://advisorperspectives.com/articles/2021/03/22/beyond-the-4-rule-flexible-withdrawal-strategies-using-certainty-equivalent-spending" target="_blank">Advisor Perspectives</a>, I maximized certainty-equivalent spending under constant relative risk aversion (CRRA)—essentially, actual spending discounted by its volatility based on your risk preference. Using gradient-free Python optimization frameworks on historical data, I generated rules of the form:<br><br>
       <em>Withdraw = fixed_pct + (variable_pct × portfolio_value), subject to a floor_pct minimum</em><br><br>
       As risk aversion increases, stock allocation decreases and the withdrawal rule shifts from variable to fixed. This framework lets retirees choose their preferred point on the risk-return spectrum, perhaps tolerating some risk of future modest declines in spending for higher current and expected lifetime spending.
     image: /assets/2021/swr.png
@@ -21,7 +21,7 @@ projects:
   - title: NYC Subway Dashboard
     url: https://projects.streeteye.com/
     github: https://github.com/druce/MTA
-    description: Data pipeline experiment using dbt to aggregate turnstile-level MTA data into DuckDB, with Plotly Dash for visualization. This modern stack delivers sub-second query performance on multi-gigabyte datasets from a laptop. <a href="https://druce.ai/2023/01/modern_data_stack">The analysis</a> revealed issues with MTA data quality and quantified the pandemic's devastating ridership impact, which ultimately necessitated extreme revenue measures like congestion pricing.
+    description: Data pipeline experiment using dbt to aggregate turnstile-level MTA data into DuckDB, with Plotly Dash for visualization. This <a href="https://www.getdbt.com/blog/future-of-the-modern-data-stack" target="_blank">modern data stack</a> experiment delivers sub-second query performance on multi-gigabyte datasets from a laptop. <a href="https://druce.ai/2023/01/modern_data_stack" target="_blank">The analysis</a> revealed issues with MTA data quality and quantified the pandemic's devastating ridership impact, which ultimately necessitated extreme revenue measures like congestion pricing.
     image: /assets/2023/mta_dashboard.png
 
   - title: Pizza Pizza Pizza
