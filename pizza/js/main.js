@@ -56,7 +56,7 @@ function searchClick() {
         alert('Choose a location from the locations dropdown');
     }
     else {
-        new_url = "http://" + document.pizza_url + "/query?location=" + location_val + "&keyword=" + key_val
+        new_url = "https://" + document.pizza_url + "/pizza/query?location=" + location_val + "&keyword=" + key_val
         if (!$.fn.DataTable.isDataTable('#output_table')) {  // first call, create table
             $("#output_table").html('                <thead> \
                         <tr style="text-align: right;"> \
@@ -177,7 +177,7 @@ function getMap(location_val, data) {
 
 $(document).ready(function () {
     // document.pizza_url = 'pizza-LoadB-1TH2H7NFOK1SE-5585f80c2069c713.elb.us-east-2.amazonaws.com:8181';
-    document.pizza_url = 'www.streeteye.com:8181';
+    document.pizza_url = 'api.streeteye.com';
     set_bg();
 
     document.locations = {
@@ -227,7 +227,7 @@ function getData() {
     // console.log('getdata 1');
     $.ajax({
         dataType: 'json',
-        url: 'http://localhost:8181',
+        url: 'https://api.streeteye.com/pizza',
         success: function (data) {
             console.log('aloha3');
             console.log(data.length);
