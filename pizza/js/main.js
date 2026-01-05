@@ -219,6 +219,12 @@ $(document).ready(function () {
 
     $("#search_button").click(searchClick);
 
+    // Auto-load Brooklyn Heights + Pizza on page load
+    $("#keyword_button").text("Pizza");
+    $("#location_button").text("Brooklyn Heights");
+    $("#page_title").text("Pizza…Pizza…Pizza");
+    searchClick();
+
 });
 
 function getData() {
