@@ -9,7 +9,14 @@ projects:
   - title: Safe Withdrawal Retirement Calculator
     url: https://druce.ai/swr-react/
     github: https://github.com/druce/swr
-    description: Set asset allocation and fixed/variable withdrawal rates, and visualize historical outcome paths for 30-year retirements 1928-1991. Further discussion in Advisor Perspectives.
+    description: |
+      <strong>Beyond the 4% Rule: Flexible Withdrawals Under Risk Aversion</strong><br><br>
+      Bill Bengen's famous 4% rule provides a simple, effective retirement strategy: invest in a 50/50 stock-bond mix, withdraw 4% of your initial portfolio per year, and increase annually for inflation. Historically you won't run out of money over 30 years. <br><br>
+      This represents an infinite risk aversion solution—a hard constraint that never allows withdrawals to decrease or the portfolio to run dry.<br><br>
+      But what if we relaxed that constraint? What flexible rules would emerge at different levels of risk tolerance?
+      In an article for <a href="orperspectives.com/articles/2021/03/22/beyond-the-4-rule-flexible-withdrawal-strategies-using-certainty-equivalent-spending">Advisor Perspectives</a>, I maximized certainty-equivalent spending under constant relative risk aversion (CRRA)—essentially, actual spending discounted by its volatility based on your risk preference. Using gradient-free Python optimization frameworks on historical data, I generated rules of the form:<br><br>
+      <em>Withdraw = fixed_pct + (variable_pct × portfolio_value), subject to a floor_pct minimum</em><br><br>
+      As risk aversion increases, stock allocation decreases and the withdrawal rule shifts from variable to fixed. This framework lets retirees choose their preferred point on the risk-return spectrum, perhaps tolerating some risk of modest declines in spending for higher overall lifetime spending.
     image: /assets/2021/swr.png
 
   - title: NYC Subway Dashboard
@@ -73,45 +80,74 @@ projects:
     image: /assets/2021/swr.png
 ---
 
-<div class="about-container max-w-6xl mx-auto">
+<div class="about-container">
 
   <!-- Section Navigation -->
   <nav class="section-nav" role="navigation" aria-label="Page sections">
     <a href="#bio">Bio</a>
     <a href="#contact">Contact</a>
-    <a href="#resume">Resume</a>
     <a href="#projects">Projects</a>
     <a href="#faq">FAQ</a>
   </nav>
 
   <!-- 1. Bio Section -->
   <section id="bio" class="glass-card">
-    <div class="profile-section">
+    <div class="profile-hero">
       <img src="{{ '/assets/images/profile_photo_square.webp' | relative_url }}"
            alt="Druce Vertes Profile Photo"
-           width="160"
-           height="160">
-      <div class="bio-text">
-        <h2>About Me</h2>
-        <p>Druce Vertes is a tech veteran, quant analyst, developer, tech strategist, CTO with leading hedge funds and Wall Street firms since 1992, consulting on machine learning, alternative data, predictive analytics.</p>
-      </div>
+           width="200"
+           height="200">
+    </div>
+    <div class="bio-text">
+      <h2>About Me</h2>
+      <p><strong>I build and ship production AI systems for investment management.</strong> For more than three decades, I've worked at the intersection of markets, technology, and decision-making—designing and operating systems that PMs and investment teams rely on. My background spans front-office roles, hedge-fund CTO leadership, and hands-on AI engineering, including work at Tiger Management, Caxton, and as CTO of a $2B Tiger Cub fund.</p>
+
+<p>Today, <strong>I help hedge funds and investment firms plan and implement AI strategy,</strong> translating modern AI capabilities into production systems that improve execution velocity, decision quality, and operational efficiency. </p>
+
+<p>Many AI projects struggle and fail. Key reasons include:</p>
+
+<ul>
+  <li>Lack of business-centric framing and success metrics</li>
+  <li>Lack of realistic evals against business objectives</li>
+  <li>Misaligned expectations</li>
+  <li>Lack of end user or executive buy-in</li>
+  <li>Governance, risk, and compliance blind spots</li>
+  <li>Automating too little or too much, with poorly tuned human-in-the-loop dynamics</li>
+</ul>
+
+<p>I can help avoid those pitfalls.</p>
+
+<p><strong>Recent successes include:</strong>
+
+        <ul>
+            <li>Designing and deploying RAG-based research summarization, text-to-SQL on CRM data, and agentic workflows for sell-side and buy-side teams.</li>
+            <li>Architecting agent automation systems using OpenAI Agents SDK and LangGraph.</li>
+            <li>Traditional ML for alternative data signals</li>
+        </ul>
+
+<p>As CTO of Hoplite Capital Management (2008–2010), I was the first internal tech hire at a 25-person, $2B AUM long/short equity fund. I built a best-practice end-to-end platform, including OMS (Eze Castle), real-time P&L and portfolio analytics, FIX trading, compliance, post-trade workflows, and disaster recovery, supporting daily decision-making for PMs and analysts.</p>
+
+<p>Earlier, I led hedge fund implementations at Charles River Development, and held front-office roles at Caxton and Tiger Management. I began my career at Salomon Brothers, doing economic forecasting and building portfolio optimization systems using multi-factor risk models.</p>
+
+<p><strong>Technical focus:</strong> Python, AI-assisted full SDLC dev practices, agentic systems, LangChain/LangGraph, OpenAI Agents SDK, RAG, robust data pipelines.</p>
+
     </div>
   </section>
 
   <!-- 2. Contact Section -->
   <section id="contact" class="glass-card">
-    <h2>Get in Touch</h2>
-    <p class="mb-4">I'd love to hear from you! Feel free to reach out through any of these channels:</p>
+    <h2>Contact</h2>
+    <p>Learn more or reach out through any of these channels. I'd love to hear from you!</p>
     <div class="social-links">
       <a href="mailto:druce@streeteye.com" aria-label="Email Druce Vertes">
         <i class="fas fa-envelope" aria-hidden="true"></i>
         <span>Email</span>
       </a>
-      <a href="https://calendly.com/drucevertes" target="_blank" rel="noopener noreferrer" aria-label="Book a meeting with Druce">
+      <a href="https://calendly.com/drucev" target="_blank" rel="noopener noreferrer" aria-label="Book a meeting with Druce">
         <i class="fas fa-calendar" aria-hidden="true"></i>
         <span>Book a Meeting</span>
       </a>
-      <a href="https://bsky.app/profile/druce.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Follow on BlueSky">
+      <a href="https://bsky.app/profile/druce.ai" target="_blank" rel="noopener noreferrer" aria-label="Follow on BlueSky">
         <i class="fas fa-cloud" aria-hidden="true"></i>
         <span>BlueSky</span>
       </a>
@@ -123,32 +159,33 @@ projects:
         <i class="fab fa-linkedin" aria-hidden="true"></i>
         <span>LinkedIn</span>
       </a>
+      <a href="{{ '/assets/doc/DruceVertes.pdf' | relative_url }}"
+         class="gradient-button"
+         download
+         aria-label="Download Druce Vertes resume PDF">
+        <i class="fas fa-file-pdf" aria-hidden="true"></i>
+        <span>Full Resume (PDF)</span>
+      </a>
+      <a href="https://skynetandchill.druce.ai/" target="_blank" rel="noopener noreferrer" aria-label="Daily News on Skynet and Chill">
+        <i class="fas fa-newspaper" aria-hidden="true"></i>
+        <span>Daily News on Skynet and Chill</span>
+      </a>
+
     </div>
   </section>
 
-  <!-- 3. Resume Section -->
-  <section id="resume" class="glass-card">
-    <h2>Resume</h2>
-    <p class="mb-4">Download my full resume to learn more about my experience and qualifications in quantitative finance, machine learning, and technology leadership.</p>
-    <a href="{{ '/assets/doc/DruceVertes.pdf' | relative_url }}"
-       class="gradient-button"
-       download
-       aria-label="Download Druce Vertes resume PDF">
-      <i class="fas fa-file-pdf" aria-hidden="true"></i>
-      <span>View Full Resume (PDF)</span>
-    </a>
-  </section>
-
-  <!-- 4. Projects Section -->
+  <!-- 3. Projects Section -->
   <section id="projects" class="glass-card">
     <h2>Featured Projects</h2>
-    <p class="mb-4">A selection of projects in machine learning, data visualization, finance, and web development.</p>
+    <p>A selection of projects in machine learning, data visualization, finance, and web development.</p>
     <div class="projects-grid">
       {% for project in page.projects %}
       <article class="project-card">
-        <img src="{{ project.image | relative_url }}"
-             alt="{{ project.title }} screenshot"
-             loading="lazy">
+        <a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">
+          <img src="{{ project.image | relative_url }}"
+               alt="{{ project.title }} screenshot"
+               loading="lazy">
+        </a>
         <h3>
           <a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">
             {{ project.title }}
@@ -163,7 +200,7 @@ projects:
     </div>
   </section>
 
-  <!-- 5. FAQ Section -->
+  <!-- 4. FAQ Section -->
   <section id="faq" class="glass-card">
     <h2>Frequently Asked Questions</h2>
 
