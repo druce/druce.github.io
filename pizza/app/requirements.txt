@@ -1,0 +1,22 @@
+dedupe
+Flask
+# flask-jsonpify
+flask-cors
+Flask-Limiter
+folium
+foursquare
+geojson
+geopy
+gmaps
+google-auth
+google-auth-oauthlib
+google-pasta
+pandas
+pandas-dedupe
+qgrid
+requests
+requests-oauthlib
+scikit-learn
+tqdm
+Unidecode
+yelpapi
