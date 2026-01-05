@@ -37,9 +37,9 @@ projects:
     image: /assets/2021/fundnames.png
 
   - title: FinTwit Graph
-    url: http://www.streeteye.com/static/fintwit201901/
+    url: http://fintwit.streeteye.com
     github: https://github.com/druce/ClusterFinTweet
-    description: Visualizing the Fintwittersphere, organized by force graph and other neighborhood algorithms using follower and topic similarity.
+    description: Visualizing the Fintwittersphere by building a force-directed graph which models Twitter accounts as nodes connected by weighted springs whose strength is derived from follower and topic similarity, simulating the physics, and solving for a low-energy equilibrium that clusters related users.
     image: /assets/2021/fintwitgraph.png
 
   - title: Portfolio Optimization
@@ -198,35 +198,4 @@ projects:
       {% endfor %}
     </div>
   </section>
-
-  <!-- 4. FAQ Section -->
-  <section id="faq" class="glass-card">
-    <h2>Frequently Asked Questions</h2>
-
-    <div class="faq-item">
-      <p class="question">Q: How can I get an update when a new post comes out?</p>
-      <div class="answer">
-        <p>I usually post about new content on my <a href="https://www.linkedin.com/in/drucevertes/" target="_blank" rel="noopener noreferrer">LinkedIn</a> account. There is also an <a href="{{ site.baseurl }}/feed.xml">RSS feed</a> you can subscribe to.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <p class="question">Q: How did you build this site?</p>
-      <div class="answer">
-        <p>This site uses <a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer">Jekyll</a>, <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a> hosting, and is based on the brilliant <a href="https://lilianweng.github.io/lil-log/" target="_blank" rel="noopener noreferrer">Lilian Weng's Lil'Log blog</a> which uses the <a href="https://github.com/jekyll/minima" target="_blank" rel="noopener noreferrer">Minima</a> theme. I just tweaked a few things.</p>
-
-        <p>I migrated from WordPress and before that Movable Type. Advantages over WordPress:</p>
-        <ul>
-          <li>Host static pages on GitHub, don't need to run a server or patch WordPress and plugins periodically.</li>
-          <li>Better support for MathJax, interactive charts, code blocks.</li>
-          <li>Edit in Markdown instead of WordPress HTML or GUI editor.</li>
-          <li>Depends on your theme but compared to my ancient WordPress theme, hopefully more responsive design.</li>
-        </ul>
-
-        <p>Feel free to clone it, and maybe let me know of any cool things you add. I would love to integrate <a href="https://getbootstrap.com" target="_blank" rel="noopener noreferrer">Bootstrap</a> for access to some additional UI components and maybe slightly better responsive layout on mobile. If you do anything like that especially let me know!</p>
-      </div>
-    </div>
-
-  </section>
-
 </div>
