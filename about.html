@@ -13,7 +13,7 @@ projects:
       Bill Bengen's famous 4% rule provides a simple, effective retirement strategy: invest in a 50/50 stock-bond mix, withdraw 4% of your initial portfolio per year, and increase annually for inflation. Historically you won't run out of money over 30 years. <br><br>
       This represents an infinite risk aversion solution—a hard constraint that never allows withdrawals to decrease or the portfolio to run dry.<br><br>
       But what if we relaxed that constraint? What flexible rules would emerge at different levels of risk tolerance?
-      In an article for <a href="https://advisorperspectives.com/articles/2021/03/22/beyond-the-4-rule-flexible-withdrawal-strategies-using-certainty-equivalent-spending">Advisor Perspectives</a>, I maximized certainty-equivalent spending under constant relative risk aversion (CRRA)—essentially, actual spending discounted by its volatility based on your risk preference. Using gradient-free Python optimization frameworks on historical data, I generated rules of the form:<br><br>
+      In a March 2021 article for <a href="https://advisorperspectives.com/articles/2021/03/22/beyond-the-4-rule-flexible-withdrawal-strategies-using-certainty-equivalent-spending">Advisor Perspectives</a>, I maximized certainty-equivalent spending under constant relative risk aversion (CRRA)—essentially, actual spending discounted by its volatility based on your risk preference. Using gradient-free Python optimization frameworks on historical data, I generated rules of the form:<br><br>
       <em>Withdraw = fixed_pct + (variable_pct × portfolio_value), subject to a floor_pct minimum</em><br><br>
       As risk aversion increases, stock allocation decreases and the withdrawal rule shifts from variable to fixed. This framework lets retirees choose their preferred point on the risk-return spectrum, perhaps tolerating some risk of future modest declines in spending for higher current and expected lifetime spending.
     image: /assets/2021/swr.png
@@ -27,7 +27,7 @@ projects:
   - title: Pizza Pizza Pizza
     url: /pizza/
     github: https://github.com/druce/Pizza
-    description: A ReactJS learning project to search for pizza (or coffee, or ice cream) in selected local NY areas, gather Google, Yelp, and Foursquare data, and construct a single Bayesian ranking. Data no longer refreshed due to API restrictions.
+    description: A ReactJS learning project to search for pizza (or coffee, or ice cream) in selected local NY areas, gather Google, Yelp, and Foursquare data, and construct a single Bayesian ranking. Data no longer refreshed due to API deprecations and restrictions.
     image: /assets/2021/pizza.png
 
   - title: Hedge Fund Name Generator
@@ -57,13 +57,13 @@ projects:
   - title: Classification Thresholds
     url: http://druce.ai/2019/10/understanding-classification-thresholds-using-isocurves
     github: https://github.com/druce/threshold_selection
-    description: Primer on threshold selection for classification using isocurves.
+    description: A primer on threshold selection for classification using isocurves. Metrics like F1 are popular, but in practice, minimizing real-world costs of false positives and false negatives is most useful.
     image: /assets/2021/isocurves.png
 
   - title: Deep Reinforcement Learning for Trading
     url: https://alphaarchitect.com/2020/02/26/reinforcement-learning-for-trading/
     github: https://github.com/druce/rl
-    description: Intro to reinforcement learning with trading examples.
+    description: Alpha Architect, February 2020. An intro to reinforcement learning with trading examples.
     image: /assets/2021/rl.png
 
 ---
