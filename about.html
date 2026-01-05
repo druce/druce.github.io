@@ -15,19 +15,19 @@ projects:
       But what if we relaxed that constraint? What flexible rules would emerge at different levels of risk tolerance?
       In an article for <a href="https://advisorperspectives.com/articles/2021/03/22/beyond-the-4-rule-flexible-withdrawal-strategies-using-certainty-equivalent-spending">Advisor Perspectives</a>, I maximized certainty-equivalent spending under constant relative risk aversion (CRRA)—essentially, actual spending discounted by its volatility based on your risk preference. Using gradient-free Python optimization frameworks on historical data, I generated rules of the form:<br><br>
       <em>Withdraw = fixed_pct + (variable_pct × portfolio_value), subject to a floor_pct minimum</em><br><br>
-      As risk aversion increases, stock allocation decreases and the withdrawal rule shifts from variable to fixed. This framework lets retirees choose their preferred point on the risk-return spectrum, perhaps tolerating some risk of modest declines in spending for higher overall lifetime spending.
+      As risk aversion increases, stock allocation decreases and the withdrawal rule shifts from variable to fixed. This framework lets retirees choose their preferred point on the risk-return spectrum, perhaps tolerating some risk of futuremodest declines in spending for higher current and expected lifetime spending.
     image: /assets/2021/swr.png
 
   - title: NYC Subway Dashboard
     url: https://projects.streeteye.com/
     github: https://github.com/druce/MTA
-    description: Data pipeline experiment using dbt to aggregate turnstile-level MTA data into DuckDB, with Plotly Dash for visualization. This modern stack delivers sub-second query performance on multi-gigabyte datasets from a laptop. <a href="https://druce.ai/2023/01/modern_data_stack">The analysis</a> revealed issues with MTA data quality and quantified the pandemic's devastating ridership impact, ultimately necessitating extreme revenue measures like congestion pricing.
+    description: Data pipeline experiment using dbt to aggregate turnstile-level MTA data into DuckDB, with Plotly Dash for visualization. This modern stack delivers sub-second query performance on multi-gigabyte datasets from a laptop. <a href="https://druce.ai/2023/01/modern_data_stack">The analysis</a> revealed issues with MTA data quality and quantified the pandemic's devastating ridership impact, which ultimately necessitated extreme revenue measures like congestion pricing.
     image: /assets/2023/mta_dashboard.png
 
   - title: Pizza Pizza Pizza
     url: /pizza/
     github: https://github.com/druce/Pizza
-    description: Search for pizza (or coffee, or ice cream) in selected local NY areas, combining Google, Yelp, Foursquare data into a single Bayesian ranking.
+    description: A ReactJS learning project to search for pizza (or coffee, or ice cream) in selected local NY areas, gather Google, Yelp, and Foursquare data, and construct a single Bayesian ranking. Data no longer refreshed due to API restrictions.
     image: /assets/2021/pizza.png
 
   - title: Hedge Fund Name Generator
@@ -75,7 +75,6 @@ projects:
     <a href="#bio">Bio</a>
     <a href="#contact">Contact</a>
     <a href="#projects">Projects</a>
-    <a href="#faq">FAQ</a>
   </nav>
 
   <!-- 1. Bio Section -->
