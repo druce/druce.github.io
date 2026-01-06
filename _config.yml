@@ -66,9 +66,9 @@ plugins:
 exclude:
   - Gemfile
   - Gemfile.lock
+  - static.test/
 include:
   - .well-known
-  - static.test/
 kramdown:
   input: GFM
   auto_ids: true
