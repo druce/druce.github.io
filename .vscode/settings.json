@@ -1,4 +1,43 @@
 {
-  "editor.formatOnSave": false,
-  "python.languageServer": "None"
+    "editor.formatOnSave": false,
+    "python.languageServer": "None"
+
+    // Markdown
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": {
+            "comments": "on",
+            "strings": "on",
+            "other": "on"
+        }
+    },
+
+    // YAML frontmatter
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
+    },
+
+    // HTML/Liquid
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+
+    // Prettier
+    "prettier.tabWidth": 2,
+    "prettier.proseWrap": "always",
+
+    // Files associations for Jekyll
+    "files.associations": {
+        "*.html": "liquid",
+        "*.md": "markdown"
+    },
+
+    // Exclude from file watcher
+    "files.watcherExclude": {
+        "**/_site/**": true,
+        "**/.sass-cache/**": true
+    }
 }

@@ -5,6 +5,16 @@ permalink: /about.html
 redirect_from:
   - /contact.html
 projects:
+  - title: Agentic Newsletter Generation System
+    url: http://skynetandchill.druce.ai/
+    github: https://github.com/druce/OpenAIAgentsSDK
+    description: |
+      Autonomous agent system that uses OpenAI Agents SDK to generate an AI newsletter from 500+ daily articles.<br /><br />
+      The system orchestrates a 9-step pipeline: web scraping; initial filtering; summarizing; deduping; reranking; semantic clustering; and critic-optimizer iterative refinement to transform raw news feeds into polished editorial content.<br /><br />
+      Processes ~650 articles → 30+ curated stories in 1200+ word draft for human editing with 7-15 thematic sections in ~30 minutes.<br /><br />
+      Tech Stack: Python • OpenAI Agents SDK • GPT-4o (logprobs) / GPT-5 • Langfuse prompt repository/observability • Playwright web scraping • Pandas data wrangling • HDBSCAN clustering • UMAP dimensionality reduction • Pydantic structured output • SQLite database
+    image: /assets/2025/newsagent.png
+
   - title: Safe Withdrawal Retirement Calculator
     url: https://druce.ai/swr-react/
     github: https://github.com/druce/swr
