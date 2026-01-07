@@ -25,13 +25,12 @@ jobs:
       - name: Optimize images
         uses: calibreapp/image-actions@main
         with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Compression quality (0-100, higher = better quality but larger file)
           jpegQuality: 85
           pngQuality: 85
           webpQuality: 85
           # Set to true to also create WebP versions
-          ignoredFiles: 'assets/wp-content/**'
           # Commit optimized images back
           compressOnly: false
 
