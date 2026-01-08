@@ -90,7 +90,7 @@ Skills and MCP can bring Claude Code to a higher level. So you are cruising alon
 
 Skills add a lot of agent bang for minimal framework complexity bucks.
 
-I can also see a world where Claude Code knows you are say a financial researcher, and constantly adds new skills, puts them in hierarchies to abstract tasks like, finding and understanding news and research, analytics, writing. And improves them as it watches you work. For now you have to write your own skills with Claude's help though.
+I can also see a world where Claude Code knows you are say a financial researcher, and constantly adds new skills, puts them in hierarchies to abstract tasks like, finding and understanding news and research, analytics, writing. And improves them as it watches you work. For now you have to write your own skills with Claude's help though. (edit - this is changing with [plugins](https://github.com/ccplugins/awesome-claude-code-plugins) and [marketplaces](https://claudemarketplaces.com/))   
 
 The 'agentic browsers' are a bit disappointing to me, I can't really tell it, read this folder full of PDFs and extract relevant parts using prompts into notes for this presentation I am doing. And I still have some security concerns about prompt injection. But I can do this research task with Claude Code. And over time all browsers will be agentic browsers with skills, probably.
 
