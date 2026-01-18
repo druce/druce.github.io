@@ -30,21 +30,21 @@ copyright: Druce Vertes
 google_analytics_code: G-E1305JTTCL
 
 # Disqus Comments
-disqus:
+# disqus:
   # Leave shortname blank to disable comments site-wide.
   # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
-  shortname: druce-ai
+#  shortname: druce-ai
 
 # Twitter Card Configuration
-twitter:
-  username: streeteye
-  card: summary_large_image
+# twitter:
+#  username: streeteye
+#  card: summary_large_image
 
 # Social Profile Links (for structured data)
 social:
   name: Druce Vertes
   links:
-    - https://twitter.com/streeteye
+    - https://bsky.app/profile/druce.ai
     - https://www.linkedin.com/in/drucevertes
     - https://github.com/druce
 
@@ -67,6 +67,13 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - static.test/
+  - pizza/
+#  - assets/js/tablesorter-master/
+  - README.md
+  - CLAUDE.md
+  - AGENTS.md
+  - .#*
+  - \#*\#
 include:
   - .well-known
 kramdown:
