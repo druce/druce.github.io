@@ -4,15 +4,32 @@
 
 User-agent: *
 
-# Block all Plotly.js library module paths
 Disallow: /_includes/
+Disallow: /_layouts/
+Disallow: /_site/
+Disallow: /_data/
+Disallow: /_drafts/
+Disallow: /_sass/
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /node_modules/
+Disallow: /.jekyll-cache/
+Disallow: /vendor/
+Disallow: /Gemfile
+Disallow: /Gemfile.lock
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /README.md
+Disallow: /CLAUDE.md
+
 Disallow: /assets/js/
+Disallow: /assets/fonts/
 
 # these should be allowed by default
 # Allow: /assets/2*/
 # Allow: /assets/wp-content/
 
-# I think these don't exist
+# Not sure why these exist / were scraped
 Disallow: /2022/11/
 Disallow: /2022/registry
 Disallow: /2022/common
