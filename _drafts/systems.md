@@ -1,0 +1,117 @@
+---
+id: 7128
+title: 'Systems thinking'
+subtitle: ''
+date: 2023-12-05T01:01:01+00:00
+author: Druce Vertes
+layout: post
+guid: /?p=7128
+permalink: /2023/11/systems
+categories: datascience
+tags: datascience
+
+---
+
+> quote
+
+<!--more-->
+
+When you're making big picture strategic decisions about company investment policy or hiring, even at the level of the paperclip game, or portfolios, or economic policy, you have to go beyond first order effects and think about the behavior of a system as a whole. 
+
+### Poker
+
+Poker is a good laboratory for decision science. Link. (If you are not into poker, you can skip this part without losing anything.)
+
+Consider this hand. A naive opponent says, nice catch, and you might sheepishly grin and take the. But who was ahead, really? you were 70% to win. Of course in that context you call. That is really the only context that matters, are you getting a reasonable +EV based on the universe of possible outcomes and the probability of winning. 
+
+A lot of times people will talk to you about getting wamboozled by bad beat and knocked out of a poker tournament. they say they had this hand and they lost, what should they have done? The thing is, there is no way to answer that question without asking a lot of other questions.
+
+- what were the big blinds
+- how big was your stack and what was your position vs. the dealer? Late is better
+- how big was your villainous opponent's stack and what was their position? What did other people do?
+- how were you and others playing, what was your table image? were you/they playing super tight or like maniacs?
+- etc., etc.
+
+There can be a game-theory-optimal way to play, where you stick to a strategy but occasionally mix it up a bit to keep your play unpredictable to opponents. So there is always some stochasticity in what you do. But usually you want to depart from the vanilla strategy and mix it up when you have the positional edge, when there are blockers on the board that make the board less dangerous, when you have good table image and stack size so people respect your bet.
+
+Poker strategy has a lot of variables but if you are playing your strategy and mixing it up in a reasonable manner, and especially if you are getting your money in the pot when you have the best of it, that's what you can do, put yourself in a position to win and let Lady Luck do the rest. Do what you can and let Mother Nature do the rest.
+
+In the context of systems thinking, you have to ask yourself, if I played this differently, how would I have to adjust the rest of my play. If you would be putting money in with KJ, you would logically also have to put it in with KQ and better, and overall would that let me become a winninger player or not. Or, if it's a time to mix it up, is this a good time, based on your position, table image, stack size, etc.
+
+
+
+Key notes from the keynote:
+
+- *GPT-4 Turbo* with major feature improvements and updates to the foundation model, at less than half the price of the previous top-of-the-line model.
+
+- *API improvements* including the Assistants API, which builds some of the most essential and popular capabilities of the LangChain and LlamaIndex frameworks directly into the OpenAI API.
+
+- *GPTs*: Anyone can build a custom chatbot with access to an external toolkit like plugins, its own knowledge base, and system prompts. Any product can come with its own chatbot for docs, question answering, and to perform API tasks via voice or natural language prompts.
+
+
+### Foundation Model Enhancements
+- [GPT-4 Turbo is now generally available](https://openai.com/blog/new-models-and-developer-products-announced-at-devday) in beta as *gpt-4-1106-preview*, and is driving the main [ChatGPT chat UI](https://chat.openai.com).
+- 128K context window, up from 32K
+- Trained on knowledge up to an April 2023 cutoff
+- Less than half the price of GPT-4 8K context, and one-quarter the price of GPT-4 32K token context: $0.01 per 1,000 input tokens and $0.03 per 1,000 output tokens, vs. previous $0.03 and $0.06 (8K context). *It's quite remarkable to get a 2-page summary of a 200-page document for about $1.*
+- Doubled tokens per minute rate limits ([Check your rate limits](https://platform.openai.com/account/limits)).
+- Multi-modal inputs: images. 
+- Updated Whisper V3 text-to-speech model. (An aside: The Sky voice in the ChatGPT mobile app is definitely Scarlett Johansson, and you can't convince me otherwise.)
+- Function calling update: One API call can return multiple function calls in response to a prompt, such as, 'look up a track in Spotify', 'play the track'
+- JSON mode will always return valid JSON. Previously telling GPT-4 to return JSON was hit-or-miss. But you could trick it into returning valid JSON by inventing a fictitious function signature for it to call.
+- Reproducible outputs by specifying a random seed. The previous model was stochastic and you would typically get a different answer each time.
+- Return probabilities for completions, which is useful for knowing how certain the model is of its answer, or for providing multiple alternatives for autocomplete.
+- Fine-tuning GPT-4 using your own content and tasks is now available in experimental mode on request.
+- Custom models - at a substantial cost (like seven figures), OpenAI will develop a [custom GPT-4 based on data and training parameters you specify](https://openai.com/form/custom-models).
+- Copyright Shield: OpenAI will indemnify enterprise users and app developers against liability for infringement claims based on the usage of OpenAI APIs.
+
+### API Enhancements
+
+There is an [emerging stack for LLM applications](https://a16z.com/emerging-architectures-for-llm-applications/). Beyond OpenAI's question-answering API, developers may need additional functionalities like conversational memory, embedding storage for retrieval-enhanced generation, logging / observability, prompt template / library management, and chat UI implementations. [LangChain](https://python.langchain.com/docs/get_started/introduction) and [LlamaIndex](https://docs.llamaindex.ai/en/stable/) are two important frameworks that provide these layers and facilitate integrations with other DBs, software layers, SaaS services, and APIs. These frameworks offer a great roadmap for how to implement complex LLM flows and if you don't have a passing familiarity with them, you're probably not a serious LLM developer. 
+
+But in most cases, the real magic is performed by the underlying calls to the LLM itself, e.g. OpenAI. And for simplicity and stability you are often better off writing directly to the OpenAI API, like you might be better off using a simple JAM (JS, APIs, Markup) web dev stack vs. a full-blown MERN framework (MongoDB, Express.js, React.js, Node.js).
+  
+  With the latest update, OpenAI has borrowed a page from LangChain and LlamaIndex, and integrated higher-level functionality, further up the app stack / value chain, directly into the OpenAI API.
+  
+- [Assistants API](https://platform.openai.com/docs/assistants/overview) and [playground](https://platform.openai.com/playground).
+- Persistent infinite threads - OpenAI handles conversational memory.
+- Code interpreter - OpenAI handles calling functions in a sandbox. When you use the function calling API to describe functions and when to use them, and then a prompt returns a function signature to call, OpenAI can  run the function in a sandbox (for $.03 per sandbox per hour). 
+- Retrieval - Add documents to the context for prompting, and OpenAI handles retrieval-augmented generation (RAG). 
+- An alternative way of viewing the Assistants API is that it exposes the capabilities  of the ChatGPT Advanced Data Analysis dropdown to devs in the API.
+- 4 new model APIs have been introduced:
+	- Image input is in beta in the *gpt-4-vision-preview* model and is expected to be in the final GPT-4 release.
+	- DALL•E 3 image generation is available via the *dall-e-3* API.
+	- Text to speech is available via *tts-1* and  *tts-1-hd* models. ElevenLabs was previously one way to do this, but these models are cheaper and likely superior.
+    - Speech to text with the updated [Whisper v3](https://github.com/openai/whisper) model is "coming soon" to the API.
+
+
+### [GPTs](https://openai.com/blog/introducing-gpts) 
+
+The previous ChatGPT dropdown menu, which required choosing between different GPT-4 toolkits, has been phased out. (It offered plugins, or web browsing, or advanced data analysis with the code interpreter and the ability to upload documents, or DALL•E 3). The default GPT-4 Turbo model now has access to all those functionalities.
+  
+But now, any developer can create a custom GPT chatbot with access to the data, toolkit, and system prompts of your choice, and publish it in the GPT store. The feature dropdown is dead, long live custom GPTs!
+
+Going forward, we can probably expect many products to come with a GPT to teach you how to use it, answer questions from the documentation, and to talk to its API to perform tasks via natural language and voice commands.
+
+Edit: A couple of links about the whole Sam Altman kerfluffle after the keynote:
+
+- [The New Yorker](https://www.newyorker.com/magazine/2023/12/11/the-inside-story-of-microsofts-partnership-with-openai)
+- [FT](https://www.ft.com/content/05b80ba4-fcc3-4f39-a0c3-97b025418b3c)
+- [NY Times](https://www.nytimes.com/2023/12/03/technology/ai-openai-musk-page-altman.html) on the history of Big AI.
+
+
+### Takeaways
+
+- Impressive keynote. Didn't announce GPT-5 or that AGI has been [achieved internally](https://www.independent.co.uk/tech/chatgpt-ai-agi-sam-altman-openai-b2419449.html), but shows rapid maturation of the product and of OpenAI as an organization.
+- Changes the environment for a number of players: Anthropic, ElevenLabs, LangChain, LlamaIndex, and vertical RAG startups.
+- API maturing rapidly.
+- Expect an explosion in niche-specific GPTs.
+- It's a little weird that the battle right now is pretty much between OpenAI's closed SaaS model and Meta's open-source Llama 2 model, which is stuck around the GPT 3.5 level. Google is running out of time to be a fast follower. They could still be an effective competitor, but it's coming up on a year since GPT 3.5, so no one can accurately describe them as 'fast'. Still no general availability Bard API, although NLP transformers are pervasive in the various Google products and they recently added some nice LLM summaries to search results.
+
+### See also:
+- [Stratechery](https://www.platformer.news/p/how-openai-is-building-a-path-toward)
+- [Platformer](https://stratechery.com/2023/the-openai-keynote/)
+
+As an aside, I wrote this mostly in Obsidian, which is a note-taking app, similar to Notion or Evernote. It is Markdown-based, and functions well as a Markdown editor. It has a large community with [tons of plugins](https://obsidian-plugin-stats.vercel.app/most-downloaded), notably an OpenAI plugin which lets you use ChatGPT to copy edit, or send content to custom ChatGPT prompts. Or you can use other LLMs and even a local Llama instance. 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jRCDAg2sck8?si=Eva4kbeHG_kUPDhf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

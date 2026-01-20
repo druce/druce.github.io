@@ -1,0 +1,90 @@
+name: Link Checker (Lychee - Alternative)
+
+# This is an alternative link checker using Lychee (faster, modern)
+# To use this instead of html-proofer:
+# 1. Rename this file to link-checker-lychee.yml
+# 2. Remove or rename link-checker.yml
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  schedule:
+    # Run weekly on Mondays at 9 AM UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.3'
+        bundler-cache: true
+
+    - name: Build Jekyll site
+      run: |
+        bundle install
+        bundle exec jekyll build
+      env:
+        JEKYLL_ENV: production
+
+    - name: Link Checker (Internal)
+      uses: lycheeverse/lychee-action@v1
+      with:
+        # Check all built HTML files
+        args: |
+          --verbose
+          --no-progress
+          --exclude-path fintwit
+          --exclude-path static.test
+          --exclude 'twitter\.com'
+          --exclude 'linkedin\.com'
+          --exclude 'facebook\.com'
+          --exclude 't\.co'
+          --exclude 'streeteye\.com/leaderboard'
+          --exclude 'streeteye\.com/calculator'
+          --base _site
+          --scheme https
+          --scheme http
+          --accept 200,204,301,302,307,308,429
+          --timeout 30
+          '_site/**/*.html'
+        fail: true
+
+    - name: Link Checker (External - scheduled only)
+      if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+      uses: lycheeverse/lychee-action@v1
+      with:
+        args: |
+          --verbose
+          --no-progress
+          --exclude-path fintwit
+          --exclude 'twitter\.com'
+          --exclude 'linkedin\.com'
+          --exclude 'facebook\.com'
+          --exclude 't\.co'
+          --base _site
+          --max-concurrency 5
+          --timeout 60
+          --accept 200,204,301,302,307,308,403,429,999
+          '_site/**/*.html'
+        fail: false  # Don't fail on external links
+
+    - name: Generate markdown report
+      if: always()
+      run: |
+        echo "## Link Check Results" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        if [ -f lychee-report.md ]; then
+          cat lychee-report.md >> $GITHUB_STEP_SUMMARY
+        else
+          echo "✅ All links valid" >> $GITHUB_STEP_SUMMARY
+        fi

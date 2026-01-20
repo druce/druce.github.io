@@ -1,0 +1,68 @@
+name: Link Checker
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  schedule:
+    # Run weekly on Mondays at 9 AM UTC to catch external links that break over time
+    - cron: '0 9 * * 1'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.3'
+        bundler-cache: true
+
+    - name: Build Jekyll site
+      run: |
+        bundle install
+        bundle exec jekyll build
+      env:
+        JEKYLL_ENV: production
+
+    - name: Check internal links with html-proofer
+      run: |
+        gem install html-proofer
+        htmlproofer ./_site \
+          --disable-external \
+          --ignore-urls "/fintwit/,/static.test/" \
+          --allow-hash-href \
+          --swap-urls "^/assets/:assets/" \
+          --log-level :info \
+          --no-enforce-https \
+          --typhoeus '{"timeout": 30, "connecttimeout": 10}'
+      continue-on-error: false
+
+    - name: Check external links (sample)
+      if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+      run: |
+        # Only check external links on scheduled runs or manual trigger
+        # Check a sample of pages to avoid rate limits
+        htmlproofer ./_site \
+          --external-only \
+          --ignore-urls "/twitter.com/,/linkedin.com/,/facebook.com/,/t.co/,/streeteye.com/leaderboard,/streeteye.com/calculator" \
+          --allow-hash-href \
+          --max-concurrency 5 \
+          --typhoeus '{"timeout": 60, "connecttimeout": 20}' \
+          --http-status-ignore "429,403,999" \
+          --log-level :info \
+          --no-enforce-https
+      continue-on-error: true  # Don't fail on external links (they're flaky)
+
+    - name: Report results
+      if: always()
+      run: |
+        echo "Link check completed"
+        echo "Internal links: checked on all runs"
+        echo "External links: checked on scheduled/manual runs only"

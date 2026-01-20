@@ -1,0 +1,49 @@
+name: Optimize Images (Direct Commit)
+
+on:
+  push:
+    paths:
+      - 'assets/**/*.png'
+      - 'assets/**/*.jpg'
+      - 'assets/**/*.jpeg'
+    branches:
+      - master
+
+jobs:
+  optimize:
+    if: "!contains(github.event.head_commit.message, '[skip-img]')"
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install optimization tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jpegoptim optipng webp
+
+      - name: Optimize images
+        run: |
+          # Find and optimize JPG/JPEG files
+          find assets -type f \( -name "*.jpg" -o -name "*.jpeg" \) -print0 | \
+            xargs -0 -I {} jpegoptim --max=85 --strip-all {}
+
+          # Find and optimize PNG files
+          find assets -type f -name "*.png" -print0 | \
+            xargs -0 -I {} optipng -o2 {}
+
+          # Optional: Create WebP versions
+          # find assets -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) -print0 | \
+          #   xargs -0 -I {} bash -c 'cwebp -q 85 "$1" -o "${1%.*}.webp"' _ {}
+
+      - name: Commit optimized images
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add assets/
+          git diff --quiet && git diff --staged --quiet || \
+            git commit -m "Optimize images [skip-img]" && git push
