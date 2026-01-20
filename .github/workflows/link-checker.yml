@@ -45,10 +45,14 @@ jobs:
           --no-progress
           --exclude-path fintwit
           --exclude-path static.test
+          --exclude-path tablesorter-master
           --exclude 'twitter\.com'
           --exclude 'linkedin\.com'
           --exclude 'facebook\.com'
           --exclude 't\.co'
+          --exclude 'fonts\.googleapis\.com'
+          --exclude 'fonts\.gstatic\.com'
+          --exclude 'localhost'
           --exclude 'streeteye\.com/leaderboard'
           --exclude 'streeteye\.com/calculator'
           --base _site
