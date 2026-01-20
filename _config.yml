@@ -66,6 +66,7 @@ plugins:
 exclude:
   - Gemfile
   - Gemfile.lock
+  - vendor
   - static.test/
   - pizza/
 #  - assets/js/tablesorter-master/
