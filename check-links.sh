@@ -52,19 +52,30 @@ echo -e "${BLUE}  Link Checker for druce.ai${NC}"
 echo -e "${BLUE}================================================${NC}"
 echo ""
 
-# Check if html-proofer is installed
+# Check if html-proofer is installed and detect version
 if ! gem list html-proofer -i > /dev/null 2>&1; then
     echo -e "${YELLOW}Installing html-proofer...${NC}"
     gem install html-proofer
     echo ""
+fi
+
+PROOFER_VERSION=$(gem list html-proofer | grep html-proofer | sed 's/.*(\(.*\))/\1/')
+PROOFER_MAJOR=$(echo "$PROOFER_VERSION" | cut -d. -f1)
+
+echo -e "${BLUE}Using html-proofer $PROOFER_VERSION${NC}"
+echo ""
+
+if [[ "$PROOFER_MAJOR" == "5" ]]; then
+    echo -e "${YELLOW}Warning: html-proofer 5.x has known issues with link detection.${NC}"
+    echo -e "${YELLOW}         Consider using Lychee instead (brew install lychee)${NC}"
+    echo -e "${YELLOW}         Results may not be accurate.${NC}"
+    echo ""
+    HTTPS_FLAG="--no-enforce-https"
+elif [[ "$PROOFER_MAJOR" == "4" ]]; then
+    HTTPS_FLAG="--enforce-https false"
 else
-    PROOFER_VERSION=$(gem list html-proofer | grep html-proofer | sed 's/.*(\(.*\))/\1/')
-    if [[ "$PROOFER_VERSION" =~ ^5\. ]]; then
-        echo -e "${YELLOW}Warning: html-proofer 5.x has known issues with link detection.${NC}"
-        echo -e "${YELLOW}         Consider using Lychee instead (brew install lychee)${NC}"
-        echo -e "${YELLOW}         Results may not be accurate.${NC}"
-        echo ""
-    fi
+    # Default to version 4 syntax for older versions
+    HTTPS_FLAG="--enforce-https false"
 fi
 
 # Build the site
@@ -83,7 +94,7 @@ if htmlproofer _site \
     --disable-external \
     --ignore-urls "/fintwit/,/static.test/" \
     --log-level :info \
-    --no-enforce-https 2>&1 | tee /tmp/link-check-internal.log; then
+    $HTTPS_FLAG 2>&1 | tee /tmp/link-check-internal.log; then
     echo -e "${GREEN}✓ All internal links valid${NC}"
     INTERNAL_OK=true
 else
@@ -99,13 +110,12 @@ if [ "$CHECK_EXTERNAL" = true ]; then
     echo -e "${YELLOW}Note: This may take several minutes and some failures are normal${NC}"
     echo ""
 
-    # html-proofer 5.x doesn't have --external-only, so we check everything
-    # but ignore internal link failures (they were already checked)
+    # Check all links (internal already validated, so focus on external)
     if htmlproofer _site \
         --ignore-urls "/twitter.com/,/linkedin.com/,/facebook.com/,/t.co/,/streeteye.com/leaderboard,/streeteye.com/calculator" \
         --ignore-status-codes "429,403,999" \
         --log-level :info \
-        --no-enforce-https \
+        $HTTPS_FLAG \
         --cache '{"timeframe": {"external": "1d"}}' 2>&1 | tee /tmp/link-check-external.log; then
         echo -e "${GREEN}✓ All links valid${NC}"
         EXTERNAL_OK=true
