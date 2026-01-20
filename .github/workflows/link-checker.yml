@@ -6,10 +6,6 @@ name: Link Checker (Lychee - Alternative)
 # 2. Remove or rename link-checker.yml
 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
   schedule:
     # Run weekly on Mondays at 9 AM UTC
     - cron: '0 9 * * 1'
