@@ -14,6 +14,73 @@ tags: AI
 
 <!--more-->
 
+## How to think about AI now
+
+### What is AI?
+
+#### Ability Understand language (but everything is language)
+
+- Search and retrieval with deep semantic understanding
+- Create first draft of anything
+- Especially coding
+- And if you can code you can do anything a computer can do. Advanced agentic processes composing sequences of retrieving or sensing, creating, and acting
+
+#### Everything is language (or at least everything a business can do/talk about)
+
+A digression into epistomology:
+
+[Eddington's ichthyologist](https://www.goodreads.com/quotes/9688420-selective-subjectivism-let-us-suppose-that-an-ichthyologist-is-exploring)
+
+Tired:
+
+- Biology is application of chemistry to living things
+- Chemistry is application of physics to materials
+- Physics is application of mathematics to the natural world
+- Mathematics is abstraction of everything
+
+Wired:
+
+- Information theory is everything you can talk about
+- Computer science is talking about computation and Turing machines and other simpler models of computation
+- Mathematics is study of a particular set of Turing machines that map to proofs
+
+Math is the deepest abstraction of the physical world, and also the formal foundation of computation. Gödel's theorem is the 'halting problem' of mathematics.
+
+The point is simply: everything else falls under language. If you do language, you can write any program and solve any solvable problem (eventually).
+
+Wovon man nicht sprechen kann, darüber muss man schweigen. - Ludwig Wittgenstein
+(Whereof we cannot speak, we must attend in silence)
+
+#### Pillars of AI strategy
+
+- People - if you have a good AI team, they can implement everything below.
+
+- Data - AI works on data. You want all your processes to generate clean data that AI can use for retrieval, creation, automation. Data engineering should provide data quality, timeliness, reliable availability, process observability, security, compliance, governance, discoverability, interoperability, scalability, lifecycle management, change control, cost control.
+
+- Tech foundations: ability to reliably scale AI processes with security, robustness, business continuity, disaster recovery.
+
+- Process: industrialize automation, software dev etc.
+
+
+A good metaphor is infinite interns, but possibly stoner interns and occasionally disobedient rogue interns.
+
+#### Pitfalls to avoid
+
+- IP and data protection
+
+- Reputational / regulatory risk
+
+- All security concerns amplified - a power multiplier for bad actors, and for cyber defenders.
+
+Also think of AI as an insider threat, those infinite stoner interns need to be limited in the what they can do (least privilege) and subject to multiple layers of checking for correctness and guardrails they aren't going rogue
+
+In that context, here is a maturity model:
+
+- Crawl: ad-hoc experimentation, assessment and planning
+- Walk: foundation-building; structured experimentation, enterprise assistants, coordinated pilots, governance, training
+- Run: Operational scaling: production deployments across business functions; Dedicated teams and centers of excellence; automated pipelines and MLOps; continuous monitoring of measurable benefits against KPIs; human-in-the-loop automation
+- Fly: AI-native organization: AI institutionalized embedded in culture and strategy; continuous self-optimization; autonomous agents handling end-to-end processes; advanced use cases
+
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
@@ -206,7 +273,7 @@ tags: AI
                    id="slider0" onchange="updateChart(0, this.value)">
             <div class="value-display" id="value0">Level 1: Crawl</div>
         </div>
-        
+
         <div class="maturity-questions">
             <div class="maturity-level-section level-1-section">
                 <h4>Level 1: Crawl</h4>
@@ -290,7 +357,7 @@ tags: AI
                 <h4>Level 1: Crawl</h4>
 <p>&bull; Are employees using consumer-grade AI tools (ChatGPT, Claude, etc.)?</p>
 <p>&bull; Is AI experimentation happening on personal devices or accounts?</p>
-<p>&bull; Is there no formal AI infrastructure in place?</p>                
+<p>&bull; Is there no formal AI infrastructure in place?</p>
             </div>
             <div class="maturity-level-section level-2-section">
                 <h4>Level 2: Walk</h4>
@@ -298,14 +365,14 @@ tags: AI
 <p>&bull; Is there secure API access to AI models for development teams?</p>
 <p>&bull; Are development and production environments separated?</p>
 <p>&bull; Is there basic version control for AI-related code?</p>
-                
+
             </div>
             <div class="maturity-level-section level-3-section">
                 <h4>Level 3: Run</h4>
 <p>&bull; Is there a complete MLOps platform with CI/CD pipelines?</p>
 <p>&bull; Are model training, testing, and deployment automated?</p>
 <p>&bull; Is infrastructure scalable with cloud or hybrid capabilities?</p>
-<p>&bull; Are there established sandboxes for experimentation?</p>                
+<p>&bull; Are there established sandboxes for experimentation?</p>
             </div>
             <div class="maturity-level-section level-4-section">
                 <h4>Level 4: Fly</h4>
