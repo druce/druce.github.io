@@ -46,6 +46,7 @@ jobs:
           --exclude-path fintwit
           --exclude-path static.test
           --exclude-path tablesorter-master
+          --exclude '^https?://'
           --exclude 'twitter\.com'
           --exclude 'linkedin\.com'
           --exclude 'facebook\.com'
