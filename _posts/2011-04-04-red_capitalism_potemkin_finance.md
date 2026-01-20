@@ -15,7 +15,7 @@ categories:
 tags:
   - china
 ---
->*China’s remarkable growth continues _ China has apparently now passed the US in industrial production, with the world GDP title in its sights (see [previous post](http://streeteye.com/blog/2011/04/chinas-economy-future-world-dominator-or-paper-tiger.html)).*
+>*China’s remarkable growth continues _ China has apparently now passed the US in industrial production, with the world GDP title in its sights (see [previous post](/blog/2011/04/chinas-economy-future-world-dominator-or-paper-tiger.html)).*
 <!--more-->
 So how incredibly fortunate it is that the USA retains its commanding lead in the services sector! Clearly, future opportunities will abound in such sectors as retail and food services, debt collection, and of course government and related services. Based on recent government initiatives, the medical and military service fields seem particularly well positioned. We owe a huge debt of gratitude to all our heroes who serve overseas, in present and future military adventures, declared and otherwise. But those also serve who merely wait at home, for where would our GDP be without imputed rent on owner occupied housing? The fortitude of our world-beating service providers and consumers makes my eyes well up. I can’t help whistling a few bars of John Philip Sousa as I suppress the urge to chant “USA! USA!”
 

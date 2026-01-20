@@ -27,3 +27,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "webrick", "~> 1.9"
 
 gem "jekyll-sitemap"
+
+# Fix Faraday v2.0+ warning
+gem "faraday-retry"

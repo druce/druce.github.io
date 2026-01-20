@@ -15,7 +15,7 @@ categories:
 tags:
   - china
 ---
-> *<img alt="1937_Mao_Zhou_Bougu_Wang_Ming_in_Yan'an.jpg" src="/assets/2020/1937_Mao_Zhou_Bougu_Wang_Ming_in_Yan%27an.jpg" width="375" height="249" class="mt-image-none" />I spent March in Asia and trying to figure out China. Here is a quick summary mixed with a few conclusions and speculations.*
+> *<img alt="1937_Mao_Zhou_Bougu_Wang_Ming_in_Yan'an.jpg" src="/assets/2020/1937_Mao_Zhou_Bougu_Wang_Ming_in_Yan'an.jpg" width="375" height="249" class="mt-image-none" />I spent March in Asia and trying to figure out China. Here is a quick summary mixed with a few conclusions and speculations.*
 <!--more-->
 To understand the present, you have to understand the past, so I turned to [The Search For Modern China](http://www.amazon.com/Search-Modern-China-Jonathan-Spence/dp/0393307808/ref=tmm_pap_title_0), by Jonathan Spence of Yale, which seems to be standard fare for undergrad history surveys. It was a great start, although I wished he had given his analysis of the whys as well as the who, what, when, where, despite the political sensitivities when talking about modern China.
   

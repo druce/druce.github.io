@@ -33,11 +33,11 @@ Who do we cull?
     
     [<img src="/assets/wp-content/uploads/2016/05/Capture75.png" alt="Network graph - small" width="574" height="464" class="aligncenter size-full wp-image-4700" srcset="/assets/wp-content/uploads/2016/05/Capture75.png 574w, /assets/wp-content/uploads/2016/05/Capture75-300x243.png 300w" sizes="(max-width: 574px) 100vw, 574px" />](/assets/wp-content/uploads/2016/05/Capture150.png)  
     <a href="/assets/wp-content/uploads/2016/05/Capture150.png" target="_blank">Click to embiggen.</a>  
-    <a href="http://www.streeteye.com/static/D3/forcegraph3.html" target="_blank">Click for interactive version with more colors and rollovers for readability</a> (may not work on all devices)
+    <a href="//static/D3/forcegraph3.html" target="_blank">Click for interactive version with more colors and rollovers for readability</a> (may not work on all devices)
     
-    Below are the top 100 accounts to follow, ranked by our relevance score (click on headers to re-sort). You can follow the top 50, updated weekly, on the [StreetEYE Twitter leaderboard](http://www.streeteye.com/leaderboard). 
+    Below are the top 100 accounts to follow, ranked by our relevance score (click on headers to re-sort). You can follow the top 50, updated weekly, on the [StreetEYE Twitter leaderboard](//leaderboard). 
     
-    (And of course, see the most shared financial stories updated continuously on the [StreetEYE](http://www.streeteye.com) home page.)
+    (And of course, see the most shared financial stories updated continuously on the [StreetEYE](/) home page.)
     
     <small>(A quick P.S. and caveat: I’m delighted that people I respect a great deal get a kick out of it and find it useful, but keep in mind that 1) I don’t have full Twitter data and 2) it’s just a (hopefully reasonable) simplistic formula. If you’re on here than you’re probably pretty widely followed and post a lot of timely and relevant financial news. Let’s just say it’s inherently a ranking with a lot of bias and variance and tilts mainstream by design. I wouldn’t read much into why X is higher than Y or Z isn’t on here. <a href="#faq">Answers to some frequently asked questions are below.</a>)</small>
     
@@ -1459,7 +1459,7 @@ Who do we cull?
     
     <a name="faq"><strong>Frequently asked questions:</strong></a>
     
-      1. _What (TF) is StreetEYE?_ Since 2011 we’ve tried to systematically find the best people to follow for financial news, and create a crowd-sourced front page of the financial Internet. You can read more [here](http://www.streeteye.com/about).  
+      1. _What (TF) is StreetEYE?_ Since 2011 we’ve tried to systematically find the best people to follow for financial news, and create a crowd-sourced front page of the financial Internet. You can read more [here](//about).  
         &nbsp;
       2. _Why isn’t <brilliant pundit or technical commentator> on the list?_ Assuming they are widely followed, probably because they don’t share other people’s content very much. There are a lot of great people to follow, who only share their own original content, or that of their colleagues. They don’t add a lot of signal to help discover news, so they don’t meet the relevance bar.&nbsp;  
         &nbsp;
@@ -1467,7 +1467,7 @@ Who do we cull?
         &nbsp;
       4. _Why isn’t <other great account> on here._ Maybe they are just below the 100 cutoff. I am the first to admit the formula is subjective and arbitrary. I wouldn’t call it bizarre, but I would call it idiosyncratic. If they post a lot of timely relevant headlines, they are probably on our radar. Sometimes there are artifacts and judgment calls. For instance @mediagazer is widely followed by a lot of journalists who are great curators, so they have a very high centrality score. And they often share relevant news about financial media. Should they be culled because they’re mostly about media? Judgment call. The formula tends to like places like @DRUDGE_REPORT that post a lot of news stories in a timely manner that ultimately get a lot of buzz. If there is someone who is relevant and widely followed who is not on the list, we would like to know. [Contact us!](/?page_id=2) We love feedback.  
         &nbsp;
-      5. _Can I see the whole list?_ [Here are the top 250](http://www.streeteye.com/static/D3/tabledump.html). If you want to see where others rank, or follow even more of them, go to town!  
+      5. _Can I see the whole list?_ [Here are the top 250](//static/D3/tabledump.html). If you want to see where others rank, or follow even more of them, go to town!  
         &nbsp;
       6. If you have other questions, tweet at us at [@StreetEYE](http://twitter.com/StreetEYE) or [contact us via the contact form.](/?page_id=2)  
         &nbsp;

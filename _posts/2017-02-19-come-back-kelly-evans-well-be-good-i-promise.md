@@ -24,7 +24,7 @@ tags: social fintwit
 
 Spring is in the air! On the East Coast, anyway.
 
-Last week I was fortunate to get out to the West Coast, dodging storms on this side of the country and also over there. And this week I spent a little time sprucing up [StreetEYE](http://www.streeteye.com/) sources, deleting people who haven’t tweeted in a while, adding the popular, influential, prolific, and relevant new sources. Every year or so around this time I’ll do an updated ranking of the top people to follow. 
+Last week I was fortunate to get out to the West Coast, dodging storms on this side of the country and also over there. And this week I spent a little time sprucing up [StreetEYE](/) sources, deleting people who haven’t tweeted in a while, adding the popular, influential, prolific, and relevant new sources. Every year or so around this time I’ll do an updated ranking of the top people to follow. 
 
 So I’m in the frame of mind to step back and take a look at the evolution of the financial Twittersphere.
 

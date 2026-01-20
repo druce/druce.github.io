@@ -104,7 +104,7 @@ If you are making consistent choices, there is some objective function you are m
 
 &nbsp;
 
-![optcechart.png](../../../assets/2021/optcechart.png)
+![optcechart.png](/assets/2021/optcechart.png)
 
 Using some of these rules, a retiree could often have achieved a higher expected withdrawal rate than 4%, at the cost of a modest worsening of the worst-case withdrawal rate. As risk aversion increases, stock allocation decreases, fixed spending increases, and variable spending decreases. The floor parameter is used only at low risk aversion, but may be generally useful in explaining rules. (Or if not, it may be superfluous.)
 
@@ -122,11 +122,11 @@ In performing this analysis, my goals were:
 
 Best objective value found by gamma, selected optimizers:
 
-![alloptimizers.png](../../../assets/2021/alloptimizers.png)
+![alloptimizers.png](/assets/2021/alloptimizers.png)
 
 Optimizer runtimes, selected optimizers (10 runs, 5000 iterations requested, desktop with 12 CPU threads):
 
-![runtimes.png](../../../assets/2021/runtimes.png)
+![runtimes.png](/assets/2021/runtimes.png)
 
 
 3) *To build a flexible Python framework* for safe withdrawal retirement problems that accomodates:

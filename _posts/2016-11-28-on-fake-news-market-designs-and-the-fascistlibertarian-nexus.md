@@ -65,7 +65,7 @@ The good-faith argument that we should err on the side of freedom of speech is a
 
 A problem I have with libertarian arguments in general is that they take free markets as given, when in fact they are extraordinarily complex institutions which depend on norms and laws enforced by government.
 
-Before you can have a free market, you need a market design that works. And this applies to the marketplace for ideas as well as the free market for goods and services. (And it’s a key function of a news aggregator like [StreetEYE](http://www.streeteye.com).)
+Before you can have a free market, you need a market design that works. And this applies to the marketplace for ideas as well as the free market for goods and services. (And it’s a key function of a news aggregator like [StreetEYE](/).)
 
 Otherwise, the libertarian argument boils down to, “I’ve got the money, I’ve got the power, I know how to game the system, eff you and your superior attitude and your ‘fairness’ and your market design, I’m going to impose the market design that benefits me.”
 

@@ -17,7 +17,7 @@ tags:
   - bitcoin
   - blockchain
 ---
-> *[<img src="/assets/wp-content/uploads/2013/12/bernanke-ronpaul.jpeg" alt="bernanke-ronpaul" width="180" height="279" />](/assets/wp-content/uploads/2013/12/bernanke-ronpaul.jpeg)I was scanning the news the other day, and someone on Hacker News mentioned that half the items above the fold on [StreetEYE](http://www.streeteye.com "StreetEYE") were about Bitcoin. And I said to myself, I haven’t seen the neckbeards this excited since the early days of Linux. And it hit me, Bitcoin **is** the new Linux.*
+> *[<img src="/assets/wp-content/uploads/2013/12/bernanke-ronpaul.jpeg" alt="bernanke-ronpaul" width="180" height="279" />](/assets/wp-content/uploads/2013/12/bernanke-ronpaul.jpeg)I was scanning the news the other day, and someone on Hacker News mentioned that half the items above the fold on [StreetEYE](/ "StreetEYE") were about Bitcoin. And I said to myself, I haven’t seen the neckbeards this excited since the early days of Linux. And it hit me, Bitcoin **is** the new Linux.*
 <!--more-->
 Go back to 1998, the days of [The Cathedral and the Bazaar](http://www.catb.org/~esr/writings/cathedral-bazaar/cathedral-bazaar/index.html "The Cathedral and the Bazaar") and the [‘Halloween Document’](http://www.catb.org/~esr/halloween/halloween1.html "Halloween Document I"), and open source zealots were gleefully foreseeing the day when freedom-loving hackers would take down the evil Microsoft empire.
 

@@ -15,7 +15,7 @@ categories:
 tags:
   - euro
 ---
-> *<img class="zemanta-img-inserted zemanta-img-configured" title="Titanic (1943 film)" src="/assets/2020/Titanic%281943%29.jpg" alt="Titanic (1943 film)" width="187" height="270" /> Europe is heading into yet another moment of truth this week, with a Merkozy summit and a new plan, an ECB meeting and likely interest rate cut, and a full EU summit starting Friday.*
+> *<img class="zemanta-img-inserted zemanta-img-configured" title="Titanic (1943 film)" src="/assets/2020/Titanic(1943).jpg" alt="Titanic (1943 film)" width="187" height="270" /> Europe is heading into yet another moment of truth this week, with a Merkozy summit and a new plan, an ECB meeting and likely interest rate cut, and a full EU summit starting Friday.*
 <!--more-->
 
   

@@ -1857,7 +1857,7 @@ Here’s our map of ~350 Twitter accounts, using a force-directed network. Every
 
 [<img src="/assets/wp-content/uploads/2017/05/forcegraph2017.png" alt="" width="544" height="430" class="aligncenter size-full wp-image-5899" srcset="/assets/wp-content/uploads/2017/05/forcegraph2017.png 544w, /assets/wp-content/uploads/2017/05/forcegraph2017-300x237.png 300w" sizes="(max-width: 544px) 100vw, 544px" />](http://blog.streeteye.com/static/D3/forcegraph2017.html)
 
-Here’s a link to a [fun interactive version.](http://www.streeteye.com/static/D3/forcegraph2017.html) 
+Here’s a link to a [fun interactive version.](//static/D3/forcegraph2017.html) 
 
 <a name="discussion"></a>How does this work? 
 
@@ -1871,13 +1871,13 @@ Who do we cull?
   * People who don’t curate, filter, and signal the most important things to read. [@LHSummers](https://twitter.com/LHSummers) is a good example. He’s a really important guy to follow but he only tweets out his own stuff, he doesn’t help people discover financial news. </ul> 
     We rank the quality of each account’s curation on how much financial news they tweet, how much of it gets picked up and generates a lot of buzz, and how early they post it. It’s a subjective, but hopefully useful formula. Everytime you tweet something, and your followers view it and retweet it, traffic flow downstream, more likely than not from the most central folks to the periphery, and whenever attention flows downstream, influence flows back upstream in a sort of Newton’s Third Law of social media.
     
-    And of course, see the most shared financial stories updated continuously on the [StreetEYE](http://www.streeteye.com) home page, and follow us on <a href="https://twitter.com/StreetEYE" target="_blank">Twitter</a>.
+    And of course, see the most shared financial stories updated continuously on the [StreetEYE](/) home page, and follow us on <a href="https://twitter.com/StreetEYE" target="_blank">Twitter</a>.
     
     A final P.S. and caveat: Like all such lists, it’s closer to a fun parlor trick than a definitive ranking. I’m delighted if people I respect get a kick out of it and even find it useful to discover new people to follow, but keep in mind that 1) I just used a small sample of Twitter data and 2) it’s just a simplistic formula. If you’re on here then you’re probably pretty widely followed, post a lot of timely and relevant financial news, that goes pretty viral. Let’s just say it’s inherently has a lot of bias and variance and tilts mainstream by design. I wouldn’t read much into why X is higher than Y or Z isn’t on here. Don’t take it too seriously! 
     
     <a name="faq"><strong>Frequently asked questions:</strong></a>
     
-      1. _WTF is StreetEYE?_ Since 2011 we’ve tried to systematically find the best people to follow for financial news, and create a crowd-sourced front page of the financial Internet. You can read more [here](http://www.streeteye.com/about).  
+      1. _WTF is StreetEYE?_ Since 2011 we’ve tried to systematically find the best people to follow for financial news, and create a crowd-sourced front page of the financial Internet. You can read more [here](//about).  
         &nbsp;
       2. _Why isn’t <brilliant pundit or technical commentator> on the list?_ Assuming they are very widely followed, probably because they don’t share other people’s content very much. There are a lot of great people to follow, who only share their own original content, or that of their colleagues. They don’t add a lot of signal to help discover news, so they don’t meet the relevance bar.&nbsp;  
         &nbsp;
