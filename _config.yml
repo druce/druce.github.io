@@ -69,10 +69,11 @@ exclude:
   - vendor
   - static.test/
   - pizza/
-#  - assets/js/tablesorter-master/
+  - assets/js/tablesorter-master/docs/
   - README.md
   - CLAUDE.md
   - AGENTS.md
+  - LINK-CHECKER.md
   - .#*
   - \#*\#
 include:
