@@ -16,11 +16,11 @@ dimensions:
     questions:
     - Are rank-and-file employees exploring the use of AI tools on their own initiative?
     - Is management discussing potential applications of AI?
-    - Has leadership started assessing into how AI can benefit the business?
+    - Has leadership started assessing how AI can benefit the business?
   - level: 2
     name: Walk
     questions:
-    - Has the firm set a bold vision for AI anchored in business outcomes, with engageed, visible sponsorship form senior
+    - Has the firm set a bold vision for AI anchored in business outcomes, with engaged, visible sponsorship from senior
       leadership?
     - Is there an AI steering committee with a transparent process for selecting AI initiatives, incorporating business functions,
       legal, HR, compliance, IT, CISO, and other relevant stakeholders?
@@ -71,7 +71,7 @@ dimensions:
     - Is there a plan to build a central team with AI and cross-functional implementation expertise, or to organize roles
       and team structures to support AI initiatives?
     - Has an AI component been added as necessary to all job descriptions and staffing requirements?
-    - Has the firm develped a recruitment/retention plan and identified strong recruiting partners for AI talent?
+    - Has the firm developed a recruitment/retention plan and identified strong recruiting partners for AI talent?
     - Has the firm identified and empowered AI champions for training as front-line AI and subject-matter experts?
     - Is the firm celebrating and sharing learnings, wins, and new best practices implemented?
   - level: 3
@@ -83,12 +83,12 @@ dimensions:
     - Is there a clear career path for AI-specific roles?
     - Are AI champions embedded at all levels across business units?
     - Are rank-and-file team members empowered to build grass-roots workflows and no-code applications using AI?
-    - Are experiments, implementation milestonese, and innovations celebrated and learnings disseminated?
+    - Are experiments, implementation milestones, and innovations celebrated and learnings disseminated?
   - level: 4
     name: Fly
     questions:
     - Is there a regular AI talent pipeline through academic recruiting and internships?
-    - Is there an AI-first culture of innovation
+    - Is there an AI-first culture of innovation?
     - Does the company have a strong AI engineering team and culture?
     - Is AI talent and expertise pervasive throughout the organization?
     - Are teams able to restructure around AI automation?
@@ -98,7 +98,7 @@ dimensions:
   description: Data infrastructure, quality, governance, and availability for AI applications. High-quality, well-governed
     data is the fuel for AI. You can build a tall tower but if the foundation is crumbling or superstructure is misaligned,
     you're gonna have a bad time
-  helpText: AI requires success requires unified access to data and APIs. Organizations should transition from siloed data
+  helpText: AI success requires unified access to data and APIs. Organizations should transition from siloed data
     pipelines to reusable data products. Data governance should extend to unstructured data.
   levels:
   - level: 1
@@ -117,7 +117,7 @@ dimensions:
     - Is all data to be shared with AI tools being tagged for resource based access controls, a semantic layer AI can understand, and lineage/provenance back
       to original source?
     - Is data infrastructure ready to provide complete, accurate, timely, secure, scalable, well-catalogued data to AI?
-    - Is the firm leveraging AI to building a central data engineering toolchain? (e.g. an enterprise data warehouse, Airflow,
+    - Is the firm leveraging AI to build a central data engineering toolchain? (e.g. an enterprise data warehouse, Airflow,
       dbt, with ingestion, data quality and semantic layers?
   - level: 3
     name: Run
@@ -196,7 +196,7 @@ dimensions:
     - Are agent solutions easily discoverable by end-users via a directory/app store?
     - Is there a capability to build complex agent workflows, with high autonomy, context engineering, long- and short-term
       memory, parallel/concurrent multi-agent architectures?
-    - Is the form exploring advanced agentic architectures, swarms, inter-agent communication, MCP integrations, skills, advanced
+    - Is the firm exploring advanced agentic architectures, swarms, inter-agent communication, MCP integrations, skills, advanced
       RAG. etc.?
     - Do production AI systems implement retry logic, fallbacks, and validation checks, composing reliable systems from unreliable
       components?
@@ -348,7 +348,7 @@ dimensions:
       sensitive or problematic prompts, and rate-limiting and cost alerts?
     - Are all agents documented, restricted to least privilege, sandboxed, with appropriate guardrails and human in the loop
       escalation?
-    - Are agents operating within an RBAC/IAM framweork with least privilege and a standard set of guardrails?
+    - Are agents operating within an RBAC/IAM framework with least privilege and a standard set of guardrails?
     - Are threat intelligence feeds in place covering AI/ML attack patterns, and integration into detection?
     - Is the firm using AI for cyber defense, log monitoring and triage (AI SecOps)?
     - Are security controls integrated into the ML and CI/CD pipelines with automated scanning for vulnerabilities?
@@ -421,10 +421,10 @@ dimensions:
   - level: 2
     name: Walk
     questions:
-    - Can the firm implement reporting and dashboards, business intelligence, data visualization, using a standard platform like Power BI or Tabbleau?
+    - Can the firm implement reporting and dashboards, business intelligence, data visualization, using a standard platform like Power BI or Tableau?
     - Is the firm reporting AI usage volume metrics, user feedback scores, and business KPIs like cost and churn?
-    - Has the firm considered developing a centralized AL/ML team like an AI Center of Excellence (CoE) to build AI capabilities
-      as company-wide platformss, execute cross-functional projects, and provide best practices, governance, and training
+    - Has the firm considered developing a centralized AI/ML team like an AI Center of Excellence (CoE) to build AI capabilities
+      as company-wide platforms, execute cross-functional projects, and provide best practices, governance, and training
       resources?
   - level: 3
     name: Run
@@ -435,16 +435,16 @@ dimensions:
     - Are A/B testing and champion/challenger models implemented?
     - Can the firm do End-to-end workflow trace evaluations?
     - Are custom models developed and deployed for specific use cases?
-    - 'Can the firm implement traditional machine learning models: Supervised learning (classification/regression), unsupervised?
+    - 'Can the firm implement traditional machine learning models: Supervised learning (classification/regression), unsupervised
       learning (clustering/dimensionality reduction), time series analysis (forecasting/anomaly detection), ensemble methods?
       (XGBoost/LightGBM) using scikit-learn/statsmodels?'
     - Can the firm apply natural language processing to text using web scraping, research/news feeds using traditional NLP and generative AI?
     - Do models use automated feature engineering and model selection?
     - Can the firm use knowledge graphs for relationship mapping, ownership structures, supply chain analysis, graph RAG?
     - Can the firm apply attribution and explainability with SHAP, LIME?
-    - Can the form do multi-modal analysis (GPT-4 Vision) for charts, satellite imagery, presentation decks?
+    - Can the firm do multi-modal analysis (GPT-4 Vision) for charts, satellite imagery, presentation decks?
     - Can the firm do portfolio optimization (CVXPY, Riskfolio-Lib)?
-    - Can the firm implment Factor models, backtesting frameworks, scenario analysis, and stress testing?
+    - Can the firm implement Factor models, backtesting frameworks, scenario analysis, and stress testing?
     - Is there a complete MLOps pipeline from development to production?
     - Are there risk management dashboards with real-time position monitoring, exposure analysis, alerts for threshold breach detection?
   - level: 4
@@ -453,7 +453,7 @@ dimensions:
     - Has the firm deployed custom or fine-tuned models (domain-specific embeddings, classification) for proprietary use cases?
     - Has the firm implemented alt data pipelines?
     - Has the firm implemented knowledge management at scale on real-time news and market intelligence?
-    - Can the firm do advanced time series analysis (GluonTS, deep reinfrcement learning) for forecasting, regime detection, pattern recognition?
+    - Can the firm do advanced time series analysis (GluonTS, deep reinforcement learning) for forecasting, regime detection, pattern recognition?
     - Do systems automatically optimize for specified objectives as new data becomes available?
 - id: 10
   short: Use Cases
@@ -514,7 +514,7 @@ dimensions:
       • Contract review and red-lining (AI highlights issues, legal reviews)<br />
       • Market intelligence / alt data aggregation (AI compiles, analyst synthesizes)<br />
       • IT help desk ticket triage and routing based on topic, VIP tag<br />
-    - Are there a system to solicited and evaluate use cases?
+    - Are there a well-defined process to systematically solicit and evaluate use cases?
   - level: 4
     name: Fly
     questions:
@@ -571,7 +571,7 @@ dimensions:
     - Does the organization influence partner roadmaps and standards?
 - id: 12
   short: Process Implementation
-  full: Business Integraion and Process Implementation
+  full: Business Integration and Process Implementation
   description: 'Process integration, change management, and workflow optimization with AI. start with assistants, gradually
     increase autonomy. playbooks for all use cases to re-engineer and continuously improve with AI. need systems thinking.
     you get the benefits not when you use AI to optimize one part within existing workflow, but when you re-engineer the system.
@@ -606,7 +606,7 @@ dimensions:
     - Does the firm have a playbook to operationalize processes as assistants with humans in the loop, scalably, robustly, with proper controls and business continuity/disaster
       recovery?
     - During the development cycle, is the firm creating re-usable, scalable components that can accelerate implementations?
-    - During deployment and businesss integration, is the firm creating standardized playbooks that capture repeatable processes and accelerate future
+    - During deployment and business integration, is the firm creating standardized playbooks that capture repeatable processes and accelerate future
       rollouts
     - Is AI explainable, so users know why it made a choice, and can rely on it, or take appropriate action and improve the
       process if the explanation is inadequate?
