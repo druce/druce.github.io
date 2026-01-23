@@ -57,7 +57,7 @@ dimensions:
   short: Team
   full: Teams, Talent, Organizational Design
   description: AI talent, team structure, and organizational readiness for AI adoption. A good team wants to work with other good people, and with the best tools, so a strong team is the critical element to kickstart an AI success flywheel.
-  helpText: 'AI adoption is a people-first transformation. Invest in recruitment, training, deploying a central AI team, cross-functional implementation teams, and AI skills at all levels. Allocate resources strategically: often as much as 70% on people and processes. 20% on technology and data'
+  helpText: 'AI adoption is a people-first transformation. Invest in recruitment, training, deploying a central AI team, cross-functional implementation teams, and AI skills at all levels. Allocate resources strategically: often as much as 70% on people and processes, against 30% on technology and data.'
   levels:
   - level: 1
     name: Crawl

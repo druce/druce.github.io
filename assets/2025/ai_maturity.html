@@ -699,9 +699,10 @@
       <h1>AI Maturity Self-Assessment</h1>
       <p>
         AI maturity measures the degree to which organizations have mastered
-        AI-related capabilities to operational excellence. AI maturity is not
-        defined by tech tools alone, but by how effectively the organization can
-        improve results by orchestrating people, technology, data, and process.
+        AI-related capabilities to achieve operational excellence. AI maturity
+        is not defined by tech tools alone, but by how effectively the
+        organization uses AI to improve outcomes by orchestrating people,
+        technology, data, and process.
       </p>
       <ul style="margin-left: 40px; margin-top: 15px">
         <li>
@@ -1117,7 +1118,21 @@
               if (activeElements.length > 0) {
                 // Clicked on a data point
                 const dataIndex = activeElements[0].dataIndex;
-                jumpToStep(dataIndex);
+                // Validate dataIndex before accessing dimensions array
+                if (
+                  dataIndex >= 0 &&
+                  dataIndex < dimensions.length &&
+                  dimensions[dataIndex]
+                ) {
+                  console.log(
+                    `Chart click: Data point at index ${dataIndex} → Navigating to dimension "${dimensions[dataIndex].full}"`,
+                  );
+                  jumpToStep(dataIndex);
+                } else {
+                  console.error(
+                    `Chart click: Invalid dataIndex ${dataIndex}. Dimensions array length: ${dimensions.length}`,
+                  );
+                }
               } else {
                 // Check if click was on a label by calculating angle
                 const canvas = event.native.target;
@@ -1145,17 +1160,40 @@
                   let normalizedAngle = angle + Math.PI / 2;
                   if (normalizedAngle < 0) normalizedAngle += 2 * Math.PI;
 
+                  // Shift angle 15 degrees counter-clockwise to better align with labels
+                  // 15 degrees = π/12 radians, counter-clockwise means subtracting
+                  normalizedAngle -= Math.PI / 12;
+                  // Handle wraparound if angle becomes negative
+                  if (normalizedAngle < 0) normalizedAngle += 2 * Math.PI;
+
                   // Map angle to dimension index (0 to DIMENSION_COUNT-1)
                   // Each dimension occupies 2π/DIMENSION_COUNT radians
                   const anglePerDimension = (2 * Math.PI) / DIMENSION_COUNT;
-                  let dimensionIndex = Math.floor(
+                  let dimensionIndex = Math.ceil(
                     normalizedAngle / anglePerDimension,
                   );
 
                   // Ensure index is within bounds
                   dimensionIndex = dimensionIndex % DIMENSION_COUNT;
 
-                  jumpToStep(dimensionIndex);
+                  // Validate dimensionIndex before accessing dimensions array
+                  if (
+                    dimensionIndex >= 0 &&
+                    dimensionIndex < dimensions.length &&
+                    dimensions[dimensionIndex]
+                  ) {
+                    const clickedLabel = dimensions.map(
+                      (d, i) => `${i + 1}. ${d.short}`,
+                    )[dimensionIndex];
+                    console.log(
+                      `Chart click: Label area at angle ${((normalizedAngle * 180) / Math.PI).toFixed(1)}° → Index ${dimensionIndex} → Navigating to dimension "${dimensions[dimensionIndex].full}" (Label: "${clickedLabel}")`,
+                    );
+                    jumpToStep(dimensionIndex);
+                  } else {
+                    console.error(
+                      `Chart click: Invalid dimensionIndex ${dimensionIndex}. Dimensions array length: ${dimensions.length}`,
+                    );
+                  }
                 }
               }
             },
@@ -1454,6 +1492,19 @@
       }
 
       function jumpToStep(index) {
+        // Validate index is within bounds
+        if (index < 0 || index >= dimensions.length) {
+          console.error(
+            `jumpToStep: Invalid index ${index}. Valid range: 0-${dimensions.length - 1}`,
+          );
+          return;
+        }
+
+        const dimension = dimensions[index];
+        console.log(
+          `jumpToStep(${index}): Navigating to dimension "${dimension.full}" (ID: ${dimension.id}, Short: "${dimension.short}")`,
+        );
+
         state.currentDimensionIndex = index;
         saveToLocalStorage();
         renderQuestionnaire();
