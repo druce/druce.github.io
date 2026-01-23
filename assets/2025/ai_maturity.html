@@ -1,0 +1,1587 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Maturity Self-Assessment</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <style>
+      /* ========== CATPPUCCIN LATTE THEME ========== */
+      :root {
+        --cat-base: #eff1f5;
+        --cat-crust: #dce0e8;
+        --cat-surface0: #ccd0da;
+        --cat-surface1: #bcc0cc;
+        --cat-surface2: #acb0be;
+        --cat-text: #4c4f69;
+        --cat-subtext0: #6c6f85;
+        --cat-subtext1: #5c5f77;
+        --cat-overlay0: #9ca0b0;
+        --cat-overlay1: #8c8fa1;
+        --cat-overlay2: #7c7f93;
+        --cat-blue: #1e66f5;
+        --cat-lavender: #7287fd;
+        --cat-sapphire: #209fb5;
+        --cat-teal: #179299;
+        --cat-green: #40a02b;
+        --cat-yellow: #df8e1d;
+        --cat-peach: #fe640b;
+        --cat-maroon: #e64553;
+        --cat-red: #d20f39;
+        --cat-mauve: #8839ef;
+        --cat-pink: #ea76cb;
+        --cat-rosewater: #dc8a78;
+      }
+
+      /* ========== GLOBAL STYLES ========== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        color: var(--cat-text);
+        background: white;
+        line-height: 1.6;
+      }
+
+      /* ========== HEADER ========== */
+      .site-header {
+        padding: 15px 20px;
+        background: white;
+        border-bottom: 1px solid var(--cat-crust);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .site-header a {
+        color: var(--cat-blue);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95em;
+        transition: color 0.2s ease;
+      }
+
+      .site-header a:hover {
+        color: var(--cat-lavender);
+      }
+
+      .site-copyright {
+        color: var(--cat-subtext0);
+        font-size: 0.9em;
+      }
+
+      .app-container {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 20px;
+        padding-bottom: 120px;
+        /* Space for fixed wizard bar */
+      }
+
+      h1 {
+        text-align: center;
+        color: var(--cat-text);
+        margin-bottom: 10px;
+        font-size: 2em;
+      }
+
+      .subtitle {
+        text-align: center;
+        color: var(--cat-subtext0);
+        margin-bottom: 30px;
+        font-size: 1.1em;
+      }
+
+      /* ========== LAYOUT: 2-PANEL RESPONSIVE ========== */
+      .main-panels {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      @media (min-width: 1200px) {
+        .main-panels {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .chart-panel {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .questionnaire-panel {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      /* ========== CHART STYLES ========== */
+      .chart-container {
+        position: relative;
+        height: 500px;
+        margin-bottom: 30px;
+        background: white;
+        border-radius: 8px;
+      }
+
+      .chart-container canvas {
+        cursor: pointer;
+      }
+
+      .chart-summary {
+        margin-top: 30px;
+        padding: 20px;
+        background: white;
+        border-radius: 8px;
+      }
+
+      .overall-score {
+        text-align: center;
+        font-size: 1.3em;
+        font-weight: 700;
+        color: var(--cat-text);
+        margin-bottom: 20px;
+      }
+
+      .score-label {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.9em;
+        margin-left: 8px;
+      }
+
+      .stage-crawl {
+        background: var(--cat-red);
+        color: var(--cat-base);
+      }
+
+      .stage-walk {
+        background: var(--cat-yellow);
+        color: var(--cat-base);
+      }
+
+      .stage-run {
+        background: var(--cat-green);
+        color: var(--cat-base);
+      }
+
+      .stage-fly {
+        background: var(--cat-blue);
+        color: var(--cat-base);
+      }
+
+      .dimensions-table {
+        width: 100%;
+        font-size: 0.9em;
+      }
+
+      .dimensions-table th {
+        text-align: left;
+        padding: 8px;
+        color: var(--cat-subtext1);
+        font-weight: 600;
+        border-bottom: 2px solid var(--cat-overlay0);
+      }
+
+      .dimensions-table td {
+        padding: 8px;
+        border-bottom: 1px solid var(--cat-overlay0);
+      }
+
+      .dimensions-table tr {
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+      }
+
+      .dimensions-table tr:hover {
+        background-color: rgba(30, 102, 245, 0.05);
+      }
+
+      .dimension-score {
+        font-weight: 600;
+        color: var(--cat-text);
+      }
+
+      /* ========== QUESTIONNAIRE STYLES ========== */
+      .dimension-header {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 3px solid var(--cat-blue);
+      }
+
+      .dimension-title {
+        font-size: 1.5em;
+        color: var(--cat-text);
+        margin-bottom: 8px;
+      }
+
+      .dimension-description {
+        color: var(--cat-subtext0);
+        font-size: 0.95em;
+        line-height: 1.5;
+      }
+
+      .dimension-current-score {
+        margin-top: 10px;
+        font-size: 1.1em;
+        font-weight: 600;
+        color: var(--cat-blue);
+      }
+
+      .help-content {
+        display: block;
+        margin-top: 15px;
+        padding: 15px;
+        background: white;
+        border-radius: 8px;
+        color: var(--cat-subtext1);
+        border: 1px solid var(--cat-overlay0);
+      }
+
+      .help-content .dimension-description {
+        margin-bottom: 0;
+      }
+
+      /* ========== LEVEL SECTIONS ========== */
+      .level-section {
+        margin-bottom: 20px;
+        padding: 20px;
+        background: white;
+        border-radius: 8px;
+        border-left: 4px solid var(--cat-overlay0);
+        border-right: 1px solid var(--cat-overlay0);
+        border-top: 1px solid var(--cat-overlay0);
+        border-bottom: 1px solid var(--cat-overlay0);
+      }
+
+      .level-section.locked {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      .level-section.level-1 {
+        border-left-color: var(--cat-red);
+      }
+
+      .level-section.level-2 {
+        border-left-color: var(--cat-yellow);
+      }
+
+      .level-section.level-3 {
+        border-left-color: var(--cat-green);
+      }
+
+      .level-section.level-4 {
+        border-left-color: var(--cat-blue);
+      }
+
+      .level-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .level-title {
+        font-size: 1.1em;
+        font-weight: 600;
+        color: var(--cat-text);
+      }
+
+      .level-status {
+        font-size: 0.85em;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+
+      .status-locked {
+        background: var(--cat-overlay0);
+        color: var(--cat-subtext1);
+      }
+
+      .status-unlocked {
+        background: var(--cat-green);
+        color: var(--cat-base);
+      }
+
+      /* ========== QUESTION STYLES ========== */
+      .question-item {
+        margin-bottom: 20px;
+      }
+
+      .question-text {
+        font-weight: 500;
+        color: var(--cat-text);
+        margin-bottom: 8px;
+      }
+
+      .slider-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .slider-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      input[type="range"] {
+        flex: 1;
+        height: 8px;
+        border-radius: 5px;
+        background: var(--cat-overlay0);
+        outline: none;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--cat-blue);
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      input[type="range"]::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--cat-blue);
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .slider-ticks {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75em;
+        color: var(--cat-subtext0);
+        padding: 0 2px;
+        margin-right: 155px;
+      }
+
+      .value-display {
+        min-width: 140px;
+        text-align: right;
+        font-weight: 600;
+        color: var(--cat-subtext1);
+        font-size: 0.9em;
+      }
+
+      /* ========== WIZARD NAVIGATION BAR ========== */
+      .wizard-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        border-top: 2px solid var(--cat-overlay0);
+        padding: 15px 20px;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+      }
+
+      .wizard-content {
+        max-width: 1600px;
+        margin: 0 auto;
+      }
+
+      .wizard-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+
+      .wizard-title {
+        font-weight: 600;
+        color: var(--cat-text);
+        font-size: 1em;
+      }
+
+      .progress-info {
+        font-size: 0.9em;
+        color: var(--cat-subtext0);
+      }
+
+      .progress-bar-container {
+        width: 100%;
+        height: 8px;
+        background: var(--cat-overlay0);
+        border-radius: 4px;
+        margin-bottom: 15px;
+        overflow: hidden;
+      }
+
+      .progress-bar {
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          var(--cat-blue) 0%,
+          var(--cat-mauve) 100%
+        );
+        transition: width 0.3s ease;
+      }
+
+      .wizard-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .nav-buttons {
+        display: flex;
+        gap: 10px;
+      }
+
+      .wizard-steps {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        flex: 1;
+        justify-content: center;
+      }
+
+      .step-indicator {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--cat-overlay0);
+        color: var(--cat-subtext0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8em;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 2px solid transparent;
+      }
+
+      .step-indicator:hover {
+        transform: scale(1.1);
+      }
+
+      .step-indicator.active {
+        background: var(--cat-blue);
+        color: var(--cat-base);
+        border-color: var(--cat-lavender);
+      }
+
+      .step-indicator.completed {
+        background: var(--cat-green);
+        color: var(--cat-base);
+      }
+
+      .step-indicator.in-progress {
+        background: var(--cat-yellow);
+        color: var(--cat-base);
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 0.95em;
+        font-weight: 600;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      button:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      button:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+
+      .btn-primary {
+        background: var(--cat-blue);
+        color: var(--cat-base);
+      }
+
+      .btn-primary:hover:not(:disabled) {
+        background: var(--cat-lavender);
+      }
+
+      .btn-secondary {
+        background: var(--cat-blue);
+        color: var(--cat-base);
+      }
+
+      .btn-secondary:hover:not(:disabled) {
+        background: var(--cat-lavender);
+      }
+
+      .btn-danger {
+        background: var(--cat-red);
+        color: var(--cat-base);
+      }
+
+      .btn-danger:hover:not(:disabled) {
+        background: var(--cat-maroon);
+      }
+
+      /* ========== ACTION BUTTONS ========== */
+      .action-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+
+      /* ========== MODAL STYLES ========== */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(76, 79, 105, 0.7);
+        z-index: 2000;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-overlay.visible {
+        display: flex;
+      }
+
+      .modal {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        max-width: 500px;
+        width: 90%;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .modal-title {
+        font-size: 1.5em;
+        font-weight: 700;
+        color: var(--cat-text);
+        margin-bottom: 15px;
+      }
+
+      .modal-text {
+        color: var(--cat-subtext1);
+        margin-bottom: 25px;
+        line-height: 1.6;
+      }
+
+      .modal-buttons {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+      }
+
+      /* ========== PRINT STYLES ========== */
+      @media print {
+        body {
+          background: white;
+        }
+
+        .wizard-bar,
+        .action-buttons,
+        .nav-buttons,
+        button {
+          display: none !important;
+        }
+
+        .app-container {
+          padding-bottom: 0;
+        }
+
+        .main-panels {
+          display: block;
+        }
+
+        .chart-panel,
+        .questionnaire-panel {
+          box-shadow: none;
+          page-break-inside: avoid;
+        }
+
+        .chart-container {
+          height: 400px;
+        }
+
+        .level-section {
+          page-break-inside: avoid;
+        }
+      }
+
+      /* ========== MOBILE RESPONSIVE ========== */
+      @media (max-width: 768px) {
+        .app-container {
+          padding: 10px;
+          padding-bottom: 140px;
+        }
+
+        h1 {
+          font-size: 1.5em;
+        }
+
+        .chart-container {
+          height: 350px;
+        }
+
+        .wizard-steps {
+          gap: 5px;
+        }
+
+        .step-indicator {
+          width: 28px;
+          height: 28px;
+          font-size: 0.7em;
+        }
+
+        .wizard-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 5px;
+        }
+
+        .slider-container {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .slider-ticks {
+          margin-right: 0;
+        }
+
+        .value-display {
+          text-align: left;
+          margin-top: 5px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a href="https://druce.ai/about.html#projects">← druce.ai</a>
+      <div class="site-copyright">
+        &copy; 2026 Druce Vertes. All rights reseved.
+      </div>
+    </header>
+    <div class="app-container">
+      <h1>AI Maturity Self-Assessment</h1>
+      <p>
+        AI maturity measures the degree to which organizations have mastered
+        AI-related capabilities to operational excellence. AI maturity is not
+        defined by tech tools alone, but by how effectively the organization can
+        improve results by orchestrating Process, Technology, and Data.
+      </p>
+      AI and ML are increasingly implicated in companies gaining a competitive
+      edge, with direct and attributable business value, leading to more
+      data-driven decisions, faster decision-making, and faster execution.
+      <ul style="margin-left: 40px; margin-top: 15px">
+        <li>
+          <strong>Level 1 (Crawl):</strong> Initial unstructured exploration and
+          planning.
+        </li>
+        <li>
+          <strong>Level 2 (Walk):</strong> Structured learning, training,
+          planning, foundation-laying, and initial POCs and pilots.
+        </li>
+        <li>
+          <strong>Level 3 (Run):</strong> Operational deployment at scale, with
+          robust infrastructure, governance, and security, and business value
+          measured against KPIs.
+        </li>
+        <li>
+          <strong>Level 4 (Fly):</strong> An AI-native organization where AI is
+          central and pervasive, deploying advanced use cases like autonomous
+          agents, advanced fine-tuned models, with continuous improvement and
+          adoption of emerging capabilities.
+        </li>
+      </ul>
+
+      Organizations that successfully navigate AI transformation gain
+      competitive advantages, increasing velocity and responding quickly to
+      market changes, delivering more value creation, and operating with greater
+      efficiency.
+
+      <!-- Loading indicator -->
+      <div id="loadingIndicator" style="text-align: center; padding: 60px">
+        <p style="color: var(--cat-subtext0); font-size: 1.2em">
+          Loading assessment data...
+        </p>
+      </div>
+
+      <div class="main-panels" id="mainContent" style="display: none">
+        <!-- CHART PANEL -->
+        <div class="chart-panel">
+          <div class="chart-container">
+            <canvas id="radarChart"></canvas>
+          </div>
+
+          <div class="chart-summary">
+            <div class="overall-score" id="overallScore">
+              Overall Maturity: <span id="overallValue">0.00</span> / 4.0
+              <span id="overallLabel" class="score-label stage-crawl"
+                >Not Started</span
+              >
+            </div>
+
+            <table class="dimensions-table">
+              <thead>
+                <tr>
+                  <th>Dimension</th>
+                  <th>Score</th>
+                  <th>Stage</th>
+                </tr>
+              </thead>
+              <tbody id="dimensionsTableBody">
+                <!-- Populated by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn-primary" onclick="printAssessment()">
+              Print / Save as PDF
+            </button>
+            <button class="btn-danger" onclick="showResetModal()">
+              Reset Assessment
+            </button>
+          </div>
+        </div>
+
+        <!-- QUESTIONNAIRE PANEL -->
+        <div class="questionnaire-panel">
+          <div id="questionnaireContent">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WIZARD NAVIGATION BAR -->
+    <div class="wizard-bar">
+      <div class="wizard-content">
+        <div class="wizard-header">
+          <div class="wizard-title" id="wizardTitle">
+            1 / 12: Strategic Vision
+          </div>
+          <div class="progress-info" id="progressInfo">0% Complete</div>
+        </div>
+
+        <div class="progress-bar-container">
+          <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+        </div>
+
+        <div class="wizard-controls">
+          <div class="nav-buttons">
+            <button
+              class="btn-secondary"
+              id="prevBtn"
+              onclick="navigateDimension(-1)"
+            >
+              ← Previous
+            </button>
+          </div>
+
+          <div class="wizard-steps" id="wizardSteps">
+            <!-- Populated by JavaScript -->
+          </div>
+
+          <div class="nav-buttons">
+            <button
+              class="btn-secondary"
+              id="nextBtn"
+              onclick="navigateDimension(1)"
+            >
+              Next →
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL FOR RESTORE/RESET -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal">
+        <div class="modal-title" id="modalTitle">Welcome Back</div>
+        <div class="modal-text" id="modalText">
+          We found a previous assessment. Would you like to continue where you
+          left off?
+        </div>
+        <div class="modal-buttons" id="modalButtons">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // ========================================
+      // DATA LOADING - Load dimensions from YAML
+      // ========================================
+      // Global dimensions variable (populated on load)
+      const DIMENSION_COUNT = 12;
+      const LEVELS_PER_DIMENSION = 4;
+      const STAGE_LABELS = ["Crawl", "Walk", "Run", "Fly"];
+
+      let dimensions = [];
+
+      // Load YAML data on page load
+      async function loadDimensions() {
+        try {
+          const response = await fetch("ai_maturity.yml");
+          const yamlText = await response.text();
+          const data = jsyaml.load(yamlText);
+          dimensions = data.dimensions;
+
+          // Initialize the app after data is loaded
+          initializeApp();
+        } catch (error) {
+          console.error("Error loading dimensions:", error);
+          alert("Failed to load assessment data. Please refresh the page.");
+        }
+      }
+
+      // ========================================
+      // STATE MANAGEMENT
+      // ========================================
+      let state = {
+        currentDimensionIndex: 0,
+        answers: {}, // Format: { dimensionId: { level: { questionIndex: value } } }
+      };
+
+      // Placeholder to mark where dimensions array was removed
+      // (lines 799-1798 in original file - now loaded from ai_maturity_dimensions.js)
+
+      // ========================================
+      // INITIALIZATION
+      // ========================================
+      document.addEventListener("DOMContentLoaded", () => {
+        // Load YAML data, then initialize the app
+        loadDimensions();
+      });
+
+      function initializeApp() {
+        // Called after dimensions are loaded from YAML
+        // Hide loading indicator and show main content
+        document.getElementById("loadingIndicator").style.display = "none";
+        document.getElementById("mainContent").style.display = "grid";
+
+        initializeState();
+        setupKeyboardShortcuts();
+
+        // Check for saved session - rendering happens AFTER modal is dismissed
+        checkForSavedSession();
+      }
+
+      function startApp() {
+        // Called after modal is dismissed or if no saved session
+        initializeChart();
+        renderWizardSteps();
+        renderQuestionnaire();
+        updateAllUI();
+      }
+
+      function initializeState() {
+        // Initialize answers structure with all questions set to 0
+        dimensions.forEach((dim) => {
+          state.answers[dim.id] = {};
+          dim.levels.forEach((level, levelIndex) => {
+            state.answers[dim.id][levelIndex + 1] = {};
+            level.questions.forEach((_, qIndex) => {
+              state.answers[dim.id][levelIndex + 1][qIndex] = 0;
+            });
+          });
+        });
+      }
+
+      // ========================================
+      // LOCALSTORAGE MANAGEMENT
+      // ========================================
+      const STORAGE_KEY = "ai_maturity_assessment";
+
+      function saveToLocalStorage() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (e) {
+          console.error("Failed to save to localStorage:", e);
+        }
+      }
+
+      function loadFromLocalStorage() {
+        try {
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if (saved) {
+            state = JSON.parse(saved);
+            return true;
+          }
+        } catch (e) {
+          console.error("Failed to load from localStorage:", e);
+        }
+        return false;
+      }
+
+      function clearLocalStorage() {
+        try {
+          localStorage.removeItem(STORAGE_KEY);
+        } catch (e) {
+          console.error("Failed to clear localStorage:", e);
+        }
+      }
+
+      function checkForSavedSession() {
+        const hasSaved = localStorage.getItem(STORAGE_KEY);
+        if (hasSaved) {
+          showModal(
+            "Welcome Back",
+            "We found a previous assessment. Would you like to continue where you left off?",
+            [
+              {
+                text: "Continue Previous",
+                onclick: "continueSession()",
+                primary: true,
+              },
+              {
+                text: "Start New",
+                onclick: "startNewSession()",
+                primary: false,
+              },
+            ],
+          );
+        } else {
+          // No saved session - start fresh
+          startApp();
+        }
+      }
+
+      function continueSession() {
+        loadFromLocalStorage();
+        hideModal();
+        startApp();  // Use common initialization
+      }
+
+      function startNewSession() {
+        clearLocalStorage();
+        initializeState();
+        hideModal();
+        startApp();  // Use common initialization
+      }
+
+      // ========================================
+      // MODAL FUNCTIONS
+      // ========================================
+      function showModal(title, text, buttons) {
+        document.getElementById("modalTitle").textContent = title;
+        document.getElementById("modalText").textContent = text;
+
+        const modalButtons = document.getElementById("modalButtons");
+        modalButtons.innerHTML = "";
+        buttons.forEach((btn) => {
+          const button = document.createElement("button");
+          button.className = btn.primary ? "btn-primary" : "btn-secondary";
+          button.textContent = btn.text;
+          button.onclick = () => eval(btn.onclick);
+          modalButtons.appendChild(button);
+        });
+
+        document.getElementById("modalOverlay").classList.add("visible");
+      }
+
+      function hideModal() {
+        document.getElementById("modalOverlay").classList.remove("visible");
+      }
+
+      function showResetModal() {
+        showModal(
+          "Reset Assessment",
+          "Are you sure you want to reset all answers? This action cannot be undone.",
+          [
+            { text: "Reset All", onclick: "resetAssessment()", primary: false },
+            { text: "Cancel", onclick: "hideModal()", primary: true },
+          ],
+        );
+      }
+
+      function resetAssessment() {
+        clearLocalStorage();
+        initializeState();
+        state.currentDimensionIndex = 0;
+        hideModal();
+        renderQuestionnaire();
+        updateAllUI();
+      }
+
+      // ========================================
+      // CHART INITIALIZATION
+      // ========================================
+      let radarChart = null;
+
+      function initializeChart() {
+        const ctx = document.getElementById("radarChart").getContext("2d");
+        radarChart = new Chart(ctx, {
+          type: "radar",
+          data: {
+            labels: dimensions.map((d, i) => `${i + 1}. ${d.short}`),
+            datasets: [
+              {
+                label: "Maturity Score",
+                data: new Array(DIMENSION_COUNT).fill(0),
+                fill: true,
+                backgroundColor: "rgba(30, 102, 245, 0.2)",
+                borderColor: "rgba(30, 102, 245, 1)",
+                pointBackgroundColor: "rgba(30, 102, 245, 1)",
+                pointBorderColor: "#eff1f5",
+                pointHoverBackgroundColor: "#eff1f5",
+                pointHoverBorderColor: "rgba(30, 102, 245, 1)",
+                pointRadius: 6,
+                pointHoverRadius: 8,
+                borderWidth: 3,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              r: {
+                min: 0,
+                max: 4,
+                ticks: {
+                  stepSize: 1,
+                  callback: function (value) {
+                    return value === 0 ? "" : value;
+                  },
+                  font: {
+                    size: 12,
+                    weight: "bold",
+                  },
+                },
+                pointLabels: {
+                  font: {
+                    size: 11,
+                    weight: "600",
+                  },
+                  color: "#1e66f5",
+                  callback: function (label, index) {
+                    return label;
+                  },
+                },
+                grid: {
+                  color: "rgba(156, 160, 176, 0.3)",
+                },
+                angleLines: {
+                  color: "rgba(156, 160, 176, 0.3)",
+                },
+              },
+            },
+            plugins: {
+              legend: {
+                display: false,
+              },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    const score = context.parsed.r;
+                    const stage = getStageLabel(score);
+                    return `${dimensions[context.dataIndex].full}: ${score.toFixed(2)} (${stage})`;
+                  },
+                },
+              },
+            },
+            onClick: function (event, activeElements) {
+              if (activeElements.length > 0) {
+                // Clicked on a data point
+                const dataIndex = activeElements[0].dataIndex;
+                jumpToStep(dataIndex);
+              } else {
+                // Check if click was on a label by calculating angle
+                const canvas = event.native.target;
+                const rect = canvas.getBoundingClientRect();
+                const x = event.native.clientX - rect.left;
+                const y = event.native.clientY - rect.top;
+
+                // Get chart center and dimensions
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                // Calculate angle from center
+                const dx = x - centerX;
+                const dy = y - centerY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                // Only process clicks in the outer area (where labels are)
+                const maxRadius = Math.min(centerX, centerY) * 0.85;
+                if (distance > maxRadius * 0.6) {
+                  // Calculate angle (Chart.js starts at top, goes clockwise)
+                  const angle = Math.atan2(dy, dx);
+
+                  // Normalize angle: Chart.js starts at top (-π/2), goes clockwise
+                  // Convert to 0-2π range starting from top
+                  let normalizedAngle = angle + Math.PI / 2;
+                  if (normalizedAngle < 0) normalizedAngle += 2 * Math.PI;
+
+                  // Map angle to dimension index (0 to DIMENSION_COUNT-1)
+                  // Each dimension occupies 2π/DIMENSION_COUNT radians
+                  const anglePerDimension = (2 * Math.PI) / DIMENSION_COUNT;
+                  let dimensionIndex = Math.floor(
+                    normalizedAngle / anglePerDimension,
+                  );
+
+                  // Ensure index is within bounds
+                  dimensionIndex = dimensionIndex % DIMENSION_COUNT;
+
+                  jumpToStep(dimensionIndex);
+                }
+              }
+            },
+            interaction: {
+              intersect: false,
+              mode: "point",
+            },
+          },
+        });
+      }
+
+      function updateChart() {
+        const scores = dimensions.map((dim) => calculateDimensionScore(dim.id));
+        radarChart.data.datasets[0].data = scores;
+        radarChart.update();
+      }
+
+      // ========================================
+      // SCORING LOGIC
+      // ========================================
+      // Scoring system:
+      // - Each question contributes: (slider_value / max_slider_value) / n_questions_at_level points
+      // - Each level can contribute up to 1.0 point regardless of number of questions
+      // - Dimension score = sum across all unlocked levels (max 4.0)
+      // - Overall score = average of all dimension scores (max 4.0)
+      function calculateDimensionScore(dimensionId) {
+        let dimensionScore = 0;
+        const MAX_SLIDER_VALUE = 4;
+        const dimension = dimensions.find((d) => d.id === dimensionId);
+
+        const dimAnswers = state.answers[dimensionId];
+        for (let level = 1; level <= LEVELS_PER_DIMENSION; level++) {
+          if (!isLevelUnlocked(dimensionId, level)) {
+            break; // Stop at first locked level
+          }
+
+          // Calculate this level's contribution
+          let levelScore = 0;
+          const levelAnswers = dimAnswers[level];
+          const levelData = dimension.levels[level - 1];
+          const nQuestionsAtLevel = levelData.questions.length;
+
+          for (let qIndex = 0; qIndex < nQuestionsAtLevel; qIndex++) {
+            const answer = levelAnswers[qIndex];
+            // Each question contributes: (slider_value / max_slider) / n_questions
+            // This ensures each level contributes up to 1.0 point
+            levelScore += answer / MAX_SLIDER_VALUE / nQuestionsAtLevel;
+          }
+
+          dimensionScore += levelScore;
+        }
+
+        return dimensionScore;
+      }
+
+      function calculateOverallScore() {
+        const scores = dimensions.map((dim) => calculateDimensionScore(dim.id));
+        const sum = scores.reduce((acc, score) => acc + score, 0);
+        return sum / DIMENSION_COUNT;
+      }
+
+      function getStageLabel(score) {
+        // Integer mapping: 1=Crawl, 2=Walk, 3=Run, 4=Fly
+        const rounded = Math.round(score);
+        if (rounded < 1) return "Not Started";
+        return STAGE_LABELS[rounded - 1] || "Not Started";
+      }
+
+      function getStageClass(score) {
+        const rounded = Math.round(score);
+        if (rounded < 1) return "stage-crawl";
+        const stages = ["stage-crawl", "stage-walk", "stage-run", "stage-fly"];
+        return stages[rounded - 1] || "stage-crawl";
+      }
+
+      // ========================================
+      // LEVEL UNLOCKING LOGIC
+      // ========================================
+      function isLevelUnlocked(dimensionId, level) {
+        if (level === 1) return true; // Level 1 always unlocked
+
+        // Unlock next level when average across all sliders in previous level >= 50% (2.0 out of 4.0)
+        const prevLevel = level - 1;
+        const prevLevelAnswers = state.answers[dimensionId][prevLevel];
+        const dimension = dimensions.find((d) => d.id === dimensionId);
+        const prevLevelData = dimension.levels[prevLevel - 1];
+        const nQuestions = prevLevelData.questions.length;
+
+        // Calculate average across all questions in the previous level
+        let sum = 0;
+        for (let qIndex = 0; qIndex < nQuestions; qIndex++) {
+          sum += prevLevelAnswers[qIndex] || 0;
+        }
+        const average = nQuestions > 0 ? sum / nQuestions : 0;
+
+        // Unlock if average >= 50% (2.0 out of 4.0)
+        return average >= 2.0;
+      }
+
+      // ========================================
+      // QUESTIONNAIRE RENDERING
+      // ========================================
+      function renderQuestionnaire() {
+        const dimension = dimensions[state.currentDimensionIndex];
+        const content = document.getElementById("questionnaireContent");
+
+        const dimScore = calculateDimensionScore(dimension.id);
+        const overallScore = calculateOverallScore();
+
+        let html = `
+                <div class="dimension-header">
+                    <div class="dimension-title">${dimension.full}</div>
+                    <div class="help-content" id="helpContent">
+                        <div class="dimension-description">${dimension.description}</div>
+                        <br>
+                        ${dimension.helpText}
+                    </div>
+                    <div class="dimension-current-score" id="dimensionCurrentScore">
+                        ${dimension.short} Score: ${dimScore.toFixed(1)} (${getStageLabel(dimScore)})<br>
+                        Overall Score: ${overallScore.toFixed(1)} (${getStageLabel(overallScore)})
+                    </div>
+                </div>
+            `;
+
+        dimension.levels.forEach((level, levelIndex) => {
+          const levelNum = levelIndex + 1;
+          const isUnlocked = isLevelUnlocked(dimension.id, levelNum);
+          const lockedClass = isUnlocked ? "" : "locked";
+          const statusClass = isUnlocked ? "status-unlocked" : "status-locked";
+          const statusText = isUnlocked ? "Unlocked" : "Locked";
+
+          html += `
+                    <div class="level-section level-${levelNum} ${lockedClass}">
+                        <div class="level-header">
+                            <div class="level-title">Level ${levelNum}: ${level.name}</div>
+                            <div class="level-status ${statusClass}">${statusText}</div>
+                        </div>
+                `;
+
+          level.questions.forEach((question, qIndex) => {
+            const answerId = `dim${dimension.id}_lv${levelNum}_q${qIndex}`;
+            const currentValue = state.answers[dimension.id][levelNum][qIndex];
+
+            html += `
+                        <div class="question-item">
+                            <div class="question-text">${question}</div>
+                            <div class="slider-wrapper">
+                                <div class="slider-container">
+                                    <input type="range"
+                                           id="${answerId}"
+                                           min="0"
+                                           max="4"
+                                           step="1"
+                                           value="${currentValue}"
+                                           ${!isUnlocked ? "disabled" : ""}
+                                           onchange="handleAnswerChange(${dimension.id}, ${levelNum}, ${qIndex}, this.value)">
+                                    <div class="value-display" id="${answerId}_display">
+                                        ${getAnswerLabel(currentValue)}
+                                    </div>
+                                </div>
+                                <div class="slider-ticks">
+                                    <span>0</span>
+                                    <span>1</span>
+                                    <span>2</span>
+                                    <span>3</span>
+                                    <span>4</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+          });
+
+          html += `</div>`;
+        });
+
+        content.innerHTML = html;
+      }
+
+      function getAnswerLabel(value) {
+        const labels = [
+          "Not Started",
+          "Started",
+          "Developing",
+          "Mostly",
+          "Fully implemented",
+        ];
+        return `${value} - ${labels[value]}`;
+      }
+
+      function updateCurrentScoreDisplay() {
+        const dimension = dimensions[state.currentDimensionIndex];
+        const dimScore = calculateDimensionScore(dimension.id);
+        const overallScore = calculateOverallScore();
+
+        const scoreElement = document.getElementById("dimensionCurrentScore");
+        if (scoreElement) {
+          scoreElement.innerHTML = `
+                    ${dimension.short} Score: ${dimScore.toFixed(1)} (${getStageLabel(dimScore)})<br>
+                    Overall Score: ${overallScore.toFixed(1)} (${getStageLabel(overallScore)})
+                `;
+        }
+      }
+
+      function handleAnswerChange(dimensionId, level, questionIndex, value) {
+        state.answers[dimensionId][level][questionIndex] = parseInt(value);
+
+        // Update value display
+        const answerId = `dim${dimensionId}_lv${level}_q${questionIndex}`;
+        document.getElementById(`${answerId}_display`).textContent =
+          getAnswerLabel(value);
+
+        // Save to localStorage
+        saveToLocalStorage();
+
+        // Check if this changes the unlock status of the next level
+        // Need to re-render to show/hide locked/unlocked state
+        const nextLevel = level + 1;
+        const wasUnlockedBefore =
+          nextLevel <= LEVELS_PER_DIMENSION
+            ? document.querySelector(`.level-section.level-${nextLevel}`) &&
+              !document
+                .querySelector(`.level-section.level-${nextLevel}`)
+                .classList.contains("locked")
+            : false;
+        const isUnlockedNow =
+          nextLevel <= LEVELS_PER_DIMENSION &&
+          isLevelUnlocked(dimensionId, nextLevel);
+
+        if (wasUnlockedBefore !== isUnlockedNow) {
+          // Lock/unlock status changed, re-render to update UI
+          renderQuestionnaire();
+        } else {
+          // Just update the score display without re-rendering everything
+          updateCurrentScoreDisplay();
+        }
+
+        // Update all UI elements
+        updateAllUI();
+      }
+
+      // ========================================
+      // WIZARD NAVIGATION
+      // ========================================
+      function renderWizardSteps() {
+        const stepsContainer = document.getElementById("wizardSteps");
+        let html = "";
+
+        dimensions.forEach((dim, index) => {
+          const status = getStepStatus(dim.id);
+          html += `
+                    <div class="step-indicator ${status} ${index === state.currentDimensionIndex ? "active" : ""}"
+                         onclick="jumpToStep(${index})"
+                         title="${dim.full}">
+                        ${index + 1}
+                    </div>
+                `;
+        });
+
+        stepsContainer.innerHTML = html;
+      }
+
+      function getStepStatus(dimensionId) {
+        const dimAnswers = state.answers[dimensionId];
+        const dimension = dimensions.find((d) => d.id === dimensionId);
+        let hasAnyAnswer = false;
+        let allAnswered = true;
+
+        for (let level = 1; level <= LEVELS_PER_DIMENSION; level++) {
+          if (!isLevelUnlocked(dimensionId, level)) break;
+
+          const levelAnswers = dimAnswers[level];
+          const levelData = dimension.levels[level - 1];
+          const nQuestionsAtLevel = levelData.questions.length;
+
+          for (let qIndex = 0; qIndex < nQuestionsAtLevel; qIndex++) {
+            const answer = levelAnswers[qIndex];
+            if (answer > 0) hasAnyAnswer = true;
+            if (answer === 0) allAnswered = false;
+          }
+        }
+
+        if (!hasAnyAnswer) return "";
+        if (allAnswered) return "completed";
+        return "in-progress";
+      }
+
+      function navigateDimension(direction) {
+        const newIndex = state.currentDimensionIndex + direction;
+        if (newIndex >= 0 && newIndex < DIMENSION_COUNT) {
+          state.currentDimensionIndex = newIndex;
+          saveToLocalStorage();
+          renderQuestionnaire();
+          updateWizardUI();
+          updateSummaryTable(); // Update table to highlight current row
+        }
+      }
+
+      function jumpToStep(index) {
+        state.currentDimensionIndex = index;
+        saveToLocalStorage();
+        renderQuestionnaire();
+        updateWizardUI();
+        updateSummaryTable(); // Update table to highlight current row
+      }
+
+      function updateWizardUI() {
+        const dimension = dimensions[state.currentDimensionIndex];
+        document.getElementById("wizardTitle").textContent =
+          `${state.currentDimensionIndex + 1} / ${DIMENSION_COUNT}: ${dimension.short}`;
+
+        // Update navigation buttons
+        document.getElementById("prevBtn").disabled =
+          state.currentDimensionIndex === 0;
+        document.getElementById("nextBtn").disabled =
+          state.currentDimensionIndex === DIMENSION_COUNT - 1;
+
+        // Update progress
+        updateProgress();
+
+        // Re-render steps to update active state
+        renderWizardSteps();
+      }
+
+      function updateProgress() {
+        let totalQuestions = 0;
+        let answeredQuestions = 0;
+
+        dimensions.forEach((dim) => {
+          for (let level = 1; level <= LEVELS_PER_DIMENSION; level++) {
+            if (!isLevelUnlocked(dim.id, level)) break;
+
+            const levelAnswers = state.answers[dim.id][level];
+            const levelData = dim.levels[level - 1];
+            const nQuestionsAtLevel = levelData.questions.length;
+
+            for (let qIndex = 0; qIndex < nQuestionsAtLevel; qIndex++) {
+              totalQuestions++;
+              if (levelAnswers[qIndex] > 0) {
+                answeredQuestions++;
+              }
+            }
+          }
+        });
+
+        const percentage =
+          totalQuestions > 0 ? (answeredQuestions / totalQuestions) * 100 : 0;
+        document.getElementById("progressBar").style.width = `${percentage}%`;
+        document.getElementById("progressInfo").textContent =
+          `${Math.round(percentage)}% Complete`;
+      }
+
+      // ========================================
+      // SUMMARY TABLE
+      // ========================================
+      function updateSummaryTable() {
+        const tbody = document.getElementById("dimensionsTableBody");
+        let html = "";
+
+        dimensions.forEach((dim, index) => {
+          const score = calculateDimensionScore(dim.id);
+          const stage = getStageLabel(score);
+          const stageClass = getStageClass(score);
+          const isActive = index === state.currentDimensionIndex;
+
+          html += `
+                    <tr onclick="jumpToStep(${index})" ${isActive ? 'style="background-color: rgba(30, 102, 245, 0.1);"' : ""}>
+                        <td>${dim.full}</td>
+                        <td class="dimension-score">${score.toFixed(2)}</td>
+                        <td><span class="score-label ${stageClass}">${stage}</span></td>
+                    </tr>
+                `;
+        });
+
+        tbody.innerHTML = html;
+      }
+
+      function updateOverallScore() {
+        const overallScore = calculateOverallScore();
+        const stage = getStageLabel(overallScore);
+        const stageClass = getStageClass(overallScore);
+
+        document.getElementById("overallValue").textContent =
+          overallScore.toFixed(2);
+        const labelElement = document.getElementById("overallLabel");
+        labelElement.textContent = stage;
+        labelElement.className = `score-label ${stageClass}`;
+      }
+
+      // ========================================
+      // UPDATE ALL UI
+      // ========================================
+      function updateAllUI() {
+        updateChart();
+        updateSummaryTable();
+        updateOverallScore();
+        updateWizardUI();
+      }
+
+      // ========================================
+      // KEYBOARD SHORTCUTS
+      // ========================================
+      function setupKeyboardShortcuts() {
+        document.addEventListener("keydown", (e) => {
+          // Ignore if user is typing in an input
+          if (e.target.tagName === "INPUT") return;
+
+          if (e.key === "ArrowLeft") {
+            e.preventDefault();
+            navigateDimension(-1);
+          } else if (e.key === "ArrowRight") {
+            e.preventDefault();
+            navigateDimension(1);
+          }
+        });
+      }
+
+      // ========================================
+      // PRINT / PDF EXPORT
+      // ========================================
+      function printAssessment() {
+        window.print();
+      }
+    </script>
+  </body>
+</html>

@@ -33,20 +33,22 @@ A digression into epistomology:
 
 Tired:
 
-- Biology is application of chemistry to living things
-- Chemistry is application of physics to materials
-- Physics is application of mathematics to the natural world
+- Biology is a subset of chemistry, the application of chemistry to living things
+- Chemistry is a subset of physics, the application of physics to materials
+- Physics is the application of mathematics to the natural world
 - Mathematics is abstraction of everything
+
+Math is our deepest abstraction, and also the formal foundation of computation. Checking proofs, which start from axioms and apply rules is something a Turing machine can do, as well as performing search to find new valid proofs. Gödel's incompleteness theorem is analogous to the halting problem of mathematics. The former says you can't write a program that will tell if any program stops without running it; the latter says there are mathematical conjectures that must be either true or false but are unprovable.
 
 Wired:
 
-- Information theory is everything you can talk about
+- Information theory is everything you can represent with symbols and language
 - Computer science is talking about computation and Turing machines and other simpler models of computation
-- Mathematics is study of a particular set of Turing machines that map to proofs
+- Mathematics is study of the set of Turing machines that represent proofs
 
-Math is the deepest abstraction of the physical world, and also the formal foundation of computation. Gödel's theorem is the 'halting problem' of mathematics.
+Probably we should say the last 3 are all isomorphic and all fall under math, if you can't prove it, you can't know it.
 
-The point is simply: everything else falls under language. If you do language, you can write any program and solve any solvable problem (eventually).
+The point is : everything knowable is expressed in language. If you do language, you can write any program and solve any solvable problem (eventually). As for everything which is not language:
 
 Wovon man nicht sprechen kann, darüber muss man schweigen. - Ludwig Wittgenstein
 (Whereof we cannot speak, we must attend in silence)
@@ -855,4 +857,33 @@ In that context, here is a maturity model:
     }
 </script>
 
+                            "Select pilot projects that balance significant value with manageable risk, enthusiastic champions, good data availability, and manageable compliance requirements, and learnings applicable across the org. Pilots in areas that also have some AI/tech adjacency can be lower risk, like help desk, data pipelines.",
+                            "Meeting transcription and summarization (investor calls, internal meetings)",
+                            "Research report summarization",
+                            "Simple Q&A chatbots for firm knowledge bases such as policies, HR knowledgebase",
+                            "Email generation for standard communications, and response suggestions",
+                            "Simple data extraction from documents (earnings calls, filings)",
+                            "Standard pitch deck creation from templates",
+                            "Basic financial data visualizations",
+                            "Simple DDQ/RFP question answering",
 
+
+                                                                         
+                                                                                                                                            
+"Investment research copilots, analyst specifies elements to research, iterates on sections of report",
+"DDQ/RFP response systems, AI drafts responses, human reviews",
+"Daily/weekly/monthly meeting agendas",
+"Portfolio commentary generation (AI drafts based on significant news and portfolio changes",
+"Trade idea generation and screening (AI suggests",
+"Due diligence document analysis (AI highlights risks)",
+"Meeting preparation assistants (AI summarizes context, human prepares strategy)",
+"Compliance monitoring alerts (AI flags issues, compliance reviews)",
+"Investor communication drafting (AI creates draft, IR edits tone/content)",
+"Research report writing assistants (AI drafts sections, analyst refines)",
+"Code review and debugging assistants (AI suggests fixes, developer validates)",
+"Contract review and red-lining (AI highlights issues, legal reviews)",
+"Risk alert systems (AI identifies patterns, risk team investigates)",
+"Performance attribution analysis (AI calculates, PM interprets)",
+"Competitor intelligence aggregation (AI compiles, analyst synthesizes)",
+"Market commentary generation (AI drafts, strategist finalizes)",
+"Client relationship insights (AI surfaces patterns, relationship manager acts)",
