@@ -856,34 +856,3 @@ In that context, here is a maturity model:
         });
     }
 </script>
-
-                            "Select pilot projects that balance significant value with manageable risk, enthusiastic champions, good data availability, and manageable compliance requirements, and learnings applicable across the org. Pilots in areas that also have some AI/tech adjacency can be lower risk, like help desk, data pipelines.",
-                            "Meeting transcription and summarization (investor calls, internal meetings)",
-                            "Research report summarization",
-                            "Simple Q&A chatbots for firm knowledge bases such as policies, HR knowledgebase",
-                            "Email generation for standard communications, and response suggestions",
-                            "Simple data extraction from documents (earnings calls, filings)",
-                            "Standard pitch deck creation from templates",
-                            "Basic financial data visualizations",
-                            "Simple DDQ/RFP question answering",
-
-
-                                                                         
-                                                                                                                                            
-"Investment research copilots, analyst specifies elements to research, iterates on sections of report",
-"DDQ/RFP response systems, AI drafts responses, human reviews",
-"Daily/weekly/monthly meeting agendas",
-"Portfolio commentary generation (AI drafts based on significant news and portfolio changes",
-"Trade idea generation and screening (AI suggests",
-"Due diligence document analysis (AI highlights risks)",
-"Meeting preparation assistants (AI summarizes context, human prepares strategy)",
-"Compliance monitoring alerts (AI flags issues, compliance reviews)",
-"Investor communication drafting (AI creates draft, IR edits tone/content)",
-"Research report writing assistants (AI drafts sections, analyst refines)",
-"Code review and debugging assistants (AI suggests fixes, developer validates)",
-"Contract review and red-lining (AI highlights issues, legal reviews)",
-"Risk alert systems (AI identifies patterns, risk team investigates)",
-"Performance attribution analysis (AI calculates, PM interprets)",
-"Competitor intelligence aggregation (AI compiles, analyst synthesizes)",
-"Market commentary generation (AI drafts, strategist finalizes)",
-"Client relationship insights (AI surfaces patterns, relationship manager acts)",
