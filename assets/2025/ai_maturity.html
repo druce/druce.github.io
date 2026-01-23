@@ -1106,14 +1106,21 @@
                 display: false,
               },
               tooltip: {
+                mode: 'point',
+                intersect: true,
                 callbacks: {
+                  title: function (context) {
+                    // Show dimension number and short name as title
+                    const index = context[0].dataIndex;
+                    return `${index + 1}. ${dimensions[index].short}`;
+                  },
                   label: function (context) {
                     const score = context.parsed.r;
                     const stage = getStageLabel(score);
-                    return `${dimensions[context.dataIndex].full}: ${score.toFixed(2)} (${stage})`;
+                    return `Score: ${score.toFixed(2)} (${stage})`;
                   },
                   afterLabel: function (context) {
-                    return 'Click to view dimension';
+                    return 'Click to view';
                   },
                 },
               },
