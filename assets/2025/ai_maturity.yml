@@ -458,7 +458,7 @@ dimensions:
 - id: 10
   short: Use Cases
   full: Use Cases
-  description: 'AI application deployment, use case portfolio, and business impact. Walk: POCs with relatively low risk, high
+  description: 'Identifying and sequencing impactful use cases effectively is a key to AI success, use case portfolio, and business impact. Walk: POCs with relatively low risk, high
     impact, transferable learning; Run: human in the loop assistants; Fly; agentic automation. Stage 1 - Tactical: Focus on
     easy adoption, minimal disruption, and quick wins with simple, short-term, and narrow AI use cases, often without a coherent
     long-term plan.'
