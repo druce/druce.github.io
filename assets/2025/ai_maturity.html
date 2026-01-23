@@ -699,9 +699,10 @@
       <h1>AI Maturity Self-Assessment</h1>
       <p>
         AI maturity measures the degree to which organizations have mastered
-        AI-related capabilities to operational excellence. AI maturity is not
-        defined by tech tools alone, but by how effectively the organization can
-        improve results by orchestrating people, technology, data, and process.
+        AI-related capabilities to achieve operational excellence. AI maturity
+        is not defined by tech tools alone, but by how effectively the
+        organization can improve outcomes by orchestrating people, technology,
+        data, and process.
       </p>
       <ul style="margin-left: 40px; margin-top: 15px">
         <li>
@@ -1059,7 +1060,8 @@
                 pointHoverBackgroundColor: "#eff1f5",
                 pointHoverBorderColor: "rgba(30, 102, 245, 1)",
                 pointRadius: 6,
-                pointHoverRadius: 8,
+                pointHoverRadius: 10,
+                pointHitRadius: 20,
                 borderWidth: 3,
               },
             ],
@@ -1110,58 +1112,58 @@
                     const stage = getStageLabel(score);
                     return `${dimensions[context.dataIndex].full}: ${score.toFixed(2)} (${stage})`;
                   },
+                  afterLabel: function (context) {
+                    return 'Click to view dimension';
+                  },
                 },
               },
             },
-            onClick: function (event, activeElements) {
+            onClick: function (event, activeElements, chart) {
+              // First check if a data point was clicked
               if (activeElements.length > 0) {
-                // Clicked on a data point
                 const dataIndex = activeElements[0].dataIndex;
                 jumpToStep(dataIndex);
-              } else {
-                // Check if click was on a label by calculating angle
-                const canvas = event.native.target;
-                const rect = canvas.getBoundingClientRect();
-                const x = event.native.clientX - rect.left;
-                const y = event.native.clientY - rect.top;
-
-                // Get chart center and dimensions
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                // Calculate angle from center
-                const dx = x - centerX;
-                const dy = y - centerY;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-
-                // Only process clicks in the outer area (where labels are)
-                const maxRadius = Math.min(centerX, centerY) * 0.85;
-                if (distance > maxRadius * 0.6) {
-                  // Calculate angle (Chart.js starts at top, goes clockwise)
-                  const angle = Math.atan2(dy, dx);
-
-                  // Normalize angle: Chart.js starts at top (-π/2), goes clockwise
-                  // Convert to 0-2π range starting from top
-                  let normalizedAngle = angle + Math.PI / 2;
-                  if (normalizedAngle < 0) normalizedAngle += 2 * Math.PI;
-
-                  // Map angle to dimension index (0 to DIMENSION_COUNT-1)
-                  // Each dimension occupies 2π/DIMENSION_COUNT radians
-                  const anglePerDimension = (2 * Math.PI) / DIMENSION_COUNT;
-                  let dimensionIndex = Math.floor(
-                    normalizedAngle / anglePerDimension,
-                  );
-
-                  // Ensure index is within bounds
-                  dimensionIndex = dimensionIndex % DIMENSION_COUNT;
-
-                  jumpToStep(dimensionIndex);
-                }
+                return;
               }
+
+              // If no data point clicked, check if we clicked anywhere on the chart
+              // Use Chart.js's built-in position detection
+              const canvasPosition = Chart.helpers.getRelativePosition(event, chart);
+
+              // Get chart center
+              const centerX = chart.scales.r.xCenter;
+              const centerY = chart.scales.r.yCenter;
+
+              // Calculate angle from center to click point
+              const dx = canvasPosition.x - centerX;
+              const dy = canvasPosition.y - centerY;
+
+              // Calculate angle in radians (atan2 returns angle from -π to π)
+              // atan2(dy, dx) gives angle from positive x-axis (east), measured counter-clockwise
+              let angle = Math.atan2(dx, dy);
+
+              // Chart.js radar starts at top (north) and goes clockwise
+              // atan2(dx, dy) gives us angle from top, measured clockwise (which is what we want)
+              // But atan2 returns negative angles for the left side, so normalize to 0-2π
+              if (angle < 0) {
+                angle += 2 * Math.PI;
+              }
+
+              // Each dimension occupies an equal slice of the circle
+              const anglePerDimension = (2 * Math.PI) / DIMENSION_COUNT;
+
+              // Add half a slice to center the detection on each dimension
+              // This makes clicks in the middle of each slice select that dimension
+              const adjustedAngle = angle + anglePerDimension / 2;
+
+              // Calculate which dimension this angle corresponds to
+              let dimensionIndex = Math.floor(adjustedAngle / anglePerDimension) % DIMENSION_COUNT;
+
+              jumpToStep(dimensionIndex);
             },
             interaction: {
               intersect: false,
-              mode: "point",
+              mode: "nearest",
             },
           },
         });

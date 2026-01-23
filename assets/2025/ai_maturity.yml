@@ -57,7 +57,7 @@ dimensions:
   short: Team
   full: Teams, Talent, Organizational Design
   description: AI talent, team structure, and organizational readiness for AI adoption. A good team wants to work with other good people, and with the best tools, so a strong team is the critical element to kickstart an AI success flywheel.
-  helpText: 'AI adoption is a people-first transformation. Invest in recruitment, training, deploying a central AI team, cross-functional implementation teams, and AI skills at all levels. Allocate resources strategically: often as much as 70% on people and processes. 20% on technology and data'
+  helpText: 'AI adoption is a people-first transformation. Invest in recruitment, training, deploying a central AI team, cross-functional implementation teams, and AI skills at all levels. Allocate resources strategically: often as much as 70% on people and processes, against 30% on technology and data'
   levels:
   - level: 1
     name: Crawl
@@ -98,7 +98,7 @@ dimensions:
   description: Data infrastructure, quality, governance, and availability for AI applications. High-quality, well-governed
     data is the fuel for AI. You can build a tall tower but if the foundation is crumbling or superstructure is misaligned,
     you're gonna have a bad time
-  helpText: AI requires success requires unified access to data and APIs. Organizations should transition from siloed data
+  helpText: AI success requires unified access to data and APIs. Organizations should transition from siloed data
     pipelines to reusable data products. Data governance should extend to unstructured data.
   levels:
   - level: 1
@@ -269,7 +269,7 @@ dimensions:
   description: AI governance policies, risk management, and regulatory compliance. AI governance isn't just a regulatory compliance
     requirement—it's a strategic enabler that allows businesses to scale AI confidently, minimize risks of uncontrolled adoption,
     and build trust with leadership and the user community.
-  helpText: Evaluates governance frameworks, policies, ethical review processes, and compliance mechanisms for to ensure AI
+  helpText: Evaluates governance frameworks, policies, ethical review processes, and compliance mechanisms to ensure AI
     initiatives meet requirements, manage risks, and are aligned on objectives and priorities.
   levels:
   - level: 1
@@ -319,7 +319,7 @@ dimensions:
 - id: 7
   short: Security
   full: Security and Threat Management
-  description: AI-specific security controls, threat awareness, and protective measures.
+  description: AI-specific security controls, threat awareness, and cyberdefense.
   helpText: Assesses security practices for AI systems, including data protection, threat detection, and AI-specific vulnerabilities.
   levels:
   - level: 1
@@ -366,7 +366,7 @@ dimensions:
   short: Training
   full: Training and Education
   description: AI training programs, education initiatives, and knowledge management.
-  helpText: The highest-performing companies train every employee to leverage AI-driven insights in daily decision-making
+  helpText: The highest-performing companies train every employee to leverage AI-driven insights in daily decision-making,
     and cultivate an AI-first data-driven culture through training.
   levels:
   - level: 1
@@ -409,7 +409,7 @@ dimensions:
 - id: 9
   short: Analytics & MLOps
   full: Analytics, AI Development & MLOps
-  description: Firms of sufficient size should develop centralized AI/data science/MLops capability with the ability to deploy
+  description: Firms of sufficient size should develop centralized AI/data science/MLops capability to deploy
     traditional machine learning, deep learning, and generative AI, with best-practice MLops and model lifecycle management.
   helpText: Evaluates the organization's ability to develop, deploy, and maintain AI models with modern MLOps practices.
   levels:
@@ -459,10 +459,10 @@ dimensions:
   short: Use Cases
   full: Use Cases
   description: 'AI application deployment, use case portfolio, and business impact. Walk: POCs with relatively low risk, high
-    impact, transferable learning; Run: human in the loop assistants; Fly; agentic automation. Stage 1 - Tactical: Focus on
+    impact, transferable learning; Run: human in the loop assistants; Fly; agentic automation. Initially focus on
     easy adoption, minimal disruption, and quick wins with simple, short-term, and narrow AI use cases, often without a coherent
     long-term plan.'
-  helpText: Assesses the breadth and depth of AI use cases, from individual productivity to autonomous agents handling end-to-end
+  helpText: Assesses the breadth and depth of targeted AI use cases, from individual productivity to autonomous agents handling end-to-end
     processes.
   levels:
   - level: 1
@@ -572,11 +572,10 @@ dimensions:
 - id: 12
   short: Process Implementation
   full: Business Integraion and Process Implementation
-  description: 'Process integration, change management, and workflow optimization with AI. start with assistants, gradually
-    increase autonomy. playbooks for all use cases to re-engineer and continuously improve with AI. need systems thinking.
-    you get the benefits not when you use AI to optimize one part within existing workflow, but when you re-engineer the system.
-    horse -> car. GenAI technology advances rapidly, but organizational change within enterprises happens more slowly, creating a speed
-    limit to adoption and value creation. agility and flexibility to update processes as new capabilities emerge. the winner
+  description: 'Process integration, change management, and workflow optimization with AI.
+    Organizations get maximum benefits not when they use AI to optimize one part within existing workflow, but when they re-engineer end-to-end workflows; not when you replace a horse with a car but when you re-engineer the transportation network.
+    GenAI technology advances rapidly, but organizational change within enterprises happens more slowly, creating a speed
+    limit to adoption and value creation. The winner
     is not the smartest or the strongest but the most adaptable to change, with the tightest OODA loop.'
   helpText: Evaluates how AI is integrated into business processes, from informal usage to fully automated workflows.
   levels:
