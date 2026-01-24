@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Maturity Self-Assessment</title>
+    <!-- Google Fonts: Open Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
     <!-- ================================================
@@ -41,6 +48,11 @@
         --cat-pink: #ea76cb;
         --cat-rosewater: #dc8a78;
 
+        /* Header Colors (matching druce.ai main site) */
+        --header-navy: rgba(17, 17, 85, 0.8);
+        --header-text: #ffffff;
+        --header-hover: #ff8f26;
+
         /* Semantic Colors */
         --color-primary: var(--cat-blue);
         --color-primary-hover: var(--cat-lavender);
@@ -63,10 +75,10 @@
         --space-xl: 30px;
 
         /* Typography */
+        --font-scale: 0.875; /* Adjust this to experiment: 0.75=12px, 0.875=14px, 1.0=16px */
         --font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, sans-serif;
-        --font-size-base: 1rem;
+          "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        --font-size-base: calc(16px * var(--font-scale));
         --font-size-sm: 0.9em;
         --font-size-lg: 1.1em;
         --font-size-xl: 1.5em;
@@ -101,6 +113,7 @@
 
       body {
         font-family: var(--font-family);
+        font-size: var(--font-size-base);
         color: var(--cat-text);
         background: white;
         line-height: 1.6;
@@ -111,27 +124,29 @@
          ======================================== */
       .site-header {
         padding: var(--space-md) var(--space-lg);
-        background: white;
-        border-bottom: 1px solid var(--cat-crust);
+        background: var(--header-navy);
+        border-bottom: none;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        min-height: 59px;
       }
 
       .site-header a {
-        color: var(--color-primary);
+        color: var(--header-text);
         text-decoration: none;
-        font-weight: 500;
-        font-size: var(--font-size-sm);
+        font-weight: 600;
+        font-size: 26px;
+        letter-spacing: -1px;
         transition: color 0.2s ease;
       }
 
       .site-header a:hover {
-        color: var(--color-primary-hover);
+        color: var(--header-hover);
       }
 
       .site-copyright {
-        color: var(--cat-subtext0);
+        color: var(--header-text);
         font-size: var(--font-size-sm);
       }
 
@@ -241,7 +256,6 @@
 
       /* ========================================
          DIMENSION COLORS
-         ======================================== */
       .color-leadership {
         color: rgb(20, 48, 109);
       }
@@ -278,7 +292,44 @@
       .color-process {
         color: rgb(219, 111, 101);
       }
+         ======================================== */
 
+      .color-leadership {
+        color: var(--cat-blue);
+      } /* Red */
+      .color-team {
+        color: var(--cat-lavender);
+      } /* Dark red */
+      .color-data {
+        color: var(--cat-mauve);
+      } /* Orange */
+      .color-tech {
+        color: var(--cat-pink);
+      } /* Yellow */
+      .color-observability {
+        color: var(--cat-rosewater);
+      } /* Green */
+      .color-governance {
+        color: var(--cat-red);
+      } /* Teal */
+      .color-security {
+        color: var(--cat-teal);
+      } /* Cyan */
+      .color-training {
+        color: var(--cat-sapphire);
+      } /* Blue */
+      .color-analytics {
+        color: var(--cat-maroon);
+      } /* Light purple */
+      .color-use-cases {
+        color: var(--cat-peach);
+      } /* Purple */
+      .color-partnerships {
+        color: var(--cat-yellow);
+      } /* Magenta */
+      .color-process {
+        color: var(--cat-green);
+      } /* Pink-beige */
       /* ========================================
          TABLE
          ======================================== */
@@ -596,6 +647,76 @@
         color: var(--cat-base);
       }
 
+      /* Custom tooltips for step indicators */
+      .step-indicator[data-tooltip] {
+        position: relative;
+      }
+
+      .step-indicator[data-tooltip]::after {
+        /* Tooltip content box */
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: calc(100% + 12px); /* Position above button with 12px gap */
+        left: 50%;
+        transform: translateX(-50%);
+
+        /* Box styling */
+        background: var(--cat-surface0);
+        color: var(--cat-text);
+        padding: 6px 12px;
+        border-radius: var(--border-radius-sm);
+        font-size: var(--font-size-sm);
+        font-weight: 400;
+        white-space: nowrap;
+
+        /* Shadow for depth */
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--cat-overlay1);
+
+        /* Initially hidden */
+        opacity: 0;
+        pointer-events: none;
+
+        /* Smooth transition */
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+
+        /* Z-index to appear above other elements */
+        z-index: 100;
+      }
+
+      .step-indicator[data-tooltip]::before {
+        /* Tooltip arrow pointing down */
+        content: "";
+        position: absolute;
+        bottom: calc(100% + 6px); /* Position just below tooltip box */
+        left: 50%;
+        transform: translateX(-50%);
+
+        /* Triangle using borders */
+        border: 6px solid transparent;
+        border-top-color: var(--cat-surface0);
+
+        /* Initially hidden */
+        opacity: 0;
+        pointer-events: none;
+
+        /* Smooth transition */
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+
+        /* Z-index */
+        z-index: 100;
+      }
+
+      .step-indicator[data-tooltip]:hover::after,
+      .step-indicator[data-tooltip]:hover::before {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-2px); /* Slight upward movement on appear */
+      }
+
       /* ========================================
          BUTTONS
          ======================================== */
@@ -645,6 +766,17 @@
 
       .btn-danger:hover:not(:disabled) {
         background: var(--color-danger-hover);
+      }
+
+      .btn-subtle {
+        background: var(--cat-surface2);
+        color: var(--cat-text);
+        border: 1px solid var(--cat-overlay0);
+      }
+
+      .btn-subtle:hover:not(:disabled) {
+        background: var(--cat-surface1);
+        border-color: var(--cat-overlay1);
       }
 
       .action-buttons {
@@ -768,6 +900,20 @@
           font-size: 0.7em;
         }
 
+        /* Smaller tooltip on mobile */
+        .step-indicator[data-tooltip]::after {
+          font-size: 0.65rem; /* Smaller text */
+          padding: 4px 8px; /* Less padding */
+          max-width: 200px; /* Limit width */
+          white-space: normal; /* Allow wrapping if needed */
+          text-align: center; /* Center wrapped text */
+        }
+
+        /* Smaller arrow on mobile */
+        .step-indicator[data-tooltip]::before {
+          border-width: 5px; /* Smaller arrow */
+        }
+
         .wizard-header {
           flex-direction: column;
           align-items: flex-start;
@@ -796,7 +942,7 @@
          HTML STRUCTURE
          ================================================ -->
     <header class="site-header">
-      <a href="https://druce.ai/about.html#projects">← druce.ai</a>
+      <a href="https://druce.ai/about.html#projects">Druce.ai</a>
       <div class="site-copyright">
         &copy; 2026 Druce Vertes. All rights reserved.
       </div>
@@ -837,7 +983,8 @@
       </ul>
 
       <p style="margin-top: 15px">
-        50% completion of a level unlocks the next level.
+        For each dimension, 50% completion of a level unlocks the next higher
+        level.
       </p>
       <div class="main-panels" id="mainContent">
         <!-- CHART PANEL -->
@@ -869,10 +1016,7 @@
           </div>
 
           <div class="action-buttons">
-            <button class="btn-primary" id="printBtn">
-              Print / Save as PDF
-            </button>
-            <button class="btn-danger" id="resetBtn">Reset Assessment</button>
+            <button class="btn-subtle" id="resetBtn">Reset Assessment</button>
           </div>
         </div>
 
@@ -2462,7 +2606,7 @@
             steps.push(`
               <div class="step-indicator ${statusClass} ${activeClass}"
                    data-dimension-index="${index}"
-                   title="${escapeHtml(dim.full)}">
+                   data-tooltip="${escapeHtml(dim.full)}">
                 ${index + 1}
               </div>
             `);
@@ -2733,11 +2877,6 @@
           document
             .getElementById("nextBtn")
             .addEventListener("click", () => navigateDimension(1));
-
-          // Print button
-          document
-            .getElementById("printBtn")
-            .addEventListener("click", () => window.print());
 
           // Reset button
           document
