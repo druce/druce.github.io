@@ -1096,7 +1096,23 @@
         UNLOCK_THRESHOLD: 2.0, // 50% average to unlock next level
         STORAGE_KEY: "ai_maturity_assessment",
         STAGE_LABELS: ["Crawl", "Walk", "Run", "Fly"],
-        ANSWER_LABELS: ["Not Started", "Started", "Partly", "Mostly", "Fully"],
+        ANSWER_LABELS: [
+          "Not Started",
+          "Started",
+          "Partly",
+          "Mostly",
+          "Complete",
+        ],
+        PCT_LABELS: ["0%", "25%", "50%", "75%", "100%"],
+        FREQ_LABELS: ["Never", "Rarely", "Sometimes", "Frequently", "Always"],
+        PROB_LABELS: ["No", "Occasionally", "Sometimes", "Mostly", "Yes"],
+        DEGREE_LABELS: [
+          "Not at all",
+          "Slightly",
+          "Moderately",
+          "Mostly",
+          "Completely",
+        ],
       };
 
       // Dimensions data - CUSTOMIZE YOUR ASSESSMENT HERE
@@ -1115,19 +1131,15 @@
                 level: 1,
                 name: "Crawl",
                 questions: [
-                  "Are rank-and-file employees exploring the use of AI tools on their own initiative?",
-                  "Is management discussing potential applications of AI?",
-                  "Has leadership started assessing how AI can benefit the business?",
                   {
-                    text: "How often does leadership discuss AI in strategic meetings?",
-                    answerLabels: [
-                      "Never",
-                      "Rarely",
-                      "Sometimes",
-                      "Often",
-                      "Always",
-                    ],
+                    text: "Are rank-and-file employees exploring the use of AI tools, on their own initiative?",
+                    answerLabels: CONFIG.PROB_LABELS,
                   },
+                  {
+                    text: "Is management discussing potential applications of AI?",
+                    answerLabels: CONFIG.FREQ_LABELS,
+                  },
+                  "Has leadership assessed how AI can benefit the business?",
                 ],
               },
               {
@@ -1135,41 +1147,70 @@
                 name: "Walk",
                 questions: [
                   "Has the firm set a bold vision for AI anchored in business outcomes, with engaged, visible sponsorship from senior leadership?",
-                  "Is there an AI steering committee with a transparent process for selecting AI initiatives, incorporating business functions, legal, HR, compliance, IT, CISO, and other relevant stakeholders?",
-                  "Are use cases and value creation opportunities ranked by suitability: impact, effort, risk, and learning/transferability?",
+                  "Has an AI steering committee been established with a transparent process for selecting AI initiatives, incorporating business functions, legal, HR, compliance, IT, CISO, and other relevant stakeholders?",
+                  "Are use cases and value creation opportunities enumerated and ranked by suitability: impact, effort, risk, and learning/transferability?",
                   "Has leadership selected use cases for initial POCs?",
-                  "Do initial pilot use cases have specific, measurable, achievable, relevant, and time-bound (SMART) AI business objectives?",
-                  "Has the organization allocated a budget for AI initiatives?",
-                  "Do initial pilots have a compelling business case to ensure key stakeholders understand the 'why', and AI projects align with their needs and expectations?",
-                  {
-                    text: "What percentage of leadership team members actively champion AI initiatives?",
-                    answerLabels: ["0%", "25%", "50%", "75%", "100%"],
-                  },
+                  "Has leadership determined specific, measurable, achievable, relevant, and time-bound (SMART) AI business objectives for initial use cases?",
+                  "Has leadership put forward a compelling business case to ensure key stakeholders understand the 'why', and AI projects align with their needs and expectations?",
+                  "Has the organization created a budget for AI initiatives?",
                 ],
               },
               {
                 level: 3,
                 name: "Run",
                 questions: [
-                  "Is leadership championing AI as a strategic priority?",
-                  "Does leadership have a comprehensive medium-term AI roadmap with clear timelines and KPI targets, including ROI and adoption?",
+                  {
+                    text: "Is leadership championing AI as a strategic priority?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  "Has leadership created a comprehensive medium-term AI roadmap with clear timelines and KPI targets, including ROI and adoption?",
                   "Has leadership budgeted Change-the-Business spending vs. Run-the-Business spending, commensurate with the step-change in technology?",
-                  "Are technical teams, business leaders, and frontline employees well aligned to maximize AI effectiveness?",
-                  "Are AI objectives integrated into departmental and individual performance goals?",
-                  "Is there regular leadership review of AI initiative progress, KPIs, and outcomes?",
+                  {
+                    text: "Are technical teams, business leaders, and frontline employees well aligned to maximize AI effectiveness?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are AI objectives integrated into departmental and individual performance goals?",
+                    answerLabels: CONFIG.DEGREE_LABELS,
+                  },
+                  {
+                    text: "Is there regular leadership review of AI initiative progress, KPIs, and outcomes?",
+                    answerLabels: CONFIG.FREQ_LABELS,
+                  },
                 ],
               },
               {
                 level: 4,
                 name: "Fly - broad adoption, a nimble AI-first institution",
                 questions: [
-                  "Are AI capabilities central to the organization's competitive advantage?",
-                  "Does leadership have a long-term strategy, deeply embedded in the organization's culture, processes, and technology stack?",
-                  "Are there success metrics linked to the strategy, with a structured evaluation frameworks?",
-                  "Is there a Chief AI Officer or other C-level individual responsible for AI leadership?",
-                  "Does the leadership and board regularly review AI strategy and competitive positioning?",
-                  "Does leadership guide decisions with a strong understanding of AI strategic opportunities and challenges, legal and ethical risk management, technical and data capabilities and requirements?",
-                  "Is the company culture AI-first with AI well-integrated, strategic, transformative, and pervasive?",
+                  {
+                    text: "Are AI capabilities central to the organization's competitive advantage?",
+                    answerLabels: CONFIG.DEGREE_LABELS,
+                  },
+                  {
+                    text: "Does leadership have a long-term strategy, deeply embedded in the organization's culture, processes, and technology stack?",
+                    answerLabels: CONFIG.DEGREE_LABELS,
+                  },
+                  {
+                    text: "Are there success metrics linked to the strategy, with a structured evaluation frameworks?",
+                    answerLabels: CONFIG.DEGREE_LABELS,
+                  },
+                  {
+                    text: "Is there a Chief AI Officer or other C-level individual responsible for AI leadership?",
+                    answerLabels: CONFIG.DEGREE_LABELS,
+                  },
+                  {
+                    text: "Does the leadership and board regularly review AI strategy and competitive positioning?",
+                    answerLabels: CONFIG.FREQ_LABELS,
+                  },
+                  {
+                    text: "Does leadership guide decisions with a strong understanding of AI strategic opportunities and challenges, legal and ethical risk management, technical and data capabilities and requirements?",
+                    answerLabels: CONFIG.DEGREE_LABELS,
+                  },
+                  {
+                    text: "Is the company culture AI-first with AI well-integrated, strategic, transformative, and pervasive?",
+                    answerLabels: CONFIG.DEGREE_LABELS,
+                  },
                 ],
               },
             ],
