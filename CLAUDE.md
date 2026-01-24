@@ -105,6 +105,108 @@ Push to master branch - GitHub Pages automatically builds and deploys.
 - **Code**: Rouge syntax highlighting with GitHub color scheme
 - **Icons**: Font Awesome
 
+## Current Development: AI Maturity Assessment Tool
+
+### Overview
+The AI Maturity Self-Assessment is a standalone interactive tool that helps organizations evaluate their AI readiness across 12 dimensions on a 4-level maturity scale (Crawl, Walk, Run, Fly). It's a single-file HTML application designed to be downloaded, customized, and used offline.
+
+**Design Philosophy**: Monolithic, self-contained HTML file that users can customize and use offline while tracking progress via localStorage.
+
+### File Locations
+
+**Primary Files** (in `/assets/2025/`):
+- **`ai_maturity_refactor.html`** - Current production version (refactored with MVC architecture)
+- **`ai_maturity.html`** - Original version (legacy, reference only)
+- **`ai_maturity_dimensions.js`** - JavaScript module containing dimension data
+- **`ai_maturity.yml`** - YAML source of truth for dimensions data (in `/_data/` when deployed)
+
+**Documentation**:
+- **`maturity_refactor.md`** - Complete specification and refactoring plan
+- **`README_AI_MATURITY.md`** - Data file structure and maintenance guide
+
+### Architecture
+
+**Single-File MVC Pattern**:
+```
+HTML Structure
+  └─ CSS Styles (Catppuccin Latte theme with CSS variables)
+    └─ JavaScript Modules (IIFEs):
+        ├─ Data Model (CONFIG + DIMENSIONS_DATA)
+        ├─ Model Layer (state management, scoring logic)
+        ├─ Storage Layer (localStorage with versioning)
+        ├─ View Layer (DOM manipulation, Chart.js)
+        └─ Controller Layer (orchestrates Model ↔ View)
+```
+
+### Key Features
+1. **12 Dimensions × 4 Levels**: Leadership, Team, Data, Tech Platforms, Observability, Governance, Security, Training, Analytics/MLOps, Use Cases, Partnerships, Process Implementation
+2. **Progressive Unlocking**: Higher levels unlock when previous level averages ≥50% (threshold configurable)
+3. **Radar Chart Visualization**: Click chart to jump to dimension, real-time updates
+4. **localStorage Persistence**: Auto-save on every change, schema versioning with migrations
+5. **Wizard Navigation**: Step-by-step with keyboard shortcuts, progress tracking
+
+### Critical Implementation Details
+
+**Scoring System**:
+- Questions use 0-4 slider (Not Started → Fully Implemented)
+- Level score: average of question responses (0.0-1.0)
+- Dimension score: sum of unlocked level scores (0.0-4.0)
+- Overall score: average of all dimensions (0.0-4.0)
+
+**State Structure**:
+```javascript
+{
+  schemaVersion: 1,
+  currentDimensionIndex: 0,
+  answers: {
+    dimensionId: {
+      level: { questionIndex: value }
+    }
+  }
+}
+```
+
+**Data Management**:
+- YAML (`ai_maturity.yml`) is the source of truth
+- Manually sync to JavaScript module (`ai_maturity_dimensions.js`)
+- HTML loads JS module for runtime use
+- **Important**: Keep YAML and JS in sync when updating questions/dimensions
+
+### When Working on This Tool
+
+**DO**:
+- Read `maturity_refactor.md` for full architecture and refactoring plan
+- Maintain MVC separation of concerns (Model, View, Controller layers)
+- Use CSS variables for theming (defined in `:root`)
+- Preserve single-file architecture (all dependencies via CDN)
+- Update both YAML and JS when changing dimension data
+- Test localStorage persistence and schema migrations
+- Ensure HTML escaping for XSS prevention
+
+**DON'T**:
+- Break the single-file design (users need to download one file)
+- Add server-side dependencies
+- Use eval() or unsafe practices (security-critical)
+- Remove schema versioning (needed for data migration)
+- Hardcode values that should be in CONFIG object
+- Skip testing the radar chart click navigation
+
+**Common Modifications**:
+1. **Update questions**: Edit `DIMENSIONS_DATA` in HTML and sync to YAML
+2. **Change theme**: Modify CSS variables in `:root` section
+3. **Adjust unlock threshold**: Change `CONFIG.UNLOCK_THRESHOLD`
+4. **Add features**: Follow MVC pattern, extend appropriate layer's public API
+
+### Testing Checklist
+- [ ] All 12 dimensions load and display correctly
+- [ ] Progressive unlocking works (test threshold logic)
+- [ ] Radar chart updates in real-time
+- [ ] Chart click navigation jumps to correct dimension
+- [ ] localStorage save/restore works across page reloads
+- [ ] Keyboard navigation (arrow keys, tab order)
+- [ ] Mobile responsive design
+- [ ] Print/PDF export functionality
+
 ## Site Pages
 
 - `index.html` - Homepage with post listing
