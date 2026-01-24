@@ -50,10 +50,10 @@
         --color-warning: var(--cat-yellow);
 
         /* Stage Colors */
-        --color-stage-crawl: var(--cat-red);
-        --color-stage-walk: var(--cat-yellow);
-        --color-stage-run: var(--cat-green);
-        --color-stage-fly: var(--cat-blue);
+        --color-stage-crawl: #0d0887;
+        --color-stage-walk: #7201a8;
+        --color-stage-run: #bd3786;
+        --color-stage-fly: #ed7953;
 
         /* Spacing Scale */
         --space-xs: 4px;
@@ -63,7 +63,8 @@
         --space-xl: 30px;
 
         /* Typography */
-        --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        --font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           "Helvetica Neue", Arial, sans-serif;
         --font-size-base: 1rem;
         --font-size-sm: 0.9em;
@@ -239,6 +240,46 @@
       }
 
       /* ========================================
+         DIMENSION COLORS
+         ======================================== */
+      .color-leadership {
+        color: rgb(20, 48, 109);
+      }
+      .color-team {
+        color: rgb(39, 49, 135);
+      }
+      .color-data {
+        color: rrgb(59, 52, 155);
+      }
+      .color-tech {
+        color: rgb(80, 58, 154);
+      }
+      .color-observability {
+        color: rgb(99, 65, 151);
+      }
+      .color-governance {
+        color: rgb(116, 73, 146);
+      }
+      .color-security {
+        color: rgb(133, 80, 141);
+      }
+      .color-training {
+        color: rgb(150, 86, 137);
+      }
+      .color-analytics {
+        color: rgb(167, 92, 131);
+      }
+      .color-use-cases {
+        color: rgb(185, 98, 124);
+      }
+      .color-partnerships {
+        color: rgb(203, 104, 114);
+      }
+      .color-process {
+        color: rgb(219, 111, 101);
+      }
+
+      /* ========================================
          TABLE
          ======================================== */
       .dimensions-table {
@@ -277,6 +318,7 @@
          QUESTIONNAIRE
          ======================================== */
       .dimension-header {
+        font-weight: 600;
         margin-bottom: var(--space-lg);
         padding-bottom: var(--space-md);
         border-bottom: 3px solid var(--color-primary);
@@ -284,8 +326,8 @@
 
       .dimension-title {
         font-size: var(--font-size-xl);
-        color: var(--cat-text);
         margin-bottom: var(--space-sm);
+        /* color controlled by .color-{dimension} class */
       }
 
       .dimension-description {
@@ -298,7 +340,7 @@
         margin-top: 10px;
         font-size: var(--font-size-lg);
         font-weight: 600;
-        color: var(--color-primary);
+        /* color controlled by .color-{dimension} class */
       }
 
       .help-content {
@@ -767,7 +809,10 @@
         AI-related capabilities to achieve operational excellence. AI maturity
         is not defined by tech tools alone, but by how effectively the
         organization can improve outcomes by orchestrating people, technology,
-        data, and process.
+        data, and process. Organizations that successfully navigate AI
+        transformation gain competitive advantages, operate with greater
+        efficiency, increase velocity and respond faster to market changes,
+        delivering more value creation.
       </p>
       <ul style="margin-left: 40px; margin-top: 15px">
         <li>
@@ -791,10 +836,9 @@
         </li>
       </ul>
 
-      Organizations that successfully navigate AI transformation gain
-      competitive advantages, operate with greater efficiency, increase velocity
-      and respond faster to market changes, delivering more value creation.
-
+      <p style="margin-top: 15px">
+        50% completion of a level unlocks the next level.
+      </p>
       <div class="main-panels" id="mainContent">
         <!-- CHART PANEL -->
         <div class="chart-panel">
@@ -908,13 +952,7 @@
         UNLOCK_THRESHOLD: 2.0, // 50% average to unlock next level
         STORAGE_KEY: "ai_maturity_assessment",
         STAGE_LABELS: ["Crawl", "Walk", "Run", "Fly"],
-        ANSWER_LABELS: [
-          "Not Started",
-          "Started",
-          "Developing",
-          "Mostly",
-          "Fully implemented",
-        ],
+        ANSWER_LABELS: ["Not Started", "Started", "Partly", "Mostly", "Fully"],
       };
 
       // Dimensions data - CUSTOMIZE YOUR ASSESSMENT HERE
@@ -936,6 +974,16 @@
                   "Are rank-and-file employees exploring the use of AI tools on their own initiative?",
                   "Is management discussing potential applications of AI?",
                   "Has leadership started assessing how AI can benefit the business?",
+                  {
+                    text: "How often does leadership discuss AI in strategic meetings?",
+                    answerLabels: [
+                      "Never",
+                      "Rarely",
+                      "Sometimes",
+                      "Often",
+                      "Always",
+                    ],
+                  },
                 ],
               },
               {
@@ -949,6 +997,10 @@
                   "Do initial pilot use cases have specific, measurable, achievable, relevant, and time-bound (SMART) AI business objectives?",
                   "Has the organization allocated a budget for AI initiatives?",
                   "Do initial pilots have a compelling business case to ensure key stakeholders understand the 'why', and AI projects align with their needs and expectations?",
+                  {
+                    text: "What percentage of leadership team members actively champion AI initiatives?",
+                    answerLabels: ["0%", "25%", "50%", "75%", "100%"],
+                  },
                 ],
               },
               {
@@ -1090,7 +1142,7 @@
           },
           {
             id: 4,
-            short: "Tech Platforms",
+            short: "Tech",
             full: "Technology Platforms & Infrastructure",
             description:
               "AI platforms, development infrastructure, and deployment capabilities.",
@@ -1392,7 +1444,7 @@
           },
           {
             id: 9,
-            short: "Analytics & MLOps",
+            short: "Analytics",
             full: "Analytics, AI Development & MLOps",
             description:
               "Firms of sufficient size should develop centralized AI/data science/MLops capability with the ability to deploy traditional machine learning, deep learning, and generative AI, with best-practice MLops and model lifecycle management.",
@@ -1453,7 +1505,7 @@
           },
           {
             id: 10,
-            short: "Use Cases",
+            short: "Use-Cases",
             full: "Use Cases",
             description:
               "Identifying and sequencing impactful use cases effectively is a key to AI success, use case portfolio, and business impact. Walk: POCs with relatively low risk, high impact, transferable learning; Run: human in the loop assistants; Fly; agentic automation. Stage 1 - Tactical: Focus on easy adoption, minimal disruption, and quick wins with simple, short-term, and narrow AI use cases, often without a coherent long-term plan.",
@@ -1503,7 +1555,7 @@
           },
           {
             id: 11,
-            short: "External Partnerships",
+            short: "Partnerships",
             full: "External Partnerships",
             description:
               "Access ecosystem partnerships, vendor relationships, and industry collaboration, to fuel innovation and to access external data and expertise.",
@@ -1551,7 +1603,7 @@
           },
           {
             id: 12,
-            short: "Process Implementation",
+            short: "Process",
             full: "Business Integration and Process Implementation",
             description:
               "Process integration, change management, and workflow optimization with AI. start with assistants, gradually increase autonomy. playbooks for all use cases to re-engineer and continuously improve with AI. need systems thinking. you get the benefits not when you use AI to optimize one part within existing workflow, but when you re-engineer the system. horse -> car. GenAI technology advances rapidly, but organizational change within enterprises happens more slowly, creating a speed limit to adoption and value creation. agility and flexibility to update processes as new capabilities emerge. the winner is not the smartest or the strongest but the most adaptable to change, with the tightest OODA loop.",
@@ -1664,7 +1716,7 @@
         function calculateDimensionScore(dimensionId) {
           let score = 0;
           const dimension = DIMENSIONS_DATA.dimensions.find(
-            (d) => d.id === dimensionId
+            (d) => d.id === dimensionId,
           );
           if (!dimension) return 0;
 
@@ -1683,8 +1735,7 @@
             let levelScore = 0;
             for (let qIndex = 0; qIndex < questionCount; qIndex++) {
               const answer = levelAnswers[qIndex] || 0;
-              levelScore +=
-                answer / CONFIG.MAX_SLIDER_VALUE / questionCount;
+              levelScore += answer / CONFIG.MAX_SLIDER_VALUE / questionCount;
             }
             score += levelScore;
           }
@@ -1698,7 +1749,7 @@
          */
         function calculateOverallScore() {
           const scores = DIMENSIONS_DATA.dimensions.map((dim) =>
-            calculateDimensionScore(dim.id)
+            calculateDimensionScore(dim.id),
           );
           const sum = scores.reduce((acc, score) => acc + score, 0);
           return sum / scores.length;
@@ -1718,7 +1769,7 @@
           if (!prevLevelAnswers) return false;
 
           const dimension = DIMENSIONS_DATA.dimensions.find(
-            (d) => d.id === dimensionId
+            (d) => d.id === dimensionId,
           );
           if (!dimension) return false;
 
@@ -1775,15 +1826,15 @@
           DIMENSIONS_DATA.dimensions.forEach((dim) => {
             // Check if any question in any level has been answered
             let hasAnswer = false;
-            for (
-              let level = 1;
-              level <= CONFIG.LEVELS_PER_DIMENSION;
-              level++
-            ) {
+            for (let level = 1; level <= CONFIG.LEVELS_PER_DIMENSION; level++) {
               if (!isLevelUnlocked(dim.id, level)) break;
 
               const levelData = dim.levels[level - 1];
-              for (let qIndex = 0; qIndex < levelData.questions.length; qIndex++) {
+              for (
+                let qIndex = 0;
+                qIndex < levelData.questions.length;
+                qIndex++
+              ) {
                 if (state.answers[dim.id][level][qIndex] > 0) {
                   hasAnswer = true;
                   break;
@@ -1815,11 +1866,15 @@
 
             const levelAnswers = dimAnswers[level];
             const dimension = DIMENSIONS_DATA.dimensions.find(
-              (d) => d.id === dimensionId
+              (d) => d.id === dimensionId,
             );
             const levelData = dimension.levels[level - 1];
 
-            for (let qIndex = 0; qIndex < levelData.questions.length; qIndex++) {
+            for (
+              let qIndex = 0;
+              qIndex < levelData.questions.length;
+              qIndex++
+            ) {
               if ((levelAnswers[qIndex] || 0) > 0) {
                 return "in-progress";
               }
@@ -1838,10 +1893,7 @@
           },
           getCurrentDimensionIndex: () => state.currentDimensionIndex,
           setCurrentDimensionIndex: (index) => {
-            if (
-              index >= 0 &&
-              index < DIMENSIONS_DATA.dimensions.length
-            ) {
+            if (index >= 0 && index < DIMENSIONS_DATA.dimensions.length) {
               state.currentDimensionIndex = index;
               return true;
             }
@@ -1854,7 +1906,7 @@
             if (!state.answers[dimensionId][level]) return false;
             state.answers[dimensionId][level][questionIndex] = parseInt(
               value,
-              10
+              10,
             );
             return true;
           },
@@ -2034,6 +2086,23 @@
         }
 
         /**
+         * Get the color for a dimension from CSS
+         * @param {string} dimensionShort - The dimension short name
+         * @returns {string} RGB color value
+         */
+        function getDimensionColor(dimensionShort) {
+          const colorClass = `color-${dimensionShort.toLowerCase()}`;
+          // Create a temporary element to read computed style
+          const temp = document.createElement("div");
+          temp.className = colorClass;
+          temp.style.display = "none";
+          document.body.appendChild(temp);
+          const color = window.getComputedStyle(temp).color;
+          document.body.removeChild(temp);
+          return color || "#1e66f5"; // Fallback to blue
+        }
+
+        /**
          * Initialize Chart.js radar chart
          * @returns {Chart} Chart instance
          */
@@ -2043,7 +2112,7 @@
             type: "radar",
             data: {
               labels: DIMENSIONS_DATA.dimensions.map(
-                (d, i) => `${i + 1}. ${d.short}`
+                (d, i) => `${i + 1}. ${d.short}`,
               ),
               datasets: [
                 {
@@ -2076,8 +2145,12 @@
                     font: { size: 12, weight: "bold" },
                   },
                   pointLabels: {
-                    font: { size: 11, weight: "600" },
-                    color: "#1e66f5",
+                    font: { size: 14, weight: "600" },
+                    color: (context) => {
+                      const dimension =
+                        DIMENSIONS_DATA.dimensions[context.index];
+                      return getDimensionColor(dimension.short);
+                    },
                   },
                   grid: { color: "rgba(156, 160, 176, 0.3)" },
                   angleLines: { color: "rgba(156, 160, 176, 0.3)" },
@@ -2098,7 +2171,6 @@
                       const stage = Model.getStageLabel(score);
                       return `Score: ${score.toFixed(2)} (${stage})`;
                     },
-                    afterLabel: () => "Click to view",
                   },
                 },
               },
@@ -2125,7 +2197,7 @@
           // Angle-based detection for clicks between points
           const canvasPosition = Chart.helpers.getRelativePosition(
             event,
-            chartInstance
+            chartInstance,
           );
           const centerX = chartInstance.scales.r.xCenter;
           const centerY = chartInstance.scales.r.yCenter;
@@ -2173,9 +2245,7 @@
 
           buttons.forEach((btn) => {
             const button = document.createElement("button");
-            button.className = btn.primary
-              ? "btn-primary"
-              : "btn-secondary";
+            button.className = btn.primary ? "btn-primary" : "btn-secondary";
             button.textContent = btn.text;
             button.onclick = btn.handler; // Use function reference, not eval!
             modalButtons.appendChild(button);
@@ -2188,9 +2258,7 @@
          * Hide modal dialog
          */
         function hideModal() {
-          document
-            .getElementById("modalOverlay")
-            .classList.remove("visible");
+          document.getElementById("modalOverlay").classList.remove("visible");
         }
 
         /**
@@ -2198,8 +2266,23 @@
          * @param {number} value - Slider value (0-4)
          * @returns {string} Label text
          */
-        function getAnswerLabel(value) {
-          return `${value} - ${CONFIG.ANSWER_LABELS[value]}`;
+        function getAnswerLabel(value, answerLabels = CONFIG.ANSWER_LABELS) {
+          return `${value} - ${answerLabels[value]}`;
+        }
+
+        /**
+         * Normalize question to object format
+         * @param {string|Object} question - Question string or object with text/answerLabels
+         * @returns {Object} { text: string, answerLabels: array }
+         */
+        function getQuestionData(question) {
+          if (typeof question === "string") {
+            return { text: question, answerLabels: CONFIG.ANSWER_LABELS };
+          }
+          return {
+            text: question.text,
+            answerLabels: question.answerLabels || CONFIG.ANSWER_LABELS,
+          };
         }
 
         /**
@@ -2219,16 +2302,19 @@
 
           const parts = [];
 
+          // Derive color class from dimension short name
+          const colorClass = `color-${dimension.short.toLowerCase()}`;
+
           // Header
           parts.push(`
             <div class="dimension-header">
-              <div class="dimension-title">${escapeHtml(dimension.full)}</div>
+              <div class="dimension-title ${colorClass}">${escapeHtml(dimension.full)}</div>
               <div class="help-content">
                 <div class="dimension-description">${escapeHtml(dimension.description)}</div>
                 <br>
                 ${escapeHtml(dimension.helpText)}
               </div>
-              <div class="dimension-current-score">
+              <div class="dimension-current-score ${colorClass}">
                 ${escapeHtml(dimension.short)} Score: ${dimScore.toFixed(1)} (${Model.getStageLabel(dimScore)})<br>
                 Overall Score: ${overallScore.toFixed(1)} (${Model.getStageLabel(overallScore)})
               </div>
@@ -2238,10 +2324,7 @@
           // Levels
           dimension.levels.forEach((level, levelIndex) => {
             const levelNum = levelIndex + 1;
-            const isUnlocked = Model.isLevelUnlocked(
-              dimension.id,
-              levelNum
-            );
+            const isUnlocked = Model.isLevelUnlocked(dimension.id, levelNum);
             const lockedClass = isUnlocked ? "" : "locked";
             const statusClass = isUnlocked
               ? "status-unlocked"
@@ -2257,16 +2340,17 @@
             `);
 
             level.questions.forEach((question, qIndex) => {
+              const questionData = getQuestionData(question);
               const answerId = `dim${dimension.id}_lv${levelNum}_q${qIndex}`;
               const currentValue = Model.getAnswer(
                 dimension.id,
                 levelNum,
-                qIndex
+                qIndex,
               );
 
               parts.push(`
                 <div class="question-item">
-                  <div class="question-text">${question}</div>
+                  <div class="question-text">${escapeHtml(questionData.text)}</div>
                   <div class="slider-wrapper">
                     <div class="slider-container">
                       <input type="range"
@@ -2278,13 +2362,14 @@
                              ${!isUnlocked ? "disabled" : ""}
                              data-dimension="${dimension.id}"
                              data-level="${levelNum}"
-                             data-question="${qIndex}">
+                             data-question="${qIndex}"
+                             data-answer-labels="${JSON.stringify(questionData.answerLabels).replace(/"/g, "&quot;")}">
                       <div class="value-display" id="${answerId}_display">
-                        ${getAnswerLabel(currentValue)}
+                        ${getAnswerLabel(currentValue, questionData.answerLabels)}
                       </div>
                     </div>
                     <div class="slider-ticks">
-                      ${Array.from({ length: CONFIG.MAX_SLIDER_VALUE + 1 }, (_, i) => `<span>${i}</span>`).join("")}
+                      ${questionData.answerLabels.map((label, i) => `<span title="${escapeHtml(label)}">${i}</span>`).join("")}
                     </div>
                   </div>
                 </div>
@@ -2304,16 +2389,15 @@
          * @param {number} questionIndex - Question index
          * @param {number} value - Slider value
          */
-        function updateSliderDisplay(
-          dimensionId,
-          level,
-          questionIndex,
-          value
-        ) {
+        function updateSliderDisplay(dimensionId, level, questionIndex, value) {
           const answerId = `dim${dimensionId}_lv${level}_q${questionIndex}`;
           const display = document.getElementById(`${answerId}_display`);
-          if (display) {
-            display.textContent = getAnswerLabel(value);
+          const slider = document.getElementById(answerId);
+          if (display && slider) {
+            const answerLabels =
+              JSON.parse(slider.dataset.answerLabels || "null") ||
+              CONFIG.ANSWER_LABELS;
+            display.textContent = getAnswerLabel(value, answerLabels);
           }
         }
 
@@ -2373,8 +2457,7 @@
           DIMENSIONS_DATA.dimensions.forEach((dim, index) => {
             const status = Model.getDimensionStatus(dim.id);
             const statusClass = status === "in-progress" ? "completed" : "";
-            const activeClass =
-              index === currentDimensionIndex ? "active" : "";
+            const activeClass = index === currentDimensionIndex ? "active" : "";
 
             steps.push(`
               <div class="step-indicator ${statusClass} ${activeClass}"
@@ -2479,7 +2562,7 @@
                   handler: startNewSession,
                   primary: false,
                 },
-              ]
+              ],
             );
           } else {
             startApp();
@@ -2499,7 +2582,7 @@
             alert(
               "Error loading saved assessment: " +
                 result.error +
-                "\nStarting fresh assessment."
+                "\nStarting fresh assessment.",
             );
             startApp();
           }
@@ -2521,12 +2604,7 @@
          * @param {number} questionIndex - Question index
          * @param {number} value - New value
          */
-        function handleAnswerChange(
-          dimensionId,
-          level,
-          questionIndex,
-          value
-        ) {
+        function handleAnswerChange(dimensionId, level, questionIndex, value) {
           // Update model
           if (!Model.setAnswer(dimensionId, level, questionIndex, value)) {
             console.error("Failed to set answer");
@@ -2561,10 +2639,7 @@
           const currentIndex = Model.getCurrentDimensionIndex();
           const newIndex = currentIndex + direction;
 
-          if (
-            newIndex >= 0 &&
-            newIndex < DIMENSIONS_DATA.dimensions.length
-          ) {
+          if (newIndex >= 0 && newIndex < DIMENSIONS_DATA.dimensions.length) {
             jumpToDimension(newIndex);
           }
         }
@@ -2602,7 +2677,7 @@
 
           // Update chart
           const scores = DIMENSIONS_DATA.dimensions.map((dim) =>
-            Model.calculateDimensionScore(dim.id)
+            Model.calculateDimensionScore(dim.id),
           );
           View.updateChart(scores);
 
@@ -2631,7 +2706,7 @@
                 handler: View.hideModal,
                 primary: true,
               },
-            ]
+            ],
           );
         }
 
@@ -2671,10 +2746,7 @@
 
           // Slider event delegation
           document.addEventListener("change", (e) => {
-            if (
-              e.target.type === "range" &&
-              e.target.dataset.dimension
-            ) {
+            if (e.target.type === "range" && e.target.dataset.dimension) {
               const dimensionId = parseInt(e.target.dataset.dimension, 10);
               const level = parseInt(e.target.dataset.level, 10);
               const questionIndex = parseInt(e.target.dataset.question, 10);
