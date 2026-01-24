@@ -1228,8 +1228,14 @@
                 level: 1,
                 name: "Crawl",
                 questions: [
-                  "Are individuals using AI tools without structure or coordination?",
-                  "Is there self-taught AI talent without designated roles?",
+                  {
+                    text: "Are individuals using AI tools without structure or coordination?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is there self-taught AI talent without designated roles?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
               {
@@ -1237,34 +1243,70 @@
                 name: "Walk",
                 questions: [
                   "Has the firm evaluated the organization's AI skill gaps and developed a plan to address them?",
-                  "Is there a plan to build a central team with AI and cross-functional implementation expertise, or to organize roles and team structures to support AI initiatives?",
-                  "Has an AI component been added as necessary to all job descriptions and staffing requirements?",
+                  "Has the firm created a plan to build a central team with AI and cross-functional implementation expertise, or to organize roles and team structures to support AI initiatives?",
+                  {
+                    text: "Has an AI component been added as necessary to all job descriptions and staffing requirements?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                   "Has the firm developed a recruitment/retention plan and identified strong recruiting partners for AI talent?",
                   "Has the firm identified and empowered AI champions for training as front-line AI and subject-matter experts?",
-                  "Is the firm celebrating and sharing learnings, wins, and new best practices implemented?",
+                  {
+                    text: "Is the firm celebrating and sharing learnings, wins, and new best practices implemented?",
+                    answerLabels: CONFIG.FREQ_LABELS,
+                  },
                 ],
               },
               {
                 level: 3,
                 name: "Run",
                 questions: [
-                  "Is there a dedicated AI team or center of excellence?",
-                  "Are there lean, multifunctional AI teams with roles like Technical Lead, Data Engineer, and Domain Knowledge Expert/Product Manager, responsible for productionizing AI?",
-                  "Is there a clear career path for AI-specific roles?",
-                  "Are AI champions embedded at all levels across business units?",
-                  "Are rank-and-file team members empowered to build grass-roots workflows and no-code applications using AI?",
-                  "Are experiments, implementation milestones, and innovations celebrated and learnings disseminated?",
+                  "Has the firm created a dedicated AI team or center of excellence?",
+                  {
+                    text: "Are projects implemented by lean, multifunctional teams with roles like Technical Lead, Data Engineer, and Domain Knowledge Expert/Product Manager, responsible for productionizing AI?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is there a clear career path for AI-specific roles?",
+                    answerLabels: CONFIG.DEGREE_LABELS,
+                  },
+                  {
+                    text: "Are AI champions embedded at all levels across business units?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are rank-and-file team members empowered to build grass-roots workflows and no-code applications using AI?",
+                    answerLabels: CONFIG.FREQ_LABELS,
+                  },
+                  {
+                    text: "Are experiments, implementation milestones, and innovations celebrated and learnings disseminated?",
+                    answerLabels: CONFIG.FREQ_LABELS,
+                  },
                 ],
               },
               {
                 level: 4,
                 name: "Fly",
                 questions: [
-                  "Is there a regular AI talent pipeline through academic recruiting and internships?",
-                  "Is there an AI-first culture of innovation?",
-                  "Does the company have a strong AI engineering team and culture?",
-                  "Is AI talent and expertise pervasive throughout the organization?",
-                  "Are teams able to restructure around AI automation?",
+                  {
+                    text: "Has a regular AI talent pipeline been created through academic recruiting and internships?",
+                    answerLabels: CONFIG.DEGREE_LABELS,
+                  },
+                  {
+                    text: "Is there an AI-first culture of innovation?",
+                    answerLabels: CONFIG.DEGREE_LABELS,
+                  },
+                  {
+                    text: "Does the company have a strong AI engineering team and culture?",
+                    answerLabels: CONFIG.DEGREE_LABELS,
+                  },
+                  {
+                    text: "Is AI talent and expertise pervasive throughout the organization?",
+                    answerLabels: CONFIG.DEGREE_LABELS,
+                  },
+                  {
+                    text: "Are teams able to restructure themselves around AI automation?",
+                    answerLabels: CONFIG.FREQ_LABELS,
+                  },
                 ],
               },
             ],
@@ -1282,9 +1324,18 @@
                 level: 1,
                 name: "Crawl",
                 questions: [
-                  "Are employees primarily using individually downloaded and maintained data?",
-                  "Are teams managing data islands in siloed spreadsheets and files, and exposing it to AI?",
-                  "Is data quality managed informally or ad-hoc?",
+                  {
+                    text: "Are employees primarily using individually downloaded and maintained data?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are teams managing data islands in siloed spreadsheets and files, and exposing it to AI?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is data quality managed informally or ad-hoc?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
               {
@@ -1292,9 +1343,18 @@
                 name: "Walk",
                 questions: [
                   "Has a data inventory been launched to identify data sources in use, catalog data types and formats, assess data quality and completeness, and map data flows and dependencies?",
-                  "Are datasets being shared with AI tools being mapped, e.g, structured and unstructured data, file servers, databases, data lakes, etc.?",
-                  "Is all data to be shared with AI tools being tagged for resource based access controls, a semantic layer AI can understand, and lineage/provenance back to original source?",
-                  "Is data infrastructure ready to provide complete, accurate, timely, secure, scalable, well-catalogued data to AI?",
+                  {
+                    text: "Are datasets being shared with AI tools being mapped, e.g, structured and unstructured data, file servers, databases, data lakes, etc.?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is all data to be shared with AI tools being tagged for resource based access controls, a semantic layer AI can understand, and lineage/provenance back to original source?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is data infrastructure ready to provide complete, accurate, timely, secure, scalable, well-catalogued data to AI?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                   "Is the firm leveraging AI to build a central data engineering toolchain? (e.g. an enterprise data warehouse, Airflow, dbt, with ingestion, data quality and semantic layers?",
                 ],
               },
@@ -1302,11 +1362,14 @@
                 level: 3,
                 name: "Run",
                 questions: [
-                  "Are data silos consolidated and organized in a data warehouse?",
+                  "Have data silos been consolidated and organized in a data warehouse?",
                   "Has the firm started automating ingestion and analytical pipelines on recurrent schedules or triggers?",
                   "Have data sets been prioritized for exposure to natural language question answering, considering cost of time currently spent accessing them and the value of exposing data more efficiently to business users?",
                   "Has a data governance framework been launched, to achieve high quality, well catalogued, permissioned, single source of truth (e.g. data warehouse) for any data needed by AI?",
-                  "Is a data quality layer being applied to data, starting with simple checks on the most valuable datasets and use cases?",
+                  {
+                    text: "Is a data quality layer being applied to data, starting with simple checks on the most valuable datasets and use cases?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                   "If traditional ML is in use, have end-to-end continuous MLops training pipelines been deployed to regularly update models with new data?",
                 ],
               },
@@ -1314,12 +1377,24 @@
                 level: 4,
                 name: "Fly",
                 questions: [
-                  "Are there robust pipelines with automations, monitoring, and alerting for timely data ingestion and updating, to serve complete, accurate, timely, secure, scalable, well-catalogued data for AI?",
-                  "Are comprehensive role-based and identity-based access controls in place across all data assets?",
-                  "Do automated systems continuously validate and improve data quality?",
-                  "Is data redacted and anonymized to enable analysis and insights without overpermissioning?",
-                  "Do data pipelines have automatic anomaly detection, alerting, and self-healing?",
-                  "Is the firm gathering long term interaction streams and full 'world models' to train future assistants?",
+                  "Have robust pipelines been created with automations, monitoring, and alerting for timely data ingestion and updating, to serve complete, accurate, timely, secure, scalable, well-catalogued data for AI?",
+                  {
+                    text: "Are comprehensive role-based and identity-based access controls in place across all data assets?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Do automated systems continuously validate and improve data quality?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is data redacted and anonymized to enable analysis and insights without overpermissioning?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Do data pipelines have automatic anomaly detection, alerting, and self-healing?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  "Has the firm started gathering long term interaction streams and full 'world models' to train future assistants?",
                   "Is the firm preparing for improved AI, AGI and superintelligence, and what data, guardrails future AI could leverage?",
                 ],
               },
@@ -1338,9 +1413,15 @@
                 level: 1,
                 name: "Crawl",
                 questions: [
-                  "Are employees using consumer-grade AI tools (ChatGPT, Claude, etc.)?",
-                  "Is AI experimentation happening primarily on personal devices or accounts?",
-                  "Is IT exploring formal AI infrastructure and monitoring?",
+                  {
+                    text: "Are employees using consumer-grade AI tools (ChatGPT, Claude, etc.)?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is AI experimentation happening primarily on personal devices or accounts?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  "Has IT started exploring formal AI infrastructure and monitoring?",
                 ],
               },
               {
@@ -1348,55 +1429,112 @@
                 name: "Walk",
                 questions: [
                   "Has the firm deployed 'horizontal' enterprise AI platforms with SSO and usage monitoring (e.g. Microsoft Copilot, ChatGPT Enterprise etc.)?",
-                  "Are prompt libraries, and best practices documented and shared with users?",
-                  "Has the firm chosen an integrated ecosystem / enterprise cloud infrastructure (Azure, Vertex, Bedrock) to implement AI capabilities, integrating into existing stacks, and scale across business units?",
-                  "Do developers have access to enterprise coding IDEs and agentic assistants?",
+                  {
+                    text: "Are prompt libraries, and best practices documented and shared with users?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  "Has the firm selected and deployed an integrated ecosystem / enterprise cloud infrastructure (Azure, Vertex, Bedrock) to implement AI capabilities, integrating into existing stacks, and scale across business units?",
+                  {
+                    text: "Do developers have access to enterprise coding IDEs and agentic assistants?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                   "Has the firm begun to implement, test, and soft launch 'vertical' AI pilots and POCs, with systematic evaluation, user feedback loop, and deployment criteria?",
-                  "Are no-code/low-code tools such as Microsoft Copilot Studio / Agent Studio available for business users to build simple automations?",
+                  "Hs the firm deployed  no-code/low-code tools such as Microsoft Copilot Studio / Agent Studio for business users to build simple automations?",
                   "Has the firm begun to pilot agentic solutions to specific tasks, including vertical SaaS solutions and in-house development using agent frameworks?",
                   "Has the firm selected an agent framework like OpenAI Agents SDK, Microsoft Agent Framework, LangChain for advanced agent development?",
                   "Has the firm implemented a standard AI output evaluation solution?",
                   "Has the firm made plans to link all resources to AI and replace legacy systems that hinder AI adoption with adaptable, AI-enabled architectures?",
                   "Has the firm begun to develop an integrated toolchain for building AI solutions, including coding assistants, agent frameworks, evaluation and testing frameworks, CI/CD, project management, bug reporting?",
                   "Has day-to-day automation begun for day-to-day IT help desk triage, support, troubleshooting, system admin, to allow AI skill-building and free teams to implement advanced AI workflows?",
-                  "Is there strong separation between development/test/staging/production?",
-                  "Are sandboxes available to run automated coding sessions in complete isolation to experiment without impacting either prod or dev?",
+                  {
+                    text: "Is there strong separation between development/test/staging/production?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are sandboxes available to run automated coding sessions in complete isolation to experiment without impacting either prod or dev?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
               {
                 level: 3,
                 name: "Run",
                 questions: [
-                  "Is there a robust, scalable AI tech infrastructure and platform for developing and deploying AI solutions at scale with defined SLAs?",
-                  "Is there a standardized, integrated end-to-end AI development toolchain covering coding, testing, evaluation, deployment, observability, and incident management?",
-                  "Is there a dev pipeline to move AI pilots into production efficiently, with robust automated testing and evaluation?",
-                  "Are prompt libraries, reusable components, and best practices being developed and documented?",
-                  "Are agent solutions easily discoverable by end-users via a directory/app store?",
-                  "Is there a capability to build complex agent workflows, with high autonomy, context engineering, long- and short-term memory, parallel/concurrent multi-agent architectures?",
+                  {
+                    text: "Is there a robust, scalable AI tech infrastructure and platform for developing and deploying AI solutions at scale with defined SLAs?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is there a standardized, integrated end-to-end AI development toolchain covering coding, testing, evaluation, deployment, observability, and incident management?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is there a dev pipeline to move AI pilots into production efficiently, with robust automated testing and evaluation?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are prompt libraries, reusable components, and best practices being developed and documented?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are agent solutions easily discoverable by end-users via a directory/app store?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  "Has a capability been deployed to build complex agent workflows, with high autonomy, context engineering, long- and short-term memory, parallel/concurrent multi-agent architectures?",
                   "Is the firm exploring advanced agentic architectures, swarms, inter-agent communication, MCP integrations, skills, advanced RAG. etc.?",
-                  "Do production AI systems implement retry logic, fallbacks, and validation checks, composing reliable systems from unreliable components?",
-                  "Are production AI systems monitored for anomalies and regressions?",
-                  "Are there AI-powered CI/CD pipelines, with AI PR reviews and automated tests?",
-                  "Do rank and file employees have the ability to to prototype AI workflows, that can then be scaled robustly and securely across the firm by IT?",
+                  {
+                    text: "Do production AI systems implement retry logic, fallbacks, and validation checks, composing reliable systems from unreliable components?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are production AI systems monitored for anomalies and regressions?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  "Has AI-powered CI/CD pipelines been deployed, with AI PR reviews and automated tests?",
+                  {
+                    text: "Do rank and file employees have the ability to to prototype AI workflows, that can then be scaled robustly and securely across the firm by IT?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
               {
                 level: 4,
                 name: "Fly",
                 questions: [
-                  "Has the firm moved beyond bespoke 0 to 1 development, to AI-assisted industrialized delivery at scale?",
-                  "Are prompts, model versions, tools, and configurations versioned and reproducible, is the full AI system state treated as a deployable artifact?",
-                  "Is the firm using AI-driven DevOps to manage the full lifecycle of a large fleet of AI applications?",
-                  "Is the firm using AI to deploy and maintain large numbers of robust AI-enabled apps with security, observability, scalability?",
-                  "Does the firm have a repeatable, measured path from idea to production deployment, with predictable timelines (weeks not months) and resource requirements?",
+                  {
+                    text: "Has the firm moved beyond bespoke 0 to 1 development, to AI-assisted industrialized delivery at scale?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are prompts, model versions, tools, and configurations versioned and reproducible, is the full AI system state treated as a deployable artifact?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is the firm using AI-driven DevOps to manage the full lifecycle of a large fleet of AI applications?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is the firm using AI to deploy and maintain large numbers of robust AI-enabled apps with security, observability, scalability?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Does the firm have a repeatable, measured path from idea to production deployment, with predictable timelines (weeks not months) and resource requirements?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                   "Is the firm implementing advanced capabilities like complex agent swarms, knowledge graphs, advanced RAG, stream processing?",
                   "Is the firm implementing autonomous agents, with evals and clear criteria for reliability, cost, and promotion to production?",
-                  "Do business users have governed self-service platforms to build, test, and deploy AI workflows?",
+                  "Has a governed self-service platforms been deployed for rank-and-file users to build, test, and deploy AI workflows?",
                   "Has the firm implemented automated prompt optimization?",
                   "Is AI automation deployed on auto-scaling infrastructure?",
-                  "Does the firm support multiple major AI platforms and clouds?",
+                  {
+                    text: "Does the firm support multiple major AI platforms and clouds?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                   "Has the firm developed the ability to do fine-tuning and train models, including local models for AI/data sovereignty",
-                  "Is model performance degradation automatically detected, and are models automatically retrained based on performance degradation or drift detection?",
+                  {
+                    text: "Is model performance degradation automatically detected, and are models automatically retrained based on performance degradation or drift detection?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
             ],
@@ -1414,43 +1552,73 @@
                 level: 1,
                 name: "Crawl",
                 questions: [
-                  "Is AI usage monitored informally and incompletely?",
-                  "Is success measured anecdotally (if at all)?",
+                  {
+                    text: "Is AI usage monitored informally and incompletely?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is success measured anecdotally (if at all)?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
               {
                 level: 2,
                 name: "Walk",
                 questions: [
-                  "Is there a unified firmwide logging infrastructure, including immutable logging of AI system inputs and outputs where required?",
-                  "Are there documented log retention policies?",
-                  "Are logs reviewed regularly to understand adoption, track successes and identify common problems areas which can be improved?",
+                  "Has a unified firmwide logging infrastructure been deployed, including immutable logging of AI system inputs and outputs where required?",
+                  "Has the firm documented log retention policies?",
+                  {
+                    text: "Are logs reviewed regularly to understand adoption, track successes and identify common problems areas which can be improved?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                   "Is the firm collecting broad usage metrics like number of users/queries/tokens, interactions per user by business function/intent?",
                   "Is the firm measuring leadership defined, meaningful KPIs aligned with enterprise goals?",
                   "Is the firm collecting surveys/vibe checks/user labeling of good/bad interactions?",
-                  "Is there visibility into AI compute costs by team, use case, or application?",
-                  "Do all AI interactions support auditability, and regulatory inquiries?",
+                  {
+                    text: "Is there visibility into AI compute costs by team, use case, or application?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Do all AI interactions support auditability, and regulatory inquiries?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
               {
                 level: 3,
                 name: "Run",
                 questions: [
-                  "Are key metrics (number of queries, users, costs, etc.) available in daily reports and real-time dashboards?",
-                  "Is there a centralized AI gateway between users/applications and LLM providers?",
+                  {
+                    text: "Are key metrics (number of queries, users, costs, etc.) available in daily reports and real-time dashboards?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  "Has the firm implemented a centralized AI gateway between users/applications and LLM providers?",
                   "Is there a prompt management / versioning / evaluation / observability / telemetry solution",
-                  "Is the firm able to do deep traces and perform failure analysis of complex workflows?",
+                  {
+                    text: "Is the firm able to do deep traces and perform failure analysis of complex workflows?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                   "Are inference latency, throughput, and cost SLAs defined per workload and monitored with alerting?",
-                  "Is feedback gathered systematically, fostering ongoing learning, refining use cases, and improving KPIs?",
-                  "Is there real-time monitoring of model drift and data quality?",
+                  {
+                    text: "Is feedback gathered systematically, fostering ongoing learning, refining use cases, and improving KPIs?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is there real-time monitoring of model drift and data quality?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
               {
                 level: 4,
                 name: "Fly",
                 questions: [
-                  "Do monitoring systems automatically trigger AI agentic workflows to research and remediate in addition to alerting?",
-                  "Is there predictive alerting based on higher order derivatives and anomalies?",
+                  {
+                    text: "Do monitoring systems automatically trigger AI agentic workflows to research and remediate in addition to alerting?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  "Has the firm implemented predictive alerting based on higher order derivatives and anomalies?",
                 ],
               },
             ],
@@ -1468,16 +1636,25 @@
                 level: 1,
                 name: "Crawl",
                 questions: [
-                  "Have employees been made aware of potential AI-related risks?",
-                  "Is management aware of all AI-specific compliance regulations and frameworks?",
-                  "Is risk management for AI informal or non-existent?",
+                  {
+                    text: "Have employees been made aware of potential AI-related risks?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is management aware of all AI-specific compliance regulations and frameworks?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is risk management for AI informal or non-existent?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
               {
                 level: 2,
                 name: "Walk",
                 questions: [
-                  "Are there documented and communicated AI acceptable usage policies and recommended best-practice guidelines?",
+                  "Has the firm documented and communicated AI acceptable usage policies and recommended best-practice guidelines?",
                   "Has the firm inventoried all AI systems and classified systems by risk level based on data sensitivity and decision impact?",
                   "Has the firm inventoried applicable AI regulations in all jurisdictions it operates in, including SEC regs like Reg S-P, state legislation, EU AI Act?",
                   "Has the firm established clear ownership and accountability for AI governance (e.g., AI governance committee, responsible AI officer)?",
@@ -1490,26 +1667,65 @@
                 name: "Run",
                 questions: [
                   "Has the firm adopted published governance standards for data protection, privacy, responsible AI use, in whole or in part?",
-                  "Are all AI projects subject to framework compliance review and risk assessment?",
+                  {
+                    text: "Are all AI projects subject to framework compliance review and risk assessment?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                   "Is there a formal AI governance committee with regular meeting and review cadence?",
-                  "Are AI vendor contracts reviewed for conformance, including liability, audit rights, data ownership, zero-day retention, training on firm data, and model rights?",
-                  "Is IP protection systematically managed for AI-generated content?",
-                  "Are business continuity and disaster recovery plans around AI regularly tested?",
-                  "Have tabletop exercises been conducted to plan AI-related incident response?",
-                  "Does the AI governance model appropriately balance centralized top-down oversight with decentralized bottom-up experimentation and delivery?",
-                  "Is there documentation of AI decision-making processes for audit trails and explainability?",
-                  "Automated, daily or real-time reporting of potential AI-detected compliance issues",
+                  {
+                    text: "Are AI vendor contracts reviewed for conformance, including liability, audit rights, data ownership, zero-day retention, training on firm data, and model rights?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is IP protection systematically managed for AI-generated content?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are business continuity and disaster recovery plans around AI regularly tested?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Have tabletop exercises been conducted to plan AI-related incident response?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Does the AI governance model appropriately balance centralized top-down oversight with decentralized bottom-up experimentation and delivery?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is there documentation of AI decision-making processes for audit trails and explainability?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is there automated, daily or real-time reporting of potential AI-detected compliance issues?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
               {
                 level: 4,
                 name: "Fly",
                 questions: [
-                  "Are governance and risk management standards understood and implemented by 1st line creators, executors, operations and 2nd line managers and quality assurance?",
-                  "Are governance standards reviewed by external auditors and supported by consultants as appropriate?",
-                  "Are critical governance policies automatically enforced through technical controls?",
-                  "Is there continuous compliance monitoring with automated reporting?",
-                  "Is AI used to help governance and decision-making processes, reduce biases, and increase transparency?",
+                  {
+                    text: "Are governance and risk management standards understood and implemented by 1st line creators, executors, operations and 2nd line managers and quality assurance?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are governance standards reviewed by external auditors and supported by consultants as appropriate?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are critical governance policies automatically enforced through technical controls?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is there continuous compliance monitoring with automated reporting?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is AI used to help governance and decision-making processes, reduce biases, and increase transparency?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
             ],
@@ -1527,21 +1743,48 @@
                 level: 1,
                 name: "Crawl",
                 questions: [
-                  "Are employees regularly made aware of the risks of hallucinations, sharing sensitive data with public AI tools, and required to self-certify with appropriate documentation like attestations?",
-                  "Is there awareness of AI-specific security threats like deepfake impersonation, LLM phishing?",
-                  "Are AI tools being adopted without security review by 'shadow IT' power users?",
+                  {
+                    text: "Are employees regularly made aware of the risks of hallucinations, sharing sensitive data with public AI tools, and required to self-certify with appropriate documentation like attestations?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is there awareness of AI-specific security threats like deepfake impersonation, LLM phishing?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are AI tools being adopted without security review by 'shadow IT' power users?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
               {
                 level: 2,
                 name: "Walk",
                 questions: [
-                  "Has the firm conducted a threat modeling exercise specific to AI systems, covering most common threats like OWASP Top 10?",
-                  "Are access controls enforced using RBAC/IAM with MFA for AI infrastructure?",
-                  "Is sensitive data blocked by DLP and other measures from being shared with external AI tools; or are external AI tools fully blocked in favor of trusted enterprise AI (more secure)?",
-                  "Are there AI-SPM, DSPM, and other security solutions in place to prevent AI-related security issues?",
-                  "Are IT staff identified to manage risks like prompt injection and data leakage, and 'red teaming' to identify issues?",
-                  "Are enterprise AI tools deployed with thoroughly reviewed and enhanced security configurations?",
+                  {
+                    text: "Has the firm conducted a threat modeling exercise specific to AI systems, covering most common threats like OWASP Top 10?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are access controls enforced using RBAC/IAM with MFA for AI infrastructure?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is sensitive data blocked by DLP and other measures from being shared with external AI tools; or are external AI tools fully blocked in favor of trusted enterprise AI (more secure)?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are there AI-SPM, DSPM, and other security solutions in place to prevent AI-related security issues?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are IT staff identified to manage risks like prompt injection and data leakage, and 'red teaming' to identify issues?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are enterprise AI tools deployed with thoroughly reviewed and enhanced security configurations?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                   "Has the firm updated employee training and phishing tests to protect against emerging AI-enhanced threats like smishing, vishing, spear-phishing, whaling, QRishing etc.",
                   "Is there a formal AI incident response playbook with defined escalation procedures?",
                 ],
@@ -1551,12 +1794,30 @@
                 name: "Run",
                 questions: [
                   "Are AI assistants and tools deployed with comprehensive security controls like auto-redaction of MNPI or blocking of sensitive or problematic prompts, and rate-limiting and cost alerts?",
-                  "Are all agents documented, restricted to least privilege, sandboxed, with appropriate guardrails and human in the loop escalation?",
-                  "Are agents operating within an RBAC/IAM framework with least privilege and a standard set of guardrails?",
-                  "Are threat intelligence feeds in place covering AI/ML attack patterns, and integration into detection?",
-                  "Is the firm using AI for cyber defense, log monitoring and triage (AI SecOps)?",
-                  "Are security controls integrated into the ML and CI/CD pipelines with automated scanning for vulnerabilities?",
-                  "Is there continuous adversarial testing (automated red-teaming) of production AI systems?",
+                  {
+                    text: "Are all agents documented, restricted to least privilege, sandboxed, with appropriate guardrails and human in the loop escalation?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are agents operating within an RBAC/IAM framework with least privilege and a standard set of guardrails?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are threat intelligence feeds in place covering AI/ML attack patterns, and integration into detection?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is the firm using AI for cyber defense, log monitoring and triage (AI SecOps)?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are security controls integrated into the ML and CI/CD pipelines with automated scanning for vulnerabilities?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is there continuous adversarial testing (automated red-teaming) of production AI systems?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                   "Has the firm considered upgrading AI apps to more private deployment models: enterprise SaaS -> private cloud -> on-prem?",
                 ],
               },
@@ -1564,10 +1825,22 @@
                 level: 4,
                 name: "Fly",
                 questions: [
-                  "Do AI agents operate with non-human identity management in zero-trust security architectures?",
-                  "Is security audited by a third party to conform to industry standards like NIST AI Risk Management Framework, OWASP LLM Security Checklist",
-                  "Do AI-powered security tools have visibility into all systems to detect and respond autonomously to threats?",
-                  "Are real-time threat intelligence feeds automatically integrated into detection?",
+                  {
+                    text: "Do AI agents operate with non-human identity management in zero-trust security architectures?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is security audited by a third party to conform to industry standards like NIST AI Risk Management Framework, OWASP LLM Security Checklist",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Do AI-powered security tools have visibility into all systems to detect and respond autonomously to threats?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are real-time threat intelligence feeds automatically integrated into detection?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
             ],
@@ -1585,44 +1858,104 @@
                 level: 1,
                 name: "Crawl",
                 questions: [
-                  "Is AI training limited to individual self-learning?",
-                  "Are employees discovering and learning AI tools on their own?",
+                  {
+                    text: "Is AI training limited to individual self-learning?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are employees discovering and learning AI tools on their own?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
               {
                 level: 2,
                 name: "Walk",
                 questions: [
-                  "Is there broad firm-wide AI training for all employees on AI basics, prompting, and best practices, including specific training for senior leaders?",
-                  "Are all employees trained on all aspects of acceptable use policies?",
-                  "Is human validation required of all AI-generated work, with training on how to validate all AI output, and never to accept potential hallucinations uncritically?",
-                  "Does training attempt to overcome resistance and adoption barriers across different demographic groups (like among older workers, women who are less likely to adopt)?",
-                  "Do IT employees have access to advanced training in data science, machine learning, and AI deployment to build in-house AI expertise?",
-                  "Is there documentation of AI best practices and guidelines?",
-                  "Are there online forums for sharing AI knowledge and use cases?",
-                  "Are there regular in-person forums (lunch-and-learns, show-and-tells) for sharing AI use cases and best practices?",
+                  {
+                    text: "Is there broad firm-wide AI training for all employees on AI basics, prompting, and best practices, including specific training for senior leaders?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are all employees trained on all aspects of acceptable use policies?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is human validation required of all AI-generated work, with training on how to validate all AI output, and never to accept potential hallucinations uncritically?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Does training attempt to overcome resistance and adoption barriers across different demographic groups (like among older workers, women who are less likely to adopt)?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Do IT employees have access to advanced training in data science, machine learning, and AI deployment to build in-house AI expertise?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is there documentation of AI best practices and guidelines?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are there online forums for sharing AI knowledge and use cases?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are there regular in-person forums (lunch-and-learns, show-and-tells) for sharing AI use cases and best practices?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
               {
                 level: 3,
                 name: "Run",
                 questions: [
-                  "Are there defined learning paths for priority use cases and for different roles (analyst, PM, engineer, executive)?",
-                  "Are case studies from actual firm AI workflows used in training?",
-                  "Is there a formal certification program for internal AI competencies?",
-                  "Is there continuous learning with regular AI training exercises, customized training based on user roles, and an emphasis on AI-first thinking for all workflows?",
-                  "Is there an AI-enabled knowledge management system for AI practices and system documentation?",
-                  "Can users share prompts and best practices through peer-to-peer knowledge sharing formalized through internal wikis, knowledgebases, and communities of practice?",
+                  {
+                    text: "Are there defined learning paths for priority use cases and for different roles (analyst, PM, engineer, executive)?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are case studies from actual firm AI workflows used in training?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is there a formal certification program for internal AI competencies?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is there continuous learning with regular AI training exercises, customized training based on user roles, and an emphasis on AI-first thinking for all workflows?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is there an AI-enabled knowledge management system for AI practices and system documentation?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Can users share prompts and best practices through peer-to-peer knowledge sharing formalized through internal wikis, knowledgebases, and communities of practice?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
               {
                 level: 4,
                 name: "Fly",
                 questions: [
-                  "Does the firm leverage multiple learning modalities (online platforms, video, MOOCs, hands-on labs), with custom firm curricula?",
-                  "Does the company support external certifications and advanced degrees?",
-                  "Is there a formal AI academy or university partnership?",
-                  "Do employees contribute to AI research and publications?",
+                  {
+                    text: "Does the firm leverage multiple learning modalities (online platforms, video, MOOCs, hands-on labs), with custom firm curricula?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Does the company support external certifications and advanced degrees?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is there a formal AI academy or university partnership?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Do employees contribute to AI research and publications?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
             ],
@@ -1640,16 +1973,25 @@
                 level: 1,
                 name: "Crawl",
                 questions: [
-                  "Are analytics limited to data provided by vendor AI tools?",
-                  "Is expertise in data science and ML limited to self-motivated members of IT and data teams?",
+                  {
+                    text: "Are analytics limited to data provided by vendor AI tools?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is expertise in data science and ML limited to self-motivated members of IT and data teams?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
               {
                 level: 2,
                 name: "Walk",
                 questions: [
-                  "Can the firm implement reporting and dashboards, business intelligence, data visualization, using a standard platform like Power BI or Tableau?",
-                  "Is the firm reporting AI usage volume metrics, user feedback scores, and business KPIs like cost and churn?",
+                  "Has firm implemented a platform for reporting and dashboards, business intelligence, data visualization, using e.g. Power BI or Tableau?",
+                  {
+                    text: "Is the firm reporting AI usage volume metrics, user feedback scores, and business KPIs like cost and churn?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                   "Has the firm considered developing a centralized AI/ML team like an AI Center of Excellence (CoE) to build AI capabilities as company-wide platforms, execute cross-functional projects, and provide best practices, governance, and training resources?",
                 ],
               },
@@ -1661,18 +2003,26 @@
                   "Has the firm implemented automated regulatory and compliance reporting with audit trails?",
                   "Has the firm implemented LLM evaluation frameworks (Promptfoo, RAGAS, DeepEval) for accuracy, faithfulness, relevance testing?",
                   "Are A/B testing and champion/challenger models implemented?",
-                  "Can the firm do End-to-end workflow trace evaluations?",
-                  "Are custom models developed and deployed for specific use cases?",
+                  {
+                    text: "Can the firm do end-to-end workflow trace evaluations?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                   "Can the firm implement traditional machine learning models: Supervised learning (classification/regression), unsupervised learning (clustering/dimensionality reduction), time series analysis (forecasting/anomaly detection), ensemble methods? (XGBoost/LightGBM) using scikit-learn/statsmodels?",
                   "Can the firm apply natural language processing to text using web scraping, research/news feeds using traditional NLP and generative AI?",
-                  "Do models use automated feature engineering and model selection?",
+                  "Do models use automated feature engineering, model selection and end-to-end autoML?",
                   "Can the firm use knowledge graphs for relationship mapping, ownership structures, supply chain analysis, graph RAG?",
                   "Can the firm apply attribution and explainability with SHAP, LIME?",
                   "Can the firm do multi-modal analysis (GPT-4 Vision) for charts, satellite imagery, presentation decks?",
                   "Can the firm do portfolio optimization (CVXPY, Riskfolio-Lib)?",
-                  "Can the firm implement Factor models, backtesting frameworks, scenario analysis, and stress testing?",
-                  "Is there a complete MLOps pipeline from development to production?",
-                  "Are there risk management dashboards with real-time position monitoring, exposure analysis, alerts for threshold breach detection?",
+                  "Can the firm implement factor models, backtesting frameworks, scenario analysis, and stress testing?",
+                  {
+                    text: "Is there a complete MLOps pipeline from development to production?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are there risk management dashboards with real-time position monitoring, exposure analysis, alerts for threshold breach detection?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
               {
@@ -1683,7 +2033,7 @@
                   "Has the firm implemented alt data pipelines?",
                   "Has the firm implemented knowledge management at scale on real-time news and market intelligence?",
                   "Can the firm do advanced time series analysis (GluonTS, deep reinforcement learning) for forecasting, regime detection, pattern recognition?",
-                  "Do systems automatically optimize for specified objectives as new data becomes available?",
+                  "Do systems automatically retrain as new data becomes available?",
                 ],
               },
             ],
@@ -1725,7 +2075,7 @@
                 questions: [
                   "Has the firm moved pilots from previous stage to production?",
                   "Has the firm selected a few specific manual, contained workflows for human-in-the-loop agentic pilots?<br />\n\nExample use cases:<br />\n• Daily/weekly/monthly meeting agendas from structured/unstructured data<br />\n• Investment research copilots (analyst specifies elements to research, iterates on sections of report)<br />\n• DDQ/RFP response systems (AI drafts responses, human reviews)<br />\n• Portfolio or market commentary generation (AI drafts based on significant news and portfolio changes)<br />\n• Meeting preparation assistants (AI summarizes context, human prepares strategy)<br />\n• Compliance monitoring alerts (AI flags issues, leads through structured review checklist)<br />\n• Investor communication drafting (AI creates draft, human adds data/edits, head of IR edits/sends)<br />\n• Research report writing assistants (AI drafts sections, analyst refines)<br />\n• Contract review and red-lining (AI highlights issues, legal reviews)<br />\n• Market intelligence / alt data aggregation (AI compiles, analyst synthesizes)<br />\n• IT help desk ticket triage and routing based on topic, VIP tag<br />\n",
-                  "Are there a well-defined process to systematically solicit and evaluate use cases?",
+                  "Is there a well-defined process to systematically solicit and evaluate use cases?",
                 ],
               },
               {
@@ -1751,37 +2101,76 @@
                 level: 1,
                 name: "Crawl",
                 questions: [
-                  "Are vendor relationships limited to consumer SaaS subscriptions?",
-                  "Is there no formal engagement with AI vendors or partners?",
-                  "Is external AI expertise not being leveraged?",
+                  {
+                    text: "Are vendor relationships limited to consumer SaaS subscriptions?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is there formal engagement with AI vendors or partners?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is external AI expertise being leveraged?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
               {
                 level: 2,
                 name: "Walk",
                 questions: [
-                  "Are designated team members systematically looking for 3rd party solutions, consultants, implementation partners for long-term relationships?",
-                  "Are enterprise agreements in place with major AI platforms and vendors?",
-                  "Is there due diligence and oversight of third-party AI vendors (including their supply chains) to ensure compliance, data security, and business alignment?",
-                  "Do all third-party contracts document no model training and zero-day retention of your data, with periodic attestations of compliance with all contractual provisions?",
+                  {
+                    text: "Are designated team members systematically looking for 3rd party solutions, consultants, implementation partners for long-term relationships?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are enterprise agreements in place with major AI platforms and vendors?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is there due diligence and oversight of third-party AI vendors (including their supply chains) to ensure compliance, data security, and business alignment?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Do all third-party contracts document no model training and zero-day retention of your data, with periodic attestations of compliance with all contractual provisions?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
               {
                 level: 3,
                 name: "Run",
                 questions: [
-                  "Are strategic partnerships established with key technology providers?",
-                  "Is the organization involved in industry consortia and working groups?",
-                  "Are academic partnerships in place for research collaboration?",
+                  {
+                    text: "Are strategic partnerships established with key technology providers?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is the organization involved in industry consortia and working groups?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are academic partnerships in place for research collaboration?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
               {
                 level: 4,
                 name: "Fly",
                 questions: [
-                  "Is the organization contributing to open-source projects and co-developing AI solutions with partners?",
-                  "Are there joint ventures or investments in AI startups?",
-                  "Does the organization influence partner roadmaps and standards?",
+                  {
+                    text: "Is the organization contributing to open-source projects and co-developing AI solutions with partners?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are there joint ventures or investments in AI startups?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Does the organization engage with vendor and partner feature roadmaps and interoperability standards?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
             ],
@@ -1799,8 +2188,14 @@
                 level: 1,
                 name: "Crawl",
                 questions: [
-                  "Are AI tools used informally without adapting workflows and deep process integration?",
-                  "Are workflows changing, but driven by individual contributors, without structured evaluation, explicit goals and evidence of achieving them?",
+                  {
+                    text: "Are AI tools used informally without adapting workflows and deep process integration?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are workflows changing, but driven by individual contributors, without structured evaluation, explicit goals and evidence of achieving them?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
               {
@@ -1821,34 +2216,94 @@
                 name: "Run",
                 questions: [
                   "Does the firm have a playbook to operationalize processes as assistants with humans in the loop, scalably, robustly, with proper controls and business continuity/disaster recovery?",
-                  "During the development cycle, is the firm creating re-usable, scalable components that can accelerate implementations?",
-                  "During deployment and business integration, is the firm creating standardized playbooks that capture repeatable processes and accelerate future rollouts",
-                  "Is AI explainable, so users know why it made a choice, and can rely on it, or take appropriate action and improve the process if the explanation is inadequate?",
-                  "Is the firm considering when assistants are too creative and high risk, and does their creativity ceiling need to be lowered by breaking them down into predictable steps and adding checks, human intervention and fault-tolerance constraints?",
-                  "Is the firm considering when assistants are insufficiently creative, and guardrails can be loosened?",
-                  "Are assistants evaluated with data driven best practices, and known good/bad responses recorded for test suites to improve responses and prevent regressions?",
-                  "Is the firm shifting design mindset from automating tasks within an existing process to reinventing the entire process with human and agentic coworkers?",
-                  "Is the firm democratizing innovation: allowing bottom-up grass roots innovaton close to the business, letting rank and file workers reimagine how jobs are done, transforming operations, subject to data-driven review of the effect on operational performance, costs, risks, guardrails etc.",
-                  "Is there change management to insure new models and tools are deployed in a controlled and tested manner, without disruptions or regressions and measuring improvements?",
-                  "Is there continuous process improvement driven by AI insights?",
-                  "Are documentation and training materials updated on new AI-enhanced processes, with AI assistance?",
+                  {
+                    text: "During the development cycle, is the firm creating re-usable, scalable components that can accelerate implementations?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "During deployment and business integration, is the firm creating standardized playbooks that capture repeatable processes and accelerate future rollouts",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is AI explainable, so users know why it made a choice, and can rely on it, or take appropriate action and improve the process if the explanation is inadequate?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is the firm considering when assistants are too creative and high risk, and does their creativity ceiling need to be lowered by breaking them down into predictable steps and adding checks, human intervention and fault-tolerance constraints?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is the firm considering when assistants are insufficiently creative, and guardrails can be loosened?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are assistants evaluated with data driven best practices, and known good/bad responses recorded for test suites to improve responses and prevent regressions?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is the firm shifting design mindset from automating tasks within an existing process to reinventing the entire process with human and agentic coworkers?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is the firm democratizing innovation: allowing bottom-up grass roots innovaton close to the business, letting rank and file workers reimagine how jobs are done, transforming operations, subject to data-driven review of the effect on operational performance, costs, risks, guardrails etc.",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is there change management to ensure new models and tools are deployed in a controlled and tested manner, without disruptions or regressions and measuring improvements?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is there continuous process improvement driven by AI insights?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Are documentation and training materials updated on new AI-enhanced processes, with AI assistance?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
               {
                 level: 4,
                 name: "Fly",
                 questions: [
-                  "Is the firm systematically identifying issues which must be dealt with by the human in the loop, with a view to automating?",
+                  {
+                    text: "Is the firm systematically identifying issues which must be dealt with by the human in the loop, with a view to automating?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                   "Has the firm built autonomous agent infrastructure, which can let agents notify humans and pause when intervention is required, so human can adjust/approve and continue?",
-                  "Can agents use asynchronous, concurrent, parallel tasks and subagents to do multiple things at once?",
-                  "Can agents try many solutions and pick the best one, or synthesize all responses? (bagging)",
-                  "Can agents iteratively criticize their outputs, identify deficiencies, and correct them? (boosting)",
+                  {
+                    text: "Can agents use asynchronous, concurrent, parallel tasks and subagents to do multiple things at once?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Can agents try many solutions and pick the best one, or synthesize all responses? (bagging)",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Can agents iteratively criticize their outputs, identify deficiencies, and correct them? (boosting)",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                   "Has the firm inventoried autonomous agent patterns and implemented a proof of concept for each one?",
-                  "Can autonomous agents use reasoning, planning, long and short-term memory, swarms with inter-agent communication?",
-                  "Can the firm implement agents as autonomous co-worker in Teams/Slack channels?",
-                  "Is the firm not just optimizing existing workflows with AI, but redesign work to fully take advantage of AI (as if you had infinite interns)?",
-                  "Has the firm established a structured process for continuous improvement, with comprehensive monitoring, inventorying new vendor capabilities, and establishing feedback loops with end-users?",
-                  "Is AI a core enabler of growth, efficiency, and innovation?",
+                  {
+                    text: "Can autonomous agents use reasoning, planning, long and short-term memory, swarms with inter-agent communication?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Can the firm implement agents as autonomous co-worker in Teams/Slack channels?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is the firm not just optimizing existing workflows with AI, but redesign work to fully take advantage of AI (as if you had infinite interns)?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Has the firm established a structured process for continuous improvement, with comprehensive monitoring of improvement opportunities, inventorying new vendor capabilities, and establishing feedback loops with end-users?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
+                  {
+                    text: "Is AI a core enabler of growth, efficiency, and innovation?",
+                    answerLabels: CONFIG.PROB_LABELS,
+                  },
                 ],
               },
             ],
