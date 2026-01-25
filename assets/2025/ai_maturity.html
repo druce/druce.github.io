@@ -3,6 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Primary -->
+    <meta property="og:image" content="/assets/2025/spiderchart.png" />
+    <meta property="og:title" content="AI Maturity Self-Assessment" />
+    <meta
+      property="og:description"
+      content="A 12-dimension, >200-questions AI maturity self-assessment framework for hedge funds, alternative investment managers, other firms."
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:image" content="/assets/2025/spiderchart.png" />
     <title>
       Druce.ai AI Maturity Self-Assessment for hedge funds, alternative
       investment managers, and other firms
@@ -4603,25 +4614,25 @@
 
           // Then selectively unescape safe tags
           const safeTags = {
-            '&lt;br&gt;': '<br>',
-            '&lt;br /&gt;': '<br />',
-            '&lt;br/&gt;': '<br/>',
-            '&lt;b&gt;': '<b>',
-            '&lt;/b&gt;': '</b>',
-            '&lt;i&gt;': '<i>',
-            '&lt;/i&gt;': '</i>',
-            '&lt;em&gt;': '<em>',
-            '&lt;/em&gt;': '</em>',
-            '&lt;strong&gt;': '<strong>',
-            '&lt;/strong&gt;': '</strong>',
-            '&lt;ul&gt;': '<ul>',
-            '&lt;/ul&gt;': '</ul>',
-            '&lt;li&gt;': '<li>',
-            '&lt;/li&gt;': '</li>'
+            "&lt;br&gt;": "<br>",
+            "&lt;br /&gt;": "<br />",
+            "&lt;br/&gt;": "<br/>",
+            "&lt;b&gt;": "<b>",
+            "&lt;/b&gt;": "</b>",
+            "&lt;i&gt;": "<i>",
+            "&lt;/i&gt;": "</i>",
+            "&lt;em&gt;": "<em>",
+            "&lt;/em&gt;": "</em>",
+            "&lt;strong&gt;": "<strong>",
+            "&lt;/strong&gt;": "</strong>",
+            "&lt;ul&gt;": "<ul>",
+            "&lt;/ul&gt;": "</ul>",
+            "&lt;li&gt;": "<li>",
+            "&lt;/li&gt;": "</li>",
           };
 
           for (const [encoded, decoded] of Object.entries(safeTags)) {
-            escaped = escaped.replace(new RegExp(encoded, 'gi'), decoded);
+            escaped = escaped.replace(new RegExp(encoded, "gi"), decoded);
           }
 
           return escaped;
