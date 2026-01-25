@@ -1,26 +1,55 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'
+https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';"
+    >
 
     <!-- SEO -->
-    <meta name="description" content="A comprehensive 12-dimension AI maturity self-assessment framework with 200+ questions for hedge funds and alternative investment managers." />
-    <link rel="canonical" href="https://druce.ai/assets/2025/ai_maturity.html" />
+    <meta
+      name="description"
+      content="A comprehensive 12-dimension AI maturity self-assessment framework with 200+ questions for hedge funds and alternative investment managers."
+    >
+    <link
+      rel="canonical"
+      href="https://druce.ai/assets/2025/ai_maturity.html"
+    >
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://druce.ai/assets/2025/ai_maturity.html" />
-    <meta property="og:title" content="AI Maturity Self-Assessment" />
-    <meta property="og:description" content="A 12-dimension, >200-questions AI maturity self-assessment framework for hedge funds, alternative investment managers, other firms." />
-    <meta property="og:image" content="https://druce.ai/assets/2025/spiderchart.png" />
+    <meta property="og:type" content="website">
+    <meta
+      property="og:url"
+      content="https://druce.ai/assets/2025/ai_maturity.html"
+    >
+    <meta property="og:title" content="AI Maturity Self-Assessment">
+    <meta
+      property="og:description"
+      content="A 12-dimension, >200-question AI maturity self-assessment framework for hedge funds, alternative investment managers, other firms."
+    >
+    <meta
+      property="og:image"
+      content="https://druce.ai/assets/2025/spiderchart.png"
+    >
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://druce.ai/assets/2025/ai_maturity.html" />
-    <meta property="twitter:title" content="AI Maturity Self-Assessment" />
-    <meta property="twitter:description" content="A 12-dimension, >200-questions AI maturity self-assessment framework for hedge funds, alternative investment managers, other firms." />
-    <meta property="twitter:image" content="https://druce.ai/assets/2025/spiderchart.png" />
+    <meta property="twitter:card" content="summary_large_image">
+    <meta
+      property="twitter:url"
+      content="https://druce.ai/assets/2025/ai_maturity.html"
+    >
+    <meta property="twitter:title" content="AI Maturity Self-Assessment">
+    <meta
+      property="twitter:description"
+      content="A 12-dimension, >200-question AI maturity self-assessment framework for hedge funds, alternative investment managers, other firms."
+    >
+    <meta
+      property="twitter:image"
+      content="https://druce.ai/assets/2025/spiderchart.png"
+    >
 
     <title>
       Druce.ai AI Maturity Self-Assessment for hedge funds, alternative
@@ -32,24 +61,38 @@
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
 
     <!-- Web App Manifest (inline data URI to maintain single-file architecture) -->
-    <link rel="manifest" href='data:application/json,{"name":"AI%20Maturity%20Self-Assessment","short_name":"AI%20Maturity","description":"A%20comprehensive%2012-dimension%20AI%20maturity%20self-assessment%20framework%20with%20200%2B%20questions%20for%20hedge%20funds%20and%20alternative%20investment%20managers.","start_url":".%2F","display":"standalone","theme_color":"%231e66f5","background_color":"%23eff1f5","icons":[{"src":"https:%2F%2Fdruce.ai%2Fassets%2F2025%2Fspiderchart.png","sizes":"512x512","type":"image%2Fpng"}]}' />
+    <link
+      rel="manifest"
+      href="data:application/json,%7B%22name%22%3A%22AI%20Maturity%20Self-Assessment%22%2C%22short_name%22%3A%22AI%20Maturity%22%2C%22description%22%3A%22A%20comprehensive%2012-dimension%20AI%20maturity%20self-assessment%20framework%20with%20200%2B%20questions%20for%20hedge%20funds%20and%20alternative%20investment%20managers.%22%2C%22start_url%22%3A%22.%2F%22%2C%22display%22%3A%22standalone%22%2C%22theme_color%22%3A%22%231e66f5%22%2C%22background_color%22%3A%22%23eff1f5%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22https%3A%2F%2Fdruce.ai%2Fassets%2F2025%2Fspiderchart.png%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fpng%22%7D%5D%7D"
+    >
 
     <!-- Resource Hints -->
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Google Fonts: Open Sans (preloaded to avoid render blocking) -->
-    <link rel="preload" as="style"
+    <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
-      onload="this.onload=null;this.rel='stylesheet'" />
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    >
     <noscript>
-      <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+      >
     </noscript>
 
     <!-- External Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"
+      defer
+    ></script>
 
     <!-- ================================================
          CSS STYLES
