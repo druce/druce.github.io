@@ -482,6 +482,26 @@
         margin-bottom: var(--space-sm);
       }
 
+      .question-text ul {
+        margin: 0.5rem 0 0.5rem 1.5rem;
+        padding: 0;
+        list-style-type: disc;
+      }
+
+      .question-text li {
+        margin: 0.25rem 0;
+      }
+
+      .question-text b,
+      .question-text strong {
+        font-weight: 600;
+      }
+
+      .question-text em,
+      .question-text i {
+        font-style: italic;
+      }
+
       .slider-wrapper {
         display: flex;
         flex-direction: column;
@@ -4571,6 +4591,43 @@
         }
 
         /**
+         * Sanitize HTML allowing only safe formatting tags
+         * @param {string} text - Text with HTML to sanitize
+         * @returns {string} Sanitized HTML with safe tags allowed
+         */
+        function sanitizeHtml(text) {
+          // First escape everything
+          const div = document.createElement("div");
+          div.textContent = text;
+          let escaped = div.innerHTML;
+
+          // Then selectively unescape safe tags
+          const safeTags = {
+            '&lt;br&gt;': '<br>',
+            '&lt;br /&gt;': '<br />',
+            '&lt;br/&gt;': '<br/>',
+            '&lt;b&gt;': '<b>',
+            '&lt;/b&gt;': '</b>',
+            '&lt;i&gt;': '<i>',
+            '&lt;/i&gt;': '</i>',
+            '&lt;em&gt;': '<em>',
+            '&lt;/em&gt;': '</em>',
+            '&lt;strong&gt;': '<strong>',
+            '&lt;/strong&gt;': '</strong>',
+            '&lt;ul&gt;': '<ul>',
+            '&lt;/ul&gt;': '</ul>',
+            '&lt;li&gt;': '<li>',
+            '&lt;/li&gt;': '</li>'
+          };
+
+          for (const [encoded, decoded] of Object.entries(safeTags)) {
+            escaped = escaped.replace(new RegExp(encoded, 'gi'), decoded);
+          }
+
+          return escaped;
+        }
+
+        /**
          * Get the color for a dimension from CSS
          * @param {string} dimensionShort - The dimension short name
          * @returns {string} RGB color value
@@ -4835,7 +4892,7 @@
 
               parts.push(`
                 <div class="question-item">
-                  <div class="question-text">${escapeHtml(questionData.text)}</div>
+                  <div class="question-text">${sanitizeHtml(questionData.text)}</div>
                   <div class="slider-wrapper">
                     <div class="slider-container">
                       <input type="range"
