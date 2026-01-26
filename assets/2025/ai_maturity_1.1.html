@@ -68,9 +68,9 @@ https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'
 
     <!-- Resource Hints -->
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-E1305JTTCL"></script>
@@ -1127,6 +1127,7 @@ https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'
           </div>
 
           <div class="action-buttons">
+            <button class="btn-primary" id="exportBtn">Export to CSV</button>
             <button class="btn-subtle" id="resetBtn">Reset Assessment</button>
           </div>
         </div>
@@ -5136,6 +5137,207 @@ https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'
        */
       const Controller = (() => {
         /**
+         * Strip HTML tags from text
+         * @param {string} html - HTML text
+         * @returns {string} Plain text
+         */
+        function stripHtmlTags(html) {
+          const temp = document.createElement("div");
+          temp.innerHTML = html;
+          return temp.textContent || temp.innerText || "";
+        }
+
+        /**
+         * Get answer label for a question's answer value
+         * @param {Object} question - Question object
+         * @param {number} value - Answer value (0-4)
+         * @returns {string} Answer label
+         */
+        function getAnswerLabel(question, value) {
+          const questionData =
+            typeof question === "string"
+              ? { text: question, answerLabels: CONFIG.ANSWER_LABELS }
+              : {
+                  text: question.text,
+                  answerLabels: question.answerLabels || CONFIG.ANSWER_LABELS,
+                };
+          return questionData.answerLabels[value] || CONFIG.ANSWER_LABELS[value];
+        }
+
+        /**
+         * Escape CSV field (handle quotes, commas, newlines)
+         * @param {string|number} field - Field value
+         * @returns {string} Escaped field
+         */
+        function escapeCsvField(field) {
+          const str = String(field);
+          // If field contains comma, quote, or newline, wrap in quotes
+          if (str.includes(",") || str.includes('"') || str.includes("\n")) {
+            // Escape internal quotes by doubling them
+            return '"' + str.replace(/"/g, '""') + '"';
+          }
+          return str;
+        }
+
+        /**
+         * Generate export data by traversing all dimensions/levels/questions
+         * @returns {Array} Array of row objects
+         */
+        function generateExportData() {
+          const rows = [];
+          let counter = 1;
+
+          DIMENSIONS_DATA.dimensions.forEach((dimension) => {
+            dimension.levels.forEach((level, levelIndex) => {
+              const levelNum = levelIndex + 1;
+
+              level.questions.forEach((question, questionIndex) => {
+                const questionData =
+                  typeof question === "string"
+                    ? { text: question, answerLabels: CONFIG.ANSWER_LABELS }
+                    : {
+                        text: question.text,
+                        answerLabels:
+                          question.answerLabels || CONFIG.ANSWER_LABELS,
+                      };
+
+                const answerValue = Model.getAnswer(
+                  dimension.id,
+                  levelNum,
+                  questionIndex,
+                );
+                const answerLabel = getAnswerLabel(question, answerValue);
+
+                // Strip HTML from question text
+                const questionText = stripHtmlTags(questionData.text);
+
+                rows.push({
+                  row: counter++,
+                  dimension: dimension.full,
+                  level: levelNum,
+                  levelName: level.name,
+                  question: questionIndex + 1,
+                  questionText: questionText,
+                  answerValue: answerValue,
+                  answerLabel: answerLabel,
+                });
+              });
+            });
+          });
+
+          return rows;
+        }
+
+        /**
+         * Convert row data to CSV string
+         * @param {Array} rows - Array of row objects
+         * @returns {string} CSV content
+         */
+        function convertToCSV(rows) {
+          const headers = [
+            "Row",
+            "Dimension",
+            "Level",
+            "Level Name",
+            "Question",
+            "Question Text",
+            "Answer Value",
+            "Answer Label",
+          ];
+
+          // Create header row
+          const csvLines = [headers.map(escapeCsvField).join(",")];
+
+          // Add data rows
+          rows.forEach((row) => {
+            const line = [
+              row.row,
+              row.dimension,
+              row.level,
+              row.levelName,
+              row.question,
+              row.questionText,
+              row.answerValue,
+              row.answerLabel,
+            ]
+              .map(escapeCsvField)
+              .join(",");
+            csvLines.push(line);
+          });
+
+          return csvLines.join("\n");
+        }
+
+        /**
+         * Generate timestamp in YYYY-MM-DD_HHMMSS format
+         * @returns {string} Formatted timestamp
+         */
+        function generateTimestamp() {
+          const now = new Date();
+          const year = now.getFullYear();
+          const month = String(now.getMonth() + 1).padStart(2, "0");
+          const day = String(now.getDate()).padStart(2, "0");
+          const hours = String(now.getHours()).padStart(2, "0");
+          const minutes = String(now.getMinutes()).padStart(2, "0");
+          const seconds = String(now.getSeconds()).padStart(2, "0");
+          return `${year}-${month}-${day}_${hours}${minutes}${seconds}`;
+        }
+
+        /**
+         * Download CSV file
+         * @param {string} csvContent - CSV content string
+         */
+        function downloadCSV(csvContent) {
+          const timestamp = generateTimestamp();
+          const filename = `druce_ai_maturity_assessment_${timestamp}.csv`;
+
+          // Create blob with UTF-8 BOM for Excel compatibility
+          const BOM = "\uFEFF";
+          const blob = new Blob([BOM + csvContent], {
+            type: "text/csv;charset=utf-8;",
+          });
+
+          // Create temporary anchor and trigger download
+          const link = document.createElement("a");
+          if (link.download !== undefined) {
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", filename);
+            link.style.visibility = "hidden";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+          }
+        }
+
+        /**
+         * Handle export button click
+         */
+        function handleExportClick() {
+          try {
+            // Generate export data
+            const rows = generateExportData();
+
+            // Convert to CSV
+            const csvContent = convertToCSV(rows);
+
+            // Trigger download
+            downloadCSV(csvContent);
+
+            // Optional: Show success message
+            console.log("CSV export successful");
+          } catch (error) {
+            console.error("Export failed:", error);
+            alert(
+              "Failed to export CSV: " +
+                error.message +
+                "\nPlease try again or contact support.",
+            );
+          }
+        }
+
+        /**
          * Initialize application
          */
         function initialize() {
@@ -5354,6 +5556,11 @@ https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'
             .getElementById("nextBtn")
             .addEventListener("click", () => navigateDimension(1));
 
+          // Export button
+          document
+            .getElementById("exportBtn")
+            .addEventListener("click", handleExportClick);
+
           // Reset button
           document
             .getElementById("resetBtn")
@@ -5416,6 +5623,7 @@ https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'
           navigateDimension,
           jumpToDimension,
           showResetModal,
+          handleExportClick,
         };
       })();
     </script>
