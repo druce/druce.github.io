@@ -74,8 +74,10 @@ exclude:
   - CLAUDE.md
   - AGENTS.md
   - LINK-CHECKER.md
-  - .#*
-  - \#*\#
+  - ".#*"
+  - "**/.#*"
+  - "#*#"
+  - "**/#*#"
 include:
   - .well-known
 kramdown:
