@@ -17,7 +17,7 @@ tags: AI
 <picture>
   <img src="/assets/2025/spiderchart.png" alt="Spider chart" fetchpriority="high" style="width: 100%; height: auto;">
 </picture>
-  <figcaption>A 12-dimension, >200-question AI maturity model.</a></figcaption>
+  <figcaption>A 12-dimension, >200-question AI maturity model.</figcaption>
 </figure>
 <!--more-->
 
