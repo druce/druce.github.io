@@ -70,6 +70,7 @@ exclude:
   - static.test/
   - pizza/
   - assets/js/tablesorter-master/docs/
+  - "**/*.backup"
   - README.md
   - CLAUDE.md
   - AGENTS.md
