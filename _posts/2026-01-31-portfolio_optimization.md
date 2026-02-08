@@ -953,6 +953,7 @@ What have we learned?
 - You get alpha when you understand the complex nonlinear dynamics of the world better than the market, and stay within your circle of competence.
 - Being a good gambler and risk manager and staying within your circle of competence is more important than being a good analyst.
 - A big part of investing is finding situations with asymmetry, optionality, and positive convexity. Then if things turn out better than expected you can make good money but if things turn out poorly your downside is limited.
+- It's easy to pontificate about investing and hard to invest.
 - I'm a midwit so your mileage may vary.
 
 [Code is here](https://github.com/druce/portfolio_optimization/tree/master)
