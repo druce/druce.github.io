@@ -853,7 +853,7 @@ This can be viewed as a Bayesian approach, where we start with a maximum entropy
 
 Knuth has been quoted as saying, the root of all evil is premature optimization. Which is exactly the same as overfitting to an imperfect understanding of the problem. Bad government policy = overfitting to past problems. Bad heuristics and prejudices = overfitting to personal experience or what your grandparents or your lizard brain taught you. It takes a lot of wisdom to only learn from data in proportion to the evidence. You have to have a good model for how the evidence was created and what the underlying reality might look like.
 
-Frequentists may object to a Bayesian approach because it seems non-mathy, where does this prior belief come from? On the other hand, even if you don't use an implicit prior in linear regression, you can back a prior out via Bayes's law, like a continuous distribution from -infinity to +infinity. So I would argue everyone is a Bayesian, but non-Bayesians don't make priors explicit. The real question is whether a Bayesian prior improves out-of-sample performance, and it often does. If you use a prior distribution on IMDB movie ratings, you get an accurate reading faster. If you have some information about what the model should look like, you should use it, otherwise you are not getting the best model. Of course, you should only use the most defensible maximum-entropy prior, otherwise you might be introducing bias into your model.
+Frequentists may object to a Bayesian approach because it seems non-mathy, where does this prior belief come from? On the other hand, even if you don't use an implicit prior in linear regression, you can back a prior out via Bayes's law, like a continuous distribution from -infinity to +infinity. So I would argue everyone is a Bayesian, but non-Bayesians don't make priors explicit. The real question is whether a Bayesian prior improves out-of-sample performance, and it often does. If you use a prior distribution on IMDB movie ratings, you get a better rating sooner with fewer incoming votes. If you have some information about what the model should look like, you should use it, otherwise you are not getting the best model. Of course, you should only use the most defensible maximum-entropy prior, otherwise you might be introducing bias into your model.
 
 If we don't systematically regularize, our model will overfit and not generalize well out of sample.
 
@@ -877,7 +877,7 @@ Average over entire efficient frontier:
 | Real Estate |  8.5%  |
 | Gold |  15.1%  |
 
-This is admittedly a very simplistic, possibly somewhat stupid methodology that loses Sharpe ratio, but not very much. The portfolios at the extremes are probably not ones you would realistically choose. You might want to average over the reasonable portfolios in the middle. But we could view it as a base case.
+This is admittedly a very simplistic, possibly stupid methodology that loses Sharpe ratio, but not very much. The portfolios at the extremes are probably not ones you would realistically choose. You might want to average over the reasonable portfolios in the middle. But we could view it as a base case.
 
 If we add a risk-free asset we get this.
 
