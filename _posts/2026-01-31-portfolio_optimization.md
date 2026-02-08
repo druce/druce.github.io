@@ -8,7 +8,10 @@ guid: /?p=7155
 permalink: /2026/01/portfolio-optimization
 categories: investing
 tags: investing
+image: /assets/2025/efrontier.png
 mathjax: true
+description: A deep dive into intro portfolio theory, optimization, and asset allocation
+image: /assets/2025/efrontier.png
 ---
 > _You don’t need to be a rocket scientist. Investing is not a game where the guy with the 160 IQ beats the guy with 130 IQ. Success in investing doesn’t correlate with IQ once you’re above the level of 120. What you need is the temperament to control the urges that get other people into trouble in investing. If your IQ is 150, sell 30 points; it won’t hurt. - Warren Buffett_
 >
