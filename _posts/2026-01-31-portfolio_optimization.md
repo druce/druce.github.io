@@ -945,14 +945,16 @@ What have we learned?
 
 - Markets are complex. All models are wrong (George Box), but some are useful. We didn't even go into issues with the single-index beta model.
 - Visualizing portfolio composition as vectors and correlations as cosines can help build intuition about volatility, correlation and diversification.
-- The importance of regularization. You probably don't have very good forecasts, and even really smart and sophisticated investors get burned by leverage. For instance before the financial crisis, Citibank and Harvard both decided they should be taking more risk and leverage and got burned. Famously, the [geniuses at Long Term Capital Management](https://en.wikipedia.org/wiki/When_Genius_Failed) made highly levered bets on relatively sure things like buying illiquid off-the-run bonds and selling liquid on-the-run bonds, only to lose billions when markets went into crisis and markets rushed to risk-off via the most liquid instruments.
-- Because your volatility and return estimates are not very good, you probably want to back off from MV optimal portfolios in the direction of more diversification and robustness to regime change. The midwit average may be the simplest thing that might work.
+- If you have a risk-free asset, that changes the shape of the efficient frontier and gives you a line to the left of the Sharpe-optimal portfolio. If you can borrow and use leverage, that changes it again. If you assume some modest ability to pick stocks and short stocks, that improves the efficient frontier a lot, but not many people are actually able to do this consistently over the long run.
+- Individual investors typically want to avoid leverage, shorts, and stock-picking. Even really smart and sophisticated investors get burned by leverage. For instance before the financial crisis, Citibank and Harvard both decided they should be taking more risk and leverage and got burned. Famously, the [geniuses at Long Term Capital Management](https://en.wikipedia.org/wiki/When_Genius_Failed) made highly levered bets on relatively sure things like buying illiquid off-the-run bonds and selling liquid on-the-run bonds, only to lose billions when markets went into crisis and markets rushed to risk-off via the most liquid instruments.
+- Picking the right tradeoff on the frontier is important, hard, and requires a risk aversion assumption/choice.
+- Because you don't have accurate volatility and return estimates, you want to back off from optimal portfolios in the direction of more diversification and robustness to regime change. Regularization is important. The midwit average may be the simplest thing that might work.
 - You can probably reduce and quantify the estimation error with some clever cross-validation.
 - You may wish to take estimation error into account explicitly in picking a portfolio.
 - Potentially you could adjust volatility estimates to additionally incorporate estimation uncertainty, and then pick an optimal portfolio using log utility/risk aversion. Kelly bets and log utility are two sides of the same coin.
 - There are only 2 strategies in the world, mean reversion and trend following. Buy what's cheap on the dip like Buffett, or buy the thing that goes up most and everyone else is buying because there is probably a reason. You can turn these 2 strategies into a 2x2 matrix, adding 2 corners: buy what looks cheap and also has momentum, like AQR, or ignore both and just buy the index.
 - Returns to capital must come from GDP. If GDP goes up you want your fair payoff from the capital/labor share. Real interest rates and wages drive the capital/labor share to some extent. If the economy were to shrink, or the capital share were to shrink, all investors would likely suffer, nothing escapes their gravitational pull.
-- A complementary view is, you want to take as many diversified risks as you can that you are reasonably well compensated for, interest rate risk, inflation risk, overall growth risk, equity risk.
+- A complementary view is, you want to take as many diversified risks as you can that you are reasonably well compensated for, interest rate risk, overall growth risk, inflation risk. In the long run equity risk has been well-compensated via the equity risk premium. But not always, fror instance from 1929 to 1932, late 60s to 1974, 2008. Historically you should buy the dip, but it might take many years to catch up.
 - You get alpha when you understand the complex nonlinear dynamics of the world better than the market, and stay within your circle of competence.
 - Being a good gambler and risk manager and staying within your circle of competence is more important than being a good analyst.
 - A big part of investing is finding situations with asymmetry, optionality, and positive convexity. Then if things turn out better than expected you can make good money but if things turn out poorly your downside is limited.
@@ -960,3 +962,16 @@ What have we learned?
 - I'm a midwit so your mileage may vary.
 
 [Code is here](https://github.com/druce/portfolio_optimization/tree/master)
+
+Related reading:
+
+- [CVXPY tutorial](https://www.cvxpy.org/version/1.1/tutorial/index.html)
+- [Boyd and Vandenberghe - Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/)
+- [Cajas - Advanced Portfolio Optimization: A Cutting-edge Quantitative Approach](https://www.amazon.com/Advanced-Portfolio-Optimization-Cutting-edge-Quantitative/dp/3031843037)
+- [David Swensen - Pioneering Portfolio Management: An Unconventional Approach to Institutional Investment](https://www.amazon.com/Pioneering-Portfolio-Management-Unconventional-Institutional/dp/1416544690)
+- [Bernstein - The Intelligent Asset Allocator: How to Build Your Portfolio to Maximize Returns and Minimize Risk](https://www.amazon.com/Intelligent-Asset-Allocator-Portfolio-Maximize/dp/1260026647)
+- [Kinlaw et al - Asset Allocation: From Theory to Practice and Beyond (Wiley Finance) 1st Edition](https://www.amazon.com/Asset-Allocation-Theory-Practice-Finance/dp/1119817714)
+- [Fabozzi and Markowitz, ed. - The Theory and Practice of Investment Management: Asset Allocation, Valuation, Portfolio Construction, and Strategies](https://www.amazon.com/Theory-Practice-Investment-Management-Construction/dp/0470929901)
+- [Muralidhar - Innovations in Pension Fund Management](https://www.amazon.com/Innovations-Pension-Fund-Management-Muralidhar/dp/0804745218)
+- [Ferri - All About Asset Allocation Paperback](https://www.amazon.com/About-Asset-Allocation-Richard-Ferri/dp/0071429581)
+- [Faber - Global Asset Allocation: A Survey of the World's Top Asset Allocation Strategies](https://www.amazon.com/Global-Asset-Allocation-Survey-Strategies/dp/0988679922)
