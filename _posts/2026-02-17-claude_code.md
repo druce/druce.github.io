@@ -162,6 +162,7 @@ Do what works for you — different people have different workflows. If people c
 - Use the **`/mcp`** command to manage servers.
 - A couple of MCP servers is fine; 10+ is probably too many. When MCP tool descriptions exceed 10% of your context, Claude automatically defers them and loads tool details on demand ("MCP Tool Search"). But it's better to start lean.
 - A little harder to build than skills, but there's an MCP builder — ask Claude to help you create an MCP server as e.g. a Python script with FastMCP and tool decorators.
+- [Connectors](https://claude.com/connectors): Third-party MCP integrations
 - [MCP Documentation](https://modelcontextprotocol.io/docs/learn/server-concepts)
 
 ### Plugins
@@ -267,6 +268,20 @@ Hooks let you run something before or after a tool executes.
    - Tracks active session in `.active-session` file.
    - Outputs recovery context: current branch, uncommitted file count, current phase from `task_plan.md`, in-progress tasks.
    - Prints the "run /systems" reminder.
+
+### CI/CD Integration
+
+- PR review — Analyzes diffs, finds bugs, flags security issues (often catches logic errors humans miss while humans nitpick variable names).
+- Code implementation — Comment @claude implement this on an issue, and it creates a PR with working code.
+- Bug fixes — @claude fix this bug generates a fix PR.
+- PR summaries — Generates human-readable summaries of large PRs for easier review.
+- Release notes — Trigger on tag push to summarize all PRs in a release.
+- CI debugging — Reads workflow logs and diagnoses failures.
+- Resources
+  - [Official GitHub Action](https://github.com/anthropics/claude-code-action)
+  - [Anthropic docs: GitHub Actions](https://code.claude.com/docs/en/github-actions)
+  - [GitHub Marketplace listing](https://github.com/marketplace/actions/claude-code-action-official)
+
 
 ### Frontier stuff
 
