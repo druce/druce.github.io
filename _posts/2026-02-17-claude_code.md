@@ -291,6 +291,13 @@ Hooks let you run something before or after a tool executes.
   - [GitHub Marketplace listing](https://github.com/marketplace/actions/claude-code-action-official)
 
 
+### Ralph
+
+The [Ralph Wiggum technique, created by Geoffrey Huntley](https://ghuntley.com/loop/), is a method for running Claude Code in autonomous loops that iterate until a task is complete — named after the lovably persistent Simpsons character. It's now an official Anthropic plugin.
+- [Claude plugin](https://github.com/frankbria/ralph-claude-code)
+- [How to Ralph Wiggum](https://github.com/ghuntley/how-to-ralph-wiggum)
+
+
 ### Frontier stuff
 
 - [Steve Yegge's Gas Town](https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04) , multiple instances of agents that share memory, talk to each other
