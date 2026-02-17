@@ -10,7 +10,7 @@ categories: tech, AI
 tags: AI
 image: /assets/2025/Claude_code.png
 mathjax: false
-description: 
+description: A quickstart to Claude Code, Anthropic's agentic coding command-line interface (CLI) tool, and roadmap to being an expert.
 ---
 > Claude Code, Anthropic's agentic coding command-line interface (CLI) tool, has been a growing phenomenon.
 > 
@@ -32,21 +32,23 @@ Claude Code is Anthropic's agentic coding tool — a command-line interface (CLI
 ## What we will cover:
 
 - Quick start for those who haven't tried it
-- Best practices and how to climb the ladder to being and expert
+- Best practices and how to climb the ladder to be an expert
 
 ## Why Claude Code
 
 Lots of excitement last few months, why is that?
 
-- **Excellent models**: Sonnet and Opus, with a long 200K context window (Opus 4.6 supports 1M, but Claude Code currently uses 200K; quality degrades when context is ~50% full, so clear context frequently).
+- **Excellent models**: Sonnet and Opus, multi-model to 'see' output, tool-calling, long 200K context window (Opus 4.6 supports 1M, but Claude Code currently uses 200K; quality degrades when context is ~50% full, so clear context frequently).
 - **A simple, effective ReAct control loop**: Plan → code → test → iterate as necessary.
-- **Plan-driven long-term memory**: It writes plans in `.md` files and uses them to stay on task, enabling longer and more complex work compared to vanilla single-turn LLM chat.
+- **Plan-driven long-term memory**: It writes plans in `.md` files and uses them to stay on task. Thinking and planning before acting, and staying on plan, is enables far longer and more complex work compared to vanilla single-turn LLM chat. 
 - **Rich internal tooling**: A plethora of internal tools and subagents to understand, find, and edit code — plus MCP tool support. Good tools that look up exact function signatures or retrieve precise documentation outperform generic web searches  or putting full files in context, for large doc pages. (ChatGPT would often give answers from an outdated API due to training data cutoff; if you have a tool that fetches the exact doc or code you need, and patches a specific line of code, everything works better.)
 - **Large community ecosystem**: A growing community of skills, MCP servers and plugins, with strong third-party integration support. (OpenAI's codex is good and adopting MCP and skills, but strategy seems to be to push you toward their walled garden.)
 - **Multi-tasking subagents**: Spawn isolated agents for parallel work.
 - **Continuous improvement**: Anthropic can collect traces and up/down votes from Claude Code usage and integrate them into RLHF training, they have a flywheel going.
 - **Real-world reliability**: Claude Code can now solve complex problems and refactors, run for 30+ minutes on a complex plan without getting off track, understand brownfield codebases, produce minimal slop, get things 90%+ right, and fix most remaining issues iteratively.
 - **Autonomous operation**: Can even run autonomously for many hours if you have the token quota and the right hooks.
+- More mature than OpenAI Codex and Gemini CLI which are closest comparisons. IDEs like Cursor, Windsurf, GitHub Copilot in VS Code are also developing agentic coding assistants. Combining Claude Code with your favorite IDE is most typical best practice.
+  reference). People finding this post will want to know why Claude Code over the alternatives.
 - [YouTube: How Claude Code Works](https://www.youtube.com/watch?v=RFKCzGlAU6Q)
 
 ## Levels of Coding Assistance
@@ -65,6 +67,11 @@ Source: [The Five Levels from Spicy Autocomplete to the Software Factory](https:
 This guide should get you to level 2–3 and provide a roadmap to get to 4–5.
 
 ## Getting Started
+
+### Install
+
+- [Set up Claude Code])https://code.claude.com/docs/en/setup)
+- Pricing: [Pro](https://claude.com/pricing), [$100 and $200 Max plans](https://claude.com/pricing/max) . Start with Pro to learn, once you do real work you will run out of tokens from time to time, Pro gives you limited tokens in a 4-5 hour window. Use `/status` to see where you are with usage and when it resets. Once you start developing big plans that code for 30 minutes, you will run out very fast in Pro, need a $100 Max plan. The $200 plan is if you have multiple sessions at once, or otherwise are running out in the $100 plan.
 
 ### Claude.md - super important
 
@@ -87,7 +94,7 @@ This guide should get you to level 2–3 and provide a roadmap to get to 4–5.
 
 - **`[Shift+Tab]`** — Toggle between Plan mode, Auto-accept mode, and Default mode (prompt before changes).
 - **`@` files** — Reference specific files in prompts with `@myfile.txt`.
-- **Drag and drop** images, or paste with **Ctrl+V** (not Cmd+V on Mac).
+- **Drag and drop** images, or paste with **Ctrl+V** (not Cmd+V on Mac). Claude Code can read screenshots, images, diagrams. Paste a screenshot of a bug to fix. Or prompt it how to create an image ouptut with Figma or Playwright, then check it, and iterate on it.
 - **`/model`** — Switch between Sonnet and Opus.
 - **`/ide`** — Claude can see what you selected in IDE, read IDE listing errors etc., put proposed changes inline with diffs
 - **`/vim`** — can use emacs (default) or vim keybindings in editor. `/keybindings`Open `~/.claude/keybindings.json` to customize all shortcuts
@@ -209,7 +216,7 @@ Effective use of Claude.md, skills, is about giving Claude the right context at 
 ### Essential Context Commands
 
 - **`/clear`** — Do one task, then clear context. The 200K window is large but not all equally usable. Also saves on tokens and your quota budget.
-- **`/context`** — Shows what Claude is currently tracking: system prompt, `CLAUDE.md`, MCP servers, skills, and messages.
+- **`/context`** — Shows what Claude is currently tracking: system prompt, `CLAUDE.md`, MCP servers, skills, and messages. 
 - **`/compact`** — Summarizes context, but it's somewhat of a black box. Prefer `/clear` and explicit, mindful context management over implicit `/compact` or auto-compact.
 - **`/rewind`** (or **Esc Esc**) — If you had a digression to figure something out, rewind to an earlier point to "forget" useless context.
 - **`/export`** — Save your context. Helpful if you want to review why Claude did what it did. Some people save at key checkpoints and even commit them to git.
@@ -307,7 +314,7 @@ Hooks let you run something before or after a tool executes.
 - **`/clear` context often**, saves tokens and works faster and better without confusing Claude
 - **Git integration** — Claude Code has native awareness of `git diff`, branch context, and how to leverage it for PR descriptions, commit messages, and changelog generation. There is a github plugin. **Commit often.**
 - /doctor for info about config, current v. stable version. Possibly keep people on stable version. Update with `claude update`
-- Opus for complex planning and complex tasks, can usually use Sonnet for coding (managing token cost)
+- Opus for complex planning and complex tasks, can usually use Sonnet for coding (managing token cost); switch with `\model`.
 - **Multiple plan iterations for complex work** — Tell Claude to write the plan to an `.md` file, edit it yourself, ask a different AI (like Codex) to review.
 - **The dev loop**: Plan → Code (with tests) → Code review → Iterate.
 - **The "god prompt"**: *"You're a cranky senior developer who hates me and my code. Tell me everything that's wrong — all the edge cases I missed."*
@@ -318,3 +325,7 @@ Hooks let you run something before or after a tool executes.
 - **Headless/CI mode** — Running Claude Code in CI pipelines (`claude -p "prompt" --output-format json`) for automated code review, test generation, or migration tasks. Can use **`--max-turns`** — Control how many autonomous steps Claude takes before stopping for human review.
 - **SDK/library mode** — Use [Claude Code as a module](https://platform.claude.com/docs/en/agent-sdk/overview) from other scripts or a UI, building custom agentic workflows.
 
+## Concluding remarks.
+
+- [The documentation is excellent](https://code.claude.com/docs/en/overview).
+- Anyone can vibe-code now...If you have been waiting to get started, wait no more!
