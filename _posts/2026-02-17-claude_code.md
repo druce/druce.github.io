@@ -40,9 +40,9 @@ Lots of excitement last few months, why is that?
 
 - **Excellent models**: Sonnet and Opus, multi-model to 'see' output, tool-calling, long 200K context window (Opus 4.6 supports 1M, but Claude Code currently uses 200K; quality degrades when context is ~50% full, so clear context frequently).
 - **A simple, effective ReAct control loop**: Plan → code → test → iterate as necessary.
-- **Plan-driven long-term memory**: It writes plans in `.md` files and uses them to stay on task. Thinking and planning before acting, and staying on plan, is enables far longer and more complex work compared to vanilla single-turn LLM chat. 
+- **Plan-driven long-term memory**: It writes plans in `.md` files and uses them to stay on task. Thinking and planning before acting, and staying on plan, enables far longer and more complex work compared to vanilla single-turn LLM chat. 
 - **Rich internal tooling**: A plethora of internal tools and subagents to understand, find, and edit code — plus MCP tool support. Good tools that look up exact function signatures or retrieve precise documentation outperform generic web searches  or putting full files in context, for large doc pages. (ChatGPT would often give answers from an outdated API due to training data cutoff; if you have a tool that fetches the exact doc or code you need, and patches a specific line of code, everything works better.)
-- **Large community ecosystem**: A growing community of skills, MCP servers and plugins, with strong third-party integration support. (OpenAI's codex is good and adopting MCP and skills, but strategy seems to be to push you toward their walled garden.)
+- **Integration**: The CLI can do anything you can do on your computer from the command line, and control a browser. There is a growing community of skills, MCP servers and plugins, with strong third-party integration support. (OpenAI's Codex is good and adopting MCP and skills, but their strategy seems to be to push you toward their walled garden.)
 - **Multi-tasking subagents**: Spawn isolated agents for parallel work.
 - **Continuous improvement**: Anthropic can collect traces and up/down votes from Claude Code usage and integrate them into RLHF training, they have a flywheel going.
 - **Real-world reliability**: Claude Code can now solve complex problems and refactors, run for 30+ minutes on a complex plan without getting off track, understand brownfield codebases, produce minimal slop, get things 90%+ right, and fix most remaining issues iteratively.
@@ -72,6 +72,7 @@ This guide should get you to level 2–3 and provide a roadmap to get to 4–5.
 
 - [Set up Claude Code])https://code.claude.com/docs/en/setup)
 - Pricing: [Pro](https://claude.com/pricing), [$100 and $200 Max plans](https://claude.com/pricing/max) . Start with Pro to learn, once you do real work you will run out of tokens from time to time, Pro gives you limited tokens in a 4-5 hour window. Use `/status` to see where you are with usage and when it resets. Once you start developing big plans that code for 30 minutes, you will run out very fast in Pro, need a $100 Max plan. The $200 plan is if you have multiple sessions at once, or otherwise are running out in the $100 plan.
+- This post is about the CLI. You can also use Claude Code within the desktop app and Web UI, but it is much more sandboxed. As a CLI running in your terminal Claude Code can do anything you can do (so be careful!).
 
 ### Claude.md - super important
 
@@ -327,5 +328,5 @@ Hooks let you run something before or after a tool executes.
 
 ## Concluding remarks.
 
-- [The documentation is excellent](https://code.claude.com/docs/en/overview).
+- [The documentation is excellent](https://code.claude.com/docs/en/overview). See especially [Common workflows](https://code.claude.com/docs/en/common-workflows) and [Best practices](https://code.claude.com/docs/en/common-workflows).
 - Anyone can vibe-code now...If you have been waiting to get started, wait no more!
