@@ -21,7 +21,7 @@ description: A quickstart to Claude Code, Anthropic's agentic coding command-lin
 <figure>
 <picture>
   <source srcset="/assets/2025/Claude_code.png" type="image/png">
-  <img src="/assets/2025/Claude_code" alt="Claude Code" fetchpriority="high" style="width: 100%; height: auto;">
+  <img src="/assets/2025/Claude_code.png" alt="Claude Code" fetchpriority="high" style="width: 100%; height: auto;">
 </picture>
 </figure>
 
@@ -36,11 +36,11 @@ Claude Code is Anthropic's agentic coding tool — a command-line interface (CLI
 
 ## Why Claude Code
 
-Lots of excitement last few months, why is that?
+Lots of excitement these last few months, why is that?
 
 - **Excellent models**: Sonnet and Opus, multi-model to 'see' output, tool-calling, long 200K context window (Opus 4.6 supports 1M, but Claude Code currently uses 200K; quality degrades when context is ~50% full, so clear context frequently).
 - **A simple, effective ReAct control loop**: Plan → code → test → iterate as necessary.
-- **Plan-driven long-term memory**: It writes plans in `.md` files and uses them to stay on task. Thinking and planning before acting, and staying on plan, enables far longer and more complex work compared to vanilla single-turn LLM chat. 
+- **Plan-driven long-term memory**: It writes plans in `.md` files and uses them to stay on task. The ability to thinkg and plan before acting, and then stay on plan, enables far longer and more complex work compared to vanilla single-turn LLM chat. 
 - **Rich internal tooling**: A plethora of internal tools and subagents to understand, find, and edit code — plus MCP tool support. Good tools that look up exact function signatures or retrieve precise documentation outperform generic web searches  or putting full files in context, for large doc pages. (ChatGPT would often give answers from an outdated API due to training data cutoff; if you have a tool that fetches the exact doc or code you need, and patches a specific line of code, everything works better.)
 - **Integration**: The CLI can do anything you can do on your computer from the command line, and control a browser. There is a growing community of skills, MCP servers and plugins, with strong third-party integration support. (OpenAI's Codex is good and adopting MCP and skills, but their strategy seems to be to push you toward their walled garden.)
 - **Multi-tasking subagents**: Spawn isolated agents for parallel work.
@@ -48,7 +48,6 @@ Lots of excitement last few months, why is that?
 - **Real-world reliability**: Claude Code can now solve complex problems and refactors, run for 30+ minutes on a complex plan without getting off track, understand brownfield codebases, produce minimal slop, get things 90%+ right, and fix most remaining issues iteratively.
 - **Autonomous operation**: Can even run autonomously for many hours if you have the token quota and the right hooks.
 - More mature than OpenAI Codex and Gemini CLI which are closest comparisons. IDEs like Cursor, Windsurf, GitHub Copilot in VS Code are also developing agentic coding assistants. Combining Claude Code with your favorite IDE is most typical best practice.
-  reference). People finding this post will want to know why Claude Code over the alternatives.
 - [YouTube: How Claude Code Works](https://www.youtube.com/watch?v=RFKCzGlAU6Q)
 
 ## Levels of Coding Assistance
@@ -70,8 +69,8 @@ This guide should get you to level 2–3 and provide a roadmap to get to 4–5.
 
 ### Install
 
-- [Set up Claude Code])https://code.claude.com/docs/en/setup)
-- Pricing: [Pro](https://claude.com/pricing), [$100 and $200 Max plans](https://claude.com/pricing/max) . Start with Pro to learn, once you do real work you will run out of tokens from time to time, Pro gives you limited tokens in a 4-5 hour window. Use `/status` to see where you are with usage and when it resets. Once you start developing big plans that code for 30 minutes, you will run out very fast in Pro, need a $100 Max plan. The $200 plan is if you have multiple sessions at once, or otherwise are running out in the $100 plan.
+- [Set up Claude Code](https://code.claude.com/docs/en/setup)
+- Pricing: [Pro](https://claude.com/pricing), [$100 and $200 Max plans](https://claude.com/pricing/max). Start with Pro to learn, once you do real work you will run out of tokens from time to time, Pro gives you limited tokens in a 4-5 hour window. Use `/status` to see where you are with usage and when it resets. Once you start developing big plans that code for 30 minutes, you will run out very fast in Pro, need a $100 Max plan. The $200 plan is if you have multiple sessions at once, or otherwise are running out in the $100 plan.
 - This post is about the CLI. You can also use Claude Code within the desktop app and Web UI, but it is much more sandboxed. As a CLI running in your terminal Claude Code can do anything you can do (so be careful!).
 
 ### Claude.md - super important
@@ -95,7 +94,7 @@ This guide should get you to level 2–3 and provide a roadmap to get to 4–5.
 
 - **`[Shift+Tab]`** — Toggle between Plan mode, Auto-accept mode, and Default mode (prompt before changes).
 - **`@` files** — Reference specific files in prompts with `@myfile.txt`.
-- **Drag and drop** images, or paste with **Ctrl+V** (not Cmd+V on Mac). Claude Code can read screenshots, images, diagrams. Paste a screenshot of a bug to fix. Or prompt it how to create an image ouptut with Figma or Playwright, then check it, and iterate on it.
+- **Drag and drop** images, or paste with **Ctrl+V** (not Cmd+V on Mac). Claude Code can read screenshots, images, diagrams. Paste a screenshot of a bug to fix. Or prompt it how to create an image output with Figma or Playwright, then check it, and iterate on it.
 - **`/model`** — Switch between Sonnet and Opus.
 - **`/ide`** — Claude can see what you selected in IDE, read IDE listing errors etc., put proposed changes inline with diffs
 - **`/vim`** — can use emacs (default) or vim keybindings in editor. `/keybindings`Open `~/.claude/keybindings.json` to customize all shortcuts
@@ -104,7 +103,7 @@ This guide should get you to level 2–3 and provide a roadmap to get to 4–5.
 - **`[escape]`** — stop what it's doing if you forget to tell it something or it's going off the rails
 - **`[escape] [escape]`** or **`/rewind`** — return to earlier point in conversation, get rid of digressive context
 - `Ctrl+D Ctrl+D` Exit Claude Code
-- scan through all the commands, If you don't know something, ask Claude — it has built-in tools to look up its own docs for you.
+- Scan through all the commands with `/`. If you don't know something, ask Claude — it has built-in tools to look up its own docs for you.
 
 ## Dev Loop: Spec-Driven Development
 
@@ -212,7 +211,7 @@ Context management is the single most important skill for effective Claude Code 
 - **Bad context**: Outdated or incorrect information leads to wrong answers.
 - **Context rot**: Quality tends to fall when context reaches ~50% full.
 
-Effective use of Claude.md, skills, is about giving Claude the right context at the right time.
+Effective use of Claude Code is about giving it the right context at the right time, including using skills and Claude.md .
 
 ### Essential Context Commands
 
@@ -305,9 +304,10 @@ The [Ralph Wiggum technique, created by Geoffrey Huntley](https://ghuntley.com/l
 
 ## Security
 
-- Claude Code runs with all the permissions of the user and access to bash, which is too much for some environments. (blew away my Docker env one time) To lock it down
+- Claude Code runs with all the permissions of the user and access to bash, which is too much for some environments. To lock it down
   - Deploy with pre-configured permissions and hooks to block destructive commands without approval, `rm`, `git`
   - Deploy in container with only access to container, broaden as necessary for task
+  - `--allowedTools` can restrict which tools Claude can use. 
   - After writing some agents and skills, package into a web app that runs using Claude Agent SDK which is essentially a Claude Code API
 
 ## Other Best Practices
@@ -321,8 +321,8 @@ The [Ralph Wiggum technique, created by Geoffrey Huntley](https://ghuntley.com/l
 - **Always start in Plan mode.**
 - **`/clear` context often**, saves tokens and works faster and better without confusing Claude
 - **Git integration** — Claude Code has native awareness of `git diff`, branch context, and how to leverage it for PR descriptions, commit messages, and changelog generation. There is a github plugin. **Commit often.**
-- /doctor for info about config, current v. stable version. Possibly keep people on stable version. Update with `claude update`
-- Opus for complex planning and complex tasks, can usually use Sonnet for coding (managing token cost); switch with `\model`.
+- `/doctor` for info about config, current v. stable version. Some way wish to keep people on the latest stable version. Update version with `claude update`
+- Opus for complex planning and complex tasks, can usually use Sonnet for coding (managing token cost); switch with `/model`.
 - **Multiple plan iterations for complex work** — Tell Claude to write the plan to an `.md` file, edit it yourself, ask a different AI (like Codex) to review.
 - **The dev loop**: Plan → Code (with tests) → Code review → Iterate.
 - **The "god prompt"**: *"You're a cranky senior developer who hates me and my code. Tell me everything that's wrong — all the edge cases I missed."*
@@ -333,7 +333,7 @@ The [Ralph Wiggum technique, created by Geoffrey Huntley](https://ghuntley.com/l
 - **Headless/CI mode** — Running Claude Code in CI pipelines (`claude -p "prompt" --output-format json`) for automated code review, test generation, or migration tasks. Can use **`--max-turns`** — Control how many autonomous steps Claude takes before stopping for human review.
 - **SDK/library mode** — Use [Claude Code as a module](https://platform.claude.com/docs/en/agent-sdk/overview) from other scripts or a UI, building custom agentic workflows.
 
-## Concluding remarks.
+## Concluding remarks
 
-- [The documentation is excellent](https://code.claude.com/docs/en/overview). See especially [Common workflows](https://code.claude.com/docs/en/common-workflows) and [Best practices](https://code.claude.com/docs/en/common-workflows).
+- [The documentation is excellent](https://code.claude.com/docs/en/overview). See especially [Common workflows](https://code.claude.com/docs/en/common-workflows) and [Best practices](https://code.claude.com/docs/en/best-practices).
 - Anyone can vibe-code now...If you have been waiting to get started, wait no more!
