@@ -38,7 +38,7 @@ Claude Code is Anthropic's agentic coding tool — a command-line interface (CLI
 
 Lots of excitement these last few months, why is that?
 
-- **Excellent models**: Sonnet and Opus, multi-model to 'see' output, tool-calling, long 200K context window (Opus 4.6 supports 1M, but Claude Code currently uses 200K; quality degrades when context is ~50% full, so clear context frequently).
+- **Excellent models**: Sonnet and Opus, multi-model to 'see' output, tool-calling, long 200k context window (1m for Opus and Sonnet with extra charges. Note that it can degrade when > 50% full so /clear frequently)
 - **A simple, effective ReAct control loop**: Plan → code → test → iterate as necessary.
 - **Plan-driven long-term memory**: It writes plans in `.md` files and uses them to stay on task. The ability to thinkg and plan before acting, and then stay on plan, enables far longer and more complex work compared to vanilla single-turn LLM chat. 
 - **Rich internal tooling**: A plethora of internal tools and subagents to understand, find, and edit code — plus MCP tool support. Good tools that look up exact function signatures or retrieve precise documentation outperform generic web searches  or putting full files in context, for large doc pages. (ChatGPT would often give answers from an outdated API due to training data cutoff; if you have a tool that fetches the exact doc or code you need, and patches a specific line of code, everything works better.)
@@ -48,6 +48,7 @@ Lots of excitement these last few months, why is that?
 - **Real-world reliability**: Claude Code can now solve complex problems and refactors, run for 30+ minutes on a complex plan without getting off track, understand brownfield codebases, produce minimal slop, get things 90%+ right, and fix most remaining issues iteratively.
 - **Autonomous operation**: Can even run autonomously for many hours if you have the token quota and the right hooks.
 - More mature than OpenAI Codex and Gemini CLI which are closest comparisons. IDEs like Cursor, Windsurf, GitHub Copilot in VS Code are also developing agentic coding assistants. Combining Claude Code with your favorite IDE is most typical best practice.
+- [Usable code output has climbed from < 50% to > 90%](https://crawshaw.io/blog/eight-more-months-of-agents)
 - [YouTube: How Claude Code Works](https://www.youtube.com/watch?v=RFKCzGlAU6Q)
 
 ## Levels of Coding Assistance
@@ -304,7 +305,8 @@ The [Ralph Wiggum technique, created by Geoffrey Huntley](https://ghuntley.com/l
 
 ## Security
 
-- Claude Code runs with all the permissions of the user and access to bash, which is too much for some environments. To lock it down
+- Claude Code CLI runs with all the permissions of the user and access to bash, which is too much for many enterprise environments. For instance my Docker was hung, I asked Claude Code to troubleshoot, it fixed it by deleting the troublesome container which was annoying because it had Postgres with some data (Langfuse). Claude Code CLI is [agentic browsers on steroids and crack](https://www.gartner.com/en/documents/7211030).
+ To lock it down
   - Deploy with pre-configured permissions and hooks to block destructive commands without approval, `rm`, `git`
   - Deploy in container with only access to container, broaden as necessary for task
   - `--allowedTools` can restrict which tools Claude can use. 
