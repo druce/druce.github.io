@@ -29,11 +29,6 @@ description: A quickstart to Claude Code, Anthropic's agentic coding command-lin
 
 Claude Code is Anthropic's agentic coding tool — a command-line interface (CLI) that lets you delegate coding tasks directly to Claude. 
 
-## What we will cover:
-
-- Quick start for those who haven't tried it
-- Best practices and how to climb the ladder to be an expert
-
 ## Why Claude Code
 
 Lots of excitement these last few months, why is that?
