@@ -41,7 +41,7 @@ Lots of excitement these last few months, why is that?
 - **Excellent models**: Sonnet and Opus, multi-model to 'see' output, tool-calling, long 200k context window (1m for Opus and Sonnet with extra charges. Note that it can degrade when > 50% full so /clear frequently)
 - **A simple, effective ReAct control loop**: Plan → code → test → iterate as necessary.
 - **Plan-driven long-term memory**: It writes plans in `.md` files and uses them to stay on task. The ability to thinkg and plan before acting, and then stay on plan, enables far longer and more complex work compared to vanilla single-turn LLM chat. 
-- **Rich internal tooling**: A plethora of internal tools and subagents to understand, find, and edit code — plus MCP tool support. Good tools that look up exact function signatures or retrieve precise documentation outperform generic web searches  or putting full files in context, for large doc pages. (ChatGPT would often give answers from an outdated API due to training data cutoff; if you have a tool that fetches the exact doc or code you need, and patches a specific line of code, everything works better.)
+- **Rich internal tooling**: A plethora of internal tools and subagents to understand, find, and edit code — plus MCP tool support. Good tools that look up exact function signatures or retrieve precise documentation outperform generic web searches  or putting full code files in context, or large doc pages. (ChatGPT would often give answers from an outdated API due to training data cutoff; if you have a tool that fetches the exact doc or code you need, and patches a specific line of code, everything works better.)
 - **Integration**: The CLI can do anything you can do on your computer from the command line, and control a browser. There is a growing community of skills, MCP servers and plugins, with strong third-party integration support. (OpenAI's Codex is good and adopting MCP and skills, but their strategy seems to be to push you toward their walled garden.)
 - **Multi-tasking subagents**: Spawn isolated agents for parallel work.
 - **Continuous improvement**: Anthropic can collect traces and up/down votes from Claude Code usage and integrate them into RLHF training, they have a flywheel going.
@@ -98,7 +98,7 @@ This guide should get you to level 2–3 and provide a roadmap to get to 4–5.
 - **Drag and drop** images, or paste with **Ctrl+V** (not Cmd+V on Mac). Claude Code can read screenshots, images, diagrams. Paste a screenshot of a bug to fix. Or prompt it how to create an image output with Figma or Playwright, then check it, and iterate on it.
 - **`/model`** — Switch between Sonnet and Opus.
 - **`/ide`** — Claude can see what you selected in IDE, read IDE listing errors etc., put proposed changes inline with diffs
-- **`/vim`** — can use emacs (default) or vim keybindings in editor. `/keybindings`Open `~/.claude/keybindings.json` to customize all shortcuts
+- **`/vim`** — can use emacs (default) or vim keybindings in editor. `/keybindings` or open `~/.claude/keybindings.json` to customize all shortcuts
 - `Ctrl+R`Search prompt history
 - **`/resume`** or **`claude --resume`** and **`claude --continue`** — Resume work in a previous conversation thread where you left off.
 - **`[escape]`** — stop what it's doing if you forget to tell it something or it's going off the rails
@@ -114,7 +114,7 @@ This guide should get you to level 2–3 and provide a roadmap to get to 4–5.
 
 - **context7** — Look up docs for any Python module (or other languages).
 
-- **Superpowers** — Test-driven development workflow. Started as an open-source community project, now in the Anthropic plugin marketplace. Other similar plugins (these not recommended, but give you a flavor of what people are doing):
+- **Superpowers** — Test-driven development workflow. Started as an open-source community project, now in the Anthropic plugin marketplace. Other similar plugins (these are not recommended, but give you a flavor of what people are doing):
 
   - **BMAD/Spec Kit**: Persona-based agents (Business Analyst, Architect, Developer, etc.), full PRD workflows — very heavyweight.
 
@@ -137,10 +137,10 @@ This guide should get you to level 2–3 and provide a roadmap to get to 4–5.
    ```bash
    alias claudeyolo='claude --dangerously-skip-permissions'
    ```
-   But only use this in an environment where it can do no harm, like a throwaway VPC or container. (Consider adding hooks to block destructive commands like `rm` and `git`.)
+   But only use this in an environment where it can do no harm, like a throwaway VPC or container. Also consider adding hooks to block destructive commands like `rm` and `git`.
 4. **Brainstorm the plan** — Say: *"I would like to brainstorm and create a plan to build [high-level intention]."* Then provide detailed info about what you want. The Superpowers plugin will ask questions to help write a plan.
 5. **Read and edit the plan** — It's your project, not Claude's, especially at the planning stage.
-6. **Cross-check with another AI** — Use e.g. OpenAI or Codex to review: *"What details and edge cases might I have missed?"* Iterate a few times. See: [Rule of 5 Passes over Design, Code, etc.](https://steve-yegge.medium.com/six-new-tips-for-better-coding-with-agents-d4e9c86e42a9)
+6. **Cross-check with another AI** — Use e.g. OpenAI Codex to review: *"What details and edge cases might I have missed?"* Iterate a few times. See: [Rule of 5 Passes over Design, Code, etc.](https://steve-yegge.medium.com/six-new-tips-for-better-coding-with-agents-d4e9c86e42a9)
 7. **Visual aids welcome** — Give it a sketch, put ASCII art in the plan, or hook up the Figma plugin to mock up a UI.
 8. **Ask questions** — e.g., *"What are the tradeoffs between storing data in JSON vs. SQLite vs. Markdown files?"*
 9. **When the plan looks good, tell it to write the code.**
@@ -148,16 +148,16 @@ This guide should get you to level 2–3 and provide a roadmap to get to 4–5.
 11. **Important: Include acceptance tests in the plan** — Give Claude a way to verify output: pytest, npm test, Playwright for UI, or rendering a PNG for graphical artifacts. Testable plans let it iterate, easily double the quality of the output.
 12. **Do several passes of code review** — [Example prompt](https://www.reddit.com/r/ClaudeAI/comments/1q5a90l/so_i_stumbled_across_this_prompt_hack_a_couple/): *"Do a git diff and pretend you're a senior dev doing a code review and you HATE this implementation. What would you criticize? What edge cases am I missing?"* Go back and forth with OpenAI for diversity. Use the `code-review` plugin or [Turing Skill](https://github.com/turingmindai/turingmind-code-review). 
 13. **Fix what you missed** — You'll probably notice gaps; ask Claude to fix them.
-14. **Don't be afraid to start over** — It's cheap. When you realize the architecture is wrong, tell it to write a detailed plan describing everything it did, then build a whole new version in a parallel directory. As [Boris Cherny](https://www.reddit.com/r/ClaudeAI/comments/1q2c0ne/claude_code_creator_boris_shares_his_setup_with/) puts it: *"Knowing everything you know, design a more elegant solution."*
+14. **Don't be afraid to start over** — It's cheap. When you realize the architecture is wrong, tell it to write a detailed plan describing everything it did, then build a whole new version in a parallel directory. As Claude Code creator [Boris Cherny](https://www.reddit.com/r/ClaudeAI/comments/1q2c0ne/claude_code_creator_boris_shares_his_setup_with/) puts it: *"Knowing everything you know, design a more elegant solution."*
 
-Do what works for you — different people have different workflows. If people can build C compilers and operating systems with these tools, you can probably build most things. The key is good specs and a way to verify.
+Do what works for you — different people have different workflows. If people can build C compilers and operating systems with these tools, you can probably build most CRUD GUIs. The key is good specs and a way to verify.
 
 ## Extensions
 
 ### Skills
 
 - **Procedural knowledge** about how to do something with tools and subagents.
-- Custom slash commands and skills have been merged, same thing.
+- Custom slash commands and skills have been merged, same thing now.
 - Any boilerplate task — setting up a project, plan review, code review, security review — you can set up a skill so Claude does it the way you want.
 - A skill is a `.md` file describing how to do something, with metadata (frontmatter), optionally with *scripts* and *context* file data.
 - [Anthropic: Complete Guide to Building Skills](https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf?hsLang=en)
@@ -216,7 +216,7 @@ Effective use of Claude Code is about giving it the right context at the right t
 
 ### Essential Context Commands
 
-- **`/clear`** — Do one task, then clear context. The 200K window is large but not all equally usable. Also saves on tokens and your quota budget.
+- **`/clear`** — Do one task, then clear context. The 200K token context window (or 1m if enabled with `/model`) is large but not all equally usable. `/clear` also saves on tokens, and time.
 - **`/context`** — Shows what Claude is currently tracking: system prompt, `CLAUDE.md`, MCP servers, skills, and messages. 
 - **`/compact`** — Summarizes context, but it's somewhat of a black box. Prefer `/clear` and explicit, mindful context management over implicit `/compact` or auto-compact.
 - **`/rewind`** (or **Esc Esc**) — If you had a digression to figure something out, rewind to an earlier point to "forget" useless context.
@@ -251,7 +251,7 @@ Add permissions in `settings.local.json` under `.claude` so you don't have to ap
 
 ### Hooks
 
-Hooks let you run something before or after a tool executes.
+Hooks let you run something before or after a chat turn or tool executes.
 
 - Use cases: formatters, linters, testers, guardrails.
 - 9+ hook trigger points (and growing).
@@ -280,8 +280,8 @@ Hooks let you run something before or after a tool executes.
 ### CI/CD Integration
 
 - PR review — Analyzes diffs, finds bugs, flags security issues (often catches logic errors humans miss while humans nitpick variable names).
-- Code implementation — Comment @claude implement this on an issue, and it creates a PR with working code.
-- Bug fixes — @claude fix this bug generates a fix PR.
+- Code implementation — Comment "@claude implement this" on an issue, and it creates a PR with working code.
+- Bug fixes — "@claude fix this bug" generates a fix PR.
 - PR summaries — Generates human-readable summaries of large PRs for easier review.
 - Release notes — Trigger on tag push to summarize all PRs in a release.
 - CI debugging — Reads workflow logs and diagnoses failures.
@@ -310,7 +310,7 @@ The [Ralph Wiggum technique, created by Geoffrey Huntley](https://ghuntley.com/l
   - Deploy with pre-configured permissions and hooks to block destructive commands without approval, `rm`, `git`
   - Deploy in container with only access to container, broaden as necessary for task
   - `--allowedTools` can restrict which tools Claude can use. 
-  - After writing some agents and skills, package into a web app that runs using Claude Agent SDK which is essentially a Claude Code API
+  - After writing some agents and skills, package into a web app that runs using Claude Agent SDK which is essentially a Claude Code API, or headless `claude -p`
 
 ## Other Best Practices
 
@@ -328,11 +328,11 @@ The [Ralph Wiggum technique, created by Geoffrey Huntley](https://ghuntley.com/l
 - **Multiple plan iterations for complex work** — Tell Claude to write the plan to an `.md` file, edit it yourself, ask a different AI (like Codex) to review.
 - **The dev loop**: Plan → Code (with tests) → Code review → Iterate.
 - **The "god prompt"**: *"You're a cranky senior developer who hates me and my code. Tell me everything that's wrong — all the edge cases I missed."*
-- **It's cheap to throw away and start over** — Say: *"Write a new version that does the same thing but structures it like this."* The previous version functions as a spec. You may do this 2–3 times, because the first build reveals what you were missing, then you add the kitchen sink ([Brooks's Second-System Syndrome](https://en.wikipedia.org/wiki/Second-system_effect)), then you realize much of the detailed cases can be generalized.
+- **It's cheap to throw away and start over** — Say: *"Write a new version that does the same thing but structures it like this."* The previous version functions as a spec. You may do this 2–3 times, because the first build reveals what you were missing, then you add the kitchen sink ([Brooks's Second-System Syndrome](https://en.wikipedia.org/wiki/Second-system_effect)), then you realize much of the additions are unnecessary or simpler approaches can be generalized.
 - **Sandbox as thoroughly as possible** — You might be tempted to develop with access to a production resource like a database or API — don't. All bets are off. YOLO in a sandbox, then PR into a feature branch when something works.
 - **Voice input** — Some people swear by Wispr Flow voice keyboard for talking to Claude Code.
 - **Give logs and screenshots** of what happened to help troubleshoot.
-- **Headless/CI mode** — Running Claude Code in CI pipelines (`claude -p "prompt" --output-format json`) for automated code review, test generation, or migration tasks. Can use **`--max-turns`** — Control how many autonomous steps Claude takes before stopping for human review.
+- **Headless/CI mode** — Running Claude Code in CI pipelines (`claude -p "prompt" --output-format json`) for automated code review, test generation, or migration tasks. Can use **`--max-turns`** to control how many autonomous steps Claude takes before stopping for human review.
 - **SDK/library mode** — Use [Claude Code as a module](https://platform.claude.com/docs/en/agent-sdk/overview) from other scripts or a UI, building custom agentic workflows.
 
 ## Concluding remarks
