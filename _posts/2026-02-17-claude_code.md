@@ -335,10 +335,12 @@ The [Ralph Wiggum technique, created by Geoffrey Huntley](https://ghuntley.com/l
 
 ## Concluding remarks
 
-- [Roadmap.sh Step-by-Step guide to becoming a Claude Code expert in 2026](https://roadmap.sh/claude-code)
-
 - [The documentation is excellent](https://code.claude.com/docs/en/overview). See especially [Common workflows](https://code.claude.com/docs/en/common-workflows) and [Best practices](https://code.claude.com/docs/en/best-practices).
 
 - Anyone can vibe-code and be (sort of) a 10x coder now...If you have been waiting to get started, wait no more!
 
 
+Further reading:
+
+- [Claude Code Tips](https://github.com/ykdojo/claude-code-tips)
+- [Roadmap.sh Step-by-Step guide to becoming a Claude Code expert in 2026](https://roadmap.sh/claude-code)
