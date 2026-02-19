@@ -46,6 +46,8 @@ Lots of excitement these last few months, why is that?
 - [Usable code output has climbed from < 50% to > 90%](https://crawshaw.io/blog/eight-more-months-of-agents)
 - [YouTube: How Claude Code Works](https://www.youtube.com/watch?v=RFKCzGlAU6Q)
 
+With Claude Code, instead of being a developer with an assistant, you get promoted to the team lead of a team of agents planning and building stuff for you. You become more of a conductor leading an orchestra, and they do more of the work than was the case with GitHub Copilot, Cursor, Windsurf etc. And hopefully this makes you more productive. It's getting closer to the autonomous engineer we were promised with e.g. Devin.
+
 ## Levels of Coding Assistance
 
 | Level | Description |
