@@ -301,11 +301,14 @@ The [Ralph Wiggum technique, created by Geoffrey Huntley](https://ghuntley.com/l
 ## Security
 
 - Claude Code CLI runs with all the permissions of the user and access to bash, which is too much for many enterprise environments. For instance my Docker was hung, I asked Claude Code to troubleshoot, it fixed it by deleting the troublesome container which was annoying because it had Postgres with some data (Langfuse). Claude Code CLI is [agentic browsers on steroids and crack](https://www.gartner.com/en/documents/7211030).
- To lock it down
-  - Deploy with pre-configured permissions and hooks to block destructive commands without approval, `rm`, `git`
-  - Deploy in container with only access to container, broaden as necessary for task
-  - `--allowedTools` can restrict which tools Claude can use. 
-  - After writing some agents and skills, package into a web app that runs using Claude Agent SDK which is essentially a Claude Code API, or headless `claude -p`
+- To lock it down
+  - The desktop app and UI are more sandboxed than CLI, and have [managed settings](https://code.claude.com/docs/en/settings) governing sandboxing.
+  - Set permissions regarding what tools it can access.
+  - Set up hooks, always intercept some calls you might not like like rm -rf / .
+  - Log everything via hooks
+  - Connect to LLM via proxy and log what it's doing there. You could even have Claude Code point to a local model and never hit Anthropic using e.g. OpenRouter
+  - Or consider running in a container with network allowlist to e.g. internal MCPs and select external websites. Can then sandbox at container level, only connect to internal-only MCP tools, some websites.
+  - After writing some agents and skills, package into a web app that runs using Claude Agent SDK which is essentially running via Claude Code API, or headless `claude -p`
 
 ## Other Best Practices
 
@@ -332,5 +335,10 @@ The [Ralph Wiggum technique, created by Geoffrey Huntley](https://ghuntley.com/l
 
 ## Concluding remarks
 
+- [Roadmap.sh Step-by-Step guide to becoming a Claude Code expert in 2026](https://roadmap.sh/claude-code)
+
 - [The documentation is excellent](https://code.claude.com/docs/en/overview). See especially [Common workflows](https://code.claude.com/docs/en/common-workflows) and [Best practices](https://code.claude.com/docs/en/best-practices).
-- Anyone can vibe-code now...If you have been waiting to get started, wait no more!
+
+- Anyone can vibe-code and be (sort of) a 10x coder now...If you have been waiting to get started, wait no more!
+
+
