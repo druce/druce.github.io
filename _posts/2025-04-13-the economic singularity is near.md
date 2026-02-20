@@ -8,6 +8,7 @@ guid: /?p=7140
 permalink: /2025/04/economic_singularity
 categories: AI
 tags: AI
+image: /assets/2025/isoquants.png
 mathjax: true
 ---
 <figure>
