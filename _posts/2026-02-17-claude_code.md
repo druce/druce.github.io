@@ -256,6 +256,70 @@ In both cases, if prompts aren't calling the tool/skill when you expect, you may
 - A plugin is a **packaging mechanism** to distribute skills, MCP servers, hooks, sub-agents, and their associated artifacts.
 - Bundles skills (including definitions, scripts and data artifacts), hooks, subagents, MCP servers, into a single installable unit.
 
+
+### Hooks
+
+Hooks let you run something before or after a chat turn or tool executes.
+
+- Use cases: formatters, linters, testers, guardrails.
+- 14+ hook trigger points (and growing):  SessionStart, UserPromptSubmit, PreToolUse, PermissionRequest, PostToolUse, PostToolUseFailure, Notification, SubagentStart, SubagentStop, Stop, TeammateIdle, TaskCompleted, ConfigChange, PreCompact, SessionEnd.
+- Run in YOLO mode (`alias claudeyolo='claude --dangerously-skip-permissions'`) but add a hook for destructive commands (`rm`, `git`, etc.).
+- Put guidance in `CLAUDE.md` too, but a hook *guarantees* code will run when something happens.
+- **Ralph Wiggum plugin**: A hook that intercepts the "stop" event, lets you test when a prompt completes to ensure it met spec, and resumes if necessary. You create a test/promise; on exit, it runs the test. If the desired result hasn't been achieved, it keeps going — enabling long-running prompts that perpetually find issues and fix them.
+- **Hook Ideas**
+  - PreToolUse — File Protection Guard to block edits on certain files
+  - PostToolUse — Log tool use
+  - SessionStart — Fetch some real-time stuff you always want initially in context
+
+### CI/CD Integration
+
+- PR review — Analyzes diffs, finds bugs, flags security issues (often catches logic errors humans miss while humans nitpick variable names).
+- Code implementation — Comment "@claude implement this" on an issue, and it creates a PR with working code.
+- Bug fixes — "@claude fix this bug" generates a fix PR.
+- PR summaries — Generates human-readable summaries of large PRs for easier review.
+- Release notes — Trigger on tag push to summarize all PRs in a release.
+- CI debugging — Reads workflow logs and diagnoses failures.
+- Resources
+  - [Official GitHub Action](https://github.com/anthropics/claude-code-action)
+  - [Anthropic docs: GitHub Actions](https://code.claude.com/docs/en/github-actions)
+  - [GitHub Marketplace listing](https://github.com/marketplace/actions/claude-code-action-official)
+
+### Security
+
+- Claude Code CLI runs by default with all the permissions of the user and access to bash, which is too much for many enterprise environments. For instance my Docker was hung, I asked Claude Code to troubleshoot, it fixed it by deleting the troublesome container which was annoying because it had Postgres with some data (Langfuse). Claude Code CLI is [agentic browsers on steroids and crack](https://www.gartner.com/en/documents/7211030).
+- To lock down the CLI
+  - Claude Code has [managed settings](https://code.claude.com/docs/en/settings) that override command line arguments, local, project, and user settings. These scopes are parsed in order of precedence:
+    - Managed settings (highest priority)
+    - Command line arguments
+    - Local settings
+    - Project settings
+    - User settings (lowest priority)
+  - `/sandbox` command will let you configure a sandbox to run bash commands in a more restricted container environment.
+  - `/permissions` command lets you set permissions regarding what tools Claude Code can access.
+  - Set up hooks, always intercept some calls you might not like like `rm -rf /`.
+  - Log everything via hooks
+  - Connect to LLM via proxy and log what it's doing there. You could even have Claude Code point to a local model and never hit Anthropic using e.g. OpenRouter
+  - Or consider running in a container with network allowlist to e.g. internal MCPs and select external websites. Can then sandbox at container level, only connect to internal-only MCP tools, some websites.
+  - After writing some agents and skills, package into a web app that runs using Claude Agent SDK which is essentially running via Claude Code API, or headless `claude -p`
+  - The desktop client and web UI are more locked down out of the box.
+
+| | **Claude Code CLI** | **Claude.ai (Desktop & Web)** |
+|---|---|---|
+| **Where Skills bash tool runs** | Your local machine | Anthropic cloud container |
+| **OS** | Your OS (macOS/Linux/WSL) | Ubuntu 24 (sandboxed) |
+| **Working directory** | Your project directory | `/home/claude` |
+| **Filesystem** | Your real filesystem | Ephemeral (resets between tasks) |
+| **User files** | Direct access in project | `/mnt/user-data/uploads` (read-only) |
+| **Output files** | Written in place | `/mnt/user-data/outputs` |
+| **Skills system** (`/mnt/skills/`) | ❌ Not available | ✅ Yes |
+| **Network access** | Full (your network) | Restricted allowlist |
+| **Persistence** | Persistent (your disk) | Resets per session |
+| **MCP servers** | ✅ Local config (`~/.claude/`) | Via API calls in artifacts |
+| **Package install** | Normal (`pip`, `npm`) | `pip --break-system-packages`, `npm` |
+| **Desktop MCP Extensions** |  ✅  | ✅ Desktop app only; Install MCP servers with one click, admin-controlled permissions |
+| **Cowork mode** | ❌ No Cowork CLI | ✅ Mac Desktop app only (macOS) |
+
+
 ## Advanced Topics
 
 ### Worktrees
@@ -388,7 +452,7 @@ Agent teams let you coordinate multiple Claude Code instances working together. 
 > { "env": { "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1" } }
 > ```
 
-#### Subagents vs. Agent Teams
+####@ Subagents vs. Agent Teams
 
 | | Subagents | Agent Teams |
 |--|--|--|
@@ -400,7 +464,7 @@ Agent teams let you coordinate multiple Claude Code instances working together. 
 
 Use **subagents** when you need quick, focused workers that report results back. Use **agent teams** when workers need to share findings, challenge each other, and coordinate on their own.
 
-#### Starting a Team
+##### Starting a Team
 
 Tell Claude what you want in natural language — it creates the team, spawns teammates, and coordinates based on your prompt. This works well because the three roles are independent:
 
@@ -416,7 +480,7 @@ Create a team with 4 teammates to refactor these modules in parallel.
 Use Sonnet for each teammate.
 ```
 
-#### Architecture
+##### Architecture
 
 | Component | Role |
 |-----------|------|
@@ -429,7 +493,7 @@ Team config and tasks are stored locally:
 - `~/.claude/teams/{team-name}/config.json`
 - `~/.claude/tasks/{team-name}/`
 
-#### Display Modes
+##### Display Modes
 
 - **In-process** (default): all teammates run inside your terminal. Use `Shift+Down` to cycle through teammates and talk to them. Press `Ctrl+T` to toggle the task list.
 - **Split panes**: each teammate gets its own pane. Requires `tmux` or iTerm2 with the `it2` CLI.
@@ -443,7 +507,7 @@ claude --teammate-mode in-process  // override per session
 
 The default `"auto"` uses split panes if already inside `tmux`, otherwise in-process.
 
-#### Controlling the Team
+##### Controlling the Team
 
 **Assign tasks**: tell the lead to assign specific work to specific teammates, or let teammates self-claim from the shared task list after finishing.
 
@@ -465,19 +529,19 @@ Ask the researcher teammate to shut down.
 Clean up the team.
 ```
 
-#### Quality Gates via Hooks
+##### Quality Gates via Hooks
 
 - **`TeammateIdle`** — runs when a teammate finishes; exit code 2 keeps the teammate working with feedback.
 - **`TaskCompleted`** — runs when a task is being marked complete; exit code 2 blocks completion and sends feedback.
 
-#### Best Use Cases
+##### Best Use Cases
 
 - **Parallel code review**: spawn a security reviewer, a performance reviewer, and a test-coverage reviewer simultaneously — each applies a different lens to the same PR.
 - **Competing hypotheses for debugging**: each teammate investigates a different root cause theory and actively tries to disprove the others'.
 - **New features across layers**: frontend teammate, backend teammate, test teammate each own their piece without stepping on each other.
 - **Research with multiple angles**: explore a design space in parallel (UX, architecture, devil's advocate) and synthesize findings.
 
-#### Best Practices
+##### Best Practices
 
 - **Give teammates enough context in the spawn prompt** — they don't inherit the lead's conversation history.
 - **Size tasks right**: too small and coordination overhead exceeds the benefit; too large and mates work too long without check-ins. Aim for 5–6 tasks per teammate.
@@ -486,7 +550,7 @@ Clean up the team.
 - **Monitor and steer** — check in on teammates, redirect failing approaches early.
 - **Start with research and review** — less coordination risk than parallel implementation.
 
-#### Limitations
+##### Limitations
 
 - `/resume` and `/rewind` don't restore in-process teammates.
 - Task status can lag — teammates sometimes fail to mark tasks complete.
@@ -494,84 +558,6 @@ Clean up the team.
 - Split panes require `tmux` or iTerm2 — not supported in VS Code terminal, Windows Terminal, or Ghostty.
 
 - [Docs: Agent Teams](https://code.claude.com/docs/en/agent-teams)
-
-
-### Hooks
-
-Hooks let you run something before or after a chat turn or tool executes.
-
-- Use cases: formatters, linters, testers, guardrails.
-- 14+ hook trigger points (and growing):  SessionStart, UserPromptSubmit, PreToolUse, PermissionRequest, PostToolUse, PostToolUseFailure, Notification, SubagentStart, SubagentStop, Stop, TeammateIdle, TaskCompleted, ConfigChange, PreCompact, SessionEnd.
-- Run in YOLO mode (`alias claudeyolo='claude --dangerously-skip-permissions'`) but add a hook for destructive commands (`rm`, `git`, etc.).
-- Put guidance in `CLAUDE.md` too, but a hook *guarantees* code will run when something happens.
-- **Ralph Wiggum plugin**: A hook that intercepts the "stop" event, lets you test when a prompt completes to ensure it met spec, and resumes if necessary. You create a test/promise; on exit, it runs the test. If the desired result hasn't been achieved, it keeps going — enabling long-running prompts that perpetually find issues and fix them.
-
-### Hook Ideas
-
-1. **PreToolUse — File Protection Guard**
-   - Matcher: `Edit|Write`
-   - Blocks edits/writes to protected files (`.env`, `.env.local`, `package-lock.json`, `.git/`). Exits with code 2 (block) if the file path matches a protected pattern.
-
-2. **PostToolUse — Edit Logger**
-   - Matcher: `Edit|Write`
-   - After every file edit or write, appends a timestamped log entry to `~/.claude/edit-log.txt` with the modified file path. Creates an audit trail for all file changes.
-
-3. **SessionStart — Ralph Recovery Context**
-   - Script: `scripts/hooks/session-start.sh`
-   - Creates transcript directories (`docs/transcripts/raw`, `processed`, `summaries`, `subagents`).
-   - Logs session ID and project directory.
-   - Tracks active session in `.active-session` file.
-   - Outputs recovery context: current branch, uncommitted file count, current phase from `task_plan.md`, in-progress tasks.
-   - Prints the "run /systems" reminder.
-
-### CI/CD Integration
-
-- PR review — Analyzes diffs, finds bugs, flags security issues (often catches logic errors humans miss while humans nitpick variable names).
-- Code implementation — Comment "@claude implement this" on an issue, and it creates a PR with working code.
-- Bug fixes — "@claude fix this bug" generates a fix PR.
-- PR summaries — Generates human-readable summaries of large PRs for easier review.
-- Release notes — Trigger on tag push to summarize all PRs in a release.
-- CI debugging — Reads workflow logs and diagnoses failures.
-- Resources
-  - [Official GitHub Action](https://github.com/anthropics/claude-code-action)
-  - [Anthropic docs: GitHub Actions](https://code.claude.com/docs/en/github-actions)
-  - [GitHub Marketplace listing](https://github.com/marketplace/actions/claude-code-action-official)
-
-### Security
-
-- Claude Code CLI runs by default with all the permissions of the user and access to bash, which is too much for many enterprise environments. For instance my Docker was hung, I asked Claude Code to troubleshoot, it fixed it by deleting the troublesome container which was annoying because it had Postgres with some data (Langfuse). Claude Code CLI is [agentic browsers on steroids and crack](https://www.gartner.com/en/documents/7211030).
-- To lock down the CLI
-  - Claude Code has [managed settings](https://code.claude.com/docs/en/settings) that override command line arguments, local, project, and user settings. These scopes are parsed in order of precedence:
-    - Managed settings (highest priority)
-    - Command line arguments
-    - Local settings
-    - Project settings
-    - User settings (lowest priority)
-  - `/sandbox` command will let you configure a sandbox to run bash commands in a more restricted container environment.
-  - `/permissions` command lets you set permissions regarding what tools Claude Code can access.
-  - Set up hooks, always intercept some calls you might not like like `rm -rf /`.
-  - Log everything via hooks
-  - Connect to LLM via proxy and log what it's doing there. You could even have Claude Code point to a local model and never hit Anthropic using e.g. OpenRouter
-  - Or consider running in a container with network allowlist to e.g. internal MCPs and select external websites. Can then sandbox at container level, only connect to internal-only MCP tools, some websites.
-  - After writing some agents and skills, package into a web app that runs using Claude Agent SDK which is essentially running via Claude Code API, or headless `claude -p`
-  - The desktop client and web UI are more locked down out of the box.
-
-| | **Claude Code CLI** | **Claude.ai (Desktop & Web)** |
-|---|---|---|
-| **Where Skills bash tool runs** | Your local machine | Anthropic cloud container |
-| **OS** | Your OS (macOS/Linux/WSL) | Ubuntu 24 (sandboxed) |
-| **Working directory** | Your project directory | `/home/claude` |
-| **Filesystem** | Your real filesystem | Ephemeral (resets between tasks) |
-| **User files** | Direct access in project | `/mnt/user-data/uploads` (read-only) |
-| **Output files** | Written in place | `/mnt/user-data/outputs` |
-| **Skills system** (`/mnt/skills/`) | ❌ Not available | ✅ Yes |
-| **Network access** | Full (your network) | Restricted allowlist |
-| **Persistence** | Persistent (your disk) | Resets per session |
-| **MCP servers** | ✅ Local config (`~/.claude/`) | Via API calls in artifacts |
-| **Package install** | Normal (`pip`, `npm`) | `pip --break-system-packages`, `npm` |
-| **Desktop MCP Extensions** |  ✅  | ✅ Desktop app only; Install MCP servers with one click, admin-controlled permissions |
-| **Cowork mode** | ❌ No Cowork CLI | ✅ Mac Desktop app only (macOS) |
-
 
 ### Ralph
 
