@@ -138,12 +138,12 @@ Claude Code's power comes with a bit of a learning curve, but it's well worth it
 ```mermaid
 flowchart TD
     A[Brainstorm] --> B[Plan]
-    B --> C{Critique/Optimize Loop}
+    B --> C{Plan Critic-Optimizer Loop}
     C --> D[Evaluate Plan]
     D --> E[Improve Plan]
     E --> C
     E --> G[Code]
-    G --> H{Test Loop}
+    G --> H{Code Test-Evaluate-Optimize Loop}
     H --> I[Test]
     I --> J[Evaluate Test Results]
     J --> K[Improve Code]
@@ -274,7 +274,7 @@ A lot of time is spent waiting for Claude — what do you do? Work on multiple t
 
 **Note**: Subagents *cannot* spawn other subagents. If you need nested delegation, chain subagents from the main conversation, or use skills.
 
-#### Built-in agents
+##### Built-in agents
 
 Claude Code ships with several built-in subagents it uses automatically:
 
@@ -287,13 +287,13 @@ Claude Code ships with several built-in subagents it uses automatically:
 | **statusline-setup** | Sonnet | Configures your `/statusline` |
 | **Claude Code Guide** | Haiku | Answers questions about Claude Code itself |
 
-#### Managing agents
+##### Managing agents
 
 - **`/agents`** — browse, create, and manage agents interactively. Select *Create new agent*, describe what it does, pick tools, model, and background color.
 - **Explicit invocation**: *"Use the code-reviewer subagent to look at my recent changes"* — Claude delegates to a specific agent on request.
 - **Auto-delegation**: Claude automatically picks the right subagent based on your request and each agent's `description` field.
 
-#### Creating custom subagents
+##### Creating custom subagents
 
 A subagent is a `.md` file with YAML frontmatter + a system prompt. Two scopes:
 
@@ -339,7 +339,7 @@ You can also define session-only agents at launch:
 claude --agents '{"code-reviewer": {"description": "...", "prompt": "...", "tools": ["Read", "Grep"]}}'
 ```
 
-#### Foreground vs. background
+##### Foreground vs. background
 
 - **Foreground** (default): blocks the main conversation, permission prompts pass through to you.
 - **Background**: runs concurrently while you keep working. Claude asks for tool permissions upfront, then auto-denies anything not pre-approved. Press **Ctrl+B** to background a running task, or ask: *"run this in the background."* MCP tools are not available to background agents.
@@ -356,7 +356,7 @@ memory: local     # .claude/agent-memory-local/<name>/ — project-specific, git
 
 First 200 lines of the agent's `MEMORY.md` load into every session. Prompt it: *"Check your memory before starting, and update it when done."*
 
-#### Worktree isolation
+##### Worktree isolation
 
 ```yaml
 isolation: worktree
@@ -364,11 +364,11 @@ isolation: worktree
 
 Runs the agent in a temporary git worktree — a clean copy of the repo. Great for risky experiments. The worktree is automatically deleted if no changes are made.
 
-#### Resuming subagents
+##### Resuming subagents
 
 Each invocation starts fresh. To continue a previous run: *"Continue that code review and now analyze the authorization module."* Claude resumes with full conversation history. Transcripts live at `~/.claude/projects/{project}/{sessionId}/subagents/`.
 
-#### Good use cases
+##### Good use cases
 
 - **Code review**: isolated context, read-only tools — *"Have the code-reviewer check my recent changes"*
 - **Deep research**: send it to gather findings without polluting the main context
