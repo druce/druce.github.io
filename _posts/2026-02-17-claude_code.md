@@ -28,7 +28,7 @@ description: A quickstart to Claude Code, Anthropic's agentic coding command-lin
 
 <!--more-->
 
-Claude Code is Anthropic's agentic coding tool — a command-line interface (CLI) that lets you delegate coding tasks directly to Claude AI. Claude Code is an AI-powered coding assistant that helps you build features, fix bugs, and automate development tasks. It understands your entire codebase and can work across multiple files and tools to get things done.
+Claude Code is Anthropic's agentic coding tool — a command-line interface (CLI) that lets you delegate coding tasks directly to Claude AI to automate development tasks. It understands your entire codebase and can work for extended periods across multiple files and tools to get tasks done.
 
 
 ## Levels of Coding Assistance
@@ -46,20 +46,17 @@ Source: [The Five Levels from Spicy Autocomplete to the Software Factory](https:
 
 This guide should get you to level 2–3 and provide a roadmap to get to 4–5.
 
-## Why Claude Code
+## Why is Claude Code a new improvement?
 
-Lots of excitement these last few months about how well Claude Code works, why is that?
-
-- **Excellent models**: Sonnet and Opus, multi-model to 'see' output, tool-calling, long 200k context window (1m for Opus and Sonnet with extra charges. Note that it can degrade when > 50% full so /clear frequently)
+- **Excellent models**: Sonnet and Opus, multi-model to 'see' output, tool-calling, long 200k context window (1m for Opus and Sonnet with extra charges)
 - **A simple, effective ReAct control loop**: Plan → code → test → iterate as necessary.
 - **Plan-driven long-term memory**: It writes plans in `.md` files and uses them to stay on task. The ability to think and plan before acting, and then stay on plan, enables far longer and more complex work compared to vanilla single-turn LLM chat.
-- **Rich internal tooling**: A plethora of internal tools and subagents to understand, find, and edit code — plus MCP tool support. Good tools that look up exact function signatures or retrieve precise documentation outperform generic web searches  or putting full code files in context, or large doc pages. (ChatGPT would often give answers from an outdated API due to training data cutoff; if you have a tool that fetches the exact doc or code you need, and patches a specific line of code, everything works better.)
+- **Rich internal tooling**: A plethora of internal tools and subagents to understand, find, and edit code — plus MCP tool integrations. Good tools that look up exact function signatures or retrieve precise documentation outperform generic web searches  or putting full code files in context, or large doc pages. (ChatGPT would often give answers from an outdated API due to training data cutoff; if you have a tool that fetches the exact doc or code you need, and patches a specific line of code, everything works better.)
 - **Integration**: The CLI can do anything you can do on your computer from the command line, and control a browser. There is a growing community of skills, MCP servers and plugins, with strong third-party integration support. (OpenAI's Codex is good and adopting MCP and skills, but their strategy seems to be to push you toward their walled garden.)
 - **Multi-tasking subagents**: Spawn isolated agents for parallel work.
-- **Continuous improvement**: Anthropic can collect traces and up/down votes from Claude Code usage and integrate them into RLHF training, they have a flywheel going.
-- **Real-world reliability**: Claude Code can now solve complex problems and refactors, run for 30+ minutes on a complex plan without getting off track, understand brownfield codebases, produce minimal slop, get things 90%+ right, and fix most remaining issues iteratively.
+- **Continuous improvement**: Anthropic can collect traces and up/down votes from Claude Code usage and integrate them into RLHF training, they have a flywheel going. More mature than OpenAI Codex and Gemini CLI which are closest comparisons. IDEs like Cursor, Windsurf, GitHub Copilot in VS Code are also developing agentic coding assistants. Combining Claude Code with your favorite IDE is most typical best practice.
 - **Autonomous operation**: Can even run autonomously for many hours if you have the token quota and the right hooks.
-- More mature than OpenAI Codex and Gemini CLI which are closest comparisons. IDEs like Cursor, Windsurf, GitHub Copilot in VS Code are also developing agentic coding assistants. Combining Claude Code with your favorite IDE is most typical best practice.
+- **Real-world reliability**: Claude Code can now solve complex problems and refactors, run for 30+ minutes on a complex plan without getting off track, understand brownfield codebases, produce minimal slop, get things 90%+ right, and fix most remaining issues iteratively.
 - [Usable code output has climbed from < 50% to > 90%](https://crawshaw.io/blog/eight-more-months-of-agents)
 - [Anthropic: How Claude Code Works](https://code.claude.com/docs/en/how-claude-code-works)
 - [YouTube: How Claude Code Works](https://www.youtube.com/watch?v=RFKCzGlAU6Q)
@@ -73,12 +70,12 @@ Claude Code's power comes with a bit of a learning curve, but it's well worth it
 ### Install
 
 - [Set up Claude Code](https://code.claude.com/docs/en/setup)
-- Pricing: [Pro](https://claude.com/pricing), [$100 and $200 Max plans](https://claude.com/pricing/max). Start with Pro to learn, once you do real work you will run out of tokens from time to time, Pro gives you limited tokens in a 4-5 hour window. Use `/status` to see where you are with usage and when it resets. Once you start developing big plans that code for 30 minutes, you will run out very fast in Pro, need a $100 Max plan. The $200 plan is if you have multiple sessions at once, or otherwise are running out in the $100 plan.
-- This post is about the CLI. You can also use Claude Code within the desktop app and Web UI, but it is much more sandboxed. As a CLI running in your terminal Claude Code can do anything you can do (so be careful!).
+- Pricing: [Pro](https://claude.com/pricing), [$100 and $200 Max plans](https://claude.com/pricing/max). Start with Pro to learn, once you do real work you will run out of tokens from time to time, Pro gives you limited tokens in a 4-5 hour window. Use `/status` to see where you are with usage and when it resets. Once you start developing big plans that code for 30 minutes, you will run out very fast in Pro, need a $100 Max plan. The $200 plan is if you have multiple sessions and sub-agents running at once, or otherwise are running out in the $100 plan.
+- This post is about the CLI. You can also use Claude Code within the desktop app and Web UI, but it is much more sandboxed out of the box. As a CLI running in your terminal without explicit permission restrictions and sandboxing, Claude Code can do anything you can do (so be careful!).
 
 ### Claude.md - super important
 
-- **`/init`** — Sets up `CLAUDE.md` file at project-level
+- **`/init`** — Sets up `CLAUDE.md` file at project level, analyzes an existing project and saves what it thinks it needs to know to work in the project.
 - **Project-level** - `CLAUDE.md` in repo root or `./.claude/CLAUDE.md` - Shared team instructions committed to git. Rules, conventions, and context about how the repo works that every contributor (human or AI) should follow.
 - **User global** - `~/.claude/CLAUDE.md` - Your preferences in your home directory that apply across all projects. Style preferences, default behaviors, and personal rules that follow you everywhere.
 - **Project memory (local)** - `CLAUDE.local.md` - Personal project-specific preferences, not committed to git, each dev has their own.
@@ -92,7 +89,7 @@ Claude Code's power comes with a bit of a learning curve, but it's well worth it
 
 ### Essential Commands and Navigation
 
-- `cd <project>; claude` to start a session. Start in the root of your project, Claude.md and other configs may be project-specific.
+- Start `claude` in the root of your project, Claude.md and other files are typically project-specific.
 - **`/` commands** — Type `/` to see all available commands.
 - tab - Autocomplete commands and file paths
 - `Up` / `Down`Navigate prompt history (works across sessions)
@@ -102,8 +99,8 @@ Claude Code's power comes with a bit of a learning curve, but it's well worth it
 - **`@` files** — Reference specific files in prompts with `@myfile.txt`.
 - **Drag and drop** images, or paste with **Ctrl+V** (not Cmd+V on Mac). Claude Code can read screenshots, images, diagrams. Paste a screenshot of a bug to fix. Or prompt it how to create an image output with Figma or Playwright, then check it, and iterate on it.
 - **`/model`** — Switch between Sonnet and Opus.
-- **`/ide`** — Claude can see what you selected in IDE, read IDE listing errors etc., put proposed changes inline with diffs
-- **`/vim`** — can use emacs (default) or vim keybindings in editor. `/keybindings` or open `~/.claude/keybindings.json` to customize all shortcuts
+- **`/ide`** — Claude can integrate with your IDE, see what you selected in IDE, read IDE listing errors etc., put proposed changes inline with diffs
+- **`/vim`** — can use emacs (default) or vim keybindings in editor. `/keybindings` or open `~/.claude/keybindings.json` to customize all keybindings.
 - **`/config`** — Many configuration options.
 - **`/copy`** — Copy last response to clipboard.
 - `Ctrl+R`Search prompt history
@@ -187,57 +184,6 @@ flowchart TD
 
 Do what works for you — different people have different workflows. If people can build C compilers and operating systems with these tools, you can probably build most CRUD GUIs. The key is good specs and a way to verify.
 
-## Extensions
-
-### Skills
-
-- **Procedural knowledge** about how to do something with tools and subagents.
-- Custom slash commands and skills have been merged, same thing now.
-- Any boilerplate task — setting up a project, plan review, code review, security review — you can set up a skill so Claude does it the way you want.
-- A skill is a `.md` file describing how to do something, with metadata (frontmatter), optionally with *scripts* and *context* file data.
-- [Anthropic: Complete Guide to Building Skills](https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf?hsLang=en)
-- [Anthropic Docs: Skills](https://code.claude.com/docs/en/skills)
-- Very easy to build — there's a built-in skill-builder skill. Just ask Claude to help.
-
-### MCP Servers
-
-- An MCP server is a Web server with tools Claude Code and AI generally can call as necessary. You configure Claude to say it has access to these tools and when to call them. Anytime you ask Claude to do something, if it thinks the tool will help, it calls the tool and uses the output to respond.
-- Use the **`/mcp`** command to manage servers.
-- A couple of MCP servers is fine; 10+ is probably too many. When MCP tool descriptions exceed 10% of your context, Claude automatically defers them and loads tool details on demand ("MCP Tool Search"). But it's better to start lean.
-- A little harder to build than skills, but there's an MCP builder — ask Claude to help you create an MCP server as e.g. a Python script with FastMCP and tool decorators.
-- [Connectors](https://claude.com/connectors): Third-party MCP integrations
-- [MCP Documentation](https://modelcontextprotocol.io/docs/learn/server-concepts)
-
-### Plugins
-
-- A plugin is a **packaging mechanism** to distribute skills, MCP servers, and related artifacts.
-- Bundles skills (including definitions, scripts and data artifacts), hooks, subagents, MCP servers, into a single installable unit.
-
-### Tools vs. Skills: When to Use What
-
-In general, **always prefer skills** if they are available. Skills are currently more context-efficient and performant. They use progressive disclosure: by default, only a small metadata summary is loaded; the full instructions load only when needed. MCP servers consume more context; if there are too many, Claude puts them into a meta-tool search index (search for the tool first, then load its details).
-
-If a third party wants to expose functionality that lives on their server, they might host an MCP server you can connect to. But if they have a CLI that exposes the same functionality, packaging it as a skill will generally work better.
-
-In both cases, if prompts aren't calling the tool/skill when you expect, you may need to improve the descriptive metadata or explicitly tell Claude to use it. If context gets large, Claude forgets things. If an MCP server has many tools, consider making a simpler version.
-
-**CLIs are free context.** Claude already knows how to shell out to `gh`, `aws`, `docker`, `psql`, `stripe`, etc. No tool definitions get loaded. No startup cost. Boris Cherny presents CLI, MCP, and API as roughly equivalent options — the right choice depends on the task.
-
-| Task | CLI (preferred) | MCP (only if needed) |
-| ------ | ----------------- | ---------------------- |
-| GitHub operations | `gh pr create`, `gh issue list` | GitHub MCP |
-| AWS operations | `aws s3 ls`, `aws ecs describe` | AWS MCP |
-| Database queries | `psql -c "SELECT..."` | Postgres MCP |
-| Docker management | `docker ps`, `docker logs` | Docker MCP |
-
-**Skill-related tips:**
-
-- Skills use progressive disclosure and can scale to many — only frontmatter/metadata loads by default.
-- If a skill isn't triggering correctly, improve the frontmatter or tell Claude explicitly to use it.
-- Skills can include context data and accept arguments.
-- Use MCP only for external integrations where a skill can't work.
-- Useful meta-skills: `writing-skills`, `skill-creator` (Anthropic).
-
 ## Context Management Is The Key
 
 Context management is the single most important skill for effective Claude Code usage.
@@ -259,24 +205,56 @@ Effective use of Claude Code is about giving it the right context at the right t
 - **`/resume`** — Scroll previous conversations and pick up where you left off.
 - **Escape** — Anytime Claude is going off track, hit Escape to interrupt and redirect.
 
-## Security
+## Extensions
 
-- Claude Code CLI runs by default with all the permissions of the user and access to bash, which is too much for many enterprise environments. For instance my Docker was hung, I asked Claude Code to troubleshoot, it fixed it by deleting the troublesome container which was annoying because it had Postgres with some data (Langfuse). Claude Code CLI is [agentic browsers on steroids and crack](https://www.gartner.com/en/documents/7211030).
-- To lock it down
-  - Claude Code has [managed settings](https://code.claude.com/docs/en/settings) that override command line arguments, local, project, and user settings. These scopes are parsed in order of precedence:
-    - Managed settings (highest priority)
-    - Command line arguments
-    - Local settings
-    - Project settings
-    - User settings (lowest priority)
-  - `/sandbox` command will let you configure a sandbox to run bash commands in a more restricted container environment.
-  - `/permissions` command lets you set permissions regarding what tools Claude Code can access.
-  - Set up hooks, always intercept some calls you might not like like `rm -rf /`.
-  - Log everything via hooks
-  - Connect to LLM via proxy and log what it's doing there. You could even have Claude Code point to a local model and never hit Anthropic using e.g. OpenRouter
-  - Or consider running in a container with network allowlist to e.g. internal MCPs and select external websites. Can then sandbox at container level, only connect to internal-only MCP tools, some websites.
-  - After writing some agents and skills, package into a web app that runs using Claude Agent SDK which is essentially running via Claude Code API, or headless `claude -p`
+### Skills
 
+- **Procedural knowledge** about how to do something with tools and subagents.
+- Custom slash commands and skills have been merged, same thing now.
+- Any boilerplate task — setting up a project, plan review, code review, security review — you can set up a skill so Claude does it the way you want.
+- A skill is a `.md` file describing how to do something, with metadata (frontmatter), optionally with *scripts* and *context* file data. Importantly, skills always have access to a shell to run commands, that is their native 'tool'.
+- [Anthropic: Complete Guide to Building Skills](https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf?hsLang=en)
+- [Anthropic Docs: Skills](https://code.claude.com/docs/en/skills)
+- Very easy to build — there's a built-in skill-builder skill. Just ask Claude to help.
+
+### MCP Servers
+
+- An MCP server is a Web server with REST tools Claude Code and AI generally can call as necessary, plus some metadata about when to use them. You configure Claude to say it has access to these tools and here's when to call them, just like skills. Anytime you ask Claude to do something, if it thinks the tool will help, it calls the tool and uses the output to respond.
+- Use the **`/mcp`** command to manage servers.
+- A couple of MCP servers is fine; 10+ might be too many. When MCP tool descriptions exceed 10% of your context, Claude automatically defers them and loads tool details on demand ("MCP Tool Search"). But it's better to start lean.
+- A little harder to build than skills, but there's an MCP builder — ask Claude to help you create an MCP server as e.g. a Python script with FastMCP and tool decorators.
+- [Connectors](https://claude.com/connectors): Third-party MCP integrations
+- [MCP Documentation](https://modelcontextprotocol.io/docs/learn/server-concepts)
+
+### Tools vs. Skills: When to Use What
+
+It sounds like MCP is similar to skills, but code and a server are mandatory, whereas skills just use prompts and the shell out of the box. There is some overlap. In general, **prefer skills** if they are available. Skills are currently more context-efficient and performant. They use progressive disclosure: by default, only a small metadata summary is loaded; the full instructions load only when needed. MCP servers consume more context; if there are too many, Claude puts them into a meta-tool search index (search for the tool first, then load its details).
+
+If a third party wants to expose functionality that lives on their server, they might host an MCP server you can connect to. But if they have a CLI that exposes the same functionality, packaging it as a skill will generally work better.
+
+In both cases, if prompts aren't calling the tool/skill when you expect, you may need to improve the descriptive metadata or explicitly tell Claude to use it. If context gets large, Claude forgets things. If an MCP server has many tools, consider making a simpler version.
+
+**CLIs are free context for skills.** Claude already knows how to shell out to `gh`, `aws`, `docker`, `psql`, `stripe`, etc. No tool definitions get loaded. No startup cost. 
+
+| Task | CLI (preferred) | MCP (only if needed) |
+| ------ | ----------------- | ---------------------- |
+| GitHub operations | `gh pr create`, `gh issue list` | GitHub MCP |
+| AWS operations | `aws s3 ls`, `aws ecs describe` | AWS MCP |
+| Database queries | `psql -c "SELECT..."` | Postgres MCP |
+| Docker management | `docker ps`, `docker logs` | Docker MCP |
+
+**Skill-related tips:**
+
+- Skills use progressive disclosure and can scale to many — only frontmatter/metadata loads by default.
+- If a skill isn't triggering correctly, improve the frontmatter or prompt Claude explicitly to use it.
+- Skills can include context data and accept arguments.
+- Use MCP only for external integrations where a skill can't work.
+- Useful meta-skills: `writing-skills`, `skill-creator` (Anthropic built-in skill).
+
+### Plugins
+
+- A plugin is a **packaging mechanism** to distribute skills, MCP servers, hooks, sub-agents, and their associated artifacts.
+- Bundles skills (including definitions, scripts and data artifacts), hooks, subagents, MCP servers, into a single installable unit.
 
 ## Advanced Topics
 
@@ -559,6 +537,41 @@ Hooks let you run something before or after a chat turn or tool executes.
   - [Anthropic docs: GitHub Actions](https://code.claude.com/docs/en/github-actions)
   - [GitHub Marketplace listing](https://github.com/marketplace/actions/claude-code-action-official)
 
+### Security
+
+- Claude Code CLI runs by default with all the permissions of the user and access to bash, which is too much for many enterprise environments. For instance my Docker was hung, I asked Claude Code to troubleshoot, it fixed it by deleting the troublesome container which was annoying because it had Postgres with some data (Langfuse). Claude Code CLI is [agentic browsers on steroids and crack](https://www.gartner.com/en/documents/7211030).
+- To lock down the CLI
+  - Claude Code has [managed settings](https://code.claude.com/docs/en/settings) that override command line arguments, local, project, and user settings. These scopes are parsed in order of precedence:
+    - Managed settings (highest priority)
+    - Command line arguments
+    - Local settings
+    - Project settings
+    - User settings (lowest priority)
+  - `/sandbox` command will let you configure a sandbox to run bash commands in a more restricted container environment.
+  - `/permissions` command lets you set permissions regarding what tools Claude Code can access.
+  - Set up hooks, always intercept some calls you might not like like `rm -rf /`.
+  - Log everything via hooks
+  - Connect to LLM via proxy and log what it's doing there. You could even have Claude Code point to a local model and never hit Anthropic using e.g. OpenRouter
+  - Or consider running in a container with network allowlist to e.g. internal MCPs and select external websites. Can then sandbox at container level, only connect to internal-only MCP tools, some websites.
+  - After writing some agents and skills, package into a web app that runs using Claude Agent SDK which is essentially running via Claude Code API, or headless `claude -p`
+  - The desktop client and web UI are more locked down out of the box.
+
+| | **Claude Code CLI** | **Claude.ai (Desktop & Web)** |
+|---|---|---|
+| **Where Skills bash tool runs** | Your local machine | Anthropic cloud container |
+| **OS** | Your OS (macOS/Linux/WSL) | Ubuntu 24 (sandboxed) |
+| **Working directory** | Your project directory | `/home/claude` |
+| **Filesystem** | Your real filesystem | Ephemeral (resets between tasks) |
+| **User files** | Direct access in project | `/mnt/user-data/uploads` (read-only) |
+| **Output files** | Written in place | `/mnt/user-data/outputs` |
+| **Skills system** (`/mnt/skills/`) | ❌ Not available | ✅ Yes |
+| **Network access** | Full (your network) | Restricted allowlist |
+| **Persistence** | Persistent (your disk) | Resets per session |
+| **MCP servers** | ✅ Local config (`~/.claude/`) | Via API calls in artifacts |
+| **Package install** | Normal (`pip`, `npm`) | `pip --break-system-packages`, `npm` |
+| **Desktop MCP Extensions** |  ✅  | ✅ Desktop app only; Install MCP servers with one click, admin-controlled permissions |
+| **Cowork mode** | ❌ No Cowork CLI | ✅ Mac Desktop app only (macOS) |
+
 
 ### Ralph
 
@@ -614,3 +627,4 @@ Further reading:
 
 - [Claude Code Tips](https://github.com/ykdojo/claude-code-tips)
 - [Roadmap.sh Step-by-Step guide to becoming a Claude Code expert in 2026](https://roadmap.sh/claude-code)
+
