@@ -71,6 +71,7 @@ Claude Code's power comes with a bit of a learning curve, but it's well worth it
 
 - [Set up Claude Code](https://code.claude.com/docs/en/setup)
 - Pricing: [Pro](https://claude.com/pricing), [$100 and $200 Max plans](https://claude.com/pricing/max). Start with Pro to learn, once you do real work you will run out of tokens from time to time, Pro gives you limited tokens in a 4-5 hour window. Use `/status` to see where you are with usage and when it resets. Once you start developing big plans that code for 30 minutes, you will run out very fast in Pro, need a $100 Max plan. The $200 plan is if you have multiple sessions and sub-agents running at once, or otherwise are running out in the $100 plan.
+- Launch in a terminal window with command `claude`.
 - This post is about the CLI. You can also use Claude Code within the desktop app and Web UI, but it is much more sandboxed out of the box. As a CLI running in your terminal without explicit permission restrictions and sandboxing, Claude Code can do anything you can do (so be careful!).
 
 ### Claude.md - super important
@@ -81,7 +82,7 @@ Claude Code's power comes with a bit of a learning curve, but it's well worth it
 - **Project memory (local)** - `CLAUDE.local.md` - Personal project-specific preferences, not committed to git, each dev has their own.
 - **Managed** System directory like : `/etc/claude-code/CLAUDE.md` (or similar system directory on other OSes). IT administrators can set up preferences for all users.
 - **`Add to CLAUDE.md: ...`** — puts it in the project instructions file
-- **`/memory`** — helps you manage memory. Claude.md should generally be rules about the project that you curate carefully. Auto memory is facts and context about the project that Claude discovers and stores automatically.
+- **`/memory`** — helps you manage memory. Claude.md should generally be rules about the project that you curate carefully. Auto memory is facts and context about the project that Claude discovers and stores automatically, my understanding is, not persistent between sessions, more like working memory scratchpad.
 - Keep `CLAUDE.md` short: definitely under 150 lines, ideally ~50. Longer files risk Claude forgetting items within them.
 - [claude.md starter kit](https://github.com/abhishekray07/claude-md-templates) — Point Claude at this repo and say: *"Improve CLAUDE.md based on these criteria."*
 - You can do multiple passes of *"check my repo changes and update CLAUDE.md"* — and update it regularly. It's a living document describing how your repo works and how you like to develop.
@@ -462,7 +463,7 @@ Agent teams let you coordinate multiple Claude Code instances working together. 
 | **Best for** | Focused tasks where only result matters | Complex work needing discussion and collaboration |
 | **Token cost** | Lower | Higher (each teammate is a full Claude instance) |
 
-Use **subagents** when you need quick, focused workers that report results back. Use **agent teams** when workers need to share findings, challenge each other, and coordinate on their own.
+Use **agent teams** when workers need to talk to each other: share findings, challenge each other, and coordinate on their own. Use **subagents** when you workers that just report results back to the caller. Agent teams add complexity and burn more tokens.
 
 ##### Starting a Team
 
@@ -572,7 +573,7 @@ The [Ralph Wiggum technique, created by Geoffrey Huntley](https://ghuntley.com/l
 - [Jeff Emanuel's Agent Flywheel](https://agent-flywheel.com/) . Similar, can work across Claude Code, OpenAI Codex, Gemini CLI
 
 ## Other Best Practices / Recap
-
+-  Terminal apps like [kitty](https://sw.kovidgoyal.net/kitty/), [ghostty](https://ghostty.org/), [wezterm](https://wezterm.org/index.html),  [iterm2](https://iterm2.com/), have advanced features that let claude show images, links etc. and are recommended over default native terminals. 
 - **Keep asking questions** — Claude Code can tell you how to use itself, how to write prompts, and how to build things. If you want to learn subagents, ask: *"I do this task a lot; I'd like to make a custom subagent that can accomplish it."*
 - **Get the right plugins for your task**:
   - `context7` — Pull in all the docs.
