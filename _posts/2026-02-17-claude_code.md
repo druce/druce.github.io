@@ -563,15 +563,15 @@ Clean up the team.
 
 ### Ralph
 
-The [Ralph Wiggum technique, created by Geoffrey Huntley](https://ghuntley.com/loop/), is a method for running Claude Code in autonomous loops that iterate until a task is complete — named after the lovably persistent Simpsons character. It's now in the officially maintained Anthropic marketplace directory.
+The [Ralph Wiggum technique, created by Geoffrey Huntley](https://ghuntley.com/loop/), is a method for running Claude Code in autonomous loops that iterate until a task is complete — named after the lovably persistent Simpsons character. You have a prompt completion hook that checks the previous task and continues if something is not totally right, and queues the next task. It's now in the officially maintained Anthropic marketplace directory.
 - [Claude plugin](https://github.com/frankbria/ralph-claude-code)
 - [How to Ralph Wiggum](https://github.com/ghuntley/how-to-ralph-wiggum)
 
 
 ### Frontier stuff
 
-- [Steve Yegge's Gas Town](https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04) , multiple instances of agents that share memory, talk to each other
-- [Jeff Emanuel's Agent Flywheel](https://agent-flywheel.com/) . Similar, can work across Claude Code, OpenAI Codex, Gemini CLI
+- [Steve Yegge's Gas Town](https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04) , multiple instances of agents that share memory and  talk to each other
+- [Jeff Emanuel's Agent Flywheel](https://agent-flywheel.com/) . Similar, can spread work across multiple Claude Code, OpenAI Codex, Gemini CLI instances so you are never rate-limited.
 
 ## Other Best Practices / Recap
 -  **Terminal apps** like [kitty](https://sw.kovidgoyal.net/kitty/), [ghostty](https://ghostty.org/), [wezterm](https://wezterm.org/index.html),  [iterm2](https://iterm2.com/), have advanced features that let claude show images, links etc., and are recommended over default native terminals. 
@@ -611,7 +611,7 @@ With a workflow based on Ralph, you can run a continuous development cycle that 
 
 - Queue up work: Add tasks to the shared queue with clear specs and tests which AI helped you write.
 
-- Agents work all day: Agent Teams claim tasks and code in isolated worktrees. Ralph loops keep them iterating until tests pass. Gas Town's shared memory lets agents build on each other's findings. The Agent Flywheel spreads work across Claude Code, Codex, and Gemini CLI so you're never rate-limited.
+- Agents work all day: Agent Teams claim tasks and code in isolated worktrees. In Ralph, loops keep them iterating until tests pass.
 
 - Evening review: Review PRs, merge what's good, queue overnight tasks. Agents keep working while you sleep.
 
