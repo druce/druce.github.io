@@ -86,6 +86,7 @@ Claude Code's power comes with a bit of a learning curve, but it's well worth it
 - Keep `CLAUDE.md` short: definitely under 150 lines, ideally ~50. Longer files risk Claude forgetting items within them.
 - [claude.md starter kit](https://github.com/abhishekray07/claude-md-templates) — Point Claude at this repo and say: *"Improve CLAUDE.md based on these criteria."*
 - You can do multiple passes of *"check my repo changes and update CLAUDE.md"* — and update it regularly. It's a living document describing how your repo works and how you like to develop.
+- You can have it reference other files. For instance, say "When building skills, follow patterns and best practices in @CLAUDE_SKILLS_BEST_PRACTICES.md"
 - [Memory](https://code.claude.com/docs/en/memory)
 
 ### Essential Commands and Navigation
@@ -573,7 +574,7 @@ The [Ralph Wiggum technique, created by Geoffrey Huntley](https://ghuntley.com/l
 - [Jeff Emanuel's Agent Flywheel](https://agent-flywheel.com/) . Similar, can work across Claude Code, OpenAI Codex, Gemini CLI
 
 ## Other Best Practices / Recap
--  Terminal apps like [kitty](https://sw.kovidgoyal.net/kitty/), [ghostty](https://ghostty.org/), [wezterm](https://wezterm.org/index.html),  [iterm2](https://iterm2.com/), have advanced features that let claude show images, links etc. and are recommended over default native terminals. 
+-  **Terminal apps** like [kitty](https://sw.kovidgoyal.net/kitty/), [ghostty](https://ghostty.org/), [wezterm](https://wezterm.org/index.html),  [iterm2](https://iterm2.com/), have advanced features that let claude show images, links etc., and are recommended over default native terminals. 
 - **Keep asking questions** — Claude Code can tell you how to use itself, how to write prompts, and how to build things. If you want to learn subagents, ask: *"I do this task a lot; I'd like to make a custom subagent that can accomplish it."*
 - **Get the right plugins for your task**:
   - `context7` — Pull in all the docs.
@@ -602,16 +603,51 @@ The [Ralph Wiggum technique, created by Geoffrey Huntley](https://ghuntley.com/l
 
 ## Concluding remarks
 
+### The Daily Standup Loop: A Week's Work Every Day
+
+With a workflow based on Ralph, you can run a continuous development cycle that produces a small team's weekly output every day:
+
+- Morning standup: Review the PRs and diffs your agents produced overnight. Approve, reject, leave comments — you're the tech lead now, not the coder.
+
+- Queue up work: Add tasks to the shared queue with clear specs and tests which AI helped you write.
+
+- Agents work all day: Agent Teams claim tasks and code in isolated worktrees. Ralph loops keep them iterating until tests pass. Gas Town's shared memory lets agents build on each other's findings. The Agent Flywheel spreads work across Claude Code, Codex, and Gemini CLI so you're never rate-limited.
+
+- Evening review: Review PRs, merge what's good, queue overnight tasks. Agents keep working while you sleep.
+
+- Repeat: 2–3 hours of reviews and specs per day, continuous output the rest of the time.
+
+This is not science fiction, early adopters are doing this today. Coding resources are abundant now. Everyone is a 10x coder now. Knowing what to build, cognitive resources for specs and review are the bottleneck, and of course human change management in the org which was always most of the work.
+
+The gap between "Claude as autocomplete" and "24/7 autonomous dev team" is mostly scaffolding: good specs, good tests, good task decomposition, and the discipline to review rather than write.
+
+Go forth and vibe code!
+
+Further reading:
+
 - [The documentation is excellent](https://code.claude.com/docs/en/overview).
   - [Common workflows](https://code.claude.com/docs/en/common-workflows)
   - [Best practices](https://code.claude.com/docs/en/best-practices).
   - [Failure patterns](https://code.claude.com/docs/en/best-practices#avoid-common-failure-patterns)
 
-- Anyone can vibe-code and be (sort of) a 10x coder now...If you have been waiting to get started, wait no more!
-
-
-Further reading:
 
 - [Claude Code Tips](https://github.com/ykdojo/claude-code-tips)
 - [Roadmap.sh Step-by-Step guide to becoming a Claude Code expert in 2026](https://roadmap.sh/claude-code)
 
+- Blog posts and recent discussion:
+
+  - [David Crawshaw: Usable output has climbed from < 50% to > 90%.](https://crawshaw.io/blog/eight-more-months-of-agents)
+
+  - [Steven Sinofsky: Software has to move up the value chain or be squeezed — and then presumably humans too.](https://x.com/stevesi/status/2019167552794948020)
+
+  - [Charity Majors: Humans shift to high ambiguity, high-stakes from low-ambiguity, low-stakes, high volume grunt work.](https://bsky.app/profile/charity.wtf/post/3md5arapjjc2g)
+
+  - [Andrej Karpathy: Moving from vibe coding to agentic engineering ](https://www.reddit.com/r/singularity/comments/1qnsa0f/andrej_karpathy_on_agentic_programming/)
+
+  - [Federico Pereiro: LLMs as the new high-level programming language, devs move from code monkey to prompt zookeeper.]()
+
+  - [Simon Willison: AI doesn't reduce work, it intensifies it .](https://simonwillison.net/2026/Feb/9/ai-intensifies-work/)
+
+  - [Margaret-Anne Storey: How Generative and Agentic AI Shift Concern from Technical Debt to Cognitive Debt.](https://margaretstorey.com/blog/2026/02/09/cognitive-debt/)
+
+  - [Steve Yegge: Dracula effect, more productivity more exhaustion, need naps ](https://steve-yegge.medium.com/the-ai-vampire-eda6e4f07163)
