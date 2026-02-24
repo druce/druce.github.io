@@ -68,7 +68,7 @@ exclude:
   - Gemfile.lock
   - vendor
   - static.test/
-  - pizza/
+#  - pizza/
   - assets/js/tablesorter-master/docs/
   - "**/*.backup"
   - README.md
