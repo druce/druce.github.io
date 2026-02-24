@@ -445,7 +445,7 @@ More than most technologies in the past, AI is more human-like and probably more
 
 All that is really required for AI to favor capital over labor is for AI to flatten the isoquants, to increase the elasticity of substitution, to be less complementary to human labor than existing technologies.
 
-But it could collapse the tradeoff between labor and capital.
+But it what if it collapses the diminishing returns tradeoff between labor and capital and makes them near-perfect substitutes?
 
 ## A little Economic History
 
