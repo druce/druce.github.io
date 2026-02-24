@@ -97,6 +97,7 @@ Claude Code's power comes with a bit of a learning curve, but it's well worth it
 - **`/` commands** — Type `/` to see all available commands.
 - tab - Autocomplete commands and file paths
 - `Up` / `Down`Navigate prompt history (works across sessions)
+- ! run a shell command
 - **`/status`** — Show current session status.
 - **Status line** — Customizable; you can display context usage %, etc. using `/statusline`. Try `/statusline what can I display?`, `/statusline set up a status line showing cwd, model, context percentage, with a progress bar` . It's a shell script, can access any environment variables, commands like `git status`, etc. Docs: [Status Line](https://code.claude.com/docs/en/statusline)
 - **`[Shift+Tab]`** — Toggle between Plan mode (don't code, just plan), and Default mode (prompt before code edits), and Auto-accept mode (accept all code edits).
@@ -113,6 +114,7 @@ Claude Code's power comes with a bit of a learning curve, but it's well worth it
 - **`[escape] [escape]`** or **`/rewind`** — return to earlier point in conversation, get rid of digressive context
 - `Ctrl+D Ctrl+D` Exit Claude Code
 - Scan through all the commands with `/`. If you don't know something, ask Claude — it has built-in tools to look up its own docs for you.
+- [Command line reference](https://code.claude.com/docs/en/interactive-mode)
 
 ## Dev Loop: Spec-Driven Development
 
