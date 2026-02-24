@@ -19,9 +19,9 @@ mathjax: true
 </figure>
 > Economics is the painful elaboration of the obvious.
 >
-> Politicians sometimes say things like “AI is going to make our workers more productive, and they will reap the rewards with higher wages."
+> Pundits sometimes say things like “AI is going to make our workers more productive, and they will reap the rewards with higher wages."
 >
-> It's mostly worked out the way in the past. But the labor share of income has varied. How much labor benefits, and how much capital benefits, depends on how technology complements labor, versus substitutes for it. There is little support in economic theory for the notion that technological progress always raises everyone’s wages and standard of living. It's a pop economics, Panglossian belief based on motivated thinking. 
+> It's mostly worked out the way in the past. But the labor share of income has varied. How much labor benefits, and how much capital benefits, depends on how technology complements labor, versus substitutes for it. There is little support in economic theory for the notion that technological progress always raises everyone’s wages and standard of living. It's empirically been significantly true in the past. But the notion that it's an iron rule is just pop economics, a Panglossian belief based on motivated thinking. 
 >
 >AI is the most human-like technology ever invented, so it seems likely to be an effective substitute for human labor. It seems likely that we will get growth but also disruption, more income inequality, more concentration of wealth, and more people locked out of decent middle class and working class jobs. The worst case would be an 'economic singularity' of robots making more robots while masses are immiserated. We should think about how to detect the singularity and use policy to head it off.
 >

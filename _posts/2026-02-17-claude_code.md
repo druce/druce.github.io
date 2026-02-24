@@ -28,6 +28,8 @@ description: A quickstart to Claude Code, Anthropic's agentic coding command-lin
 
 <!--more-->
 
+One year ago, on February 24, 2025. Anthropic released Claude Code. Today, everyone can be a 10x developer, and it is causing enterprises to rethink dev toolchains, pipelines, and stacks, and markets to rethink valuations.
+
 Claude Code is Anthropic's agentic coding tool — a command-line interface (CLI) that lets you delegate coding tasks directly to Claude AI to automate development tasks. It understands your entire codebase and can work for extended periods across multiple files and tools to get tasks done.
 
 
