@@ -185,6 +185,7 @@ flowchart TD
 12. **Do several passes of code review** — [Example prompt](https://www.reddit.com/r/ClaudeAI/comments/1q5a90l/so_i_stumbled_across_this_prompt_hack_a_couple/): *"Do a git diff and pretend you're a senior dev doing a code review and you HATE this implementation. What would you criticize? What edge cases am I missing?"* Go back and forth with OpenAI for diversity. Use the `code-review` plugin or [Turing Skill](https://github.com/turingmindai/turingmind-code-review).
 13. **Fix what you missed** — You'll probably notice gaps; ask Claude to fix them.
 14. **Don't be afraid to start over** — It's cheap. When you realize the architecture is wrong, tell it to write a detailed plan describing everything it did, then build a whole new version in a parallel directory. As Claude Code creator [Boris Cherny](https://www.reddit.com/r/ClaudeAI/comments/1q2c0ne/claude_code_creator_boris_shares_his_setup_with/) puts it: *"Knowing everything you know, design a more elegant solution."*
+15. A big unlock comes when you use an agentic loop to not just code, but to write detailed plans and specs, and have good tests so Claude Code can check stuff works. That's when it starts coding for 30 minutes at a pop on a long spec.
 
 Do what works for you — different people have different workflows. If people can build C compilers and operating systems with these tools, you can probably build most CRUD GUIs. The key is good specs and a way to verify.
 
