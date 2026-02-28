@@ -48,16 +48,16 @@ Source: [The Five Levels from Spicy Autocomplete to the Software Factory](https:
 
 This guide should get you to level 2–3 and provide a roadmap to get to 4–5.
 
-## Why is Claude Code a new improvement?
+## Why is Claude Code innovative, is it really 'this time is different'?
 
 - **Excellent models**: Sonnet and Opus, multi-model to 'see' output, tool-calling, long 200k context window (1m for Opus and Sonnet with extra charges)
 - **A simple, effective ReAct control loop**: Plan → code → test → iterate as necessary. 
 - **Plan-driven long-term memory**: It writes plans in `.md` files and uses them to stay on task. The ability to think and plan before acting, and then stay on plan, enables far longer and more complex work compared to vanilla single-turn LLM chat. It's why 'this time is different.'
-- **Rich internal tooling**: A plethora of internal tools and subagents to understand, find, and edit code — plus MCP tool integrations. Good tools that look up exact function signatures or retrieve precise documentation outperform generic web searches  or putting full code files in context, or large doc pages. (ChatGPT would often give answers from an outdated API due to training data cutoff; if you have a tool that fetches the exact doc or code you need, and patches a specific line of code, everything works better.)
-- **Integration**: The CLI can do anything you can do on your computer from the command line, and control a browser. There is a growing community of skills, MCP servers and plugins, with strong third-party integration support. (OpenAI's Codex is good and adopting MCP and skills, but their strategy seems to be to push you toward their walled garden.)
+- **Rich internal tooling**: A plethora of internal tools and subagents to understand, find, and edit code — plus MCP tool integrations. Good tools that look up exact function signatures or retrieve precise documentation outperform generic web searches  or putting full code files in context, or large doc pages. (ChatGPT would often give answers from an outdated API due to training data cutoff; if you have a tool that fetches the exact doc or code you need, and patches a specific line of code, everything works better.) Along with the way it makes plans and notes to aid memory, this helps *context management*, Claude Code is carefully designed to have exactly what it needs in the context at all times.
+- **Integration**: The CLI can do anything you can do on your computer from the command line, and control a browser. There is a growing community of skills, MCP servers and plugins, with strong third-party integration support for many SaaS platforms. (OpenAI's Codex is good and adopting MCP and skills, but their strategy seems to be to push you toward their walled garden.)
 - **Multi-tasking subagents**: Spawn isolated agents for parallel work.
 - **Continuous improvement**: Anthropic can collect traces and up/down votes from Claude Code usage and integrate them into RLHF training, they have a flywheel going. More mature than OpenAI Codex and Gemini CLI which are closest comparisons. IDEs like Cursor, Windsurf, GitHub Copilot in VS Code are also developing agentic coding assistants. Combining Claude Code with your favorite IDE is most typical best practice.
-- **Autonomous operation**: Can even run autonomously for many hours if you have the token quota and the right hooks.
+- **Autonomous operation**: Can even run autonomously for many hours if you have the token quota and the right hooks (like [Ralph](https://github.com/snarktank/ralph)).
 - **Real-world reliability**: Claude Code can now solve complex problems and refactors, run for 30+ minutes on a complex plan without getting off track, understand brownfield codebases, produce minimal slop, get things 90%+ right, and fix most remaining issues iteratively.
 - [Usable code output has climbed from < 50% to > 90%](https://crawshaw.io/blog/eight-more-months-of-agents)
 - [Anthropic: How Claude Code Works](https://code.claude.com/docs/en/how-claude-code-works)
@@ -75,21 +75,6 @@ Claude Code's power comes with a bit of a learning curve, but it's well worth it
 - Pricing: [Pro](https://claude.com/pricing), [$100 and $200 Max plans](https://claude.com/pricing/max). Start with Pro to learn, once you do real work you will run out of tokens from time to time, Pro gives you limited tokens in a 4-5 hour window. Use `/status` to see where you are with usage and when it resets. Once you start developing big plans that code for 30 minutes, you will run out very fast in Pro, need a $100 Max plan. The $200 plan is if you have multiple sessions and sub-agents running at once, or otherwise are running out in the $100 plan.
 - Launch in a terminal window with command `claude`.
 - This post is about the CLI. You can also use Claude Code within the desktop app and Web UI, but it is much more sandboxed out of the box. As a CLI running in your terminal without explicit permission restrictions and sandboxing, Claude Code can do anything you can do (so be careful!).
-
-### Claude.md - super important
-
-- **`/init`** — Sets up `CLAUDE.md` file at project level, analyzes an existing project and saves what it thinks it needs to know to work in the project.
-- **Project-level** - `CLAUDE.md` in repo root or `./.claude/CLAUDE.md` - Shared team instructions committed to git. Rules, conventions, and context about how the repo works that every contributor (human or AI) should follow.
-- **User global** - `~/.claude/CLAUDE.md` - Your preferences in your home directory that apply across all projects. Style preferences, default behaviors, and personal rules that follow you everywhere.
-- **Project memory (local)** - `CLAUDE.local.md` - Personal project-specific preferences, not committed to git, each dev has their own.
-- **Managed** System directory like : `/etc/claude-code/CLAUDE.md` (or similar system directory on other OSes). IT administrators can set up preferences for all users.
-- **`Add to CLAUDE.md: ...`** — puts it in the project instructions file
-- **`/memory`** — helps you manage memory. Claude.md should generally be rules about the project that you curate carefully. Auto memory is facts and context about the project that Claude discovers and stores automatically, my understanding is, not persistent between sessions, more like working memory scratchpad.
-- Keep `CLAUDE.md` short: definitely under 150 lines, ideally ~50. Longer files risk Claude forgetting items within them.
-- [claude.md starter kit](https://github.com/abhishekray07/claude-md-templates) — Point Claude at this repo and say: *"Improve CLAUDE.md based on these criteria."*
-- You can do multiple passes of *"check my repo changes and update CLAUDE.md"* — and update it regularly. It's a living document describing how your repo works and how you like to develop.
-- You can have it reference other files. For instance, say "When building skills, follow patterns and best practices in @CLAUDE_SKILLS_BEST_PRACTICES.md"
-- [Memory](https://code.claude.com/docs/en/memory)
 
 ### Essential Commands and Navigation
 
@@ -115,6 +100,23 @@ Claude Code's power comes with a bit of a learning curve, but it's well worth it
 - `Ctrl+D Ctrl+D` Exit Claude Code
 - Scan through all the commands with `/`. If you don't know something, ask Claude — it has built-in tools to look up its own docs for you.
 - [Command line reference](https://code.claude.com/docs/en/interactive-mode)
+- [Startup options](https://code.claude.com/docs/en/cli-reference). If you find yourself always running commands at startup you can probably do them with startup options.
+
+### Claude.md - super important
+
+- **`/init`** — Sets up `CLAUDE.md` file at project level, analyzes an existing project and saves what it thinks it needs to know to work in the project.
+- **Project-level** - `CLAUDE.md` in repo root or `./.claude/CLAUDE.md` - Shared team instructions committed to git. Rules, conventions, and context about how the repo works that every contributor (human or AI) should follow.
+- **User global** - `~/.claude/CLAUDE.md` - Your preferences in your home directory that apply across all projects. Style preferences, default behaviors, and personal rules that follow you everywhere.
+- **Project memory (local)** - `CLAUDE.local.md` - Personal project-specific preferences, not committed to git, each dev has their own.
+- **Managed** System directory like : `/etc/claude-code/CLAUDE.md` (or similar system directory on other OSes). IT administrators can set up preferences for all users.
+- **`Add to CLAUDE.md: ...`** — puts it in the project instructions file
+- **`/memory`** — helps you manage memory. Claude.md should generally be rules about the project that you curate carefully. Auto memory is facts and context about the project that Claude discovers and stores automatically, my understanding is, not persistent between sessions, more like working memory scratchpad.
+- Keep `CLAUDE.md` short: definitely under 150 lines, ideally ~50. Longer files risk Claude forgetting items within them.
+- [claude.md starter kit](https://github.com/abhishekray07/claude-md-templates) — Point Claude at this repo and say: *"Improve CLAUDE.md based on these criteria."*
+- You can do multiple passes of *"check my repo changes and update CLAUDE.md"* — and update it regularly. It's a living document describing how your repo works and how you like to develop.
+- You can have it reference other files. For instance, say "When building skills, follow patterns and best practices in @CLAUDE_SKILLS_BEST_PRACTICES.md"
+- [Memory](https://code.claude.com/docs/en/memory)
+
 
 ## Dev Loop: Spec-Driven Development
 
@@ -187,7 +189,7 @@ flowchart TD
 12. **Do several passes of code review** — [Example prompt](https://www.reddit.com/r/ClaudeAI/comments/1q5a90l/so_i_stumbled_across_this_prompt_hack_a_couple/): *"Do a git diff and pretend you're a senior dev doing a code review and you HATE this implementation. What would you criticize? What edge cases am I missing?"* Go back and forth with OpenAI for diversity. Use the `code-review` plugin or [Turing Skill](https://github.com/turingmindai/turingmind-code-review).
 13. **Fix what you missed** — You'll probably notice gaps; ask Claude to fix them.
 14. **Don't be afraid to start over** — It's cheap. When you realize the architecture is wrong, tell it to write a detailed plan describing everything it did, then build a whole new version in a parallel directory. As Claude Code creator [Boris Cherny](https://www.reddit.com/r/ClaudeAI/comments/1q2c0ne/claude_code_creator_boris_shares_his_setup_with/) puts it: *"Knowing everything you know, design a more elegant solution."*
-15. A big unlock comes when you use an agentic loop to not just code, but to write detailed plans and specs, and have good tests so Claude Code can test that its code works against the spec. That's when it starts coding for 30 minutes straight autonomously on a long implementation plan.
+15. A big unlock comes when you use an agentic loop to not just code, but to write detailed plans and specs, and have good tests so Claude Code can test that its code works against the spec. That's when it starts coding for 30 minutes straight autonomously on a long implementation plan. The other (smaller) unlock is `/ide` integration, open Claude Code in the terminal pane in e.g. Cursor, you can see code as it writes it, can select something and ask a question about it.
 
 Do what works for you — different people have different workflows. If people can build C compilers and operating systems with these tools, you can probably build most CRUD GUIs. The key is good specs and a way to verify.
 
@@ -307,7 +309,7 @@ Hooks let you run something before or after a chat turn or tool executes.
   - Log everything via hooks
   - Connect to LLM via proxy and log what it's doing there. You could even have Claude Code point to a local model and never hit Anthropic using e.g. OpenRouter
   - Or consider running in a container with network allowlist to e.g. internal MCPs and select external websites. Can then sandbox at container level, only connect to internal-only MCP tools, some websites.
-  - After writing some agents and skills, package into a web app that runs using Claude Agent SDK which is essentially running via Claude Code API, or headless `claude -p`
+  - After writing some agents and skills, package into a web app that runs by spawning a Claude Code process with headless `claude -p <prompt>` (uses monthly Claude Code subsription, or using Claude Agent SDK which is essentially running Claude Code headless via the API (burns API tokens).
   - The desktop client and web UI are more locked down out of the box.
 
 | | **Claude Code CLI** | **Claude.ai (Desktop & Web)** |
@@ -579,7 +581,7 @@ The [Ralph Wiggum technique, created by Geoffrey Huntley](https://ghuntley.com/l
 - [Jeff Emanuel's Agent Flywheel](https://agent-flywheel.com/) . Similar, can spread work across multiple Claude Code, OpenAI Codex, Gemini CLI instances so you are never rate-limited.
 
 ## Other Best Practices / Recap
--  **Terminal apps** like [kitty](https://sw.kovidgoyal.net/kitty/), [ghostty](https://ghostty.org/), [wezterm](https://wezterm.org/index.html),  [iterm2](https://iterm2.com/), have advanced features that let claude show images, links etc., and are recommended over default native terminals. 
+-  **Terminal apps** like [kitty](https://sw.kovidgoyal.net/kitty/), [ghostty](https://ghostty.org/), [wezterm](https://wezterm.org/index.html),  [iterm2](https://iterm2.com/), have advanced features that let claude show images, links, split panes etc., and are recommended over default native terminals. (also running in your ide terminal pane)
 - **Keep asking questions** — Claude Code can tell you how to use itself, how to write prompts, and how to build things. If you want to learn subagents, ask: *"I do this task a lot; I'd like to make a custom subagent that can accomplish it."*
 - **Get the right plugins for your task**:
   - `context7` — Pull in all the docs.
@@ -626,6 +628,8 @@ This is not science fiction, early adopters are doing this today. Coding resourc
 
 The gap between "Claude as autocomplete" and "24/7 autonomous dev team" is mostly scaffolding: good specs, good tests, good task decomposition, and the discipline to review rather than write.
 
+![From artisanal to industrial](/assets/2025/combined_arrow3.png)
+
 Go forth and vibe code!
 
 Further reading:
@@ -667,12 +671,4 @@ Further reading:
   - [Margaret-Anne Storey: How Generative and Agentic AI Shift Concern from Technical Debt to Cognitive Debt.](https://margaretstorey.com/blog/2026/02/09/cognitive-debt/)
 
   - [Steve Yegge: Dracula effect, more productivity more exhaustion, need naps ](https://steve-yegge.medium.com/the-ai-vampire-eda6e4f07163)
-
-
-
-
-
-
-
-
 
