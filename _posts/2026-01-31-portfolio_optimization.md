@@ -92,6 +92,11 @@ That volatility tells you how risky Mr. Market thinks the stock is, as a first-o
 
 Even then, a lot of things that could have happened didn't happen. Maybe there was a too-great or not-great-enough probability of a disastrous war priced into the swings during the Cuban Missile Crisis. The concept of 'risk' is a Platonic ideal of things that are not knowable and don't necessarily follow distributions you can model. Any attempt to put a number on it is inherently subjective. Still, volatility measures the range of returns that investors actually experienced, and what risk the market prices in, and these are good to know.
 
+There are at least 3 different, related concepts here:
+- The historical distribution of outcomes investors actually experienced.
+- The true distribution of actual possible future outcomes for individual securities, which influences how you construct a portfolio. This is an abstract concept. Better models predict better. But that does not mean there is some perfect model, or that the future is acutally determined by some random process like picking fates out of a hat.
+- The distribution investors currently believe, based on their knowledge of history, explcit models they build, implicit models revealed by their actions, which in turn impact short-term volatility.
+
 We usually express volatility at an annual rate. We can do that because if you assume well-behaved log-normally distributed returns, then there is a simple relationship between daily volatility, monthly volatility, and annual volatility.[^1]
 
 [^1]: This is the formula: $$\sigma_{\text{annual}} = \sigma_{\text{daily}} \times \sqrt{N}$$ . This formula assumes daily returns are well-behaved: independent, constant variance over time, no serial correlation or changes in volatility, ideally normally distributed. The formula fails if: 1) Returns are serially correlated (trending); 2) Volatility is not constant; 3) There are fat tails. All of which are probably true in stock markets.

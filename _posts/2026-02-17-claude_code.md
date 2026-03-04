@@ -50,8 +50,8 @@ This guide should get you to level 2–3 and provide a roadmap to get to 4–5.
 
 ## Why is Claude Code innovative, is it really 'this time is different'?
 
-- **Excellent models**: Sonnet and Opus, multi-model to 'see' output, tool-calling, long 200k context window (1m for Opus and Sonnet with extra charges)
-- **A simple, effective ReAct control loop**: Plan → code → test → iterate as necessary. 
+- **Excellent models**: Sonnet and Opus, multi-model to 'see' output, tool-calling, long 200k context window (1m for Opus and Sonnet with extra charges). [Curretnly rated significantly better than competitors for coding.](https://arena.ai/leaderboard/code)
+- **A simple, effective harness with a ReAct control loop**: Plan → code → test → iterate as necessary. ([]())
 - **Plan-driven long-term memory**: It writes plans in `.md` files and uses them to stay on task. The ability to think and plan before acting, and then stay on plan, enables far longer and more complex work compared to vanilla single-turn LLM chat. It's why 'this time is different.'
 - **Rich internal tooling**: A plethora of internal tools and subagents to understand, find, and edit code — plus MCP tool integrations. Good tools that look up exact function signatures or retrieve precise documentation outperform generic web searches  or putting full code files in context, or large doc pages. (ChatGPT would often give answers from an outdated API due to training data cutoff; if you have a tool that fetches the exact doc or code you need, and patches a specific line of code, everything works better.) Along with the way it makes plans and notes to aid memory, this helps *context management*, Claude Code is carefully designed to have exactly what it needs in the context at all times.
 - **Integration**: The CLI can do anything you can do on your computer from the command line, and control a browser. There is a growing community of skills, MCP servers and plugins, with strong third-party integration support for many SaaS platforms. (OpenAI's Codex is good and adopting MCP and skills, but their strategy seems to be to push you toward their walled garden.)
@@ -628,9 +628,9 @@ This is not science fiction, early adopters are doing this today. Coding resourc
 
 The gap between "Claude as autocomplete" and "24/7 autonomous dev team" is mostly scaffolding: good specs, good tests, good task decomposition, and the discipline to review rather than write.
 
-![From artisanal to industrial](/assets/2025/combined_arrow3.png)
-
 Go forth and vibe code!
+
+![From artisanal to industrial](/assets/2025/combined_arrow3.png)
 
 Further reading:
 
@@ -640,6 +640,10 @@ Further reading:
   - [Failure patterns](https://code.claude.com/docs/en/best-practices#avoid-common-failure-patterns)
   - [How Claude Code Works](https://code.claude.com/docs/en/how-claude-code-works)
 
+- Coding Agent Internals:
+  - [What Makes a Coding Agent? (Cline)](https://cline.bot/blog/what-makes-a-coding-agent)
+  - [How Coding Agents Actually Work: Inside OpenCode](https://cefboud.com/posts/coding-agents-internals-opencode-deepdive/)
+  
 - Courses:
   - [Claude Code in Action](https://anthropic.skilljar.com/claude-code-in-action)
   - [Claude Code: A Highly Agentic Coding Assistant (older)](https://www.deeplearning.ai/short-courses/claude-code-a-highly-agentic-coding-assistant/)
@@ -649,6 +653,7 @@ Further reading:
   - [Claude Code Tips](https://github.com/ykdojo/claude-code-tips)
   - [Roadmap.sh Step-by-Step guide to becoming a Claude Code expert in 2026](https://roadmap.sh/claude-code)
   - [Trail of Bits](https://github.com/trailofbits/claude-code-config)
+  - [Simon Willison: Agentic engineering patterns](https://simonwillison.net/guides/agentic-engineering-patterns/)
 
 - Extensions
   - [Code simplifier](https://x.com/bcherny/status/2009450715081789767)
