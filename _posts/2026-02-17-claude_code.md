@@ -102,6 +102,33 @@ Claude Code's power comes with a bit of a learning curve, but it's well worth it
 - [Command line reference](https://code.claude.com/docs/en/interactive-mode)
 - [Startup options](https://code.claude.com/docs/en/cli-reference). If you find yourself always running commands at startup you can probably do them with startup options.
 
+### Tasks
+
+*Tasks* are like job control in bash, but more.
+
+- The simplest use is
+
+```apply the prompt below to each of the files in the "input" subdirectory. Run using concurrent tasks and save the results as  {filename}.output in the output subdirectory. Prompt: read @{filename} and determine the top 5 most important actionable recommendations```
+
+- This should launch 5 background tasks. Use `ctrl-b` to make the current task a background task.
+
+- Use `/tasks` to view a list of the running tasks, and select any of them to view their output.
+
+[Tasks are the replacement for deprecated todos](https://x.com/trq212/status/2014480496013803643). *Unlike todos* and the processes you can manage with job control in bash, tasks add persistent storage and explicit dependencies. See also [this article](https://pub.spillwave.com/claude-code-todos-to-tasks-5a1b0e351a1c).
+
+As a more complex pattern, you can create a [`plan.md`](/assets/2025/plan.md) with a dependency graph expressed as markdown, then run a prompt like:
+
+```Read plan.md. Create tasks with TaskCreate for each incomplete item, 
+wiring blockedBy dependencies from the file. Skip completed tasks — 
+treat them as resolved preconditions only. ```
+
+```Start with all tasks that have no unresolved blockers and run them 
+in parallel where possible, sequentially where blocked. Delegate each 
+task to a subagent. ```
+
+```After each task completes, update plan.md to reflect the new status 
+before starting the next wave. Continue until all tasks are complete.```
+  
 ### Claude.md - super important
 
 - **`/init`** — Sets up `CLAUDE.md` file at project level, analyzes an existing project and saves what it thinks it needs to know to work in the project.
