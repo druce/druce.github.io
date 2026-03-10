@@ -326,23 +326,6 @@ Hooks let you run something before or after a chat turn or tool executes.
   - After writing some agents and skills, package into a web app that runs by spawning a Claude Code process with headless `claude -p <prompt>` (uses monthly Claude Code subsription, or using Claude Agent SDK which is essentially running Claude Code headless via the API (burns API tokens).
   - The desktop client and web UI are more locked down out of the box.
 
-| | **Claude Code CLI** | **Claude.ai (Desktop & Web)** |
-|---|---|---|
-| **Where Skills bash tool runs** | Your local machine | Anthropic cloud container |
-| **OS** | Your OS (macOS/Linux/WSL) | Ubuntu 24 (sandboxed) |
-| **Working directory** | Your project directory | `/home/claude` |
-| **Filesystem** | Your real filesystem | Ephemeral (resets between tasks) |
-| **User files** | Direct access in project | `/mnt/user-data/uploads` (read-only) |
-| **Output files** | Written in place | `/mnt/user-data/outputs` |
-| **Skills system** (`/mnt/skills/`) | ❌ Not available | ✅ Yes |
-| **Network access** | Full (your network) | Restricted allowlist |
-| **Persistence** | Persistent (your disk) | Resets per session |
-| **MCP servers** | ✅ Local config (e.g. `claude_desktop_config.json`) | Web: Internet MCP connectors only. Desktop: Web and local connectors in `claude_desktop_config.json` |
-| **Package install** | Normal (`pip`, `npm`) | `pip --break-system-packages`, `npm` |
-| **Desktop MCP Extensions** |  ✅  | ✅ Desktop app only; Install MCP servers with one click, admin-controlled permissions |
-| **Cowork mode** | ❌ No Cowork CLI | ✅ Mac / Windows Claude desktop app) |
-
-
 ## Advanced Topics
 
 ### Worktrees
