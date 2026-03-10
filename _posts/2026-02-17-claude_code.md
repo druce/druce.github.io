@@ -80,14 +80,13 @@ Claude Code's power comes with a bit of a learning curve, but it's well worth it
     - **[Anthropic Console](https://console.anthropic.com/)** — Track usage, set monthly spend limits, and configure billing alerts so you don't get surprised.
     - **Spend limits** — Set hard limits per workspace or API key. When the limit is hit, requests are rejected rather than overspending.
     - **Alerts** — Configure email/webhook notifications at e.g. 50%, 80%, 100% of your budget threshold.
-    - **`/model` switching** — Opus is ~5× more expensive than Sonnet per token. Use Sonnet for routine coding and Opus for complex planning — this alone can cut costs dramatically.
+    - **`/model` switching** — Opus is ~5× more expensive than Sonnet per token. Use Sonnet for routine coding and Opus for complex planning — this alone can cut costs dramatically. Running Opus in an autonomous loop or with multiple teammates for hours, costs can escalate very quickly
     - **`/clear` often** — Large contexts burn tokens on every turn. Clear context between tasks.  Docs: [Reducing token usage](https://code.claude.com/docs/en/costs#reduce-token-usage)
     - **`maxTurns`** — Cap how many agentic turns a session can take, especially for headless/CI usage.
     - **Typical cost benchmarks** (API pricing, approximate):
       - A focused single-file bug fix or small feature: **$0.50–$2**
       - A medium refactor touching 5–10 files with plan + code + review: **$5–$15**
       - A large multi-file implementation with Opus planning, sub-agents, and extended coding (30+ min session): **$20–$80+**
-      - Running Opus in an autonomous loop or with multiple teammates for hours: **$100–$500+/day** — costs can escalate very quickly
       - Costs can vary widely, a developer using it to 2x their productivity in maintenance and debugging mode will use far fewer tokens than someone trying to 10x their productivity running a continuous agentic loop all day. The former will be a couple of hundred dollars a month, the latter probably a couple of thousand. (Still a good deal in many cases.)
     - The biggest cost driver is model choice × context size × number of turns. An Opus session with a large codebase loaded can burn through $10–$20 in an hour of active use. Sonnet doing the same work might cost $2–$4. Monitor early and often.
 
