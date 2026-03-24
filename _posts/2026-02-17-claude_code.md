@@ -675,6 +675,7 @@ Further reading:
   - [Sabrina.dev](https://www.sabrina.dev/p/claude-code-full-course-for-beginners)
 
 - Best Practices, tips etc.
+  - [https://cc.storyfox.cz/](Cheat sheet)
   - [Claude Code Tips](https://github.com/ykdojo/claude-code-tips)
   - [Roadmap.sh Step-by-Step guide to becoming a Claude Code expert in 2026](https://roadmap.sh/claude-code)
   - [Trail of Bits](https://github.com/trailofbits/claude-code-config)
