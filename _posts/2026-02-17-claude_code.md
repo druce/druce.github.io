@@ -130,7 +130,9 @@ Claude Code's power comes with a bit of a learning curve, but it's well worth it
 - You can do multiple passes of *"check my repo changes and update CLAUDE.md"* — and update it regularly. It's a living document describing how your repo works and how you like to develop.
 - You can have it reference other files. For instance, say "When building skills, follow patterns and best practices in @CLAUDE_SKILLS_BEST_PRACTICES.md"
 - [Memory](https://code.claude.com/docs/en/memory)
+- The `.claude` hidden directory is where Claude stores its memory and configuration files. There is a `.claude` in your home directory, and a `.claude` in your project directory, which should be committed to git. That is where skills, custom commands, agents and settings live. More about `.claude` [here](https://code.claude.com/docs/en/memory#the-claude-directory) and [here](https://blog.dailydoseofds.com/p/anatomy-of-the-claude-folder).
 
+![.claude directory structure](/assets/2025/dot-claude.png)
 
 ## Dev Loop: Spec-Driven Development
 
@@ -257,7 +259,7 @@ If a third party wants to expose functionality that lives on their server, they 
 
 In both cases, if prompts aren't calling the tool/skill when you expect, you may need to improve the descriptive metadata or explicitly tell Claude to use it. If context gets large, Claude forgets things. If an MCP server has many tools, consider making a simpler version.
 
-**CLIs are free context for skills.** Claude already knows how to shell out to `gh`, `aws`, `docker`, `psql`, `stripe`, etc. No tool definitions get loaded. No startup cost. 
+**CLIs are free context for skills.** Claude already knows how to shell out to `gh`, `aws`, `docker`, `psql`, `stripe`, etc. No tool definitions get loaded. No startup cost.
 
 | Task | CLI (preferred) | MCP (only if needed) |
 | ------ | ----------------- | ---------------------- |
@@ -354,17 +356,17 @@ A lot of time is spent waiting for Claude — what do you do? Work on multiple t
 
 As a more complex pattern, you can create a [`plan.md`](/assets/2025/plan.md) with a dependency graph expressed as markdown, then run a prompt like:
 
-```Read plan.md. Create tasks with TaskCreate for each incomplete item, 
-wiring blockedBy dependencies from the file. Skip completed tasks — 
+```Read plan.md. Create tasks with TaskCreate for each incomplete item,
+wiring blockedBy dependencies from the file. Skip completed tasks —
 treat them as resolved preconditions only. ```
 
-```Start with all tasks that have no unresolved blockers and run them 
-in parallel where possible, sequentially where blocked. Delegate each 
+```Start with all tasks that have no unresolved blockers and run them
+in parallel where possible, sequentially where blocked. Delegate each
 task to a subagent. ```
 
-```After each task completes, update plan.md to reflect the new status 
+```After each task completes, update plan.md to reflect the new status
 before starting the next wave. Continue until all tasks are complete.```
-  
+
 
 ### Subagents
 
@@ -668,7 +670,7 @@ Further reading:
 - Coding Agent Internals:
   - [What Makes a Coding Agent? (Cline)](https://cline.bot/blog/what-makes-a-coding-agent)
   - [How Coding Agents Actually Work: Inside OpenCode](https://cefboud.com/posts/coding-agents-internals-opencode-deepdive/)
-  
+
 - Courses:
   - [Claude Code in Action](https://anthropic.skilljar.com/claude-code-in-action)
   - [Claude Code: A Highly Agentic Coding Assistant (older)](https://www.deeplearning.ai/short-courses/claude-code-a-highly-agentic-coding-assistant/)
@@ -684,7 +686,7 @@ Further reading:
 - Extensions
   - [Code simplifier](https://x.com/bcherny/status/2009450715081789767)
   - [Serena](MCP for multi-language LSP, utility tools, JetBrains integration)
-  
+
 - Blog posts and recent discussion:
 
   - [David Crawshaw: Usable output has climbed from < 50% to > 90%.](https://crawshaw.io/blog/eight-more-months-of-agents)
