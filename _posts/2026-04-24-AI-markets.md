@@ -8,6 +8,7 @@ guid: /?p=7158
 permalink: /2026/04/ai-markets
 categories: AI
 tags: AI, bitcoin, markets, investing, economics
+image: /assets/2026/ai-trading.png
 mathjax: false
 mermaid: false
 description: Musings on AI in markets
@@ -30,6 +31,6 @@ Feels like one of those things where there is a bell curve, some disclosure make
 
 Somewhat unrelated, there are some weirdos who think there shouldn’t be regs and insider trading should be legal. But that leads to an Akerlof market for lemons, people don’t trade if they don’t trust the markets. Do you want to trade against insiders like [soldiers betting on the war in Iran](https://abcnews.com/US/doj-arrests-soldier-made-400000-betting-maduros-removal/story?id=132325426), or [politicians betting on their own campaigns](https://www.pbs.org/newshour/politics/kalshi-fines-and-suspends-3-congressional-candidates-for-betting-on-their-own-elections)? Kalshi and Polymarket are banning insider bets right and left these days. Who wants to bet on the NBA or boxing if point-shaving and throwing fights are legal?
 
-Also, there are players like Bloomberg and Google who have everyone’s activity and emails, if they could just trade on it, the equilibrium is 1 giant big tech company that has all the information and sets all the prices, i.e. central planning, and people not being able to say anything because everything is bugged, like under the Stasi.
+Also, there are players like Bloomberg and Google who have everyone’s activity and emails, if they could just trade on it, the equilibrium is one giant Big Tech company that has all the information and sets all the prices, i.e. central planning, and people not being able to say anything because everything is bugged, like under the Stasi.
 
 *George Devol drew Canada Bill aside and asked him if he couldn't see that the game was crooked. And Canada Bill sighed, and shrugged his shoulders, and said, 'I know. But it's the only game in town.' And he went back to the game.*
