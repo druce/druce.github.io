@@ -13,9 +13,13 @@ mathjax: false
 mermaid: false
 description: Musings on AI in markets
 ---
+[![AI trading](/assets/2026/ai-trading.png)](/assets/2026/ai-trading.png)
+
 > Somebody [vibecoded a bot](https://x.com/lunarresearcher/status/2046971446325313876) to identify Bitcoin wallets that had successful trading strategies and copycat them.
 >
 > Possibly fictional viral content, but it raises interesting questions of market design.
+>
+> Automated strategies are already entrenched in financial markets. AI adds new dimensions: more people can create strategies, and strategies can access all the world's structured and unstructured data. What are the implications for price discovery and market function?
 
 [Grossman-Stiglitz](https://www.aeaweb.org/aer/top20/70.3.393-408.pdf) says markets can only be boundedly efficient if information and trading etc. isn’t free. Analysts research and identify mispricings, and as they trade, markets get more efficient. At some point prices get efficient enough that it doesn’t pay to do research and trade. The process of making markets efficient costs money, which requires markets to be inefficient enough to pay for it.
 
