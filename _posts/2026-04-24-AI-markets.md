@@ -27,7 +27,7 @@ description: Musings on AI in markets
 
 But if you have AI that can cheaply process all the information in the world like an analyst, markets can get pretty efficient.
 
-It's already hard being an analyst or a human trader, sell-side research and human traders have been decimated. It's might get even harder as they compete with bots that can process all the world's data and execute trades faster than any human. A robot equity research report writer is pretty good and so easy, [I vibe-coded my own](https://github.com/druce/deep-research-machine).
+It's already hard being an analyst or a human trader, sell-side research and human traders have been decimated. It's might get even harder as they compete with bots that can process all the world's data and execute trades faster than any human. A robot equity research report writer is pretty good and so easy, to build [I even vibe-coded my own](https://github.com/druce/deep-research-machine).
 
 In Bitcoin you can see near-real-time trades, so you can copycat anyone. I guess traders could create new wallets and try to obfuscate trades. But if people are transferring between wallets you can probably analyze networks and figure out which wallets are related. But then maybe all the edge traders could form a bank to hide behind. Then they have to trust each other to share wallets.
 
