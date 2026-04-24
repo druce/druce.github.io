@@ -43,7 +43,7 @@ Kalshi and Polymarket are banning insider bets right and left these days. Who wa
 
 Also, there are players like Bloomberg and Google who have everyone’s activity and emails, if they could just trade on it, the equilibrium is one giant Big Tech company that has all the information and sets all the prices, i.e. central planning, and people not being able to say anything because everything is bugged, like under the Stasi.
 
-At one time, Excel and Bloomberg allowed hundreds of small hedge fund to start up and compete effectively with giants. It's possible that vibecoded, democratized data will let new players flower. But AI and big data are not that easy to democratize, and might make the rich even richer. On the whole, I would expect more concentration and bifurcation between the quant firms and the rest.
+At one time, Excel and Bloomberg allowed hundreds of small hedge funds to start up and compete effectively with giants. It's possible that vibecoded, democratized data will let new players flower. But AI and big data are not that easy to democratize, and might make the rich even richer. On the whole, I would expect more concentration and bifurcation between the quant firms and the rest.
 
 And there is a lot of room for AI- and tech-related bubbles and disasters, from flash crashes through trading strategies running amok, to small choke points like electrical substations and routers in Herndon knocking out much of the tech world.
 
