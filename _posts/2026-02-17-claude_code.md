@@ -675,7 +675,8 @@ Further reading:
   - [Claude Code in Action](https://anthropic.skilljar.com/claude-code-in-action)
   - [Claude Code: A Highly Agentic Coding Assistant (older)](https://www.deeplearning.ai/short-courses/claude-code-a-highly-agentic-coding-assistant/)
   - [Sabrina.dev](https://www.sabrina.dev/p/claude-code-full-course-for-beginners)
-
+  - [claude.nagdy.me](https://claude.nagdy.me/)
+  
 - Best Practices, tips etc.
   - [https://cc.storyfox.cz/](Cheat sheet)
   - [Claude Code Tips](https://github.com/ykdojo/claude-code-tips)
