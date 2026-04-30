@@ -5,7 +5,11 @@ date: 2020-12-06T22:28:57+00:00
 author: Druce Vertes
 layout: post
 guid: /?p=7112
-permalink: /2020/12/portfolio-opimization
+permalink: /2020/12/portfolio-optimization
+redirect_from:
+  - /2020/12/portfolio-opimization                                                            
+  - /2020/12/portfolio-opimization/                                                                                                       
+  - /2020/12/portfolio-opimization.html
 categories: datascience
 tags: datascience markets investing
 mathjax: true
