@@ -1,148 +1,153 @@
 /**
- * About Page Styles
- * Glassmorphism design with animated wave background
+ * About page — editorial register.
+ * Flat surfaces, one accent (crimson) reserved for the primary CTA.
+ * Type pairing: Source Serif 4 (display) + Source Sans 3 (body), scoped here
+ * so blog posts stay on the site-wide Open Sans system.
  */
 
-// ============================================================================
-// About Page Body
-// ============================================================================
-
-.about-page {
-  overflow-x: hidden;
-}
+$about-display-font: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+$about-body-font: "Source Sans 3", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
 // ============================================================================
-// Canvas Background
-// ============================================================================
-
-#wave-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  pointer-events: none;
-}
-
-// ============================================================================
-// Glassmorphism Mixin (Light Theme)
-// ============================================================================
-
-@mixin glass-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px); // Safari support
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 20px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-// ============================================================================
-// About Page Container
+// Container
 // ============================================================================
 
 .about-container {
-  min-height: calc(100vh - 120px);
-  max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
-  margin-right: auto;
+  max-width: 680px;
   margin-left: auto;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  padding-right: $spacing-unit;
-  padding-left: $spacing-unit;
+  margin-right: auto;
+  padding: 2rem 1rem 2.5rem;
+  font-family: $about-body-font;
 
   @media (min-width: 768px) {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding: 3rem 1rem 3rem;
   }
 
-  @media (min-width: 1024px) {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-
-  @include media-query($on-laptop) {
-    max-width: calc(#{$content-width} - (#{$spacing-unit}));
-    padding-right: $spacing-unit / 2;
-    padding-left: $spacing-unit / 2;
+  > section {
+    margin-bottom: 0;
   }
 }
 
 // ============================================================================
-// Section Navigation
+// Section-level headings (Get in touch, Projects)
 // ============================================================================
 
-.section-nav {
-  @include glass-card;
-  padding: 1rem;
-  text-align: center;
-  margin-bottom: 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-
-  a {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    color: $navy-color;
-    text-decoration: none;
-    font-weight: 500;
-    border-radius: 8px;
-    transition: background-color 0.2s ease, color 0.2s ease;
-
-    &:hover {
-      background: rgba(17, 17, 136, 0.1);
-      color: $brand-color;
-    }
-  }
-}
-
-// ============================================================================
-// Glassmorphism Cards
-// ============================================================================
-
-.glass-card {
-  @include glass-card;
-  padding: 2rem;
-  margin-bottom: 2rem;
+.section-heading {
+  font-family: $about-display-font;
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
   color: $text-color;
+  margin: 0 0 1.5rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid $grey-color-light;
+  line-height: 1.15;
+  text-transform: none;
 
   @media (min-width: 768px) {
-    padding: 2.5rem;
+    font-size: 2.125rem;
+    padding-top: 2.625rem;
+  }
+}
+
+// ============================================================================
+// Bio
+// ============================================================================
+
+.bio-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.bio-portrait {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid $grey-color-light;
+  margin: 0;
+}
+
+.bio-intro {
+  h1 {
+    font-family: $about-display-font;
+    font-size: 2.25rem;
+
+    @media (min-width: 768px) {
+      font-size: 2.875rem;
+    }
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: 0 0 0.75rem;
+    color: $text-color;
+    font-feature-settings: "ss01";
   }
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  .bio-lede {
+    font-family: $about-body-font;
+    font-size: 1.1875rem;
+    line-height: 1.55;
+    color: $grey-color-dark;
+    margin: 0;
+    max-width: 34em;
+    font-weight: 400;
+    text-wrap: balance;
+  }
+}
+
+.bio-body {
+  font-family: $about-body-font;
+  font-size: 1.0625rem;
+
+  p {
+    line-height: 1.7;
+    margin: 0 0 1.25rem;
+    color: $text-color;
   }
 
   h2 {
-    font-size: 1.875rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: $brand-color;
+    font-family: $about-display-font;
+    font-size: 1.3125rem;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: -0.01em;
+    color: $text-color;
+    line-height: 1.2;
+    margin: 2.5rem 0 0.75rem;
 
     @media (min-width: 768px) {
-      font-size: 2.25rem;
+      font-size: 1.4375rem;
     }
   }
 
-  p {
-    color: $text-color;
-    line-height: 1.6;
-    margin-bottom: 1rem;
+  ul {
+    margin: 0 0 1.5rem;
+    padding-left: 1.25rem;
+    list-style: disc;
+
+    li {
+      margin-bottom: 0.5rem;
+      line-height: 1.65;
+      color: $text-color;
+    }
   }
 
   a {
     color: $navy-color;
     text-decoration: underline;
-    text-decoration-color: $navy-color-very-light;
-    text-decoration-thickness: 2px;
+    text-decoration-color: $grey-color-light;
     text-underline-offset: 2px;
-    transition: color 0.3s ease;
 
     &:hover {
       color: $brand-color;
@@ -150,330 +155,217 @@
     }
   }
 
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-}
+  .bio-tech {
+    margin-top: 1.5rem;
+    font-size: 0.9375rem;
+    color: $grey-color-dark;
+    line-height: 1.6;
 
-// ============================================================================
-// Profile Hero (Centered Image)
-// ============================================================================
-
-.profile-hero {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-
-  img {
-    border-radius: 50%;
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  }
-}
-
-.bio-text {
-  text-align: center;
-
-  h2 {
-    margin-bottom: 1.5rem;
-  }
-
-  p, ul {
-    text-align: left;
-  }
-
-  ul {
-    list-style: disc;
-    padding-left: 2rem;
-    margin: 1rem 0 1.5rem 0;
-
-    li {
-      margin-bottom: 0.75rem;
-      line-height: 1.6;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
+    span {
+      font-weight: 600;
+      color: $text-color;
     }
   }
 }
 
 // ============================================================================
-// Buttons with Gradient
+// Contact
 // ============================================================================
 
-.gradient-button {
+.resume-cta {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background: $brand-color;
-  color: white;
-  border-radius: 12px;
-  text-decoration: none;
+  gap: 0.625rem;
+  padding: 0.875rem 1.625rem;
+  background: $navy-color-dark;
+  color: #fff;
+  border-radius: 4px;
   font-weight: 600;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-  border: none;
-  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(204, 34, 0, 0.3);
-    background: $crimson-color-light;
-    color: white;
+  &:hover,
+  &:focus {
+    background: $navy-color;
+    color: #fff;
     text-decoration: none;
   }
 
-  &:active {
-    transform: translateY(0);
+  &:focus-visible {
+    outline: 3px solid $orange-color;
+    outline-offset: 2px;
   }
 
   i {
-    font-size: 1.1em;
+    font-size: 1.05em;
   }
 }
 
-// ============================================================================
-// Social Links
-// ============================================================================
+.contact-links {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
 
-.social-links {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  li {
+    margin: 0;
+  }
 
   a {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.25rem;
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(17, 17, 136, 0.2);
-    border-radius: 8px;
-    transition: all 0.2s ease;
     color: $navy-color-dark;
     text-decoration: none;
-    font-weight: 500;
+    font-size: 0.9375rem;
+    padding: 0.25rem 0;
 
     &:hover {
-      background: rgba(255, 255, 255, 1);
-      transform: scale(1.05);
-      border-color: $brand-color;
       color: $brand-color;
-      text-decoration: none;
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     i {
-      font-size: 1.2em;
+      font-size: 1em;
+      color: $grey-color;
+      width: 1.1em;
+      text-align: center;
     }
 
-    // Last button spans full width and centers
-    &:last-child {
-      grid-column: 1 / -1;
-      justify-self: center;
-      max-width: 400px;
-      width: 100%;
-    }
-  }
-
-  // Responsive: stack on mobile
-  @media (max-width: 640px) {
-    grid-template-columns: 1fr;
-
-    a:last-child {
-      grid-column: 1;
+    &:hover i {
+      color: $brand-color;
     }
   }
 }
 
 // ============================================================================
-// Projects Grid
+// Projects
 // ============================================================================
+
+.projects-section {
+  .section-intro {
+    color: $grey-color-dark;
+    margin: 0 0 2rem;
+    font-size: 0.9375rem;
+  }
+}
 
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 3.5rem 1.5rem;
 
   @media (min-width: 640px) {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
 .project-card {
-  @include glass-card;
-  padding: 1.5rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
-  }
-
-  > a:first-child {
+  .project-thumb {
     display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 4px;
+    background: $grey-color-light;
+    border: 1px solid $grey-color-light;
     text-decoration: none;
-  }
 
-  img {
-    width: 100%;
-    height: 400px;
-    object-fit: contain;
-    border-radius: 12px;
-    margin-bottom: 1rem;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    cursor: pointer;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      margin: 0;
+      transition: transform 0.4s ease;
+    }
 
-    &:hover {
-      opacity: 0.85;
+    &:hover img {
       transform: scale(1.02);
     }
   }
 
   h3 {
-    font-size: 1.25rem;
+    font-family: $about-display-font;
+    font-size: 1.1875rem;
     font-weight: 600;
-    margin-bottom: 0.75rem;
-    color: $text-color;
+    letter-spacing: -0.01em;
+    margin: 0;
+    line-height: 1.25;
     display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 
     a {
-      color: $navy-color-dark;
+      color: $text-color;
+      text-decoration: none;
+
+      &:hover {
+        color: $brand-color;
+      }
+    }
+  }
+
+  .project-github {
+    color: $grey-color;
+    font-size: 0.95em;
+    line-height: 1;
+    text-decoration: none;
+
+    &:hover {
+      color: $brand-color;
+    }
+  }
+
+  .project-meta {
+    font-size: 0.8125rem;
+    color: $grey-color;
+    margin: -0.125rem 0 0;
+    letter-spacing: 0.01em;
+
+    .meta-sep {
+      margin: 0 0.5em;
+      opacity: 0.6;
+    }
+  }
+
+  .project-body {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: $grey-color-dark;
+
+    p, & {
+      margin: 0;
+    }
+
+    a {
+      color: $navy-color;
       text-decoration: underline;
-      text-decoration-color: $navy-color-very-light;
-      text-decoration-thickness: 2px;
+      text-decoration-color: $grey-color-light;
       text-underline-offset: 2px;
-      transition: color 0.2s ease;
 
       &:hover {
         color: $brand-color;
         text-decoration-color: $brand-color;
       }
     }
-  }
 
-  .project-github {
-    color: $navy-color-dark;
-    margin-left: 0.5rem;
-    font-size: 1.1em;
-    transition: color 0.2s ease;
-    text-decoration: none;
-
-    &:hover {
-      color: $brand-color;
-    }
-  }
-
-  p {
-    font-size: 0.95rem;
-    color: $text-color;
-    line-height: 1.5;
-    margin-bottom: 0;
-  }
-}
-
-// ============================================================================
-// FAQ Section
-// ============================================================================
-
-.faq-item {
-  margin-bottom: 2rem;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  .question {
-    font-weight: 600;
-    font-size: 1.125rem;
-    margin-bottom: 0.75rem;
-    color: $brand-color;
-  }
-
-  .answer {
-    color: $text-color;
-    line-height: 1.6;
-
-    p {
-      margin-bottom: 0.75rem;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
+    em {
+      font-style: italic;
+      color: $text-color;
     }
 
-    ul {
-      list-style: disc;
-      padding-left: 1.5rem;
-      margin: 0.5rem 0;
-
-      li {
-        margin-bottom: 0.5rem;
-        color: $text-color;
-      }
+    strong {
+      color: $text-color;
     }
-  }
-}
-
-// ============================================================================
-// About Page Specific Adjustments
-// ============================================================================
-
-// Override header wrapper width to match content below (740px) - only on about page
-.about-page .site-header .wrapper {
-  max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: $spacing-unit;
-  padding-right: $spacing-unit;
-
-  @include media-query($on-laptop) {
-    max-width: calc(#{$content-width} - (#{$spacing-unit}));
-    padding-right: $spacing-unit / 2;
-    padding-left: $spacing-unit / 2;
-  }
-}
-
-// ============================================================================
-// Fallback for browsers without backdrop-filter support
-// ============================================================================
-
-@supports not (backdrop-filter: blur(12px)) {
-  .glass-card {
-    background: rgba(255, 255, 255, 0.85);
-  }
-}
-
-// ============================================================================
-// Skip Link (Accessibility)
-// ============================================================================
-
-.skip-link-about {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: #118;
-  color: white;
-  padding: 8px;
-  text-decoration: none;
-  z-index: 200;
-
-  &:focus {
-    top: 0;
-    outline: 3px solid $orange-color;
-    outline-offset: 2px;
   }
 }

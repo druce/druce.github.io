@@ -1,263 +1,250 @@
 ---
-layout: about
+layout: default
 title: About Druce Vertes
 permalink: /about.html
 redirect_from:
   - /contact.html
 projects:
-  - title: Agentic Newsletter Generation System
-    url: http://skynetandchill.druce.ai/
-    github: https://github.com/druce/OpenAIAgentsSDK
-    description: |
-      Autonomous agent system that uses OpenAI Agents SDK to generate an AI newsletter from 500+ daily articles.<br /><br />
-      The system orchestrates a 9-step pipeline: web scraping; initial filtering; summarizing; deduping; reranking; semantic clustering; and critic-optimizer iterative refinement to transform raw news feeds into polished editorial content.<br /><br />
-      Processes ~650 articles → 30+ curated stories in 1200+ word draft for human editing with 7-15 thematic sections in ~30 minutes.<br /><br />
-      Tech Stack: Python • OpenAI Agents SDK • GPT-4o (logprobs) / GPT-5 • Langfuse prompt repository/observability • Playwright web scraping • Pandas data wrangling • HDBSCAN clustering • UMAP dimensionality reduction • Pydantic structured output • SQLite database
-    image: /assets/2025/newsagent.png
-
-  - title: Safe Withdrawal Retirement Calculator
-    url: https://druce.ai/swr-react/
-    github: https://github.com/druce/swr
-    description: |
-      <strong>Beyond the 4% Rule: Flexible Withdrawals Under Risk Aversion</strong><br><br>
-      Bill Bengen's famous 4% rule provides a simple, effective retirement strategy: invest in a 50/50 stock-bond mix, withdraw 4% of your initial portfolio per year, and increase annually for inflation. Historically you won't run out of money over 30 years. <br><br>
-      This represents an infinite risk aversion solution—a hard constraint that never allows withdrawals to decrease or the portfolio to run dry.<br><br>
-      But what if we relaxed that constraint? What flexible rules would emerge at different levels of risk tolerance?
-      In a March 2021 article for <a href="https://advisorperspectives.com/articles/2021/03/22/beyond-the-4-rule-flexible-withdrawal-strategies-using-certainty-equivalent-spending" target="_blank">Advisor Perspectives</a>, I maximized certainty-equivalent spending under constant relative risk aversion (CRRA)—essentially, actual spending discounted by its volatility based on your risk preference. Using gradient-free Python optimization frameworks on historical data, I generated rules of the form:<br><br>
-      <em>Withdraw = fixed_pct + (variable_pct × portfolio_value), subject to a floor_pct minimum</em><br><br>
-      As risk aversion increases, stock allocation decreases and the withdrawal rule shifts from variable to fixed. This framework lets retirees choose their preferred point on the risk-return spectrum, perhaps tolerating some risk of future modest declines in spending for higher current and expected lifetime spending.
-    image: /assets/2021/swr.png
 
   - title: AI maturity self-assessment framework
     url: https://druce.ai/assets/2025/ai_maturity.html
     github: https://github.com/druce/druce.github.io/blob/master/assets/2025/ai_maturity.html
+    year: 2025
+    tags: AI · framework · assessment
     description: |
-      AI maturity measures the degree to which organizations have mastered AI-related capabilities to achieve operational excellence. AI maturity is not defined by tech tools alone, but by how effectively the organization can improve outcomes by orchestrating people, technology, data, and process. Organizations that successfully navigate AI transformation gain competitive advantages, operate with greater efficiency, increase velocity and respond faster to market changes, delivering more value creation.<br /><br />
+      AI maturity measures how far an organization has gone in turning AI capabilities into operational results. It's not defined by the tech stack alone, but by how well people, technology, data, and process work together. Firms that get AI right gain a competitive edge, operate more efficiently, and respond faster to market changes.<br /><br />
       Level 1 (Crawl): Initial unstructured exploration and planning.<br />
       Level 2 (Walk): Structured learning, training, planning, foundation-laying, and initial POCs and pilots.<br />
       Level 3 (Run): Operational deployment at scale, with robust infrastructure, governance, and security, and business value measured against KPIs.<br />
       Level 4 (Fly): An AI-native organization where AI is central and pervasive, deploying advanced use cases like autonomous agents, advanced fine-tuned models, with continuous improvement and adoption of emerging capabilities.<br /><br />
-      This self-assessment lets a firm measure how far they have navigated down the road to AI maturity, and inventories the steps firms might typically take.
+      This self-assessment lets a firm score where they stand today, and inventories the steps most firms take to move up a level.
     image: /assets/2025/spiderchart.png
 
-  - title: NYC Subway Dashboard
-    url: https://projects.streeteye.com/
-    github: https://github.com/druce/MTA
-    description: Data pipeline experiment using dbt to aggregate turnstile-level MTA data into DuckDB, with Plotly Dash for visualization. This <a href="https://www.getdbt.com/blog/future-of-the-modern-data-stack" target="_blank">modern data stack</a> experiment delivers sub-second query performance on multi-gigabyte datasets from a laptop. <a href="https://druce.ai/2023/01/modern_data_stack" target="_blank">The analysis</a> revealed issues with MTA data quality and quantified the pandemic's devastating ridership impact, which ultimately necessitated extreme revenue measures like congestion pricing.
-    image: /assets/2023/mta_dashboard.png
+  - title: Safe Withdrawal Retirement Calculator
+    url: https://druce.ai/swr-react/
+    github: https://github.com/druce/swr
+    year: 2021
+    tags: finance · Python · optimization
+    description: |
+      Bill Bengen's well-known 4% rule provides a simple, effective retirement strategy: invest in a 50/50 stock-bond mix, withdraw 4% of your initial portfolio per year, and increase annually for inflation. Historically this rule never runs out of money over 30 years. <br><br>
+      The rule emerges from optimization under a hard constraint that never allows withdrawals to decrease or the portfolio to run dry: an infinite risk aversion solution.<br><br>
+      But what if we relaxed that constraint? What flexible rules would emerge at different levels of risk tolerance?
+      A possible soft optimization objective is certainty-equivalent spending under constant relative risk aversion (CRRA): actual spending discounted by its volatility based on your risk preference.
+      In a March 2021 article for <a href="https://advisorperspectives.com/articles/2021/03/22/beyond-the-4-rule-flexible-withdrawal-strategies-using-certainty-equivalent-spending" target="_blank">Advisor Perspectives</a>, I used gradient-free Python optimization on historical data to maximize certainty-equivalent spending and generate rules of the form:<br><br>
+      <em>Withdraw = fixed_pct + (variable_pct × portfolio_value), subject to a floor_pct minimum</em><br><br>
+      As risk aversion increases, stock allocation decreases and the withdrawal rule shifts from variable to fixed. This framework lets retirees choose their preferred point on the risk-return spectrum, potentially tolerating some risk of future modest declines in spending for higher current and expected lifetime spending.
+    image: /assets/2021/swr.png
 
-  - title: Pizza Pizza Pizza
-    url: /pizza/
-    github: https://github.com/druce/Pizza
-    description: A ReactJS learning project to search for pizza (or coffee, or ice cream) in selected local NY areas, gather Google, Yelp, and Foursquare data, and return a single Bayesian ranking table and a Leaflet.js map of the results. Data no longer refreshed due to API deprecations and restrictions.
-    image: /assets/2021/pizza.png
+  - title: Agentic Newsletter Generation System
+    url: http://skynetandchill.druce.ai/
+    github: https://github.com/druce/OpenAIAgentsSDK
+    year: 2025
+    tags: AI · agents · LLMs
+    description: |
+      Autonomous agent system that uses OpenAI Agents SDK to generate an AI newsletter from 500+ daily articles.<br /><br />
+      A 9-step pipeline runs web scraping, initial filtering, summarizing, deduping, reranking, semantic clustering, and critic-optimizer refinement.<br /><br />
+      ~650 articles in, 30+ curated stories out across 7-15 thematic sections, with a 1,200-word draft ready for human editing in ~30 minutes.<br /><br />
+      Tech Stack: Python • OpenAI Agents SDK • GPT-4o (logprobs) / GPT-5 • Langfuse prompt repository/observability • Playwright web scraping • Pandas data wrangling • HDBSCAN clustering • UMAP dimensionality reduction • Pydantic structured output • SQLite database
+    image: /assets/2025/newsagent.png
 
-  - title: FinTwit Graph
-    url: http://fintwit.streeteye.com
-    github: https://github.com/druce/ClusterFinTweet
-    description: Visualizing the Fintwittersphere by building a force-directed graph which models Twitter accounts as nodes connected by weighted springs whose strength is derived from follower and topic similarity, simulating the physics, and solving for a low-energy equilibrium that clusters related users.
-    image: /assets/2021/fintwitgraph.png
+  - title: Stock Research Agent
+    url: https://github.com/druce/deep-research-machine
+    github: https://github.com/druce/deep-research-machine
+    year: 2026
+    tags: AI · agents · equity research
+    description: |
+      One command, institutional-quality equity research report. <code>./research.py NVDA</code> produces a full markdown/HTML/PDF report via a steerable research and report-writing pipeline powered by Claude Code.<br /><br />
+      The full generation steps and dependencies are defined as a directed acyclic graph (DAG): far more repeatable than a skill driven by a bulleted prompt. <code>research.py</code> runs ~33 tasks in dependency order: Python scripts gather company profile, financials, SEC filings, technical indicators, Wikipedia, and custom research questions; text artifacts are chunked, embedded, and stored in a LanceDB hybrid (vector + BM25) index, tagged by section; 7 research agents run in parallel via MCP, with findings flowing back into the shared index so each agent builds on the others' work; 7 section writers then run in parallel through critic-rewrite loops; sections are assembled with intro and conclusion, polished through a final critique pass, and rendered via Jinja2 and pandoc.<br /><br />
+      Enhances the <a href="https://github.com/anthropics/financial-services-plugins/tree/main/equity-research/skills/initiating-coverage" target="_blank">Claude for Financial Services equity research plugin</a> by splitting prompts per section, adding hard quality gates, LanceDB RAG, critic-optimizer loops, and Jinja-based assembly. Example output: <a href="https://druce.ai/assets/2025/NVDA.pdf" target="_blank">NVDA, March 2026</a>.
+    image: /assets/2026/nvda_report_combined-1.png
 
   - title: Portfolio Optimization
     url: https://druce.ai/2026/01/portfolio-optimization
     github: https://github.com/druce/portfolio_optimization
-    description: Basic portfolio optimization in Python using CVXOPT with historical asset class performance data.
+    year: 2026
+    tags: finance · Python · CVXOPT
+    description: Classic portfolio optimization in Python using CVXOPT with historical asset class performance data.
     image: /assets/2025/efrontier.png
 
   - title: Hyperparameter Tuning
     url: http://druce.ai/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna
     github: https://github.com/druce/iowa/blob/master/hyperparameter_optimization.ipynb
+    year: 2020
+    tags: ML · Ray · Optuna · XGBoost
     description: Fast distributed hyperparameter tuning using Ray Tune, Hyperopt, and Optuna.
     image: /assets/2021/fig1.png
 
   - title: Classification Thresholds
     url: http://druce.ai/2019/10/understanding-classification-thresholds-using-isocurves
     github: https://github.com/druce/threshold_selection
+    year: 2019
+    tags: ML · classification
     description: A primer on threshold selection for classification using isocurves. Metrics like F1 are popular, but in practice, minimizing real-world costs of false positives and false negatives is most useful.
     image: /assets/2021/isocurves.png
 
   - title: Deep Reinforcement Learning for Trading
     url: https://alphaarchitect.com/2020/02/26/reinforcement-learning-for-trading/
     github: https://github.com/druce/rl
+    year: 2020
+    tags: RL · trading · ML
     description: Alpha Architect, February 2020. An intro to reinforcement learning with trading examples.
     image: /assets/2021/rl.png
+
+  - title: NYC Subway Dashboard
+    url: https://projects.streeteye.com/
+    github: https://github.com/druce/MTA
+    year: 2023
+    tags: data · dbt · DuckDB · visualization
+    description: Data pipeline experiment using dbt to aggregate turnstile-level MTA data into DuckDB, with Plotly Dash for visualization. This <a href="https://www.getdbt.com/blog/future-of-the-modern-data-stack" target="_blank">modern data stack</a> experiment delivers sub-second query performance on multi-gigabyte datasets from a laptop. <a href="https://druce.ai/2023/01/modern_data_stack" target="_blank">The analysis</a> found MTA data quality issues and quantified the pandemic's devastating ridership impact, which ultimately necessitated extreme revenue measures like congestion pricing.
+    image: /assets/2023/mta_dashboard.png
+
+  - title: Pizza Pizza Pizza
+    url: /pizza/
+    github: https://github.com/druce/Pizza
+    year: 2017
+    tags: React · JavaScript · APIs
+    description: A ReactJS learning project to search for pizza (or coffee, or ice cream) in selected local NY areas, gather Google, Yelp, and Foursquare data, and return a single Bayesian ranking table and a Leaflet.js map of the results. Data no longer refreshed due to API deprecations and restrictions.
+    image: /assets/2021/pizza.png
+
+
 ---
 
 <div class="about-container">
-  <!-- Section Navigation -->
-  <nav class="section-nav" role="navigation" aria-label="Page sections">
-    <a href="#bio">Bio</a>
-    <a href="#contact">Contact</a>
-    <a href="#projects">Projects</a>
-  </nav>
 
-  <!-- 1. Bio Section -->
-  <section id="bio" class="glass-card">
-    <div class="profile-hero">
+  <section id="bio" class="bio-section">
+    <header class="bio-header">
       <img
         src="{{ '/assets/images/profile_photo_square.webp' | relative_url }}"
-        alt="Druce Vertes Profile Photo"
-        width="200"
-        height="200"
+        alt="Druce Vertes"
+        class="bio-portrait"
+        width="180"
+        height="180"
       />
-    </div>
-    <div class="bio-text">
-      <h2>Hi, I'm Druce</h2>
+      <div class="bio-intro">
+        <h1>Druce Vertes</h1>
+        <p class="bio-lede">
+          I help hedge funds and asset management firms plan and execute AI, and get projects out of the
+          80% trap and into production: RAG research, text-to-SQL on CRM data,
+          and agent workflows that survive real-world market conditions.
+        </p>
+      </div>
+    </header>
+
+    <div class="bio-body">
       <p>
-        <strong
-          >I bridge the gap between business decision-making and AI engineering,
-          and help ship production AI systems for investment management.</strong
-        >
-        With 30 years as a front-office quantitative analyst, hedge fund CTO,
-        and now hands-on AI builder, including work at Tiger Management, Caxton,
-        and as CTO of a $2B Tiger Cub fund,
-        <strong
-          >I help hedge funds and investment firms plan and implement AI
-          strategy,</strong
-        >
-        translating modern AI capabilities into production systems that improve
-        execution velocity, decision quality, and operational efficiency.
+        Thirty years as a front-office quantitative analyst, hedge fund CTO,
+        and hands-on AI builder, including work at Tiger Management, Caxton,
+        and as CTO of a $2B Tiger Cub fund.
       </p>
-      <p>AI projects often struggle and fail. Key reasons include:</p>
 
+      <h2>Recent work</h2>
       <ul>
-        <li>Lack of business-centric framing and success metrics.</li>
-        <li>Lack of realistic evals against business objectives.</li>
-        <li>Misaligned expectations.</li>
-        <li>Lack of end user or executive buy-in.</li>
-        <li>Governance, risk, and compliance blind spots.</li>
-        <li>
-          Automating too little or too much, with poorly tuned human-in-the-loop
-          dynamics.
-        </li>
-        <li>
-          Agent POCs stuck in the 'messy middle' where they work 80% of the
-          time, but not in the high 90s required for production.
-        </li>
-      </ul>
-
-      <p>I can help avoid those pitfalls.</p>
-
-      <p><strong>Recent successes include:</strong></p>
-
-      <ul>
-        <li>
-          Designing and deploying RAG-based research summarization, text-to-SQL
-          on CRM data, and agentic workflows for sell-side and buy-side teams.
-        </li>
-        <li>
-          Architecting agent automation systems using OpenAI Agents SDK and
-          LangGraph.
-        </li>
+        <li>Designing and deploying RAG-based research summarization, text-to-SQL on CRM data, and agentic workflows for sell-side and buy-side teams.</li>
+        <li>Architecting agent automation systems using OpenAI Agents SDK and LangGraph.</li>
         <li>Traditional ML for alternative data signals.</li>
       </ul>
 
+      <h2>Background</h2>
       <p>
         As CTO of Hoplite Capital Management (2008–2010), I was the first
         internal tech hire at a 25-person, $2B AUM long/short equity fund. I
-        built a best-practice end-to-end platform, including OMS (Eze Castle),
-        real-time P&L and portfolio analytics, FIX trading, compliance,
-        post-trade workflows, and disaster recovery, supporting daily
-        decision-making for PMs and analysts.
+        built a best-practice end-to-end platform: OMS (Eze Castle), real-time
+        P&amp;L and portfolio analytics, FIX trading, compliance, post-trade
+        workflows, and disaster recovery, supporting daily decision-making for
+        PMs and analysts.
       </p>
-
       <p>
-        Earlier, I led hedge fund implementations at Charles River Development,
+        Earlier, I led hedge fund implementations at Charles River Development
         and held front-office roles at Caxton and Tiger Management. I began my
         career at Salomon Brothers, doing economic forecasting and building
-        portfolio optimization systems using multi-factor risk models. Awarded
-        CFA charter 2009 (not active).
+        portfolio optimization systems using multi-factor risk models. CFA
+        charter awarded 2009 (inactive).
       </p>
-
       <p>
-        <strong>Technical focus:</strong> Python, AI-assisted full SDLC dev
-        practices, agentic systems, LangChain/LangGraph, OpenAI Agents SDK, RAG,
+        <span>Technical focus:</span> Python, agentic systems, AI-assisted agentic
+        SDLC, Claude Code / Cowork, LangChain / LangGraph, OpenAI Agents SDK, RAG,
         robust data pipelines.
       </p>
+      <h2>The 80% Trap</h2>
+      <p>
+        Many AI projects <a href="https://finance.yahoo.com/news/mit-report-95-generative-ai-105412686.html" target="_blank" rel="noopener noreferrer">fail successfully</a>: they succeed as demos and POCs, then hit roadblocks when scaling to production or integrating with existing systems.
+      </p>
+      <ul>
+        <li>Missing business-centric framing and success metrics.</li>
+        <li>End-user or executive buy-in missing, or expectations misaligned with what the system can deliver.</li>
+        <li>No observability, no realistic evaluation against business objectives.</li>
+        <li>Automating too little or too much, with poorly tuned human-in-the-loop dynamics that need babysitting.</li>
+        <li>Governance, risk, and compliance blind spots.</li>
+        <li>Agent POCs stuck in the messy middle, where they work 80% of the time but not in the high 90s production demands.</li>
+      </ul>
+
+      Escaping the trap requires a day-one commitment to observability, business-centric evals, safety guardrails, and governance architected,
+      and disciplined iteration to carry the system from 80% reliable through to the high-90s where production actually starts.
     </div>
   </section>
 
-  <!-- 2. Contact Section -->
-  <section id="contact" class="glass-card">
-    <h2>Contact</h2>
-    <p>
-      Learn more or reach out through any of these channels. I'd love to hear
-      from you!
-    </p>
-    <div class="social-links">
-      <a href="mailto:druce@druce.ai" aria-label="Email Druce Vertes">
-        <i class="fas fa-envelope" aria-hidden="true"></i>
-        <span>Email</span>
-      </a>
-      <a
-        href="https://calendly.com/drucev"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Book a meeting with Druce"
-      >
-        <i class="fas fa-calendar" aria-hidden="true"></i>
-        <span>Book a Meeting</span>
-      </a>
-      <a
-        href="https://bsky.app/profile/druce.ai"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Follow on BlueSky"
-      >
-        <i class="fas fa-cloud" aria-hidden="true"></i>
-        <span>BlueSky</span>
-      </a>
-      <a
-        href="https://github.com/druce"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub profile"
-      >
-        <i class="fab fa-github" aria-hidden="true"></i>
-        <span>GitHub</span>
-      </a>
-      <a
-        href="https://www.linkedin.com/in/drucevertes/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="LinkedIn profile"
-      >
-        <i class="fab fa-linkedin" aria-hidden="true"></i>
-        <span>LinkedIn</span>
-      </a>
-      <a
-        href="{{ '/assets/doc/DruceVertes.pdf' | relative_url }}"
-        class="gradient-button"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="View Druce Vertes resume PDF"
-      >
-        <i class="fas fa-file-pdf" aria-hidden="true"></i>
-        <span>Full Resume (PDF)</span>
-      </a>
-      <a
-        href="https://skynetandchill.druce.ai/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Daily News on Skynet and Chill"
-      >
-        <i class="fas fa-newspaper" aria-hidden="true"></i>
-        <span>Daily AI News on Skynet and Chill</span>
-      </a>
-    </div>
+  <section id="contact" class="contact-section">
+    <h2 class="section-heading">Get in touch</h2>
+    <a
+      href="{{ '/assets/doc/DruceVertes.pdf' | relative_url }}"
+      class="resume-cta"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Download Druce Vertes resume as PDF"
+    >
+      <i class="fas fa-file-pdf" aria-hidden="true"></i>
+      <span>Download résumé (PDF)</span>
+    </a>
+    <ul class="contact-links">
+      <li>
+        <a href="mailto:druce@druce.ai">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+          <span>druce@druce.ai</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://calendly.com/drucev" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-calendar" aria-hidden="true"></i>
+          <span>Book a meeting</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/druce" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/drucevertes/" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+          <span>LinkedIn</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://bsky.app/profile/druce.ai" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-bluesky" aria-hidden="true"></i>
+          <span>BlueSky</span>
+        </a>
+      </li>
+    </ul>
   </section>
 
-  <!-- 3. Projects Section -->
-  <section id="projects" class="glass-card">
-    <h2>Personal Research & Dev Projects</h2>
-    <p>
-      A selection of published and unpublished experiments in machine learning,
-      data visualization, finance, and web development.
+  <section id="projects" class="projects-section">
+    <h2 class="section-heading">Projects</h2>
+    <p class="section-intro">
+      Experiments and learning projects in machine learning, data visualization, finance,
+      and web development.
     </p>
     <div class="projects-grid">
       {% for project in page.projects %}
       <article class="project-card">
-        <a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">
+        <a
+          href="{{ project.url }}"
+          class="project-thumb"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="{{ project.title }}"
+        >
           <img
             src="{{ project.image | relative_url }}"
             alt="{{ project.title }} screenshot"
@@ -278,9 +265,17 @@ projects:
             <i class="fab fa-github-square" aria-hidden="true"></i>
           </a>
         </h3>
-        <p>{{ project.description }}</p>
+        {% if project.year or project.tags %}
+        <p class="project-meta">
+          {% if project.year %}{{ project.year }}{% endif %}
+          {% if project.year and project.tags %}<span class="meta-sep">·</span>{% endif %}
+          {% if project.tags %}{{ project.tags }}{% endif %}
+        </p>
+        {% endif %}
+        <div class="project-body">{{ project.description }}</div>
       </article>
       {% endfor %}
     </div>
   </section>
+
 </div>

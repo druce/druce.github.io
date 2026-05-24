@@ -70,7 +70,14 @@ exclude:
   - static.test/
 #  - pizza/
   - assets/js/tablesorter-master/docs/
+  - assets/2025/node_modules/
+  - assets/2025/test-results/
+  - .playwright-mcp/
+  - tmp/
   - "**/*.backup"
+  - "*.bak"
+  - "**/*.bak"
+  - about.html.bak
   - README.md
   - CLAUDE.md
   - AGENTS.md
