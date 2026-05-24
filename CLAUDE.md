@@ -115,14 +115,15 @@ The AI Maturity Self-Assessment is a standalone interactive tool that helps orga
 ### File Locations
 
 **Primary Files** (in `/assets/2025/`):
-- **`ai_maturity_refactor.html`** - Current production version (refactored with MVC architecture)
+- **`ai_maturity_refactor.html`** - Current production version (refactored with MVC architecture). All dimension data lives inline as `DIMENSIONS_DATA` inside this file.
 - **`ai_maturity.html`** - Original version (legacy, reference only)
-- **`ai_maturity_dimensions.js`** - JavaScript module containing dimension data
-- **`ai_maturity.yml`** - YAML source of truth for dimensions data (in `/_data/` when deployed)
+
+**Legacy / reference (not loaded at runtime):**
+- **`ai_maturity_dimensions.js`** - Earlier attempt at extracting dimension data to a JS module. Not used by the current production HTML; kept for reference only.
+- **`ai_maturity.yml`** - Earlier YAML draft of the dimensions data. Not loaded by Jekyll; not the source of truth.
 
 **Documentation**:
-- **`maturity_refactor.md`** - Complete specification and refactoring plan
-- **`README_AI_MATURITY.md`** - Data file structure and maintenance guide
+- **`maturity_refactor.md`** - Specification and refactoring plan
 
 ### Architecture
 
@@ -167,10 +168,9 @@ HTML Structure
 ```
 
 **Data Management**:
-- YAML (`ai_maturity.yml`) is the source of truth
-- Manually sync to JavaScript module (`ai_maturity_dimensions.js`)
-- HTML loads JS module for runtime use
-- **Important**: Keep YAML and JS in sync when updating questions/dimensions
+- `DIMENSIONS_DATA` is defined **inline** inside `ai_maturity_refactor.html`. This is the single source of truth at runtime.
+- There is no external data file load (no `_data/` lookup, no `<script src>` for dimensions, no fetch). Edit the data directly in the HTML.
+- The legacy `ai_maturity_dimensions.js` and `ai_maturity.yml` are not consulted; do not edit them expecting changes to take effect.
 
 ### When Working on This Tool
 
@@ -179,7 +179,7 @@ HTML Structure
 - Maintain MVC separation of concerns (Model, View, Controller layers)
 - Use CSS variables for theming (defined in `:root`)
 - Preserve single-file architecture (all dependencies via CDN)
-- Update both YAML and JS when changing dimension data
+- Edit `DIMENSIONS_DATA` inline in `ai_maturity_refactor.html` when changing dimension data — there is no external file to sync
 - Test localStorage persistence and schema migrations
 - Ensure HTML escaping for XSS prevention
 
@@ -192,7 +192,7 @@ HTML Structure
 - Skip testing the radar chart click navigation
 
 **Common Modifications**:
-1. **Update questions**: Edit `DIMENSIONS_DATA` in HTML and sync to YAML
+1. **Update questions**: Edit `DIMENSIONS_DATA` inline in `ai_maturity_refactor.html`. No external file sync needed.
 2. **Change theme**: Modify CSS variables in `:root` section
 3. **Adjust unlock threshold**: Change `CONFIG.UNLOCK_THRESHOLD`
 4. **Add features**: Follow MVC pattern, extend appropriate layer's public API

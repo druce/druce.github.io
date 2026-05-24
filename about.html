@@ -54,8 +54,8 @@ projects:
     tags: AI · agents · equity research
     description: |
       One command, institutional-quality equity research report. <code>./research.py NVDA</code> produces a full markdown/HTML/PDF report via a steerable research and report-writing pipeline powered by Claude Code.<br /><br />
-      The full generation steps and dependencies are defined as a directed acyclic graph (DAG): far more repeatable than a skill driven by a bulleted prompt. <code>research.py</code> runs ~33 tasks in dependency order: Python scripts gather company profile, financials, SEC filings, technical indicators, Wikipedia, and custom research questions; text artifacts are chunked, embedded, and stored in a LanceDB hybrid (vector + BM25) index, tagged by section; 7 research agents run in parallel via MCP, with findings flowing back into the shared index so each agent builds on the others' work; 7 section writers then run in parallel through critic-rewrite loops; sections are assembled with intro and conclusion, polished through a final critique pass, and rendered via Jinja2 and pandoc.<br /><br />
-      Enhances the <a href="https://github.com/anthropics/financial-services-plugins/tree/main/equity-research/skills/initiating-coverage" target="_blank">Claude for Financial Services equity research plugin</a> by splitting prompts per section, adding hard quality gates, LanceDB RAG, critic-optimizer loops, and Jinja-based assembly. Example output: <a href="https://druce.ai/assets/2025/NVDA.pdf" target="_blank">NVDA, March 2026</a>.
+      The full generation steps and dependencies are defined as a directed acyclic graph (DAG) for repeatability. Runs ~33 tasks in dependency order: Python scripts gather company profile, financials, SEC filings, technical indicators, Wikipedia, and custom research questions; text artifacts are chunked, embedded, and stored in a LanceDB hybrid (vector + BM25) index, tagged by section; 7 research agents run in parallel via MCP, with findings flowing back into the shared index so each agent builds on the others' work; 7 section writers then run in parallel through critic-rewrite loops; sections are assembled with intro and conclusion, polished through a final critique pass, and rendered via Jinja2 and pandoc.<br /><br />
+      Enhances the <a href="https://github.com/anthropics/financial-services-plugins/tree/main/equity-research/skills/initiating-coverage" target="_blank">Claude for Financial Services equity research plugin</a> by splitting prompts per section, adding deterministic DAG flow with hard quality gates, LanceDB RAG, and critic-optimizer loops. Example output: <a href="https://druce.ai/assets/2025/NVDA.pdf" target="_blank">NVDA, March 2026</a>.
     image: /assets/2026/nvda_report_combined-1.png
 
   - title: Portfolio Optimization
@@ -178,7 +178,7 @@ projects:
         <li>Agent POCs stuck in the messy middle, where they work 80% of the time but not in the high 90s production demands.</li>
       </ul>
 
-      Escaping the trap requires a day-one commitment to observability, business-centric evals, safety guardrails, and governance architected,
+      Escaping the trap requires a day-one commitment to observability, business-centric evals, safety guardrails, and governance,
       and disciplined iteration to carry the system from 80% reliable through to the high-90s where production actually starts.
     </div>
   </section>
