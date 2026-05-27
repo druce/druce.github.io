@@ -15,7 +15,7 @@ tags: AI
 >
 <figure>
 <picture>
-  <img src="/assets/2025/spiderchart.png" alt="Spider chart" fetchpriority="high" style="width: 100%; height: auto;">
+  <a href="https://druce.ai/assets/2025/ai_maturity.html"><img src="/assets/2025/spiderchart.png" alt="Spider chart" fetchpriority="high" style="width: 100%; height: auto;"></a>
 </picture>
   <figcaption>A 12-dimension, 200+ question AI maturity model.</figcaption>
 </figure>

@@ -6,6 +6,7 @@ author: Druce Vertes
 layout: post
 guid: /?p=843
 permalink: /2012/01/portfolio-optimization-and-efficient-frontiers-in-r/
+redirect_to: /2026/01/portfolio-optimization
 post-views:
   - "41396"
 dsq_thread_id:

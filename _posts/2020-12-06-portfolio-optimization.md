@@ -6,6 +6,7 @@ author: Druce Vertes
 layout: post
 guid: /?p=7112
 permalink: /2020/12/portfolio-optimization
+redirect_to: /2026/01/portfolio-optimization
 redirect_from:
   - /2020/12/portfolio-opimization                                                            
   - /2020/12/portfolio-opimization/                                                                                                       
