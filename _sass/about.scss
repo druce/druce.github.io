@@ -89,9 +89,21 @@ $about-body-font: "Source Sans 3", "Source Sans Pro", -apple-system, BlinkMacSys
     font-weight: 600;
     line-height: 1.05;
     letter-spacing: -0.025em;
-    margin: 0 0 0.75rem;
+    margin: 0 0 0.5rem;
     color: $text-color;
     font-feature-settings: "ss01";
+  }
+
+  .bio-title {
+    font-family: $about-body-font;
+    font-size: 1rem;
+    line-height: 1.3;
+    color: $brand-color;
+    margin: 0 0 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    max-width: 34em;
+    text-wrap: balance;
   }
 
   .bio-lede {
