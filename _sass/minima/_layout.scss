@@ -219,6 +219,7 @@ div.qa {
     font-weight: $base-font-weight * 1.5;
     line-height: 1.2;
     margin-top: $spacing-unit * 2.2;
+    margin-bottom: $spacing-unit * 0.4;
     padding-top: $spacing-unit;
     border-top: 2px solid $crimson-color-very-light;
   }
@@ -243,6 +244,12 @@ div.qa {
     blockquote: {
         line-height: 1.5;
     }
+  }
+
+  // A sub-section directly under a section title should hug it, not float
+  // in dead space — the title introduces the first sub-section.
+  h1 + h2 {
+    margin-top: $spacing-unit * 0.5;
   }
 
   h3 {
