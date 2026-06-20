@@ -18,6 +18,7 @@ description: 'Implementing Enterprise AI in 2026: Objectives, Constraints, and P
   <source srcset="/assets/2026/justice2.png" type="image/png">
   <img src="/assets/2026/justice2.png" alt="illustration: robot justice" fetchpriority="high" style="width: 100%; height: auto;">
 </picture>
+  <figcaption>Justice balancing speed and safety</figcaption>
 </figure>
 > _A [previous post]({% post_url 2025-11-02-ai-maturity %}) laid out a maturity framework for assessing how far along an organization is on its AI journey. As you proceed along the implementation journey through the stages of crawl, walk, run fly, what are you optimizing for, and what should you never lose sight of along the way?_
 >
