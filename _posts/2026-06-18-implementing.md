@@ -20,15 +20,15 @@ description: 'Implementing Enterprise AI in 2026: Objectives, Constraints, and P
 </picture>
   <figcaption>Justice balancing speed and safety</figcaption>
 </figure>
-> _A [previous post]({% post_url 2025-11-02-ai-maturity %}) laid out a maturity framework for assessing how far along an organization is on its AI journey. As you proceed along the implementation journey through the stages of crawl, walk, run fly, what are you optimizing for, and what should you never lose sight of along the way?_
+> _A [previous post]({% post_url 2025-11-02-ai-maturity %}) laid out a maturity framework for assessing how far along an organization is on its AI journey. As you proceed along the implementation journey through the stages of Crawl, Walk, Run, Fly, what are you optimizing for, and what should you never lose sight of along the way?_
 
 <!--more-->
 
-The maturity model attempts to break down the enterpise AI journey into stages.
+The maturity model attempts to break down the enterprise AI journey into stages.
 
 **Stage 1: Crawl** — Ungoverned experimentation (where we usually start by default)
 
-Individuals using consumer AI tools with no enterprise protections. The business begins to gain AI literacy and use-case discovery, but the cost is shadow AI and uncontrolled data exposure, regulatory and reputational risk. The goal is to exit the Crawl stage as quickly as possible by giving people governed equivalents of what they're already reaching for, while blocking ungoverned, ill-considered usage.
+Individuals using consumer AI tools with no enterprise protections. The business begins to gain AI literacy and use-case discovery, but the cost is shadow AI and uncontrolled data exposure, regulatory and reputational risks. The goal is to exit the Crawl stage as quickly as possible by giving people governed equivalents of what they're already reaching for, while blocking ungoverned, ill-considered usage.
 
 **Stage 2: Walk** — Structured deployment, enterprise chat as the default interface
 
@@ -42,7 +42,7 @@ A governed assistant for every knowledge worker, on infrastructure with observab
 
 - Structured user training
 
-- POCs of vertical and horizontal apps and use cases using internal dev and 3rd party apps.
+- Pilot projects for both vertical and horizontal use cases, using a mix of internal development and third-party applications.
 
 - Agentic prereqs: data pipelines, access controls, logging/observability/evals.
 
@@ -71,7 +71,17 @@ Agents start completing tasks, not just answering questions; humans stay in the 
 
 As an AI-native org, the automation surface grows organically as work is AI-enabled and citizen-built automations graduate into enterprise ones.
 
-At each stage, we improve foundations, capabilities, and governance.
+Organizations often focus first on models, vendors, and tooling. In practice, long-term success depends less on model selection than on:
+
+Establishing clear business objectives, strong foundations, robust governance, and a repeatable, disciplined path from experimentation to production.
+
+- Foundations: Security, data platforms, data quality
+- Disciplined iteration: Observability, evals and KPIs allowing continuous improvement, well-grounded in what is succeeding and what is not.
+- Knowledge diffusion: Citizen developer and professional dev with strong frameworks, CI/CD, knowledge tools to iterate rapidly.
+- Governance: well-established objectives, constraints, and principles consistently applied.
+
+
+Technologies will change rapidly. Objectives, constraints, and operating principles are likely to endure.
 
 As we progress through the 4 stages, here are lists of **objectives** to maximize, the **constraints** or **invariants** that must always hold, and the **operating principles** for resolving the inevitable tension between objectives. Consider it a starting inventory of concerns to revisit at every milestone, from POC to full production.
 
