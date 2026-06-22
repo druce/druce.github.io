@@ -21,10 +21,59 @@ description: 'Implementing Enterprise AI in 2026: Objectives, Constraints, and P
   <figcaption>Justice balancing speed and safety</figcaption>
 </figure>
 > _A [previous post]({% post_url 2025-11-02-ai-maturity %}) laid out a maturity framework for assessing how far along an organization is on its AI journey. As you proceed along the implementation journey through the stages of crawl, walk, run fly, what are you optimizing for, and what should you never lose sight of along the way?_
->
-> _Here are lists of **objectives** to maximize, the **constraints** or **invariants** that must always hold, and the **operating principles** for resolving the inevitable tension between objectives. Consider it a starting inventory concerns to revisit at every milestone, from POC to full production._
 
 <!--more-->
+
+The maturity model attempts to break down the enterpise AI journey into stages.
+
+**Stage 1: Crawl** — Ungoverned experimentation (where we usually start by default)
+
+Individuals using consumer AI tools with no enterprise protections. The business begins to gain AI literacy and use-case discovery, but the cost is shadow AI and uncontrolled data exposure, regulatory and reputational risk. The goal is to exit the Crawl stage as quickly as possible by giving people governed equivalents of what they're already reaching for, while blocking ungoverned, ill-considered usage.
+
+**Stage 2: Walk** — Structured deployment, enterprise chat as the default interface
+
+A governed assistant for every knowledge worker, on infrastructure with observability, zero day retention, and enterprise protections built in. Additionally:
+
+- Connectors / tools to internal systems
+
+- Single-turn agents / projects
+
+- Basic prompt repo
+
+- Structured user training
+
+- POCs of vertical and horizontal apps and use cases using internal dev and 3rd party apps.
+
+- Agentic prereqs: data pipelines, access controls, logging/observability/evals.
+
+
+**Stage 3: Run** — Complex AI agents with a human in the loop
+
+Agents begin doing multi-step work, with a human gating consequential decisions/actions.
+
+- Multi-turn automations (e.g. skills)
+
+- Complex workflow / execution-graph automations
+
+- AI coding 
+
+- Measure business value against KPIs
+
+Agents start completing tasks, not just answering questions; humans stay in the approval path.
+
+**Stage 4: Fly** — Well-governed agents with a graduation path to full autonomy
+
+- Agents run within guardrails and surface to a human only by exception.
+
+- Complex citizen agents, with a defined graduation path from casual automation → supported enterprise workflow
+
+- Autonomous agents that progressively reduce human involvement in enterprise workflow until they alert only when something needs attention, graduate to human-by-exception
+
+As an AI-native org, the automation surface grows organically as work is AI-enabled and citizen-built automations graduate into enterprise ones.
+
+At each stage, we improve foundations, capabilities, and governance.
+
+As we progress through the 4 stages, here are lists of **objectives** to maximize, the **constraints** or **invariants** that must always hold, and the **operating principles** for resolving the inevitable tension between objectives. Consider it a starting inventory of concerns to revisit at every milestone, from POC to full production.
 
 # Strategic AI Objectives - Maximize:
 
