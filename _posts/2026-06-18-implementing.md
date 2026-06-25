@@ -8,7 +8,7 @@ guid: /?p=7159
 permalink: /2026/04/ai-implementation
 categories: AI
 tags: AI, tech
-image: /assets/2026/ai-trading.png
+image: /assets/2026/justice2.png
 mathjax: false
 mermaid: false
 description: 'Implementing Enterprise AI in 2026: Objectives, Constraints, and Principles to Consider'
