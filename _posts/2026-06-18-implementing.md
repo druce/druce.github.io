@@ -1,6 +1,6 @@
 ---
 id: 7159
-title: 'Implementing Enterprise AI in 2026: Objectives, Constraints, Principles to Consider'
+title: 'Implementing Enterprise AI in 2026: Objectives, Constraints, Principles'
 date: 2026-06-19T01:01:01+00:00
 author: Druce Vertes
 layout: post
@@ -11,7 +11,7 @@ tags: AI, tech
 image: /assets/2026/justice2.png
 mathjax: false
 mermaid: false
-description: 'Implementing Enterprise AI in 2026: Objectives, Constraints, and Principles to Consider'
+description: 'Implementing Enterprise AI in 2026: Objectives, Constraints, and Principles'
 ---
 <figure>
 <picture>
