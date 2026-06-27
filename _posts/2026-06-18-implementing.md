@@ -24,15 +24,15 @@ description: 'Implementing Enterprise AI in 2026: Objectives, Constraints, and P
 
 <!--more-->
 
-The maturity model attempts to break down the enterprise AI journey into stages.
+The [maturity model]({% post_url 2025-11-02-ai-maturity %}) attempts to break down the enterprise AI journey into stages.
 
 **Stage 1: Crawl** — Ungoverned experimentation (where we usually start by default)
 
-Individuals using consumer AI tools with no enterprise protections. The business begins to gain AI literacy and use-case discovery, but the cost is shadow AI and uncontrolled data exposure, regulatory and reputational risks. The goal is to exit the Crawl stage as quickly as possible by giving people governed equivalents of what they're already reaching for, while blocking ungoverned, ill-considered usage.
+Individuals begin using consumer AI tools with no enterprise protections. The business begins to gain AI literacy and use-case discovery, but the cost is shadow AI and uncontrolled data exposure, regulatory and reputational risks. The goal is to exit the Crawl stage as quickly as possible by giving staff governed equivalents of what they're already reaching for, while blocking ungoverned usage.
 
 **Stage 2: Walk** — Structured deployment, enterprise chat as the default interface
 
-A governed assistant for every knowledge worker, on infrastructure with observability, zero day retention, and enterprise protections built in. Additionally:
+A governed assistant for every knowledge worker, on infrastructure with observability, and enterprise protections built in. Additionally:
 
 - Connectors / tools to internal systems
 
@@ -61,7 +61,7 @@ Agents begin doing multi-step work, with a human gating consequential decisions/
 
 Agents start completing tasks, not just answering questions; humans stay in the approval path.
 
-**Stage 4: Fly** — Well-governed agents with a graduation path to full autonomy
+**Stage 4: Fly** — Well-governed agents with a graduation path to full autonomy.
 
 - Agents run within guardrails and surface to a human only by exception.
 
@@ -106,7 +106,8 @@ As we progress through the 4 stages, here are lists of **objectives** to maximiz
 
 - Automate any repeatable process
 - Convert workflows into reusable agents
-- Reduce human effort on low-value activities
+- Reduce human effort on low-value pain point activities
+- Increase output and quality of high-value, high-leverage activities
 - Shift labor toward judgment, creativity, and relationship management
 
 ## Software & Technical Velocity
@@ -127,7 +128,7 @@ As we progress through the 4 stages, here are lists of **objectives** to maximiz
 
 ## Resilience
 
-- Detect problems early and spike resources when there is an issue
+- Detect problems early and redirect resources when there is an issue
 - Reduce institutional memory loss and key-person risk
 - Improve business continuity and recovery from disruption
 
