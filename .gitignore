@@ -44,3 +44,39 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+### Secrets / credentials ###
+secrets/
+**/secrets/
+*.secret
+.env
+.env.*
+*.pem
+*.key
+*.p12
+
+### Python ###
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+### Node ###
+node_modules/
+
+### Editors / agent tooling ###
+.vscode/
+.idea/
+.claude/
+.playwright-mcp/
+
+### Caches / temp / test artifacts ###
+cache/
+**/cache/
+.cache/
+tmp/
+test-results/
+**/test-results/
+static.test/
+*.backup
