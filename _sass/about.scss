@@ -184,7 +184,9 @@ $about-body-font: "Source Sans 3", "Source Sans Pro", -apple-system, BlinkMacSys
 // Contact
 // ============================================================================
 
-.resume-cta {
+.resume-cta,
+.resume-cta:link,
+.resume-cta:visited {
   display: inline-flex;
   align-items: center;
   gap: 0.625rem;
