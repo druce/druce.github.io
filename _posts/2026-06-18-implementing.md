@@ -165,9 +165,9 @@ As we progress through the 4 stages, here are lists of **objectives** to maximiz
 ## Reliability
 
 - Critical services meet defined availability objectives
+- Recovery procedures tested to meet defined recovery point objectives
 - Single points of failure are minimized
 - Critical processes have checks and fallback mechanisms, are designed to degrade gracefully and avoid cascading failures
-- Recovery procedures exist and are tested
 
 ## Model Risk
 
