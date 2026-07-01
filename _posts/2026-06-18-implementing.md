@@ -196,7 +196,7 @@ As we progress through the 4 stages, here are lists of **objectives** to maximiz
 
 - **Measure everything**: Usage, cost, performance, quality, risk, and business outcomes must be observable for data-driven decision-making.
 
-- **Safety over autonomy**: AI autonomy increases only when evidence demonstrates acceptable risk.
+- **Safety, reproducibility, explainability over autonomy and creativity**: AI autonomy increases only when evidence demonstrates acceptable risk. (With explicit exceptions for e.g. brainstorming and other creative tasks).
 
 - **Governance proportional to risk**: All deployments must follow checklists to ensure fitness and minimize risk; more control for high-risk use cases, less control for low-risk use cases.
 
