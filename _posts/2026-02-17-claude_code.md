@@ -50,7 +50,7 @@ This guide should get you to level 2–3 and provide a roadmap to get to 4–5.
 
 ## Why is Claude Code innovative, is it really 'this time is different'?
 
-- **Excellent models**: Sonnet and Opus, multi-model to 'see' output, tool-calling, long 200k context window (1m for Opus and Sonnet with extra charges). [Curretnly rated significantly better than competitors for coding.](https://arena.ai/leaderboard/code)
+- **Excellent models**: Sonnet and Opus, multi-modal to 'see' output, tool-calling, long 200k context window (1m for Opus and Sonnet with extra charges). [Curretnly rated significantly better than competitors for coding.](https://arena.ai/leaderboard/code)
 - **A simple, effective harness with a ReAct control loop**: Plan → code → test → iterate as necessary. ([]())
 - **Plan-driven long-term memory**: It writes plans in `.md` files and uses them to stay on task. The ability to think and plan before acting, and then stay on plan, enables far longer and more complex work compared to vanilla single-turn LLM chat. It's why 'this time is different.'
 - **Rich internal tooling**: A plethora of internal tools and subagents to understand, find, and edit code — plus MCP tool integrations. Good tools that look up exact function signatures or retrieve precise documentation outperform generic web searches  or putting full code files in context, or large doc pages. (ChatGPT would often give answers from an outdated API due to training data cutoff; if you have a tool that fetches the exact doc or code you need, and patches a specific line of code, everything works better.) Along with the way it makes plans and notes to aid memory, this helps *context management*, Claude Code is carefully designed to have exactly what it needs in the context at all times.
