@@ -73,7 +73,8 @@ Claude Code's power comes with a bit of a learning curve, but it's well worth it
 
 - [Set up Claude Code](https://code.claude.com/docs/en/setup)
 - Launch in a terminal window with command `claude`.
-- This post is about the CLI. You can also use Claude Code within the desktop app and Web UI, but it is much more sandboxed out of the box. As a CLI running in your terminal without explicit permission restrictions and sandboxing, Claude Code can do anything you can do (so be careful!).
+ - This post is about the CLI. You can also use Claude Code within the desktop app and Web UI. Claude Code runs the same engine in the CLI and the desktop app and the web, so there is core feature parity. The CLI and local desktop app share ability to run everything locally and same config, project memory, and MCP servers. They are not at 100% feature parity, though: headless shell scripting (claude -p, piping output into other tools) and the Agent SDK are CLI-only, while the desktop app adds things the CLI doesn't have, like side-by-side diff review, an app-preview pane, and parallel sessions. None of the local surfaces are sandboxed by default - out of the box the CLI runs with all your permissions and full shell access, so it can do anything you can do (be careful!). The web UI is the outlier: it runs in Anthropic's managed cloud and keeps working after you disconnect.
+
 - **Pricing**:
   - **Individual plans**: [Pro](https://claude.com/pricing) ($20/mo), [$100 and $200 Max plans](https://claude.com/pricing/max). Start with Pro to learn; once you do real work you will run out of tokens from time to time — Pro gives you limited tokens in a 4–5 hour window. Use `/status` to see where you are with usage and when it resets. Once you start developing big plans that code for 30 minutes, you will run out very fast in Pro, need a $100 Max plan. The $200 plan is if you have multiple sessions and sub-agents running at once, or otherwise are running out in the $100 plan.
   - **Enterprise / API**: For teams and enterprise deployments, Claude Code connects to the Anthropic API and you pay per token consumed. There are no flat-rate caps — costs scale with usage, so monitoring matters. Key cost management tools:
@@ -326,7 +327,7 @@ Hooks let you run something before or after a chat turn or tool executes.
   - Connect to LLM via proxy and log what it's doing there. You could even have Claude Code point to a local model and never hit Anthropic using e.g. OpenRouter
   - Or consider running in a container with network allowlist to e.g. internal MCPs and select external websites. Can then sandbox at container level, only connect to internal-only MCP tools, some websites.
   - After writing some agents and skills, package into a web app that runs by spawning a Claude Code process with headless `claude -p <prompt>` (uses monthly Claude Code subsription, or using Claude Agent SDK which is essentially running Claude Code headless via the API (burns API tokens).
-  - The desktop client and web UI are more locked down out of the box.
+  - The web UI runs entirely in Anthropic's managed cloud, so a session never has direct access to your local machine. The desktop app, by contrast, runs locally just like the CLI and isn't sandboxed by default either, use the same global configs to sandbox both.
 
 ## Advanced Topics
 
@@ -676,7 +677,7 @@ Further reading:
   - [Claude Code: A Highly Agentic Coding Assistant (older)](https://www.deeplearning.ai/short-courses/claude-code-a-highly-agentic-coding-assistant/)
   - [Sabrina.dev](https://www.sabrina.dev/p/claude-code-full-course-for-beginners)
   - [claude.nagdy.me](https://claude.nagdy.me/)
-  
+
 - Best Practices, tips etc.
   - [https://cc.storyfox.cz/](Cheat sheet)
   - [Claude Code Tips](https://github.com/ykdojo/claude-code-tips)
