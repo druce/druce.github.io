@@ -23,6 +23,8 @@ description: Musings on AI in markets
 >
 > Automated strategies are already entrenched in financial markets. AI adds new dimensions: more people can create automated strategies, and strategies can access all the world's structured and unstructured data. What are the implications for price discovery and market function?
 
+<!--more-->
+
 [Grossman-Stiglitz](https://www.aeaweb.org/aer/top20/70.3.393-408.pdf) says markets can only be boundedly efficient if information and trading aren't free. Analysts research and identify mispricings, and as they trade, markets get more efficient. Eventually prices get efficient enough that it doesn’t pay to do research and trade. The process of making markets efficient costs money, which requires markets to be inefficient enough to pay for it.
 
 But if you have AI that can cheaply process all the information in the world like an analyst, markets can get pretty efficient.
