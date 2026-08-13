@@ -3,108 +3,132 @@ layout: default
 title: About Druce Vertes
 permalink: /about.html
 redirect_from:
-  - /contact.html
+- /contact.html
 projects:
 
-  - title: AI maturity self-assessment framework
-    url: https://druce.ai/assets/2025/ai_maturity.html
-    github: https://github.com/druce/druce.github.io/blob/master/assets/2025/ai_maturity.html
-    year: 2025
-    tags: AI · framework · assessment
-    description: |
-      AI maturity measures how far an organization has gone in turning AI capabilities into operational results. It's not defined by the tech stack alone, but by how well people, technology, data, and process work together. Firms that get AI right gain a competitive edge, operate more efficiently, and respond faster to market changes.<br /><br />
+- title: AI maturity self-assessment framework
+  url: https://druce.ai/assets/2025/ai_maturity.html
+  github: https://github.com/druce/druce.github.io/blob/master/assets/2025/ai_maturity.html
+  year: 2025
+  tags: AI · framework · assessment
+  description: |
+      AI maturity measures how far an organization has gone in turning AI capabilities into operational results. It's not
+      defined by the tech stack alone, but by how well people, technology, data, and process work together. Firms that get AI
+      right gain a competitive edge, operate more efficiently, and respond faster to market changes.<br /><br />
       Level 1 (Crawl): Initial unstructured exploration and planning.<br />
       Level 2 (Walk): Structured learning, training, planning, foundation-laying, and initial POCs and pilots.<br />
-      Level 3 (Run): Operational deployment at scale, with robust infrastructure, governance, and security, and business value measured against KPIs.<br />
-      Level 4 (Fly): An AI-native organization where AI is central and pervasive, deploying advanced use cases like autonomous agents, advanced fine-tuned models, with continuous improvement and adoption of emerging capabilities.<br /><br />
-      This self-assessment lets a firm score where they stand today, and inventories the steps most firms take to move up a level.
-    image: /assets/2025/spiderchart.png
+      Level 3 (Run): Operational deployment at scale, with robust infrastructure, governance, and security, and business value
+      measured against KPIs.<br />
+      Level 4 (Fly): An AI-native organization where AI is central and pervasive, deploying advanced use cases like autonomous
+      agents, advanced fine-tuned models, with continuous improvement and adoption of emerging capabilities.<br /><br />
+      This self-assessment lets a firm score where they stand today, and inventories the steps most firms take to move up a
+      level.
+  image: /assets/2025/spiderchart.png
 
-  - title: Safe Withdrawal Retirement Calculator
-    url: https://druce.ai/swr-react/
-    github: https://github.com/druce/swr
-    year: 2021
-    tags: finance · Python · optimization
-    description: |
-      Bill Bengen's well-known 4% rule provides a simple, effective retirement strategy: invest in a 50/50 stock-bond mix, withdraw 4% of your initial portfolio per year, and increase annually for inflation. Historically this rule never runs out of money over 30 years. <br><br>
-      The rule emerges from optimization under a hard constraint that never allows withdrawals to decrease or the portfolio to run dry: an infinite risk aversion solution.<br><br>
+- title: Safe Withdrawal Retirement Calculator
+  url: https://druce.ai/swr-react/
+  github: https://github.com/druce/swr
+  year: 2021
+  tags: finance · Python · optimization
+  description: |
+      Bill Bengen's well-known 4% rule provides a simple, effective retirement strategy: invest in a 50/50 stock-bond mix,
+      withdraw 4% of your initial portfolio per year, and increase annually for inflation. Historically this rule never runs
+      out of money over 30 years. <br><br>
+      The rule emerges from optimization under a hard constraint that never allows withdrawals to decrease or the portfolio to
+      run dry: an infinite risk aversion solution.<br><br>
       But what if we relaxed that constraint? What flexible rules would emerge at different levels of risk tolerance?
-      A possible soft optimization objective is certainty-equivalent spending under constant relative risk aversion (CRRA): actual spending discounted by its volatility based on your risk preference.
-      In a March 2021 article for <a href="https://advisorperspectives.com/articles/2021/03/22/beyond-the-4-rule-flexible-withdrawal-strategies-using-certainty-equivalent-spending" target="_blank">Advisor Perspectives</a>, I used gradient-free Python optimization on historical data to maximize certainty-equivalent spending and generate rules of the form:<br><br>
+      A possible soft optimization objective is certainty-equivalent spending under constant relative risk aversion (CRRA):
+      actual spending discounted by its volatility based on your risk preference.
+      In a March 2021 article for <a
+      href="https://advisorperspectives.com/articles/2021/03/22/beyond-the-4-rule-flexible-withdrawal-strategies-using-certainty-equivalent-spending"
+      target="_blank">Advisor Perspectives</a>, I used gradient-free Python optimization on historical data to maximize
+      certainty-equivalent spending and generate rules of the form:<br><br>
       <em>Withdraw = fixed_pct + (variable_pct × portfolio_value), subject to a floor_pct minimum</em><br><br>
-      As risk aversion increases, stock allocation decreases and the withdrawal rule shifts from variable to fixed. This framework lets retirees choose their preferred point on the risk-return spectrum, potentially tolerating some risk of future modest declines in spending for higher current and expected lifetime spending.
-    image: /assets/2021/swr.png
+      As risk aversion increases, stock allocation decreases and the withdrawal rule shifts from variable to fixed. This
+      framework lets retirees choose their preferred point on the risk-return spectrum, potentially tolerating some risk of
+      future modest declines in spending for higher current and expected lifetime spending.
+  image: /assets/2021/swr.png
 
-  - title: Agentic Newsletter Generation System
-    url: http://skynetandchill.druce.ai/
-    github: https://github.com/druce/OpenAIAgentsSDK
-    year: 2025
-    tags: AI · agents · LLMs
-    description: |
+- title: Agentic Newsletter Generation System
+  url: http://skynetandchill.druce.ai/
+  github: https://github.com/druce/OpenAIAgentsSDK
+  year: 2025
+  tags: AI · agents · LLMs
+  description: |
       Autonomous agent system that uses OpenAI Agents SDK to generate an AI newsletter from 500+ daily articles.<br /><br />
-      A 9-step pipeline runs web scraping, initial filtering, summarizing, deduping, reranking, semantic clustering, and critic-optimizer refinement.<br /><br />
-      ~650 articles in, 30+ curated stories out across 7-15 thematic sections, with a 1,200-word draft ready for human editing in ~30 minutes.<br /><br />
-      Tech Stack: Python • OpenAI Agents SDK • GPT-4o (logprobs) / GPT-5 • Langfuse prompt repository/observability • Playwright web scraping • Pandas data wrangling • HDBSCAN clustering • UMAP dimensionality reduction • Pydantic structured output • SQLite database
-    image: /assets/2025/newsagent.png
+      A 9-step pipeline runs web scraping, initial filtering, summarizing, deduping, reranking, semantic clustering, and
+      critic-optimizer refinement.<br /><br />
+      ~650 articles in, 30+ curated stories out across 7-15 thematic sections, with a 1,200-word draft ready for human editing
+      in ~30 minutes.<br /><br />
+      Tech Stack: Python • OpenAI Agents SDK • GPT-4o (logprobs) / GPT-5 • Langfuse prompt repository/observability •
+      Playwright web scraping • Pandas data wrangling • HDBSCAN clustering • UMAP dimensionality reduction • Pydantic
+      structured output • SQLite database
+  image: /assets/2025/newsagent.png
 
-  - title: Stock Research Agent
-    url: https://github.com/druce/deep-research-machine
-    github: https://github.com/druce/deep-research-machine
-    year: 2026
-    tags: AI · agents · equity research
-    description: |
-      One command, institutional-quality equity research report. <code>./research.py NVDA</code> produces a full markdown/HTML/PDF report via a steerable research and report-writing pipeline powered by Claude Code.<br /><br />
-      The full generation steps and dependencies are defined as a directed acyclic graph (DAG) for repeatability. Runs ~33 tasks in dependency order: Python scripts gather company profile, financials, SEC filings, technical indicators, Wikipedia, and custom research questions; text artifacts are chunked, embedded, and stored in a LanceDB hybrid (vector + BM25) index, tagged by section; 7 research agents run in parallel via MCP, with findings flowing back into the shared index so each agent builds on the others' work; 7 section writers then run in parallel through critic-rewrite loops; sections are assembled with intro and conclusion, polished through a final critique pass, and rendered via Jinja2 and pandoc.<br /><br />
-      Enhances the <a href="https://github.com/anthropics/financial-services-plugins/tree/main/equity-research/skills/initiating-coverage" target="_blank">Claude for Financial Services equity research plugin</a> by splitting prompts per section, adding deterministic DAG flow with hard quality gates, LanceDB RAG, and critic-optimizer loops. Example output: <a href="https://druce.ai/assets/2025/NVDA.pdf" target="_blank">NVDA, March 2026</a>.
-    image: /assets/2026/nvda_report_combined-1.png
+- title: Stock Research Agent
+  url: https://github.com/druce/deep-research-machine-2
+  github: https://github.com/druce/deep-research-machine-2
+  year: 2026
+  tags: AI · agents · equity research
+  description: |
+      One command, institutional-quality equity research report. `/sra-build SPCX` in Claude Code produces a cited, chart-illustrated markdown/HTML/PDF report from a persistent per-ticker knowledge base that grows across runs. Draws on <a href="https://github.com/anthropics/financial-services-plugins/tree/main/equity-research/skills/initiating-coverage" target="_blank">Claude for Financial Services equity research plugin</a> and Karpathy's LLM-wiki flow: research agents write facts into a wiki as they learn them, with all findings traceable to original sourcees. Then the report is composed from the wiki via a series of critique-rewrite loops. Example output: <a href="https://github.com/druce/deep-research-machine-2/blob/main/SPCX.pdf" target="_blank">SPCX, August 2026</a>.
+  image: /assets/2026/nvda_report_combined-1.png
 
-  - title: Portfolio Optimization
-    url: https://druce.ai/2026/01/portfolio-optimization
-    github: https://github.com/druce/portfolio_optimization
-    year: 2026
-    tags: finance · Python · CVXOPT
-    description: Classic portfolio optimization in Python using CVXOPT with historical asset class performance data.
-    image: /assets/2025/efrontier.png
+- title: Portfolio Optimization
+  url: https://druce.ai/2026/01/portfolio-optimization
+  github: https://github.com/druce/portfolio_optimization
+  year: 2026
+  tags: finance · Python · CVXOPT
+  description: Classic portfolio optimization in Python using CVXOPT with historical asset class performance data.
+  image: /assets/2025/efrontier.png
 
-  - title: Hyperparameter Tuning
-    url: http://druce.ai/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna
-    github: https://github.com/druce/iowa/blob/master/hyperparameter_optimization.ipynb
-    year: 2020
-    tags: ML · Ray · Optuna · XGBoost
-    description: Fast distributed hyperparameter tuning using Ray Tune, Hyperopt, and Optuna.
-    image: /assets/2021/fig1.png
+- title: Hyperparameter Tuning
+  url: http://druce.ai/2020/10/hyperparameter-tuning-with-xgboost-ray-tune-hyperopt-and-optuna
+  github: https://github.com/druce/iowa/blob/master/hyperparameter_optimization.ipynb
+  year: 2020
+  tags: ML · Ray · Optuna · XGBoost
+  description: Fast distributed hyperparameter tuning using Ray Tune, Hyperopt, and Optuna.
+  image: /assets/2021/fig1.png
 
-  - title: Classification Thresholds
-    url: http://druce.ai/2019/10/understanding-classification-thresholds-using-isocurves
-    github: https://github.com/druce/threshold_selection
-    year: 2019
-    tags: ML · classification
-    description: A primer on threshold selection for classification using isocurves. Metrics like F1 are popular, but in practice, minimizing real-world costs of false positives and false negatives is most useful.
-    image: /assets/2021/isocurves.png
+- title: Classification Thresholds
+  url: http://druce.ai/2019/10/understanding-classification-thresholds-using-isocurves
+  github: https://github.com/druce/threshold_selection
+  year: 2019
+  tags: ML · classification
+  description: A primer on threshold selection for classification using isocurves. Metrics like F1 are popular, but in
+    practice, minimizing real-world costs of false positives and false negatives is most useful.
+  image: /assets/2021/isocurves.png
 
-  - title: Deep Reinforcement Learning for Trading
-    url: https://alphaarchitect.com/2020/02/26/reinforcement-learning-for-trading/
-    github: https://github.com/druce/rl
-    year: 2020
-    tags: RL · trading · ML
-    description: Alpha Architect, February 2020. An intro to reinforcement learning with trading examples.
-    image: /assets/2021/rl.png
+- title: Deep Reinforcement Learning for Trading
+  url: https://alphaarchitect.com/2020/02/26/reinforcement-learning-for-trading/
+  github: https://github.com/druce/rl
+  year: 2020
+  tags: RL · trading · ML
+  description: Alpha Architect, February 2020. An intro to reinforcement learning with trading examples.
+  image: /assets/2021/rl.png
 
-  - title: NYC Subway Dashboard
-    url: https://projects.streeteye.com/
-    github: https://github.com/druce/MTA
-    year: 2023
-    tags: data · dbt · DuckDB · visualization
-    description: Data pipeline experiment using dbt to aggregate turnstile-level MTA data into DuckDB, with Plotly Dash for visualization. This <a href="https://www.getdbt.com/blog/future-of-the-modern-data-stack" target="_blank">modern data stack</a> experiment delivers sub-second query performance on multi-gigabyte datasets from a laptop. <a href="https://druce.ai/2023/01/modern_data_stack" target="_blank">The analysis</a> found MTA data quality issues and quantified the pandemic's devastating ridership impact, which ultimately necessitated extreme revenue measures like congestion pricing.
-    image: /assets/2023/mta_dashboard.png
+- title: NYC Subway Dashboard
+  url: https://projects.streeteye.com/
+  github: https://github.com/druce/MTA
+  year: 2023
+  tags: data · dbt · DuckDB · visualization
+  description: Data pipeline experiment using dbt to aggregate turnstile-level MTA data into DuckDB, with Plotly Dash for
+    visualization. This <a href="https://www.getdbt.com/blog/future-of-the-modern-data-stack" target="_blank">modern data
+      stack</a> experiment delivers sub-second query performance on multi-gigabyte datasets from a laptop. <a
+      href="https://druce.ai/2023/01/modern_data_stack" target="_blank">The analysis</a> found MTA data quality issues and
+    quantified the pandemic's devastating ridership impact, which ultimately necessitated extreme revenue measures like
+    congestion pricing.
+  image: /assets/2023/mta_dashboard.png
 
-  - title: Pizza Pizza Pizza
-    url: /pizza/
-    github: https://github.com/druce/Pizza
-    year: 2017
-    tags: React · JavaScript · APIs
-    description: A ReactJS learning project to search for pizza (or coffee, or ice cream) in selected local NY areas, gather Google, Yelp, and Foursquare data, and return a single Bayesian ranking table and a Leaflet.js map of the results. Data no longer refreshed due to API deprecations and restrictions.
-    image: /assets/2021/pizza.png
+- title: Pizza Pizza Pizza
+  url: /pizza/
+  github: https://github.com/druce/Pizza
+  year: 2017
+  tags: React · JavaScript · APIs
+  description: A ReactJS learning project to search for pizza (or coffee, or ice cream) in selected local NY areas, gather
+    Google, Yelp, and Foursquare data, and return a single Bayesian ranking table and a Leaflet.js map of the results. Data
+    no longer refreshed due to API deprecations and restrictions.
+  image: /assets/2021/pizza.png
 
 
 ---
@@ -113,13 +137,8 @@ projects:
 
   <section id="bio" class="bio-section">
     <header class="bio-header">
-      <img
-        src="{{ '/assets/images/profile_photo_square.webp' | relative_url }}"
-        alt="Druce Vertes"
-        class="bio-portrait"
-        width="180"
-        height="180"
-      />
+      <img src="{{ '/assets/images/profile_photo_square.webp' | relative_url }}" alt="Druce Vertes" class="bio-portrait"
+        width="180" height="180" />
       <div class="bio-intro">
         <h1>Druce Vertes</h1>
         <p class="bio-title">Fractional Chief AI Officer / AI Advisor to Hedge Funds &amp; Asset Managers</p>
@@ -140,7 +159,8 @@ projects:
 
       <h2>Recent work</h2>
       <ul>
-        <li>Designing and deploying RAG-based research summarization, text-to-SQL on CRM data, and agentic workflows for sell-side and buy-side teams.</li>
+        <li>Designing and deploying RAG-based research summarization, text-to-SQL on CRM data, and agentic workflows for
+          sell-side and buy-side teams.</li>
         <li>Architecting agent automation systems using OpenAI Agents SDK and LangGraph.</li>
         <li>Traditional ML for alternative data signals.</li>
       </ul>
@@ -168,31 +188,32 @@ projects:
       </p>
       <h2>The 80% Trap</h2>
       <p>
-        Many AI projects <a href="https://finance.yahoo.com/news/mit-report-95-generative-ai-105412686.html" target="_blank" rel="noopener noreferrer">fail successfully</a>: they succeed as demos and POCs, then hit roadblocks when scaling to production or integrating with existing systems. Why? Common patterns include:
+        Many AI projects <a href="https://finance.yahoo.com/news/mit-report-95-generative-ai-105412686.html"
+          target="_blank" rel="noopener noreferrer">fail successfully</a>: they succeed as demos and POCs, then hit
+        roadblocks when scaling to production or integrating with existing systems. Why? Common patterns include:
       </p>
       <ul>
         <li>Missing business-centric framing and success metrics.</li>
         <li>End-user or executive buy-in is lacking, or expectations misaligned with what the system can deliver.</li>
         <li>Inadequate observability, or lack of realistic evaluation against business objectives.</li>
-        <li>Automating too little or too much, with poorly tuned human-in-the-loop dynamics that require constant babysitting.</li>
+        <li>Automating too little or too much, with poorly tuned human-in-the-loop dynamics that require constant
+          babysitting.</li>
         <li>Governance, risk, and compliance blind spots.</li>
-        <li>Agent POCs stuck in the messy middle, where they work 80% of the time but not in the high 90s production demands.</li>
+        <li>Agent POCs stuck in the messy middle, where they work 80% of the time but not in the high 90s production
+          demands.</li>
       </ul>
 
-      Escaping the trap requires a commitment to observability, business-centric evals, safety guardrails, and governance,
-      and disciplined iteration to carry the system from 80% reliable through to the high-90s where production actually starts.
+      Escaping the trap requires a commitment to observability, business-centric evals, safety guardrails, and
+      governance,
+      and disciplined iteration to carry the system from 80% reliable through to the high-90s where production actually
+      starts.
     </div>
   </section>
 
   <section id="contact" class="contact-section">
     <h2 class="section-heading">Get in touch</h2>
-    <a
-      href="{{ '/assets/doc/DruceVertes.pdf' | relative_url }}"
-      class="resume-cta"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Download Druce Vertes resume as PDF"
-    >
+    <a href="{{ '/assets/doc/DruceVertes.pdf' | relative_url }}" class="resume-cta" target="_blank"
+      rel="noopener noreferrer" aria-label="Download Druce Vertes resume as PDF">
       <i class="fas fa-file-pdf" aria-hidden="true"></i>
       <span>Download résumé (PDF)</span>
     </a>
@@ -239,30 +260,16 @@ projects:
     <div class="projects-grid">
       {% for project in page.projects %}
       <article class="project-card">
-        <a
-          href="{{ project.url }}"
-          class="project-thumb"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="{{ project.title }}"
-        >
-          <img
-            src="{{ project.image | relative_url }}"
-            alt="{{ project.title }} screenshot"
-            loading="lazy"
-          />
+        <a href="{{ project.url }}" class="project-thumb" target="_blank" rel="noopener noreferrer"
+          aria-label="{{ project.title }}">
+          <img src="{{ project.image | relative_url }}" alt="{{ project.title }} screenshot" loading="lazy" />
         </a>
         <h3>
           <a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">
             {{ project.title }}
           </a>
-          <a
-            href="{{ project.github }}"
-            class="project-github"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="View {{ project.title }} on GitHub"
-          >
+          <a href="{{ project.github }}" class="project-github" target="_blank" rel="noopener noreferrer"
+            aria-label="View {{ project.title }} on GitHub">
             <i class="fab fa-github-square" aria-hidden="true"></i>
           </a>
         </h3>
