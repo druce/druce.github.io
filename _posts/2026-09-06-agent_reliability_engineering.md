@@ -5,18 +5,23 @@ date: 2026-09-05T01:01:01+00:00
 author: Druce Vertes
 layout: post
 guid: /?p=7158
-permalink: /2026/02/ageent-reliability-engineering
+permalink: /2026/09/agent-reliability-engineering
 categories: tech, AI
 tags: AI
-image:
+image: /assets/2026/factory.png
 mathjax: false
-mermaid: true
+mermaid: false
 description: A Field Note on Predictable, Steerable Financial-Services Agent Engineering
 ---
+<figure>
+<picture>
+  <source srcset="/assets/2026/factory.png" type="image/png">
+  <img src="/assets/2026/factory.png" alt="illustration: agent factory" fetchpriority="high" style="width: 100%; height: auto;">
+</picture>
+</figure>
 > A Field Note on Predictable, Steerable Financial-Services Agent Engineering
 
 <!--more-->
-(work in progress)
 
 Claude Code, Codex, and similar assistants help you run your daily tasks. You feed them the inputs, they work through a series of steps: pull data, scrub it, draft, check, format — and out comes a report. It works. You do it every day.
 
@@ -61,93 +66,91 @@ What follows are field notes from building agent pipelines that run unattended a
 
 7. **Hard gates, enforced by contracts and deterministic code.** Sanity-check before each step (are prerequisites in place?) and after (does the output look clean?). Before a writing step, for instance: is silver data present, recent, and clean? Always render-and-inspect final artifacts — open the PDF, count the pages, check the charts rendered — with bounded retries. Enforce hard budgets (output length, tokens, wall clock) and cap retries, e.g. at three attempts, so no gate becomes an infinite loop. In more complex topologies, add loop detection for orchestrator/subagent ping-pong, where agents bounce work back and forth without making progress.
 
-8. **Soft gates: LLM-as-judge.** Hard gates catch what code can check — schemas parse, counts match, budgets hold. Soft gates catch what only reading can catch: does the output follow the expected style, is it free of internal contradictions, does it leave an obvious question unanswered, does every statement of fact link to a bronze source, would a skilled reader find it credible?
+8. **Soft gates: LLM-as-judge and critic-optimizer loops.** Hard gates catch what code can check — schemas parse, counts match, budgets hold. Soft gates catch qualitative issues only reading can catch: does the output follow the expected style, is it free of internal contradictions, does it leave an obvious question unanswered, does every statement of fact link to a bronze source, would a skilled reader find it trustworthy?
 
-	- **Rubric, not vibes.** The judge scores against an explicit rubric with named criteria — groundedness, coverage, coherence, style conformance — not a single "rate this 1–10." Prefer binary pass/fail per criterion over scalar scores; binary judgments are more consistent across runs and easier to calibrate against human labels. Make the 'soft' gate as hard as possible.
-	- **Structured verdicts.** The judge emits a parseable data structure — JSON with issues found, severity, location, and a recommended action for each — not prose commentary. That structure then feeds directly into the optimizer step, which fixes the flagged issues and resubmits.
-	- **Critic–optimizer loop with a floor and a ceiling.** Iterate judge → fix → rejudge until hard checks pass and soft checks clear a minimum rubric score — but with a bounded iteration count (e.g., three passes), after which remaining issues go into the exception report rather than another lap. An unbounded quality loop is an infinite loop and an infinite bill.
-	- **Separate the judge's context.** The judge runs in its own session with the rubric, the output, and the sources — not the full generation history. A judge that saw the drafting process inherits its assumptions; a fresh-context judge reads the artifact the way your end reader will.
-	- **Calibrate the judge itself.** A judge is a model component like any other: validate it against a labeled set of known-good and known-bad outputs, track its agreement rate with human reviewers, and re-run that calibration when the underlying model version changes. An uncalibrated judge that passes everything is worse than no judge — it's false assurance with a paper trail.
-	- **Judges are cheap; use several narrow ones.** A groundedness judge, a style judge, and a contradiction judge — each with a small focused prompt — beat one omnibus judge, for the same context-rot reasons that small steps beat big prompts. A judge that iterates claim by claim, against the source , is worth its own dedicated judge pass.
+   - **Rubric, not vibes.** The judge scores against an explicit rubric with named criteria — groundedness, coverage, coherence, style conformance — not a single "rate this 1–10." Make the 'soft' gate as hard as possible. Prefer binary pass/fail per criterion over scalar scores; binary judgments are consistent across runs and easier to calibrate against human labels.
 
-9. **Evals: unit tests for every step.** Every hard and soft gate segues naturally to an eval you can run as a suite. So when the model version changes, a prompt changes, or anything else changes, you rerun the suite and see exactly what regressed. Eval against the contract: reward the score for correctly saying "I don't know" — labeling fields `unknown`/`unavailable` when the source data isn't there — and never reward guessing. An eval that penalizes honest abstention trains your pipeline to fabricate.
+   - **Reward the judge for correctly saying "I don't know"** — labeling fields `unknown`/`unavailable` when the source data isn't there — and never reward guessing. An eval that penalizes honest abstention trains your pipeline to make stuff up.
 
-    - **Measure reliability as pass^k, not pass@k.** Pass@k asks "did it succeed at least once in k tries?" — the demo metric. Pass^k asks "did it succeed every time?" — the production metric. A step that passes 90% of single trials passes a 10-step pipeline 35% of the time. Run each eval N≥5 times and report the worst case; set per-step thresholds based on the pipeline length you need. A 10-step pipeline targeting 95% end-to-end needs each step at roughly 99.5%.
+   - **Structured verdicts.** The judge emits a parseable data structure — JSON with issues found, severity, location, and a recommended action for each — not prose commentary. That structure can then feeds into an optimizer step, which fixes the flagged issues and re-evaluates.
+   - **Critic–optimizer loop with a floor and a ceiling.** Iterate judge → fix → rejudge until hard checks pass and soft checks clear a minimum rubric score — but with a bounded iteration count (e.g., three passes), after which remaining issues go into the exception report rather than another lap. An unbounded quality loop may be an infinite loop and an infinite bill.
+   - **Separate the judge's context.** The judge runs in its own session with the rubric, the output, and the sources — not the full generation history. A judge that saw the drafting process inherits its assumptions; a fresh-context judge reads the artifact more like your reader will.
+   - **Evaluate the judge itself.** A judge is a model component like any other: validate it against a labeled set of known-good and known-bad outputs, track its agreement rate with human reviewers, and re-run that calibration when the underlying model version changes. An uncalibrated judge that passes everything is worse than no judge — it's CYA false assurance with a paper trail.
+   - **Judges are cheap; use many narrow parallel ones.** A groundedness judge, a style judge, and a contradiction judge — each with a small focused prompt on a smaller model — beat one omnibus judge, for the same context-rot reasons that small steps beat big prompts. A judge that iterates facts claim by claim, verifying against the bronze source, is worth its own dedicated judge pass.
+   - **Gaps and exceptions are a first-class deliverable** at every complex step: what couldn't be sourced, what was estimated, what conflicts were found. A pipeline that reports its own holes is reliable; one that silently papers over them is not.
 
-    - **Generate evals from observed failures, not imagined test cases.** Follow Hamel Husain and Shreya Shankar's error-analysis loop: sample production traces, label the failures, cluster them, write an eval per cluster. Your eval suite should be a fossil record of everything that has actually gone wrong.
+9. **Evals: unit tests for every step.** Every hard and soft gate maps naturally to an eval you can run as a suite. So when the model version changes, or anything else changes, you rerun the suite and see what regressed.
 
-    - **Feedback discipline (Hashimoto).** Every incident and every edge case produces a permanent artifact: a new eval, a new gate, a validator rule, a line in the agent's instruction file — engineered so the agent never makes that mistake again. Gates need a governance process for accreting: who adds them, where they live, how they're versioned, and periodically, which ones a stronger model has made obsolete and can be removed.
+   - **Eval against a contract using a scoring rubric, to a structured schema.** See above on soft gates.
 
-    - **Measure reliability as pass^k, not pass@k.** A step that passes 90% of single trials passes a 10-step pipeline 35% of the time. Run each eval N≥5 times and report the worst case; set acceptable per-step thresholds based on the pipeline length you need.
+   - **Measure reliability as pass^k, not pass@k.** Pass@k asks "did it succeed at least once in k tries?" — the demo metric. Pass^k asks "did it succeed every time?" — the production metric. A step that passes 90% of single trials passes a 10-step pipeline 35% of the time. Run each eval N≥5 times and report the worst case; set per-step thresholds based on the pipeline length you need. A 10-step pipeline targeting 95% end-to-end needs each step at roughly 99.5%.
 
-10. **Good evals are the portal to auto-improvement.** As a general principle, the best tasks to give an AI are the ones that are easy to verify. When the agent can check its own work via an unambiguous and immediate signal -- run tests, validate the schema, count the pages -- it can self-corrects. Verification asymmetry is the whole game: generation is hard, checking is easy. So put the checking in the loop and let the model iterate against it.
+   - **Generate evals from observed failures, not imagined test cases.** Follow Hamel Husain and Shreya Shankar's error-analysis loop: sample production traces, label the failures, cluster them, write an eval per cluster. Your eval suite should be a fossil record of everything that has actually gone wrong.
 
-	We can extend this paradigm from runtime course correction to prompt optimization — the Karpathy autoresearch pattern. In March 2026, Karpathy released a repo that hands the ML research loop itself to an agent:
+   - **Feedback discipline (Hashimoto).** Every incident and every edge case produces a permanent artifact: a new eval, a new gate, a validator rule, a line in the agent's instruction file — engineered so the agent never makes that mistake again. Gates need a governance process for accreting: who adds them, where they live, how they're versioned, and periodically, which ones a stronger model has made obsolete and can be removed.
 
-	1. Examine a prompt and consider ways to improve it
+10. **Good evals are the portal to auto-improvement.** As a general principle, the best tasks to give an AI are the ones that are easiest to verify. When the agent can check its own work via an unambiguous and immediate signal -- run tests, validate the schema, count the pages -- it can self-correct. Verification asymmetry is key: when generation is hard, and checking/correcting is easy, put the checking in the loop and let the model iterate against it.
 
-	2. Modify the prompt and run it against test inputs and evals, using a rubric to score how they performed.
+    We can extend this paradigm from runtime course correction to prompt optimization. In March 2026, Karpathy released an 'autoresearch' repo that hands the ML research loop itself to an agent:
 
-	3. If the result improved, keep it, if it got worse discard it.
+      1. *Examine a prompt* or task and consider ways to improve it
 
-	4. Go to 1. and iterate. Look at the highest-performing prompts found so far and consider ways to improve them with new ideas and combinations of existing ideas.
+      2. *Modify the prompt* and run it against test inputs and evals, using a rubric to score how they performed.
 
-	The pattern transfers to any pipeline with three ingredients:
+      3. *If the result improved*, keep it, if it got worse discard it.
 
-	1. **A scalar, trusted metric**:  your eval suite's pass^k score, a rubric score, a latency number. It must be cheap to compute and hard to game, because the agent will optimize exactly what you measure.
-	2. **A bounded search space**: the agent edits one prompt, one skill, one validator; everything else is frozen.
-	3. **A keep-or-revert loop**: each change is scored against the metric; improvements are committed, regressions are discarded, and every experiment is logged as a data point.
+      4. *Go to 1*, and iterate. Look at the highest-performing prompts found so far and consider ways to improve them with new ideas and combinations of existing ideas.
 
-	The evals you built for regression protection become the objective function for automated prompt optimization — the same artifact serving defense and offense.
+    This pattern transfers to any pipeline with three ingredients:
 
-	Do not overoptimize, or results may not generalize outside the test suite. Look at the top performing prompts and use them to help write prompts that make obvious sense and covr all the bases. Easy verification makes the loop possible; common sense makes it safe.
+      1. **A scalar, trusted metric**:  your eval suite's pass^k score, a rubric score, a latency number. It must be cheap to compute and hard to game, because the agent will optimize exactly what you measure.
+      2. **A bounded search space**: the agent edits one prompt, one skill, one validator; everything else is frozen.
+      3. **A keep-or-revert loop**: each change is scored against the metric; improvements are committed, regressions are discarded, and every experiment is logged to avoid repeating it.
 
-11. **Critic–optimizer loops with gates.** After a task, run the critic. Hard checks first: is the writing within length limits, does the format parse, are all required artifacts present? Then soft checks: does it follow the expected style, is it free of contradictions, does it leave an obvious question unanswered, does every statement of fact link to a bronze source? The critic emits a parseable data structure — JSON with each issue, its severity, its location, and a recommended action to correct it — which feeds directly into the optimizer step. Iterate critic and optimizer until there are no hard-check failures and soft checks clear a minimum rubric score — with a bounded iteration count, after which remaining issues escalate to the human in the loop. Gaps and exceptions are a first-class deliverable at every complex step: what couldn't be sourced, what was estimated, what conflicts were found. A pipeline that reports its own holes is reliable; one that silently papers over them is not.
+    **The runtime and dev-time evals become the objective function** for automated task optimization — the same artifact serving defense and offense.
 
-12. **Orchestration: fixed-shape workflows.** At the orchestration level, use numbered, fixed-order workflows with named phases and typed input contracts — entity + `YYYY-MM`, batch ID + NAV pack — so every run is repeatable in shape. The agent gets freedom within a step, not over the sequence of steps. When run 47 and run 48 follow the same numbered phases with the same typed inputs, diffs between them are meaningful, failures are attributable, and "where did it break?" has a one-word answer.
+    **Do not overoptimize**, or results may not generalize outside the test suite. Look at the top performing prompts and use them to help write prompts that make obvious sense and cover all the bases. Easy verification makes the loop possible; common sense makes it safe.
 
-13. **Dedicated audit pass at the end.** Before anything ships, run a final audit: layered QC combining the unit gates already passed per step with comprehensive integration checks across the whole deliverable. All components present, all counts met, all failure modes checked — missing source links, orphaned claims, stale data, unresolved exceptions. This is the last line of defense, and it's binary: if any item fails, do not deliver. A pipeline that ships a known-broken report to hit a schedule has optimized for the wrong thing — no report beats a wrong report, every time.
+11. **Orchestration: fixed-shape workflows.** At the orchestration level, use numbered, fixed-order workflows with named phases and typed input contracts — entity + `YYYY-MM`, batch ID + NAV pack — so every run is repeatable in shape. The agent gets freedom within a step, not over the sequence of steps. When run 47 and run 48 follow the same numbered phases with the same typed inputs, diffs between them are meaningful, failures are attributable, and "where did it break?" has a one-word answer.
 
-14. **Human in the loop.** The human's role naturally diminishes as the agent matures. But it there must always be a boundary where the agent detects it has encountered something outside the design envelope and brings in human for the edge case:
+12. **Dedicated audit pass at the end.** Before anything ships, run a final audit: layered QC combining the unit gates already passed per step with comprehensive integration checks across the whole deliverable. All components present, all counts met, all failure modes checked — missing source links, orphaned claims, stale data, unresolved exceptions. This is the last line of defense, and it's binary: if any item fails, do not deliver. A pipeline that ships a known-broken report to hit a schedule has optimized for the wrong thing — no report beats a wrong report, every time.
 
-	1. **Assistant:** the human drives, the model executes one step at a time, everything is reviewed because everything is new.
+13. **Human in the loop.** Three maturity stages:
 
-	2. **Supervised agent:** the pipeline runs end-to-end but pauses at approval gates after key steps, presenting a summary of what was done and what needs elevated review — primary sources that conflict, low-confidence claims, exceptions the critic couldn't resolve.
+    - **Assistant:** the human drives, the model executes one step at a time, everything is reviewed and edited/corrected in place.
 
-	3. **Hands-free with escalation:** the pipeline runs unattended and inverts the interaction — instead of the human checking in on the agent, the agent reaches out to the human, and only when a gate trips.
+    - **Supervised agent:** the pipeline runs end-to-end but pauses at approval gates after key steps, presenting a summary of what was done and what needs elevated review — primary sources that conflict, low-confidence claims, exceptions the critic couldn't resolve.
 
-	Promotion between stages must earned, not assumed: as pass^k history accumulates per step, dial human involvement down.
+    - **Hands-free with escalation:** the pipeline runs unattended and inverts the interaction — instead of the human checking in on the agent, the agent reaches out to the human, and only when a gate trips.
 
-	Design for the reviewer at every stage. Surface the exception list and the diff against the prior run, not a long trace to read from scratch. A reviewer who must find the problems themselves is a bottleneck; a reviewer handed exactly the five items needing judgment is a control.
+The human's role naturally diminishes as the agent matures. But there must always be a boundary where the agent detects it has encountered something outside the design envelope and brings in the human for the edge case. Promotion between maturity stages must earned, not assumed: as pass^k history accumulates per step, dial human involvement down.
 
-	Escalation should arrive where the human already works: a Slack or Teams message with the exception summary, the relevant diff, and approve/reject/correct actions inline — not a log entry waiting to be discovered, and not an email to a folder nobody checks. Route by severity: soft-check warnings post to a channel for async review; hard-gate failures page someone; anything touching money or external delivery blocks until a named human approves. The workflow tools matter because latency matters — an escalation that takes a day to be noticed converts your daily job back into a weekly one.
+Design for the reviewer at every stage. Surface the exception list and the diff against the prior run, not a long trace to read from scratch. A reviewer who must find the problems themselves is a bottleneck; a reviewer handed exactly the five items needing judgment is a control.
 
-	When a human intervenes, the correction must be as cheap as possible: fix the input or override the judgment, then rerun from that step — which the checkpointed, resumable architecture gives you for free. And capture every reviewer verdict — approved, rejected, corrected, and why — as labeled data. Human corrections are the highest-quality eval inputs you will ever get, and they're what justify the next promotion toward hands-free.
+Escalation should arrive where the human already works: a Slack or Teams message with the exception summary, the relevant diff, and approve/reject/correct actions inline — not a log entry waiting to be discovered, and not an email to a folder nobody checks. Route by severity: soft-check warnings post to a channel for async review; hard-gate failures page someone; anything touching money or external delivery blocks until a named human approves. The workflow tools matter because latency matters — an escalation that takes a day to be noticed converts your daily job back into a weekly one.
 
-Further high-level considerations
+When a human intervenes, the correction should be as cheap as possible: fix the input or override the judgment, then rerun from that step — which the checkpointed, resumable architecture gives you for free. And capture every reviewer verdict — approved, rejected, corrected, and why — as labeled data. Human corrections are the highest-quality eval inputs you will ever get, and they're what justify the next promotion toward hands-free.
 
-1) Beware of prompt injection. initial searches should be in an agent with limited capability, downloaded data should be treated as hostile and subject to a scan and sanitization process before going downstream.
+## Further important considerations
 
-2) **Least privilege and sandboxing.** Scoped credentials per step, read-only by default, write actions gated, execution in a container with egress allowlists. A correctly-behaving agent with excessive permissions can be an insider threat when it gets a bad input.
+1) **Parallelize everything possible** - use async/await or tell skills to run these tasks in parallel, where possible
 
-3) Beware of repo poisoning - use trusted repos (examples) , use  minimum-age flags at a minimum,
+2) **Beware of prompt injection**. initial searches should be in an agent with limited capability, downloaded data should be treated as hostile and subject to a scan and sanitization process before going downstream.
 
-4) Treat prompts as code, for higher maturity should be in CI and/or prompt repo like Langfuse , so when a model updates you can eval current and previous prompt versions to catch new problems and regressions
+3) **Least privilege and sandboxing.** Scoped credentials per step, read-only by default, write actions gated, execution in a container with egress allowlists. A correctly-behaving agent with excessive permissions can be an insider threat when it gets a bad input.
 
-5) **Tool design.** There is a tradeoff between fewer, wider tools, which allow more efficiency and creativity, and least privilege. tool errors written for the model to recover from (what went wrong and what to try); tool outputs truncated and structured before they enter context.
+4) **Beware of repo poisoning** - use trusted repos (examples) , use  minimum-age flags at a minimum,
 
-6) 3 important sources of metrics about how well it is working: 1) usage level/growth. if people use it it's probably useful 2) vibes: what people tell you about how it works in the field 3) lab experiment / benchmark, run it on real-world tasks and do human/automated scoring of how well i towrks. to this end, a good harness for e.g. a/b test,ing, letting humans evaluate alternative outputs/traces, can be worth its weight in gold.
+5) **Treat prompts as code** - for higher maturity should be in CI and/or prompt repo like Langfuse , so when a model updates you can eval current and previous prompt versions to catch new problems and regressions
 
-The engineering doesn't go away, it gets more complex and moves to
+6) **Tool design.** There is a tradeoff between fewer, wider tools, which allow more efficiency and creativity, and least privilege. tool errors written for the model to recover from (what went wrong and what to try); tool outputs truncated and structured before they enter context.
 
-1) Evals appropriate to the task are the most important part of the process, touching runtime gating and critic/optimizer loops, as well as development-time optimization.
+7) **The 4 important sources of metrics about how well the agent is working**: 1) track runtime evals 2) usage level/growth. if people use it it's probably useful 3) vibes: what people tell you about how it works in the field 4) lab experiment / benchmark, run it end-to-end on real-world out-of-sample tasks and do human/automated scoring of how well i towrks. to this end, a good harness for e.g. a/b test,ing, letting humans evaluate alternative outputs/traces, can be worth its weight in gold.
 
-2) Problem abstraction and decomposition into tractable chunks of deterministic tools and prompts
+**The need for good engineering doesn't go away**, it gets more complex and moves to:
 
-3) Context engineering, in particular llm-friendly memory structures appropriate to the task to give the llm the info it needs when it needs it
+1) **Evals appropriate to the task.** These are the most important part of the process, touching runtime gating and critic/optimizer loops, as well as development-time optimization.
 
-make a pic
+2) **Problem abstraction and decomposition.** Breaking down the problem into tractable chunks of deterministic tools and prompts.
 
-references
-
-hashimoto, hamel and shreya
+3) **Context engineering**, in particular LLM-friendly memory structures appropriate to the task to give the llm the info it needs when it needs it
