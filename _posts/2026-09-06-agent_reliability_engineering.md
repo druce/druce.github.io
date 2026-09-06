@@ -157,3 +157,107 @@ When a human intervenes, the correction should be as cheap as possible: fix the 
 2) **Problem abstraction and decomposition**. Breaking down the problem into tractable chunks of deterministic tools and prompts.
 
 3) **Context engineering**. LLM-friendly memory structures appropriate to the task to give the llm the info it needs when it needs it
+
+## Further reading
+
+### Reliability from unreliable components
+- von Neumann, J. (1956). [Probabilistic Logics and the Synthesis of Reliable Organisms from Unreliable Components](https://static.ias.edu/pitp/archive/2012files/Probabilistic_Logics.pdf).
+- Beyer, B. et al. (2016). [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/). Google.
+- Kwa, T. et al. (2025). [Measuring AI Ability to Complete Long Tasks](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/). METR.
+- Sinha, A. et al. (2025). [The Illusion of Diminishing Returns: Measuring Long Horizon Execution in LLMs](https://arxiv.org/abs/2509.09677). arXiv:2509.09677.
+- Anthropic (2024). [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents).
+- Anthropic (2025). [Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents).
+- OpenAI (2025). [A Practical Guide to Building Agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf).
+
+### Observability and prompt registries
+- OpenTelemetry. [Semantic Conventions for Generative AI](https://opentelemetry.io/docs/specs/semconv/gen-ai/).
+- Langfuse. [Prompt Management](https://langfuse.com/docs/prompt-management/get-started).
+- Anthropic. [Claude Code: Monitoring with OpenTelemetry](https://docs.claude.com/en/docs/claude-code/monitoring-usage).
+
+### Context engineering and decomposition
+- Anthropic (2025). [Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents).
+- Hong, K. et al. (2025). [Context Rot: How Increasing Input Tokens Impacts LLM Performance](https://www.trychroma.com/research/context-rot). Chroma.
+- Liu, N. et al. (2023). [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172). arXiv:2307.03172.
+- Anthropic (2025). [How We Built Our Multi-Agent Research System](https://www.anthropic.com/engineering/multi-agent-research-system).
+- Cognition (2025). [Don't Build Multi-Agents](https://cognition.ai/blog/dont-build-multi-agents).
+- Cemri, M. et al. (2025). [Why Do Multi-Agent LLM Systems Fail?](https://arxiv.org/abs/2503.13657). arXiv:2503.13657.
+- Anthropic (2025). [Equipping Agents for the Real World with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills).
+- Anthropic. [Claude Code: Subagents](https://docs.claude.com/en/docs/claude-code/sub-agents).
+- Anthropic (2025). [Building Agents with the Claude Agent SDK](https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk).
+
+### Contracts and structured output
+- [JSON Schema](https://json-schema.org/).
+- Anthropic. [Structured Outputs](https://docs.claude.com/en/docs/build-with-claude/structured-outputs).
+- OpenAI. [Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs).
+- [Instructor](https://python.useinstructor.com/) and [Pydantic](https://docs.pydantic.dev/) — schema-validated LLM output in Python.
+
+### Idempotency, checkpointing, durable execution
+- Stripe. [Idempotent Requests](https://docs.stripe.com/api/idempotent_requests).
+- Apache Airflow. [Best Practices: Idempotent Tasks](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html).
+- Temporal. [Understanding Durable Execution](https://docs.temporal.io/evaluate/understanding-temporal).
+- LangGraph. [Persistence and Checkpointing](https://langchain-ai.github.io/langgraph/concepts/persistence/).
+
+### Grounding, provenance, hallucination
+- Databricks. [What Is a Medallion Architecture?](https://www.databricks.com/blog/what-is-medallion-architecture).
+- Anthropic. [Citations](https://docs.claude.com/en/docs/build-with-claude/citations).
+- Min, S. et al. (2023). [FActScore: Fine-Grained Atomic Evaluation of Factual Precision](https://arxiv.org/abs/2305.14251). arXiv:2305.14251.
+- Ragas. [Faithfulness Metric](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/faithfulness/).
+- Kalai, A. T., Nachum, O., Vempala, S., Zhang, E. (2025). [Why Language Models Hallucinate](https://arxiv.org/abs/2509.04664). arXiv:2509.04664. Argues evals that penalize abstention train models to guess.
+- Kirichenko, P. et al. (2025). [AbstentionBench: Reasoning LLMs Fail on Unanswerable Questions](https://arxiv.org/abs/2506.09038). arXiv:2506.09038.
+
+### Deterministic code and verification asymmetry
+- Wei, J. (2025). [Asymmetry of Verification and Verifier's Law](https://www.jasonwei.net/blog/asymmetry-of-verification-and-verifiers-law).
+- Gao, L. et al. (2022). [PAL: Program-Aided Language Models](https://arxiv.org/abs/2211.10435). arXiv:2211.10435.
+
+### LLM-as-judge and critic–optimizer loops
+- Husain, H. (2024). [Creating a LLM-as-a-Judge That Drives Business Results](https://hamel.dev/blog/posts/llm-judge/).
+- Zheng, L. et al. (2023). [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685). arXiv:2306.05685.
+- Shankar, S. et al. (2024). [Who Validates the Validators? Aligning LLM-Assisted Evaluation of LLM Outputs with Human Preferences](https://arxiv.org/abs/2404.12272). arXiv:2404.12272.
+- Liu, Y. et al. (2023). [G-Eval: NLG Evaluation Using GPT-4 with Better Human Alignment](https://arxiv.org/abs/2303.16634). arXiv:2303.16634.
+- Wang, P. et al. (2023). [Large Language Models Are Not Fair Evaluators](https://arxiv.org/abs/2305.17926). arXiv:2305.17926.
+- Gu, J. et al. (2024). [A Survey on LLM-as-a-Judge](https://arxiv.org/abs/2411.15594). arXiv:2411.15594.
+- Madaan, A. et al. (2023). [Self-Refine: Iterative Refinement with Self-Feedback](https://arxiv.org/abs/2303.17651). arXiv:2303.17651.
+- Shinn, N. et al. (2023). [Reflexion: Language Agents with Verbal Reinforcement Learning](https://arxiv.org/abs/2303.11366). arXiv:2303.11366.
+
+### Evals
+- Husain, H. [Frequently Asked Questions About AI Evals](https://hamel.dev/blog/posts/evals-faq/).
+- Husain, H. (2024). [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/).
+- Husain, H. and Shankar, S. (2026). [Evals for AI](https://www.oreilly.com/library/view/evals-for-ai/9798341660717/). O'Reilly.
+- Anthropic (2026). [Demystifying Evals for AI Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents).
+- Yan, E. (2024). [Task-Specific LLM Evals That Do and Don't Work](https://eugeneyan.com/writing/evals/).
+- Chen, M. et al. (2021). [Evaluating Large Language Models Trained on Code](https://arxiv.org/abs/2107.03374). arXiv:2107.03374. Origin of pass@k.
+- Yao, S. et al. (2024). [τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains](https://arxiv.org/abs/2406.12045). arXiv:2406.12045. Introduces pass^k.
+- Barres, V. et al. (2025). [τ²-bench: Evaluating Conversational Agents in a Dual-Control Environment](https://arxiv.org/abs/2506.07982). arXiv:2506.07982.
+- Hashimoto, M. (2025). [My AI Adoption Journey](https://mitchellh.com/writing/my-ai-adoption-journey).
+- Anthropic (2025). [Claude Code Best Practices](https://www.anthropic.com/engineering/claude-code-best-practices).
+- Tooling: [promptfoo](https://www.promptfoo.dev/docs/intro/), [Inspect AI](https://inspect.aisi.org.uk/) (UK AISI).
+
+### Automated prompt optimization and Goodhart
+- Karpathy, A. (2026). [autoresearch](https://github.com/karpathy/autoresearch).
+- Khattab, O. et al. (2023). [DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines](https://arxiv.org/abs/2310.03714). arXiv:2310.03714. [dspy.ai](https://dspy.ai/).
+- Opsahl-Ong, K. et al. (2024). [Optimizing Instructions and Demonstrations for Multi-Stage Language Model Programs](https://arxiv.org/abs/2406.11695). arXiv:2406.11695. MIPROv2.
+- Agrawal, L. A. et al. (2025). [GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning](https://arxiv.org/abs/2507.19457). arXiv:2507.19457.
+- Google DeepMind (2025). [AlphaEvolve: A Gemini-Powered Coding Agent for Designing Advanced Algorithms](https://deepmind.google/discover/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/).
+- Gao, L., Schulman, J., Hilton, J. (2022). [Scaling Laws for Reward Model Overoptimization](https://arxiv.org/abs/2210.10760). arXiv:2210.10760.
+- Skalse, J. et al. (2022). [Defining and Characterizing Reward Hacking](https://arxiv.org/abs/2209.13085). arXiv:2209.13085.
+- Anthropic (2025). [Natural Emergent Misalignment from Reward Hacking](https://www.anthropic.com/research/emergent-misalignment-reward-hacking).
+- Wikipedia. [Goodhart's Law](https://en.wikipedia.org/wiki/Goodhart%27s_law).
+
+### Human in the loop and model governance
+- Bainbridge, L. (1983). [Ironies of Automation](https://doi.org/10.1016/0005-1098(83)90046-8). *Automatica* 19(6).
+- Federal Reserve / OCC (2011). [SR 11-7: Supervisory Guidance on Model Risk Management](https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm).
+- NIST (2023). [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework).
+- Anthropic. [Claude Code: Hooks](https://docs.claude.com/en/docs/claude-code/hooks) — deterministic pre/post-step gates and approval points.
+
+### Security: prompt injection, least privilege, supply chain
+- Willison, S. (2025). [The Lethal Trifecta for AI Agents](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/).
+- OWASP (2025). [Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/).
+- Debenedetti, E. et al. (2025). [Defeating Prompt Injections by Design (CaMeL)](https://arxiv.org/abs/2503.18813). arXiv:2503.18813.
+- Anthropic (2025). [Beyond Permission Prompts: Making Claude Code More Secure and Autonomous with Sandboxing](https://www.anthropic.com/engineering/claude-code-sandboxing).
+- pnpm. [Supply Chain Security](https://pnpm.io/supply-chain-security).
+- GitHub (2025). [Our Plan for a More Secure npm Supply Chain](https://github.blog/security/supply-chain-security/our-plan-for-a-more-secure-npm-supply-chain/).
+
+### Tool design
+- Anthropic (2025). [Writing Effective Tools for Agents — with Agents](https://www.anthropic.com/engineering/writing-tools-for-agents).
+- Anthropic (2025). [Advanced Tool Use](https://www.anthropic.com/engineering/advanced-tool-use).
+- [Model Context Protocol](https://modelcontextprotocol.io/).
