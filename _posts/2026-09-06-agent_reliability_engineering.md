@@ -42,7 +42,7 @@ What follows are field notes from building agent pipelines that run unattended a
    [Decomposing large prompts into multiple small prompts takes several forms](https://www.anthropic.com/engineering/multi-agent-research-system), in increasing order of isolation:
 
    - **Skills:** an orchestrator skill that invokes other skills in sequence, potentially with a deep hierarchy.
-   - **Subagents:** tasks that run in their own isolated context and return a summary to the caller without inheriting or polluting the parent's context. They add complexity, but provide isolation, scoped tools, model selection, and parallelism.
+   - **Subagents:** tasks that run in their own isolated context and return a summary to the caller without inheriting or polluting the parent's context. They add complexity, but provide isolation, scoped tools, model selection, and parallelism.  Subagents can't call other subagents, but Claude Code's [dynamic workflows](https://code.claude.com/docs/en/workflows) let you define fan-out, pipelines, and other deterministic topologies in a script.
    - **An external orchestrator:** each prompt runs in a fully independent session — e.g., a Python script where each step processes artifacts from the previous step and writes new ones, invoking `claude -p` per step.
 
 3. **Idempotent, resumable steps.** Each step must be *idempotent*: running it three times in succession produces the same output as running it once. Each step reads the previous step's artifacts and writes its own. A completed step is skipped on rerun, which makes the pipeline resumable from the last successful step after a failure. With artifacts checkpointed in a data store, retries are per step — much cheaper than rerunning the pipeline.
