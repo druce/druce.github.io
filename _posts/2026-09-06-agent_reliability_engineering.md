@@ -146,17 +146,19 @@ What follows are field notes from building agent pipelines that run unattended a
 
 3. **Least privilege and sandboxing.** Scoped credentials per step, read-only by default, write actions gated, execution in a container with egress allowlists. A correctly behaving agent with excessive permissions is an insider threat when it gets a bad input.
 
-4. **[Software supply-chain security](https://pnpm.io/supply-chain-security).** Pull from a curated internal mirror (Artifactory, Nexus, GitHub Packages) or verified sources (Chainguard or Docker Official images, PyPI/npm Trusted Publishers with provenance attestations) rather than raw public registries; use minimum-age flags at a minimum (pnpm `minimumReleaseAge`, uv `--exclude-newer`, Renovate cooldowns) so a freshly hijacked release never reaches your build; pin dependencies to hashes in a lockfile and GitHub Actions to commit SHAs.
+4. **Treat prompts as code.** For higher-maturity deployments, prompts should be in CI and/or a prompt repo like Langfuse, which makes it easy for non-devs to iterate on prompts. When a model updates, you can eval current and previous prompt versions to catch new problems and regressions.
 
-5. **Treat prompts as code.** For higher-maturity deployments, prompts should be in CI and/or a prompt repo like Langfuse, which makes it easy for non-devs to iterate on prompts. When a model updates, you can eval current and previous prompt versions to catch new problems and regressions.
+5. **[Tool design](https://www.anthropic.com/engineering/writing-tools-for-agents).** There is a tradeoff between fewer, wider tools, which allow more efficiency and creativity, and least privilege. Write tool errors for the model to recover from (what went wrong and what to try next), and truncate and structure tool outputs before they enter context.
 
-6. **[Tool design](https://www.anthropic.com/engineering/writing-tools-for-agents).** There is a tradeoff between fewer, wider tools, which allow more efficiency and creativity, and least privilege. Write tool errors for the model to recover from (what went wrong and what to try next), and truncate and structure tool outputs before they enter context.
-
-7. **Four sources of metrics on how well the agent is working.**
+6. **Four sources of metrics on how well the agent is working.**
    1. Runtime evals and gate trips, tracked over time.
    2. Usage and growth: if people use it, it's probably useful.
    3. Vibes: what people tell you about how it works in the field. Provide easy inline human evals via thumbs-up/down and surveys.
    4. Controlled experiments and benchmarks: run the agent end-to-end on real-world out-of-sample tasks and score the results by human or automated means. A good harness for A/B testing, letting humans evaluate and label alternative outputs and traces, can be worth its weight in gold.
+
+7. **Deployment, change control, and rollback.** Version prompts, model configurations, tools, and validators together as a release. Require regression evals before promotion, test consequential changes in parallel-testing mode, and roll them out gradually while monitoring quality, latency, and cost. Keep a known-good release ready to restore, with explicit rollback triggers.
+
+8. **[Software supply-chain security](https://pnpm.io/supply-chain-security).** Pull from a curated internal mirror (Artifactory, Nexus, GitHub Packages) or verified sources (Chainguard or Docker Official images, PyPI/npm Trusted Publishers with provenance attestations) rather than raw public registries; use minimum-age flags at a minimum (pnpm `minimumReleaseAge`, uv `--exclude-newer`, Renovate cooldowns) so a freshly hijacked release never reaches your build; pin dependencies to hashes in a lockfile and GitHub Actions to commit SHAs.
 
 ## Concluding remarks
 
