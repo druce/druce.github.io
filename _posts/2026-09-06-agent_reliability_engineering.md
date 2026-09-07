@@ -1,6 +1,6 @@
 ---
 id: 7158
-title: 'Agent Reliability Engineering: Field Notes on Predictable, Steerable Financial-Services Agent Engineering'
+title: 'Agent Reliability Engineering: Field Notes on Predictable, Steerable Agent Engineering'
 date: 2026-09-05T01:01:01+00:00
 author: Druce Vertes
 layout: post
@@ -11,7 +11,7 @@ tags: AI
 image: /assets/2026/factory.png
 mathjax: false
 mermaid: false
-description: Field Notes on Predictable, Steerable Financial-Services Agent Engineering
+description: Field Notes on Predictable, Steerable Agent Engineering
 ---
 <figure>
 <picture>
