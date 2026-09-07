@@ -29,7 +29,7 @@ description: Field Notes on Building Predictable, Steerable Agents
 
 Running an AI workflow once, interactively, is a good start. Running unattended, every day, is a *system*. And the math is unforgiving. If your workflow has 10 steps and each succeeds 95% of the time, the whole chain succeeds 0.95^10 ≈ 60% of the time: two mornings out of five, you're reading a broken report. At 90% per step, you're at 35%. Or worse, a plausible one that's silently wrong, which you won't catch over coffee.
 
-Traditional software fails *hard and deterministically*: same input, same crash. Agents fail *softly and stochastically*: same input, different output. The worst failure is the confident paragraph citing a source that doesn't say that, or doesn't even exist.
+Traditional software typically fails *hard and deterministically*: same input, same crash. Agents fail *softly and stochastically*: same input, different output. The worst failure is the confident paragraph citing a source that doesn't say that, or doesn't even exist.
 
 Engineers are trained to build [reliable systems from unreliable components](https://ieeexplore.ieee.org/document/1335465), using patterns like redundancy and auto-failover. We decompose problems, write contracts, deploy validation gates, run audits. Stochastic LLMs add a few new wrinkles.
 
@@ -42,10 +42,10 @@ What follows are field notes from building agent pipelines that run unattended a
    [Decomposing large prompts into multiple small prompts takes several forms](https://www.anthropic.com/engineering/multi-agent-research-system), in increasing order of isolation:
 
    - **Skills:** an orchestrator skill that invokes other skills in sequence, potentially with a deep hierarchy.
-   - **Subagents:** tasks that run in their own isolated context and return a summary to the caller without inheriting or polluting the parent's context. They add complexity, but provide isolation, scoped tools, model selection, and parallelism.  Subagents can't call other subagents, but Claude Code's [dynamic workflows](https://code.claude.com/docs/en/workflows) let you define fan-out, pipelines, and other deterministic topologies in a script.
+   - **Subagents:** tasks that can run in their own isolated context and return a summary to the caller without polluting the parent's context. They add complexity, but provide isolation, scoped tools, model selection, and parallelism.  Claude Code's [dynamic workflows](https://code.claude.com/docs/en/workflows) let you define fan-out, pipelines, and other deterministic topologies in a script.
    - **An external orchestrator:** each prompt runs in a fully independent session — e.g., a Python script where each step processes artifacts from the previous step and writes new ones, invoking `claude -p` per step.
 
-3. **Idempotent, resumable steps.** Each step must be *idempotent*: running it three times in succession produces the same output as running it once. Each step reads the previous step's artifacts and writes its own. A completed step is skipped on rerun, which makes the pipeline resumable from the last successful step after a failure. With artifacts checkpointed in a data store, retries are per step — much cheaper than rerunning the pipeline.
+3. **Idempotent, resumable steps.** Each step must be *idempotent*: running it three times in succession produces the same output as running it once. Each step reads the previous step's artifacts and writes its own. Retries do not duplicate records, send the same message twice, or create any additional effects. A completed step is skipped on rerun, which makes the pipeline resumable from the last successful step after a failure. With artifacts checkpointed in a data store, retries are per step — much cheaper than rerunning the pipeline.
 
 4. **Contracts: every step has clearly defined [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs).** Each step gets a fixed deliverables list with explicit cardinality: "deliver exactly three artifacts," and "deliver only the specified outputs; do not create extra documents." Allow `unknown`/`unavailable` as legal values: a schema that forces a value into every field rewards the LLM for guessing.
 
@@ -144,7 +144,7 @@ What follows are field notes from building agent pipelines that run unattended a
 
 3. **Least privilege and sandboxing.** Scoped credentials per step, read-only by default, write actions gated, execution in a container with egress allowlists. A correctly behaving agent with excessive permissions is an insider threat when it gets a bad input.
 
-4. **Beware of [repo poisoning](https://pnpm.io/supply-chain-security).** Pull from a curated internal mirror (Artifactory, Nexus, GitHub Packages) or verified sources (Chainguard or Docker Official images, PyPI/npm Trusted Publishers with provenance attestations) rather than raw public registries; use minimum-age flags at a minimum (pnpm `minimumReleaseAge`, uv `--exclude-newer`, Renovate cooldowns) so a freshly hijacked release never reaches your build; pin dependencies to hashes in a lockfile and GitHub Actions to commit SHAs.
+4. **[Software supply-chain security](https://pnpm.io/supply-chain-security).** Pull from a curated internal mirror (Artifactory, Nexus, GitHub Packages) or verified sources (Chainguard or Docker Official images, PyPI/npm Trusted Publishers with provenance attestations) rather than raw public registries; use minimum-age flags at a minimum (pnpm `minimumReleaseAge`, uv `--exclude-newer`, Renovate cooldowns) so a freshly hijacked release never reaches your build; pin dependencies to hashes in a lockfile and GitHub Actions to commit SHAs.
 
 5. **Treat prompts as code.** For higher-maturity deployments, prompts should be in CI and/or a prompt repo like Langfuse, which makes it easy for non-devs to iterate on prompts. When a model updates, you can eval current and previous prompt versions to catch new problems and regressions.
 
@@ -249,7 +249,7 @@ You will never get determinism from an LLM, but you can make agents sufficiently
 - Chen, M. et al. (2021). [Evaluating Large Language Models Trained on Code](https://arxiv.org/abs/2107.03374). arXiv:2107.03374. Origin of pass@k.
 - Yao, S. et al. (2024). [τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains](https://arxiv.org/abs/2406.12045). arXiv:2406.12045. Introduces pass^k.
 - Barres, V. et al. (2025). [τ²-bench: Evaluating Conversational Agents in a Dual-Control Environment](https://arxiv.org/abs/2506.07982). arXiv:2506.07982.
-- Hashimoto, M. (2025). [My AI Adoption Journey](https://mitchellh.com/writing/my-ai-adoption-journey).
+- Hashimoto, M. (2026). [My AI Adoption Journey](https://mitchellh.com/writing/my-ai-adoption-journey).
 - Anthropic (2025). [Claude Code Best Practices](https://www.anthropic.com/engineering/claude-code-best-practices).
 - Tooling: [promptfoo](https://www.promptfoo.dev/docs/intro/), [Inspect AI](https://inspect.aisi.org.uk/) (UK AISI).
 
@@ -268,7 +268,7 @@ You will never get determinism from an LLM, but you can make agents sufficiently
 ### Human in the loop and model governance
 
 - Bainbridge, L. (1983). [Ironies of Automation](https://doi.org/10.1016/0005-1098(83)90046-8). *Automatica* 19(6).
-- Federal Reserve / OCC (2011). [SR 11-7: Supervisory Guidance on Model Risk Management](https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107.htm).
+- Federal Reserve (2026). [SR 26-2: Supervisory Guidance on Model Risk Management](https://www.federalreserve.gov/supervisionreg/srletters/SR2602a1.pdf).
 - NIST (2023). [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework).
 - Anthropic. [Claude Code: Hooks](https://docs.claude.com/en/docs/claude-code/hooks) — deterministic pre/post-step gates and approval points.
 
