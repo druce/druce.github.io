@@ -132,17 +132,17 @@ What follows are field notes from building agent pipelines that run unattended a
 
     Design for the reviewer at every stage. Surface the exception list and the diff against the prior run, not a long trace to read from scratch. A reviewer who must find the problems themselves is a bottleneck; a reviewer handed exactly the five items needing judgment is a control.
 
-    Escalation should arrive where the human already works: a Slack or Teams message with the exception summary, the relevant diff, and approve/reject/correct actions inline — not a log entry waiting to be discovered, and not an email to a folder nobody checks. Route by severity: soft-check warnings post to a channel for async review; hard-gate failures page someone; anything touching money or external delivery blocks until a named human approves. The workflow tools matter because latency matters — an escalation that takes a day to be noticed converts your daily job back into a weekly one.
+    Escalation should arrive where the human already works: a Slack or Teams message with the exception summary, the relevant diff, and approve/reject/correct actions inline — not a log entry waiting to be discovered, and not an email to a folder nobody checks. Route by severity: soft-check warnings post to a channel for async review; hard-gate failures stop and notify someone for immediate intervention; anything high-stakes blocks until a named human approves. The right workflow tools must match SLAs and escalation paths and support the desired resolution latency.
 
-    When a human intervenes, the correction should be as cheap as possible: fix the input or override the judgment, then rerun from that step — which the checkpointed, resumable architecture gives you for free. And capture every reviewer verdict — approved, rejected, corrected, and why — as labeled data. Human corrections are the highest-quality eval inputs you will ever get, and they're what justify the next promotion toward hands-free.
+    When a human intervenes, the correction should be as cheap as possible: fix the input or override the judgment, then rerun from that step — which the checkpointed, resumable architecture gives you for free. And capture every reviewer verdict — approved, rejected, corrected, and why — as labeled data. Human corrections are the highest-quality eval inputs you can get, and they justify the next promotion toward hands-free.
 
 ## Further considerations
 
-1. **Parallelize everything.** Use async/await or tell skills to run tasks in parallel whenever dependencies allow.
+1. **Parallelize everything.** Use async/await, skills and workflows to run tasks in parallel whenever dependencies allow.
 
 2. **Beware of [prompt injection](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/).** Initial searches should run in an agent with limited capabilities. Downloaded data should be treated as hostile and subject to a scan and sanitization process before going downstream.
 
-3. **Least privilege and sandboxing.** Scoped credentials per step, read-only by default, write actions gated, execution in a container with egress allowlists. A correctly behaving agent with excessive permissions can be an insider threat when it gets a bad input.
+3. **Least privilege and sandboxing.** Scoped credentials per step, read-only by default, write actions gated, execution in a container with egress allowlists. A correctly behaving agent with excessive permissions is an insider threat when it gets a bad input.
 
 4. **Beware of [repo poisoning](https://pnpm.io/supply-chain-security).** Pull from a curated internal mirror (Artifactory, Nexus, GitHub Packages) or verified sources (Chainguard or Docker Official images, PyPI/npm Trusted Publishers with provenance attestations) rather than raw public registries; use minimum-age flags at a minimum (pnpm `minimumReleaseAge`, uv `--exclude-newer`, Renovate cooldowns) so a freshly hijacked release never reaches your build; pin dependencies to hashes in a lockfile and GitHub Actions to commit SHAs.
 
@@ -166,7 +166,7 @@ What follows are field notes from building agent pipelines that run unattended a
 
 3. **Context engineering.** LLM-friendly memory structures appropriate to the task to give the LLM the info it needs when it needs it.
 
-You will never get determinism, but you can make agents sufficiently trustworthy and reliable within any defined operational envelope. Set the floor, then raise it. Go forth and make reliable agents!
+You will never get determinism from an LLM, but you can make agents sufficiently trustworthy and reliable within any defined operational envelope. Set the floor, then raise it. Go forth and make reliable agents!
 
 ## Further reading
 
