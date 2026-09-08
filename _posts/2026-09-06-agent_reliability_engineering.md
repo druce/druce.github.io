@@ -39,7 +39,7 @@ What follows are field notes from building agent pipelines that run unattended a
 
 1. **Observability: tracing and run manifests.** Every run logs a comprehensive persistent trace with a manifest of exactly what it ran on: the starting state (input files, hashes, as-of dates), prompt versions (ideally tied to an immutable prompt registry like Langfuse), model string, tool and skill calls with versions, token counts, latency, and exit status per step. This lets you do error analysis, reproduce a final output exactly, and satisfy an auditor. The logged manifest and trace ship with the final output as first-class deliverables. A report you can't reconstruct is a report you can't defend.
 
-2. **[Context management](https://agentic-ai.readthedocs.io/en/latest/ContextEngineering/anthropic/): Keep It Simple, Stupid.** A series of small prompts is more predictable, verifiable, and steerable than one mega-prompt. Small prompts reduce and control what's in context, avoiding [context rot](https://www.trychroma.com/research/context-rot), and each prompt is easier to reason about, test, and evaluate in isolation. Stay under 50% of the context window during runs; degradation sets in well before the advertised window fills. High context usage is a signal to decompose.
+2. **[Context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents): Keep It Simple, Stupid.** A series of small prompts is more predictable, verifiable, and steerable than one mega-prompt. Small prompts reduce and control what's in context, avoiding [context rot](https://www.trychroma.com/research/context-rot), and each prompt is easier to reason about, test, and evaluate in isolation. Stay under 50% of the context window during runs; degradation sets in well before the advertised window fills. High context usage is a signal to decompose.
 
    [Decomposing large prompts into multiple small prompts takes several forms](https://www.anthropic.com/engineering/multi-agent-research-system), in increasing order of isolation:
 
@@ -64,7 +64,7 @@ What follows are field notes from building agent pipelines that run unattended a
 
    There are several agent memory modules and SaaS services. They can be convenient but don't relieve you of the need to think carefully about how you structure the data for your workflows. A wiki is a simple place to start and will work well when the whole wiki fits easily within the LLM's context window. As the amount of data grows, you will need to think harder about structuring agent memory to always give the right context to the LLM, [which may involve different types of memory and database engines like SQL, vector store, graph database](https://www.memoryplugin.com/wiki/index.html), and simple tools and skills to let the LLM extract exactly what it needs when it needs it.
 
-7. **Deterministic code over LLM-as-computer.** Whenever possible, use a tool, a Python or JS script, a shell script, or a spreadsheet artifact instead of a stochastic LLM-as-computer prompt. Sorting, counting, arithmetic, date math, joins, format conversion — anything with one right answer belongs in code that produces it every time. Reserve the model for work that actually needs semantic understanding and judgment. Agents should not do their own bookkeeping. An extraction agent judges what is relevant; a tool or script creates and stores a well-structured schema.
+7. **Deterministic code over LLM-as-computer.** Whenever possible, use a tool, a Python or JS script, a shell script, or a spreadsheet artifact instead of a stochastic LLM-as-computer prompt. Sorting, counting, arithmetic, date math, joins, format conversion — anything with one right answer belongs in code that produces it every time. Reserve the model for work that actually needs semantic understanding and judgment. Agents should not do their own bookkeeping. An extraction agent judges what is relevant; a tool or script creates and stores a well-structured record.
 
 8. **Hard gates, enforced by contracts and deterministic code.** Sanity-check before each step (are prerequisites in place?) and after (does the output look clean?). Before a writing step, for instance: is silver data present, recent, and clean? Render and inspect final artifacts — open the PDF, count the pages, check that the charts rendered. Enforce hard budgets (output length, tokens, wall clock) and cap retries, e.g., at three attempts, so no gate becomes an infinite loop. In more complex topologies, add loop detection for orchestrator/subagent ping-pong, where agents bounce work back and forth without making progress.
 
@@ -201,6 +201,7 @@ You will never get determinism from an LLM, but you can make agents sufficiently
 - Cemri, M. et al. (2025). [Why Do Multi-Agent LLM Systems Fail?](https://arxiv.org/abs/2503.13657). arXiv:2503.13657.
 - Anthropic (2025). [Equipping Agents for the Real World with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills).
 - Anthropic. [Claude Code: Subagents](https://docs.claude.com/en/docs/claude-code/sub-agents).
+- Anthropic. [Claude Code: Orchestrate Subagents at Scale with Dynamic Workflows](https://code.claude.com/docs/en/workflows).
 - Anthropic (2025). [Building Agents with the Claude Agent SDK](https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk).
 
 ### Contracts and structured output
@@ -225,6 +226,11 @@ You will never get determinism from an LLM, but you can make agents sufficiently
 - Ragas. [Faithfulness Metric](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/faithfulness/).
 - Kalai, A. T., Nachum, O., Vempala, S., Zhang, E. (2025). [Why Language Models Hallucinate](https://arxiv.org/abs/2509.04664). arXiv:2509.04664. Argues evals that penalize abstention train models to guess.
 - Kirichenko, P. et al. (2025). [AbstentionBench: Reasoning LLMs Fail on Unanswerable Questions](https://arxiv.org/abs/2506.09038). arXiv:2506.09038.
+
+### Agent memory
+
+- Karpathy, A. (2026). [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f). A pattern for having an LLM incrementally build and maintain a persistent, interlinked markdown wiki from immutable raw sources.
+- MemoryPlugin. [The Field Guide to AI Memory](https://www.memoryplugin.com/wiki/index.html). Storage, retrieval, curation, and ranking strategies for agent memory.
 
 ### Deterministic code and verification asymmetry
 
@@ -293,6 +299,7 @@ You will never get determinism from an LLM, but you can make agents sufficiently
 
 ### Books
 
+- Grootendorst, M. and Alammar, J. (2026). [An Illustrated Guide to AI Agents: Concepts and Code for Building Agents with LLMs, Tools, and Memory](https://www.oreilly.com/library/view/an-illustrated-guide/9798341662681/). O'Reilly.
 - Iusztin, P. and Labonne, M. (2024). [LLM Engineer's Handbook: Master the Art of Engineering Large Language Models from Concept to Production](https://www.amazon.com/LLM-Engineers-Handbook-engineering-production/dp/1836200072). Packt.
 - Caldwell, T. R. (2025). [The AI Engineering Bible: The Complete and Up-to-Date Guide to Build, Deploy and Scale Production Ready AI Systems](https://www.amazon.com/Engineering-Bible-Up-Date-Production/dp/B0FX986YHD).
 - Caldwell, T. R. (2025). [The Agentic AI Bible: The Complete and Up-to-Date Guide to Design, Develop, and Scale Goal-Driven, LLM-Powered Agents that Think, Execute and Evolve](https://www.amazon.com/Agentic-Bible-Up-Date-Goal-Driven/dp/B0FX6PW4T8).
