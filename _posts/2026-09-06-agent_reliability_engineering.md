@@ -114,7 +114,7 @@ What follows are field notes from building agent pipelines that run unattended a
       2. **A bounded search space**: the agent edits one prompt, one skill, one validator; everything else is frozen.
       3. **A keep-or-revert loop**: each change is scored against the metric; improvements are committed, regressions are discarded, and every experiment is logged to avoid repeating it.
 
-    **The runtime and dev-time evals become the objective function** for automated task optimization — the same artifact serving defense and offense.
+    **The runtime and dev-time evals become the objective function** for automated task optimization — the same artifact serving defense and offense. Now your agent can be self-improving.
 
     **Use train/validate/test set discipline and do not [overoptimize](https://en.wikipedia.org/wiki/Goodhart%27s_law)**, or results may not generalize outside the test set. Look at the top-performing prompts and use them to help write prompts that make obvious sense and cover all the bases, then retest. The optimizer will optimize exactly what you measure, which is generally too specific and gameable. Easy verification makes the loop possible; common sense makes it safe.
 
@@ -299,7 +299,23 @@ You will never get determinism from an LLM, but you can make agents sufficiently
 
 ### Books
 
+- Huyen, C. (2024). [AI Engineering: Building Applications with Foundation Models](https://www.oreilly.com/library/view/ai-engineering/9781098166298/). O'Reilly. Chapters on agent failure modes and evaluation.
 - Grootendorst, M. and Alammar, J. (2026). [An Illustrated Guide to AI Agents: Concepts and Code for Building Agents with LLMs, Tools, and Memory](https://www.oreilly.com/library/view/an-illustrated-guide/9798341662681/). O'Reilly.
 - Iusztin, P. and Labonne, M. (2024). [LLM Engineer's Handbook: Master the Art of Engineering Large Language Models from Concept to Production](https://www.amazon.com/LLM-Engineers-Handbook-engineering-production/dp/1836200072). Packt.
 - Caldwell, T. R. (2025). [The AI Engineering Bible: The Complete and Up-to-Date Guide to Build, Deploy and Scale Production Ready AI Systems](https://www.amazon.com/Engineering-Bible-Up-Date-Production/dp/B0FX986YHD).
 - Caldwell, T. R. (2025). [The Agentic AI Bible: The Complete and Up-to-Date Guide to Design, Develop, and Scale Goal-Driven, LLM-Powered Agents that Think, Execute and Evolve](https://www.amazon.com/Agentic-Bible-Up-Date-Goal-Driven/dp/B0FX6PW4T8).
+
+
+### Courses
+
+- Chowdhery, A. and Mirhoseini, A. (2025). [CS329A: Self-Improving AI Agents](https://cs329a.stanford.edu/). Stanford. Test-time compute, verification, learning from tool and code feedback, RL scaling, agentic evals and long-horizon tasks. [Lectures on Stanford Online](https://www.youtube.com/watch?v=6YnLB0XbTnI).
+- Neubig, G. and Fried, D. (2026). [11-768: AI Agents](https://www.cmu-agents.com/). CMU. Scaffolds, evals, and training agentic LLMs with RL. Lectures posted to YouTube as the Fall 2026 term runs.
+- Song, D. (2025). [Agentic AI MOOC, CS294-196](https://agenticai-learning.org/f25). UC Berkeley. Reasoning, planning, tool use, multi-agent systems, evaluation, safety and security. [YouTube playlist](https://www.youtube.com/playlist?list=PLS01nW3RtgoqGkm4UeqNeZLccW-OGc1fJ). The Fall 2024 predecessor, [LLM Agents](https://rdi.berkeley.edu/llm-agents/f24), is also online.
+- Stanford (2025). [CME295: Transformers and Large Language Models](https://cme295.stanford.edu/). Includes lectures on LLM reasoning, agentic LLMs (RAG, tool calling), and LLM evaluation. [YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy).
+- The Full Stack (2023). [LLM Bootcamp](https://fullstackdeeplearning.com/llm-bootcamp/). Agents in production and LLMOps/evals as an engineering discipline.
+- Husain, H. and Shankar, S. [AI Evals for Engineers & PMs](https://maven.com/parlance-labs/evals). Maven. Error analysis, LLM-as-judge, synthetic data, CI integration. The course behind the O'Reilly book above.
+- Ng, A. (2025). [Agentic AI](https://learn.deeplearning.ai/courses/agentic-ai/). DeepLearning.AI. Reflection, tool use, planning, multi-agent patterns, with an emphasis on evals and error analysis.
+- Arize AI. [Evaluating AI Agents](https://learn.deeplearning.ai/courses/evaluating-ai-agents/information). DeepLearning.AI short course. Component-level and end-to-end agent evals, tracing.
+- Hugging Face. [AI Agents Course](https://huggingface.co/learn/agents-course/unit0/introduction). Free, certified. smolagents, LlamaIndex, LangGraph, with bonus units on observability and evals.
+- Anthropic. [Claude Academy](https://academy.claude.com/). Free courses including [Building with the Claude API](https://academy.claude.com/courses/building-with-the-claude-api), [Introduction to Subagents](https://academy.claude.com/courses/introduction-to-subagents), and [Claude Code in Action](https://www.coursera.org/learn/claude-code-in-action).
+- OpenAI. [OpenAI Academy](https://academy.openai.com/). Free API pathway including "Evaluate AI Applications" and "Design and Build Agentic Systems," plus a live [Builder Bootcamp](https://academy.openai.com/public/clubs/builders-etkn1) with an evals session.
