@@ -33,6 +33,8 @@ Traditional software typically fails *hard and deterministically*: same input, s
 
 Engineers are trained to build [reliable systems from unreliable components](https://ieeexplore.ieee.org/document/1335465), using patterns like redundancy and auto-failover. We decompose problems, write contracts, deploy validation gates, run audits. Stochastic LLMs add a few new wrinkles.
 
+TL;DR: Decompose your complex tasks into simple tasks that you can easily evaluate, optimize, and correct on the fly. If all the individual steps can be verfied verified, then by induction the whole task can be verified.
+
 What is reliability from the business perspective? It means consistently delivering the intended result within defined limits for correctness, completeness, timeliness, cost, and authorized behavior, in a transparent and auditable manner. For a daily report, that means accurate, sufficiently complete analysis delivered on time, within budget, to the right recipients. When those requirements cannot be met, the system must detect the problem and follow a defined recovery or escalation path. Measure both incorrect outputs delivered and missing correct outputs: an agent that confidently ships incorrect information is unreliable, and so is one that doesn't ship when it should, and so is one that ships with missing information it should have picked up.
 
 What follows are field notes from building agent pipelines that run unattended and produce output you can trust enough to act on, even in a high-stakes, regulated context.
@@ -60,7 +62,7 @@ What follows are field notes from building agent pipelines that run unattended a
    2. **Silver: cleaned and merged intermediates.** Where multiple bronze sources cover the same fact, rank them and take the best available. Use consistent, greppable nomenclature for `unavailable` and `estimated` values so gaps are searchable, not silent.
    3. **Gold: the final output.** Every claim traces back to a named bronze source reference that can be re-fetched, or at minimum cited, e.g., "Wikipedia, retrieved 2026-08-30." A factual claim with no bronze ancestor is a problem, and the audit pass should treat it as a possible hallucination to be verified or removed.
 
-6. **Karpathy wiki methodology.** A simple approach to agent memory is to use a wiki with a specified structure as the silver store, with links back to the bronze canonical sources. Andrej Karpathy published an [LLM Wiki repo](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) with a methodology for auto-maintaining a structured wiki. Read sources, extract the relevant facts into the wiki, then build the final product from the wiki.
+6. **Memory: Karpathy wiki methodology.** A simple approach to agent memory is to use a wiki with a specified structure as the silver store, with links back to the bronze canonical sources. Andrej Karpathy published an [LLM Wiki repo](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) with a methodology for auto-maintaining a structured wiki. Read sources, extract the relevant facts into the wiki, then build the final product from the wiki.
 
    There are several agent memory modules and SaaS services. They can be convenient but don't relieve you of the need to think carefully about how you structure the data for your workflows. A wiki is a simple place to start and will work well when the whole wiki fits easily within the LLM's context window. As the amount of data grows, you will need to think harder about structuring agent memory to always give the right context to the LLM, [which may involve different types of memory and database engines like SQL, vector store, graph database](https://www.memoryplugin.com/wiki/index.html), and simple tools and skills to let the LLM extract exactly what it needs when it needs it.
 
@@ -96,7 +98,7 @@ What follows are field notes from building agent pipelines that run unattended a
 
     - **Feedback discipline (Mitchell Hashimoto).** [Every incident and every edge case produces a permanent artifact](https://mitchellh.com/writing/my-ai-adoption-journey): a new eval, a new gate, a validator rule, a line in the agent's instruction file — engineered so the agent never makes that mistake again. Gates accrete, so they need a governance process: who adds them, where they live, how they're versioned, and, periodically, which ones a stronger model has made obsolete.
 
-11. **Good evals are the gateway to auto-improvement.** As a general principle, the best tasks to give an AI are the ones that are easiest to verify. When the agent can check its own work via an unambiguous and immediate signal — run tests, validate the schema, count the pages — it can self-correct. Verification asymmetry is key: when generation is hard and checking and correcting are easy, put the checking in the loop and let the model iterate against it.
+11. **Good evals enable auto-improvement.** As a general principle, the best tasks to give an AI are the ones that are easiest to verify. When the agent can check its own work via an unambiguous and immediate signal — run tests, validate the schema, count the pages — it can self-correct. Verification asymmetry is key: when generation is hard and checking and correcting are easy, put the checking in the loop and let the model iterate against it.
 
     We can extend this paradigm from runtime course correction to prompt optimization. In March 2026, Karpathy released an [autoresearch](https://github.com/karpathy/autoresearch) repo that hands the ML research loop itself to an agent. Applied to prompts, the loop is:
 
@@ -119,6 +121,8 @@ What follows are field notes from building agent pipelines that run unattended a
     **Use train/validate/test set discipline and do not [overoptimize](https://en.wikipedia.org/wiki/Goodhart%27s_law)**, or results may not generalize outside the test set. Look at the top-performing prompts and use them to help write prompts that make obvious sense and cover all the bases, then retest. The optimizer will optimize exactly what you measure, which is generally too specific and gameable. Easy verification makes the loop possible; common sense makes it safe.
 
 12. **Orchestration: fixed-shape workflows.** At the orchestration level, use numbered, fixed-order workflows with named phases and typed input contracts — entity + `YYYY-MM`, batch ID + NAV pack — so every run is repeatable in shape. The agent gets freedom within a step, not over the sequence of steps. When run 47 and run 48 follow the same numbered phases with the same typed inputs, diffs between them are meaningful, failures are attributable, and "where did it break?" has a one-word answer.
+
+    There are smart, highly autonomous patterns like [ReAct](https://arxiv.org/abs/2210.03629) but they are harder to reason about and steer. There is a tradeoff between maximum creative and resourceful agents, and predictability. Save maximum autonomy for rare cases when it's needed.
 
 13. **Dedicated audit pass at the end.** Before anything ships, run a final audit: layered QC combining the unit gates already passed per step with comprehensive integration checks across the whole deliverable. All components present, all counts met, all failure modes checked — missing source links, orphaned claims, stale data, unresolved exception, repetition or contradiction across sections as opposed to within sections. This is the last line of defense. If any item fails, do not deliver. No report beats a wrong report.
 
@@ -164,13 +168,13 @@ What follows are field notes from building agent pipelines that run unattended a
 
 **The need for good engineering doesn't go away.** Engineering moves to:
 
-1. **Evals appropriate to the task.** These are the most important part of the process, covering runtime gating, critic-optimizer loops, and development-time optimization.
+1. **Evals appropriate to the task.** These are the most important part of the process, covering development-time optimization, runtime gating, and critic-optimnizer loops.
 
 2. **Problem abstraction and decomposition.** Breaking down the problem into tractable chunks of deterministic tools and prompts.
 
 3. **Context engineering.** LLM-friendly memory structures appropriate to the task to give the LLM the info it needs when it needs it.
 
-You will never get determinism from an LLM, but you can make agents sufficiently trustworthy and reliable within any defined operational envelope. Set the floor, then raise it. Go forth and make reliable agents!
+You will never get determinism from an LLM, but if you can verify and correct each step and the end-to-end task, you can make agents sufficiently trustworthy and reliable within a defined operational envelope. Set the floor, then raise it. Go forth and make reliable agents!
 
 ## Further reading
 
@@ -199,6 +203,7 @@ You will never get determinism from an LLM, but you can make agents sufficiently
 - Anthropic (2025). [How We Built Our Multi-Agent Research System](https://www.anthropic.com/engineering/multi-agent-research-system).
 - Cognition (2025). [Don't Build Multi-Agents](https://cognition.ai/blog/dont-build-multi-agents).
 - Cemri, M. et al. (2025). [Why Do Multi-Agent LLM Systems Fail?](https://arxiv.org/abs/2503.13657). arXiv:2503.13657.
+- Yao, S. et al. (2022). [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629). arXiv:2210.03629.
 - Anthropic (2025). [Equipping Agents for the Real World with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills).
 - Anthropic. [Claude Code: Subagents](https://docs.claude.com/en/docs/claude-code/sub-agents).
 - Anthropic. [Claude Code: Orchestrate Subagents at Scale with Dynamic Workflows](https://code.claude.com/docs/en/workflows).
