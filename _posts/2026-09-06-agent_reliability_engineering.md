@@ -33,7 +33,7 @@ Traditional software typically fails *hard and deterministically*: same input, s
 
 Engineers are trained to build [reliable systems from unreliable components](https://ieeexplore.ieee.org/document/1335465), using patterns like redundancy and auto-failover. We decompose problems, write contracts, deploy validation gates, run audits. Stochastic LLMs add a few new wrinkles.
 
-TL;DR: Decompose your complex tasks into simple tasks that you can easily evaluate, optimize, and correct on the fly. If all the individual steps can be verfied verified, then by induction the whole task can be verified.
+TL;DR: Decompose your complex tasks into simple tasks that you can easily evaluate, optimize, and correct on the fly. If all the individual steps and the end-to-end-logical flow are verified, then by induction the whole task is verified.
 
 What is reliability from the business perspective? It means consistently delivering the intended result within defined limits for correctness, completeness, timeliness, cost, and authorized behavior, in a transparent and auditable manner. For a daily report, that means accurate, sufficiently complete analysis delivered on time, within budget, to the right recipients. When those requirements cannot be met, the system must detect the problem and follow a defined recovery or escalation path. Measure both incorrect outputs delivered and missing correct outputs: an agent that confidently ships incorrect information is unreliable, and so is one that doesn't ship when it should, and so is one that ships with missing information it should have picked up.
 
