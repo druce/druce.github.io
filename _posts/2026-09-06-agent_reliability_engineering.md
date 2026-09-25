@@ -122,9 +122,9 @@ What follows are field notes from building agent pipelines that run unattended a
 
 12. **Orchestration: fixed-shape workflows.** At the orchestration level, use numbered, fixed-order workflows with named phases and typed input contracts — entity + `YYYY-MM`, batch ID + NAV pack — so every run is repeatable in shape. The agent gets freedom within a step, not over the sequence of steps. When run 47 and run 48 follow the same numbered phases with the same typed inputs, diffs between them are meaningful, failures are attributable, and "where did it break?" has a one-word answer.
 
-    There are smart, highly autonomous patterns like [ReAct](https://arxiv.org/abs/2210.03629) but they are harder to reason about and steer. There is a tradeoff between maximum creative and resourceful agents, and predictability. Save maximum autonomy for rare cases when it's needed.
+    There are smart, highly autonomous patterns like [ReAct](https://arxiv.org/abs/2210.03629) but they are harder to reason about and steer. There is a tradeoff between maximally creative and resourceful agents, and predictable, steerable, reliable agents. Save maximum autonomy for rare cases when it's needed.
 
-13. **Dedicated audit pass at the end.** Before anything ships, run a final audit: layered QC combining the unit gates already passed per step with comprehensive integration checks across the whole deliverable. All components present, all counts met, all failure modes checked — missing source links, orphaned claims, stale data, unresolved exception, repetition or contradiction across sections as opposed to within sections. This is the last line of defense. If any item fails, do not deliver. No report beats a wrong report.
+13. **Dedicated audit pass at the end.** Before anything ships, run a final audit: layered QC combining the unit gates already passed per step with comprehensive integration checks across the whole deliverable. All components present, all counts met, all failure modes checked — missing source links, orphaned claims, stale data, unresolved exception, repetition or contradiction across sections as opposed to within sections. This is the last line of defense. If any item fails, do not deliver. No report beats a wrong report. Consider automated reports and dashboards of metrics and trends.
 
 14. **Human in the loop.** Three maturity stages:
 
