@@ -22,8 +22,8 @@ description: 'AI Agent Governance in 2026'
 > I asked AI to research [key requirements](https://druce.ai/governance_wiki/) for AI agents built by citizen devs:
 >
 > - Execution environments with hard constraints on access to local and Internet resources, to avoid the [OpenAI/Hugging Face debacle](https://therecord.media/openai-cyberattack-hugging-face) and the [“lethal trifecta”](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/)
-> - A clear, strong user contract, backed by training on how to do things the right way
-> - Hard maturity gates, and reviews before anything reaches production at individual, team, enterprise levels
+> - A clear, strong user contract, backed by training on how to do things the right way.
+> - Hard maturity gates, and reviews before anything reaches production at individual, team, enterprise levels.
 > - A foundation of good access control, clean and well-catalogued data, observability, and well-defined API endpoints with runtime monitoring.
 >
 > Assume every agent will eventually be confused, compromised or creative, and build the fences before you open the gates.
