@@ -436,8 +436,10 @@ Follow Meta's [Agents Rule of Two](https://ai.meta.com/blog/practical-ai-agent-s
   - cost per agent
   - eval pass rates
 
+This is written with enterprise in mind. But it's an interesting thought experiment whether this framework would work for e.g. OpenClaw type personal agents. Would you be willing to give an agent access to all your financial accounts for financial planning, or your medical info, if you knew it ran in an isolated container with read-only access, maybe with on-device AI? Would you be willing to let it plan a trip, or buy shoes, if you knew that it wouldn't be able to make purchases without explicit approval and only up to a strict budget?
+
 May all your agents be well-behaved!
 
 But they won't be.
 
-So, may your containers and guardrails hold!
+So failing that, may all your containers and guardrails hold!
