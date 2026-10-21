@@ -50,6 +50,14 @@ description: 'AI Agent Governance in 2026'
 
 Here is what an ideal AI agent governance program might look like in 2026:
 
+<figure>
+<picture>
+  <source srcset="/assets/2026/agentstack.png" type="image/png">
+  <img src="/assets/2026/agentstack.png" alt="illustration: stacked bar of governance layers" fetchpriority="high" style="width: 100%; height: auto;">
+</picture>
+</figure>
+
+
 ## 1. Training And Citizen Builder Contract {#training}
 
 - **Pre-vetted, hardened templates and stubs** ("paved road" starter kits) for citizen-built agents, with best-practice examples covering:
