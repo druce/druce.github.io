@@ -38,15 +38,18 @@ description: 'AI Agent Governance in 2026'
 5. [Sandboxes And Trust Zones](#sandboxes)
 6. [Secrets: Key Vault](#secrets)
 7. [Logging And Audit](#logging)
-8. [Risk-Based Deployment Review And Gating](#deployment)
-9. [Runtime Oversight](#runtime)
-10. [Shadow AI Discovery And Enforcement](#shadow-ai)
-11. [Vendor-Hosted And SaaS Agents](#vendor-agents)
-12. [Open-Ended Agents: Coding And Computer Use](#open-ended-agents)
-13. [Models And Providers](#models)
-14. [Incident Response](#incident-response)
-15. [Decommissioning And Offboarding](#decommissioning)
-16. [Program Governance And Measurement](#program-governance)
+8. [Policy Engine](#policy-engine)
+9. [AI Model Gateway](#model-gateway)
+10. [Tool Gateway](#tool-gateway)
+11. [Risk-Based Deployment Review And Gating](#deployment)
+12. [Runtime Monitoring](#runtime)
+13. [Shadow AI Discovery And Enforcement](#shadow-ai)
+14. [Vendor-Hosted And SaaS Agents](#vendor-agents)
+15. [Open-Ended Agents: Coding And Computer Use](#open-ended-agents)
+16. [Models And Providers](#models)
+17. [Incident Response](#incident-response)
+18. [Decommissioning And Offboarding](#decommissioning)
+19. [Program Governance And Measurement](#program-governance)
 
 Here is what an ideal AI agent governance program might look like in 2026:
 
@@ -182,7 +185,7 @@ Central record for each agent, sufficient to launch and manage it, and drive con
     - IETF WIMSE
     - Attenuable tokens (Biscuit, macaroons)
 - Trust flows the other way too: a callee's output is untrusted to its caller if the callee processed untrusted content.
-- Agent-to-agent calls are mutually authenticated and pass through the tool gateway, so a low-privilege agent can't recruit a high-privilege one.
+- Agent-to-agent calls are mutually authenticated and pass through the [tool gateway](#tool-gateway), so a low-privilege agent can't recruit a high-privilege one.
 
 **Products**
 - Agent identity: Microsoft Entra Agent ID, Okta Cross App Access / Auth0 for AI Agents, CyberArk, Aembit, Astrix, Keycard
@@ -230,7 +233,7 @@ Follow Meta's [Agents Rule of Two](https://ai.meta.com/blog/practical-ai-agent-s
     - Package installs, webhooks and telemetry
     - Outbound email and tickets
     - Links shown to users
-  - The model API call is itself egress. Allow only approved endpoints via the gateway under no-training, zero-retention terms, or use self-hosted or in-tenant models.
+  - The model API call is itself egress. Allow only approved endpoints via the [model gateway](#model-gateway) under no-training, zero-retention terms, or use self-hosted or in-tenant models.
   - No consequential writes: output goes to a review queue or through narrow validated tools, because injected instructions can do damage without any egress.
 
 - **Zone 3:** internal trusted data, any egress, NO untrusted prompts. Example: IT-developed apps with strict testing and monitoring and no untrusted user-submitted prompts.
@@ -238,27 +241,14 @@ Follow Meta's [Agents Rule of Two](https://ai.meta.com/blog/practical-ai-agent-s
   - Even internal documents can contain injection. Input data handed to prompts must be trusted. Filters and scrubbing processes can fail.
   - Untrusted content can enter only through structural isolation: a quarantined LLM extracts typed fields that the privileged model consumes (dual-LLM pattern, CaMeL).
 
-- "Any" means the leg is permitted, not unrestricted. Registry allowlists and gateway policy, human-in-the-loop escalation apply in every zone.
+- "Any" means the leg is permitted, not unrestricted. Registry allowlists, [policy](#policy-engine) enforced at the gateways, and human-in-the-loop escalation apply in every zone.
 - Workflows that need all three legs are split into agents in different zones, with typed hand-offs or a human checkpoint between them.
-
-### Tool Access And Dangerous Actions
-
-- Resource access (data, tools, other agents) always goes through least-privilege tool calls, via gateways that limit dangerous actions.
-  - Prefer narrow tools to general ones such as a shell, raw SQL or generic HTTP. Wrap coarse-grained APIs and MCP servers in narrow internal facades.
-  - **Products:**
-    - Tool/MCP gateways: agentgateway, Kong, Docker MCP Gateway, IBM ContextForge, Obot, MintMCP, AWS AgentCore Gateway, Azure API Management
-    - Policy engines: OPA, Cedar, Cerbos, OpenFGA, SpiceDB
-- No dangerous actions without human escalation.
-  - "Dangerous" means: irreversible, high-value, external commitments, trades and wires, deletions, permission changes, communications to clients or regulators.
-  - For low latency and operational efficiency, route through a cascade: deterministic allow/deny, then a conservative classifier, then a human. An approval granted nearly 100% of the time should become a rule.
-  - Approval screens show the exact parameters from the broker, not the agent's description of them.
-  - Highest-risk actions need two approvers plus invariants enforced in code. Example: an interest-only payment can't move principal.
 
 ## 6. Secrets: Key Vault {#secrets}
 
 - No credentials are stored in code, config, prompts, the registry, logs or the sandbox.
 - Allowed tools reach keys only by indirection through the key vault, based on registry entitlements.
-- The indirection happens outside the sandbox: the egress proxy or tool gateway swaps a placeholder for the real credential, and only for allowlisted destinations.
+- The indirection happens outside the sandbox: the egress proxy or [tool gateway](#tool-gateway) swaps a placeholder for the real credential, and only for allowlisted destinations.
 - Rotate and revoke automatically or use dynamic per-run secrets.
 - Scan for secrets in CI, logs and traces (GitGuardian, TruffleHog, GitHub secret scanning).
 - **Products:**
@@ -279,14 +269,60 @@ Follow Meta's [Agents Rule of Two](https://ai.meta.com/blog/practical-ai-agent-s
   - The policy decision, with its rule ID
   - The approver
 - **Immutable storage:** S3 Object Lock (compliance mode), Azure immutable blob storage.
-- **LLM observability** integrated with the gateway.
+- **LLM observability** integrated with the [model gateway](#model-gateway).
   - OpenTelemetry GenAI semantic conventions; Langfuse, LangSmith, Arize Phoenix, Braintrust, Datadog LLM Observability.
 - Log stores may hold some of the firm's most sensitive content, such as prompts containing MNPI or PII. Classify and access-control them to match, and redact secrets and PII at ingestion.
 - Logged untrusted content stays untrusted downstream.
 - **Records:** agent-generated business communications and advice-related records may fall under Rule 204-2. Route them to the comms archive (Global Relay, Smarsh, Theta Lake) and to surveillance (Behavox, SteelEye) where applicable.
 - **SIEM products:** Microsoft Sentinel, Splunk, Google SecOps, CrowdStrike Falcon Next-Gen SIEM, Cortex XSIAM, Elastic.
 
-## 8. Risk-Based Deployment Review And Gating {#deployment}
+## 8. Policy Engine {#policy-engine}
+
+- **Separate policy specification from enforcement.** Policies (which agent may call which model or tool, with what parameters, at what risk tier) live in a central engine. The gateways and runtimes only enforce its decisions. Policies are versioned, tested and audited like code, and can change without redeploying agents.
+- **Decision inputs:**
+  - The registry entry: tools, data scopes, zone, risk tier, budgets
+  - Identity and the full delegation chain ([identity](#identity))
+  - Data sensitivity and trust labels, including taint from untrusted content ([data](#data))
+  - The declared intent or mission of the run
+  - Behavior history from the logs: recent actions, denials, spend, anomaly flags from [runtime monitoring](#runtime)
+- **Define "dangerous":** irreversible, high-value, external commitments, trades and wires, deletions, permission changes, communications to clients or regulators. No dangerous actions without escalation.
+- **Rule cascade:** at high volume, fast cheap checks run first and escalate to more thorough ones only when needed. The gateways run the cascade; the policy engine defines it.
+  - No action and no sensitive data: approve immediately.
+  - Higher stakes get more checks: deterministic allow/deny rules and regex pattern matching → fast small LLM classifier (e.g., Jev, Claude Haiku) → frontier model (Claude Sonnet / Opus) → human.
+  - An approval granted nearly 100% of the time should become a rule.
+- Every decision is logged with its rule ID, so denials and approvals are auditable.
+- **Products:** OPA (Rego), Cedar (Amazon Verified Permissions), Cerbos, Permit.io, Oso; relationship-based: OpenFGA, SpiceDB.
+
+## 9. AI Model Gateway {#model-gateway}
+
+- All LLM calls go through an LLM gateway that enforces policy, logs appropriately and filters e.g. PII.
+  - Enforce gateway use by blocking direct access to model APIs.
+  - Only approved, pinned [models](#models) are reachable. Zone 2 traffic routes only to no-training, zero-retention, self-hosted or in-tenant endpoints.
+  - PII filtering is a default per-agent policy set in the registry; blanket redaction can block legitimate tasks.
+- **Token budgets:** daily and monthly, per run, agent, user and cost center. Budgets halt the agent, not just alert.
+- Full traces can be very large.
+  - Always keep structured action logs and content hashes.
+  - Keep full content for a rolling window, potentially always for highest tiers.
+  - Configure verbosity with debug flags; large log entries in debug mode only.
+- **Products:**
+  - Gateways: LiteLLM, Portkey, Kong AI Gateway, Cloudflare AI Gateway, Azure API Management
+  - PII detection: Microsoft Presidio, Nightfall
+
+## 10. Tool Gateway {#tool-gateway}
+
+- Resource access (data, tools, other agents) always goes through least-privilege tool calls, via a tool gateway that enforces policy and limits dangerous actions.
+  - Prefer narrow tools to general ones such as a shell, raw SQL or generic HTTP. Wrap coarse-grained APIs and MCP servers in narrow internal facades.
+  - Agent-to-agent calls go through the gateway too.
+- Each call runs through the policy engine's rule cascade. Sensitive tool calls may be filtered or blocked.
+- **Human in the loop:**
+  - Approval screens show the exact parameters from the gateway, not the agent's description of them.
+  - Highest-risk actions need two approvers plus invariants enforced in code. Example: an interest-only payment can't move principal.
+- The gateway swaps credential placeholders for real [secrets](#secrets), only for allowlisted destinations.
+- Per-downstream-resource rate limits. An agent making excessive requests can trigger a downstream IP or account ban.
+- Pin MCP server versions and hash tool descriptions to catch "rug pulls."
+- **Products:** agentgateway, Kong, Docker MCP Gateway, IBM ContextForge, Obot, MintMCP, AWS AgentCore Gateway, Azure API Management.
+
+## 11. Risk-Based Deployment Review And Gating {#deployment}
 
 **Development and CI**
 - Development happens only in sandboxed dev environments, on test, mocked, synthetic, masked or non-sensitive data. Synthetic and masked data: Tonic.ai, Gretel, K2view.
@@ -334,42 +370,22 @@ Follow Meta's [Agents Rule of Two](https://ai.meta.com/blog/practical-ai-agent-s
   - Prompt and model changes re-run evals automatically, with no committee.
 - Periodic re-review brings agents up to current standards, keyed to approval expiry policy in the registry.
 
-## 9. Runtime Oversight {#runtime}
-
-**Gateways**
-- All LLM calls go through an LLM gateway that logs appropriately and filters e.g. PII.
-  - Enforce gateway use by blocking direct access to model APIs
-  - PII filtering is a default per-agent policy set in the registry; blanket redaction can block legitimate tasks.
-  - Full traces can be very large.
-    - Always keep structured action logs and content hashes.
-    - Keep full content for a rolling window, potentially always for highest tiers.
-    - Configure verbosity with debug flags; large log entries in debug mode only.
-- All tool calls go through a tool gateway. Sensitive tool calls may be filtered.
-- **Products:**
-  - Gateways: LiteLLM, Portkey, Kong AI Gateway, Cloudflare AI Gateway, Azure API Management
-  - PII detection: Microsoft Presidio, Nightfall
+## 12. Runtime Monitoring {#runtime}
 
 **Checks and monitoring**
-- Perform automated integrity checks and anomaly detection.
-- **Policy engine:** separate policy specification from enforcement. Policies (which agent may call which tool, with what parameters, at what risk tier) live in a central engine. Gateways and runtimes only enforce its decisions. As policies get more complex, they can be versioned, tested and audited like code, and changed without redeploying agents.
-  - **Products:** OPA (Rego), Cedar (Amazon Verified Permissions), Cerbos, Permit.io, Oso; relationship-based: OpenFGA, SpiceDB.
-- **Check cascade:** at high volume, fast cheap checks run first and escalate to more thorough ones only when needed.
-  - No action and no sensitive data: approve immediately.
-  - Higher stakes get more checks: deterministic rules and regex pattern matching → fast small LLM (e.g., Jev, Claude Haiku) → frontier model (Claude Sonnet / Opus) → human.
-  - Risky or anomalous tool calls are checked for alignment with the agent's stated intent.
-  - **Products:** Meta LlamaFirewall (AlignmentCheck), Prisma AIRS, Zenity, Lasso, Lakera Guard, NVIDIA NeMo Guardrails.
-  - Note that the monitor can be prompt-injected by the content it monitors. Give it the action, declared intent and provenance, not raw untrusted text, and use an independent model.
+- Perform automated integrity checks and anomaly detection across model and tool traffic.
+- Risky or anomalous tool calls are checked for alignment with the agent's stated intent. These checks serve as the classifier steps of the policy engine's cascade.
+- Loop detection; spend and rate anomalies against the agent's history.
+- Findings feed back into the policy engine as inputs: an agent behaving unusually gets stricter checks or is halted.
+- Note that the monitor can be prompt-injected by the content it monitors. Give it the action, declared intent and provenance, not raw untrusted text, and use an independent model.
+- **Products:** Zenity, Meta LlamaFirewall (AlignmentCheck), Prisma AIRS, Lasso, Lakera Guard, NVIDIA NeMo Guardrails.
 
-**Limits and kill switch**
-- Rate limits; daily and monthly budgets.
-  - Budgets halt the agent, not just alert. Set them per run, agent, user and cost center.
-  - Per-downstream-resource limits. An agent making excessive requests can trigger a downstream IP or account ban.
-  - Loop detection.
+**Kill switch**
 - Kill switch and protocols for invoking it.
   - Layers: revoke tokens, block egress, stop runtimes, disable the registry entry and schedules.
   - Anyone on call or automatic circuit breakers can trigger the kill switch. Drills should test it.
 
-## 10. Shadow AI Discovery And Enforcement {#shadow-ai}
+## 13. Shadow AI Discovery And Enforcement {#shadow-ai}
 
 - Before implementing an agent platform, discover unregistered agents and AI use:
   - OAuth grants and browser extensions
@@ -381,7 +397,7 @@ Follow Meta's [Agents Rule of Two](https://ai.meta.com/blog/practical-ai-agent-s
 - Block unsanctioned AI endpoints at the SASE/egress layer.
 - Test regularly that an unregistered agent can't get credentials or egress.
 
-## 11. Vendor-Hosted And SaaS Agents {#vendor-agents}
+## 14. Vendor-Hosted And SaaS Agents {#vendor-agents}
 
 - Copilot, Glean, ChatGPT Enterprise, Claude Enterprise, Agentforce and ServiceNow agents often run on vendor infrastructure, where sandboxing can't be applied directly.
 - **Controls:**
@@ -393,14 +409,14 @@ Follow Meta's [Agents Rule of Two](https://ai.meta.com/blog/practical-ai-agent-s
   - Ingest vendor audit logs into the SIEM
 - AI features switched on inside existing SaaS products should trigger risk review.
 
-## 12. Open-Ended Agents: Coding And Computer Use {#open-ended-agents}
+## 15. Open-Ended Agents: Coding And Computer Use {#open-ended-agents}
 
 - Claude Code, Codex, Cursor and similar tools can't declare scope up front, so they must be contained.
 - Run them in dev containers or cloud dev environments (Coder, GitHub Codespaces, Microsoft Dev Box), not on desktops that hold production credentials.
 - Push managed settings via MDM: configs such as system prompts, permission deny rules, sandbox mode, network allowlists, hooks, and approved MCP servers only.
 - Browser and computer-use agents run in an isolated browser profile or an enterprise browser (Island, Prisma Access Browser), without the user's broader signed-in sessions.
 
-## 13. Models And Providers {#models}
+## 16. Models And Providers {#models}
 
 - Keep an approved model list. Enterprise terms cover:
   - No training on inputs
@@ -410,7 +426,7 @@ Follow Meta's [Agents Rule of Two](https://ai.meta.com/blog/practical-ai-agent-s
 - Pin model snapshots. Provider version changes and deprecations re-run evals and can trigger re-review. Models can also change without a version increment as providers fix bugs or pursue efficiencies.
 - Zone 2 work that can't leave the firm uses self-hosted or in-tenant models (e.g., Bedrock, Vertex AI or Azure OpenAI over private endpoints).
 
-## 14. Incident Response {#incident-response}
+## 17. Incident Response {#incident-response}
 
 - **Agent-specific runbooks:**
   - Suspected injection
@@ -422,13 +438,13 @@ Follow Meta's [Agents Rule of Two](https://ai.meta.com/blog/practical-ai-agent-s
 - **Notification obligations:** Reg S-P customer notice (within 30 days), data-vendor contracts, counterparties.
 - Every bug and incident should add a regression test. If a control failed, fix the control, not just the agent.
 
-## 15. Decommissioning And Offboarding {#decommissioning}
+## 18. Decommissioning And Offboarding {#decommissioning}
 
 - When an owner leaves or changes roles, reassign or disable their agents. No orphaned agents.
 - Idle agents auto-demote or expire.
 - Decommissioning revokes credentials, schedules and egress rules, and retains logs per policy.
 
-## 16. Program Governance And Measurement {#program-governance}
+## 19. Program Governance And Measurement {#program-governance}
 
 - A named agent program owner and identified RACI (Responsible, Accountable, Consulted, Informed) across the CISO, compliance (CCO), platform/CTO and business owners.
 - **Exam readiness:** be able to produce the inventory, policies, approvals and logs on request.
@@ -450,9 +466,9 @@ Follow Meta's [Agents Rule of Two](https://ai.meta.com/blog/practical-ai-agent-s
   - Cost per agent
   - Eval pass rates
 
-This is written with enterprise in mind, and the same stack also covers citizen development that doesn't use agents at all: Python scripts, notebooks, low-code flows, spreadsheet macros. These need the same paved-road templates, registry, identity, key vault, sandboxed runtimes with default-deny egress, logging, risk-tiered gates and decommissioning. You can drop the AI-specific layers: guardrail prompts, injection and lethal-trifecta checks, tool-call policy and evals. Build the platform once and run every kind of citizen-built automation on it, not just the agentic ones.
+This is written with enterprise in mind. The same stack can also covers citizen development that doesn't use agents at all: Python scripts, notebooks, low-code flows, spreadsheet macros. These need the same paved-road templates, registry, identity, key vault, sandboxed runtimes with default-deny egress, logging, risk-tiered gates and decommissioning. You can drop AI-specific layers: guardrail prompts, injection and lethal-trifecta checks, tool-call policy and evals. Build the platform once and run all citizen-built automation through it.
 
-It's also an interesting thought experiment whether this framework would work for e.g. OpenClaw type personal agents. Would you be willing to give an agent access to all your financial accounts for financial planning, or your medical info, if you knew it ran in an isolated container with read-only access, maybe with on-device AI? Would you be willing to let it plan a trip, or buy shoes, if you knew that it wouldn't be able to make purchases without explicit approval and only up to a strict budget?
+As a thought experiment, would this framework work for e.g. personal OpenClaw agents. Would you be more willing to give an agent access to all your financial accounts for financial planning, or your medical info, if you knew it ran in an isolated container with read-only access, maybe with on-device AI? Would you be willing to let it plan a trip, or buy shoes, if you knew that it wouldn't be able to make purchases without explicit approval and only up to a strict budget?
 
 May all your agents be well-behaved!
 
