@@ -86,7 +86,7 @@ Here is what an ideal AI agent governance program might look like in 2026:
     - Avoid excessive use of models and other resources
   - **Accept accountability** as owner of record. The agent can't be held accountable; its owner is.
   - **Request help** when needed
-  - **Report incidents** promptly, through a blameless channel.
+  - **Report incidents** promptly, through a blameless channel that enables firmwide continuous learning and updates to training, best practices and gates.
 - **Tiered curricula:**
   - **All AI users:** data handling, verifying output, spotting injection
   - **Builders:** everything above
@@ -325,7 +325,9 @@ Follow Meta's [Agents Rule of Two](https://ai.meta.com/blog/practical-ai-agent-s
 ## 11. Risk-Based Deployment Review And Gating {#deployment}
 
 **Development and CI**
-- Development happens only in sandboxed dev environments, on test, mocked, synthetic, masked or non-sensitive data. Synthetic and masked data: Tonic.ai, Gretel, K2view.
+- Development happens only in sandboxed dev environments, on test, mocked, synthetic, masked or non-sensitive data.
+  - Isolation: [Dev Containers](https://containers.dev/), [Coder](https://coder.com/), [GitHub Codespaces](https://github.com/features/codespaces), [Daytona](https://www.daytona.io/), [Ona (formerly Gitpod)](https://ona.com/), [DevPod](https://devpod.sh/), [Microsoft Dev Box](https://azure.microsoft.com/en-us/products/dev-box), [Google Cloud Workstations](https://cloud.google.com/workstations)
+  - Synthetic and masked data: Tonic.ai, Gretel, K2view.
 - Automated CI/CD tools check that the agent meets standards, including:
   - SAST/SCA (Semgrep, Snyk, Endor Labs, Socket)
   - Secret scanning
