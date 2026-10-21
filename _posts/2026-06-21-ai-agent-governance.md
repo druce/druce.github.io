@@ -341,6 +341,15 @@ Follow Meta's [Agents Rule of Two](https://ai.meta.com/blog/practical-ai-agent-s
 - **Gate evidence:** the complete registry entry, threat model, eval results against thresholds, red-team results for high tiers, and owner attestation.
 - Reviewers should require reasonable code coverage, quality tests, and prompt evaluation.
 
+**Gate questions**
+- **Best practices:** reviewed alongside the automated checks for templates, logging, evals, escalation and version control.
+- **Blast radius drives the tier:** the worst case given its actual permissions and how much it can do before anyone notices, how reversible its writes are, and who relies on its output.
+- **Duplication:** is it rebuilding a connector or tool that already exists or should be shared? Reusable plumbing becomes a shared MCP server maintained by the business unit or IT; business logic and prompts stay with the builder.
+- **Key-person risk:** a named backup maintainer for anything above the lowest tier; code, prompts and evals that someone else can run and change; a successor agreed in advance.
+- **Business continuity and disaster recovery:** recovery time objective (RTO) and recovery point objective (RPO) set by tier and supported by the runtime platform, not each builder; a pre-approved fallback model; a manual fallback that's documented and tested.
+- **Costs:** tokens, infrastructure, maintenance and review overhead weighed against business value; the cost center billed.
+- **Regulatory and contractual compliance:** books and records, client communications, MNPI and information barriers, privacy, and data-vendor license terms.
+
 **Testing**
 - Automated tests cover known failure modes:
   - **Prompt injection**, e.g., white-on-white prompt payloads in submitted documents. Other injection vectors: tiny or zero-width text, and Unicode tag characters ("ASCII smuggling"); text in images and document metadata; spreadsheet comments, calendar invites, email and code comments; MCP tool descriptions (tool poisoning) and tool outputs; encoded payloads (base64, Morse code)
