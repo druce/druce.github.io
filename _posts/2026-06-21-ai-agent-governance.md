@@ -99,7 +99,7 @@ Here is what an ideal AI agent governance program might look like in 2026:
 
 ## 2. Agent Registry: Inventory Plane And System Of Record {#registry}
 
-Central record for each agent, sufficient to launch and manage it, and drive controls. The agent platform compiles each agent's policy and creates its environment at runtime (allowlists, scopes, budgets) from this entry at startup.
+Central record for each agent, sufficient to launch it, manage it, and monitor it at runtime. The agent platform compiles each agent's policy and creates its environment at runtime (allowlists, scopes, budgets) from this entry at startup.
 
 **Each agent's purpose and composition**
 - **Purpose and business case**
@@ -315,6 +315,9 @@ Follow Meta's [Agents Rule of Two](https://ai.meta.com/blog/practical-ai-agent-s
   - Agent-to-agent calls go through the gateway too.
 - Each call runs through the policy engine's rule cascade. Sensitive tool calls may be filtered or blocked.
 - **Human in the loop:**
+  - Escalations go where people already work: Teams, Slack, email, mobile push, or the ticketing queue, not a separate console nobody watches.
+  - Approvals are delivered by the gateway, not the agent, as interactive cards (Slack Block Kit, Teams Adaptive Cards) tied to the approver's identity. A free-text reply is never parsed as an approval.
+  - Timeouts default to deny, with a fallback approver from the registry and an SLA by tier.
   - Approval screens show the exact parameters from the gateway, not the agent's description of them.
   - Highest-risk actions need two approvers plus invariants enforced in code. Example: an interest-only payment can't move principal.
 - The gateway swaps credential placeholders for real [secrets](#secrets), only for allowlisted destinations.
@@ -476,6 +479,7 @@ Follow Meta's [Agents Rule of Two](https://ai.meta.com/blog/practical-ai-agent-s
   - Incidents
   - Cost per agent
   - Eval pass rates
+- **Reports and dashboards:** live dashboards for platform and security teams; periodic reports to the program owner, risk committee and business owners, such as per-owner agent inventories, cost by cost center, and exceptions and incidents.
 
 This is written with enterprise in mind. The same stack can also covers citizen development that doesn't use agents at all: Python scripts, notebooks, low-code flows, spreadsheet macros. These need the same paved-road templates, registry, identity, key vault, sandboxed runtimes with default-deny egress, logging, risk-tiered gates and decommissioning. You can drop AI-specific layers: guardrail prompts, injection and lethal-trifecta checks, tool-call policy and evals. Build the platform once and run all citizen-built automation through it.
 
