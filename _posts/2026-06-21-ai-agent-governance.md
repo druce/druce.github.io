@@ -23,7 +23,7 @@ description: 'AI Agent Governance in 2026'
 >
 > - Execution environments with hard constraints on access to local and Internet resources, to avoid the [OpenAI/Hugging Face debacle](https://therecord.media/openai-cyberattack-hugging-face) and the [“lethal trifecta”](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/)
 > - A clear, strong user contract, backed by training on how to do things the right way.
-> - Hard maturity gates, and reviews before anything reaches production at individual, team, enterprise levels.
+> - Hard maturity gates and risk-based reviews before anything reaches production at individual, team, enterprise levels.
 > - A foundation of good access control, clean and well-catalogued data, observability, and well-defined API endpoints with runtime monitoring.
 >
 > Assume every agent will eventually be confused, compromised or creative, and build the fences before you open the gates.
@@ -33,7 +33,7 @@ description: 'AI Agent Governance in 2026'
 
 1. [Training And Citizen Builder Contract](#training)
 2. [Agent Registry: Inventory Plane And System Of Record](#registry)
-3. [Data Prerequisites: DSPM And Content Tags](#data)
+3. [Data Prerequisites: Content Tags And Data Security Posture Management](#data)
 4. [Identity Prerequisites](#identity)
 5. [Sandboxes And Trust Zones](#sandboxes)
 6. [Secrets: Key Vault](#secrets)
@@ -63,7 +63,7 @@ Here is what an ideal AI agent governance program might look like in 2026:
 
 ## 1. Training And Citizen Builder Contract {#training}
 
-- **Pre-vetted, hardened templates and stubs** ("paved road" starter kits) for citizen-built agents, with best-practice examples covering:
+- **Pre-vetted, hardened templates** ("paved road" starter kits) for citizen-built agents, with best-practice examples covering:
   - Approved platforms e.g. [Claude Code](https://claude.com/product/claude-code), skills, etc.
   - How to access models, tools, files, data, network resources.
   - How to test (unit tests and evals).
@@ -71,9 +71,7 @@ Here is what an ideal AI agent governance program might look like in 2026:
   - How to escalate risky actions to a human in the loop.
   - Best practices to maximize output quality: all output attributable to sources; prompt evals/improvers (e.g., [Claude skills](https://github.com/anthropics/skills/tree/main/skills/claude-api/shared/evals), [DSPy](https://dspy.ai/) optimizers such as [GEPA](https://github.com/gepa-ai/gepa), vendor prompt improvers); hill-climbing on evals, scoring on a held-out set.
   - Version control for code, prompts and configuration (e.g. menu-driven or simple commands to commit to Git; prompt versioning in e.g. [Langfuse](https://langfuse.com/) or [LangSmith](https://www.langchain.com/langsmith))
-  - Requirements to pass deployment gates, by risk tier.
-
-- **What triggers re-review:** major changes; new tool or data access; new module dependencies;  model or prompt changes, change of owner, approval expiry.
+  - Requirements to pass deployment gates, by risk tier, and what triggers [re-review](#deployment).
 
 - **The "builder contract":** an acceptable-use agreement attested at agent submission:
   - **Follow all compliance, legal, regulatory, and contractual requirements:**
@@ -113,13 +111,14 @@ Central record for each agent, sufficient to launch it, manage it, and monitor i
 - **Purpose and business case**
 - **Models and tools:** each LLM (pinned version), each tool, and the purpose of each; system-prompt version/hash
 - **People:** owner of record, other maintainers, other interested parties, managers, and downstream users who need notice of changes
-- **Dependencies:** upstream data sources, services, agents, packages and MCP servers. Can be kept as an AI bill of materials (AIBOM, e.g., [CycloneDX ML-BOM](https://cyclonedx.org/capabilities/mlbom/))
+- **Dependencies:** upstream data sources, services, agents, packages and MCP servers; downstream consumers of its output (people, agents, reports, processes), which set its reach. Can be kept as an AI bill of materials (AIBOM, e.g., [CycloneDX ML-BOM](https://cyclonedx.org/capabilities/mlbom/))
 
 **Access and behavior**
 - **What it reads:** the tools, data and network access it requires. Each source should be catalogued in firm infrastructure with sensitivity and other labels enabling risk tiering.
 - **What it writes:** which writes are consequential or irreversible.
 - **Secrets and API keys:** key-vault references, never values
 - **What invokes it:** schedule, interactive user, or another workflow or agent
+- **Autonomy:** which actions need human approval, which are sampled, which run unattended
 - **Escalation:** flags and paths; fallback approver when the owner is unavailable
 - **Kill path:** the manual fallback when the agent is stopped
 - **Code and output locations:** where it gets its code and where it writes output and logs
@@ -139,7 +138,7 @@ Central record for each agent, sufficient to launch it, manage it, and monitor i
 - **Formats:** [A2A Agent Card](https://a2a-protocol.org/) for capabilities and endpoints if other agents call it.
 - **Implementation:** as a start, registry can bey YAML in a git repo, with a web GUI for users to edit; or SQL (but git/YAML may help with automated versioning and readability).
 
-## 3. Data Prerequisites: DSPM And Content Tags {#data}
+## 3. Data Prerequisites: Content Tags And Data Security Posture Management {#data}
 
 - Firm data must be **properly tagged and correctly permissioned** before agents can access it:
   - Internal/external
@@ -314,7 +313,7 @@ Follow [Simon Willison's Lethal Trifecta](https://simonwillison.net/2025/Jun/16/
 - **Token budgets:** daily and monthly, per run, agent, user and cost center. Budgets halt the agent, not just alert.
 - Full traces can be very large.
   - Always keep structured action logs and content hashes.
-  - Keep full content for a rolling window, potentially always for highest risk tiers.
+  - Keep full content for a rolling window, and permanently for tier 4.
   - Configure verbosity with debug flags; large log entries in debug mode only.
 - **Products:**
   - Gateways: [LiteLLM](https://www.litellm.ai/), [Portkey](https://portkey.ai/), [Kong AI Gateway](https://konghq.com/products/kong-ai-gateway), [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/), [Azure API Management](https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities)
@@ -354,17 +353,31 @@ Agents move through a maturity lifecycle: development → test → shadow/parall
 
 **Review and promotion**
 - Deployment only on risk-based review for production access.
-  - The tier is computed from registry-declared capabilities: tools, data labels, egress and autonomy. Low risk tiers self-serve; human review is reserved for high risk tiers.
+  - The tier is computed from the registry entry, scoring each dimension separately and taking the **highest, not the average**. One high-risk capability isn't diluted by being low on everything else.
+    - **Action authority and reversibility:** read-only → writes to its own sandbox → reversible writes to shared systems → irreversible or external actions (the policy engine's [dangerous](#policy-engine) actions).
+    - **Data sensitivity:** public → internal → confidential → regulated (PII, MNPI, client data), from catalog labels.
+    - **Reach:** how many users rely on it, and which processes, reports and agents consume its output. A read-only agent whose output feeds investment or risk decisions is not low risk.
+    - **Autonomy and time to detection:** human approves each action → human samples output → fully autonomous; and how long it can run before anyone would notice a problem.
+    - **Exposure:** untrusted input combined with internal data or egress raises the tier; a Rule-of-Two exception with all three legs is always the top tier.
+    - **Regulatory surface:** client communications, books and records, and regulated data set a floor.
   - **Separation of duties:** builders can't approve their own promotion. A named reviewer pool handles reviews per predetermined criteria.
-- Higher risk tiers stay in shadow/parallel/canary before production: shadow runs alongside the existing process with outputs compared but not acted on; canary serves a small share of live traffic. Every stage has a rollback plan.
-- **Gate evidence:** the complete registry entry, threat model, eval results against thresholds, red-team results for high risk tiers, and owner attestation.
+
+| Tier | Typical profile | Gate |
+|---|---|---|
+| 1 | Single user, read-only, internal data; a human uses the output | Self-serve: registry entry and automated CI checks |
+| 2 | Small team, or writes to its own sandbox, or confidential data | Automated checks and eval thresholds; named backup maintainer |
+| 3 | Reversible writes to shared systems, many users or downstream consumers, or untrusted input with internal data or egress | Human review, threat model, red-team tests, shadow/canary before production |
+| 4 | Irreversible or external actions, regulated data, critical systems, slow detection, or a Rule-of-Two exception | Tier 3 plus two approvers for dangerous actions, invariants enforced in code, full-content log retention, tested RTO/RPO and manual fallback |
+
+- Tiers 3 and 4 stay in shadow/parallel/canary before production: shadow runs alongside the existing process with outputs compared but not acted on; canary serves a small share of live traffic. Every stage has a rollback plan.
+- **Gate evidence:** the complete registry entry, eval results against thresholds and owner attestation; for tiers 3 and 4, the threat model and red-team results.
 - Reviewers should require reasonable code coverage, quality tests, and prompt evaluation.
 
 **Gate questions**
 - **Best practices:** reviewed alongside the automated checks for templates, logging, evals, escalation and version control.
-- **Blast radius drives the risk tier:** the worst case given its actual permissions and how much it can do before anyone notices, how reversible its writes are, and who relies on its output.
+- **Blast radius confirms the risk tier:** the worst case given its actual permissions and how much it can do before anyone notices, how reversible its writes are, and who relies on its output. Reviewers can raise the computed tier, never lower it.
 - **Duplication:** is it rebuilding a connector or tool that already exists or should be shared? Reusable plumbing becomes a shared MCP server maintained by the business unit or IT; business logic and prompts stay with the builder.
-- **Key-person risk:** a named backup maintainer for anything above the lowest risk tier; code, prompts and evals that someone else can run and change; a successor agreed in advance.
+- **Key-person risk:** a named backup maintainer for tier 2 and above; code, prompts and evals that someone else can run and change; a successor agreed in advance.
 - **Business continuity and disaster recovery:** recovery time objective (RTO) and recovery point objective (RPO) set by risk tier and supported by the runtime platform, not each builder; a pre-approved fallback model; a manual fallback that's documented and tested.
 - **Costs:** tokens, infrastructure, maintenance and review overhead weighed against business value; the cost center billed.
 - **Regulatory and contractual compliance:** books and records, client communications, MNPI and information barriers, privacy, and data-vendor license terms.
@@ -375,8 +388,8 @@ Agents move through a maturity lifecycle: development → test → shadow/parall
   - **Non-injection failures:** fabricated numbers, wrong-tenant retrieval, runaway loops, destructive commands.
   - Tools and corpora: [AgentDojo](https://agentdojo.spylab.ai/), [garak](https://github.com/NVIDIA/garak), [PyRIT](https://github.com/Azure/PyRIT), [Promptfoo red-team plugins](https://www.promptfoo.dev/docs/red-team/).
   - Passing these tests does not prove safety. Architecture like Rule of Two is the primary control.
-- Red teaming and adversarial testing: develop specific tests for every critical failure mode, for higher risk tiers.
-  - A threat model per agent ([CSA MAESTRO](https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro) framework). Vendors: [Mindgard](https://mindgard.ai/), [HiddenLayer](https://www.hiddenlayer.com/), [Lakera](https://www.lakera.ai/), [Haize Labs](https://www.haizelabs.com/).
+- Red teaming and adversarial testing: develop specific tests for every critical failure mode, for tiers 3 and 4.
+  - A threat model per agent at tier 3 and above ([CSA MAESTRO](https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro) framework). Vendors: [Mindgard](https://mindgard.ai/), [HiddenLayer](https://www.hiddenlayer.com/), [Lakera](https://www.lakera.ai/), [Haize Labs](https://www.haizelabs.com/).
 
 **Supply chain**
 - Packages are pinned and come from trusted repositories, with a delay (1-2 weeks) after release. See e.g. the [Shai-Hulud npm worm](https://unit42.paloaltonetworks.com/npm-supply-chain-attack/).
@@ -395,7 +408,10 @@ Agents move through a maturity lifecycle: development → test → shadow/parall
 **Re-review**
 - Significant code changes trigger re-review.
   - So does any capability change (tools, data labels, egress, model, autonomy), detected by diffing the manifest and re-tiered automatically.
+  - So does growth in reach: new downstream consumers (agents, reports, processes) or a wider user population. Gateway logs show who actually calls the agent and uses its output, so a personal tool that becomes a team dependency is caught and re-tiered.
   - Prompt and model changes re-run evals automatically, with no committee.
+  - New or upgraded dependencies (packages, MCP servers, upstream agents and services) re-run the supply-chain and CI checks.
+- A change of owner requires the new owner to attest to the builder contract and confirm the backup maintainer.
 - Periodic re-review brings agents up to current standards, keyed to approval expiry policy in the registry.
 
 ## 12. Runtime Monitoring {#runtime}
@@ -430,7 +446,7 @@ Agents move through a maturity lifecycle: development → test → shadow/parall
 - [Copilot](https://www.microsoft.com/en-us/microsoft-365/copilot), [Glean](https://www.glean.com/), [ChatGPT Enterprise](https://openai.com/chatgpt/enterprise/), [Claude Enterprise](https://claude.com/solutions/enterprise), [Agentforce](https://www.salesforce.com/agentforce/) and [ServiceNow agents](https://www.servicenow.com/products/ai-agents.html) often run on vendor infrastructure, where sandboxing can't be applied directly.
 - **Controls:**
   - Vendor risk review
-  - Contract terms: no training on inputs, zero-day retention, breach notice, sub-processors
+  - Contract terms: no training on inputs, zero retention, breach notice, sub-processors
   - Configuration: connector scopes, sharing, who may create agents
   - Register each configured agent
   - Route tool access through firm-controlled connectors where possible
