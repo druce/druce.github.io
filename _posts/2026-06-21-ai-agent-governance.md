@@ -41,15 +41,16 @@ description: 'AI Agent Governance in 2026'
 8. [Policy Engine](#policy-engine)
 9. [AI Model Gateway](#model-gateway)
 10. [Tool Gateway](#tool-gateway)
-11. [Risk-Based Deployment Review And Gating](#deployment)
-12. [Runtime Monitoring](#runtime)
-13. [Shadow AI Discovery And Enforcement](#shadow-ai)
-14. [Vendor-Hosted And SaaS Agents](#vendor-agents)
-15. [Open-Ended Agents: Coding And Computer Use](#open-ended-agents)
-16. [Models And Providers](#models)
-17. [Incident Response](#incident-response)
-18. [Decommissioning And Offboarding](#decommissioning)
-19. [Program Governance And Measurement](#program-governance)
+11. [Risk Tiers](#risk-tiers)
+12. [Risk-Based Deployment Gates](#deployment)
+13. [Runtime Monitoring](#runtime)
+14. [Shadow AI Discovery And Enforcement](#shadow-ai)
+15. [Vendor-Hosted And SaaS Agents](#vendor-agents)
+16. [Open-Ended Agents: Coding And Computer Use](#open-ended-agents)
+17. [Models And Providers](#models)
+18. [Incident Response](#incident-response)
+19. [Decommissioning And Offboarding](#decommissioning)
+20. [Program Governance And Measurement](#program-governance)
 
 Here is what an ideal AI agent governance program might look like in 2026:
 
@@ -71,7 +72,7 @@ Here is what an ideal AI agent governance program might look like in 2026:
   - How to escalate risky actions to a human in the loop.
   - Best practices to maximize output quality: all output attributable to sources; prompt evals/improvers (e.g., [Claude skills](https://github.com/anthropics/skills/tree/main/skills/claude-api/shared/evals), [DSPy](https://dspy.ai/) optimizers such as [GEPA](https://github.com/gepa-ai/gepa), vendor prompt improvers); hill-climbing on evals, scoring on a held-out set.
   - Version control for code, prompts and configuration (e.g. menu-driven or simple commands to commit to Git; prompt versioning in e.g. [Langfuse](https://langfuse.com/) or [LangSmith](https://www.langchain.com/langsmith))
-  - Requirements to pass deployment gates, by risk tier, and what triggers [re-review](#deployment).
+  - Requirements to pass deployment gates, by [risk tier](#risk-tiers), and what triggers [re-review](#deployment).
 
 - **The "builder contract":** an acceptable-use agreement attested at agent submission:
   - **Follow all compliance, legal, regulatory, and contractual requirements:**
@@ -125,7 +126,7 @@ Central record for each agent, sufficient to launch it, manage it, and monitor i
 
 **Operations and lifecycle**
 - **Runtime spec:** enough information to spawn its container with the necessary capabilities and controls
-- **Risk tier and gates:** enough information to assess its risk tier and run deployment tests and gates
+- **Risk tier and gates:** enough information to assess its [risk tier](#risk-tiers) and run deployment tests and gates
 - **Zone, evals and approvals:** its Rule-of-Two zone, eval suite and pass thresholds, and approvals with evidence
 - **Monitoring and budgets:** enough information for runtime monitoring, rate limits, and usage alerts and limits; the cost center billed
 - **Version history** with registry integrity: changes are authenticated, logged and reviewed. Owners can't approve their own scope increases.
@@ -156,9 +157,8 @@ Central record for each agent, sufficient to launch it, manage it, and monitor i
 - Treat all external content as untrusted: it is data, never instructions.
 - Internal data can carry prompt injection, inadvertently or intentionally. Trust follows provenance, not storage location. Inbound email, uploaded documents, tickets from outsiders, vendor files and earlier agent outputs are external content sitting on internal systems.
 - Fix oversharing before enabling agent retrieval, since agents surface whatever permissions allow ([Varonis](https://www.varonis.com/), [SharePoint Advanced Management](https://learn.microsoft.com/en-us/sharepoint/advanced-management), [Restricted Content Discovery](https://learn.microsoft.com/en-us/sharepoint/restricted-content-discovery), [Purview DSPM for AI](https://learn.microsoft.com/en-us/purview/ai-microsoft-purview)).
-- Retrieval should *always* be through least-privilege tools. Avoid access files and databases directly. The tool gateway logs access and enforces the caller's entitlements, tenant and information barrier on every query (entitlement-aware RAG: [Glean](https://www.glean.com/), [Microsoft Graph](https://learn.microsoft.com/en-us/graph/overview)).
+- Retrieval should *always* be through least-privilege tools. Avoid accessing files and databases directly. The tool gateway logs access and enforces the caller's entitlements, tenant and information barrier on every query. (entitlement-aware RAG: [Glean](https://www.glean.com/), [Microsoft Graph](https://learn.microsoft.com/en-us/graph/overview)).
 - Outputs inherit the most restrictive label of their inputs. Anything derived from untrusted content is untrusted (taint propagation).
-- **Context minimization:** each agent gets only the fields its task needs.
 - **Products:**
   - Classification/DSPM: [Microsoft Purview](https://www.microsoft.com/en-us/security/business/microsoft-purview), [Cyera](https://www.cyera.com/), [BigID](https://bigid.com/), [Varonis](https://www.varonis.com/), [Sentra](https://sentra.io/), [Concentric](https://concentric.ai/)
   - DLP: [Purview DLP](https://learn.microsoft.com/en-us/purview/dlp-learn-about-dlp), [Nightfall](https://www.nightfall.ai/), [Cyberhaven](https://www.cyberhaven.com/)
@@ -201,19 +201,19 @@ Central record for each agent, sufficient to launch it, manage it, and monitor i
 ### Runtimes
 
 - Every run executes in an ephemeral runtime with strong isolation, default-deny egress and allowlists from the agent registry.
-  - Code execution should use microVM or gVisor-class isolation. Plain may containers share the host kernel.
-  - No direct network access to anything: all traffic leaves through an allowlisting proxy
-  - **Products:**
-    - Runtimes: [Firecracker](https://firecracker-microvm.github.io/), [gVisor](https://gvisor.dev/), [Kata Containers](https://katacontainers.io/)
-    - Sandbox services: [E2B](https://e2b.dev/), [Modal](https://modal.com/), [Daytona](https://www.daytona.io/)
-    - Cloud-hosted: [AWS Bedrock AgentCore Runtime](https://aws.amazon.com/bedrock/agentcore/), [Azure Container Apps dynamic sessions](https://learn.microsoft.com/en-us/azure/container-apps/sessions), [Cloudflare Sandbox SDK](https://developers.cloudflare.com/sandbox/)
-    - Local: [Anthropic sandbox-runtime](https://github.com/anthropics/sandbox-runtime)
-    - Egress: [Cilium FQDN policies](https://docs.cilium.io/en/stable/security/dns/), [Zscaler](https://www.zscaler.com/), [Netskope](https://www.netskope.com/), [Prisma Access](https://www.paloaltonetworks.com/sase/access), [Cloudflare Gateway](https://developers.cloudflare.com/cloudflare-one/traffic-controls/)
-- No persistent memory. Persistent state is saved only through authorized tools to avoid memory poisoning.
-  - Saved state carries provenance labels. State derived from untrusted content stays untrusted.
-  - Agents that need memory get it from a governed memory service: labeled, reviewable and revocable.
-  - Hard constraints live in the sandbox configs, not the prompt guardrail, because agents can forget them and context compaction can drop them. In a [famous OpenClaw example](https://simonwillison.net/2026/Feb/23/summer-yue/), the agent lost "wait for approval" and deleted hundreds of emails.
+- Hard constraints live in the sandbox configs, not the prompt guardrail, because agents can forget them and context compaction can drop them. In a [famous OpenClaw example](https://simonwillison.net/2026/Feb/23/summer-yue/), the agent lost "wait for approval" and deleted hundreds of emails.
 - Sandboxes and configs are red-teamed by highly capable models/agent teams periodically and automatically upon new configs/models to ensure agents cannot escape sandboxes.
+- Code execution uses microVM or gVisor-class isolation. Plain containers like Docker may share the host kernel.
+- Ideally no direct network access to anything: all traffic leaves through an allowlisting proxy
+- **Products:**
+  - AI platform sandboxes: [Anthropic sandbox-runtime](https://github.com/anthropics/sandbox-runtime). As a minimal starting point, create execution environments like virtual machines with network isolation for Zones 1/2 below, and then rely on agent configs, MCP/AI gateways for permitted services.
+  - Runtimes: [Firecracker](https://firecracker-microvm.github.io/), [gVisor](https://gvisor.dev/), [Kata Containers](https://katacontainers.io/)
+  - Sandbox services: [E2B](https://e2b.dev/), [Modal](https://modal.com/), [Daytona](https://www.daytona.io/)
+  - Cloud-hosted: [AWS Bedrock AgentCore Runtime](https://aws.amazon.com/bedrock/agentcore/), [Azure Container Apps dynamic sessions](https://learn.microsoft.com/en-us/azure/container-apps/sessions), [Cloudflare Sandbox SDK](https://developers.cloudflare.com/sandbox/)
+  - Egress: [Cilium FQDN policies](https://docs.cilium.io/en/stable/security/dns/), [Zscaler](https://www.zscaler.com/), [Netskope](https://www.netskope.com/), [Prisma Access](https://www.paloaltonetworks.com/sase/access), [Cloudflare Gateway](https://developers.cloudflare.com/cloudflare-one/traffic-controls/)
+- No persistent memory. Persistent state is saved only through authorized tools to avoid memory poisoning.
+  - Agents that need memory get it from a governed memory service: labeled, reviewable and revocable.
+  - Saved state carries provenance labels. State derived from untrusted content stays untrusted.
 
 ### Rule Of Two / Trust Zones
 
@@ -325,6 +325,7 @@ Follow [Simon Willison's Lethal Trifecta](https://simonwillison.net/2025/Jun/16/
   - Prefer narrow tools to general ones such as a shell, raw SQL or generic HTTP. Wrap coarse-grained APIs and MCP servers in narrow internal facades.
   - Agent-to-agent calls go through the gateway too.
 - Each call runs through the policy engine's rule cascade. Sensitive tool calls may be filtered or blocked.
+- **Context minimization** means each agent should get only the fields its request needs.
 - **Human in the loop:**
   - Escalations go where people already work: Teams, Slack, email, mobile push, or the ticketing queue, not a separate console nobody watches.
   - Approvals are delivered by the gateway, not the agent, as interactive cards (Slack Block Kit, Teams Adaptive Cards) tied to the approver's identity. A free-text reply is never parsed as an approval.
@@ -336,7 +337,30 @@ Follow [Simon Willison's Lethal Trifecta](https://simonwillison.net/2025/Jun/16/
 - Pin MCP server versions and hash tool descriptions to catch "rug pulls."
 - **Products:** [agentgateway](https://agentgateway.dev/), [Kong](https://konghq.com/), [Docker MCP Gateway](https://docs.docker.com/ai/mcp-catalog-and-toolkit/mcp-gateway/), [IBM ContextForge](https://github.com/IBM/mcp-context-forge), [Obot](https://obot.ai/), [MintMCP](https://www.mintive.com/), [AWS AgentCore Gateway](https://aws.amazon.com/bedrock/agentcore/), [Azure API Management](https://azure.microsoft.com/en-us/products/api-management).
 
-## 11. Risk-Based Deployment Review And Gating {#deployment}
+## 11. Risk Tiers {#risk-tiers}
+
+Every agent gets a risk tier, computed from its [registry](#registry) entry. The tier sets its deployment gates, approval SLAs, log retention, backup and recovery requirements, and how much runtime scrutiny it gets.
+
+Score each dimension separately and take the **highest, not the average**. One high-risk capability isn't diluted by being low on everything else.
+
+- **Action authority and reversibility:** read-only → writes to its own sandbox → reversible writes to shared systems → irreversible or external actions (the policy engine's [dangerous](#policy-engine) actions).
+- **Data sensitivity:** public → internal → confidential → regulated (PII, MNPI, client data), from catalog labels.
+- **Reach:** how many users rely on it, and which processes, reports and agents consume its output. A read-only agent whose output feeds investment or risk decisions is not low risk.
+- **Autonomy and time to detection:** human approves each action → human samples output → fully autonomous; and how long it can run before anyone would notice a problem.
+- **Exposure:** untrusted input combined with internal data or egress raises the tier; a Rule-of-Two exception with all three legs is always the top tier.
+- **Regulatory surface:** client communications, books and records, and regulated data set a floor.
+
+| Tier | Typical profile | Gate |
+|---|---|---|
+| 1 | Single user, read-only, internal data; a human uses the output | Self-serve: registry entry and automated CI checks |
+| 2 | Small team, or writes to its own sandbox, or confidential data | Automated checks and eval thresholds; named backup maintainer |
+| 3 | Reversible writes to shared systems, many users or downstream consumers, or untrusted input with internal data or egress | Human review, threat model, red-team tests, shadow/canary before production |
+| 4 | Irreversible or external actions, regulated data, critical systems, slow detection, or a Rule-of-Two exception | Tier 3 plus two approvers for dangerous actions, invariants enforced in code, full-content log retention, tested RTO/RPO and manual fallback |
+
+- **Blast radius confirms the tier:** at review, the worst case given its actual permissions and how much it can do before anyone notices, how reversible its writes are, and who relies on its output. Reviewers can raise the computed tier, never lower it.
+- Tiers are recomputed whenever capabilities or reach change (see [re-review](#deployment)).
+
+## 12. Risk-Based Deployment Gates {#deployment}
 
 Agents move through a maturity lifecycle: development → test → shadow/parallel/canary → production → deprecated. Each transition is a gate, recorded in the registry, with requirements that scale with the risk tier. Review happens at the gate out of test.
 
@@ -352,30 +376,14 @@ Agents move through a maturity lifecycle: development → test → shadow/parall
   - Eval quality gates ([Promptfoo](https://www.promptfoo.dev/), [Braintrust](https://www.braintrust.dev/), [DeepEval](https://deepeval.com/))
 
 **Review and promotion**
-- Deployment only on risk-based review for production access.
-  - The tier is computed from the registry entry, scoring each dimension separately and taking the **highest, not the average**. One high-risk capability isn't diluted by being low on everything else.
-    - **Action authority and reversibility:** read-only → writes to its own sandbox → reversible writes to shared systems → irreversible or external actions (the policy engine's [dangerous](#policy-engine) actions).
-    - **Data sensitivity:** public → internal → confidential → regulated (PII, MNPI, client data), from catalog labels.
-    - **Reach:** how many users rely on it, and which processes, reports and agents consume its output. A read-only agent whose output feeds investment or risk decisions is not low risk.
-    - **Autonomy and time to detection:** human approves each action → human samples output → fully autonomous; and how long it can run before anyone would notice a problem.
-    - **Exposure:** untrusted input combined with internal data or egress raises the tier; a Rule-of-Two exception with all three legs is always the top tier.
-    - **Regulatory surface:** client communications, books and records, and regulated data set a floor.
+- Deployment only on risk-based review for production access, with requirements set by the agent's [risk tier](#risk-tiers).
   - **Separation of duties:** builders can't approve their own promotion. A named reviewer pool handles reviews per predetermined criteria.
-
-| Tier | Typical profile | Gate |
-|---|---|---|
-| 1 | Single user, read-only, internal data; a human uses the output | Self-serve: registry entry and automated CI checks |
-| 2 | Small team, or writes to its own sandbox, or confidential data | Automated checks and eval thresholds; named backup maintainer |
-| 3 | Reversible writes to shared systems, many users or downstream consumers, or untrusted input with internal data or egress | Human review, threat model, red-team tests, shadow/canary before production |
-| 4 | Irreversible or external actions, regulated data, critical systems, slow detection, or a Rule-of-Two exception | Tier 3 plus two approvers for dangerous actions, invariants enforced in code, full-content log retention, tested RTO/RPO and manual fallback |
-
 - Tiers 3 and 4 stay in shadow/parallel/canary before production: shadow runs alongside the existing process with outputs compared but not acted on; canary serves a small share of live traffic. Every stage has a rollback plan.
 - **Gate evidence:** the complete registry entry, eval results against thresholds and owner attestation; for tiers 3 and 4, the threat model and red-team results.
 - Reviewers should require reasonable code coverage, quality tests, and prompt evaluation.
 
 **Gate questions**
 - **Best practices:** reviewed alongside the automated checks for templates, logging, evals, escalation and version control.
-- **Blast radius confirms the risk tier:** the worst case given its actual permissions and how much it can do before anyone notices, how reversible its writes are, and who relies on its output. Reviewers can raise the computed tier, never lower it.
 - **Duplication:** is it rebuilding a connector or tool that already exists or should be shared? Reusable plumbing becomes a shared MCP server maintained by the business unit or IT; business logic and prompts stay with the builder.
 - **Key-person risk:** a named backup maintainer for tier 2 and above; code, prompts and evals that someone else can run and change; a successor agreed in advance.
 - **Business continuity and disaster recovery:** recovery time objective (RTO) and recovery point objective (RPO) set by risk tier and supported by the runtime platform, not each builder; a pre-approved fallback model; a manual fallback that's documented and tested.
@@ -414,7 +422,7 @@ Agents move through a maturity lifecycle: development → test → shadow/parall
 - A change of owner requires the new owner to attest to the builder contract and confirm the backup maintainer.
 - Periodic re-review brings agents up to current standards, keyed to approval expiry policy in the registry.
 
-## 12. Runtime Monitoring {#runtime}
+## 13. Runtime Monitoring {#runtime}
 
 **Checks and monitoring**
 - Perform automated integrity checks and anomaly detection across model and tool traffic.
@@ -429,7 +437,7 @@ Agents move through a maturity lifecycle: development → test → shadow/parall
   - Layers: revoke tokens, block egress, stop runtimes, disable the registry entry and schedules.
   - Anyone on call or automatic circuit breakers can trigger the kill switch. Drills should test it.
 
-## 13. Shadow AI Discovery And Enforcement {#shadow-ai}
+## 14. Shadow AI Discovery And Enforcement {#shadow-ai}
 
 - Before implementing an agent platform, discover unregistered agents and AI use:
   - OAuth grants and browser extensions
@@ -441,7 +449,7 @@ Agents move through a maturity lifecycle: development → test → shadow/parall
 - Block unsanctioned AI endpoints at the SASE/egress layer.
 - Test regularly that an unregistered agent can't get credentials or egress.
 
-## 14. Vendor-Hosted And SaaS Agents {#vendor-agents}
+## 15. Vendor-Hosted And SaaS Agents {#vendor-agents}
 
 - [Copilot](https://www.microsoft.com/en-us/microsoft-365/copilot), [Glean](https://www.glean.com/), [ChatGPT Enterprise](https://openai.com/chatgpt/enterprise/), [Claude Enterprise](https://claude.com/solutions/enterprise), [Agentforce](https://www.salesforce.com/agentforce/) and [ServiceNow agents](https://www.servicenow.com/products/ai-agents.html) often run on vendor infrastructure, where sandboxing can't be applied directly.
 - **Controls:**
@@ -453,14 +461,14 @@ Agents move through a maturity lifecycle: development → test → shadow/parall
   - Ingest vendor audit logs into the SIEM
 - AI features switched on inside existing SaaS products should trigger risk review.
 
-## 15. Open-Ended Agents: Coding And Computer Use {#open-ended-agents}
+## 16. Open-Ended Agents: Coding And Computer Use {#open-ended-agents}
 
 - [Claude Code](https://claude.com/product/claude-code), [Codex](https://openai.com/codex/), [Cursor](https://cursor.com/) and similar tools can't declare scope up front, so they must be contained.
 - Run them in dev containers or cloud dev environments ([Coder](https://coder.com/), [GitHub Codespaces](https://github.com/features/codespaces), [Microsoft Dev Box](https://azure.microsoft.com/en-us/products/dev-box)), not on desktops that hold production credentials.
 - Push managed settings via MDM: configs such as system prompts, permission deny rules, sandbox mode, network allowlists, hooks, and approved MCP servers only.
 - Browser and computer-use agents run in an isolated browser profile or an enterprise browser ([Island](https://www.island.io/), [Prisma Access Browser](https://www.paloaltonetworks.com/sase/prisma-browser)), without the user's broader signed-in sessions.
 
-## 16. Models And Providers {#models}
+## 17. Models And Providers {#models}
 
 - Keep an approved model list. Enterprise terms cover:
   - No training on inputs
@@ -470,7 +478,7 @@ Agents move through a maturity lifecycle: development → test → shadow/parall
 - Pin model snapshots. Provider version changes and deprecations re-run evals and can trigger re-review. Models can also change without a version increment as providers fix bugs or pursue efficiencies.
 - Zone 2 work that can't leave the firm uses self-hosted or in-tenant models (e.g., [Bedrock](https://aws.amazon.com/bedrock/), [Vertex AI](https://cloud.google.com/products/gemini-enterprise-agent-platform) or [Azure OpenAI](https://azure.microsoft.com/en-us/products/ai-foundry/models/openai/) over private endpoints).
 
-## 17. Incident Response {#incident-response}
+## 18. Incident Response {#incident-response}
 
 - **Agent-specific runbooks:**
   - Suspected injection
@@ -482,13 +490,13 @@ Agents move through a maturity lifecycle: development → test → shadow/parall
 - **Notification obligations:** Reg S-P customer notice (within 30 days), data-vendor contracts, counterparties.
 - Every bug and incident should add a regression test. If a control failed, fix the control, not just the agent.
 
-## 18. Decommissioning And Offboarding {#decommissioning}
+## 19. Decommissioning And Offboarding {#decommissioning}
 
 - When an owner leaves or changes roles, reassign or disable their agents. No orphaned agents.
 - Idle agents auto-demote or expire.
 - Decommissioning revokes credentials, schedules and egress rules, and retains logs per policy.
 
-## 19. Program Governance And Measurement {#program-governance}
+## 20. Program Governance And Measurement {#program-governance}
 
 - A named agent program owner and identified RACI (Responsible, Accountable, Consulted, Informed) across the CISO, compliance (CCO), platform/CTO and business owners.
 - **Exam readiness:** be able to produce the inventory, policies, approvals and logs on request.
