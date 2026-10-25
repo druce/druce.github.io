@@ -101,7 +101,7 @@ Here is what an ideal AI agent governance program might look like in 2026:
 
 - **Training is required but not a control.** Controls are infrastructure that cannot be bypassed.
 
-- **All agents must be registered.** After training and demonstrating understanding (certification), anyone can register an agent that follows approved templates for development and testing. Shadow AI traffic by unregistered ageents and to unsanctioned endpoints is detected and blocked at the network layer by SASE/secure web gateway.
+- **All agents must be registered.** After training and demonstrating understanding (certification), anyone can register an agent that follows approved templates for development and testing. Shadow AI traffic by unregistered agents and to unsanctioned endpoints is detected and blocked at the network layer by SASE/secure web gateway.
 
 
 ## 2. Agent Registry: Inventory Plane And System Of Record {#registry}
@@ -137,7 +137,7 @@ Central record for each agent, sufficient to launch it, manage it, and monitor i
 - **Regulatory flags:** MNPI or information-barrier exposure, client or investor data, outputs subject to records retention or comms archiving.
 - **Hosting and vendor:** where it runs, e.g. multiple execution platforms may be available.
 - **Formats:** [A2A Agent Card](https://a2a-protocol.org/) for capabilities and endpoints if other agents call it.
-- **Implementation:** as a start, registry can bey YAML in a git repo, with a web GUI for users to edit; or SQL (but git/YAML may help with automated versioning and readability).
+- **Implementation:** as a start, registry can be YAML in a git repo, with a web GUI for users to edit; or SQL (but git/YAML may help with automated versioning and readability).
 
 ## 3. Data Prerequisites: Content Tags And Data Security Posture Management {#data}
 
@@ -232,7 +232,7 @@ Follow [Simon Willison's Lethal Trifecta](https://simonwillison.net/2025/Jun/16/
 </figure>
 
 - **Zone 1:** any prompt, any egress, NO access to internal data. Example: internet research.
-  - The task itself is internal data. A query about a name reveals the firm's interest, so use approved endpoints and keep keep sensitive data like theses, positions and sizes out as necessary. DLP should apply when pasting data into Zone 1. Dev in Zone 1 should use dummy or non-sensitive data.
+  - The task itself is internal data. A query about a name reveals the firm's interest, so use approved endpoints and keep sensitive data like theses, positions and sizes out as necessary. DLP should apply when pasting data into Zone 1. Dev in Zone 1 should use dummy or non-sensitive data.
   - Zone 1 output is untrusted when it enters another zone.
   - High-impact actions (posting, emailing, purchasing) still need escalation and approval even if egress is not blocked.
 
@@ -268,7 +268,7 @@ Follow [Simon Willison's Lethal Trifecta](https://simonwillison.net/2025/Jun/16/
 
 ## 7. Logging And Audit {#logging}
 
-- **SIEM:** log every security-relevant event and action (within reason) to immutable, tamper-resistant storage. Every tool call is recorded, and each event is attributable to:
+- **SIEM:** log every security-relevant event and action to immutable, tamper-resistant storage, with all details within reason (prompts may contain large amounts of data or sensitive data). Every tool call is recorded, and each event is attributable to:
   - The immediate agent
   - The registered caller at the top of the chain
   - The human owner
@@ -336,6 +336,7 @@ Follow [Simon Willison's Lethal Trifecta](https://simonwillison.net/2025/Jun/16/
 - Per-downstream-resource rate limits. An agent making excessive requests can trigger a downstream IP or account ban.
 - Pin MCP server versions and hash tool descriptions to catch "rug pulls."
 - **Products:** [agentgateway](https://agentgateway.dev/), [Kong](https://konghq.com/), [Docker MCP Gateway](https://docs.docker.com/ai/mcp-catalog-and-toolkit/mcp-gateway/), [IBM ContextForge](https://github.com/IBM/mcp-context-forge), [Obot](https://obot.ai/), [MintMCP](https://www.mintive.com/), [AWS AgentCore Gateway](https://aws.amazon.com/bedrock/agentcore/), [Azure API Management](https://azure.microsoft.com/en-us/products/api-management).
+  - AI gateways such as [LiteLLM](https://www.litellm.ai/) and [Portkey](https://portkey.ai/), and other AI governance products, are adding tool gateways, so one product may cover both [model](#model-gateway) and tool traffic.
 
 ## 11. Risk Tiers {#risk-tiers}
 
@@ -519,9 +520,9 @@ Agents move through a maturity lifecycle: development → test → shadow/parall
   - Eval pass rates
 - **Reports and dashboards:** live dashboards for platform and security teams; periodic reports to the program owner, risk committee and business owners, such as per-owner agent inventories, cost by cost center, and exceptions and incidents.
 
-This is written with enterprise in mind. The same stack can also covers citizen development that doesn't use agents at all: Python scripts, notebooks, low-code flows, spreadsheet macros. These need the same paved-road templates, registry, identity, key vault, sandboxed runtimes with default-deny egress, logging, risk-tiered gates and decommissioning. You can drop AI-specific layers: guardrail prompts, injection and lethal-trifecta checks, tool-call policy and evals. Build the platform once and run all citizen-built automation through it.
+This is written with enterprise in mind. The same stack can also cover citizen development that doesn't use agents at all: Python scripts, notebooks, low-code flows, spreadsheet macros. These need the same paved-road templates, registry, identity, key vault, sandboxed runtimes with default-deny egress, logging, risk-tiered gates and decommissioning. You can drop AI-specific layers: guardrail prompts, injection and lethal-trifecta checks, tool-call policy and evals. Build the platform once and run all citizen-built automation through it.
 
-As a thought experiment, would this framework work for e.g. personal [OpenClaw](https://openclaw.ai/) agents. Would you be more willing to give an agent access to all your financial accounts for financial planning, or your medical info, if you knew it ran in an isolated container with read-only access, maybe with on-device AI? Would you be willing to let it plan a trip, or buy shoes, if you knew that it wouldn't be able to make purchases without explicit approval and only up to a strict budget?
+As a thought experiment, would this framework work for e.g. personal [OpenClaw](https://openclaw.ai/) agents? Would you be more willing to give an agent access to all your financial accounts for financial planning, or your medical info, if you knew it ran in an isolated container with read-only access, maybe with on-device AI? Would you be willing to let it plan a trip, or buy shoes, if you knew that it wouldn't be able to make purchases without explicit approval and only up to a strict budget?
 
 May all your agents be well-behaved!
 
