@@ -71,7 +71,7 @@ Here is what an ideal AI agent governance program might look like in 2026:
   - How to log and what must be logged.
   - How to escalate risky actions to a human in the loop.
   - Best practices to maximize output quality: all output attributable to sources; prompt evals/improvers (e.g., [Claude skills](https://github.com/anthropics/skills/tree/main/skills/claude-api/shared/evals), [DSPy](https://dspy.ai/) optimizers such as [GEPA](https://github.com/gepa-ai/gepa), vendor prompt improvers); hill-climbing on evals, scoring on a held-out set.
-  - Version control for code, prompts and configuration (e.g. menu-driven or simple commands to commit to Git; prompt versioning in e.g. [Langfuse](https://langfuse.com/) or [LangSmith](https://www.langchain.com/langsmith))
+  - Version control for code, prompts and configuration (e.g. menu-driven or simple commands to commit to Git; prompt versioning in e.g. [Langfuse](/governance/wiki/vendors/langfuse) or [LangSmith](/governance/wiki/vendors/langsmith))
   - Requirements to pass deployment gates, by [risk tier](#risk-tiers), and what triggers [re-review](#deployment).
 
 - **The "builder contract":** an acceptable-use agreement attested at agent submission:
@@ -133,7 +133,7 @@ Central record for each agent, sufficient to launch it, manage it, and monitor i
 - **Status** (development, test, shadow/parallel/canary, production, deprecated) and approval expiry
 
 **Other**
-- **Agent identity** (e.g., [Entra Agent ID](https://learn.microsoft.com/en-us/entra/agent-id/), [SPIFFE](https://spiffe.io/) ID) and allowed delegations: which agents it may call and be called by.
+- **Agent identity** (e.g., [Entra Agent ID](/governance/wiki/vendors/microsoft-entra), [SPIFFE](https://spiffe.io/) ID) and allowed delegations: which agents it may call and be called by.
 - **Regulatory flags:** MNPI or information-barrier exposure, client or investor data, outputs subject to records retention or comms archiving.
 - **Hosting and vendor:** where it runs, e.g. multiple execution platforms may be available.
 - **Formats:** [A2A Agent Card](https://a2a-protocol.org/) for capabilities and endpoints if other agents call it.
@@ -156,12 +156,12 @@ Central record for each agent, sufficient to launch it, manage it, and monitor i
   - **Trust:** who authored it, and whether it may carry trusted instructions
 - Treat all external content as untrusted: it is data, never instructions.
 - Internal data can carry prompt injection, inadvertently or intentionally. Trust follows provenance, not storage location. Inbound email, uploaded documents, tickets from outsiders, vendor files and earlier agent outputs are external content sitting on internal systems.
-- Fix oversharing before enabling agent retrieval, since agents surface whatever permissions allow ([Varonis](https://www.varonis.com/), [SharePoint Advanced Management](https://learn.microsoft.com/en-us/sharepoint/advanced-management), [Restricted Content Discovery](https://learn.microsoft.com/en-us/sharepoint/restricted-content-discovery), [Purview DSPM for AI](https://learn.microsoft.com/en-us/purview/ai-microsoft-purview)).
-- Retrieval should *always* be through least-privilege tools. Avoid accessing files and databases directly. The tool gateway logs access and enforces the caller's entitlements, tenant and information barrier on every query. (entitlement-aware RAG: [Glean](https://www.glean.com/), [Microsoft Graph](https://learn.microsoft.com/en-us/graph/overview)).
+- Fix oversharing before enabling agent retrieval, since agents surface whatever permissions allow ([Varonis](/governance/wiki/vendors/varonis), [SharePoint Advanced Management](/governance/wiki/vendors/sharepoint), [Restricted Content Discovery](/governance/wiki/vendors/sharepoint), [Purview DSPM for AI](/governance/wiki/vendors/microsoft-purview)).
+- Retrieval should *always* be through least-privilege tools. Avoid accessing files and databases directly. The tool gateway logs access and enforces the caller's entitlements, tenant and information barrier on every query. (entitlement-aware RAG: [Glean](/governance/wiki/vendors/glean), [Microsoft Graph](/governance/wiki/vendors/microsoft-graph)).
 - Outputs inherit the most restrictive label of their inputs. Anything derived from untrusted content is untrusted (taint propagation).
 - **Products:**
-  - Classification/DSPM: [Microsoft Purview](https://www.microsoft.com/en-us/security/business/microsoft-purview), [Cyera](https://www.cyera.com/), [BigID](https://bigid.com/), [Varonis](https://www.varonis.com/), [Sentra](https://sentra.io/), [Concentric](https://concentric.ai/)
-  - DLP: [Purview DLP](https://learn.microsoft.com/en-us/purview/dlp-learn-about-dlp), [Nightfall](https://www.nightfall.ai/), [Cyberhaven](https://www.cyberhaven.com/)
+  - Classification/DSPM: [Microsoft Purview](/governance/wiki/vendors/microsoft-purview), [Cyera](/governance/wiki/vendors/cyera), [BigID](/governance/wiki/vendors/bigid), [Varonis](/governance/wiki/vendors/varonis), [Sentra](/governance/wiki/vendors/sentra), [Concentric](/governance/wiki/vendors/concentric-ai)
+  - DLP: [Purview DLP](/governance/wiki/vendors/microsoft-purview), [Nightfall](/governance/wiki/vendors/nightfall-ai), [Cyberhaven](/governance/wiki/vendors/cyberhaven)
 
 ## 4. Identity Prerequisites {#identity}
 
@@ -173,11 +173,11 @@ Central record for each agent, sufficient to launch it, manage it, and monitor i
 
 **Tokens and revocation**
 - Short-lived, scoped, least-privilege tokens for agents. Each time a user runs or schedules an agent, it gets a new token or revalidates existing ones. Scheduled runs are authorized at execution time, not at scheduling time. Tokens are audience-bound (RFC 8707) and sender-constrained (DPoP, RFC 9449).
-- Agent updates and registry changes invalidate tokens, so agents always run with currently authorized permissions. (OpenID CAEP / Shared Signals; [Entra CAE](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-continuous-access-evaluation)).
+- Agent updates and registry changes invalidate tokens, so agents always run with currently authorized permissions. (OpenID CAEP / Shared Signals; [Entra CAE](/governance/wiki/vendors/microsoft-entra)).
 
 **Effective permissions**
 - The ephemeral credential is the intersection of the user's and the agent's permissions.
-  - Also intersect with the task's declared intent or mission (intent-based authorization: [Keycard](https://www.keycard.ai/); AAuth).
+  - Also intersect with the task's declared intent or mission (intent-based authorization: [Keycard](/governance/wiki/vendors/keycard); AAuth).
   - When there is no interactive user:
     - Scheduled runs use the scheduler's current permissions at execution
     - Workflow-triggered runs follow the delegation rule below
@@ -193,7 +193,7 @@ Central record for each agent, sufficient to launch it, manage it, and monitor i
 - Agent-to-agent calls are mutually authenticated and pass through the [tool gateway](#tool-gateway), so a low-privilege agent can't recruit a high-privilege one.
 
 **Products**
-- Agent identity: [Microsoft Entra Agent ID](https://learn.microsoft.com/en-us/entra/agent-id/), [Okta Cross App Access](https://www.okta.com/solutions/cross-app-access/) / [Auth0 for AI Agents](https://auth0.com/solutions/ship-ai-agents), [CyberArk](https://www.paloaltonetworks.com/idira), [Aembit](https://aembit.io/), [Astrix](https://astrix.security/), [Keycard](https://www.keycard.ai/)
+- Agent identity: [Microsoft Entra Agent ID](/governance/wiki/vendors/microsoft-entra), [Okta Cross App Access](/governance/wiki/vendors/okta) / [Auth0 for AI Agents](/governance/wiki/vendors/okta), [CyberArk](/governance/wiki/vendors/cyberark), [Aembit](/governance/wiki/vendors/aembit), [Astrix](/governance/wiki/vendors/astrix-security), [Keycard](/governance/wiki/vendors/keycard)
 - Workload identity: [SPIFFE](https://spiffe.io/)/[SPIRE](https://spiffe.io/docs/latest/spire-about/)
 
 ## 5. Sandboxes And Trust Zones {#sandboxes}
@@ -208,9 +208,9 @@ Central record for each agent, sufficient to launch it, manage it, and monitor i
 - **Products:**
   - AI platform sandboxes: [Anthropic sandbox-runtime](https://github.com/anthropics/sandbox-runtime). As a minimal starting point, create execution environments like virtual machines with network isolation for Zones 1/2 below, and then rely on agent configs, MCP/AI gateways for permitted services.
   - Runtimes: [Firecracker](https://firecracker-microvm.github.io/), [gVisor](https://gvisor.dev/), [Kata Containers](https://katacontainers.io/)
-  - Sandbox services: [E2B](https://e2b.dev/), [Modal](https://modal.com/), [Daytona](https://www.daytona.io/)
-  - Cloud-hosted: [AWS Bedrock AgentCore Runtime](https://aws.amazon.com/bedrock/agentcore/), [Azure Container Apps dynamic sessions](https://learn.microsoft.com/en-us/azure/container-apps/sessions), [Cloudflare Sandbox SDK](https://developers.cloudflare.com/sandbox/)
-  - Egress: [Cilium FQDN policies](https://docs.cilium.io/en/stable/security/dns/), [Zscaler](https://www.zscaler.com/), [Netskope](https://www.netskope.com/), [Prisma Access](https://www.paloaltonetworks.com/sase/access), [Cloudflare Gateway](https://developers.cloudflare.com/cloudflare-one/traffic-controls/)
+  - Sandbox services: [E2B](https://e2b.dev/), [Modal](/governance/wiki/vendors/modal), [Daytona](/governance/wiki/vendors/daytona)
+  - Cloud-hosted: [AWS Bedrock AgentCore Runtime](https://aws.amazon.com/bedrock/agentcore/), [Azure Container Apps dynamic sessions](https://learn.microsoft.com/en-us/azure/container-apps/sessions), [Cloudflare Sandbox SDK](/governance/wiki/vendors/cloudflare-workers)
+  - Egress: [Cilium FQDN policies](/governance/wiki/vendors/cilium), [Zscaler](/governance/wiki/vendors/zscaler), [Netskope](/governance/wiki/vendors/netskope), [Prisma Access](/governance/wiki/vendors/palo-alto-networks), [Cloudflare Gateway](/governance/wiki/vendors/cloudflare)
 - No persistent memory. Persistent state is saved only through authorized tools to avoid memory poisoning.
   - Agents that need memory get it from a governed memory service: labeled, reviewable and revocable.
   - Saved state carries provenance labels. State derived from untrusted content stays untrusted.
@@ -261,10 +261,10 @@ Follow [Simon Willison's Lethal Trifecta](https://simonwillison.net/2025/Jun/16/
 - Allowed tools reach keys only by indirection through the key vault, based on registry entitlements.
 - The indirection happens outside the sandbox: the egress proxy or [tool gateway](#tool-gateway) swaps a placeholder for the real credential, and only for allowlisted destinations.
 - Rotate and revoke automatically or use dynamic per-run secrets.
-- Scan for secrets in CI, logs and traces ([GitGuardian](https://www.gitguardian.com/), [TruffleHog](https://github.com/trufflesecurity/trufflehog), [GitHub secret scanning](https://docs.github.com/en/code-security/how-tos/secure-your-secrets)).
+- Scan for secrets in CI, logs and traces ([GitGuardian](/governance/wiki/vendors/gitguardian), [TruffleHog](/governance/wiki/vendors/truffle-security), [GitHub secret scanning](/governance/wiki/vendors/github-advanced-security)).
 - **Products:**
-  - Vaults: [HashiCorp Vault](https://developer.hashicorp.com/vault), [Azure Key Vault](https://azure.microsoft.com/en-us/products/key-vault), [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/), [GCP Secret Manager](https://cloud.google.com/security/products/secret-manager), [CyberArk Conjur](https://www.paloaltonetworks.com/idira/machine/secrets-management), [Infisical](https://infisical.com/)
-  - Credential brokering: [Aembit](https://aembit.io/), [AWS AgentCore Identity](https://aws.amazon.com/bedrock/agentcore/), [Arcade](https://www.arcade.dev/)
+  - Vaults: [HashiCorp Vault](/governance/wiki/vendors/hashicorp-vault), [Azure Key Vault](/governance/wiki/vendors/azure-key-vault), [AWS Secrets Manager](/governance/wiki/vendors/aws-secrets-manager), [GCP Secret Manager](/governance/wiki/vendors/gcp-secret-manager), [CyberArk Conjur](/governance/wiki/vendors/conjur), [Infisical](/governance/wiki/vendors/infisical)
+  - Credential brokering: [Aembit](/governance/wiki/vendors/aembit), [AWS AgentCore Identity](https://aws.amazon.com/bedrock/agentcore/), [Arcade](/governance/wiki/vendors/arcade)
 
 ## 7. Logging And Audit {#logging}
 
@@ -281,11 +281,11 @@ Follow [Simon Willison's Lethal Trifecta](https://simonwillison.net/2025/Jun/16/
   - The approver
 - **Immutable storage:** [S3 Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html) (compliance mode), [Azure immutable blob storage](https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-storage-overview).
 - **LLM observability** integrated with the [model gateway](#model-gateway).
-  - [OpenTelemetry GenAI semantic conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/); [Langfuse](https://langfuse.com/), [LangSmith](https://www.langchain.com/langsmith), [Arize Phoenix](https://arize.com/phoenix/), [Braintrust](https://www.braintrust.dev/), [Datadog LLM Observability](https://www.datadoghq.com/products/ai/agent-observability/).
+  - [OpenTelemetry GenAI semantic conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/); [Langfuse](/governance/wiki/vendors/langfuse), [LangSmith](/governance/wiki/vendors/langsmith), [Arize Phoenix](/governance/wiki/vendors/arize-phoenix), [Braintrust](/governance/wiki/vendors/braintrust), [Datadog LLM Observability](/governance/wiki/vendors/datadog).
 - Log stores may hold some of the firm's most sensitive content, such as prompts containing MNPI or PII. Classify and access-control them to match, and redact secrets and PII at ingestion.
 - Logged untrusted content stays untrusted downstream.
-- **Records:** agent-generated business communications and advice-related records may fall under Rule 204-2. Route them to the comms archive ([Global Relay](https://www.globalrelay.com/), [Smarsh](https://www.smarsh.com/), [Theta Lake](https://thetalake.com/)) and to surveillance ([Behavox](https://www.behavox.com/), [SteelEye](https://www.steel-eye.com/)) where applicable.
-- **SIEM products:** [Microsoft Sentinel](https://www.microsoft.com/en-us/security/business/siem-and-xdr/microsoft-sentinel-siem), [Splunk](https://www.splunk.com/), [Google SecOps](https://cloud.google.com/security/products/security-operations), [CrowdStrike Falcon Next-Gen SIEM](https://www.crowdstrike.com/en-us/platform/next-gen-siem/), [Cortex XSIAM](https://www.paloaltonetworks.com/cortex/cortex-xsiam), [Elastic](https://www.elastic.co/security).
+- **Records:** agent-generated business communications and advice-related records may fall under Rule 204-2. Route them to the comms archive ([Global Relay](/governance/wiki/vendors/global-relay), [Smarsh](/governance/wiki/vendors/smarsh), [Theta Lake](/governance/wiki/vendors/theta-lake)) and to surveillance ([Behavox](/governance/wiki/vendors/behavox), [SteelEye](/governance/wiki/vendors/steeleye)) where applicable.
+- **SIEM products:** [Microsoft Sentinel](/governance/wiki/vendors/microsoft-sentinel), [Splunk](/governance/wiki/vendors/splunk), [Google SecOps](/governance/wiki/vendors/google-secops), [CrowdStrike Falcon Next-Gen SIEM](/governance/wiki/vendors/crowdstrike-logscale), [Cortex XSIAM](/governance/wiki/vendors/palo-alto-networks), [Elastic](/governance/wiki/vendors/elastic).
 
 ## 8. Policy Engine {#policy-engine}
 
@@ -302,7 +302,7 @@ Follow [Simon Willison's Lethal Trifecta](https://simonwillison.net/2025/Jun/16/
   - Higher stakes get more checks: deterministic allow/deny rules and regex pattern matching → fast small LLM classifier (e.g., Jev, [Claude Haiku](https://www.anthropic.com/claude/haiku)) → frontier model ([Claude Sonnet](https://www.anthropic.com/claude/sonnet) / [Opus](https://www.anthropic.com/claude/opus)) → human.
   - A human approval granted nearly 100% of the time should become a rule.
 - Every decision is logged with its rule ID, so denials and approvals are auditable.
-- **Products:** [OPA](https://www.openpolicyagent.org/) (Rego), [Cedar](https://cedarpolicy.com/) ([Amazon Verified Permissions](https://aws.amazon.com/verified-permissions/)), [Cerbos](https://www.cerbos.dev/), [Permit.io](https://www.permit.io/), [Oso](https://www.osohq.com/); relationship-based: [OpenFGA](https://openfga.dev/), [SpiceDB](https://authzed.com/spicedb).
+- **Products:** [OPA](/governance/wiki/vendors/open-policy-agent) (Rego), [Cedar](/governance/wiki/vendors/amazon-verified-permissions) ([Amazon Verified Permissions](/governance/wiki/vendors/amazon-verified-permissions)), [Cerbos](/governance/wiki/vendors/cerbos), [Permit.io](/governance/wiki/vendors/permit-io), [Oso](/governance/wiki/vendors/oso); relationship-based: [OpenFGA](/governance/wiki/vendors/openfga), [SpiceDB](/governance/wiki/vendors/authzed).
 
 ## 9. AI Model Gateway {#model-gateway}
 
@@ -316,8 +316,8 @@ Follow [Simon Willison's Lethal Trifecta](https://simonwillison.net/2025/Jun/16/
   - Keep full content for a rolling window, and permanently for tier 4.
   - Configure verbosity with debug flags; large log entries in debug mode only.
 - **Products:**
-  - Gateways: [LiteLLM](https://www.litellm.ai/), [Portkey](https://portkey.ai/), [Kong AI Gateway](https://konghq.com/products/kong-ai-gateway), [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/), [Azure API Management](https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities)
-  - PII detection: [Microsoft Presidio](https://microsoft.github.io/presidio/), [Nightfall](https://www.nightfall.ai/)
+  - Gateways: [LiteLLM](/governance/wiki/vendors/litellm), [Portkey](/governance/wiki/vendors/portkey), [Kong AI Gateway](/governance/wiki/vendors/kong), [Cloudflare AI Gateway](/governance/wiki/vendors/cloudflare), [Azure API Management](https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities)
+  - PII detection: [Microsoft Presidio](/governance/wiki/vendors/presidio), [Nightfall](/governance/wiki/vendors/nightfall-ai)
 
 ## 10. Tool Gateway {#tool-gateway}
 
@@ -335,8 +335,8 @@ Follow [Simon Willison's Lethal Trifecta](https://simonwillison.net/2025/Jun/16/
 - The gateway swaps credential placeholders for real [secrets](#secrets), only for allowlisted destinations.
 - Per-downstream-resource rate limits. An agent making excessive requests can trigger a downstream IP or account ban.
 - Pin MCP server versions and hash tool descriptions to catch "rug pulls."
-- **Products:** [agentgateway](https://agentgateway.dev/), [Kong](https://konghq.com/), [Docker MCP Gateway](https://docs.docker.com/ai/mcp-catalog-and-toolkit/mcp-gateway/), [IBM ContextForge](https://github.com/IBM/mcp-context-forge), [Obot](https://obot.ai/), [MintMCP](https://www.mintive.com/), [AWS AgentCore Gateway](https://aws.amazon.com/bedrock/agentcore/), [Azure API Management](https://azure.microsoft.com/en-us/products/api-management).
-  - AI gateways such as [LiteLLM](https://www.litellm.ai/) and [Portkey](https://portkey.ai/), and other AI governance products, are adding tool gateways, so one product may cover both [model](#model-gateway) and tool traffic.
+- **Products:** [agentgateway](/governance/wiki/vendors/agentgateway), [Kong](/governance/wiki/vendors/kong), [Docker MCP Gateway](/governance/wiki/vendors/docker-mcp-gateway), [IBM ContextForge](/governance/wiki/vendors/ibm-contextforge), [Obot](/governance/wiki/vendors/obot), [MintMCP](/governance/wiki/vendors/mintmcp), [AWS AgentCore Gateway](https://aws.amazon.com/bedrock/agentcore/), [Azure API Management](https://azure.microsoft.com/en-us/products/api-management).
+  - AI gateways such as [LiteLLM](/governance/wiki/vendors/litellm) and [Portkey](/governance/wiki/vendors/portkey), and other AI governance products, are adding tool gateways, so one product may cover both [model](#model-gateway) and tool traffic.
 
 ## 11. Risk Tiers {#risk-tiers}
 
@@ -367,14 +367,14 @@ Agents move through a maturity lifecycle: development → test → shadow/parall
 
 **Development and CI**
 - Development happens only in sandboxed dev environments, on test, mocked, synthetic, masked or non-sensitive data.
-  - Isolation: [Dev Containers](https://containers.dev/), [Coder](https://coder.com/), [GitHub Codespaces](https://github.com/features/codespaces), [Daytona](https://www.daytona.io/), [Ona (formerly Gitpod)](https://ona.com/), [DevPod](https://devpod.sh/), [Microsoft Dev Box](https://azure.microsoft.com/en-us/products/dev-box), [Google Cloud Workstations](https://cloud.google.com/workstations)
-  - Synthetic and masked data: [Tonic.ai](https://www.tonic.ai/), [Gretel](https://www.nvidia.com/en-us/use-cases/synthetic-data-generation-for-agentic-ai/), [K2view](https://www.k2view.com/).
+  - Isolation: [Dev Containers](https://containers.dev/), [Coder](/governance/wiki/vendors/coder), [GitHub Codespaces](/governance/wiki/vendors/github-codespaces), [Daytona](/governance/wiki/vendors/daytona), [Ona (formerly Gitpod)](/governance/wiki/vendors/ona), [DevPod](https://devpod.sh/), [Microsoft Dev Box](/governance/wiki/vendors/azure-dev-boxes), [Google Cloud Workstations](/governance/wiki/vendors/google-cloud-workstations)
+  - Synthetic and masked data: [Tonic.ai](/governance/wiki/vendors/tonic-ai), [Gretel](/governance/wiki/vendors/gretel), [K2view](/governance/wiki/vendors/k2view).
 - Automated CI/CD tools check that the agent meets standards, including:
-  - SAST/SCA ([Semgrep](https://semgrep.dev/), [Snyk](https://snyk.io/), [Endor Labs](https://www.endorlabs.com/), [Socket](https://socket.dev/))
+  - SAST/SCA ([Semgrep](/governance/wiki/vendors/semgrep), [Snyk](/governance/wiki/vendors/snyk), [Endor Labs](/governance/wiki/vendors/endor-labs), [Socket](/governance/wiki/vendors/socket))
   - Secret scanning
   - Policy-as-code checks of the registry manifest (OPA/[Conftest](https://www.conftest.dev/)), e.g., rejecting forbidden capability combinations
-  - MCP server scanning ([mcp-scan](https://github.com/snyk/agent-scan))
-  - Eval quality gates ([Promptfoo](https://www.promptfoo.dev/), [Braintrust](https://www.braintrust.dev/), [DeepEval](https://deepeval.com/))
+  - MCP server scanning ([mcp-scan](/governance/wiki/vendors/snyk))
+  - Eval quality gates ([Promptfoo](/governance/wiki/vendors/promptfoo), [Braintrust](/governance/wiki/vendors/braintrust), [DeepEval](/governance/wiki/vendors/confident-ai))
 
 **Review and promotion**
 - Deployment only on risk-based review for production access, with requirements set by the agent's [risk tier](#risk-tiers).
@@ -395,17 +395,17 @@ Agents move through a maturity lifecycle: development → test → shadow/parall
 - Automated tests cover known failure modes:
   - **Prompt injection**, e.g., white-on-white prompt payloads in submitted documents. Other injection vectors: tiny or zero-width text, and Unicode tag characters ("ASCII smuggling"); text in images and document metadata; spreadsheet comments, calendar invites, email and code comments; MCP tool descriptions (tool poisoning) and tool outputs; encoded payloads (base64, Morse code)
   - **Non-injection failures:** fabricated numbers, wrong-tenant retrieval, runaway loops, destructive commands.
-  - Tools and corpora: [AgentDojo](https://agentdojo.spylab.ai/), [garak](https://github.com/NVIDIA/garak), [PyRIT](https://github.com/Azure/PyRIT), [Promptfoo red-team plugins](https://www.promptfoo.dev/docs/red-team/).
+  - Tools and corpora: [AgentDojo](https://agentdojo.spylab.ai/), [garak](https://github.com/NVIDIA/garak), [PyRIT](https://github.com/Azure/PyRIT), [Promptfoo red-team plugins](/governance/wiki/vendors/promptfoo).
   - Passing these tests does not prove safety. Architecture like Rule of Two is the primary control.
 - Red teaming and adversarial testing: develop specific tests for every critical failure mode, for tiers 3 and 4.
-  - A threat model per agent at tier 3 and above ([CSA MAESTRO](https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro) framework). Vendors: [Mindgard](https://mindgard.ai/), [HiddenLayer](https://www.hiddenlayer.com/), [Lakera](https://www.lakera.ai/), [Haize Labs](https://www.haizelabs.com/).
+  - A threat model per agent at tier 3 and above ([CSA MAESTRO](https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro) framework). Vendors: [Mindgard](/governance/wiki/vendors/mindgard), [HiddenLayer](/governance/wiki/vendors/hiddenlayer), [Lakera](/governance/wiki/vendors/lakera), [Haize Labs](/governance/wiki/vendors/haize-labs).
 
 **Supply chain**
 - Packages are pinned and come from trusted repositories, with a delay (1-2 weeks) after release. See e.g. the [Shai-Hulud npm worm](https://unit42.paloaltonetworks.com/npm-supply-chain-attack/).
   - Terms and tools:
     - Dependency cooldown / minimum release age: [pnpm](https://pnpm.io/settings#minimumreleaseage) and [Renovate](https://docs.renovatebot.com/configuration-options/#minimumreleaseage) minimumReleaseAge, [Dependabot cooldown](https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference#cooldown-), [uv exclude-newer](https://docs.astral.sh/uv/reference/settings/#exclude-newer)
     - Hash-pinned lockfiles
-    - Curated package proxies: [JFrog Curation](https://jfrog.com/curation/), [Sonatype Repository Firewall](https://www.sonatype.com/products/sonatype-firewall), [Socket](https://socket.dev/)
+    - Curated package proxies: [JFrog Curation](/governance/wiki/vendors/jfrog), [Sonatype Repository Firewall](/governance/wiki/vendors/sonatype), [Socket](/governance/wiki/vendors/socket)
     - SBOM/AIBOM
     - Signed builds: [Sigstore](https://www.sigstore.dev/), [SLSA](https://slsa.dev/)
   - Extend beyond packages:
@@ -431,7 +431,7 @@ Agents move through a maturity lifecycle: development → test → shadow/parall
 - Loop detection; spend and rate anomalies against the agent's history.
 - Findings feed back into the policy engine as inputs: an agent behaving unusually gets stricter checks or is halted.
 - Note that the monitor can be prompt-injected by the content it monitors. Give it the action, declared intent and provenance, not raw untrusted text, and use an independent model.
-- **Products:** [Zenity](https://zenity.io/), [Meta LlamaFirewall](https://meta-llama.github.io/PurpleLlama/LlamaFirewall/) (AlignmentCheck), [Prisma AIRS](https://www.paloaltonetworks.com/ai-security/prisma-airs), [Lasso](https://www.lasso.security/), [Lakera Guard](https://www.lakera.ai/ai-agent-security), [NVIDIA NeMo Guardrails](https://github.com/NVIDIA-NeMo/Guardrails).
+- **Products:** [Zenity](/governance/wiki/vendors/zenity), [Meta LlamaFirewall](/governance/wiki/vendors/llamafirewall) (AlignmentCheck), [Prisma AIRS](/governance/wiki/vendors/prisma-airs), [Lasso](/governance/wiki/vendors/lasso-security), [Lakera Guard](/governance/wiki/vendors/lakera), [NVIDIA NeMo Guardrails](/governance/wiki/vendors/nemo-guardrails).
 
 **Kill switch**
 - Kill switch and protocols for invoking it.
@@ -445,14 +445,14 @@ Agents move through a maturity lifecycle: development → test → shadow/parall
   - Personal API keys
   - Low-code flows
   - AI traffic at egress
-  - **Products:** [Harmonic](https://www.harmonic.security/), [Nudge](https://www.nudgesecurity.com/), [Reco](https://www.reco.ai/), [Microsoft Defender for Cloud Apps](https://learn.microsoft.com/en-us/defender-cloud-apps/what-is-defender-for-cloud-apps), [Zenity](https://zenity.io/).
+  - **Products:** [Harmonic](/governance/wiki/vendors/harmonic-security), [Nudge](/governance/wiki/vendors/nudge-security), [Reco](/governance/wiki/vendors/reco), [Microsoft Defender for Cloud Apps](/governance/wiki/vendors/microsoft-defender), [Zenity](/governance/wiki/vendors/zenity).
 - Offer an amnesty and a fast registration path
 - Block unsanctioned AI endpoints at the SASE/egress layer.
 - Test regularly that an unregistered agent can't get credentials or egress.
 
 ## 15. Vendor-Hosted And SaaS Agents {#vendor-agents}
 
-- [Copilot](https://www.microsoft.com/en-us/microsoft-365/copilot), [Glean](https://www.glean.com/), [ChatGPT Enterprise](https://openai.com/chatgpt/enterprise/), [Claude Enterprise](https://claude.com/solutions/enterprise), [Agentforce](https://www.salesforce.com/agentforce/) and [ServiceNow agents](https://www.servicenow.com/products/ai-agents.html) often run on vendor infrastructure, where sandboxing can't be applied directly.
+- [Copilot](/governance/wiki/vendors/microsoft-365-copilot), [Glean](/governance/wiki/vendors/glean), [ChatGPT Enterprise](/governance/wiki/vendors/openai-chatgpt-enterprise), [Claude Enterprise](/governance/wiki/vendors/anthropic-claude-enterprise), [Agentforce](https://www.salesforce.com/agentforce/) and [ServiceNow agents](https://www.servicenow.com/products/ai-agents.html) often run on vendor infrastructure, where sandboxing can't be applied directly.
 - **Controls:**
   - Vendor risk review
   - Contract terms: no training on inputs, zero retention, breach notice, sub-processors
@@ -465,9 +465,9 @@ Agents move through a maturity lifecycle: development → test → shadow/parall
 ## 16. Open-Ended Agents: Coding And Computer Use {#open-ended-agents}
 
 - [Claude Code](https://claude.com/product/claude-code), [Codex](https://openai.com/codex/), [Cursor](https://cursor.com/) and similar tools can't declare scope up front, so they must be contained.
-- Run them in dev containers or cloud dev environments ([Coder](https://coder.com/), [GitHub Codespaces](https://github.com/features/codespaces), [Microsoft Dev Box](https://azure.microsoft.com/en-us/products/dev-box)), not on desktops that hold production credentials.
+- Run them in dev containers or cloud dev environments ([Coder](/governance/wiki/vendors/coder), [GitHub Codespaces](/governance/wiki/vendors/github-codespaces), [Microsoft Dev Box](/governance/wiki/vendors/azure-dev-boxes)), not on desktops that hold production credentials.
 - Push managed settings via MDM: configs such as system prompts, permission deny rules, sandbox mode, network allowlists, hooks, and approved MCP servers only.
-- Browser and computer-use agents run in an isolated browser profile or an enterprise browser ([Island](https://www.island.io/), [Prisma Access Browser](https://www.paloaltonetworks.com/sase/prisma-browser)), without the user's broader signed-in sessions.
+- Browser and computer-use agents run in an isolated browser profile or an enterprise browser ([Island](/governance/wiki/vendors/island), [Prisma Access Browser](/governance/wiki/vendors/prisma-access-browser)), without the user's broader signed-in sessions.
 
 ## 17. Models And Providers {#models}
 
